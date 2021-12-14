@@ -10,52 +10,5 @@
         <atom:link href="https://shenyimings.github.io/index.xml" rel="self" type="application/rss+xml" />
     
     
-    <item>
-      <title></title>
-      <link>https://shenyimings.github.io/post/public-key-cryptography/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://shenyimings.github.io/post/public-key-cryptography/</guid>
-      
-        <description>&lt;h1 id=&#34;public-key-cryptograph&#34;&gt;Public Key Cryptograph&lt;/h1&gt;
-&lt;p&gt;20级密码学实验班 申一鸣 20203102752&lt;/p&gt;
-&lt;p&gt;[TOC]&lt;/p&gt;
-&lt;h2 id=&#34;context&#34;&gt;CONTEXT&lt;/h2&gt;
-&lt;p&gt;​		The first general purpose computers were built in the 1940s. They were large, filling big rooms, using hundreds of valves and consuming many kilowatts of electricity. Although they were considered amazing for the ability to execute thousands of instructions per second at that time, all these huge machines were rapidly became history and might have been lost in the mists of time. With the increasing speed of computing, networks of computers were established allowing people to have access to communicate with others in distant places. And, so the network information security became an issue from then on.&lt;/p&gt;
-&lt;h2 id=&#34;purpose&#34;&gt;PURPOSE&lt;/h2&gt;
-&lt;p&gt;​		A situation is that X and Y wish to communicate with each other and they want to be sure that their messages shouldn&amp;rsquo;t be intelligible to any other listener. Of course, they need to build a encryption system which they must assume is known to others, requires the use of one or more keys to transmit and decipher their messages. But how can X and Y tell each other their keys without exploiting them.&lt;/p&gt;
-&lt;h2 id=&#34;methods&#34;&gt;METHODS&lt;/h2&gt;
-&lt;p&gt;​		An elegant solution to the key exchange problem was proposed by Diffie and Hellman in 1976. Their method is implemented by X and Y as follows:&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;
-&lt;p&gt;X and Y uses two integers p, a large prime and m lies between 1 and 	(p-1), both of them are public.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;X chooses a secret number $x$ and Y chooses $y$. Both $x$ and $y$ lie between 1 and (p-1). X and Y do not reveal $x$ and $y$ to each other and anyone else.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;X and Y computes the number
-$$
-k_x = m^x (mod\quad p) &lt;br&gt;
-k_y = m^y (mod\quad p)
-$$&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Now
-$$
-(k_x)^y = (k_y)^x \equiv m^{xy}(mod\quad p)=K(say)
-$$
-K is the common key which both X an Y can use for encryption.&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h2 id=&#34;results&#34;&gt;RESULTS&lt;/h2&gt;
-&lt;p&gt;​		We got a public key for the next encryption, but how secure is the Diffie-Hellman system? The security depends upon how difficult it would be for the third party to obtain the value $x$. This is known to be an extremely difficult problem as &amp;lsquo;the discrete logarithm problem&amp;rsquo;. In general it can be considered impossible unless the prime, p, is of a special form.&lt;/p&gt;
-&lt;h2 id=&#34;discussion&#34;&gt;DISCUSSION&lt;/h2&gt;
-&lt;p&gt;​		However, an alternative attack which the third party Z could employ by retaining the  values of $k_x$ and $k_y$ and substituting a value of his own, then send it to both X and Y.  Z would then re-encrypt the messages using his keys.&lt;/p&gt;
-&lt;p&gt;​		Despite this potential weakness the Diffie-Hellman system has, it can be used as the starting point for other new systems such as DES and RSA in particular.&lt;/p&gt;
-</description>
-      
-    </item>
-    
   </channel>
 </rss>
