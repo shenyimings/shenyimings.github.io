@@ -16,5 +16,14 @@
       <description>CONTEXT ​	The first general purpose computers were built in the 1940s. They were large, filling big rooms, using hundreds of valves and consuming many kilowatts of electricity. Although they were considered amazing for the ability to execute thousands of instructions per second at that time, all these huge machines were rapidly became history and might have been lost in the mists of time. With the increasing speed of computing, networks of computers were established allowing people to have access to communicate with others in distant places.</description>
     </item>
     
+    <item>
+      <title>离散数学笔记-命题逻辑的推理理论</title>
+      <link>https://shenyimings.github.io/post/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6-ch03/</link>
+      <pubDate>Tue, 09 Nov 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://shenyimings.github.io/post/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6-ch03/</guid>
+      <description>前言 所谓推理是指从前提出发推出结论的思维过程，而前提是已知的命题公式集合，结论是从前提出发应用推理规则推出的命题公式。 定理3.1 命题公式$A</description>
+    </item>
+    
   </channel>
 </rss>

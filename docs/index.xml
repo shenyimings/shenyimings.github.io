@@ -70,5 +70,67 @@ $$&lt;/p&gt;
       
     </item>
     
+    <item>
+      <title>离散数学笔记-命题逻辑的推理理论</title>
+      <link>https://shenyimings.github.io/post/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6-ch03/</link>
+      <pubDate>Tue, 09 Nov 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://shenyimings.github.io/post/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6-ch03/</guid>
+      
+        <description>&lt;h2 id=&#34;前言&#34;&gt;前言&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;所谓&lt;strong&gt;推理&lt;/strong&gt;是指从前提出发推出结论的思维过程，而&lt;strong&gt;前提&lt;/strong&gt;是已知的命题公式集合，&lt;strong&gt;结论&lt;/strong&gt;是从前提出发应用推理规则推出的命题公式。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;定理31&#34;&gt;定理3.1&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;命题公式$A_1,A_2,\cdots,A_k$推出B的推理正确当且仅当
+$$
+A_1\wedge A_2,\wedge \cdots,\wedge A_k \to B
+$$
+为重言式。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;今后把推理的形式结构写成:
+$$
+前提：A_1,A_2,\cdots,A_k\
+结论：B
+$$
+并根据判断定理3.1的蕴含式是否是重言式来确定推理是否正确。根据前2章的讨论，判断是否为重言式有下面3种方法：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;真值表法&lt;/li&gt;
+&lt;li&gt;等值演算法&lt;/li&gt;
+&lt;li&gt;主析取范式法&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;常用重言蕴含式推理定律&#34;&gt;常用重言蕴含式（推理定律）&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;$$
+(A\to B)\wedge A \Rightarrow B \qquad 假言推理\
+(A\to B)\wedge \neg B\Rightarrow \neg A\qquad 拒取式\
+(A\vee B)\wedge \neg B \Rightarrow A \qquad 析取三段论\
+(A\to B)\wedge (B\to C)\Rightarrow (A\to C) \qquad 假言三段论\
+$$&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;推理证明格式&#34;&gt;推理证明格式&lt;/h2&gt;
+&lt;h3 id=&#34;例33-在自然推理系统p中构造下面推理的证明&#34;&gt;例3.3 在自然推理系统P中构造下面推理的证明。&lt;/h3&gt;
+&lt;p&gt;前提：$P\vee q,q\to r,p\to s,\neg s$&lt;/p&gt;
+&lt;p&gt;结论：$r\wedge (p\vee q)$&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;解&lt;/strong&gt; 证明：
+$$
+\begin{align}
+p\to s \qquad 前提引入\tag{1}\
+\neg s \qquad 前提引入\tag{2}\
+\neg p \qquad  (1)(2)拒取式\tag{3}\
+p\vee s \qquad 前提引入\tag{4}\
+q \qquad (3)(4)析取三段论\tag{5}\
+q\to r \qquad 前提引入\tag{6}\
+r \qquad (5)(6)假言推理\tag{7}\
+r\wedge (p\vee q) \qquad (7)(4)合取引入\tag{8}\
+\end{align}
+$$&lt;/p&gt;
+&lt;/blockquote&gt;
+</description>
+      
+    </item>
+    
   </channel>
 </rss>
