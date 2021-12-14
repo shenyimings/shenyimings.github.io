@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Hi, Yiming</title>
+  <title>Public Key Cryptology - Hi, Yiming</title>
   
 
 <meta name="renderer" content="webkit" />
@@ -22,8 +22,9 @@
 
 <meta name="mobile-web-app-capable" content="yes">
 
-<meta name="author" content="Yiming" />
-  <meta name="description" content="A site built by Yiming." />
+<meta name="author" content="Yiming Shen" />
+  <meta name="description" content="CONTEXT ​	The first general purpose computers were built in the 1940s. They were large, filling big rooms, using hundreds of valves and consuming many kilowatts of electricity. Although they were considered amazing for the ability to execute thousands of instructions per second at that time, all these huge machines were rapidly became history and might have been lost in the mists of time. With the increasing speed of computing, networks of computers were established allowing people to have access to communicate with others in distant places." />
+
   <meta name="keywords" content="Photographer, CTFer, lazyGeek" />
 
 
@@ -34,8 +35,8 @@
 <meta name="generator" content="Hugo 0.90.1" />
 
 
-<link rel="canonical" href="https://shenyimings.github.io/" />
-<link href="/index.xml" rel="alternate" type="application/rss+xml" title="Hi, Yiming" />
+<link rel="canonical" href="https://shenyimings.github.io/post/public-key-cryptography/" />
+
 
 
 
@@ -58,15 +59,20 @@
 
 
 
-<meta property="og:title" content="Hi, Yiming" />
-<meta property="og:description" content="A site built by Yiming." />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://shenyimings.github.io/" />
+<meta property="og:title" content="Public Key Cryptology" />
+<meta property="og:description" content="CONTEXT ​	The first general purpose computers were built in the 1940s. They were large, filling big rooms, using hundreds of valves and consuming many kilowatts of electricity. Although they were considered amazing for the ability to execute thousands of instructions per second at that time, all these huge machines were rapidly became history and might have been lost in the mists of time. With the increasing speed of computing, networks of computers were established allowing people to have access to communicate with others in distant places." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://shenyimings.github.io/post/public-key-cryptography/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2021-11-09T00:00:00+00:00" />
+<meta property="article:modified_time" content="2021-12-14T00:00:00+00:00" />
 
-<meta itemprop="name" content="Hi, Yiming">
-<meta itemprop="description" content="A site built by Yiming."><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Hi, Yiming"/>
-<meta name="twitter:description" content="A site built by Yiming."/>
+<meta itemprop="name" content="Public Key Cryptology">
+<meta itemprop="description" content="CONTEXT ​	The first general purpose computers were built in the 1940s. They were large, filling big rooms, using hundreds of valves and consuming many kilowatts of electricity. Although they were considered amazing for the ability to execute thousands of instructions per second at that time, all these huge machines were rapidly became history and might have been lost in the mists of time. With the increasing speed of computing, networks of computers were established allowing people to have access to communicate with others in distant places."><meta itemprop="datePublished" content="2021-11-09T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2021-12-14T00:00:00+00:00" />
+<meta itemprop="wordCount" content="439">
+<meta itemprop="keywords" content="cryptology,Public Key,Diffie-Hellman," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Public Key Cryptology"/>
+<meta name="twitter:description" content="CONTEXT ​	The first general purpose computers were built in the 1940s. They were large, filling big rooms, using hundreds of valves and consuming many kilowatts of electricity. Although they were considered amazing for the ability to execute thousands of instructions per second at that time, all these huge machines were rapidly became history and might have been lost in the mists of time. With the increasing speed of computing, networks of computers were established allowing people to have access to communicate with others in distant places."/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -283,74 +289,145 @@
     <main id="main" class="main bg-llight">
       <div class="content-wrapper">
         <div id="content" class="content container">
-          
-<section id="posts" class="posts">
-  
-  
+          <article class="post bg-white">
     
-  
-  
-  
-    <article class="post bg-white">
-  <header class="post-header">
-    <h1 class="post-title">
+    <header class="post-header">
+      <h1 class="post-title">Public Key Cryptology</h1>
       
-      <a class="post-link" href="/post/public-key-cryptography/">Public Key Cryptology</a>
-    </h1>
+      <div class="post-meta">
+        <time datetime="2021-11-09" class="post-time">
+          2021-11-09
+        </time>
+        <div class="post-category">
+            <a href="https://shenyimings.github.io/categories/english/"> English </a>
+            
+          </div>
+        
+
+        
+        
+
+        
+        
+      </div>
+    </header>
+
     
-    <div class="post-meta">
-      <time datetime="2021-11-09" class="post-time">
-        2021-11-09
-      </time>
-      <div class="post-category">
-          <a href="https://shenyimings.github.io/categories/english/"> English </a>
+    
+<div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Table of Contents</h2>
+  <div class="post-toc-content">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#context">CONTEXT</a></li>
+    <li><a href="#purpose">PURPOSE</a></li>
+    <li><a href="#methods">METHODS</a></li>
+    <li><a href="#results">RESULTS</a></li>
+    <li><a href="#discussion">DISCUSSION</a></li>
+  </ul>
+</nav>
+  </div>
+</div>
+
+    
+    <div class="post-content">
+      <h2 id="context">CONTEXT</h2>
+<p>​		The first general purpose computers were built in the 1940s. They were large, filling big rooms, using hundreds of valves and consuming many kilowatts of electricity. Although they were considered amazing for the ability to execute thousands of instructions per second at that time, all these huge machines were rapidly became history and might have been lost in the mists of time. With the increasing speed of computing, networks of computers were established allowing people to have access to communicate with others in distant places. And, so the network information security became an issue from then on.</p>
+<h2 id="purpose">PURPOSE</h2>
+<p>​		A situation is that X and Y wish to communicate with each other and they want to be sure that their messages shouldn&rsquo;t be intelligible to any other listener. Of course, they need to build a encryption system which they must assume is known to others, requires the use of one or more keys to transmit and decipher their messages. But how can X and Y tell each other their keys without exploiting them.</p>
+<h2 id="methods">METHODS</h2>
+<p>​		An elegant solution to the key exchange problem was proposed by Diffie and Hellman in 1976. Their method is implemented by X and Y as follows:</p>
+<ol>
+<li>
+<p>X and Y uses two integers p, a large prime and m lies between 1 and 	(p-1), both of them are public.</p>
+</li>
+<li>
+<p>X chooses a secret number $x$ and Y chooses $y$. Both $x$ and $y$ lie between 1 and (p-1). X and Y do not reveal $x$ and $y$ to each other and anyone else.</p>
+</li>
+<li>
+<p>X and Y computes the number</p>
+<p>$$
+k_x = m^x (mod\quad p)\\
+k_y = m^y (mod\quad p)
+$$</p>
+</li>
+<li>
+<p>Now</p>
+<p>$$
+(k_x)^y = (k_y)^x \equiv m^{xy}(mod\quad p)=K(say)
+$$</p>
+<p>K is the common key which both X an Y can use for encryption.</p>
+</li>
+</ol>
+<h2 id="results">RESULTS</h2>
+<p>​		We got a public key for the next encryption, but how secure is the Diffie-Hellman system? The security depends upon how difficult it would be for the third party to obtain the value $x$. This is known to be an extremely difficult problem as &lsquo;the discrete logarithm problem&rsquo;. In general it can be considered impossible unless the prime, p, is of a special form.</p>
+<h2 id="discussion">DISCUSSION</h2>
+<p>​		However, an alternative attack which the third party Z could employ by retaining the  values of $$k_x$$ and $$k_y$$ and substituting a value of his own, then send it to both X and Y.  Z would then re-encrypt the messages using his keys.</p>
+<p>​		Despite this potential weakness the Diffie-Hellman system has, it can be used as the starting point for other new systems such as DES and RSA in particular.</p>
+
+    </div>
+
+    
+    
+<div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">Author</span>
+    <span class="item-content">Yiming Shen</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">LastMod</span>
+    <span class="item-content">
+      2021-12-14
+      
+    </span>
+  </p>
+  
+  <p class="copyright-item">
+    <span class="item-title">License</span>
+    <span class="item-content"><a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">CC BY-NC-ND 4.0</a></span>
+  </p>
+</div>
+
+
+    
+    
+
+    <footer class="post-footer">
+      <div class="post-tags">
+          <a href="https://shenyimings.github.io/tags/cryptology/">cryptology</a>
+          <a href="https://shenyimings.github.io/tags/public-key/">Public Key</a>
+          <a href="https://shenyimings.github.io/tags/diffie-hellman/">Diffie-Hellman</a>
           
         </div>
+
       
-      
-      
-    </div>
-  </header>
+      <nav class="post-nav">
+        
+        
+      </nav>
+    </footer>
+  </article>
+
   
-  <div class="post-content">
+  
+
+  
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
     
-    <div class="post-summary">
-      CONTEXT ​	The first general purpose computers were built in the 1940s. They were large, filling big rooms, using hundreds of valves and consuming many kilowatts of electricity. Although they were considered amazing for the ability to execute thousands of instructions per second at that time, all these huge machines were rapidly became history and might have been lost in the mists of time. With the increasing speed of computing, networks of computers were established allowing people to have access to communicate with others in distant places.
-    </div>
-    <div class="read-more">
-      <a href="/post/public-key-cryptography/" class="read-more-link">Read more</a>
-    </div>
-    
-  </div>
-</article>
 
   
-</section>
-
-
-
-
-
-
-  
-  
-  
-
-  
-  
-
-  
-  
-
-  
-  
-
-  
-  
-
-
-
-
 
         </div>
       </div>
@@ -476,6 +553,13 @@
 
 
 
+  <script type="text/javascript">
+    window.MathJax = {
+      showProcessingMessages: false,
+      messageStyle: 'none'
+    };
+  </script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML' async></script>
 
 
 
