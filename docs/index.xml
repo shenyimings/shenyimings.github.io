@@ -12,21 +12,6 @@
     
     
     <item>
-      <title>About Me</title>
-      <link>https://shenyimings.github.io/about/</link>
-      <pubDate>Tue, 09 Nov 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://shenyimings.github.io/about/</guid>
-      
-        <description>&lt;h3 id=&#34;yiming-shen&#34;&gt;Yiming Shen&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&#34;https://shenyimings.github.io/about.assets/123.jpg&#34; alt=&#34;头像&#34;&gt;&lt;/p&gt;
-&lt;p&gt;A crappy photographer, a terrible CTFer, a lazy geek.&lt;/p&gt;
-&lt;p&gt;A photography lover, a CTF learner, a geek  spirit practitioner.&lt;/p&gt;
-</description>
-      
-    </item>
-    
-    <item>
       <title>期末复习计划</title>
       <link>https://shenyimings.github.io/post/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0%E8%AE%A1%E5%88%92/</link>
       <pubDate>Wed, 15 Dec 2021 00:00:00 +0000</pubDate>
@@ -111,82 +96,69 @@
 &lt;h4 id=&#34;大学物理&#34;&gt;大学物理&lt;/h4&gt;
 &lt;h4 id=&#34;概率统计&#34;&gt;概率统计&lt;/h4&gt;
 &lt;h3 id=&#34;复习计划表updating&#34;&gt;复习计划表（updating）&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;input disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; 2021年12月15日计划&lt;/li&gt;
+&lt;/ul&gt;
 &lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
-&lt;th style=&#34;text-align:left&#34;&gt;序号&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;序号&lt;/th&gt;
 &lt;th&gt;时间&lt;/th&gt;
-&lt;th&gt;计划&lt;/th&gt;
+&lt;th&gt;任务&lt;/th&gt;
 &lt;/tr&gt;
 &lt;/thead&gt;
 &lt;tbody&gt;
 &lt;tr&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;1&lt;/td&gt;
-&lt;td&gt;2021年12月15日15:00-16:20&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;1&lt;/td&gt;
+&lt;td&gt;15:00-16:20&lt;/td&gt;
 &lt;td&gt;拟定本计划&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;2&lt;/td&gt;
-&lt;td&gt;2021年12月15日18:00-19:20&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;2&lt;/td&gt;
+&lt;td&gt;18:00-19:20&lt;/td&gt;
 &lt;td&gt;学习数电时序逻辑电路设计和计数器&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;3&lt;/td&gt;
-&lt;td&gt;2021年12月15日21:20-23:30&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;3&lt;/td&gt;
+&lt;td&gt;21:20-23:30&lt;/td&gt;
 &lt;td&gt;英语六级复习题 背单词&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;4&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;5&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;6&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;7&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;9&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;10&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;11&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;12&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;13&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;14&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;input disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; 2021年12月16日计划&lt;/li&gt;
+&lt;/ul&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;序号&lt;/th&gt;
+&lt;th&gt;时间&lt;/th&gt;
+&lt;th&gt;任务&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;1&lt;/td&gt;
+&lt;td&gt;待定&lt;/td&gt;
+&lt;td&gt;待定&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+</description>
+      
+    </item>
+    
+    <item>
+      <title>About Me</title>
+      <link>https://shenyimings.github.io/about/</link>
+      <pubDate>Tue, 09 Nov 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://shenyimings.github.io/about/</guid>
+      
+        <description>&lt;h3 id=&#34;yiming-shen&#34;&gt;Yiming Shen&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&#34;https://shenyimings.github.io/about.assets/123.jpg&#34; alt=&#34;头像&#34;&gt;&lt;/p&gt;
+&lt;p&gt;A crappy photographer, a terrible CTFer, a lazy geek.&lt;/p&gt;
+&lt;p&gt;A photography lover, a CTF learner, a geek  spirit practitioner.&lt;/p&gt;
 </description>
       
     </item>
