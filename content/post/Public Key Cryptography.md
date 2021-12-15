@@ -12,6 +12,7 @@ categories: [
     "English",
 ]
 mathjax: true
+typora-root-url: ..\static\
 ---
 
 ## CONTEXT
