@@ -21,7 +21,7 @@ defaultContentLanguage = "en"           # Default language to use
   languageCode = "en"
 
 [author]                  # essential                     # 必需
-  name = "相位"
+  name = "Yiming"
 
 [sitemap]                 # essential                     # 必需
   changefreq = "weekly"
@@ -56,7 +56,7 @@ defaultContentLanguage = "en"           # Default language to use
   rssFullContent = true     # if false, Rss feed instead of the summary
 
   # site info (optional)                                  # 站点信息（可选，不需要的可以直接注释掉）
-  logoTitle = "Yiming"        # default: the title value    # 默认值: 上面设置的title值
+  logoTitle = "相位"        # default: the title value    # 默认值: 上面设置的title值
   keywords = ["Photographer", "CTFer","lazyGeek"]
   description = "A site built by Yiming."
 
