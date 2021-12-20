@@ -9,7 +9,7 @@
       <link>https://shenyimings.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Wed, 15 Dec 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://shenyimings.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 20 Dec 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://shenyimings.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>2021-2022-1 期末复习计划</title>
       <link>https://shenyimings.github.io/post/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0%E8%AE%A1%E5%88%92/</link>
@@ -22,6 +22,15 @@
 期末考试时间    序号 课程名称 考试时间 学分     1 数字逻辑电路与系统设计 2022-01-04 09:00~10:40 3   2 马克思主义基本原理 2022-01-05 08:00~09:00 3   3 离散数学 2022-01-05 15:20~17:00 3   4 国际交流英语III 2022-01-07 09:00~10:40 2   5 大学物理B(下) 2022-01-07 15:20~17:00 3   6 概率统计A1 2022-01-11 15:20~17:00 3    复习时间 17周12月20日-12月26日课程极少，几乎可忽略不计。18周12月27日-1月3日有8天无课，19周周二考试，20周周二考完最后一门，其中1月8日-1月11日3天无考试。
 时间极充裕。
 复习计划 各科复习内容 数字逻辑电路与系统设计  课后练习题 往年期末题 利用proteus进行组合逻辑/时序逻辑电路设计  马克思主义基本原理（机考）  背，就硬背 攒复习资料，各种机考试题 找方法 看题库，酌情背课后习题  离散数学  课后习题  国际交流英语  看大学生学术英语课本  大学物理  重新打印习题册 重点练习电磁学部分习题  概率统计  课后习题 期末考试题  复习计划表（updating）  2021年12月15日计划     序号 时间 任务     1 15:00-16:20 拟定本计划   2 18:00-19:20 学习数电时序逻辑电路设计和计数器   3 21:20-23:30 英语六级复习题 背单词     2021年12月16日计划     序号 时间 任务     1 11:30-12:30 报告(failed)   2 17:25-18:10 听英语六级听力   3 16:00-17:30 概率论网课(cancelled)   4 18:40-20:00 一套英语六级题   5 20:00-20:40 英语图表作文   6 20:40-21:40 概率论网课   7 21:50-22:10 回顾两张试卷   8 22:10-22:30 马原笔记     2021年12月18日计划     序号 时间 任务     1 下午 英语六级考试     2021年12月19日计划 - 面向下周课程复习     序号 时间 任务     1 9:20-11:20 概率论网课 学到大数定律   2 15:00-17:30 离散数学网课-图、树   3 18:30-20:30 做概率论课后习题 二维随机变量（×）   4 20:30~ 跑步 刷鞋 早点休息    </description>
+    </item>
+    
+    <item>
+      <title>有关细节</title>
+      <link>https://shenyimings.github.io/post/draft/%E6%9C%89%E5%85%B3%E7%BB%86%E8%8A%82/</link>
+      <pubDate>Mon, 20 Dec 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://shenyimings.github.io/post/draft/%E6%9C%89%E5%85%B3%E7%BB%86%E8%8A%82/</guid>
+      <description></description>
     </item>
     
     <item>
@@ -152,37 +161,9 @@ You are not VIP,I will give flag to VIP!
     </item>
     
     <item>
-      <title>CTF比赛方向选择</title>
-      <link>https://shenyimings.github.io/post/3.ctf%E6%AF%94%E8%B5%9B%E6%96%B9%E5%90%91%E9%80%89%E6%8B%A9/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://shenyimings.github.io/post/3.ctf%E6%AF%94%E8%B5%9B%E6%96%B9%E5%90%91%E9%80%89%E6%8B%A9/</guid>
-      <description>了解CTF  CTF 的前身是传统黑客之间的网络技术比拼游戏，起源于 1996 年第四届 DEFCON。CTF比赛有以下突出特点：
- 比赛侧重于对计算机底层和系统安全的核心能力，Web 漏洞攻防技巧完全被忽略。 竞赛环境趋向多 CPU 指令架构集，多操作系统，多编程语言。 采用「零和」计分规则。 团队综合能力考验：逆向分析、漏洞挖掘、漏洞利用、漏洞修补加固、网络流量分析、系统安全运行维护以及安全方面的编程调试。   CTF竞赛内容 常见六个分类
-  Web - 网络攻防
-考察Web安全中的常见漏洞，如SQL注入、XSS、CSRF、文件包含、文件上传、代码审计。Web安全题型最为常见。
-  RE - 逆向工程
-反编译、软件保护、反调试、软件加壳脱壳。
-  PWN - 二进制漏洞
-与计算机操作系统底层相关，主要出现在Linux平台上。
-  Crypto - 密码学
-古典密码与现代密码学安全两方面
-  Mobile - 移动安全
-安卓逆向相关
-  MISC - 安全杂项
-信息搜集（社工）、编码分析、取证分析、隐写分析等
-  比赛学习方向选择 基于我个人对于六个分类的了解，我选择Web方向与Crypto方向。
-  Web
-作为一个尝试过Minecraft自建服务器、外网vps搭梯子（学习用）、购置域名建WordPress小站、提取视频网站M3U8下载地址的ctf beginner，Web方向是我最为感兴趣和想学习的方向，也是我认为最有应用性和最能获得成就感的方向。Web方向知识面的广度很宽，涉及范围相当大，故而学习需要恒心。
-  Crypto
-选择这个方向的原因很简单，我是目前所读专业即为信息安全（密码学方向） 故而此方向与学科所学相关，虽难但也必须披荆斩棘，筚路蓝缕。
-  次要方向：PWN</description>
-    </item>
-    
-    <item>
       <title>DVWA环境搭建 &#43; BurpSuite2.1安装 &#43; Chrome配置</title>
       <link>https://shenyimings.github.io/post/9.dvwa%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA&#43;burpsuite2.1%E5%AE%89%E8%A3%85/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <pubDate>Thu, 05 Aug 2021 00:00:00 +0000</pubDate>
       
       <guid>https://shenyimings.github.io/post/9.dvwa%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA&#43;burpsuite2.1%E5%AE%89%E8%A3%85/</guid>
       <description>[TOC]
@@ -215,7 +196,7 @@ BurpSuite Chrome配置 1. 设置流量代理Proxy ​	在谷歌应用商店中�
     <item>
       <title>MISC类型题目及技巧</title>
       <link>https://shenyimings.github.io/post/6.bugku_misc/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <pubDate>Fri, 23 Jul 2021 00:00:00 +0000</pubDate>
       
       <guid>https://shenyimings.github.io/post/6.bugku_misc/</guid>
       <description>图片隐写  图片EXIF信息 GIF图片 文件头 16进制编码  编码 Readflag
@@ -230,9 +211,37 @@ BurpSuite Chrome配置 1. 设置流量代理Proxy ​	在谷歌应用商店中�
     </item>
     
     <item>
+      <title>CTF比赛方向选择</title>
+      <link>https://shenyimings.github.io/post/3.ctf%E6%AF%94%E8%B5%9B%E6%96%B9%E5%90%91%E9%80%89%E6%8B%A9/</link>
+      <pubDate>Wed, 21 Jul 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://shenyimings.github.io/post/3.ctf%E6%AF%94%E8%B5%9B%E6%96%B9%E5%90%91%E9%80%89%E6%8B%A9/</guid>
+      <description>了解CTF  CTF 的前身是传统黑客之间的网络技术比拼游戏，起源于 1996 年第四届 DEFCON。CTF比赛有以下突出特点：
+ 比赛侧重于对计算机底层和系统安全的核心能力，Web 漏洞攻防技巧完全被忽略。 竞赛环境趋向多 CPU 指令架构集，多操作系统，多编程语言。 采用「零和」计分规则。 团队综合能力考验：逆向分析、漏洞挖掘、漏洞利用、漏洞修补加固、网络流量分析、系统安全运行维护以及安全方面的编程调试。   CTF竞赛内容 常见六个分类
+  Web - 网络攻防
+考察Web安全中的常见漏洞，如SQL注入、XSS、CSRF、文件包含、文件上传、代码审计。Web安全题型最为常见。
+  RE - 逆向工程
+反编译、软件保护、反调试、软件加壳脱壳。
+  PWN - 二进制漏洞
+与计算机操作系统底层相关，主要出现在Linux平台上。
+  Crypto - 密码学
+古典密码与现代密码学安全两方面
+  Mobile - 移动安全
+安卓逆向相关
+  MISC - 安全杂项
+信息搜集（社工）、编码分析、取证分析、隐写分析等
+  比赛学习方向选择 基于我个人对于六个分类的了解，我选择Web方向与Crypto方向。
+  Web
+作为一个尝试过Minecraft自建服务器、外网vps搭梯子（学习用）、购置域名建WordPress小站、提取视频网站M3U8下载地址的ctf beginner，Web方向是我最为感兴趣和想学习的方向，也是我认为最有应用性和最能获得成就感的方向。Web方向知识面的广度很宽，涉及范围相当大，故而学习需要恒心。
+  Crypto
+选择这个方向的原因很简单，我是目前所读专业即为信息安全（密码学方向） 故而此方向与学科所学相关，虽难但也必须披荆斩棘，筚路蓝缕。
+  次要方向：PWN</description>
+    </item>
+    
+    <item>
       <title>Ubuntu 18.04 LTS的配置与入门</title>
       <link>https://shenyimings.github.io/post/2.ubuntu%E9%85%8D%E7%BD%AE%E5%8F%8A%E5%91%BD%E4%BB%A4%E5%85%A5%E9%97%A8/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <pubDate>Tue, 20 Jul 2021 00:00:00 +0000</pubDate>
       
       <guid>https://shenyimings.github.io/post/2.ubuntu%E9%85%8D%E7%BD%AE%E5%8F%8A%E5%91%BD%E4%BB%A4%E5%85%A5%E9%97%A8/</guid>
       <description>系统选择 Linux有多种发行版，作为一名小白，我选择Ubuntu的原因是以前用过并且感觉桌面界面十分讨喜，再者，Ubuntu作为常见的个人桌面操作系统，使用人数相对较多，教程也更多，对萌新十分友善。
@@ -243,7 +252,7 @@ BurpSuite Chrome配置 1. 设置流量代理Proxy ​	在谷歌应用商店中�
     <item>
       <title>学习Markdown语法</title>
       <link>https://shenyimings.github.io/post/1.markdown%E7%AC%94%E8%AE%B0%E5%AD%A6%E4%B9%A0/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 19 Jul 2021 00:00:00 +0000</pubDate>
       
       <guid>https://shenyimings.github.io/post/1.markdown%E7%AC%94%E8%AE%B0%E5%AD%A6%E4%B9%A0/</guid>
       <description>2021年7月18日 了解Markdown Markdown是一种轻量级标记语言，属于HTML格式的一种，易读易写易更改，处处透着极简主义的影子。在GitHub等网站上使用极广，更可以跨平台使用。
