@@ -256,11 +256,102 @@ Crypto
 </footer>
 <a class=entry-link aria-label="post link to CTF比赛方向选择" href=https://shenyimings.github.io/post/3.ctf%E6%AF%94%E8%B5%9B%E6%96%B9%E5%90%91%E9%80%89%E6%8B%A9/></a>
 </article>
-<footer class=page-footer>
-<nav class=pagination>
-<a class=next href=https://shenyimings.github.io/tags/ctf/page/2/>Next Page »</a>
-</nav>
+<article class="post-entry tag-entry">
+<header class=entry-header>
+<h2>
+DVWA环境搭建 + BurpSuite2.1安装 + Chrome配置
+</h2>
+</header>
+<section class=entry-content>
+<p>[TOC]
+DVWA环境搭建 DVWA（Damn Vulnerable Web Application）是一个用来进行安全脆弱性鉴定的PHP/MySQL Web应用，旨在为安全专业人员测试自己的专业技能和工具提供合法的环境，帮助web开发者更好的理解web应用安全防范的过程。
+DVWA运行基于LAMP（Linux+Apache+MySQL+PHP），出于时间和个人能力的考虑，很难成功地从0开始搭建这样一套体系，故而使用小皮的PHPStudy环境。
+PHPStudy：https://www.xp.cn/
+DVWA：http://www.dvwa.co.uk/
+一、安装PHP Study 二、配置DVWA 将下载的DVWA压缩包解压到PHP Study的WWW目录下并解压，进入目录中的config文件夹，编辑config.inc.php文件，找到_DVWA['db_password']='root'行，将user改为‘root’；password改为‘root’。
+三、配置PHP Study 开启Apache和PHP服务，点击左边栏网站，左上角创建网站，域名为设置为本机本地域名，查看本地域名方法：进入powershell输入命令ipconfig查看，我电脑本机域名为192.168.0.104
+为什么不设置为localhost 127.0.0.1：Burp Suite配合chrome浏览器抓包时可能无法拦截localhost的数据。
+根目录指向刚刚解压的DVWA-master目录下，点击确认，网站创建成功。
+四、浏览器进入192.108.0.104 点击Create/Reset Database创建数据库
+用户名：admin 默认密码：password
+登陆进入后即部署成功。
+BurpSuite2.1安装 BurpSuite 是用于攻击web 应用程序的集成平台，包含了许多工具。Burp Suite为这些工具设计了许多接口，以加快攻击应用程序的过程。所有工具都共享一个请求，并能处理对应的HTTP 消息、持久性、认证、代理、日志、警报。
+1. JDK及BurpSuite破解版下载 链接：https://pan.baidu.com/s/11lrFGT0aGCd4BQcAJrL55w 提取码：w5lg
+2. 配置JAVA环境 安装好jdk后，右键计算机-属性-系统设置-高级-环境变量
+新增两个环境变量
+%JAVA_HOME%=jdk安装文件夹所在位置，如...\jdk1.8.0_201
+%CLASSPATH%=.;%JAVA_HOME%\lib\dt.jar;%JAVA_HOME%\lib\tools.jar
+修改path变量，分别添加jdk和jre安装文件夹下的bin目录。
+3. 激活BurpSuite jdk配置完毕后，先打开burp-loader-keygen.jar文件
+点击run
+将license许可证复制入弹出的框中，点击Next，选择Manual activation手动激活。
+将生成的申请码粘贴入注册机中，自动算号，将生成的激活码复制入框中，点击Next即激活成功。
+此后想打开Burp Suite，双击运行目录下的VBS脚本即可。
+BurpSuite Chrome配置 1. 设置流量代理Proxy ​ 在谷歌应用商店中安装Falcon Proxy，添加一个新的代理127....</p>
+</section>
+<footer class=entry-footer>
+1 min&nbsp;·&nbsp;Yiming Shen
 </footer>
+<a class=entry-link aria-label="post link to DVWA环境搭建 + BurpSuite2.1安装 + Chrome配置" href=https://shenyimings.github.io/post/9.dvwa%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA+burpsuite2.1%E5%AE%89%E8%A3%85/></a>
+</article>
+<article class="post-entry tag-entry">
+<header class=entry-header>
+<h2>
+MISC类型题目及技巧
+</h2>
+</header>
+<section class=entry-content>
+<p>图片隐写 图片EXIF信息 GIF图片 文件头 16进制编码 编码 Readflag
+社工 Bugku社工_进阶收集
+根据题目给出的说说截图，有如下信息：
+终点位置突出特征：有塔 坐地铁需要7站，中间还要转一站
+出发站为始发站 家位置在始发站和第二站的中间位置 根据以上信息，先对说说配图进行百度识图，查找到地理位置为西安大雁塔，对照西安地铁图，距离大雁塔站有7站且为始发站的站点只有韦曲南站，至此即可确定小美所住的小区在韦曲南站和航天城站之间，利用百度地图标尺画两个圆，可以大致确定符合条件的7家小区，挨个尝试可得flag。
+Bugku_隐写)
+题目文件为一张PNG格式图片，Windows自带图片浏览器无法正常打开该图片，说明图片内容经过人为篡改。使用工具TweakPng查看png内容，将图片大小的chunk部分高度修改为宽度一致，500px，保存，图片flag得以正常显示。
+正常做法：用Python脚本计算和图片大小相匹配的正常宽高，再利用Tweakpng查看并修改。
+</p>
+</section>
+<footer class=entry-footer>
+1 min&nbsp;·&nbsp;Yiming Shen
+</footer>
+<a class=entry-link aria-label="post link to MISC类型题目及技巧" href=https://shenyimings.github.io/post/6.bugku_misc/></a>
+</article>
+<article class="post-entry tag-entry">
+<header class=entry-header>
+<h2>
+Ubuntu 18.04 LTS的配置与入门
+</h2>
+</header>
+<section class=entry-content>
+<p>系统选择 Linux有多种发行版，作为一名小白，我选择Ubuntu的原因是以前用过并且感觉桌面界面十分讨喜，再者，Ubuntu作为常见的个人桌面操作系统，使用人数相对较多，教程也更多，对萌新十分友善。
+载体 最标准的方式当然是重装系统咯，总是佩服小时候爱捣鼓的自己，想格盘就格盘，说重装就重装了，长大以后，不知是懒了还是如何，很难再去断舍离了，只能继续看着又快满的C盘抱残守旧了，单系统不可取，双系统也要重新给硬盘分区，过于麻烦，那就传统的VMware虚拟机吧，在去Ubuntu官网下载镜像时，发现了一个全新的选择：Windows WSL，即Windows Subsystem for Linux，籍此可以直接在Windows 10上运行Ubuntu，安装便捷，启动快速，就决定是你了！
+系统配置（学习网址：CSDN博客） 安装好后首先设置root用户, 更换apt数据源 sudo passwd root su root cd /etc/apt cp sources.list sources.list.bak #备份配置文件 vim sources.list #编辑配置文件 将配置文件内容更改为阿里云镜像源 deb http://mirrors.aliyun.com/ubuntu/ bionic main restricted universe multiverse deb http://mirrors.aliyun.com/ubuntu/ bionic-security main restricted universe multiverse deb http://mirrors.aliyun.com/ubuntu/ bionic-updates main restricted universe multiverse deb http://mirrors.aliyun.com/ubuntu/ bionic-proposed main restricted universe multiverse deb http://mirrors.aliyun.com/ubuntu/ bionic-backports main restricted universe multiverse deb-src http://mirrors.aliyun.com/ubuntu/ bionic main restricted universe multiverse deb-src http://mirrors....</p>
+</section>
+<footer class=entry-footer>
+1 min&nbsp;·&nbsp;Yiming Shen
+</footer>
+<a class=entry-link aria-label="post link to Ubuntu 18.04 LTS的配置与入门" href=https://shenyimings.github.io/post/2.ubuntu%E9%85%8D%E7%BD%AE%E5%8F%8A%E5%91%BD%E4%BB%A4%E5%85%A5%E9%97%A8/></a>
+</article>
+<article class="post-entry tag-entry">
+<header class=entry-header>
+<h2>
+学习Markdown语法
+</h2>
+</header>
+<section class=entry-content>
+<p>2021年7月18日 了解Markdown Markdown是一种轻量级标记语言，属于HTML格式的一种，易读易写易更改，处处透着极简主义的影子。在GitHub等网站上使用极广，更可以跨平台使用。
+Windows桌面端软件选择 Web网页版有简书等知名博客网站可作记录，千挑万选后我选择了Typora。优点如下：
+有中文版。这一点可能不足为道，因为菜单的语言并不影响我们的使用，然而，不支持中文意味着软件对中文输入法的适配甚至中文文本的显示都极为差劲，这一点是我由MarkdownPad的使用中发现的。 Typora支持即时渲染技术，非常方便新人学习熟练。 Typora可以将md文件导出为pdf格式作发布用，对于笔记爱好者来说成就感满满。 Markdown语法 区块引用
+代码引用：
+printf("使用反引号包裹代码")
+int main() { int a; scanf("%d",&a); printf("%d",a++); return 0; } emoji: :smile:
+公式： $$ lim_{x \to\infty} \exp(-x) = 0 $$ 插入图片：</p>
+</section>
+<footer class=entry-footer>
+1 min&nbsp;·&nbsp;Yiming Shen
+</footer>
+<a class=entry-link aria-label="post link to 学习Markdown语法" href=https://shenyimings.github.io/post/1.markdown%E7%AC%94%E8%AE%B0%E5%AD%A6%E4%B9%A0/></a>
+</article>
 </main><footer class=footer>
 <span>&copy; 2021 <a href=https://shenyimings.github.io/>Yiming</a></span>
 <span>&#183;</span>
