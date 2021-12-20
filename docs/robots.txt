@@ -1,0 +1,3 @@
+User-agent: *
+Disallow:
+Sitemap: https://shenyimings.github.io/sitemap.xml

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>离散数学 on Yiming</title>
+    <link>https://shenyimings.github.io/tags/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/</link>
+    <description>Recent content in 离散数学 on Yiming</description>
+    <image>
+      <url>https://shenyimings.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://shenyimings.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Sat, 09 Oct 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://shenyimings.github.io/tags/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>离散数学笔记-命题逻辑的推理理论</title>
+      <link>https://shenyimings.github.io/post/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6-ch03/</link>
+      <pubDate>Sat, 09 Oct 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://shenyimings.github.io/post/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6-ch03/</guid>
+      <description>前言  所谓推理是指从前提出发推出结论的思维过程，而前提是已知的命题公式集合，结论是从前提出发应用推理规则推出的命题公式。
+ 定理3.1  命题公式$A_1,A_2,\cdots,A_k$推出B的推理正确当且仅当 $$ A_1\wedge A_2,\wedge \cdots,\wedge A_k \to B $$ 为重言式。
+ 今后把推理的形式结构写成: $$ 前提：A_1,A_2,\cdots,A_k\\ 结论：B $$ 并根据判断定理3.1的蕴含式是否是重言式来确定推理是否正确。根据前2章的讨论，判断是否为重言式有下面3种方法：
+ 真值表法 等值演算法 主析取范式法  常用重言蕴含式（推理定律）  $$ (A\to B)\wedge A \Rightarrow B \qquad 假言推理\\ (A\to B)\wedge \neg B\Rightarrow \neg A\qquad 拒取式\\ (A\vee B)\wedge \neg B \Rightarrow A \qquad 析取三段论\\ (A\to B)\wedge (B\to C)\Rightarrow (A\to C) \qquad 假言三段论\\ $$
+ 推理证明格式 例3.3 在自然推理系统P中构造下面推理的证明。 前提：$$P\vee q,q\to r,p\to s,\neg s$$</description>
+    </item>
+    
+  </channel>
+</rss>
