@@ -1,24 +1,15 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Tags on Yiming</title>
+    <title>Tags on Console.makeHappy(_1ming)</title>
     <link>https://shenyimings.github.io/tags/</link>
-    <description>Recent content in Tags on Yiming</description>
+    <description>Recent content in Tags on Console.makeHappy(_1ming)</description>
     <image>
       <url>https://shenyimings.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
       <link>https://shenyimings.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
     <lastBuildDate>Wed, 15 Dec 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://shenyimings.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Notes</title>
-      <link>https://shenyimings.github.io/tags/notes/</link>
-      <pubDate>Wed, 15 Dec 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://shenyimings.github.io/tags/notes/</guid>
-      <description></description>
-    </item>
-    
     <item>
       <title>Plans</title>
       <link>https://shenyimings.github.io/tags/plans/</link>
@@ -61,6 +52,15 @@
       <pubDate>Sun, 24 Oct 2021 00:00:00 +0000</pubDate>
       
       <guid>https://shenyimings.github.io/tags/ctf/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Note</title>
+      <link>https://shenyimings.github.io/tags/note/</link>
+      <pubDate>Sun, 24 Oct 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://shenyimings.github.io/tags/note/</guid>
       <description></description>
     </item>
     

@@ -3,7 +3,7 @@
 <meta http-equiv=x-ua-compatible content="IE=edge">
 <meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no">
 <meta name=robots content="index, follow">
-<title>Public Key Cryptology | Yiming</title>
+<title>Public Key Cryptology | Console.makeHappy(_1ming)</title>
 <meta name=keywords content="cryptology,Public Key,Diffie-Hellman">
 <meta name=description content="CONTEXT ​	The first general purpose computers were built in the 1940s. They were large, filling big rooms, using hundreds of valves and consuming many kilowatts of electricity. Although they were considered amazing for the ability to execute thousands of instructions per second at that time, all these huge machines were rapidly became history and might have been lost in the mists of time. With the increasing speed of computing, networks of computers were established allowing people to have access to communicate with others in distant places.">
 <meta name=author content="Yiming Shen">
@@ -36,7 +36,7 @@
 <meta name=twitter:title content="Public Key Cryptology">
 <meta name=twitter:description content="CONTEXT ​	The first general purpose computers were built in the 1940s. They were large, filling big rooms, using hundreds of valves and consuming many kilowatts of electricity. Although they were considered amazing for the ability to execute thousands of instructions per second at that time, all these huge machines were rapidly became history and might have been lost in the mists of time. With the increasing speed of computing, networks of computers were established allowing people to have access to communicate with others in distant places.">
 <script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Posts","item":"https://shenyimings.github.io/post/"},{"@type":"ListItem","position":2,"name":"Public Key Cryptology","item":"https://shenyimings.github.io/post/public-key-cryptography/"}]}</script>
-<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"Public Key Cryptology","name":"Public Key Cryptology","description":"CONTEXT ​\tThe first general purpose computers were built in the 1940s. They were large, filling big rooms, using hundreds of valves and consuming many kilowatts of electricity. Although they were considered amazing for the ability to execute thousands of instructions per second at that time, all these huge machines were rapidly became history and might have been lost in the mists of time. With the increasing speed of computing, networks of computers were established allowing people to have access to communicate with others in distant places.","keywords":["cryptology","Public Key","Diffie-Hellman"],"articleBody":"CONTEXT ​\tThe first general purpose computers were built in the 1940s. They were large, filling big rooms, using hundreds of valves and consuming many kilowatts of electricity. Although they were considered amazing for the ability to execute thousands of instructions per second at that time, all these huge machines were rapidly became history and might have been lost in the mists of time. With the increasing speed of computing, networks of computers were established allowing people to have access to communicate with others in distant places. And, so the network information security became an issue from then on.\nPURPOSE ​\tA situation is that X and Y wish to communicate with each other and they want to be sure that their messages shouldn’t be intelligible to any other listener. Of course, they need to build a encryption system which they must assume is known to others, requires the use of one or more keys to transmit and decipher their messages. But how can X and Y tell each other their keys without exploiting them.\nMETHODS ​\tAn elegant solution to the key exchange problem was proposed by Diffie and Hellman in 1976. Their method is implemented by X and Y as follows:\n  X and Y uses two integers p, a large prime and m lies between 1 and (p-1), both of them are public.\n  X chooses a secret number $x$ and Y chooses $y$. Both $x$ and $y$ lie between 1 and (p-1). X and Y do not reveal $x$ and $y$ to each other and anyone else.\n  X and Y computes the number\n    $$ k_x = m^x (mod\\quad p)\\\\ k_y = m^y (mod\\quad p) $$\n Now\n$$ (k_x)^y = (k_y)^x \\equiv m^{xy}(mod\\quad p)=K(say) $$\nK is the common key which both X an Y can use for encryption.\n  RESULTS ​\tWe got a public key for the next encryption, but how secure is the Diffie-Hellman system? The security depends upon how difficult it would be for the third party to obtain the value $x$. This is known to be an extremely difficult problem as ‘the discrete logarithm problem’. In general it can be considered impossible unless the prime, p, is of a special form.\nDISCUSSION ​\tHowever, an alternative attack which the third party Z could employ by retaining the values of $$k_x$$ and $$k_y$$ and substituting a value of his own, then send it to both X and Y. Z would then re-encrypt the messages using his keys.\n​\tDespite this potential weakness the Diffie-Hellman system has, it can be used as the starting point for other new systems such as DES and RSA in particular.\n","wordCount":"439","inLanguage":"en","datePublished":"2021-11-09T00:00:00Z","dateModified":"2021-12-14T00:00:00Z","author":{"@type":"Person","name":"Yiming Shen"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://shenyimings.github.io/post/public-key-cryptography/"},"publisher":{"@type":"Organization","name":"Yiming","logo":{"@type":"ImageObject","url":"https://shenyimings.github.io/favicon.ico"}}}</script>
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"Public Key Cryptology","name":"Public Key Cryptology","description":"CONTEXT ​\tThe first general purpose computers were built in the 1940s. They were large, filling big rooms, using hundreds of valves and consuming many kilowatts of electricity. Although they were considered amazing for the ability to execute thousands of instructions per second at that time, all these huge machines were rapidly became history and might have been lost in the mists of time. With the increasing speed of computing, networks of computers were established allowing people to have access to communicate with others in distant places.","keywords":["cryptology","Public Key","Diffie-Hellman"],"articleBody":"CONTEXT ​\tThe first general purpose computers were built in the 1940s. They were large, filling big rooms, using hundreds of valves and consuming many kilowatts of electricity. Although they were considered amazing for the ability to execute thousands of instructions per second at that time, all these huge machines were rapidly became history and might have been lost in the mists of time. With the increasing speed of computing, networks of computers were established allowing people to have access to communicate with others in distant places. And, so the network information security became an issue from then on.\nPURPOSE ​\tA situation is that X and Y wish to communicate with each other and they want to be sure that their messages shouldn’t be intelligible to any other listener. Of course, they need to build a encryption system which they must assume is known to others, requires the use of one or more keys to transmit and decipher their messages. But how can X and Y tell each other their keys without exploiting them.\nMETHODS ​\tAn elegant solution to the key exchange problem was proposed by Diffie and Hellman in 1976. Their method is implemented by X and Y as follows:\n  X and Y uses two integers p, a large prime and m lies between 1 and (p-1), both of them are public.\n  X chooses a secret number $x$ and Y chooses $y$. Both $x$ and $y$ lie between 1 and (p-1). X and Y do not reveal $x$ and $y$ to each other and anyone else.\n  X and Y computes the number\n    $$ k_x = m^x (mod\\quad p)\\\\ k_y = m^y (mod\\quad p) $$\n Now\n$$ (k_x)^y = (k_y)^x \\equiv m^{xy}(mod\\quad p)=K(say) $$\nK is the common key which both X an Y can use for encryption.\n  RESULTS ​\tWe got a public key for the next encryption, but how secure is the Diffie-Hellman system? The security depends upon how difficult it would be for the third party to obtain the value $x$. This is known to be an extremely difficult problem as ‘the discrete logarithm problem’. In general it can be considered impossible unless the prime, p, is of a special form.\nDISCUSSION ​\tHowever, an alternative attack which the third party Z could employ by retaining the values of $$k_x$$ and $$k_y$$ and substituting a value of his own, then send it to both X and Y. Z would then re-encrypt the messages using his keys.\n​\tDespite this potential weakness the Diffie-Hellman system has, it can be used as the starting point for other new systems such as DES and RSA in particular.\n","wordCount":"439","inLanguage":"en","datePublished":"2021-11-09T00:00:00Z","dateModified":"2021-12-14T00:00:00Z","author":{"@type":"Person","name":"Yiming Shen"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://shenyimings.github.io/post/public-key-cryptography/"},"publisher":{"@type":"Organization","name":"Console.makeHappy(_1ming)","logo":{"@type":"ImageObject","url":"https://shenyimings.github.io/favicon.ico"}}}</script>
 </head>
 <body id=top>
 <script>localStorage.getItem("pref-theme")==="dark"?document.body.classList.add('dark'):localStorage.getItem("pref-theme")==="light"?document.body.classList.remove('dark'):window.matchMedia('(prefers-color-scheme: dark)').matches&&document.body.classList.add('dark')</script>
@@ -47,8 +47,8 @@
 <header class=header>
 <nav class=nav>
 <div class=logo>
-<a href=https://shenyimings.github.io/ accesskey=h title="Yiming'blog (Alt + H)">
-<img src=/apple-touch-icon.png alt=logo aria-label=logo height=35>Yiming'blog</a>
+<a href=https://shenyimings.github.io/ accesskey=h title="相位 (Alt + H)">
+<img src=/apple-touch-icon.png alt=logo aria-label=logo height=35>相位</a>
 <span class=logo-switches>
 <button id=theme-toggle accesskey=t title="(Alt + T)"><svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg><svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
 </button>
@@ -56,7 +56,7 @@
 </div>
 <ul id=menu onscroll=menu_on_scroll()>
 <li>
-<a href=https://shenyimings.github.io/archives/ title=归档>
+<a href=https://shenyimings.github.io/archive/ title=归档>
 <span>归档</span>
 </a>
 </li>
@@ -93,7 +93,7 @@ Public Key Cryptology
 </h1>
 <div class=post-meta>
 November 9, 2021&nbsp;·&nbsp;3 min&nbsp;·&nbsp;Yiming Shen
-|&nbsp;<a href=https://github.com/shenyimings/shenyimings.github.io/docs//post%5cPublic%20Key%20Cryptography.md rel="noopener noreferrer" target=_blank>Suggest Changes</a>
+|&nbsp;<a href=https://github.com/shenyimings/shenyimings.github.io/tree/main/docs rel="noopener noreferrer" target=_blank>Issue</a>
 </div>
 </header>
 <div class=post-content>
@@ -145,7 +145,7 @@ $$</p>
 <a class=prev href=https://shenyimings.github.io/post/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0%E8%AE%A1%E5%88%92/>
 <span class=title>« Prev Page</span>
 <br>
-<span>期末复习计划</span>
+<span>2021-2022-1 期末复习计划</span>
 </a>
 <a class=next href=https://shenyimings.github.io/post/15.bugku-sql%E6%B3%A8%E5%85%A5/>
 <span class=title>Next Page »</span>
@@ -170,7 +170,7 @@ $$</p>
 </footer>
 </article>
 </main><footer class=footer>
-<span>&copy; 2021 <a href=https://shenyimings.github.io/>Yiming</a></span>
+<span>&copy; 2021 <a href=https://shenyimings.github.io/>Console.makeHappy(_1ming)</a></span>
 <span>&#183;</span>
 <span>Powered by <a href=https://gohugo.io/ rel="noopener noreferrer" target=_blank>Hugo</a></span>
 <span>&#183;</span>
