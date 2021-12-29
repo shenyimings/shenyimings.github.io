@@ -1,7 +1,7 @@
 ---
 author: "Yiming Shen"
 date: 2021-12-24
-lastmod: 2021-12-??
+lastmod: 2021-12-29
 title: "超脱 Detachment"
 tags: [
     "Essay",
@@ -28,7 +28,9 @@ typora-root-url: ..\..\static\
 >
 > It's so easy to be careless. It takes courage to take care.
 
+最近几天断断续续地，基本看完了电影*超脱 Detachment* 
 
+思想沉重，挑个时间写写感想吧
 
 ![image-20211229122059226](/%E8%B6%85%E8%84%B1%20Detachment.assets/image-20211229122059226.png)
 
