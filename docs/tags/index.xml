@@ -9,22 +9,40 @@
       <link>https://shenyimings.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Mon, 27 Dec 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://shenyimings.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 31 Dec 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://shenyimings.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Essay</title>
+      <link>https://shenyimings.github.io/tags/essay/</link>
+      <pubDate>Fri, 31 Dec 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://shenyimings.github.io/tags/essay/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>Idea</title>
       <link>https://shenyimings.github.io/tags/idea/</link>
-      <pubDate>Mon, 27 Dec 2021 00:00:00 +0000</pubDate>
+      <pubDate>Fri, 31 Dec 2021 00:00:00 +0000</pubDate>
       
       <guid>https://shenyimings.github.io/tags/idea/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Essay</title>
-      <link>https://shenyimings.github.io/tags/essay/</link>
-      <pubDate>Fri, 24 Dec 2021 00:00:00 +0000</pubDate>
+      <title>Life</title>
+      <link>https://shenyimings.github.io/tags/life/</link>
+      <pubDate>Fri, 31 Dec 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://shenyimings.github.io/tags/essay/</guid>
+      <guid>https://shenyimings.github.io/tags/life/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Review</title>
+      <link>https://shenyimings.github.io/tags/review/</link>
+      <pubDate>Fri, 31 Dec 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://shenyimings.github.io/tags/review/</guid>
       <description></description>
     </item>
     
@@ -38,29 +56,11 @@
     </item>
     
     <item>
-      <title>Review</title>
-      <link>https://shenyimings.github.io/tags/review/</link>
-      <pubDate>Fri, 24 Dec 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://shenyimings.github.io/tags/review/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>Bullshit</title>
       <link>https://shenyimings.github.io/tags/bullshit/</link>
       <pubDate>Thu, 23 Dec 2021 00:00:00 +0000</pubDate>
       
       <guid>https://shenyimings.github.io/tags/bullshit/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Life</title>
-      <link>https://shenyimings.github.io/tags/life/</link>
-      <pubDate>Thu, 23 Dec 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://shenyimings.github.io/tags/life/</guid>
       <description></description>
     </item>
     
