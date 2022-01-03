@@ -26,6 +26,15 @@ Readme 感觉用了大量的时间做计划……好吧，既然是持续近1月
     </item>
     
     <item>
+      <title>离散数学</title>
+      <link>https://shenyimings.github.io/tags/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://shenyimings.github.io/tags/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/</guid>
+      <description>离散数学-数理逻辑部分笔记</description>
+    </item>
+    
+    <item>
       <title>空想社会主义和科学社会主义的区别</title>
       <link>https://shenyimings.github.io/post/%E7%A9%BA%E6%83%B3%E7%A4%BE%E4%BC%9A%E4%B8%BB%E4%B9%89%E5%92%8C%E7%A7%91%E5%AD%A6%E7%A4%BE%E4%BC%9A%E4%B8%BB%E4%B9%89%E7%9A%84%E5%8C%BA%E5%88%AB/</link>
       <pubDate>Sat, 01 Jan 2022 00:00:00 +0000</pubDate>
@@ -213,8 +222,8 @@ base64绕过 base64编码中只包含64个可打印字符，而PHP在解码base6
       <pubDate>Fri, 08 Oct 2021 00:00:00 +0000</pubDate>
       
       <guid>https://shenyimings.github.io/post/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6-%E6%95%B0%E7%90%86%E9%80%BB%E8%BE%91/%E7%AC%AC4%E7%AB%A0/ch04/</guid>
-      <description>一阶逻辑命题符号化 一阶逻辑公式及其解释 定义4.5 $$ 在公式\forall x A 和\exist x A 中，称x为指导变元，A为量词的辖域\ 在\forall x \exist x的辖域中，x的所有出现都称作约束出现，A中不是\ 约束出现的其他变项均被称作自由出现 $$
-定义4.6 $$ 设A是任意的公式，若A中不含自由出现的个体变项，则称A为封闭的公式，简称\闭式 $$</description>
+      <description>一阶逻辑命题符号化 一阶逻辑公式及其解释 定义4.5 $$ 在公式\forall x A 和\exist x A 中，称x为指导变元，A为量词的辖域\\ 在\forall x \exist x的辖域中，x的所有出现都称作约束出现，A中不是\\ 约束出现的其他变项均被称作自由出现 $$
+定义4.6 $$ 设A是任意的公式，若A中不含自由出现的个体变项，则称A为封闭的公式，简称闭式 $$</description>
     </item>
     
     <item>
