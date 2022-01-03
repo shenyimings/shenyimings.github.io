@@ -69,7 +69,7 @@ import requests import re # 正则表达式库 import string from requests.sessi
     <item>
       <title>MoeCTF 2021 西电新生赛WP</title>
       <link>https://shenyimings.github.io/post/12.moectf-web-write-up/</link>
-      <pubDate>Tue, 19 Oct 2021 00:00:00 +0000</pubDate>
+      <pubDate>Thu, 19 Aug 2021 00:00:00 +0000</pubDate>
       
       <guid>https://shenyimings.github.io/post/12.moectf-web-write-up/</guid>
       <description>前言-2021/8/10 今天学长在群里发了西电的新生CTF比赛，题目较为基础，适合我们初学者。

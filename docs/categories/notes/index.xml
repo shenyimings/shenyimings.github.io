@@ -105,9 +105,83 @@ base64绕过 base64编码中只包含64个可打印字符，而PHP在解码base6
     </item>
     
     <item>
+      <title>离散数学CH05-一阶逻辑等值演算与推理</title>
+      <link>https://shenyimings.github.io/post/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6-%E6%95%B0%E7%90%86%E9%80%BB%E8%BE%91/%E7%AC%AC5%E7%AB%A0/ch05/</link>
+      <pubDate>Tue, 12 Oct 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://shenyimings.github.io/post/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6-%E6%95%B0%E7%90%86%E9%80%BB%E8%BE%91/%E7%AC%AC5%E7%AB%A0/ch05/</guid>
+      <description>一阶逻辑等值式与置换规则 定义5.1 $$ 设A,B是一阶逻辑中任意两个公式，若A\leftrightarrow B 是永真式，则称A与B等值 \\ 记作A\Leftrightarrow B $$
+基本等值式 第1组 第二章P21页，16组重言式
+双重否定律、幂等律、交换律、结合律等
+第2组   量词否定等值式 $$ \neg \forall xA(x)\Leftrightarrow \exist x \neg A(x) $$
+  量词辖域收缩与扩张等值式
+设公式A(x)含自由出现的个体变项x，B不含x的自由出现，则 $$ \forall x (A(x)\vee B)\Leftrightarrow \forall xA(x)\vee B \\ \forall x (A(x)\rightarrow B)\Leftrightarrow \exist xA(x)\rightarrow B \\ \exist x(A(x)\rightarrow B)\Leftrightarrow \forall x A(x)\rightarrow B \\ $$
+  量词分配等值式 $$ \forall x(A(x)\wedge B(x))\Leftrightarrow \forall xA(x)\wedge \forall xB(x) $$
+  进行等值演算，除以上基本等值式外，还有以下2条规则</description>
+    </item>
+    
+    <item>
+      <title>离散数学CH04-一阶逻辑基本概念</title>
+      <link>https://shenyimings.github.io/post/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6-%E6%95%B0%E7%90%86%E9%80%BB%E8%BE%91/%E7%AC%AC4%E7%AB%A0/ch04/</link>
+      <pubDate>Fri, 08 Oct 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://shenyimings.github.io/post/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6-%E6%95%B0%E7%90%86%E9%80%BB%E8%BE%91/%E7%AC%AC4%E7%AB%A0/ch04/</guid>
+      <description>一阶逻辑命题符号化 一阶逻辑公式及其解释 定义4.5 $$ 在公式\forall x A 和\exist x A 中，称x为指导变元，A为量词的辖域\ 在\forall x \exist x的辖域中，x的所有出现都称作约束出现，A中不是\ 约束出现的其他变项均被称作自由出现 $$
+定义4.6 $$ 设A是任意的公式，若A中不含自由出现的个体变项，则称A为封闭的公式，简称\闭式 $$</description>
+    </item>
+    
+    <item>
+      <title>离散数学CH03-命题逻辑的推理理论</title>
+      <link>https://shenyimings.github.io/post/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6-%E6%95%B0%E7%90%86%E9%80%BB%E8%BE%91/%E7%AC%AC3%E7%AB%A0/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6-ch03/</link>
+      <pubDate>Thu, 07 Oct 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://shenyimings.github.io/post/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6-%E6%95%B0%E7%90%86%E9%80%BB%E8%BE%91/%E7%AC%AC3%E7%AB%A0/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6-ch03/</guid>
+      <description>前言  所谓推理是指从前提出发推出结论的思维过程，而前提是已知的命题公式集合，结论是从前提出发应用推理规则推出的命题公式。
+ 定理3.1  命题公式$A_1,A_2,\cdots,A_k$推出B的推理正确当且仅当 $$ A_1\wedge A_2,\wedge \cdots,\wedge A_k \to B $$ 为重言式。
+ 今后把推理的形式结构写成: $$ 前提：A_1,A_2,\cdots,A_k\\ 结论：B $$ 并根据判断定理3.1的蕴含式是否是重言式来确定推理是否正确。根据前2章的讨论，判断是否为重言式有下面3种方法：
+ 真值表法 等值演算法 主析取范式法  常用重言蕴含式（推理定律）  $$ (A\to B)\wedge A \Rightarrow B \qquad 假言推理\\ (A\to B)\wedge \neg B\Rightarrow \neg A\qquad 拒取式\\ (A\vee B)\wedge \neg B \Rightarrow A \qquad 析取三段论\\ (A\to B)\wedge (B\to C)\Rightarrow (A\to C) \qquad 假言三段论\\ $$
+ 推理证明格式 例3.3 在自然推理系统P中构造下面推理的证明。 前提：$$P\vee q,q\to r,p\to s,\neg s$$</description>
+    </item>
+    
+    <item>
+      <title>离散数学CH02-命题逻辑等值演算</title>
+      <link>https://shenyimings.github.io/post/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6-%E6%95%B0%E7%90%86%E9%80%BB%E8%BE%91/%E7%AC%AC2%E7%AB%A0/ch02/</link>
+      <pubDate>Sun, 19 Sep 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://shenyimings.github.io/post/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6-%E6%95%B0%E7%90%86%E9%80%BB%E8%BE%91/%E7%AC%AC2%E7%AB%A0/ch02/</guid>
+      <description>析取范式与合取范式 定理2.3（范式存在定理） 任一命题公式都存在与之等值的析取范式和合取范式，求给定公式的步骤为：
+  消去连接词
+  用双重否定律消去双重否定符，用德摩根律内移否定符。
+  使用分配律：求析取范式时使用$\land合取$对$\vee析取$的分配律，求合取范式相反。
+合取对析取的分配律： $$ A\wedge(B\vee C)\Leftrightarrow (A\wedge B)\vee(A\wedge C) $$
+  定义2.4  在含有n个命题变项的简单合取式（简单析取式）中，若每个命题变项和它的否定式只出现一次，将其按照下标从小到大排列，则这样的简单合取式称为最小项。
+ 例： $$ p\wedge q成真赋值为\quad1\quad 1\ 则按照二位二进制，(11)_2=3，故此项为极小项m_3 $$
+联结词的完备集 定义2.6 $$ 称F:{0,1}^n\rightarrow {0,1}为n元真值函数 $$
+n个命题变项共可构成$2^{2^n}$个不同的真值函数。
+   P $F_0^{(1)}$ $F_1^{(1)}$ $F_2^{(1)}$ $F_3^{(1)}$     0 0 0 1 1   1 0 1 0 1    按照n位二进制进行编号。
+定义2.7 设S是一个联结词集合，如果任何n($n\ge 1$)元真值函数都可以由仅含S中的联结词构成的公式表示，则称S是联结词完备集。</description>
+    </item>
+    
+    <item>
+      <title>离散数学CH01-命题逻辑的基本概念</title>
+      <link>https://shenyimings.github.io/post/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6-%E6%95%B0%E7%90%86%E9%80%BB%E8%BE%91/%E7%AC%AC1%E7%AB%A0/ch01/</link>
+      <pubDate>Sat, 18 Sep 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://shenyimings.github.io/post/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6-%E6%95%B0%E7%90%86%E9%80%BB%E8%BE%91/%E7%AC%AC1%E7%AB%A0/ch01/</guid>
+      <description>命题与联结词 定义1.2  设p,q为两个命题，复合命题“p并且q”（或“p与q”）称为p与q的合取式，记作$p\wedge q$
+规定$p\wedge q$为真当且仅当p与q同时为真。
+ 定义1.3  设p,q为两个命题，复合命题“p或q”，称为p与q的析取式，记作$$p\vee q$$
+规定$$p\vee q$$为假当且仅当p与q同时为假。
+ 定义1.4  设p,q为两个命题，复合命题“如果p，则q”，称为p与q的蕴含式，记作$$p\rightarrow q$$
+并称p为蕴含式的前件，q为蕴含式的后件
+规定p→q为假当且仅当p为真，q为假。==若前件为假，则蕴含式恒真==
+ </description>
+    </item>
+    
+    <item>
       <title>MoeCTF 2021 西电新生赛WP</title>
       <link>https://shenyimings.github.io/post/12.moectf-web-write-up/</link>
-      <pubDate>Tue, 19 Oct 2021 00:00:00 +0000</pubDate>
+      <pubDate>Thu, 19 Aug 2021 00:00:00 +0000</pubDate>
       
       <guid>https://shenyimings.github.io/post/12.moectf-web-write-up/</guid>
       <description>前言-2021/8/10 今天学长在群里发了西电的新生CTF比赛，题目较为基础，适合我们初学者。
@@ -128,82 +202,6 @@ You are not VIP,I will give flag to VIP!
 将抓包结果发送到重发器，将VIP值改为1，点击发送。
 得到flag。
 4. 2048 打开环境，发现是一个2048小游戏</description>
-    </item>
-    
-    <item>
-      <title>离散数学CH05-一阶逻辑等值演算与推理</title>
-      <link>https://shenyimings.github.io/post/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6-%E6%95%B0%E7%90%86%E9%80%BB%E8%BE%91/%E7%AC%AC5%E7%AB%A0/ch05/</link>
-      <pubDate>Tue, 12 Oct 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://shenyimings.github.io/post/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6-%E6%95%B0%E7%90%86%E9%80%BB%E8%BE%91/%E7%AC%AC5%E7%AB%A0/ch05/</guid>
-      <description>一阶逻辑等值式与置换规则 定义5.1 $$ 设A,B是一阶逻辑中任意两个公式，若A\leftrightarrow B 是永真式，则称A与B等值
-\记作A\Leftrightarrow B $$
-基本等值式 第1组 第二章P21页，16组重言式
-双重否定律、幂等律、交换律、结合律等
-第2组   量词否定等值式 $$ \neg \forall xA(x)\Leftrightarrow \exist x \neg A(x) $$
-  量词辖域收缩与扩张等值式
-设公式A(x)含自由出现的个体变项x，B不含x的自由出现，则 $$ \forall x (A(x)\vee B)\Leftrightarrow \forall xA(x)\vee B\ \forall x (A(x)\rightarrow B)\Leftrightarrow \exist xA(x)\rightarrow B\ \exist x(A(x)\rightarrow B)\Leftrightarrow \forall x A(x)\rightarrow B\ $$
-  量词分配等值式 $$ \forall x(A(x)\wedge B(x))\Leftrightarrow \forall xA(x)\wedge \forall xB(x) $$
-  进行等值演算，除以上基本等值式外，还有以下2条规则
-  置换规则</description>
-    </item>
-    
-    <item>
-      <title>离散数学CH03-命题逻辑的推理理论</title>
-      <link>https://shenyimings.github.io/post/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6-%E6%95%B0%E7%90%86%E9%80%BB%E8%BE%91/%E7%AC%AC3%E7%AB%A0/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6-ch03/</link>
-      <pubDate>Thu, 07 Oct 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://shenyimings.github.io/post/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6-%E6%95%B0%E7%90%86%E9%80%BB%E8%BE%91/%E7%AC%AC3%E7%AB%A0/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6-ch03/</guid>
-      <description>前言  所谓推理是指从前提出发推出结论的思维过程，而前提是已知的命题公式集合，结论是从前提出发应用推理规则推出的命题公式。
- 定理3.1  命题公式$A_1,A_2,\cdots,A_k$推出B的推理正确当且仅当 $$ A_1\wedge A_2,\wedge \cdots,\wedge A_k \to B $$ 为重言式。
- 今后把推理的形式结构写成: $$ 前提：A_1,A_2,\cdots,A_k\\ 结论：B $$ 并根据判断定理3.1的蕴含式是否是重言式来确定推理是否正确。根据前2章的讨论，判断是否为重言式有下面3种方法：
- 真值表法 等值演算法 主析取范式法  常用重言蕴含式（推理定律）  $$ (A\to B)\wedge A \Rightarrow B \qquad 假言推理\\ (A\to B)\wedge \neg B\Rightarrow \neg A\qquad 拒取式\\ (A\vee B)\wedge \neg B \Rightarrow A \qquad 析取三段论\\ (A\to B)\wedge (B\to C)\Rightarrow (A\to C) \qquad 假言三段论\\ $$
- 推理证明格式 例3.3 在自然推理系统P中构造下面推理的证明。 前提：$$P\vee q,q\to r,p\to s,\neg s$$</description>
-    </item>
-    
-    <item>
-      <title>离散数学CH04-一阶逻辑基本概念</title>
-      <link>https://shenyimings.github.io/post/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6-%E6%95%B0%E7%90%86%E9%80%BB%E8%BE%91/%E7%AC%AC4%E7%AB%A0/ch04/</link>
-      <pubDate>Thu, 07 Oct 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://shenyimings.github.io/post/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6-%E6%95%B0%E7%90%86%E9%80%BB%E8%BE%91/%E7%AC%AC4%E7%AB%A0/ch04/</guid>
-      <description>一阶逻辑命题符号化 一阶逻辑公式及其解释 定义4.5 $$ 在公式\forall x A 和\exist x A 中，称x为指导变元，A为量词的辖域\ 在\forall x \exist x的辖域中，x的所有出现都称作约束出现，A中不是\ 约束出现的其他变项均被称作自由出现 $$
-定义4.6 $$ 设A是任意的公式，若A中不含自由出现的个体变项，则称A为封闭的公式，简称\闭式 $$</description>
-    </item>
-    
-    <item>
-      <title>离散数学CH01-命题逻辑的基本概念</title>
-      <link>https://shenyimings.github.io/post/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6-%E6%95%B0%E7%90%86%E9%80%BB%E8%BE%91/%E7%AC%AC1%E7%AB%A0/ch01/</link>
-      <pubDate>Sat, 18 Sep 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://shenyimings.github.io/post/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6-%E6%95%B0%E7%90%86%E9%80%BB%E8%BE%91/%E7%AC%AC1%E7%AB%A0/ch01/</guid>
-      <description>命题与联结词 定义1.2  设p,q为两个命题，复合命题“p并且q”（或“p与q”）称为p与q的合取式，记作$p\wedge q$
-规定$p\wedge q$为真当且仅当p与q同时为真。
- 定义1.3  设p,q为两个命题，复合命题“p或q”，称为p与q的析取式，记作$$p\vee q$$
-规定$$p\vee q$$为假当且仅当p与q同时为假。
- 定义1.4  设p,q为两个命题，复合命题“如果p，则q”，称为p与q的蕴含式，记作$$p\rightarrow q$$
-并称p为蕴含式的前件，q为蕴含式的后件
-规定p→q为假当且仅当p为真，q为假。==若前件为假，则蕴含式恒真==
- </description>
-    </item>
-    
-    <item>
-      <title>离散数学CH02-命题逻辑等值演算</title>
-      <link>https://shenyimings.github.io/post/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6-%E6%95%B0%E7%90%86%E9%80%BB%E8%BE%91/%E7%AC%AC2%E7%AB%A0/ch02/</link>
-      <pubDate>Sat, 18 Sep 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://shenyimings.github.io/post/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6-%E6%95%B0%E7%90%86%E9%80%BB%E8%BE%91/%E7%AC%AC2%E7%AB%A0/ch02/</guid>
-      <description>析取范式与合取范式 定理2.3（范式存在定理） 任一命题公式都存在与之等值的析取范式和合取范式，求给定公式的步骤为：
-  消去连接词
-  用双重否定律消去双重否定符，用德摩根律内移否定符。
-  使用分配律：求析取范式时使用$\land合取$对$\vee析取$的分配律，求合取范式相反。
-合取对析取的分配律： $$ A\wedge(B\vee C)\Leftrightarrow (A\wedge B)\vee(A\wedge C) $$
-  定义2.4  在含有n个命题变项的简单合取式（简单析取式）中，若每个命题变项和它的否定式只出现一次，将其按照下标从小到大排列，则这样的简单合取式称为最小项。
- 例： $$ p\wedge q成真赋值为\quad1\quad 1\ 则按照二位二进制，(11)_2=3，故此项为极小项m_3 $$
-联结词的完备集 定义2.6 $$ 称F:{0,1}^n\rightarrow {0,1}为n元真值函数 $$
-n个命题变项共可构成$2^{2^n}$个不同的真值函数。
-   P $F_0^{(1)}$ $F_1^{(1)}$ $F_2^{(1)}$ $F_3^{(1)}$     0 0 0 1 1   1 0 1 0 1    按照n位二进制进行编号。
-定义2.7 设S是一个联结词集合，如果任何n($n\ge 1$)元真值函数都可以由仅含S中的联结词构成的公式表示，则称S是联结词完备集。</description>
     </item>
     
     <item>
