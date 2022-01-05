@@ -265,9 +265,9 @@ n个命题变项共可构成$2^{2^n}$个不同的真值函数。
       <guid>https://shenyimings.github.io/post/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6-%E6%95%B0%E7%90%86%E9%80%BB%E8%BE%91/%E7%AC%AC1%E7%AB%A0/ch01/</guid>
       <description>命题与联结词 定义1.2  设p,q为两个命题，复合命题“p并且q”（或“p与q”）称为p与q的合取式，记作$p\wedge q$
 规定$p\wedge q$为真当且仅当p与q同时为真。
- 定义1.3  设p,q为两个命题，复合命题“p或q”，称为p与q的析取式，记作$$p\vee q$$
+ 定义1.3  设p,q为两个命题，复合命题“p或q”，称为p与q的析取式，记作 $$ p\vee q $$
 规定$$p\vee q$$为假当且仅当p与q同时为假。
- 定义1.4  设p,q为两个命题，复合命题“如果p，则q”，称为p与q的蕴含式，记作$$p\rightarrow q$$
+ 定义1.4  设p,q为两个命题，复合命题“如果p，则q”，称为p与q的蕴含式，记作$$ p\rightarrow q$$
 并称p为蕴含式的前件，q为蕴含式的后件
 规定p→q为假当且仅当p为真，q为假。==若前件为假，则蕴含式恒真==
  </description>
