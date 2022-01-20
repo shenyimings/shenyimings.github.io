@@ -99,7 +99,7 @@
 <footer class=entry-footer>
 1 min&nbsp;·&nbsp;Notes
 </footer>
-<a class=entry-link aria-label="post link to 密码学数学基础 Cryptology Mathematics" href=https://shenyimings.github.io/tags/CryptologyMath/></a>
+<a class=entry-link aria-label="post link to 密码学数学基础 Cryptology Mathematics" href=https://shenyimings.github.io/tags/%E5%AF%86%E7%A0%81%E5%AD%A6%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/></a>
 </article>
 <article class=post-entry>
 <header class=entry-header>
@@ -300,7 +300,7 @@ November 9, 2021&nbsp;·&nbsp;3 min&nbsp;·&nbsp;Yiming Shen
 <article class=post-entry>
 <header class=entry-header>
 <h2>
-5 群
+6 群环域
 </h2>
 </header>
 <section class=entry-content>
@@ -329,7 +329,23 @@ $$
 <footer class=entry-footer>
 November 8, 2021&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Yiming Shen
 </footer>
-<a class=entry-link aria-label="post link to 5 群" href=https://shenyimings.github.io/post/cryptologymath/6.1_%E7%BE%A4/></a>
+<a class=entry-link aria-label="post link to 6 群环域" href=https://shenyimings.github.io/post/cryptologymath/6.1_%E7%BE%A4/></a>
+</article>
+<article class=post-entry>
+<header class=entry-header>
+<h2>
+5 原根
+</h2>
+</header>
+<section class=entry-content>
+<p>原根的基本概念与性质 定义 $$ 设m为正整数，(a,m)=1，使得a^d\equiv 1(mod\quad m)成立的\最小正整数d，称为a对模m的阶，记作ord_m(a) $$
+原根的计算 已知一个原根，算所有阶
+例题 </p>
+</section>
+<footer class=entry-footer>
+October 24, 2021&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Yiming Shen
+</footer>
+<a class=entry-link aria-label="post link to 5 原根" href=https://shenyimings.github.io/post/cryptologymath/5.1_%E5%8E%9F%E6%A0%B9%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5%E4%B8%8E%E6%80%A7%E8%B4%A8/></a>
 </article>
 <article class=post-entry>
 <header class=entry-header>
@@ -374,34 +390,6 @@ October 24, 2021&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Yiming Shen
 </footer>
 <a class=entry-link aria-label="post link to Bugku-SQL注入-WriteUP" href=https://shenyimings.github.io/post/15.bugku-sql%E6%B3%A8%E5%85%A5/></a>
 </article>
-<article class=post-entry>
-<header class=entry-header>
-<h2>
-CNSS Recruit-Web Write UP
-</h2>
-</header>
-<section class=entry-content>
-<p>前言 躺在床上，不想动鼠标，那就先写写前言吧。
-这个CTF比赛是我打的第二场比较正规、完整的比赛。
-惨不忍睹，当然，作为刚入门的noob来说也可以接受。
-希望能通过笔记的整理消化新掌握的知识，道阻且长。
-[👶Baby]GitHacker 根据题目名，应该是考察Git泄露相关知识。
-关于工具Githack的使用和Python2/3的同时安装 使用工具Githack下载网站/.git下所有内容，注意Githack脚本使用python2编写，两个版本共存的方法是，在正常安装Python3的基础上，再安装Python2，将目录添加至环境变量后，将执行文件名修改为python2.exe，则在pws中输入python是运行python3，输入python2则是运行Python2.
-python2 .\GitHack.py http:\\x.x.x\.git 运行后即得到git目录。
-Git版本管理 这个地方困扰我很久，但也因此学到了很多之前一直想学但没机会的Git使用方式。
-git log # 查看提交记录（版本号） git status # 查看本地修改记录 git reset --hard 目标版本号 # 退回目标版本号 git reset HEAD # 回退到最早版本 git checkout # 还原与版本记录不符的所有文件 git restore 目标文件名 # 还原与版本记录不符的目标文件 这道题只需要回退到最早版本并checkout，即可得到未修改过的index.html，flag以CNSS{XXX}的形式隐藏在源代码中，注意，要搜CNSS而不是flag。
-其他Githack脚本 在CTF中推荐Git_Extract-master这个脚本，可以在下载目录的同时，恢复所有文件版本，省去了git reset和git checkout的过程。
-[😃Easy]更坑的数学题 仅有的提示就是快速把结果提交，有可能会出现flag。
-第一反应是绕过和注入咯，尝试后无果。
-再观察续一秒按钮前端代码，发现是安慰剂按钮。。。
-那就只有在1s内做出答案了，算是个Brute Force吧，下面是丁佬的python代码：
-import requests import re # 正则表达式库 import string from requests.sessions import session url = 'http://81.68.109.40:30005/' session = requests....</p>
-</section>
-<footer class=entry-footer>
-October 21, 2021&nbsp;·&nbsp;2 min&nbsp;·&nbsp;Yiming Shen
-</footer>
-<a class=entry-link aria-label="post link to CNSS Recruit-Web Write UP" href=https://shenyimings.github.io/post/14.cnss-recruit-web-write-up/></a>
-</article>
 <footer class=page-footer>
 <nav class=pagination>
 <a class=next href=https://shenyimings.github.io/post/page/2/>Next Page »</a>
@@ -418,7 +406,6 @@ October 21, 2021&nbsp;·&nbsp;2 min&nbsp;·&nbsp;Yiming Shen
 <button class=top-link id=top-link type=button accesskey=g><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentcolor"><path d="M12 6H0l6-6z"/></svg>
 </button>
 </a>
-<script defer src=/assets/js/highlight.min.7680afc38aa6b15ddf158a4f3780b7b1f7dde7e91d26f073e6229bb7a0793c92.js integrity="sha256-doCvw4qmsV3fFYpPN4C3sffd5+kdJvBz5iKbt6B5PJI=" onload=hljs.initHighlightingOnLoad()></script>
 <script>window.onload=function(){localStorage.getItem("menu-scroll-position")&&(document.getElementById('menu').scrollLeft=localStorage.getItem("menu-scroll-position"))};function menu_on_scroll(){localStorage.setItem("menu-scroll-position",document.getElementById('menu').scrollLeft)}document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener("click",function(b){b.preventDefault();var a=this.getAttribute("href").substr(1);window.matchMedia('(prefers-reduced-motion: reduce)').matches?document.querySelector(`[id='${decodeURIComponent(a)}']`).scrollIntoView():document.querySelector(`[id='${decodeURIComponent(a)}']`).scrollIntoView({behavior:"smooth"}),a==="top"?history.replaceState(null,null," "):history.pushState(null,null,`#${a}`)})})</script>
 <script>var mybutton=document.getElementById("top-link");window.onscroll=function(){document.body.scrollTop>800||document.documentElement.scrollTop>800?(mybutton.style.visibility="visible",mybutton.style.opacity="1"):(mybutton.style.visibility="hidden",mybutton.style.opacity="0")}</script>
 <script>document.getElementById("theme-toggle").addEventListener("click",()=>{document.body.className.includes("dark")?(document.body.classList.remove('dark'),localStorage.setItem("pref-theme",'light')):(document.body.classList.add('dark'),localStorage.setItem("pref-theme",'dark'))})</script>
