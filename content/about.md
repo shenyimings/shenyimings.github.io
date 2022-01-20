@@ -23,5 +23,17 @@ A photography lover, a CTF learner, a geek  spirit follower.
 
 > 正经人谁写日记啊。
 
-2021.12.14 - 2021.12.20
+#### 14 Dec 2021
+
+使用hugo+gh-pages 创建博客
+
+按教程使用jane主题
+
+#### 26 Dec 2021
+
+更换为PaperMod主题
+
+完全配置config.yml
+
+加入站标和头像
 

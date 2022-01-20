@@ -38,7 +38,13 @@
 &lt;blockquote&gt;
 &lt;p&gt;正经人谁写日记啊。&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;2021.12.14 - 2021.12.20&lt;/p&gt;
+&lt;h4 id=&#34;14-dec-2021&#34;&gt;14 Dec 2021&lt;/h4&gt;
+&lt;p&gt;使用hugo+gh-pages 创建博客&lt;/p&gt;
+&lt;p&gt;按教程使用jane主题&lt;/p&gt;
+&lt;h4 id=&#34;26-dec-2021&#34;&gt;26 Dec 2021&lt;/h4&gt;
+&lt;p&gt;更换为PaperMod主题&lt;/p&gt;
+&lt;p&gt;完全配置config.yml&lt;/p&gt;
+&lt;p&gt;加入站标和头像&lt;/p&gt;
 </description>
       
     </item>
