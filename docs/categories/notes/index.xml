@@ -26,6 +26,49 @@ Readme 感觉用了大量的时间做计划……好吧，既然是持续近1月
     </item>
     
     <item>
+      <title>密码学数学基础-大纲</title>
+      <link>https://shenyimings.github.io/post/cryptologymath/%E5%AF%86%E7%A0%81%E5%AD%A6%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%A4%A7%E7%BA%B2/</link>
+      <pubDate>Sun, 12 Dec 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://shenyimings.github.io/post/cryptologymath/%E5%AF%86%E7%A0%81%E5%AD%A6%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%A4%A7%E7%BA%B2/</guid>
+      <description>[toc]
+数论 整除 带余除法 最小公倍数与最大公约数 计算()和[] 欧几里得算法 同余 模逆 模逆的计算（扩展欧几里得算法） 同余的各种性质与运算（加乘指数） Wilson定理 $$设p为素数，则(p-1)!\equiv -1(mod\quad p)$$
+同余类、既约同余类 剩余系、完全剩余系、既约剩余系 欧拉函数 欧拉定理 费马小定理 费马素性检测算法 米勒罗宾素性检测算法 同余方程 同余方程是否有解判定与解的个数计算 二元一次不定方程 单一解的一次同余方程的两种解法 快速模指数运算 解一次同余方程组——中国剩余定理 基于中国剩余定理的秘密共享 高次同余 二次剩余 $$ x^2\equiv a(mod\quad p) $$
+有解则称a是模p的二次剩余
+欧拉判别法 $$ a^{\frac{p-1}{2}}\equiv 1(mod\quad p) 是二次剩余\ a^{\frac{p-1}{2}}\equiv -1(mod\quad p) 是二次非剩余\ $$
+勒让德符号与雅可比符号 高斯引理 二次互反律计算勒让德符号 原根 阶及其计算 原根的计算 已知一个原根 求其余阶和原根 离散对数 代数 群 群满足的4条性质 Abel群 半群 含幺半群 有限群 无限群 置换群 对称群 置换群与对称群 ![image-20211213031151858](密码学数学基础 大纲.assets/image-20211213031151858.png)</description>
+    </item>
+    
+    <item>
+      <title>5 群</title>
+      <link>https://shenyimings.github.io/post/cryptologymath/6.1_%E7%BE%A4/</link>
+      <pubDate>Mon, 08 Nov 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://shenyimings.github.io/post/cryptologymath/6.1_%E7%BE%A4/</guid>
+      <description>半群 只满足封闭性和结合律
+含幺半群 满足封闭性、结合律和单位元
+  含幺半群G中的单位元e是唯一的 含幺半群G中任意可逆元a，其逆元是唯一的（可以没有逆元）   Abel群（交换群） 满足封闭性、结合律、单位元、逆元的同时，还满足交换律
+有限群 无限群 元素个数
+子群  设H为群G的一个非空子集，若H对G的运算&amp;quot;.&amp;ldquo;也构成群，则称H为群G的子群，记作H&amp;lt;=G
+ $$ 在通常意义的加法运算下\\ Z\le Q $$
+子群判定定理 知1求2
+1证2 2证3 3证1
+商群  定义6.3.1 陪集 陪集是一个集合
+例6.3.1 模8加法群
+定理6.3.1 陪集的性质 证明 陪集构成了群元素的一个类，互不相交，互不包含
+定义6.3.2 H在G中的指数 子群H在群G中不同陪集的个数，称为H在G中的指数，记为[G:H]
+定理6.3.2 拉格朗日定理 设H是有限群G的子群，则|G|=|H|·|G:H|
+G中元素个数=子群H中元素个数*H在G中的不同陪集个数
+定义6.3.3 正规子群 $$ 设G为群，H\le G,若对G中任一元素a均有aH=Ha，则称H为G的正规子群\\ 即为H\lhd G $$
+当G为Abel群时，它的任意子群均为它的正规子群。
+子群{e}/群G本身为它的两个平凡正规子群。
+定理6.3.3 正规子群判定定理 $$ aHa^{-1}
+$$
+定义6.3.4 商群 $$ 上述定理中G/H关于子集的乘法构成的群 $$
+例题6.3.5 $$ 模8加法群(Z_8,+)，H={0,2,4,6}为子群。 $$</description>
+    </item>
+    
+    <item>
       <title>Bugku-SQL注入-WriteUP</title>
       <link>https://shenyimings.github.io/post/15.bugku-sql%E6%B3%A8%E5%85%A5/</link>
       <pubDate>Sun, 24 Oct 2021 00:00:00 +0000</pubDate>
@@ -144,6 +187,40 @@ base64绕过 base64编码中只包含64个可打印字符，而PHP在解码base6
     </item>
     
     <item>
+      <title>2.5 素性检测算法</title>
+      <link>https://shenyimings.github.io/post/cryptologymath/2.5_%E7%B4%A0%E6%80%A7%E6%A3%80%E6%B5%8B%E7%AE%97%E6%B3%95/</link>
+      <pubDate>Sun, 26 Sep 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://shenyimings.github.io/post/cryptologymath/2.5_%E7%B4%A0%E6%80%A7%E6%A3%80%E6%B5%8B%E7%AE%97%E6%B3%95/</guid>
+      <description>费马小定理 根据费马小定理，p为素数，对任意整数b就有 $$ b^{p-1}\equiv 1(mod\quad p) $$ 问题： $$ 如果有一个整数b,(b,m)=1,使得\\ b^{m-1}\neq 1(mod\quad m)\\ 则m是一个合数，\\ 但反之不一定。 $$
+定义2.5.1 $$ 设m是一个奇合数，如果整数b,(b,m)=1,使得同余式\\ b^{m-1}\equiv 1(mod\quad m)\\ 成立，则m称为对于基b的伪素数。 $$
+费马概率素性检验算法 $$ 给定奇整数m\ge 3和安全参数k\\
+ 随机选取整数b,2\le b\le m -2\\ 计算g=(b,m),如果g\ne 1，则m为合数\\ 计算r\equiv b^{m-1}(mod\quad m)，如果r\ne 1,则m为合数\\ 如果不是上述两种，则m可能为素数\\ 上述过程重复k次，如果每次都是m可能为素数，则m为素数的概率为1-\frac{1}{2^k}\\ $$  MILLER-RABIN素性检测算法 $$ 设m是奇素数，并且有m-1=2^st，则有以下因数分解式：\\ b^{m-1}-1=(b^{2^{s-1}t}+1)(b^{2^{s-2}t}+1)\cdots (b^t+1)(b^t-1)\\ b^{m-1}\equiv 1(mod\quad m) $$
+定义2.5.2 $$ 设m是一个奇合数，且有表示式m-1=2^st，其中t为奇数\\ 设整数b和m互素，如果整数m和b满足条件\\ b^t\equiv 1(mod\quad m)\\ 或者存在一个整数r,0\le r\lt s使得\\ b^{2^rt}\equiv -1(mod\quad m)\\ 则m称为对于基b的强伪素数 $$
+例 $$ m=2047=23\cdot 89 \\ m-1=2046=2^1\cdot 1023\\ 设b=2\\ 2^t=2^1023=(2^11)^93 = 2048^93\equiv 1(mod\quad 2047) $$</description>
+    </item>
+    
+    <item>
+      <title>2.2 同余类与既约同余类</title>
+      <link>https://shenyimings.github.io/post/cryptologymath/2.2_%E5%90%8C%E4%BD%99%E7%B1%BB%E4%B8%8E%E6%97%A2%E7%BA%A6%E5%90%8C%E4%BD%99%E7%B1%BB/</link>
+      <pubDate>Wed, 22 Sep 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://shenyimings.github.io/post/cryptologymath/2.2_%E5%90%8C%E4%BD%99%E7%B1%BB%E4%B8%8E%E6%97%A2%E7%BA%A6%E5%90%8C%E4%BD%99%E7%B1%BB/</guid>
+      <description>同余类与既约同余类 [TOC]
+例题2.2.1 设 $$m=6,\forall a\in Z,a=6q+r,其中q,r\in Z ,r=0,1,2,3,4,5$$
+可分为6类，例如r=0时，所有a为模6同余于0 $$ a_1\equiv a_2 \equiv \cdots a_n \equiv 0 (mod\quad 6)\\ -18,-12,-6,0,6\cdots代表元为0, 表示为[0] $$ [0],[1],[2],[3],[4],[5]称为模6的同余类
+具有如下性质：
+ 6个集合彼此不相交 并集为Z  定义2.2.1 同余类 $$ m\in N^+,\forall i \in Z, 记[i]={x:x\in Z,x\equiv i (mod\quad m)} $$
+则每个集合[i]称为模m的一个同余类
+若(i,m)=1,则同余类[i]称作模m的既约同余类
+m=6的既约同余类有[1],[5] 2个，即$\phi(6)=2$（欧拉函数）
+定理2.2.1 同余类 $$ 设m\in N^+,[a],[b]模m的同余类，则有\\ [a]=[b]\Leftrightarrow a\equiv b(mod\quad m) $$
+定义2.2.2 欧拉函数 $$ m\in Z^+,小于m且与m互素的整数的个数表示成\phi(m)，称为m的欧拉函数 $$
+定义2.2.3 剩余系 $$ m个整数a_1,a_2,\cdots,a_m称作模m的完全剩余系，是指a_1,a_2,\cdots,a_m彼此模m不同余。 $$
+完系由m个整数组成，这m个整数彼此模m不同余。 $$ \phi(m)个整数b_1,b_2,\cdots,b_{\phi(m)}称作模m的既约剩余系，是指其彼此模m不同余且均与m互素 $$ 既约剩余系又称缩系。</description>
+    </item>
+    
+    <item>
       <title>离散数学CH02-命题逻辑等值演算</title>
       <link>https://shenyimings.github.io/post/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6-%E6%95%B0%E7%90%86%E9%80%BB%E8%BE%91/%E7%AC%AC2%E7%AB%A0/ch02/</link>
       <pubDate>Sun, 19 Sep 2021 00:00:00 +0000</pubDate>
@@ -175,6 +252,36 @@ n个命题变项共可构成$2^{2^n}$个不同的真值函数。
 并称p为蕴含式的前件，q为蕴含式的后件
 规定p→q为假当且仅当p为真，q为假。==若前件为假，则蕴含式恒真==
  </description>
+    </item>
+    
+    <item>
+      <title>第一章 例题</title>
+      <link>https://shenyimings.github.io/post/cryptologymath/1.6_%E7%AC%AC%E4%B8%80%E7%AB%A0%E4%BE%8B%E9%A2%98/</link>
+      <pubDate>Thu, 16 Sep 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://shenyimings.github.io/post/cryptologymath/1.6_%E7%AC%AC%E4%B8%80%E7%AB%A0%E4%BE%8B%E9%A2%98/</guid>
+      <description>1. 对任意整数a,b,c，证明：[(a,b),(a,c)]=(a,[b,c]) 证明： $$ 设a=p_1^{a_1}p_2^{a_2}\cdots p_s^{a_s},b=\cdots,c=\cdots则 \\ (标准素因数分解) \\ [(a,b),(a,c)]=\Sigma_{i=1}^sp_i^{max(min(a_i,b_i),min(a_i,c_i))} \\ (a,[b,c])=\Sigma_{i=1}^sp_i^{min(a_i,max(b_i,c_i))} $$
+2. 设m,n为正整数，m是奇数，求证：$2^m-1和2^n+1$互素 证明： $$ 假设(2^m-1,2^n+1)=d,d\ge2,于是\exist x,y\in Z使得\\ 2^m=dx +1\\ 2^n=dy -1\\ \exist\mu\in Z \quad2^{mn}=(2^m)^n=d\mu+1\\ 注意到，m为奇数，故\\ \exist v\in Z \quad 2^{mn}=(2^n)^m=dv-1\\ 所以有d(v-\mu)=2，从而必有d=2,矛盾。 $$
+3. 利用最大公因数的表达式证明：若$(a,m)=(b,m)=1$，则有$(ab,m)=1$。 证明：
+由$(a,m)=(b,m)=1$可知，$\exist x,y,u,v\in Z$，使得 $$ ax+my=1,bu+mv=1\\ (ax)(bu)=(1-my)(1-mv)\\ 1-my-mv+m\cdot myv\\ ab(xu)+m(y+v-myv)=1\\ 由xu,y+v-myv\in Z可知，(ab,m)=1 $$
+4. 利用最大公因数的表达式证明：若(m,a)=1,$m\mid ab$则有$m\mid b$ 证明：
+由$(m,a)=1$知 $$ mx+ay=1\\ 两边同乘b\\ mbx+aby=b\\ 因为m\mid ab,m\mid m 所以等式左边能被m整除\\ 故右边-b能被m整除\\ 所以m\mid b $$
+5. 求方程243x+198y=909的一组整数解 利用欧几里德算法，as+bt=(a,b)</description>
+    </item>
+    
+    <item>
+      <title>欧几里德算法</title>
+      <link>https://shenyimings.github.io/post/cryptologymath/1.4_%E6%AC%A7%E5%87%A0%E9%87%8C%E5%BE%B7%E7%AE%97%E6%B3%95/</link>
+      <pubDate>Sun, 12 Sep 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://shenyimings.github.io/post/cryptologymath/1.4_%E6%AC%A7%E5%87%A0%E9%87%8C%E5%BE%B7%E7%AE%97%E6%B3%95/</guid>
+      <description>定理1.4.1 设$a_0,a_1\in Z,a_1\ne0$，按下述方式反复作带余除法，有限步后必可以除尽 $$ a_0=a_1q_0+a_2 \\\\ a_1=a_2q_1+a_3 \\\\ \vdots \\\\ a_{n-2}=a_{n-1}q_{n-2}+a_n a_{n-1}=a_{n}q_{n-1}+a_{n+1} \\\\ a_{n+1}=0\\ 则有(a_0,a_1)=a_n $$ 证明1：有限步除尽
+证明2：最小公因数为$a_n$(最后不为0的余数)
+欧几里德算法——辗转相除法——更相减损术（九章算术）
+例题1.4.1 设a=963, b=657
+(1)求最大公因数（a,b） $$ 963 = 1\times657+306 \\ 657=2\times306+45 \\ 306=6\times45+36\\ 45=1\times36+9\\ 36=4\times9 $$ (963,657) = 9
+(2)求整数as + bt = (a,b) $$ 963 = 1\times657+306 &amp;amp;\rightarrow 7\times657-15\times(963-657)=22\times657-15\times963 \\ 657=2\times306+45&amp;amp;\rightarrow 7\times(657-2\times306)-306=7\times657-15\times306 \\ 306=6\times45+36\\ 45=1\times36+9&amp;amp;\\ 36=4\times9 $$
+例题1.4.2 设a=-1859和b=1573,求最大公因数（a，b）和整数s，t，使as+bt=(a,b) $$ 1859=1\times1573+286\searrow&amp;amp;(-1859)\times5+1573\times6\\ 1573=5\times286+143\searrow&amp;amp;1573-5\times(1859-1\times1573)\\ 286=2\times143&amp;amp;143=1573-5\times286\\ $$</description>
     </item>
     
     <item>

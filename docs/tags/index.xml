@@ -9,7 +9,16 @@
       <link>https://shenyimings.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sat, 01 Jan 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://shenyimings.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 20 Jan 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://shenyimings.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Plan</title>
+      <link>https://shenyimings.github.io/tags/plan/</link>
+      <pubDate>Thu, 20 Jan 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://shenyimings.github.io/tags/plan/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>Idea</title>
       <link>https://shenyimings.github.io/tags/idea/</link>
@@ -76,9 +85,27 @@
     <item>
       <title>cryptology</title>
       <link>https://shenyimings.github.io/tags/cryptology/</link>
-      <pubDate>Tue, 09 Nov 2021 00:00:00 +0000</pubDate>
+      <pubDate>Sun, 12 Dec 2021 00:00:00 +0000</pubDate>
       
       <guid>https://shenyimings.github.io/tags/cryptology/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Note</title>
+      <link>https://shenyimings.github.io/tags/note/</link>
+      <pubDate>Sun, 12 Dec 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://shenyimings.github.io/tags/note/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>密码学数学基础</title>
+      <link>https://shenyimings.github.io/tags/%E5%AF%86%E7%A0%81%E5%AD%A6%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/</link>
+      <pubDate>Sun, 12 Dec 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://shenyimings.github.io/tags/%E5%AF%86%E7%A0%81%E5%AD%A6%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/</guid>
       <description></description>
     </item>
     
@@ -106,15 +133,6 @@
       <pubDate>Sun, 24 Oct 2021 00:00:00 +0000</pubDate>
       
       <guid>https://shenyimings.github.io/tags/ctf/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Note</title>
-      <link>https://shenyimings.github.io/tags/note/</link>
-      <pubDate>Sun, 24 Oct 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://shenyimings.github.io/tags/note/</guid>
       <description></description>
     </item>
     

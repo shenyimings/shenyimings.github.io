@@ -111,6 +111,27 @@ Notes
 <article class=post-entry>
 <header class=entry-header>
 <h2>
+寒假学习计划
+</h2>
+</header>
+<section class=entry-content>
+<p>Readme 这学期寒假开始于1月11日
+1月14日回家 15日玩 16日玩 17日有所学习 18日玩 19日玩
+20日：我要制定个计划 寒假还是要学习的
+BLOG RESTART
+主要任务 数学建模-编程手
+CTF web方向与渗透
+带crypto小组
+时间安排 </p>
+</section>
+<footer class=entry-footer>
+January 20, 2022&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Yiming Shen
+</footer>
+<a class=entry-link aria-label="post link to 寒假学习计划" href=https://shenyimings.github.io/post/%E5%AF%92%E5%81%87%E5%AD%A6%E4%B9%A0%E8%AE%A1%E5%88%92/></a>
+</article>
+<article class=post-entry>
+<header class=entry-header>
+<h2>
 空想社会主义和科学社会主义的区别
 </h2>
 </header>
@@ -239,6 +260,25 @@ December 15, 2021&nbsp;·&nbsp;3 min&nbsp;·&nbsp;Yiming Shen
 <article class=post-entry>
 <header class=entry-header>
 <h2>
+密码学数学基础-大纲
+</h2>
+</header>
+<section class=entry-content>
+<p>[toc]
+数论 整除 带余除法 最小公倍数与最大公约数 计算()和[] 欧几里得算法 同余 模逆 模逆的计算（扩展欧几里得算法） 同余的各种性质与运算（加乘指数） Wilson定理 $$设p为素数，则(p-1)!\equiv -1(mod\quad p)$$
+同余类、既约同余类 剩余系、完全剩余系、既约剩余系 欧拉函数 欧拉定理 费马小定理 费马素性检测算法 米勒罗宾素性检测算法 同余方程 同余方程是否有解判定与解的个数计算 二元一次不定方程 单一解的一次同余方程的两种解法 快速模指数运算 解一次同余方程组——中国剩余定理 基于中国剩余定理的秘密共享 高次同余 二次剩余 $$ x^2\equiv a(mod\quad p) $$
+有解则称a是模p的二次剩余
+欧拉判别法 $$ a^{\frac{p-1}{2}}\equiv 1(mod\quad p) 是二次剩余\ a^{\frac{p-1}{2}}\equiv -1(mod\quad p) 是二次非剩余\ $$
+勒让德符号与雅可比符号 高斯引理 二次互反律计算勒让德符号 原根 阶及其计算 原根的计算 已知一个原根 求其余阶和原根 离散对数 代数 群 群满足的4条性质 Abel群 半群 含幺半群 有限群 无限群 置换群 对称群 置换群与对称群 ![image-20211213031151858](密码学数学基础 大纲.assets/image-20211213031151858.png)...</p>
+</section>
+<footer class=entry-footer>
+December 12, 2021&nbsp;·&nbsp;2 min&nbsp;·&nbsp;Yiming Shen
+</footer>
+<a class=entry-link aria-label="post link to 密码学数学基础-大纲" href=https://shenyimings.github.io/post/cryptologymath/%E5%AF%86%E7%A0%81%E5%AD%A6%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%A4%A7%E7%BA%B2/></a>
+</article>
+<article class=post-entry>
+<header class=entry-header>
+<h2>
 Public Key Cryptology
 </h2>
 </header>
@@ -249,6 +289,40 @@ Public Key Cryptology
 November 9, 2021&nbsp;·&nbsp;3 min&nbsp;·&nbsp;Yiming Shen
 </footer>
 <a class=entry-link aria-label="post link to Public Key Cryptology" href=https://shenyimings.github.io/post/public-key-cryptography/></a>
+</article>
+<article class=post-entry>
+<header class=entry-header>
+<h2>
+5 群
+</h2>
+</header>
+<section class=entry-content>
+<p>半群 只满足封闭性和结合律
+含幺半群 满足封闭性、结合律和单位元
+含幺半群G中的单位元e是唯一的 含幺半群G中任意可逆元a，其逆元是唯一的（可以没有逆元） Abel群（交换群） 满足封闭性、结合律、单位元、逆元的同时，还满足交换律
+有限群 无限群 元素个数
+子群 设H为群G的一个非空子集，若H对G的运算".“也构成群，则称H为群G的子群，记作H&lt;=G
+$$ 在通常意义的加法运算下\\ Z\le Q $$
+子群判定定理 知1求2
+1证2 2证3 3证1
+商群 定义6.3.1 陪集 陪集是一个集合
+例6.3.1 模8加法群
+定理6.3.1 陪集的性质 证明 陪集构成了群元素的一个类，互不相交，互不包含
+定义6.3.2 H在G中的指数 子群H在群G中不同陪集的个数，称为H在G中的指数，记为[G:H]
+定理6.3.2 拉格朗日定理 设H是有限群G的子群，则|G|=|H|·|G:H|
+G中元素个数=子群H中元素个数*H在G中的不同陪集个数
+定义6.3.3 正规子群 $$ 设G为群，H\le G,若对G中任一元素a均有aH=Ha，则称H为G的正规子群\\ 即为H\lhd G $$
+当G为Abel群时，它的任意子群均为它的正规子群。
+子群{e}/群G本身为它的两个平凡正规子群。
+定理6.3.3 正规子群判定定理 $$ aHa^{-1}
+$$
+定义6.3.4 商群 $$ 上述定理中G/H关于子集的乘法构成的群 $$
+例题6.3.5 $$ 模8加法群(Z_8,+)，H={0,2,4,6}为子群。 $$...</p>
+</section>
+<footer class=entry-footer>
+November 8, 2021&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Yiming Shen
+</footer>
+<a class=entry-link aria-label="post link to 5 群" href=https://shenyimings.github.io/post/cryptologymath/6.1_%E7%BE%A4/></a>
 </article>
 <article class=post-entry>
 <header class=entry-header>
@@ -355,60 +429,6 @@ base64绕过 base64编码中只包含64个可打印字符，而PHP在解码base6
 October 20, 2021&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Yiming Shen
 </footer>
 <a class=entry-link aria-label="post link to RCE 远程命令执行漏洞" href=https://shenyimings.github.io/post/13.rce%E4%B8%93%E6%A0%8F/></a>
-</article>
-<article class=post-entry>
-<header class=entry-header>
-<h2>
-离散数学CH05-一阶逻辑等值演算与推理
-</h2>
-</header>
-<section class=entry-content>
-<p>一阶逻辑等值式与置换规则 定义5.1 $$ 设A,B是一阶逻辑中任意两个公式，若A\leftrightarrow B 是永真式，则称A与B等值 \\ 记作A\Leftrightarrow B $$
-基本等值式 第1组 第二章P21页，16组重言式
-双重否定律、幂等律、交换律、结合律等
-第2组 量词否定等值式 $$ \neg \forall xA(x)\Leftrightarrow \exist x \neg A(x) $$
-量词辖域收缩与扩张等值式
-设公式A(x)含自由出现的个体变项x，B不含x的自由出现，则 $$ \forall x (A(x)\vee B)\Leftrightarrow \forall xA(x)\vee B \\ \forall x (A(x)\rightarrow B)\Leftrightarrow \exist xA(x)\rightarrow B \\ \exist x(A(x)\rightarrow B)\Leftrightarrow \forall x A(x)\rightarrow B \\ $$
-量词分配等值式 $$ \forall x(A(x)\wedge B(x))\Leftrightarrow \forall xA(x)\wedge \forall xB(x) $$
-进行等值演算，除以上基本等值式外，还有以下2条规则...</p>
-</section>
-<footer class=entry-footer>
-October 12, 2021&nbsp;·&nbsp;2 min&nbsp;·&nbsp;Yiming Shen
-</footer>
-<a class=entry-link aria-label="post link to 离散数学CH05-一阶逻辑等值演算与推理" href=https://shenyimings.github.io/post/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6-%E6%95%B0%E7%90%86%E9%80%BB%E8%BE%91/%E7%AC%AC5%E7%AB%A0/ch05/></a>
-</article>
-<article class=post-entry>
-<header class=entry-header>
-<h2>
-离散数学CH04-一阶逻辑基本概念
-</h2>
-</header>
-<section class=entry-content>
-<p>一阶逻辑命题符号化 一阶逻辑公式及其解释 定义4.5 $$ 在公式\forall x A 和\exist x A 中，称x为指导变元，A为量词的辖域\\ 在\forall x \exist x的辖域中，x的所有出现都称作约束出现，A中不是\\ 约束出现的其他变项均被称作自由出现 $$
-定义4.6 $$ 设A是任意的公式，若A中不含自由出现的个体变项，则称A为封闭的公式，简称闭式 $$</p>
-</section>
-<footer class=entry-footer>
-October 8, 2021&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Yiming Shen
-</footer>
-<a class=entry-link aria-label="post link to 离散数学CH04-一阶逻辑基本概念" href=https://shenyimings.github.io/post/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6-%E6%95%B0%E7%90%86%E9%80%BB%E8%BE%91/%E7%AC%AC4%E7%AB%A0/ch04/></a>
-</article>
-<article class=post-entry>
-<header class=entry-header>
-<h2>
-离散数学CH03-命题逻辑的推理理论
-</h2>
-</header>
-<section class=entry-content>
-<p>前言 所谓推理是指从前提出发推出结论的思维过程，而前提是已知的命题公式集合，结论是从前提出发应用推理规则推出的命题公式。
-定理3.1 命题公式$A_1,A_2,\cdots,A_k$推出B的推理正确当且仅当 $$ A_1\wedge A_2,\wedge \cdots,\wedge A_k \to B $$ 为重言式。
-今后把推理的形式结构写成: $$ 前提：A_1,A_2,\cdots,A_k\\ 结论：B $$ 并根据判断定理3.1的蕴含式是否是重言式来确定推理是否正确。根据前2章的讨论，判断是否为重言式有下面3种方法：
-真值表法 等值演算法 主析取范式法 常用重言蕴含式（推理定律） $$ (A\to B)\wedge A \Rightarrow B \qquad 假言推理\\ (A\to B)\wedge \neg B\Rightarrow \neg A\qquad 拒取式\\ (A\vee B)\wedge \neg B \Rightarrow A \qquad 析取三段论\\ (A\to B)\wedge (B\to C)\Rightarrow (A\to C) \qquad 假言三段论\\ $$
-推理证明格式 例3.3 在自然推理系统P中构造下面推理的证明。 前提：$$P\vee q,q\to r,p\to s,\neg s$$...</p>
-</section>
-<footer class=entry-footer>
-October 7, 2021&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Yiming Shen
-</footer>
-<a class=entry-link aria-label="post link to 离散数学CH03-命题逻辑的推理理论" href=https://shenyimings.github.io/post/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6-%E6%95%B0%E7%90%86%E9%80%BB%E8%BE%91/%E7%AC%AC3%E7%AB%A0/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6-ch03/></a>
 </article>
 <footer class=page-footer>
 <nav class=pagination>

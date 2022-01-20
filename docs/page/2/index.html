@@ -85,6 +85,104 @@
 <article class=post-entry>
 <header class=entry-header>
 <h2>
+离散数学CH05-一阶逻辑等值演算与推理
+</h2>
+</header>
+<section class=entry-content>
+<p>一阶逻辑等值式与置换规则 定义5.1 $$ 设A,B是一阶逻辑中任意两个公式，若A\leftrightarrow B 是永真式，则称A与B等值 \\ 记作A\Leftrightarrow B $$
+基本等值式 第1组 第二章P21页，16组重言式
+双重否定律、幂等律、交换律、结合律等
+第2组 量词否定等值式 $$ \neg \forall xA(x)\Leftrightarrow \exist x \neg A(x) $$
+量词辖域收缩与扩张等值式
+设公式A(x)含自由出现的个体变项x，B不含x的自由出现，则 $$ \forall x (A(x)\vee B)\Leftrightarrow \forall xA(x)\vee B \\ \forall x (A(x)\rightarrow B)\Leftrightarrow \exist xA(x)\rightarrow B \\ \exist x(A(x)\rightarrow B)\Leftrightarrow \forall x A(x)\rightarrow B \\ $$
+量词分配等值式 $$ \forall x(A(x)\wedge B(x))\Leftrightarrow \forall xA(x)\wedge \forall xB(x) $$
+进行等值演算，除以上基本等值式外，还有以下2条规则...</p>
+</section>
+<footer class=entry-footer>
+October 12, 2021&nbsp;·&nbsp;2 min&nbsp;·&nbsp;Yiming Shen
+</footer>
+<a class=entry-link aria-label="post link to 离散数学CH05-一阶逻辑等值演算与推理" href=https://shenyimings.github.io/post/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6-%E6%95%B0%E7%90%86%E9%80%BB%E8%BE%91/%E7%AC%AC5%E7%AB%A0/ch05/></a>
+</article>
+<article class=post-entry>
+<header class=entry-header>
+<h2>
+离散数学CH04-一阶逻辑基本概念
+</h2>
+</header>
+<section class=entry-content>
+<p>一阶逻辑命题符号化 一阶逻辑公式及其解释 定义4.5 $$ 在公式\forall x A 和\exist x A 中，称x为指导变元，A为量词的辖域\\ 在\forall x \exist x的辖域中，x的所有出现都称作约束出现，A中不是\\ 约束出现的其他变项均被称作自由出现 $$
+定义4.6 $$ 设A是任意的公式，若A中不含自由出现的个体变项，则称A为封闭的公式，简称闭式 $$</p>
+</section>
+<footer class=entry-footer>
+October 8, 2021&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Yiming Shen
+</footer>
+<a class=entry-link aria-label="post link to 离散数学CH04-一阶逻辑基本概念" href=https://shenyimings.github.io/post/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6-%E6%95%B0%E7%90%86%E9%80%BB%E8%BE%91/%E7%AC%AC4%E7%AB%A0/ch04/></a>
+</article>
+<article class=post-entry>
+<header class=entry-header>
+<h2>
+离散数学CH03-命题逻辑的推理理论
+</h2>
+</header>
+<section class=entry-content>
+<p>前言 所谓推理是指从前提出发推出结论的思维过程，而前提是已知的命题公式集合，结论是从前提出发应用推理规则推出的命题公式。
+定理3.1 命题公式$A_1,A_2,\cdots,A_k$推出B的推理正确当且仅当 $$ A_1\wedge A_2,\wedge \cdots,\wedge A_k \to B $$ 为重言式。
+今后把推理的形式结构写成: $$ 前提：A_1,A_2,\cdots,A_k\\ 结论：B $$ 并根据判断定理3.1的蕴含式是否是重言式来确定推理是否正确。根据前2章的讨论，判断是否为重言式有下面3种方法：
+真值表法 等值演算法 主析取范式法 常用重言蕴含式（推理定律） $$ (A\to B)\wedge A \Rightarrow B \qquad 假言推理\\ (A\to B)\wedge \neg B\Rightarrow \neg A\qquad 拒取式\\ (A\vee B)\wedge \neg B \Rightarrow A \qquad 析取三段论\\ (A\to B)\wedge (B\to C)\Rightarrow (A\to C) \qquad 假言三段论\\ $$
+推理证明格式 例3.3 在自然推理系统P中构造下面推理的证明。 前提：$$P\vee q,q\to r,p\to s,\neg s$$...</p>
+</section>
+<footer class=entry-footer>
+October 7, 2021&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Yiming Shen
+</footer>
+<a class=entry-link aria-label="post link to 离散数学CH03-命题逻辑的推理理论" href=https://shenyimings.github.io/post/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6-%E6%95%B0%E7%90%86%E9%80%BB%E8%BE%91/%E7%AC%AC3%E7%AB%A0/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6-ch03/></a>
+</article>
+<article class=post-entry>
+<header class=entry-header>
+<h2>
+2.5 素性检测算法
+</h2>
+</header>
+<section class=entry-content>
+<p>费马小定理 根据费马小定理，p为素数，对任意整数b就有 $$ b^{p-1}\equiv 1(mod\quad p) $$ 问题： $$ 如果有一个整数b,(b,m)=1,使得\\ b^{m-1}\neq 1(mod\quad m)\\ 则m是一个合数，\\ 但反之不一定。 $$
+定义2.5.1 $$ 设m是一个奇合数，如果整数b,(b,m)=1,使得同余式\\ b^{m-1}\equiv 1(mod\quad m)\\ 成立，则m称为对于基b的伪素数。 $$
+费马概率素性检验算法 $$ 给定奇整数m\ge 3和安全参数k\\
+随机选取整数b,2\le b\le m -2\\ 计算g=(b,m),如果g\ne 1，则m为合数\\ 计算r\equiv b^{m-1}(mod\quad m)，如果r\ne 1,则m为合数\\ 如果不是上述两种，则m可能为素数\\ 上述过程重复k次，如果每次都是m可能为素数，则m为素数的概率为1-\frac{1}{2^k}\\ $$ MILLER-RABIN素性检测算法 $$ 设m是奇素数，并且有m-1=2^st，则有以下因数分解式：\\ b^{m-1}-1=(b^{2^{s-1}t}+1)(b^{2^{s-2}t}+1)\cdots (b^t+1)(b^t-1)\\ b^{m-1}\equiv 1(mod\quad m) $$
+定义2.5.2 $$ 设m是一个奇合数，且有表示式m-1=2^st，其中t为奇数\\ 设整数b和m互素，如果整数m和b满足条件\\ b^t\equiv 1(mod\quad m)\\ 或者存在一个整数r,0\le r\lt s使得\\ b^{2^rt}\equiv -1(mod\quad m)\\ 则m称为对于基b的强伪素数 $$
+例 $$ m=2047=23\cdot 89 \\ m-1=2046=2^1\cdot 1023\\ 设b=2\\ 2^t=2^1023=(2^11)^93 = 2048^93\equiv 1(mod\quad 2047) $$...</p>
+</section>
+<footer class=entry-footer>
+September 26, 2021&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Yiming Shen
+</footer>
+<a class=entry-link aria-label="post link to 2.5 素性检测算法" href=https://shenyimings.github.io/post/cryptologymath/2.5_%E7%B4%A0%E6%80%A7%E6%A3%80%E6%B5%8B%E7%AE%97%E6%B3%95/></a>
+</article>
+<article class=post-entry>
+<header class=entry-header>
+<h2>
+2.2 同余类与既约同余类
+</h2>
+</header>
+<section class=entry-content>
+<p>同余类与既约同余类 [TOC]
+例题2.2.1 设 $$m=6,\forall a\in Z,a=6q+r,其中q,r\in Z ,r=0,1,2,3,4,5$$
+可分为6类，例如r=0时，所有a为模6同余于0 $$ a_1\equiv a_2 \equiv \cdots a_n \equiv 0 (mod\quad 6)\\ -18,-12,-6,0,6\cdots代表元为0, 表示为[0] $$ [0],[1],[2],[3],[4],[5]称为模6的同余类
+具有如下性质：
+6个集合彼此不相交 并集为Z 定义2.2.1 同余类 $$ m\in N^+,\forall i \in Z, 记[i]={x:x\in Z,x\equiv i (mod\quad m)} $$
+则每个集合[i]称为模m的一个同余类
+若(i,m)=1,则同余类[i]称作模m的既约同余类
+m=6的既约同余类有[1],[5] 2个，即$\phi(6)=2$（欧拉函数）
+定理2.2.1 同余类 $$ 设m\in N^+,[a],[b]模m的同余类，则有\\ [a]=[b]\Leftrightarrow a\equiv b(mod\quad m) $$
+定义2.2.2 欧拉函数 $$ m\in Z^+,小于m且与m互素的整数的个数表示成\phi(m)，称为m的欧拉函数 $$
+定义2.2.3 剩余系 $$ m个整数a_1,a_2,\cdots,a_m称作模m的完全剩余系，是指a_1,a_2,\cdots,a_m彼此模m不同余。 $$
+完系由m个整数组成，这m个整数彼此模m不同余。 $$ \phi(m)个整数b_1,b_2,\cdots,b_{\phi(m)}称作模m的既约剩余系，是指其彼此模m不同余且均与m互素 $$ 既约剩余系又称缩系。...</p>
+</section>
+<footer class=entry-footer>
+September 22, 2021&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Yiming Shen
+</footer>
+<a class=entry-link aria-label="post link to 2.2 同余类与既约同余类" href=https://shenyimings.github.io/post/cryptologymath/2.2_%E5%90%8C%E4%BD%99%E7%B1%BB%E4%B8%8E%E6%97%A2%E7%BA%A6%E5%90%8C%E4%BD%99%E7%B1%BB/></a>
+</article>
+<article class=post-entry>
+<header class=entry-header>
+<h2>
 离散数学CH02-命题逻辑等值演算
 </h2>
 </header>
@@ -125,6 +223,46 @@ September 19, 2021&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Yiming Shen
 September 18, 2021&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Yiming Shen
 </footer>
 <a class=entry-link aria-label="post link to 离散数学CH01-命题逻辑的基本概念" href=https://shenyimings.github.io/post/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6-%E6%95%B0%E7%90%86%E9%80%BB%E8%BE%91/%E7%AC%AC1%E7%AB%A0/ch01/></a>
+</article>
+<article class=post-entry>
+<header class=entry-header>
+<h2>
+第一章 例题
+</h2>
+</header>
+<section class=entry-content>
+<p>1. 对任意整数a,b,c，证明：[(a,b),(a,c)]=(a,[b,c]) 证明： $$ 设a=p_1^{a_1}p_2^{a_2}\cdots p_s^{a_s},b=\cdots,c=\cdots则 \\ (标准素因数分解) \\ [(a,b),(a,c)]=\Sigma_{i=1}^sp_i^{max(min(a_i,b_i),min(a_i,c_i))} \\ (a,[b,c])=\Sigma_{i=1}^sp_i^{min(a_i,max(b_i,c_i))} $$
+2. 设m,n为正整数，m是奇数，求证：$2^m-1和2^n+1$互素 证明： $$ 假设(2^m-1,2^n+1)=d,d\ge2,于是\exist x,y\in Z使得\\ 2^m=dx +1\\ 2^n=dy -1\\ \exist\mu\in Z \quad2^{mn}=(2^m)^n=d\mu+1\\ 注意到，m为奇数，故\\ \exist v\in Z \quad 2^{mn}=(2^n)^m=dv-1\\ 所以有d(v-\mu)=2，从而必有d=2,矛盾。 $$
+3. 利用最大公因数的表达式证明：若$(a,m)=(b,m)=1$，则有$(ab,m)=1$。 证明：
+由$(a,m)=(b,m)=1$可知，$\exist x,y,u,v\in Z$，使得 $$ ax+my=1,bu+mv=1\\ (ax)(bu)=(1-my)(1-mv)\\ 1-my-mv+m\cdot myv\\ ab(xu)+m(y+v-myv)=1\\ 由xu,y+v-myv\in Z可知，(ab,m)=1 $$
+4. 利用最大公因数的表达式证明：若(m,a)=1,$m\mid ab$则有$m\mid b$ 证明：
+由$(m,a)=1$知 $$ mx+ay=1\\ 两边同乘b\\ mbx+aby=b\\ 因为m\mid ab,m\mid m 所以等式左边能被m整除\\ 故右边-b能被m整除\\ 所以m\mid b $$
+5. 求方程243x+198y=909的一组整数解 利用欧几里德算法，as+bt=(a,b)...</p>
+</section>
+<footer class=entry-footer>
+September 16, 2021&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Yiming Shen
+</footer>
+<a class=entry-link aria-label="post link to 第一章 例题" href=https://shenyimings.github.io/post/cryptologymath/1.6_%E7%AC%AC%E4%B8%80%E7%AB%A0%E4%BE%8B%E9%A2%98/></a>
+</article>
+<article class=post-entry>
+<header class=entry-header>
+<h2>
+欧几里德算法
+</h2>
+</header>
+<section class=entry-content>
+<p>定理1.4.1 设$a_0,a_1\in Z,a_1\ne0$，按下述方式反复作带余除法，有限步后必可以除尽 $$ a_0=a_1q_0+a_2 \\\\ a_1=a_2q_1+a_3 \\\\ \vdots \\\\ a_{n-2}=a_{n-1}q_{n-2}+a_n a_{n-1}=a_{n}q_{n-1}+a_{n+1} \\\\ a_{n+1}=0\\ 则有(a_0,a_1)=a_n $$ 证明1：有限步除尽
+证明2：最小公因数为$a_n$(最后不为0的余数)
+欧几里德算法——辗转相除法——更相减损术（九章算术）
+例题1.4.1 设a=963, b=657
+(1)求最大公因数（a,b） $$ 963 = 1\times657+306 \\ 657=2\times306+45 \\ 306=6\times45+36\\ 45=1\times36+9\\ 36=4\times9 $$ (963,657) = 9
+(2)求整数as + bt = (a,b) $$ 963 = 1\times657+306 &\rightarrow 7\times657-15\times(963-657)=22\times657-15\times963 \\ 657=2\times306+45&\rightarrow 7\times(657-2\times306)-306=7\times657-15\times306 \\ 306=6\times45+36\\ 45=1\times36+9&\\ 36=4\times9 $$
+例题1.4.2 设a=-1859和b=1573,求最大公因数（a，b）和整数s，t，使as+bt=(a,b) $$ 1859=1\times1573+286\searrow&(-1859)\times5+1573\times6\\ 1573=5\times286+143\searrow&1573-5\times(1859-1\times1573)\\ 286=2\times143&143=1573-5\times286\\ $$</p>
+</section>
+<footer class=entry-footer>
+September 12, 2021&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Yiming Shen
+</footer>
+<a class=entry-link aria-label="post link to 欧几里德算法" href=https://shenyimings.github.io/post/cryptologymath/1.4_%E6%AC%A7%E5%87%A0%E9%87%8C%E5%BE%B7%E7%AE%97%E6%B3%95/></a>
 </article>
 <article class=post-entry>
 <header class=entry-header>
@@ -286,29 +424,10 @@ July 20, 2021&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Yiming Shen
 </footer>
 <a class=entry-link aria-label="post link to Ubuntu 18.04 LTS的配置与入门" href=https://shenyimings.github.io/post/2.ubuntu%E9%85%8D%E7%BD%AE%E5%8F%8A%E5%91%BD%E4%BB%A4%E5%85%A5%E9%97%A8/></a>
 </article>
-<article class=post-entry>
-<header class=entry-header>
-<h2>
-学习Markdown语法
-</h2>
-</header>
-<section class=entry-content>
-<p>2021年7月18日 了解Markdown Markdown是一种轻量级标记语言，属于HTML格式的一种，易读易写易更改，处处透着极简主义的影子。在GitHub等网站上使用极广，更可以跨平台使用。
-Windows桌面端软件选择 Web网页版有简书等知名博客网站可作记录，千挑万选后我选择了Typora。优点如下：
-有中文版。这一点可能不足为道，因为菜单的语言并不影响我们的使用，然而，不支持中文意味着软件对中文输入法的适配甚至中文文本的显示都极为差劲，这一点是我由MarkdownPad的使用中发现的。 Typora支持即时渲染技术，非常方便新人学习熟练。 Typora可以将md文件导出为pdf格式作发布用，对于笔记爱好者来说成就感满满。 Markdown语法 区块引用
-代码引用：
-printf("使用反引号包裹代码")
-int main() { int a; scanf("%d",&a); printf("%d",a++); return 0; } emoji: :smile:
-公式： $$ lim_{x \to\infty} \exp(-x) = 0 $$ 插入图片：</p>
-</section>
-<footer class=entry-footer>
-July 19, 2021&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Yiming Shen
-</footer>
-<a class=entry-link aria-label="post link to 学习Markdown语法" href=https://shenyimings.github.io/post/1.markdown%E7%AC%94%E8%AE%B0%E5%AD%A6%E4%B9%A0/></a>
-</article>
 <footer class=page-footer>
 <nav class=pagination>
 <a class=prev href=https://shenyimings.github.io/>« Prev Page</a>
+<a class=next href=https://shenyimings.github.io/page/3/>Next Page »</a>
 </nav>
 </footer>
 </main><footer class=footer>

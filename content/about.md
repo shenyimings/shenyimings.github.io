@@ -37,3 +37,15 @@ A photography lover, a CTF learner, a geek  spirit follower.
 
 加入站标和头像
 
+#### 27 Dec 2021
+
+搬运部分过往CTF笔记至博客中
+
+#### 5 Jan 2022
+
+搬运部分离散数学笔记至博客中并设置了二级目录
+
+#### 20 Jan 2022
+
+搬运密码学数学基础笔记至博客中
+
