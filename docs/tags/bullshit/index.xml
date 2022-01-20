@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Bullshit on Hi, Yiming</title>
+    <title>Bullshit on Console.makeHappy(_1ming)</title>
     <link>https://shenyimings.github.io/tags/bullshit/</link>
-    <description>Recent content in Bullshit on Hi, Yiming</description>
+    <description>Recent content in Bullshit on Console.makeHappy(_1ming)</description>
+    <image>
+      <url>https://shenyimings.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://shenyimings.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
     <generator>Hugo -- gohugo.io</generator>
-    <language>zh</language>
     <lastBuildDate>Thu, 23 Dec 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://shenyimings.github.io/tags/bullshit/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>坏事成吨</title>
@@ -13,7 +16,10 @@
       <pubDate>Thu, 23 Dec 2021 00:00:00 +0000</pubDate>
       
       <guid>https://shenyimings.github.io/post/%E5%9D%8F%E4%BA%8B%E6%88%90%E5%90%A8/</guid>
-      <description>早上早八时圆通给我发了取件码，下了课9:30我就先把车找了个充电桩充上电，去拿快递，到了跟我说没到点，十点才能拿。。那你取件码发的倒他妈很勤</description>
+      <description>早上早八时圆通给我发了取件码，下了课9:30我就先把车找了个充电桩充上电，去拿快递，到了跟我说没到点，十点才能拿。。那你取件码发的倒他妈很勤啊，十点能拿你九点发什么取件码。刚走没两步收到消息说之前干的采集考研考生信息的工资到账了，我一查，果然没有，又屁颠屁颠跑去行政楼要钱，走到一半，转头一想，运气这么差，不会丫的充电头也让人拔了吧……一低头，我去
+去你妈的，真几把会拔，五个都是绿灯就我一个红灯你拔我的？敢情这是碰上红绿色盲了？
+咱也不是啥有素质的人，转头就走回去给他拔了，呵呵，正好是第三节上课的点，白停一上午，叫你丫眼瞎。
+好事是不是成双来我不清楚，坏事确实会抱团来搞你。</description>
     </item>
     
     <item>
@@ -22,7 +28,14 @@
       <pubDate>Mon, 20 Dec 2021 00:00:00 +0000</pubDate>
       
       <guid>https://shenyimings.github.io/post/%E6%9C%89%E5%85%B3%E7%BB%86%E8%8A%82/</guid>
-      <description>昨天晚上罕见的早睡，在床上困意十足地同生物钟作斗争时，不幸的想起了纠结的一些事情：要不要给台式机换个机箱？继续换itx A4机箱，还是换一个开</description>
+      <description>昨天晚上罕见的早睡，在床上困意十足地同生物钟作斗争时，不幸的想起了纠结的一些事情：要不要给台式机换个机箱？继续换itx A4机箱，还是换一个开放式机箱？再换itx有必要吗？换开放式机箱能装好/带走吗？……诸如此类。
+我现在的台式机有点问题，若受到颠簸后会电平不稳，开机不亮屏，反复自启至无法开机，放置至少一天半天后才可恢复，这种问题如此奇葩以至于网上甚至少有相关问题。或许是它不适应海南潮湿的天气，或许是全铝合金的机箱接地漏电，当然，更或许是我当初装机时少拧了一个位置妖娆的电源螺丝……即使后来痛苦地补上了，但是损害已经造成，长期的漏电导致我本就不靠谱的RX580 2048sp显卡和450w sfx电源产生了或多或少的损害，现在的电脑之于我已经是一尊大爷，每次只能请他帮我一点微不足道的小忙。
+睡前也是一段贤者时间，我再一次开始反省自己的过往。2020年暑假，我帮一位同学组装他的新电脑时（我只是在旁边起一个Readme.md的作用）主板某处螺丝孔位不对，我和他起了一点争执，我以我多年装机经验认为把有洞的螺丝拧上起个固定作用即可，没有必要全部拧上，他则认为应当精益求精，注重细节，坚持把主板拆下来重新布局铜柱。当然，他是对的，我多年的、不注重细节的装机经验，只是现在在我入睡前折磨着我。
+不仅仅如此。
+20年也是我高考的日子，一直让我耿耿于怀的30分，让我从末流985到末流211的30分。我现在可以以过来人的身份说高考不那么重要，未来还他妈有很多很多的机会……是啊，可是这个机会失去了，那个疫情在家期间每天拼命学习，模拟考真的弯道超车的我的努力付诸东流了，这和我磕磕绊绊的电脑一样，也是因为没有细节。
+一年过去了，当我的女朋友告诉我她是因为我对细节的注重才注意到我时，我却觉得是莫大的讽刺。那也许只是我对细枝末节强迫症般的追求和蹩脚的脑细胞进程调度产生的错觉，我并没有真正做到注重细节，骨子里还是一个粗心大意丢三落四的人。
+这篇文章似乎并不该被我传到博客里，写完才发现这些其实应该是我日记里写的东西……
+是啊，我还有个日记本，插在我的书架里。</description>
     </item>
     
   </channel>

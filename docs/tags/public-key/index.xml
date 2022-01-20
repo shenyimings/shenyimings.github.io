@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Public Key on Hi, Yiming</title>
+    <title>Public Key on Console.makeHappy(_1ming)</title>
     <link>https://shenyimings.github.io/tags/public-key/</link>
-    <description>Recent content in Public Key on Hi, Yiming</description>
+    <description>Recent content in Public Key on Console.makeHappy(_1ming)</description>
+    <image>
+      <url>https://shenyimings.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://shenyimings.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
     <generator>Hugo -- gohugo.io</generator>
-    <language>zh</language>
     <lastBuildDate>Tue, 09 Nov 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://shenyimings.github.io/tags/public-key/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Public Key Cryptology</title>
