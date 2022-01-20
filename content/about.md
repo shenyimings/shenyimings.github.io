@@ -17,3 +17,11 @@ A crappy photographer, a terrible CTFer, a lazy geek.
 
 A photography lover, a CTF learner, a geek  spirit follower.
 
+
+
+### About My Blog
+
+> 正经人谁写日记啊。
+
+2021.12.14 - 2021.12.20
+
