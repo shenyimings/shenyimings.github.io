@@ -2,20 +2,20 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>English on Console.makeHappy(_1ming)</title>
-    <link>https://shenyimings.github.io/categories/english/</link>
+    <link>https://shenyiming.life/categories/english/</link>
     <description>Recent content in English on Console.makeHappy(_1ming)</description>
     <image>
-      <url>https://shenyimings.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
-      <link>https://shenyimings.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+      <url>https://shenyiming.life/android-chrome-512x512.png</url>
+      <link>https://shenyiming.life/android-chrome-512x512.png</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Tue, 09 Nov 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://shenyimings.github.io/categories/english/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 09 Nov 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://shenyiming.life/categories/english/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Public Key Cryptology</title>
-      <link>https://shenyimings.github.io/post/public-key-cryptography/</link>
+      <link>https://shenyiming.life/post/public-key-cryptography/</link>
       <pubDate>Tue, 09 Nov 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://shenyimings.github.io/post/public-key-cryptography/</guid>
+      <guid>https://shenyiming.life/post/public-key-cryptography/</guid>
       <description>CONTEXT ​	The first general purpose computers were built in the 1940s. They were large, filling big rooms, using hundreds of valves and consuming many kilowatts of electricity. Although they were considered amazing for the ability to execute thousands of instructions per second at that time, all these huge machines were rapidly became history and might have been lost in the mists of time. With the increasing speed of computing, networks of computers were established allowing people to have access to communicate with others in distant places.</description>
     </item>
     

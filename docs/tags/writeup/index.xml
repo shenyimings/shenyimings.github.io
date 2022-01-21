@@ -2,20 +2,20 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>WriteUP on Console.makeHappy(_1ming)</title>
-    <link>https://shenyimings.github.io/tags/writeup/</link>
+    <link>https://shenyiming.life/tags/writeup/</link>
     <description>Recent content in WriteUP on Console.makeHappy(_1ming)</description>
     <image>
-      <url>https://shenyimings.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
-      <link>https://shenyimings.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+      <url>https://shenyiming.life/android-chrome-512x512.png</url>
+      <link>https://shenyiming.life/android-chrome-512x512.png</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sun, 24 Oct 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://shenyimings.github.io/tags/writeup/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 24 Oct 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://shenyiming.life/tags/writeup/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Bugku-SQL注入-WriteUP</title>
-      <link>https://shenyimings.github.io/post/15.bugku-sql%E6%B3%A8%E5%85%A5/</link>
+      <link>https://shenyiming.life/post/15.bugku-sql%E6%B3%A8%E5%85%A5/</link>
       <pubDate>Sun, 24 Oct 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://shenyimings.github.io/post/15.bugku-sql%E6%B3%A8%E5%85%A5/</guid>
+      <guid>https://shenyiming.life/post/15.bugku-sql%E6%B3%A8%E5%85%A5/</guid>
       <description>题目网址：sql注入
 一个很正经的界面，有实战那味了。
 上来先尝试经典组合：
@@ -45,10 +45,10 @@ bugkuctf
     
     <item>
       <title>CNSS Recruit-Web Write UP</title>
-      <link>https://shenyimings.github.io/post/14.cnss-recruit-web-write-up/</link>
+      <link>https://shenyiming.life/post/14.cnss-recruit-web-write-up/</link>
       <pubDate>Thu, 21 Oct 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://shenyimings.github.io/post/14.cnss-recruit-web-write-up/</guid>
+      <guid>https://shenyiming.life/post/14.cnss-recruit-web-write-up/</guid>
       <description>前言 躺在床上，不想动鼠标，那就先写写前言吧。
 这个CTF比赛是我打的第二场比较正规、完整的比赛。
 惨不忍睹，当然，作为刚入门的noob来说也可以接受。
@@ -68,10 +68,10 @@ import requests import re # 正则表达式库 import string from requests.sessi
     
     <item>
       <title>MoeCTF 2021 西电新生赛WP</title>
-      <link>https://shenyimings.github.io/post/12.moectf-web-write-up/</link>
+      <link>https://shenyiming.life/post/12.moectf-web-write-up/</link>
       <pubDate>Thu, 19 Aug 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://shenyimings.github.io/post/12.moectf-web-write-up/</guid>
+      <guid>https://shenyiming.life/post/12.moectf-web-write-up/</guid>
       <description>前言-2021/8/10 今天学长在群里发了西电的新生CTF比赛，题目较为基础，适合我们初学者。
 想来还是感慨颇多的，西电不愧是网安的头部院校，信安的新生还没入学就开始打CTF比赛了，我大二了才刚刚踏入大门而已。
 1. Web安全入门指北-GET &amp;lt;?php include &amp;#34;flag.php&amp;#34;; $moe = $_GET[&amp;#39;moe&amp;#39;]; if ($moe == &amp;#34;flag&amp;#34;) { echo $flag; }else { highlight_file(__FILE__); } 签到题。已给出源代码，根据题目提示，可以看出是一个简单的get命令题。

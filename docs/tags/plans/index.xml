@@ -2,20 +2,20 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Plans on Console.makeHappy(_1ming)</title>
-    <link>https://shenyimings.github.io/tags/plans/</link>
+    <link>https://shenyiming.life/tags/plans/</link>
     <description>Recent content in Plans on Console.makeHappy(_1ming)</description>
     <image>
-      <url>https://shenyimings.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
-      <link>https://shenyimings.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+      <url>https://shenyiming.life/android-chrome-512x512.png</url>
+      <link>https://shenyiming.life/android-chrome-512x512.png</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Wed, 15 Dec 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://shenyimings.github.io/tags/plans/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 15 Dec 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://shenyiming.life/tags/plans/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>2021-2022-1 期末复习计划</title>
-      <link>https://shenyimings.github.io/post/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0%E8%AE%A1%E5%88%92/</link>
+      <link>https://shenyiming.life/post/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0%E8%AE%A1%E5%88%92/</link>
       <pubDate>Wed, 15 Dec 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://shenyimings.github.io/post/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0%E8%AE%A1%E5%88%92/</guid>
+      <guid>https://shenyiming.life/post/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0%E8%AE%A1%E5%88%92/</guid>
       <description>[TOC]
 Readme 感觉用了大量的时间做计划……好吧，既然是持续近1月的“政策”，花一天时间来拟定也无妨，本文处于随时更新状态。
 这学期最难学分最高的课程已经考完，剩余课程比较平均，权重大致相同，没有重点，全是重点。
@@ -27,10 +27,10 @@ Readme 感觉用了大量的时间做计划……好吧，既然是持续近1月
     
     <item>
       <title>暑假CTF学习计划</title>
-      <link>https://shenyimings.github.io/post/4.%E5%81%87%E6%9C%9F%E5%AD%A6%E4%B9%A0%E8%AE%A1%E5%88%92/</link>
+      <link>https://shenyiming.life/post/4.%E5%81%87%E6%9C%9F%E5%AD%A6%E4%B9%A0%E8%AE%A1%E5%88%92/</link>
       <pubDate>Thu, 22 Jul 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://shenyimings.github.io/post/4.%E5%81%87%E6%9C%9F%E5%AD%A6%E4%B9%A0%E8%AE%A1%E5%88%92/</guid>
+      <guid>https://shenyiming.life/post/4.%E5%81%87%E6%9C%9F%E5%AD%A6%E4%B9%A0%E8%AE%A1%E5%88%92/</guid>
       <description>学习内容 根据上一篇笔记选择的比赛方向：Web和Crypto，安排并希望在假期进行以下内容的学习：
   Python编程基础-网络编程，并提升Python的水平取代C++成为自己最熟练的编程语言。
   Linux系统学习（基于Ubuntu 18.04）目标：建站

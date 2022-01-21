@@ -1,4 +1,4 @@
-baseURL: "https://shenyimings.github.io/"
+baseURL: "https://shenyiming.life"
 title: "Console.makeHappy(_1ming)"
 paginate: 15
 theme: PaperMod
@@ -22,7 +22,7 @@ params:
     keywords: [Blog, CTF, Geek]
     author: Me
     # author: ["Me", "You"] # multiple authors
-    images: ["<link or path of image for opengraph, twitter-cards>"]
+    images: ["/android-chrome-512x512.png"]
     DateFormat: "January 2, 2006"
     defaultTheme: auto # dark, light
     disableThemeToggle: false
@@ -41,24 +41,36 @@ params:
     tocopen: true
 
     label:
-        text: "> 相位 "
-        icon: /apple-touch-icon.png
+        text: "相位 "
+        icon: favicon.ico
         iconHeight: 35
 
     # profile-mode
     profileMode:
-        enabled: false # needs to be explicitly set
-        title: ExampleSite
-        subtitle: "This is subtitle"
-        imageUrl: "<img location>"
+        enabled: true # needs to be explicitly set
+        title: Hi, Yiming🚀
+        subtitle: 
+            "Either outstanding or out.   \n
+            
+            **// System.out.println(new File(\"..\\about_1ming.md\"))**
+            "
+        imageUrl: "/android-chrome-512x512.png"
         imageWidth: 120
         imageHeight: 120
-        imageTitle: my image
+        imageTitle: Phase
         buttons:
-            - name: Posts
-              url: posts
-            - name: Tags
+            - name: 文章
+              url: post
+            - name: 标签
               url: tags
+            - name: 笔记
+              url: tags/note
+            - name: 关于
+              url: about
+            - name: 密码学数学基础
+              url: tags/密码学数学基础
+            - name: 离散数学
+              url: tags/离散数学
 
     # home-info mode
     homeInfoParams:
@@ -74,7 +86,9 @@ params:
           url: "https://www.instagram.com/shenyimings/"
         - name: github
           url: "https://github.com/shenyimings/"
-        - name: zhihu
+        - name: QQ
+          url: "QQ.jpg"
+        - name: telegram
           url: "https://www.zhihu.com/people/shen-yi-ming-91"
 
     analytics:

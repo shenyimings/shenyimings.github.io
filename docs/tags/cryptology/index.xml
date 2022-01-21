@@ -2,42 +2,42 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>cryptology on Console.makeHappy(_1ming)</title>
-    <link>https://shenyimings.github.io/tags/cryptology/</link>
+    <link>https://shenyiming.life/tags/cryptology/</link>
     <description>Recent content in cryptology on Console.makeHappy(_1ming)</description>
     <image>
-      <url>https://shenyimings.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
-      <link>https://shenyimings.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+      <url>https://shenyiming.life/android-chrome-512x512.png</url>
+      <link>https://shenyiming.life/android-chrome-512x512.png</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sun, 12 Dec 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://shenyimings.github.io/tags/cryptology/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 12 Dec 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://shenyiming.life/tags/cryptology/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>密码学数学基础-大纲</title>
-      <link>https://shenyimings.github.io/post/cryptologymath/%E5%AF%86%E7%A0%81%E5%AD%A6%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%A4%A7%E7%BA%B2/</link>
+      <link>https://shenyiming.life/post/cryptologymath/%E5%AF%86%E7%A0%81%E5%AD%A6%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%A4%A7%E7%BA%B2/</link>
       <pubDate>Sun, 12 Dec 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://shenyimings.github.io/post/cryptologymath/%E5%AF%86%E7%A0%81%E5%AD%A6%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%A4%A7%E7%BA%B2/</guid>
+      <guid>https://shenyiming.life/post/cryptologymath/%E5%AF%86%E7%A0%81%E5%AD%A6%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%A4%A7%E7%BA%B2/</guid>
       <description>数论 整除 带余除法 最小公倍数与最大公约数 计算()和[] 欧几里得算法 同余 模逆 模逆的计算（扩展欧几里得算法） 同余的各种性质与运算（加乘指数） Wilson定理 $$设p为素数，则(p-1)!\equiv -1(mod\quad p)$$
 同余类、既约同余类 剩余系、完全剩余系、既约剩余系 欧拉函数 欧拉定理 费马小定理 费马素性检测算法 米勒罗宾素性检测算法 同余方程 同余方程是否有解判定与解的个数计算 二元一次不定方程 单一解的一次同余方程的两种解法 快速模指数运算 解一次同余方程组——中国剩余定理 基于中国剩余定理的秘密共享 高次同余 二次剩余 $$ x^2\equiv a(mod\quad p) $$
 有解则称a是模p的二次剩余
-欧拉判别法 $$ a^{\frac{p-1}{2}}\equiv 1(mod\quad p) 是二次剩余\ a^{\frac{p-1}{2}}\equiv -1(mod\quad p) 是二次非剩余\ $$
+欧拉判别法 $$ a^{\frac{p-1}{2}}\equiv 1(mod\quad p) 是二次剩余\\ a^{\frac{p-1}{2}}\equiv -1(mod\quad p) 是二次非剩余\\ $$
 勒让德符号与雅可比符号 高斯引理 二次互反律计算勒让德符号 原根 阶及其计算 原根的计算 已知一个原根 求其余阶和原根 离散对数 代数 群 群满足的4条性质 Abel群 半群 含幺半群 有限群 无限群 置换群 对称群 置换群与对称群 子群 商群 循环群 子群判定定理 知1求2</description>
     </item>
     
     <item>
       <title>Public Key Cryptology</title>
-      <link>https://shenyimings.github.io/post/public-key-cryptography/</link>
+      <link>https://shenyiming.life/post/public-key-cryptography/</link>
       <pubDate>Tue, 09 Nov 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://shenyimings.github.io/post/public-key-cryptography/</guid>
+      <guid>https://shenyiming.life/post/public-key-cryptography/</guid>
       <description>CONTEXT ​	The first general purpose computers were built in the 1940s. They were large, filling big rooms, using hundreds of valves and consuming many kilowatts of electricity. Although they were considered amazing for the ability to execute thousands of instructions per second at that time, all these huge machines were rapidly became history and might have been lost in the mists of time. With the increasing speed of computing, networks of computers were established allowing people to have access to communicate with others in distant places.</description>
     </item>
     
     <item>
       <title>6 群环域</title>
-      <link>https://shenyimings.github.io/post/cryptologymath/6.1_%E7%BE%A4/</link>
+      <link>https://shenyiming.life/post/cryptologymath/6.1_%E7%BE%A4/</link>
       <pubDate>Mon, 08 Nov 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://shenyimings.github.io/post/cryptologymath/6.1_%E7%BE%A4/</guid>
+      <guid>https://shenyiming.life/post/cryptologymath/6.1_%E7%BE%A4/</guid>
       <description>半群 只满足封闭性和结合律
 含幺半群 满足封闭性、结合律和单位元
   含幺半群G中的单位元e是唯一的 含幺半群G中任意可逆元a，其逆元是唯一的（可以没有逆元）   Abel群（交换群） 满足封闭性、结合律、单位元、逆元的同时，还满足交换律
@@ -63,10 +63,10 @@ $$
     
     <item>
       <title>5 原根</title>
-      <link>https://shenyimings.github.io/post/cryptologymath/5.1_%E5%8E%9F%E6%A0%B9%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5%E4%B8%8E%E6%80%A7%E8%B4%A8/</link>
+      <link>https://shenyiming.life/post/cryptologymath/5.1_%E5%8E%9F%E6%A0%B9%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5%E4%B8%8E%E6%80%A7%E8%B4%A8/</link>
       <pubDate>Sun, 24 Oct 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://shenyimings.github.io/post/cryptologymath/5.1_%E5%8E%9F%E6%A0%B9%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5%E4%B8%8E%E6%80%A7%E8%B4%A8/</guid>
+      <guid>https://shenyiming.life/post/cryptologymath/5.1_%E5%8E%9F%E6%A0%B9%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5%E4%B8%8E%E6%80%A7%E8%B4%A8/</guid>
       <description>原根的基本概念与性质 定义  $$ 设m为正整数，(a,m)=1，使得a^d\equiv 1(mod\quad m)成立的\最小正整数d，称为a对模m的阶，记作ord_m(a) $$
  原根的计算 已知一个原根，算所有阶
 例题 </description>
@@ -74,10 +74,10 @@ $$
     
     <item>
       <title>4 二次剩余</title>
-      <link>https://shenyimings.github.io/post/cryptologymath/4.1_%E4%BA%8C%E6%AC%A1%E5%89%A9%E4%BD%99%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5%E5%92%8C%E6%80%A7%E8%B4%A8/</link>
+      <link>https://shenyiming.life/post/cryptologymath/4.1_%E4%BA%8C%E6%AC%A1%E5%89%A9%E4%BD%99%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5%E5%92%8C%E6%80%A7%E8%B4%A8/</link>
       <pubDate>Mon, 11 Oct 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://shenyimings.github.io/post/cryptologymath/4.1_%E4%BA%8C%E6%AC%A1%E5%89%A9%E4%BD%99%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5%E5%92%8C%E6%80%A7%E8%B4%A8/</guid>
+      <guid>https://shenyiming.life/post/cryptologymath/4.1_%E4%BA%8C%E6%AC%A1%E5%89%A9%E4%BD%99%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5%E5%92%8C%E6%80%A7%E8%B4%A8/</guid>
       <description>定义4.1.1 $$ 设a为整数，p为奇素数，p\nmid a，如果同余方程\ x^2\equiv a(mod\quad p)有解，则称a是模p的二次剩余\ 否则称a是模p的二次非剩余。 $$
 4.2 勒让德符号 定义4.2.1 $$ 设p为奇素数，对于每个整数a，定义勒让德符号如下\ (\frac{a}{p})=1, p\nmid a 并且a是 $$
 定理 4.2.1 $$ 若p为奇素数，则\ (1)(欧拉判别法)\ (\frac{a}{p})\equiv a^{\frac{p-1}{2}}(mod\quad p) \ p\mid a ,() $$
@@ -87,19 +87,19 @@ $$
     
     <item>
       <title>3.4 流程图</title>
-      <link>https://shenyimings.github.io/post/cryptologymath/3.4%E5%AE%9E%E9%AA%8C_%E5%9F%BA%E4%BA%8E%E4%B8%AD%E5%9B%BD%E5%89%A9%E4%BD%99%E5%AE%9A%E7%90%86%E7%9A%84%E7%A7%98%E5%AF%86%E5%85%B1%E4%BA%AB%E6%96%B9%E6%A1%88/</link>
+      <link>https://shenyiming.life/post/cryptologymath/3.4%E5%AE%9E%E9%AA%8C_%E5%9F%BA%E4%BA%8E%E4%B8%AD%E5%9B%BD%E5%89%A9%E4%BD%99%E5%AE%9A%E7%90%86%E7%9A%84%E7%A7%98%E5%AF%86%E5%85%B1%E4%BA%AB%E6%96%B9%E6%A1%88/</link>
       <pubDate>Sat, 09 Oct 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://shenyimings.github.io/post/cryptologymath/3.4%E5%AE%9E%E9%AA%8C_%E5%9F%BA%E4%BA%8E%E4%B8%AD%E5%9B%BD%E5%89%A9%E4%BD%99%E5%AE%9A%E7%90%86%E7%9A%84%E7%A7%98%E5%AF%86%E5%85%B1%E4%BA%AB%E6%96%B9%E6%A1%88/</guid>
+      <guid>https://shenyiming.life/post/cryptologymath/3.4%E5%AE%9E%E9%AA%8C_%E5%9F%BA%E4%BA%8E%E4%B8%AD%E5%9B%BD%E5%89%A9%E4%BD%99%E5%AE%9A%E7%90%86%E7%9A%84%E7%A7%98%E5%AF%86%E5%85%B1%E4%BA%AB%E6%96%B9%E6%A1%88/</guid>
       <description>st=&amp;gt;start: 开始op1=&amp;gt;operation: 读入秘密Kop2=&amp;gt;operation: 生成数组d[n]cond=&amp;gt;condition: 判断是否满足N&amp;gt;K&amp;gt;Mop3=&amp;gt;operation: K依次模d生成密钥串k[n]op4=&amp;gt;operation: 使用t个密钥利用CRT还原K&#39;cond2=&amp;gt;condition: 判断K&#39;是否等于Ke1=&amp;gt;end: 恢复成功e2=&amp;gt;end: 恢复失败st-&amp;gt;op1-&amp;gt;op2-&amp;gt;cond-&amp;gt;op3-&amp;gt;op4-&amp;gt;cond2cond(yes)-&amp;gt;op3cond(no)-&amp;gt;op2cond2(yes)-&amp;gt;e1cond2(no)-&amp;gt;e2</description>
     </item>
     
     <item>
       <title>3.4 基于中国剩余定理的秘密共享</title>
-      <link>https://shenyimings.github.io/post/cryptologymath/3.4_%E5%9F%BA%E4%BA%8E%E4%B8%AD%E5%9B%BD%E5%89%A9%E4%BD%99%E5%AE%9A%E7%90%86%E7%9A%84%E7%A7%98%E5%AF%86%E5%85%B1%E4%BA%AB/</link>
+      <link>https://shenyiming.life/post/cryptologymath/3.4_%E5%9F%BA%E4%BA%8E%E4%B8%AD%E5%9B%BD%E5%89%A9%E4%BD%99%E5%AE%9A%E7%90%86%E7%9A%84%E7%A7%98%E5%AF%86%E5%85%B1%E4%BA%AB/</link>
       <pubDate>Fri, 08 Oct 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://shenyimings.github.io/post/cryptologymath/3.4_%E5%9F%BA%E4%BA%8E%E4%B8%AD%E5%9B%BD%E5%89%A9%E4%BD%99%E5%AE%9A%E7%90%86%E7%9A%84%E7%A7%98%E5%AF%86%E5%85%B1%E4%BA%AB/</guid>
+      <guid>https://shenyiming.life/post/cryptologymath/3.4_%E5%9F%BA%E4%BA%8E%E4%B8%AD%E5%9B%BD%E5%89%A9%E4%BD%99%E5%AE%9A%E7%90%86%E7%9A%84%E7%A7%98%E5%AF%86%E5%85%B1%E4%BA%AB/</guid>
       <description>背景 $$ 将秘密k分成n个子秘密k_1,k_2,\cdots,k_n,满足下面两个条件：\\ (1)\quad 如果已知t个k_i 值，易于恢复出k\\ (2)\quad 如果已知任意t-1个或更少个k_i值，不能恢复出k\\ $$
 比如，将一个密钥分成n份，那么n个人中至少t人在场才能获得密钥
 方案 分割 $$ (t,n)门限，选择n个整数d_1,d_2,\cdots,d_n，满足\\ (1)d_1&amp;lt;d_2&amp;lt;\cdots &amp;lt;d_n\quad d_i严格递增\\ (2)(d_i,d_j)=1,i\ne j; \quad d_i两两互素\\ (3)N=d_1\times d_2\times\cdots \times d_t\\ M=d_{n-t+2}\times d_{n-t+3}\times \cdots \times d_n,有N\gt M\\ \\ 对于某个秘密k,要求N\gt k\gt M, 计算\\ k_1 \equiv k(mod \quad d_1)\\ $$
@@ -110,10 +110,10 @@ $$
     
     <item>
       <title>3.3 一次同余方程</title>
-      <link>https://shenyimings.github.io/post/cryptologymath/3.3_%E4%B8%80%E6%AC%A1%E5%90%8C%E4%BD%99%E6%96%B9%E7%A8%8B/</link>
+      <link>https://shenyiming.life/post/cryptologymath/3.3_%E4%B8%80%E6%AC%A1%E5%90%8C%E4%BD%99%E6%96%B9%E7%A8%8B/</link>
       <pubDate>Thu, 30 Sep 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://shenyimings.github.io/post/cryptologymath/3.3_%E4%B8%80%E6%AC%A1%E5%90%8C%E4%BD%99%E6%96%B9%E7%A8%8B/</guid>
+      <guid>https://shenyiming.life/post/cryptologymath/3.3_%E4%B8%80%E6%AC%A1%E5%90%8C%E4%BD%99%E6%96%B9%E7%A8%8B/</guid>
       <description>一次同余方程 定义3.1.1  变数个数多于方程个数，且取整数值的方程（或方程组）称为不定方程（组）
  定理3.1.1  二元一次不定方程ax+by+n有整数解的充要条件是(a,b) | n
  定理3.1.2  设二元一次不定方程ax+by=n有解 $$ x_0,y_0 为它的一组整数解(特解)，则该方程的通解为：\\ x=x_0+\frac{b}{(a,b)}t\\ y=y_0-\frac{a}{(a,b)}t,t\in Z $$
@@ -125,10 +125,10 @@ $$
     
     <item>
       <title>2.5 素性检测算法</title>
-      <link>https://shenyimings.github.io/post/cryptologymath/2.5_%E7%B4%A0%E6%80%A7%E6%A3%80%E6%B5%8B%E7%AE%97%E6%B3%95/</link>
+      <link>https://shenyiming.life/post/cryptologymath/2.5_%E7%B4%A0%E6%80%A7%E6%A3%80%E6%B5%8B%E7%AE%97%E6%B3%95/</link>
       <pubDate>Sun, 26 Sep 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://shenyimings.github.io/post/cryptologymath/2.5_%E7%B4%A0%E6%80%A7%E6%A3%80%E6%B5%8B%E7%AE%97%E6%B3%95/</guid>
+      <guid>https://shenyiming.life/post/cryptologymath/2.5_%E7%B4%A0%E6%80%A7%E6%A3%80%E6%B5%8B%E7%AE%97%E6%B3%95/</guid>
       <description>费马小定理 根据费马小定理，p为素数，对任意整数b就有 $$ b^{p-1}\equiv 1(mod\quad p) $$ 问题： $$ 如果有一个整数b,(b,m)=1,使得\\ b^{m-1}\neq 1(mod\quad m)\\ 则m是一个合数，\\ 但反之不一定。 $$
 定义2.5.1 $$ 设m是一个奇合数，如果整数b,(b,m)=1,使得同余式\\ b^{m-1}\equiv 1(mod\quad m)\\ 成立，则m称为对于基b的伪素数。 $$
 费马概率素性检验算法 $$ 给定奇整数m\ge 3和安全参数k\\
@@ -139,10 +139,10 @@ $$
     
     <item>
       <title>2.6 RSA公钥密码算法</title>
-      <link>https://shenyimings.github.io/post/cryptologymath/2.6_rsa%E5%85%AC%E9%92%A5%E5%AF%86%E7%A0%81%E7%AE%97%E6%B3%95/</link>
+      <link>https://shenyiming.life/post/cryptologymath/2.6_rsa%E5%85%AC%E9%92%A5%E5%AF%86%E7%A0%81%E7%AE%97%E6%B3%95/</link>
       <pubDate>Sat, 25 Sep 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://shenyimings.github.io/post/cryptologymath/2.6_rsa%E5%85%AC%E9%92%A5%E5%AF%86%E7%A0%81%E7%AE%97%E6%B3%95/</guid>
+      <guid>https://shenyiming.life/post/cryptologymath/2.6_rsa%E5%85%AC%E9%92%A5%E5%AF%86%E7%A0%81%E7%AE%97%E6%B3%95/</guid>
       <description>密钥生成  随机生成两个不同的大素数p和q $计算n=pq和\phi(n)=(p-1)(q-1)$ 随机选取整数e,$1\lt e\lt \phi(n)，使得(e,\phi(n))=1$ 计算唯一的整数d,使得 $$ed\equiv 1(mod\quad \phi(n))$$  $$ 公钥是K^A_e = (n,e)\\ 私钥是K_d^A=d\\ $$
 加密过程 用公钥加密明文m,产生密文c
  获取公钥 $$c\equiv m ^e(mod\quad n)$$ 发送密文  解密过程 </description>
@@ -150,10 +150,10 @@ $$
     
     <item>
       <title>2.4 欧拉定理和费马小定理</title>
-      <link>https://shenyimings.github.io/post/cryptologymath/2.4_%E6%AC%A7%E6%8B%89%E5%AE%9A%E7%90%86%E5%92%8C%E8%B4%B9%E9%A9%AC%E5%B0%8F%E5%AE%9A%E7%90%86/</link>
+      <link>https://shenyiming.life/post/cryptologymath/2.4_%E6%AC%A7%E6%8B%89%E5%AE%9A%E7%90%86%E5%92%8C%E8%B4%B9%E9%A9%AC%E5%B0%8F%E5%AE%9A%E7%90%86/</link>
       <pubDate>Fri, 24 Sep 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://shenyimings.github.io/post/cryptologymath/2.4_%E6%AC%A7%E6%8B%89%E5%AE%9A%E7%90%86%E5%92%8C%E8%B4%B9%E9%A9%AC%E5%B0%8F%E5%AE%9A%E7%90%86/</guid>
+      <guid>https://shenyiming.life/post/cryptologymath/2.4_%E6%AC%A7%E6%8B%89%E5%AE%9A%E7%90%86%E5%92%8C%E8%B4%B9%E9%A9%AC%E5%B0%8F%E5%AE%9A%E7%90%86/</guid>
       <description>定理2.4.1 (欧拉定理) $$ 设m为正整数，a为整数，并且(a,m)=1，则\\ a^{\phi(m)}\equiv 1(mod\quad m)\\ $$
 证明： $$ 取模m的一个即约剩余系b_1,b_2,\cdots,b_s, s=\phi(m),则\\ ab_1,ab_2,\cdots,ab_s也是取模m的一个即约剩余系，于是\\ b_1\cdot b_2\cdots b_s\equiv ab_1\cdot ab_2\cdots ab_s\equiv a^s\cdot b_1\cdot b_2\cdots b_s $$
 定理2.4.2 (费马小定理) $$ 设p为素数，则对于每个整数a，有\\ a^p\equiv a(mod\quad p) $$
@@ -165,10 +165,10 @@ $$
     
     <item>
       <title>2.3 欧拉函数</title>
-      <link>https://shenyimings.github.io/post/cryptologymath/2.3_%E6%AC%A7%E6%8B%89%E5%87%BD%E6%95%B0/</link>
+      <link>https://shenyiming.life/post/cryptologymath/2.3_%E6%AC%A7%E6%8B%89%E5%87%BD%E6%95%B0/</link>
       <pubDate>Thu, 23 Sep 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://shenyimings.github.io/post/cryptologymath/2.3_%E6%AC%A7%E6%8B%89%E5%87%BD%E6%95%B0/</guid>
+      <guid>https://shenyiming.life/post/cryptologymath/2.3_%E6%AC%A7%E6%8B%89%E5%87%BD%E6%95%B0/</guid>
       <description>定理2.3.1 $$ 设m是正整数，a,b\in Z,且(a,m)=1,若x遍历模m的一个完全剩余系，则ax+b也遍历模m的一个完全剩余系。 $$
 定理2.3.2 $$ 设m_1,m_2是两个互素的正整数，若x_1,x_2分别遍历m_1,m_2的完全剩余系，则m_2x_1+m_1m_2遍历\\模m_1m_2的完全剩余系。 $$
 定理2.3.3 $$ 设m是一个正整数，a\in Z,且(a,m)=1。\\若x遍历模m的一个既约剩余系，则ax也遍历模m的一个既约剩余系。 $$
@@ -183,10 +183,10 @@ $$
     
     <item>
       <title>2.2 同余类与既约同余类</title>
-      <link>https://shenyimings.github.io/post/cryptologymath/2.2_%E5%90%8C%E4%BD%99%E7%B1%BB%E4%B8%8E%E6%97%A2%E7%BA%A6%E5%90%8C%E4%BD%99%E7%B1%BB/</link>
+      <link>https://shenyiming.life/post/cryptologymath/2.2_%E5%90%8C%E4%BD%99%E7%B1%BB%E4%B8%8E%E6%97%A2%E7%BA%A6%E5%90%8C%E4%BD%99%E7%B1%BB/</link>
       <pubDate>Wed, 22 Sep 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://shenyimings.github.io/post/cryptologymath/2.2_%E5%90%8C%E4%BD%99%E7%B1%BB%E4%B8%8E%E6%97%A2%E7%BA%A6%E5%90%8C%E4%BD%99%E7%B1%BB/</guid>
+      <guid>https://shenyiming.life/post/cryptologymath/2.2_%E5%90%8C%E4%BD%99%E7%B1%BB%E4%B8%8E%E6%97%A2%E7%BA%A6%E5%90%8C%E4%BD%99%E7%B1%BB/</guid>
       <description>例题2.2.1 设 $$m=6,\forall a\in Z,a=6q+r,其中q,r\in Z ,r=0,1,2,3,4,5$$
 可分为6类，例如r=0时，所有a为模6同余于0 $$ a_1\equiv a_2 \equiv \cdots a_n \equiv 0 (mod\quad 6)\\ -18,-12,-6,0,6\cdots代表元为0, 表示为[0] $$ [0],[1],[2],[3],[4],[5]称为模6的同余类
 具有如下性质：
@@ -202,10 +202,10 @@ m=6的既约同余类有[1],[5] 2个，即$\phi(6)=2$（欧拉函数）
     
     <item>
       <title>2.1 同余</title>
-      <link>https://shenyimings.github.io/post/cryptologymath/2.1_%E5%90%8C%E4%BD%99/</link>
+      <link>https://shenyiming.life/post/cryptologymath/2.1_%E5%90%8C%E4%BD%99/</link>
       <pubDate>Mon, 20 Sep 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://shenyimings.github.io/post/cryptologymath/2.1_%E5%90%8C%E4%BD%99/</guid>
+      <guid>https://shenyiming.life/post/cryptologymath/2.1_%E5%90%8C%E4%BD%99/</guid>
       <description>定义2.1.1 设$m\in N^+,a_1,a_2\in Z$，如果$m\mid (a_2-a_1)$，则称$a_1和a_2$模m同余，记作 $$ a_1 \equiv a_a(mod\quad m) $$ 该式称为模m的同余式，简称同余式。
 反之，如果$m\nmid a_2-a_1$，则称不同余。
 $39\equiv25(mod\quad7)$
@@ -219,10 +219,10 @@ $a\equiv0(mod\quad n)\Leftrightarrow n|a$
     
     <item>
       <title>1.5 素数的生成</title>
-      <link>https://shenyimings.github.io/post/cryptologymath/1.5_%E7%B4%A0%E6%95%B0%E7%9A%84%E7%94%9F%E6%88%90-/</link>
+      <link>https://shenyiming.life/post/cryptologymath/1.5_%E7%B4%A0%E6%95%B0%E7%9A%84%E7%94%9F%E6%88%90-/</link>
       <pubDate>Thu, 16 Sep 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://shenyimings.github.io/post/cryptologymath/1.5_%E7%B4%A0%E6%95%B0%E7%9A%84%E7%94%9F%E6%88%90-/</guid>
+      <guid>https://shenyiming.life/post/cryptologymath/1.5_%E7%B4%A0%E6%95%B0%E7%9A%84%E7%94%9F%E6%88%90-/</guid>
       <description>定理1.5.1 埃拉托斯特尼筛法 埃氏筛 设n是一个正整数，如果对所有的素数 $$ p\le\sqrt{n} $$ 都有 $$ p\nmid n $$ ，则n一定是素数。
 证明（反证法）：假设n是合数，则n有一个大于1的最小正因数p，则有 $$ p\mid n $$ ,且p是素数，且 $$ p\le \sqrt{a} $$
  这是因为如果p是合数，则存在整数q，1&amp;lt;q&amp;lt;p，使得 $$ q\mid p $$ ，又 $$ p\mid n $$ ，所以 $$ q\mid n $$ ，这与p是n的最小正因数矛盾。 因为n是合数，所以存在整数 $$ n_1 $$ ，使得 $$ n=n_1\cdot p_1,1&amp;lt;p\le n_1&amp;lt;n $$ ，因此 $$ p^2\le n，故p\le \sqrt{n} $$  </description>
@@ -230,10 +230,10 @@ $a\equiv0(mod\quad n)\Leftrightarrow n|a$
     
     <item>
       <title>第一章 例题</title>
-      <link>https://shenyimings.github.io/post/cryptologymath/1.6_%E7%AC%AC%E4%B8%80%E7%AB%A0%E4%BE%8B%E9%A2%98/</link>
+      <link>https://shenyiming.life/post/cryptologymath/1.6_%E7%AC%AC%E4%B8%80%E7%AB%A0%E4%BE%8B%E9%A2%98/</link>
       <pubDate>Thu, 16 Sep 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://shenyimings.github.io/post/cryptologymath/1.6_%E7%AC%AC%E4%B8%80%E7%AB%A0%E4%BE%8B%E9%A2%98/</guid>
+      <guid>https://shenyiming.life/post/cryptologymath/1.6_%E7%AC%AC%E4%B8%80%E7%AB%A0%E4%BE%8B%E9%A2%98/</guid>
       <description>1. 对任意整数a,b,c，证明：[(a,b),(a,c)]=(a,[b,c]) 证明： $$ 设a=p_1^{a_1}p_2^{a_2}\cdots p_s^{a_s},b=\cdots,c=\cdots则 \\ (标准素因数分解) \\ [(a,b),(a,c)]=\Sigma_{i=1}^sp_i^{max(min(a_i,b_i),min(a_i,c_i))} \\ (a,[b,c])=\Sigma_{i=1}^sp_i^{min(a_i,max(b_i,c_i))} $$
 2. 设m,n为正整数，m是奇数，求证：$2^m-1和2^n+1$互素 证明： $$ 假设(2^m-1,2^n+1)=d,d\ge2,于是\exist x,y\in Z使得\\ 2^m=dx +1\\ 2^n=dy -1\\ \exist\mu\in Z \quad2^{mn}=(2^m)^n=d\mu+1\\ 注意到，m为奇数，故\\ \exist v\in Z \quad 2^{mn}=(2^n)^m=dv-1\\ 所以有d(v-\mu)=2，从而必有d=2,矛盾。 $$
 3. 利用最大公因数的表达式证明：若$(a,m)=(b,m)=1$，则有$(ab,m)=1$。 证明：
@@ -245,10 +245,10 @@ $a\equiv0(mod\quad n)\Leftrightarrow n|a$
     
     <item>
       <title>欧几里德算法</title>
-      <link>https://shenyimings.github.io/post/cryptologymath/1.4_%E6%AC%A7%E5%87%A0%E9%87%8C%E5%BE%B7%E7%AE%97%E6%B3%95/</link>
+      <link>https://shenyiming.life/post/cryptologymath/1.4_%E6%AC%A7%E5%87%A0%E9%87%8C%E5%BE%B7%E7%AE%97%E6%B3%95/</link>
       <pubDate>Sun, 12 Sep 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://shenyimings.github.io/post/cryptologymath/1.4_%E6%AC%A7%E5%87%A0%E9%87%8C%E5%BE%B7%E7%AE%97%E6%B3%95/</guid>
+      <guid>https://shenyiming.life/post/cryptologymath/1.4_%E6%AC%A7%E5%87%A0%E9%87%8C%E5%BE%B7%E7%AE%97%E6%B3%95/</guid>
       <description>定理1.4.1 设$a_0,a_1\in Z,a_1\ne0$，按下述方式反复作带余除法，有限步后必可以除尽 $$ a_0=a_1q_0+a_2 \\\\ a_1=a_2q_1+a_3 \\\\ \vdots \\\\ a_{n-2}=a_{n-1}q_{n-2}+a_n a_{n-1}=a_{n}q_{n-1}+a_{n+1} \\\\ a_{n+1}=0\\ 则有(a_0,a_1)=a_n $$ 证明1：有限步除尽
 证明2：最小公因数为$a_n$(最后不为0的余数)
 欧几里德算法——辗转相除法——更相减损术（九章算术）

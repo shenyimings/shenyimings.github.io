@@ -2,20 +2,20 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>离散数学 on Console.makeHappy(_1ming)</title>
-    <link>https://shenyimings.github.io/tags/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/</link>
+    <link>https://shenyiming.life/tags/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/</link>
     <description>Recent content in 离散数学 on Console.makeHappy(_1ming)</description>
     <image>
-      <url>https://shenyimings.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
-      <link>https://shenyimings.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+      <url>https://shenyiming.life/android-chrome-512x512.png</url>
+      <link>https://shenyiming.life/android-chrome-512x512.png</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Tue, 12 Oct 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://shenyimings.github.io/tags/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 12 Oct 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://shenyiming.life/tags/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>离散数学CH05-一阶逻辑等值演算与推理</title>
-      <link>https://shenyimings.github.io/post/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6-%E6%95%B0%E7%90%86%E9%80%BB%E8%BE%91/%E7%AC%AC5%E7%AB%A0/ch05/</link>
+      <link>https://shenyiming.life/post/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6-%E6%95%B0%E7%90%86%E9%80%BB%E8%BE%91/%E7%AC%AC5%E7%AB%A0/ch05/</link>
       <pubDate>Tue, 12 Oct 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://shenyimings.github.io/post/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6-%E6%95%B0%E7%90%86%E9%80%BB%E8%BE%91/%E7%AC%AC5%E7%AB%A0/ch05/</guid>
+      <guid>https://shenyiming.life/post/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6-%E6%95%B0%E7%90%86%E9%80%BB%E8%BE%91/%E7%AC%AC5%E7%AB%A0/ch05/</guid>
       <description>一阶逻辑等值式与置换规则 定义5.1 $$ 设A,B是一阶逻辑中任意两个公式，若A\leftrightarrow B 是永真式，则称A与B等值 \\ 记作A\Leftrightarrow B $$
 基本等值式 第1组 第二章P21页，16组重言式
 双重否定律、幂等律、交换律、结合律等
@@ -28,20 +28,20 @@
     
     <item>
       <title>离散数学CH04-一阶逻辑基本概念</title>
-      <link>https://shenyimings.github.io/post/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6-%E6%95%B0%E7%90%86%E9%80%BB%E8%BE%91/%E7%AC%AC4%E7%AB%A0/ch04/</link>
+      <link>https://shenyiming.life/post/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6-%E6%95%B0%E7%90%86%E9%80%BB%E8%BE%91/%E7%AC%AC4%E7%AB%A0/ch04/</link>
       <pubDate>Fri, 08 Oct 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://shenyimings.github.io/post/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6-%E6%95%B0%E7%90%86%E9%80%BB%E8%BE%91/%E7%AC%AC4%E7%AB%A0/ch04/</guid>
+      <guid>https://shenyiming.life/post/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6-%E6%95%B0%E7%90%86%E9%80%BB%E8%BE%91/%E7%AC%AC4%E7%AB%A0/ch04/</guid>
       <description>一阶逻辑命题符号化 一阶逻辑公式及其解释 定义4.5 $$ 在公式\forall x A 和\exist x A 中，称x为指导变元，A为量词的辖域\\ 在\forall x \exist x的辖域中，x的所有出现都称作约束出现，A中不是\\ 约束出现的其他变项均被称作自由出现 $$
 定义4.6 $$ 设A是任意的公式，若A中不含自由出现的个体变项，则称A为封闭的公式，简称闭式 $$</description>
     </item>
     
     <item>
       <title>离散数学CH03-命题逻辑的推理理论</title>
-      <link>https://shenyimings.github.io/post/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6-%E6%95%B0%E7%90%86%E9%80%BB%E8%BE%91/%E7%AC%AC3%E7%AB%A0/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6-ch03/</link>
+      <link>https://shenyiming.life/post/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6-%E6%95%B0%E7%90%86%E9%80%BB%E8%BE%91/%E7%AC%AC3%E7%AB%A0/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6-ch03/</link>
       <pubDate>Thu, 07 Oct 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://shenyimings.github.io/post/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6-%E6%95%B0%E7%90%86%E9%80%BB%E8%BE%91/%E7%AC%AC3%E7%AB%A0/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6-ch03/</guid>
+      <guid>https://shenyiming.life/post/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6-%E6%95%B0%E7%90%86%E9%80%BB%E8%BE%91/%E7%AC%AC3%E7%AB%A0/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6-ch03/</guid>
       <description>前言  所谓推理是指从前提出发推出结论的思维过程，而前提是已知的命题公式集合，结论是从前提出发应用推理规则推出的命题公式。
  定理3.1  命题公式$A_1,A_2,\cdots,A_k$推出B的推理正确当且仅当 $$ A_1\wedge A_2,\wedge \cdots,\wedge A_k \to B $$ 为重言式。
  今后把推理的形式结构写成: $$ 前提：A_1,A_2,\cdots,A_k\\ 结论：B $$ 并根据判断定理3.1的蕴含式是否是重言式来确定推理是否正确。根据前2章的讨论，判断是否为重言式有下面3种方法：
@@ -51,10 +51,10 @@
     
     <item>
       <title>离散数学CH02-命题逻辑等值演算</title>
-      <link>https://shenyimings.github.io/post/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6-%E6%95%B0%E7%90%86%E9%80%BB%E8%BE%91/%E7%AC%AC2%E7%AB%A0/ch02/</link>
+      <link>https://shenyiming.life/post/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6-%E6%95%B0%E7%90%86%E9%80%BB%E8%BE%91/%E7%AC%AC2%E7%AB%A0/ch02/</link>
       <pubDate>Sun, 19 Sep 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://shenyimings.github.io/post/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6-%E6%95%B0%E7%90%86%E9%80%BB%E8%BE%91/%E7%AC%AC2%E7%AB%A0/ch02/</guid>
+      <guid>https://shenyiming.life/post/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6-%E6%95%B0%E7%90%86%E9%80%BB%E8%BE%91/%E7%AC%AC2%E7%AB%A0/ch02/</guid>
       <description>析取范式与合取范式 定理2.3（范式存在定理） 任一命题公式都存在与之等值的析取范式和合取范式，求给定公式的步骤为：
   消去连接词
   用双重否定律消去双重否定符，用德摩根律内移否定符。
@@ -69,10 +69,10 @@ n个命题变项共可构成$2^{2^n}$个不同的真值函数。
     
     <item>
       <title>离散数学CH01-命题逻辑的基本概念</title>
-      <link>https://shenyimings.github.io/post/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6-%E6%95%B0%E7%90%86%E9%80%BB%E8%BE%91/%E7%AC%AC1%E7%AB%A0/ch01/</link>
+      <link>https://shenyiming.life/post/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6-%E6%95%B0%E7%90%86%E9%80%BB%E8%BE%91/%E7%AC%AC1%E7%AB%A0/ch01/</link>
       <pubDate>Sat, 18 Sep 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://shenyimings.github.io/post/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6-%E6%95%B0%E7%90%86%E9%80%BB%E8%BE%91/%E7%AC%AC1%E7%AB%A0/ch01/</guid>
+      <guid>https://shenyiming.life/post/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6-%E6%95%B0%E7%90%86%E9%80%BB%E8%BE%91/%E7%AC%AC1%E7%AB%A0/ch01/</guid>
       <description>命题与联结词 定义1.2  设p,q为两个命题，复合命题“p并且q”（或“p与q”）称为p与q的合取式，记作$p\wedge q$
 规定$p\wedge q$为真当且仅当p与q同时为真。
  定义1.3  设p,q为两个命题，复合命题“p或q”，称为p与q的析取式，记作 $$ p\vee q $$

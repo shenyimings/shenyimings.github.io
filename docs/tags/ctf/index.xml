@@ -2,20 +2,20 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>CTF on Console.makeHappy(_1ming)</title>
-    <link>https://shenyimings.github.io/tags/ctf/</link>
+    <link>https://shenyiming.life/tags/ctf/</link>
     <description>Recent content in CTF on Console.makeHappy(_1ming)</description>
     <image>
-      <url>https://shenyimings.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
-      <link>https://shenyimings.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+      <url>https://shenyiming.life/android-chrome-512x512.png</url>
+      <link>https://shenyiming.life/android-chrome-512x512.png</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sun, 24 Oct 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://shenyimings.github.io/tags/ctf/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 24 Oct 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://shenyiming.life/tags/ctf/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Bugku-SQL注入-WriteUP</title>
-      <link>https://shenyimings.github.io/post/15.bugku-sql%E6%B3%A8%E5%85%A5/</link>
+      <link>https://shenyiming.life/post/15.bugku-sql%E6%B3%A8%E5%85%A5/</link>
       <pubDate>Sun, 24 Oct 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://shenyimings.github.io/post/15.bugku-sql%E6%B3%A8%E5%85%A5/</guid>
+      <guid>https://shenyiming.life/post/15.bugku-sql%E6%B3%A8%E5%85%A5/</guid>
       <description>题目网址：sql注入
 一个很正经的界面，有实战那味了。
 上来先尝试经典组合：
@@ -45,10 +45,10 @@ bugkuctf
     
     <item>
       <title>CNSS Recruit-Web Write UP</title>
-      <link>https://shenyimings.github.io/post/14.cnss-recruit-web-write-up/</link>
+      <link>https://shenyiming.life/post/14.cnss-recruit-web-write-up/</link>
       <pubDate>Thu, 21 Oct 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://shenyimings.github.io/post/14.cnss-recruit-web-write-up/</guid>
+      <guid>https://shenyiming.life/post/14.cnss-recruit-web-write-up/</guid>
       <description>前言 躺在床上，不想动鼠标，那就先写写前言吧。
 这个CTF比赛是我打的第二场比较正规、完整的比赛。
 惨不忍睹，当然，作为刚入门的noob来说也可以接受。
@@ -68,10 +68,10 @@ import requests import re # 正则表达式库 import string from requests.sessi
     
     <item>
       <title>RCE 远程命令执行漏洞</title>
-      <link>https://shenyimings.github.io/post/13.rce%E4%B8%93%E6%A0%8F/</link>
+      <link>https://shenyiming.life/post/13.rce%E4%B8%93%E6%A0%8F/</link>
       <pubDate>Wed, 20 Oct 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://shenyimings.github.io/post/13.rce%E4%B8%93%E6%A0%8F/</guid>
+      <guid>https://shenyiming.life/post/13.rce%E4%B8%93%E6%A0%8F/</guid>
       <description>本文以CTF-show Web入门29-41题作为例题，学习RCE相关知识。
 Web 29 过滤了flag字样
 ?c=system(&amp;quot;cat f*&amp;quot;);Web 30 过滤了flag|system|php三个关键字，flag和php是待执行命令文本， 可以通过引号、斜杠或反斜杠绕过
@@ -91,10 +91,10 @@ base64绕过 base64编码中只包含64个可打印字符，而PHP在解码base6
     
     <item>
       <title>MoeCTF 2021 西电新生赛WP</title>
-      <link>https://shenyimings.github.io/post/12.moectf-web-write-up/</link>
+      <link>https://shenyiming.life/post/12.moectf-web-write-up/</link>
       <pubDate>Thu, 19 Aug 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://shenyimings.github.io/post/12.moectf-web-write-up/</guid>
+      <guid>https://shenyiming.life/post/12.moectf-web-write-up/</guid>
       <description>前言-2021/8/10 今天学长在群里发了西电的新生CTF比赛，题目较为基础，适合我们初学者。
 想来还是感慨颇多的，西电不愧是网安的头部院校，信安的新生还没入学就开始打CTF比赛了，我大二了才刚刚踏入大门而已。
 1. Web安全入门指北-GET &amp;lt;?php include &amp;#34;flag.php&amp;#34;; $moe = $_GET[&amp;#39;moe&amp;#39;]; if ($moe == &amp;#34;flag&amp;#34;) { echo $flag; }else { highlight_file(__FILE__); } 签到题。已给出源代码，根据题目提示，可以看出是一个简单的get命令题。
@@ -117,10 +117,10 @@ You are not VIP,I will give flag to VIP!
     
     <item>
       <title>DVWA环境搭建 &#43; BurpSuite2.1安装 &#43; Chrome配置</title>
-      <link>https://shenyimings.github.io/post/9.dvwa%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA&#43;burpsuite2.1%E5%AE%89%E8%A3%85/</link>
+      <link>https://shenyiming.life/post/9.dvwa%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA&#43;burpsuite2.1%E5%AE%89%E8%A3%85/</link>
       <pubDate>Thu, 05 Aug 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://shenyimings.github.io/post/9.dvwa%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA&#43;burpsuite2.1%E5%AE%89%E8%A3%85/</guid>
+      <guid>https://shenyiming.life/post/9.dvwa%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA&#43;burpsuite2.1%E5%AE%89%E8%A3%85/</guid>
       <description>[TOC]
 DVWA环境搭建  DVWA（Damn Vulnerable Web Application）是一个用来进行安全脆弱性鉴定的PHP/MySQL Web应用，旨在为安全专业人员测试自己的专业技能和工具提供合法的环境，帮助web开发者更好的理解web应用安全防范的过程。
  DVWA运行基于LAMP（Linux+Apache+MySQL+PHP），出于时间和个人能力的考虑，很难成功地从0开始搭建这样一套体系，故而使用小皮的PHPStudy环境。
@@ -150,10 +150,10 @@ BurpSuite Chrome配置 1. 设置流量代理Proxy ​	在谷歌应用商店中�
     
     <item>
       <title>MISC类型题目及技巧</title>
-      <link>https://shenyimings.github.io/post/6.bugku_misc/</link>
+      <link>https://shenyiming.life/post/6.bugku_misc/</link>
       <pubDate>Fri, 23 Jul 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://shenyimings.github.io/post/6.bugku_misc/</guid>
+      <guid>https://shenyiming.life/post/6.bugku_misc/</guid>
       <description>图片隐写  图片EXIF信息 GIF图片 文件头 16进制编码  编码 Readflag
 社工   Bugku社工_进阶收集
 根据题目给出的说说截图，有如下信息：
@@ -167,10 +167,10 @@ BurpSuite Chrome配置 1. 设置流量代理Proxy ​	在谷歌应用商店中�
     
     <item>
       <title>CTF比赛方向选择</title>
-      <link>https://shenyimings.github.io/post/3.ctf%E6%AF%94%E8%B5%9B%E6%96%B9%E5%90%91%E9%80%89%E6%8B%A9/</link>
+      <link>https://shenyiming.life/post/3.ctf%E6%AF%94%E8%B5%9B%E6%96%B9%E5%90%91%E9%80%89%E6%8B%A9/</link>
       <pubDate>Wed, 21 Jul 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://shenyimings.github.io/post/3.ctf%E6%AF%94%E8%B5%9B%E6%96%B9%E5%90%91%E9%80%89%E6%8B%A9/</guid>
+      <guid>https://shenyiming.life/post/3.ctf%E6%AF%94%E8%B5%9B%E6%96%B9%E5%90%91%E9%80%89%E6%8B%A9/</guid>
       <description>了解CTF  CTF 的前身是传统黑客之间的网络技术比拼游戏，起源于 1996 年第四届 DEFCON。CTF比赛有以下突出特点：
  比赛侧重于对计算机底层和系统安全的核心能力，Web 漏洞攻防技巧完全被忽略。 竞赛环境趋向多 CPU 指令架构集，多操作系统，多编程语言。 采用「零和」计分规则。 团队综合能力考验：逆向分析、漏洞挖掘、漏洞利用、漏洞修补加固、网络流量分析、系统安全运行维护以及安全方面的编程调试。   CTF竞赛内容 常见六个分类
   Web - 网络攻防
@@ -195,10 +195,10 @@ BurpSuite Chrome配置 1. 设置流量代理Proxy ​	在谷歌应用商店中�
     
     <item>
       <title>Ubuntu 18.04 LTS的配置与入门</title>
-      <link>https://shenyimings.github.io/post/2.ubuntu%E9%85%8D%E7%BD%AE%E5%8F%8A%E5%91%BD%E4%BB%A4%E5%85%A5%E9%97%A8/</link>
+      <link>https://shenyiming.life/post/2.ubuntu%E9%85%8D%E7%BD%AE%E5%8F%8A%E5%91%BD%E4%BB%A4%E5%85%A5%E9%97%A8/</link>
       <pubDate>Tue, 20 Jul 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://shenyimings.github.io/post/2.ubuntu%E9%85%8D%E7%BD%AE%E5%8F%8A%E5%91%BD%E4%BB%A4%E5%85%A5%E9%97%A8/</guid>
+      <guid>https://shenyiming.life/post/2.ubuntu%E9%85%8D%E7%BD%AE%E5%8F%8A%E5%91%BD%E4%BB%A4%E5%85%A5%E9%97%A8/</guid>
       <description>系统选择 Linux有多种发行版，作为一名小白，我选择Ubuntu的原因是以前用过并且感觉桌面界面十分讨喜，再者，Ubuntu作为常见的个人桌面操作系统，使用人数相对较多，教程也更多，对萌新十分友善。
 载体 最标准的方式当然是重装系统咯，总是佩服小时候爱捣鼓的自己，想格盘就格盘，说重装就重装了，长大以后，不知是懒了还是如何，很难再去断舍离了，只能继续看着又快满的C盘抱残守旧了，单系统不可取，双系统也要重新给硬盘分区，过于麻烦，那就传统的VMware虚拟机吧，在去Ubuntu官网下载镜像时，发现了一个全新的选择：Windows WSL，即Windows Subsystem for Linux，籍此可以直接在Windows 10上运行Ubuntu，安装便捷，启动快速，就决定是你了！
 系统配置（学习网址：CSDN博客）  安装好后首先设置root用户, 更换apt数据源  sudo passwd root su root cd /etc/apt cp sources.list sources.list.bak #备份配置文件 vim sources.list #编辑配置文件 将配置文件内容更改为阿里云镜像源  deb http://mirrors.aliyun.com/ubuntu/ bionic main restricted universe multiverse deb http://mirrors.aliyun.com/ubuntu/ bionic-security main restricted universe multiverse deb http://mirrors.aliyun.com/ubuntu/ bionic-updates main restricted universe multiverse deb http://mirrors.aliyun.com/ubuntu/ bionic-proposed main restricted universe multiverse deb http://mirrors.aliyun.com/ubuntu/ bionic-backports main restricted universe multiverse deb-src http://mirrors.aliyun.com/ubuntu/ bionic main restricted universe multiverse deb-src http://mirrors.</description>
@@ -206,10 +206,10 @@ BurpSuite Chrome配置 1. 设置流量代理Proxy ​	在谷歌应用商店中�
     
     <item>
       <title>学习Markdown语法</title>
-      <link>https://shenyimings.github.io/post/1.markdown%E7%AC%94%E8%AE%B0%E5%AD%A6%E4%B9%A0/</link>
+      <link>https://shenyiming.life/post/1.markdown%E7%AC%94%E8%AE%B0%E5%AD%A6%E4%B9%A0/</link>
       <pubDate>Mon, 19 Jul 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://shenyimings.github.io/post/1.markdown%E7%AC%94%E8%AE%B0%E5%AD%A6%E4%B9%A0/</guid>
+      <guid>https://shenyiming.life/post/1.markdown%E7%AC%94%E8%AE%B0%E5%AD%A6%E4%B9%A0/</guid>
       <description>2021年7月18日 了解Markdown Markdown是一种轻量级标记语言，属于HTML格式的一种，易读易写易更改，处处透着极简主义的影子。在GitHub等网站上使用极广，更可以跨平台使用。
 Windows桌面端软件选择 Web网页版有简书等知名博客网站可作记录，千挑万选后我选择了Typora。优点如下：
  有中文版。这一点可能不足为道，因为菜单的语言并不影响我们的使用，然而，不支持中文意味着软件对中文输入法的适配甚至中文文本的显示都极为差劲，这一点是我由MarkdownPad的使用中发现的。 Typora支持即时渲染技术，非常方便新人学习熟练。 Typora可以将md文件导出为pdf格式作发布用，对于笔记爱好者来说成就感满满。  Markdown语法  区块引用
