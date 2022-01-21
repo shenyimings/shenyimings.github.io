@@ -128,7 +128,7 @@ linspace(0,13,6) #按比例生成从0-13的6个数
 
 ```
 
-![image-20220115225044216](/Less-1-MATLAB基础.assets/image-20220118103144216.png" alt="image-20220118103144216)
+![image-20220115225044216](/Less-1-MATLAB基础.assets/image-20220118103144216.png)
 
 ![image-20220118105503687](/Less-1-MATLAB基础.assets/image-20220118105503687.png)
 
