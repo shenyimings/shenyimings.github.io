@@ -94,6 +94,25 @@
 <article class="post-entry tag-entry">
 <header class=entry-header>
 <h2>
+2.5 素性检测算法
+</h2>
+</header>
+<section class=entry-content>
+<p>费马小定理 根据费马小定理，p为素数，对任意整数b就有 $$ b^{p-1}\equiv 1(mod\quad p) $$ 问题： $$ 如果有一个整数b,(b,m)=1,使得\\ b^{m-1}\neq 1(mod\quad m)\\ 则m是一个合数，\\ 但反之不一定。 $$
+定义2.5.1 $$ 设m是一个奇合数，如果整数b,(b,m)=1,使得同余式\\ b^{m-1}\equiv 1(mod\quad m)\\ 成立，则m称为对于基b的伪素数。 $$
+费马概率素性检验算法 $$ 给定奇整数m\ge 3和安全参数k\\
+随机选取整数b,2\le b\le m -2\\ 计算g=(b,m),如果g\ne 1，则m为合数\\ 计算r\equiv b^{m-1}(mod\quad m)，如果r\ne 1,则m为合数\\ 如果不是上述两种，则m可能为素数\\ 上述过程重复k次，如果每次都是m可能为素数，则m为素数的概率为1-\frac{1}{2^k}\\ $$ MILLER-RABIN素性检测算法 $$ 设m是奇素数，并且有m-1=2^st，则有以下因数分解式：\\ b^{m-1}-1=(b^{2^{s-1}t}+1)(b^{2^{s-2}t}+1)\cdots (b^t+1)(b^t-1)\\ b^{m-1}\equiv 1(mod\quad m) $$
+定义2.5.2 $$ 设m是一个奇合数，且有表示式m-1=2^st，其中t为奇数\\ 设整数b和m互素，如果整数m和b满足条件\\ b^t\equiv 1(mod\quad m)\\ 或者存在一个整数r,0\le r\lt s使得\\ b^{2^rt}\equiv -1(mod\quad m)\\ 则m称为对于基b的强伪素数 $$
+例 $$ m=2047=23\cdot 89 \\ m-1=2046=2^1\cdot 1023\\ 设b=2\\ 2^t=2^1023=(2^11)^93 = 2048^93\equiv 1(mod\quad 2047) $$...</p>
+</section>
+<footer class=entry-footer>
+September 26, 2021&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Yiming Shen
+</footer>
+<a class=entry-link aria-label="post link to 2.5 素性检测算法" href=https://shenyiming.life/cryptologymath/2.5_%E7%B4%A0%E6%80%A7%E6%A3%80%E6%B5%8B%E7%AE%97%E6%B3%95/></a>
+</article>
+<article class="post-entry tag-entry">
+<header class=entry-header>
+<h2>
 2.6 RSA公钥密码算法
 </h2>
 </header>
@@ -415,22 +434,6 @@ Crypto
 July 21, 2021&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Yiming Shen
 </footer>
 <a class=entry-link aria-label="post link to CTF比赛方向选择" href=https://shenyiming.life/post/3.ctf%E6%AF%94%E8%B5%9B%E6%96%B9%E5%90%91%E9%80%89%E6%8B%A9/></a>
-</article>
-<article class="post-entry tag-entry">
-<header class=entry-header>
-<h2>
-Ubuntu 18.04 LTS的配置与入门
-</h2>
-</header>
-<section class=entry-content>
-<p>系统选择 Linux有多种发行版，作为一名小白，我选择Ubuntu的原因是以前用过并且感觉桌面界面十分讨喜，再者，Ubuntu作为常见的个人桌面操作系统，使用人数相对较多，教程也更多，对萌新十分友善。
-载体 最标准的方式当然是重装系统咯，总是佩服小时候爱捣鼓的自己，想格盘就格盘，说重装就重装了，长大以后，不知是懒了还是如何，很难再去断舍离了，只能继续看着又快满的C盘抱残守旧了，单系统不可取，双系统也要重新给硬盘分区，过于麻烦，那就传统的VMware虚拟机吧，在去Ubuntu官网下载镜像时，发现了一个全新的选择：Windows WSL，即Windows Subsystem for Linux，籍此可以直接在Windows 10上运行Ubuntu，安装便捷，启动快速，就决定是你了！
-系统配置（学习网址：CSDN博客） 安装好后首先设置root用户, 更换apt数据源 sudo passwd root su root cd /etc/apt cp sources.list sources.list.bak #备份配置文件 vim sources.list #编辑配置文件 将配置文件内容更改为阿里云镜像源 deb http://mirrors.aliyun.com/ubuntu/ bionic main restricted universe multiverse deb http://mirrors.aliyun.com/ubuntu/ bionic-security main restricted universe multiverse deb http://mirrors.aliyun.com/ubuntu/ bionic-updates main restricted universe multiverse deb http://mirrors.aliyun.com/ubuntu/ bionic-proposed main restricted universe multiverse deb http://mirrors.aliyun.com/ubuntu/ bionic-backports main restricted universe multiverse deb-src http://mirrors.aliyun.com/ubuntu/ bionic main restricted universe multiverse deb-src http://mirrors....</p>
-</section>
-<footer class=entry-footer>
-July 20, 2021&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Yiming Shen
-</footer>
-<a class=entry-link aria-label="post link to Ubuntu 18.04 LTS的配置与入门" href=https://shenyiming.life/post/2.ubuntu%E9%85%8D%E7%BD%AE%E5%8F%8A%E5%91%BD%E4%BB%A4%E5%85%A5%E9%97%A8/></a>
 </article>
 <footer class=page-footer>
 <nav class=pagination>

@@ -147,6 +147,28 @@ Notes
 <article class=post-entry>
 <header class=entry-header>
 <h2>
+Less-1 MATLAB基本操作与矩阵输入
+</h2>
+</header>
+<section class=entry-content>
+<p>基本操作 命令行模式
+公式输入 直接输入算式即可计算结果
+输入格式基本同自然语言
+计算： $$ cos(\sqrt{(\frac{1+2+3+4}{5})}) $$
+cos(sqrt((1+2+3+4)/5)) 注意：5/2 是5除以2 5\2是2除以5
+变量定义 定义变量与python相同，无需声明，默认类型为double
+不能声明为变量的系统关键字：显示格式
+format long 格式种类：
+clc #清屏 clear a #删除变量a who #查询变量 whos #查询变量详细信息 矩阵输入 矩阵定义 a = [1 2 3 4] #定义1*4矩阵 b = [1;2;3;4] #定义4*1矩阵 a = [1 2 3 4;1 2 3 4;1 2 3 4;1 2 3 4] #定义4*4矩阵 矩阵索引 取/修改某个值 a(8) #取第8个值（按行从上往下数）a(8)=4 a([1 3 5])#取第1 3 5个值 a([1 3;1 3])#取第1个数和第3个数 两遍 a(3,2) #取第三行第二列的数 a([1 2],[2 3])#取第1行第2行和第2列第3列的交集为一个新矩阵 修改：a()=[]...</p>
+</section>
+<footer class=entry-footer>
+January 15, 2022&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Yiming Shen
+</footer>
+<a class=entry-link aria-label="post link to Less-1 MATLAB基本操作与矩阵输入" href=https://shenyiming.life/post/less-1_matlab%E5%9F%BA%E7%A1%80/></a>
+</article>
+<article class=post-entry>
+<header class=entry-header>
+<h2>
 空想社会主义和科学社会主义的区别
 </h2>
 </header>
@@ -391,37 +413,6 @@ base64绕过 base64编码中只包含64个可打印字符，而PHP在解码base6
 October 20, 2021&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Yiming Shen
 </footer>
 <a class=entry-link aria-label="post link to RCE 远程命令执行漏洞" href=https://shenyiming.life/post/13.rce%E4%B8%93%E6%A0%8F/></a>
-</article>
-<article class=post-entry>
-<header class=entry-header>
-<h2>
-MoeCTF 2021 西电新生赛WP
-</h2>
-</header>
-<section class=entry-content>
-<p>前言-2021/8/10 今天学长在群里发了西电的新生CTF比赛，题目较为基础，适合我们初学者。
-想来还是感慨颇多的，西电不愧是网安的头部院校，信安的新生还没入学就开始打CTF比赛了，我大二了才刚刚踏入大门而已。
-1. Web安全入门指北-GET &lt;?php include "flag.php"; $moe = $_GET['moe']; if ($moe == "flag") { echo $flag; }else { highlight_file(__FILE__); } 签到题。已给出源代码，根据题目提示，可以看出是一个简单的get命令题。
-在地址栏中发送get请求：
-http://47.93.215.154:10000/?moe=flag
-得到flag：
-moectf{We1c0me_t0_CTF_Web!}
-2. Web安全入门指北-POST &lt;?php include "flag.php"; $moe = $_POST['moe']; if ($moe == "flag") { echo $flag; }else { highlight_file(__FILE__); } 给出源代码，只需要发送post请求给moe变量赋值flag即可。
-用hackbar：
-在post参数里填入moe=flag
-Execute执行即可得flag:moectf{POST_1s_an_1mp0rtant_m3th0d!}
-3. Web安全入门指北-小饼干 这道题非常有意思，通过网页提示:
-You are not VIP,I will give flag to VIP!
-可以大致猜测要伪造某些访问项目，将非VIP改为VIP。
-用Burp Suite抓包得到，有一个cookie项为VIP=0，可以通过篡改VIP值来达到伪造cookies的目的。
-将抓包结果发送到重发器，将VIP值改为1，点击发送。
-得到flag。
-4. 2048 打开环境，发现是一个2048小游戏...</p>
-</section>
-<footer class=entry-footer>
-August 19, 2021&nbsp;·&nbsp;2 min&nbsp;·&nbsp;Yiming Shen
-</footer>
-<a class=entry-link aria-label="post link to MoeCTF 2021 西电新生赛WP" href=https://shenyiming.life/post/12.moectf-web-write-up/></a>
 </article>
 <footer class=page-footer>
 <nav class=pagination>

@@ -94,6 +94,28 @@
 <article class="post-entry tag-entry">
 <header class=entry-header>
 <h2>
+Less-1 MATLAB基本操作与矩阵输入
+</h2>
+</header>
+<section class=entry-content>
+<p>基本操作 命令行模式
+公式输入 直接输入算式即可计算结果
+输入格式基本同自然语言
+计算： $$ cos(\sqrt{(\frac{1+2+3+4}{5})}) $$
+cos(sqrt((1+2+3+4)/5)) 注意：5/2 是5除以2 5\2是2除以5
+变量定义 定义变量与python相同，无需声明，默认类型为double
+不能声明为变量的系统关键字：显示格式
+format long 格式种类：
+clc #清屏 clear a #删除变量a who #查询变量 whos #查询变量详细信息 矩阵输入 矩阵定义 a = [1 2 3 4] #定义1*4矩阵 b = [1;2;3;4] #定义4*1矩阵 a = [1 2 3 4;1 2 3 4;1 2 3 4;1 2 3 4] #定义4*4矩阵 矩阵索引 取/修改某个值 a(8) #取第8个值（按行从上往下数）a(8)=4 a([1 3 5])#取第1 3 5个值 a([1 3;1 3])#取第1个数和第3个数 两遍 a(3,2) #取第三行第二列的数 a([1 2],[2 3])#取第1行第2行和第2列第3列的交集为一个新矩阵 修改：a()=[]...</p>
+</section>
+<footer class=entry-footer>
+January 15, 2022&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Yiming Shen
+</footer>
+<a class=entry-link aria-label="post link to Less-1 MATLAB基本操作与矩阵输入" href=https://shenyiming.life/post/less-1_matlab%E5%9F%BA%E7%A1%80/></a>
+</article>
+<article class="post-entry tag-entry">
+<header class=entry-header>
+<h2>
 2021-2022-1 期末复习计划
 </h2>
 </header>
@@ -423,25 +445,6 @@ October 7, 2021&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Yiming Shen
 September 30, 2021&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Yiming Shen
 </footer>
 <a class=entry-link aria-label="post link to 3.3 一次同余方程" href=https://shenyiming.life/cryptologymath/3.3_%E4%B8%80%E6%AC%A1%E5%90%8C%E4%BD%99%E6%96%B9%E7%A8%8B/></a>
-</article>
-<article class="post-entry tag-entry">
-<header class=entry-header>
-<h2>
-2.5 素性检测算法
-</h2>
-</header>
-<section class=entry-content>
-<p>费马小定理 根据费马小定理，p为素数，对任意整数b就有 $$ b^{p-1}\equiv 1(mod\quad p) $$ 问题： $$ 如果有一个整数b,(b,m)=1,使得\\ b^{m-1}\neq 1(mod\quad m)\\ 则m是一个合数，\\ 但反之不一定。 $$
-定义2.5.1 $$ 设m是一个奇合数，如果整数b,(b,m)=1,使得同余式\\ b^{m-1}\equiv 1(mod\quad m)\\ 成立，则m称为对于基b的伪素数。 $$
-费马概率素性检验算法 $$ 给定奇整数m\ge 3和安全参数k\\
-随机选取整数b,2\le b\le m -2\\ 计算g=(b,m),如果g\ne 1，则m为合数\\ 计算r\equiv b^{m-1}(mod\quad m)，如果r\ne 1,则m为合数\\ 如果不是上述两种，则m可能为素数\\ 上述过程重复k次，如果每次都是m可能为素数，则m为素数的概率为1-\frac{1}{2^k}\\ $$ MILLER-RABIN素性检测算法 $$ 设m是奇素数，并且有m-1=2^st，则有以下因数分解式：\\ b^{m-1}-1=(b^{2^{s-1}t}+1)(b^{2^{s-2}t}+1)\cdots (b^t+1)(b^t-1)\\ b^{m-1}\equiv 1(mod\quad m) $$
-定义2.5.2 $$ 设m是一个奇合数，且有表示式m-1=2^st，其中t为奇数\\ 设整数b和m互素，如果整数m和b满足条件\\ b^t\equiv 1(mod\quad m)\\ 或者存在一个整数r,0\le r\lt s使得\\ b^{2^rt}\equiv -1(mod\quad m)\\ 则m称为对于基b的强伪素数 $$
-例 $$ m=2047=23\cdot 89 \\ m-1=2046=2^1\cdot 1023\\ 设b=2\\ 2^t=2^1023=(2^11)^93 = 2048^93\equiv 1(mod\quad 2047) $$...</p>
-</section>
-<footer class=entry-footer>
-September 26, 2021&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Yiming Shen
-</footer>
-<a class=entry-link aria-label="post link to 2.5 素性检测算法" href=https://shenyiming.life/cryptologymath/2.5_%E7%B4%A0%E6%80%A7%E6%A3%80%E6%B5%8B%E7%AE%97%E6%B3%95/></a>
 </article>
 <footer class=page-footer>
 <nav class=pagination>

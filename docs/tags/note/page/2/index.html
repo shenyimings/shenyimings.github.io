@@ -94,6 +94,22 @@
 <article class="post-entry tag-entry">
 <header class=entry-header>
 <h2>
+2.6 RSA公钥密码算法
+</h2>
+</header>
+<section class=entry-content>
+<p>密钥生成 随机生成两个不同的大素数p和q $计算n=pq和\phi(n)=(p-1)(q-1)$ 随机选取整数e,$1\lt e\lt \phi(n)，使得(e,\phi(n))=1$ 计算唯一的整数d,使得 $$ed\equiv 1(mod\quad \phi(n))$$ $$ 公钥是K^A_e = (n,e)\\ 私钥是K_d^A=d\\ $$
+加密过程 用公钥加密明文m,产生密文c
+获取公钥 $$c\equiv m ^e(mod\quad n)$$ 发送密文 解密过程 </p>
+</section>
+<footer class=entry-footer>
+September 25, 2021&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Yiming Shen
+</footer>
+<a class=entry-link aria-label="post link to 2.6 RSA公钥密码算法" href=https://shenyiming.life/cryptologymath/2.6_rsa%E5%85%AC%E9%92%A5%E5%AF%86%E7%A0%81%E7%AE%97%E6%B3%95/></a>
+</article>
+<article class="post-entry tag-entry">
+<header class=entry-header>
+<h2>
 2.4 欧拉定理和费马小定理
 </h2>
 </header>
@@ -419,22 +435,6 @@ Crypto
 July 21, 2021&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Yiming Shen
 </footer>
 <a class=entry-link aria-label="post link to CTF比赛方向选择" href=https://shenyiming.life/post/3.ctf%E6%AF%94%E8%B5%9B%E6%96%B9%E5%90%91%E9%80%89%E6%8B%A9/></a>
-</article>
-<article class="post-entry tag-entry">
-<header class=entry-header>
-<h2>
-Ubuntu 18.04 LTS的配置与入门
-</h2>
-</header>
-<section class=entry-content>
-<p>系统选择 Linux有多种发行版，作为一名小白，我选择Ubuntu的原因是以前用过并且感觉桌面界面十分讨喜，再者，Ubuntu作为常见的个人桌面操作系统，使用人数相对较多，教程也更多，对萌新十分友善。
-载体 最标准的方式当然是重装系统咯，总是佩服小时候爱捣鼓的自己，想格盘就格盘，说重装就重装了，长大以后，不知是懒了还是如何，很难再去断舍离了，只能继续看着又快满的C盘抱残守旧了，单系统不可取，双系统也要重新给硬盘分区，过于麻烦，那就传统的VMware虚拟机吧，在去Ubuntu官网下载镜像时，发现了一个全新的选择：Windows WSL，即Windows Subsystem for Linux，籍此可以直接在Windows 10上运行Ubuntu，安装便捷，启动快速，就决定是你了！
-系统配置（学习网址：CSDN博客） 安装好后首先设置root用户, 更换apt数据源 sudo passwd root su root cd /etc/apt cp sources.list sources.list.bak #备份配置文件 vim sources.list #编辑配置文件 将配置文件内容更改为阿里云镜像源 deb http://mirrors.aliyun.com/ubuntu/ bionic main restricted universe multiverse deb http://mirrors.aliyun.com/ubuntu/ bionic-security main restricted universe multiverse deb http://mirrors.aliyun.com/ubuntu/ bionic-updates main restricted universe multiverse deb http://mirrors.aliyun.com/ubuntu/ bionic-proposed main restricted universe multiverse deb http://mirrors.aliyun.com/ubuntu/ bionic-backports main restricted universe multiverse deb-src http://mirrors.aliyun.com/ubuntu/ bionic main restricted universe multiverse deb-src http://mirrors....</p>
-</section>
-<footer class=entry-footer>
-July 20, 2021&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Yiming Shen
-</footer>
-<a class=entry-link aria-label="post link to Ubuntu 18.04 LTS的配置与入门" href=https://shenyiming.life/post/2.ubuntu%E9%85%8D%E7%BD%AE%E5%8F%8A%E5%91%BD%E4%BB%A4%E5%85%A5%E9%97%A8/></a>
 </article>
 <footer class=page-footer>
 <nav class=pagination>
