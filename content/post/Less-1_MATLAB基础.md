@@ -44,7 +44,7 @@ cos(sqrt((1+2+3+4)/5))
 
 定义变量与python相同，无需声明，默认类型为double
 
-不能声明为变量的系统关键字：![image-20220115225121626](Less-1-MATLAB基础.assets/image-20220115225121626.png)
+不能声明为变量的系统关键字：![image-20220115225121626](/Less-1-MATLAB基础.assets/image-20220115225121626.png)
 
 显示格式
 
@@ -54,7 +54,7 @@ format long
 
 格式种类：
 
-![image-20220115225042103](Less-1-MATLAB基础.assets/image-20220115225042103.png)
+![image-20220115225042103](/Less-1-MATLAB基础.assets/image-20220115225042103.png)
 
 ```matlab
 clc #清屏
@@ -128,9 +128,9 @@ linspace(0,13,6) #按比例生成从0-13的6个数
 
 ```
 
-![image-20220115225044216](Less-1-MATLAB基础.assets/image-20220118103144216.png" alt="image-20220118103144216)
+![image-20220115225044216](/Less-1-MATLAB基础.assets/image-20220118103144216.png" alt="image-20220118103144216)
 
-![image-20220118105503687](Less-1-MATLAB基础.assets/image-20220118105503687.png)
+![image-20220118105503687](/Less-1-MATLAB基础.assets/image-20220118105503687.png)
 
 
 ```matlab
