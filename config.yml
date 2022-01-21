@@ -68,9 +68,9 @@ params:
             - name: 关于
               url: about
             - name: 密码学数学基础
-              url: tags/密码学数学基础
+              url: cryptologymath/
             - name: 离散数学
-              url: tags/离散数学
+              url: discrete-mathematics/
 
     # home-info mode
     homeInfoParams:
@@ -88,6 +88,8 @@ params:
           url: "https://github.com/shenyimings/"
         - name: QQ
           url: "QQ.jpg"
+        - name: email
+          url: "mailto:seuilping@outlook.com"
         - name: telegram
           url: "https://www.zhihu.com/people/shen-yi-ming-91"
 
