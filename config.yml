@@ -42,7 +42,7 @@ params:
 
     label:
         text: "相位 "
-        icon: favicon.ico
+        icon: /favicon.ico
         iconHeight: 35
 
     # profile-mode
