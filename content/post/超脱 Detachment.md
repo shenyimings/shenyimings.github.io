@@ -17,12 +17,10 @@ math: true
 ShowToc: false
 draft: false
 typora-root-url: ..\..\static\
+cover:	
+     image: "/超脱-Detachment.assets/Detachment_poster.jpg"
 
 ---
-
-![Detachment poster.jpg](/%E8%B6%85%E8%84%B1%20Detachment.assets/Detachment_poster.jpg)
-
-
 
 > 要无心太容易了，在乎才需要勇气。
 >
@@ -32,6 +30,6 @@ typora-root-url: ..\..\static\
 
 思想沉重，挑个时间写写感想吧
 
-![image-20211229122059226](/%E8%B6%85%E8%84%B1%20Detachment.assets/image-20211229122059226.png)
+![image-20211229122059226](/超脱-Detachment.assets/image-20211229122059226.png)
 
 > 有人觉得我们能改变一些事情，有时当我们醒来，才知道我们也力不能及。
