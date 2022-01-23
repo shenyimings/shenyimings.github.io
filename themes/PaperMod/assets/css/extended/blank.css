@@ -1,0 +1,166 @@
+:root {
+    --nav-width: 1380px;
+    --article-width: 650px;
+    --toc-width: 300px;
+}
+
+.toc {
+    margin: 0 2px 40px 2px;
+    border: 1px solid var(--border);
+    background: var(--entry);
+    border-radius: var(--radius);
+    padding: 0.4em;
+}
+
+.toc-container.wide {
+    position: absolute;
+    height: 100%;
+    border-right: 1px solid var(--border);
+    left: calc((var(--toc-width) + var(--gap)) * -1);
+    top: calc(var(--gap) * 2);
+    width: var(--toc-width);
+}
+
+.wide .toc {
+    position: sticky;
+    top: var(--gap);
+    border: unset;
+    background: unset;
+    border-radius: unset;
+    width: 100%;
+    margin: 0 2px 40px 2px;
+}
+
+.toc details summary {
+    cursor: zoom-in;
+    margin-inline-start: 20px;
+    padding: 12px 0;
+}
+
+.toc details[open] summary {
+    font-weight: 500;
+}
+
+.toc-container.wide .toc .inner {
+    margin: 0;
+}
+
+.active {
+    font-size: 110%;
+    font-weight: 600;
+}
+
+.toc ul {
+    list-style-type: circle;
+}
+
+.toc .inner {
+    margin: 0 0 0 20px;
+    padding: 0px 15px 15px 20px;
+    font-size: 16px;
+}
+
+.toc li ul {
+    margin-inline-start: calc(var(--gap) * 0.5);
+    list-style-type: none;
+}
+
+.toc li {
+    list-style: none;
+    font-size: 0.95rem;
+    padding-bottom: 5px;
+}
+
+.toc li a:hover {
+    color: var(--secondary);
+}
+
+
+.friendurl {
+    text-decoration: none !important;
+    color: black;
+    box-shadow: none !important;
+}
+
+.myfriend {
+    width: 56px !important;
+    height: 56px !important;
+    border-radius: 15%!important;
+    padding: 1px;
+    margin-top: 20px !important;
+    margin-left: 14px !important;
+    background-color: var(--theme);
+}
+
+.frienddiv {
+    overflow: auto;
+    height: 100px;
+    width: 49%;
+    display: inline-block !important;
+    border-radius: 5px;
+    background: none;
+    
+    -webkit-transition: all ease-out 0.3s;
+    -moz-transition: all ease-out 0.3s;
+    -o-transition: all ease-out 0.3s;
+    transition: all ease-out 0.3s;
+}
+
+.dark .frienddiv:hover {
+    background: var(--code-bg);
+}
+
+.frienddiv:hover {
+    background: var(--theme);
+    transition: transform 2s;
+    webkit-transform: scale(1.1);
+    -moz-transform: scale(1.2);
+    -ms-transform: scale(1.2);
+    -o-transform: scale(1.2);
+    transform: scale(1.1);
+}
+
+
+.frienddivleft {
+    width: 92px;
+    float: left;
+    margin-right: -5px;
+}
+
+.frienddivright {
+    margin-top: 18px;
+    margin-right: 18px;
+}
+
+.friendname {
+    text-overflow: ellipsis;
+    font-size: 110%;
+  
+    margin-bottom: 5px;
+    color: var(--primary);
+}
+
+.friendinfo {
+    font-size: 70%;
+    color: var(--primary);
+}
+
+@media screen and (max-width: 600px) {
+    .friendinfo {
+        display: none;
+    }
+    .frienddivleft {
+        width: 84px;
+        margin: auto;
+    }
+    .frienddivright {
+        height: 100%;
+        margin: auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .friendname {
+        font-size: 18px;
+    }
+}

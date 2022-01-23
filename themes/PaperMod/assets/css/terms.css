@@ -1,0 +1,34 @@
+.terms-tags li {
+    display: inline-block;
+    margin: 10px;
+    font-weight: 500
+}
+
+.terms-tags a {
+    display: block;
+    padding: 3px 14px;
+    font-family: 'Times New Roman', Times, serif;
+    border-radius: 6px;
+    transition: transform .5s
+}
+
+.terms-tags a:active {
+
+    transform: scale(.90)
+}
+
+
+.dark.terms-tags a:hover {
+    background: var(--code-bg);
+}
+
+.terms-tags a:hover {
+    background: var(--code-bg);
+    transition: transform 0.3s;
+    webkit-transform: scale(1.5);
+    -moz-transform: scale(2);
+    -ms-transform: scale(2);
+    -o-transform: scale(2);
+    transition: transform 0.5s;
+    transform: scale(1.4);
+}

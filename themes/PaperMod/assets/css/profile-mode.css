@@ -1,0 +1,55 @@
+.buttons,
+.main .profile {
+    display: flex;
+    justify-content: center
+}
+
+.main .profile {
+    position: absolute;
+    left: 0;
+    right: 0;
+    align-items: center;
+    height: 80%;
+    text-align: center
+}
+
+.profile .profile_inner h1 {
+    padding: 12px 0
+}
+
+.profile img {
+    display: inline-table;
+    border-radius: 50%;
+    pointer-events: none
+}
+
+.buttons {
+    flex-wrap: wrap;
+    max-width: 400px;
+    margin: 0 auto
+}
+
+.button {
+    margin: 8px;
+    padding: 6px ;
+    transition: transform .1s;
+    border-bottom: 2px solid #535353;
+}
+
+.button-inner {
+    padding: 0 8px
+}
+
+.button:active {
+    transform: scale(.96)
+}
+
+.buttons :hover {
+    transition: transform 0.2s;
+    webkit-transform: scale(1.5);
+    -moz-transform: scale(2);
+    -ms-transform: scale(2);
+    -o-transform: scale(2);
+ 
+    transform: scale(1.2);
+}

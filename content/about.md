@@ -45,7 +45,7 @@ typora-root-url: ..\static\
 ## Releases
 ##### 22 Jan 2022
 
-**0.2.1**
+**0.2.3**
 
 ---
 
@@ -53,6 +53,14 @@ typora-root-url: ..\static\
 
 > - 增加友链功能
 > - 增加文章封面
+> - 完成页面汉化
+> - 增加entry动画
+> - 调整了tags的termcss样式
+
+【博客快照】
+
+![image-20220123135441374](/about.assets/image-20220123135441374.png)
+
 
 ##### 21 Jan 2022
 
