@@ -56,6 +56,8 @@ typora-root-url: ..\static\
 > - 完成页面汉化
 > - 增加entry动画
 > - 调整了tags的termcss样式
+>
+> 未来计划：迁移至gitee或腾讯云
 
 【博客快照】
 
