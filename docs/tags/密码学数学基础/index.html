@@ -351,60 +351,6 @@ September 22, 2021&nbsp;·&nbsp;October 25, 2021&nbsp;·&nbsp;1 min&nbsp;·&nbsp
 </footer>
 <a class=entry-link aria-label="post link to 2.2 同余类与既约同余类" href=https://shenyiming.life/cryptologymath/2.2_%E5%90%8C%E4%BD%99%E7%B1%BB%E4%B8%8E%E6%97%A2%E7%BA%A6%E5%90%8C%E4%BD%99%E7%B1%BB/></a>
 </article>
-<article class="post-entry tag-entry">
-<header class=entry-header>
-<h2>
-2.1 同余
-</h2>
-</header>
-<section class=entry-content>
-<p>定义2.1.1 $$ 设m\in N^+,a_1,a_2\in Z，如果m\mid (a_2-a_1)，则称a_1和a_2模m同余，记作\\ a_1 \equiv a_a(mod\quad m) $$ 该式称为模m的同余式，简称同余式。
-$$ 反之，如果m\nmid a_2-a_1，则称不同余。\\ $$ $$ 39\equiv25(mod\quad7)\\ $$ $$ a\equiv0(mod\quad n)\Leftrightarrow n|a\\ 所有的偶数表示为a\equiv 0(mod\quad 2) 所有的奇数表示为a\equiv 1(mod\quad 2) $$
-定理2.1.1 设n是一个正整数，则模n同余是等价关系，具有以下性质：
-自反性 对称性 传递性 定理2.1.2 设$$n\in N^+,a\equiv b(mod\quad n),c\equiv d(mod\quad n),k\in Z$$
-$$a+c\equiv b+d(mod\quad n),特别地，a+k\equiv b+k(mod\quad n)$$ $$ac\equiv bd(mod\quad n),ak\equiv bk(mod\quad n),a^n\equiv b^n(mod\quad n)$$ $$若m为非零整数，则a\equiv b(mod \quad n)\Leftrightarrow am\equiv bm(mod\quad nm)$$ $$若m|n，则a\equiv b(mod\quad n)，则有a\equiv b(mod\quad m)，特别地，若l\in N^+，a\equiv b(mod\quad n^l)$$。 $$若k\in Z,ak\equiv bk(mod\quad m)，则a\equiv b(mod\frac{m}{(k,m)})。特别地，若(k,m)=1，a\equiv b(mod\quad m)$$（整除的性质（6）） 定理2....</p>
-</section>
-<footer class=entry-footer>
-September 20, 2021&nbsp;·&nbsp;January 20, 2022&nbsp;·&nbsp;2 min&nbsp;·&nbsp;Yiming Shen
-</footer>
-<a class=entry-link aria-label="post link to 2.1 同余" href=https://shenyiming.life/cryptologymath/2.1_%E5%90%8C%E4%BD%99/></a>
-</article>
-<article class="post-entry tag-entry">
-<header class=entry-header>
-<h2>
-1.5 素数的生成
-</h2>
-</header>
-<section class=entry-content>
-<p>定理1.5.1 埃拉托斯特尼筛法 埃氏筛 设n是一个正整数，如果对所有的素数 $$ p\le\sqrt{n} $$ 都有 $$ p\nmid n $$ ，则n一定是素数。
-证明（反证法）：假设n是合数，则n有一个大于1的最小正因数p，则有 $$ p\mid n $$ ,且p是素数，且 $$ p\le \sqrt{a} $$
-这是因为如果p是合数，则存在整数q，1&lt;q&lt;p，使得 $$ q\mid p $$ ，又 $$ p\mid n $$ ，所以 $$ q\mid n $$ ，这与p是n的最小正因数矛盾。 因为n是合数，所以存在整数 $$ n_1 $$ ，使得 $$ n=n_1\cdot p_1,1&lt;p\le n_1&lt;n $$ ，因此 $$ p^2\le n，故p\le \sqrt{n} $$ </p>
-</section>
-<footer class=entry-footer>
-September 16, 2021&nbsp;·&nbsp;January 20, 2022&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Yiming Shen
-</footer>
-<a class=entry-link aria-label="post link to 1.5 素数的生成" href=https://shenyiming.life/cryptologymath/1.5_%E7%B4%A0%E6%95%B0%E7%9A%84%E7%94%9F%E6%88%90-/></a>
-</article>
-<article class="post-entry tag-entry">
-<header class=entry-header>
-<h2>
-第一章 例题
-</h2>
-</header>
-<section class=entry-content>
-<p>1. 对任意整数a,b,c，证明：[(a,b),(a,c)]=(a,[b,c]) 证明： $$ 设a=p_1^{a_1}p_2^{a_2}\cdots p_s^{a_s},b=\cdots,c=\cdots则 \\ (标准素因数分解) \\ [(a,b),(a,c)]=\Sigma_{i=1}^sp_i^{max(min(a_i,b_i),min(a_i,c_i))} \\ (a,[b,c])=\Sigma_{i=1}^sp_i^{min(a_i,max(b_i,c_i))} $$
-2. 设m,n为正整数，m是奇数，求证：$2^m-1和2^n+1$互素 证明： $$ 假设(2^m-1,2^n+1)=d,d\ge2,于是\exist x,y\in Z使得\\ 2^m=dx +1\\ 2^n=dy -1\\ \exist\mu\in Z \quad2^{mn}=(2^m)^n=d\mu+1\\ 注意到，m为奇数，故\\ \exist v\in Z \quad 2^{mn}=(2^n)^m=dv-1\\ 所以有d(v-\mu)=2，从而必有d=2,矛盾。 $$
-3. 利用最大公因数的表达式证明：若$(a,m)=(b,m)=1$，则有$(ab,m)=1$。 证明：
-由$(a,m)=(b,m)=1$可知，$\exist x,y,u,v\in Z$，使得 $$ ax+my=1,bu+mv=1\\ (ax)(bu)=(1-my)(1-mv)\\ 1-my-mv+m\cdot myv\\ ab(xu)+m(y+v-myv)=1\\ 由xu,y+v-myv\in Z可知，(ab,m)=1 $$
-4. 利用最大公因数的表达式证明：若(m,a)=1,$m\mid ab$则有$m\mid b$ 证明：
-由$(m,a)=1$知 $$ mx+ay=1\\ 两边同乘b\\ mbx+aby=b\\ 因为m\mid ab,m\mid m 所以等式左边能被m整除\\ 故右边-b能被m整除\\ 所以m\mid b $$
-5. 求方程243x+198y=909的一组整数解 利用欧几里德算法，as+bt=(a,b)...</p>
-</section>
-<footer class=entry-footer>
-September 16, 2021&nbsp;·&nbsp;January 20, 2022&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Yiming Shen
-</footer>
-<a class=entry-link aria-label="post link to 第一章 例题" href=https://shenyiming.life/cryptologymath/1.6_%E7%AC%AC%E4%B8%80%E7%AB%A0%E4%BE%8B%E9%A2%98/></a>
-</article>
 <footer class=page-footer>
 <nav class=pagination>
 <a class=next href=https://shenyiming.life/tags/%E5%AF%86%E7%A0%81%E5%AD%A6%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/page/2/>Next Page »</a>

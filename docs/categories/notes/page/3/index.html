@@ -99,6 +99,170 @@
 <article class="post-entry tag-entry">
 <header class=entry-header>
 <h2>
+第一章 例题
+</h2>
+</header>
+<section class=entry-content>
+<p>1. 对任意整数a,b,c，证明：[(a,b),(a,c)]=(a,[b,c]) 证明： $$ 设a=p_1^{a_1}p_2^{a_2}\cdots p_s^{a_s},b=\cdots,c=\cdots则 \\ (标准素因数分解) \\ [(a,b),(a,c)]=\Sigma_{i=1}^sp_i^{max(min(a_i,b_i),min(a_i,c_i))} \\ (a,[b,c])=\Sigma_{i=1}^sp_i^{min(a_i,max(b_i,c_i))} $$
+2. 设m,n为正整数，m是奇数，求证：$2^m-1和2^n+1$互素 证明： $$ 假设(2^m-1,2^n+1)=d,d\ge2,于是\exist x,y\in Z使得\\ 2^m=dx +1\\ 2^n=dy -1\\ \exist\mu\in Z \quad2^{mn}=(2^m)^n=d\mu+1\\ 注意到，m为奇数，故\\ \exist v\in Z \quad 2^{mn}=(2^n)^m=dv-1\\ 所以有d(v-\mu)=2，从而必有d=2,矛盾。 $$
+3. 利用最大公因数的表达式证明：若$(a,m)=(b,m)=1$，则有$(ab,m)=1$。 证明：
+由$(a,m)=(b,m)=1$可知，$\exist x,y,u,v\in Z$，使得 $$ ax+my=1,bu+mv=1\\ (ax)(bu)=(1-my)(1-mv)\\ 1-my-mv+m\cdot myv\\ ab(xu)+m(y+v-myv)=1\\ 由xu,y+v-myv\in Z可知，(ab,m)=1 $$
+4. 利用最大公因数的表达式证明：若(m,a)=1,$m\mid ab$则有$m\mid b$ 证明：
+由$(m,a)=1$知 $$ mx+ay=1\\ 两边同乘b\\ mbx+aby=b\\ 因为m\mid ab,m\mid m 所以等式左边能被m整除\\ 故右边-b能被m整除\\ 所以m\mid b $$
+5. 求方程243x+198y=909的一组整数解 利用欧几里德算法，as+bt=(a,b)...</p>
+</section>
+<footer class=entry-footer>
+September 16, 2021&nbsp;·&nbsp;January 20, 2022&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Yiming Shen
+</footer>
+<a class=entry-link aria-label="post link to 第一章 例题" href=https://shenyiming.life/cryptologymath/1.6_%E7%AC%AC%E4%B8%80%E7%AB%A0%E4%BE%8B%E9%A2%98/></a>
+</article>
+<article class="post-entry tag-entry">
+<header class=entry-header>
+<h2>
+欧几里德算法
+</h2>
+</header>
+<section class=entry-content>
+<p>定理1.4.1 设$a_0,a_1\in Z,a_1\ne0$，按下述方式反复作带余除法，有限步后必可以除尽 $$ a_0=a_1q_0+a_2 \\\\ a_1=a_2q_1+a_3 \\\\ \vdots \\\\ a_{n-2}=a_{n-1}q_{n-2}+a_n a_{n-1}=a_{n}q_{n-1}+a_{n+1} \\\\ a_{n+1}=0\\ 则有(a_0,a_1)=a_n $$ 证明1：有限步除尽
+证明2：最小公因数为$a_n$(最后不为0的余数)
+欧几里德算法——辗转相除法——更相减损术（九章算术）
+例题1.4.1 设a=963, b=657
+(1)求最大公因数（a,b） $$ 963 = 1\times657+306 \\ 657=2\times306+45 \\ 306=6\times45+36\\ 45=1\times36+9\\ 36=4\times9 $$ (963,657) = 9
+(2)求整数as + bt = (a,b) $$ 963 = 1\times657+306 &\rightarrow 7\times657-15\times(963-657)=22\times657-15\times963 \\ 657=2\times306+45&\rightarrow 7\times(657-2\times306)-306=7\times657-15\times306 \\ 306=6\times45+36\\ 45=1\times36+9&\\ 36=4\times9 $$
+例题1.4.2 设a=-1859和b=1573,求最大公因数（a，b）和整数s，t，使as+bt=(a,b) $$ 1859=1\times1573+286\searrow&(-1859)\times5+1573\times6\\ 1573=5\times286+143\searrow&1573-5\times(1859-1\times1573)\\ 286=2\times143&143=1573-5\times286\\ $$</p>
+</section>
+<footer class=entry-footer>
+September 12, 2021&nbsp;·&nbsp;January 12, 2022&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Yiming Shen
+</footer>
+<a class=entry-link aria-label="post link to 欧几里德算法" href=https://shenyiming.life/cryptologymath/1.4_%E6%AC%A7%E5%87%A0%E9%87%8C%E5%BE%B7%E7%AE%97%E6%B3%95/></a>
+</article>
+<article class="post-entry tag-entry">
+<header class=entry-header>
+<h2>
+MoeCTF 2021 西电新生赛WP
+</h2>
+</header>
+<section class=entry-content>
+<p>前言-2021/8/10 今天学长在群里发了西电的新生CTF比赛，题目较为基础，适合我们初学者。
+想来还是感慨颇多的，西电不愧是网安的头部院校，信安的新生还没入学就开始打CTF比赛了，我大二了才刚刚踏入大门而已。
+1. Web安全入门指北-GET &lt;?php include "flag.php"; $moe = $_GET['moe']; if ($moe == "flag") { echo $flag; }else { highlight_file(__FILE__); } 签到题。已给出源代码，根据题目提示，可以看出是一个简单的get命令题。
+在地址栏中发送get请求：
+http://47.93.215.154:10000/?moe=flag
+得到flag：
+moectf{We1c0me_t0_CTF_Web!}
+2. Web安全入门指北-POST &lt;?php include "flag.php"; $moe = $_POST['moe']; if ($moe == "flag") { echo $flag; }else { highlight_file(__FILE__); } 给出源代码，只需要发送post请求给moe变量赋值flag即可。
+用hackbar：
+在post参数里填入moe=flag
+Execute执行即可得flag:moectf{POST_1s_an_1mp0rtant_m3th0d!}
+3. Web安全入门指北-小饼干 这道题非常有意思，通过网页提示:
+You are not VIP,I will give flag to VIP!
+可以大致猜测要伪造某些访问项目，将非VIP改为VIP。
+用Burp Suite抓包得到，有一个cookie项为VIP=0，可以通过篡改VIP值来达到伪造cookies的目的。
+将抓包结果发送到重发器，将VIP值改为1，点击发送。
+得到flag。
+4. 2048 打开环境，发现是一个2048小游戏...</p>
+</section>
+<footer class=entry-footer>
+August 19, 2021&nbsp;·&nbsp;December 11, 2021&nbsp;·&nbsp;2 min&nbsp;·&nbsp;Yiming Shen
+</footer>
+<a class=entry-link aria-label="post link to MoeCTF 2021 西电新生赛WP" href=https://shenyiming.life/post/12.moectf-web-write-up/></a>
+</article>
+<article class="post-entry tag-entry">
+<header class=entry-header>
+<h2>
+DVWA环境搭建 + BurpSuite2.1安装 + Chrome配置
+</h2>
+</header>
+<section class=entry-content>
+<p>[TOC]
+DVWA环境搭建 DVWA（Damn Vulnerable Web Application）是一个用来进行安全脆弱性鉴定的PHP/MySQL Web应用，旨在为安全专业人员测试自己的专业技能和工具提供合法的环境，帮助web开发者更好的理解web应用安全防范的过程。
+DVWA运行基于LAMP（Linux+Apache+MySQL+PHP），出于时间和个人能力的考虑，很难成功地从0开始搭建这样一套体系，故而使用小皮的PHPStudy环境。
+PHPStudy：https://www.xp.cn/
+DVWA：http://www.dvwa.co.uk/
+一、安装PHP Study 二、配置DVWA 将下载的DVWA压缩包解压到PHP Study的WWW目录下并解压，进入目录中的config文件夹，编辑config.inc.php文件，找到_DVWA['db_password']='root'行，将user改为‘root’；password改为‘root’。
+三、配置PHP Study 开启Apache和PHP服务，点击左边栏网站，左上角创建网站，域名为设置为本机本地域名，查看本地域名方法：进入powershell输入命令ipconfig查看，我电脑本机域名为192.168.0.104
+为什么不设置为localhost 127.0.0.1：Burp Suite配合chrome浏览器抓包时可能无法拦截localhost的数据。
+根目录指向刚刚解压的DVWA-master目录下，点击确认，网站创建成功。
+四、浏览器进入192.108.0.104 点击Create/Reset Database创建数据库
+用户名：admin 默认密码：password
+登陆进入后即部署成功。
+BurpSuite2.1安装 BurpSuite 是用于攻击web 应用程序的集成平台，包含了许多工具。Burp Suite为这些工具设计了许多接口，以加快攻击应用程序的过程。所有工具都共享一个请求，并能处理对应的HTTP 消息、持久性、认证、代理、日志、警报。
+1. JDK及BurpSuite破解版下载 链接：https://pan.baidu.com/s/11lrFGT0aGCd4BQcAJrL55w 提取码：w5lg
+2. 配置JAVA环境 安装好jdk后，右键计算机-属性-系统设置-高级-环境变量
+新增两个环境变量
+%JAVA_HOME%=jdk安装文件夹所在位置，如...\jdk1.8.0_201
+%CLASSPATH%=.;%JAVA_HOME%\lib\dt.jar;%JAVA_HOME%\lib\tools.jar
+修改path变量，分别添加jdk和jre安装文件夹下的bin目录。
+3. 激活BurpSuite jdk配置完毕后，先打开burp-loader-keygen.jar文件
+点击run
+将license许可证复制入弹出的框中，点击Next，选择Manual activation手动激活。
+将生成的申请码粘贴入注册机中，自动算号，将生成的激活码复制入框中，点击Next即激活成功。
+此后想打开Burp Suite，双击运行目录下的VBS脚本即可。
+BurpSuite Chrome配置 1. 设置流量代理Proxy ​ 在谷歌应用商店中安装Falcon Proxy，添加一个新的代理127....</p>
+</section>
+<footer class=entry-footer>
+August 5, 2021&nbsp;·&nbsp;September 5, 2021&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Yiming Shen
+</footer>
+<a class=entry-link aria-label="post link to DVWA环境搭建 + BurpSuite2.1安装 + Chrome配置" href=https://shenyiming.life/post/9.dvwa%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA+burpsuite2.1%E5%AE%89%E8%A3%85/></a>
+</article>
+<article class="post-entry tag-entry">
+<header class=entry-header>
+<h2>
+MISC类型题目及技巧
+</h2>
+</header>
+<section class=entry-content>
+<p>图片隐写 图片EXIF信息 GIF图片 文件头 16进制编码 编码 Readflag
+社工 Bugku社工_进阶收集
+根据题目给出的说说截图，有如下信息：
+终点位置突出特征：有塔 坐地铁需要7站，中间还要转一站
+出发站为始发站 家位置在始发站和第二站的中间位置 根据以上信息，先对说说配图进行百度识图，查找到地理位置为西安大雁塔，对照西安地铁图，距离大雁塔站有7站且为始发站的站点只有韦曲南站，至此即可确定小美所住的小区在韦曲南站和航天城站之间，利用百度地图标尺画两个圆，可以大致确定符合条件的7家小区，挨个尝试可得flag。
+Bugku_隐写)
+题目文件为一张PNG格式图片，Windows自带图片浏览器无法正常打开该图片，说明图片内容经过人为篡改。使用工具TweakPng查看png内容，将图片大小的chunk部分高度修改为宽度一致，500px，保存，图片flag得以正常显示。
+正常做法：用Python脚本计算和图片大小相匹配的正常宽高，再利用Tweakpng查看并修改。
+</p>
+</section>
+<footer class=entry-footer>
+July 23, 2021&nbsp;·&nbsp;July 23, 2021&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Yiming Shen
+</footer>
+<a class=entry-link aria-label="post link to MISC类型题目及技巧" href=https://shenyiming.life/post/6.bugku_misc/></a>
+</article>
+<article class="post-entry tag-entry">
+<header class=entry-header>
+<h2>
+CTF比赛方向选择
+</h2>
+</header>
+<section class=entry-content>
+<p>了解CTF CTF 的前身是传统黑客之间的网络技术比拼游戏，起源于 1996 年第四届 DEFCON。CTF比赛有以下突出特点：
+比赛侧重于对计算机底层和系统安全的核心能力，Web 漏洞攻防技巧完全被忽略。 竞赛环境趋向多 CPU 指令架构集，多操作系统，多编程语言。 采用「零和」计分规则。 团队综合能力考验：逆向分析、漏洞挖掘、漏洞利用、漏洞修补加固、网络流量分析、系统安全运行维护以及安全方面的编程调试。 CTF竞赛内容 常见六个分类
+Web - 网络攻防
+考察Web安全中的常见漏洞，如SQL注入、XSS、CSRF、文件包含、文件上传、代码审计。Web安全题型最为常见。
+RE - 逆向工程
+反编译、软件保护、反调试、软件加壳脱壳。
+PWN - 二进制漏洞
+与计算机操作系统底层相关，主要出现在Linux平台上。
+Crypto - 密码学
+古典密码与现代密码学安全两方面
+Mobile - 移动安全
+安卓逆向相关
+MISC - 安全杂项
+信息搜集（社工）、编码分析、取证分析、隐写分析等
+比赛学习方向选择 基于我个人对于六个分类的了解，我选择Web方向与Crypto方向。
+Web
+作为一个尝试过Minecraft自建服务器、外网vps搭梯子（学习用）、购置域名建WordPress小站、提取视频网站M3U8下载地址的ctf beginner，Web方向是我最为感兴趣和想学习的方向，也是我认为最有应用性和最能获得成就感的方向。Web方向知识面的广度很宽，涉及范围相当大，故而学习需要恒心。
+Crypto
+选择这个方向的原因很简单，我是目前所读专业即为信息安全（密码学方向） 故而此方向与学科所学相关，虽难但也必须披荆斩棘，筚路蓝缕。
+次要方向：PWN...</p>
+</section>
+<footer class=entry-footer>
+July 21, 2021&nbsp;·&nbsp;July 21, 2021&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Yiming Shen
+</footer>
+<a class=entry-link aria-label="post link to CTF比赛方向选择" href=https://shenyiming.life/post/3.ctf%E6%AF%94%E8%B5%9B%E6%96%B9%E5%90%91%E9%80%89%E6%8B%A9/></a>
+</article>
+<article class="post-entry tag-entry">
+<header class=entry-header>
+<h2>
 Ubuntu 18.04 LTS的配置与入门
 </h2>
 </header>

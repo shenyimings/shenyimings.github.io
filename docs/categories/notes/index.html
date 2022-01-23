@@ -399,59 +399,6 @@ October 8, 2021&nbsp;·&nbsp;January 20, 2022&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Yi
 </footer>
 <a class=entry-link aria-label="post link to 3.4 基于中国剩余定理的秘密共享" href=https://shenyiming.life/cryptologymath/3.4_%E5%9F%BA%E4%BA%8E%E4%B8%AD%E5%9B%BD%E5%89%A9%E4%BD%99%E5%AE%9A%E7%90%86%E7%9A%84%E7%A7%98%E5%AF%86%E5%85%B1%E4%BA%AB/></a>
 </article>
-<article class="post-entry tag-entry">
-<header class=entry-header>
-<h2>
-离散数学CH04-一阶逻辑基本概念
-</h2>
-</header>
-<section class=entry-content>
-<p>一阶逻辑命题符号化 一阶逻辑公式及其解释 定义4.5 $$ 在公式\forall x A 和\exist x A 中，称x为指导变元，A为量词的辖域\\ 在\forall x \exist x的辖域中，x的所有出现都称作约束出现，A中不是\\ 约束出现的其他变项均被称作自由出现 $$
-定义4.6 $$ 设A是任意的公式，若A中不含自由出现的个体变项，则称A为封闭的公式，简称闭式 $$</p>
-</section>
-<footer class=entry-footer>
-October 8, 2021&nbsp;·&nbsp;December 14, 2021&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Yiming Shen
-</footer>
-<a class=entry-link aria-label="post link to 离散数学CH04-一阶逻辑基本概念" href=https://shenyiming.life/discrete-mathematics/ch04/></a>
-</article>
-<article class="post-entry tag-entry">
-<header class=entry-header>
-<h2>
-离散数学CH03-命题逻辑的推理理论
-</h2>
-</header>
-<section class=entry-content>
-<p>前言 所谓推理是指从前提出发推出结论的思维过程，而前提是已知的命题公式集合，结论是从前提出发应用推理规则推出的命题公式。
-定理3.1 命题公式 $$ A_1,A_2,\cdots,A_k $$ 推出B的推理正确当且仅当 $$ A_1\wedge A_2,\wedge \cdots,\wedge A_k \to B $$ 为重言式。
-今后把推理的形式结构写成: $$ 前提：A_1,A_2,\cdots,A_k\\ 结论：B $$ 并根据判断定理3.1的蕴含式是否是重言式来确定推理是否正确。根据前2章的讨论，判断是否为重言式有下面3种方法：
-真值表法 等值演算法 主析取范式法 常用重言蕴含式（推理定律） $$ (A\to B)\wedge A \Rightarrow B \qquad 假言推理\\ (A\to B)\wedge \neg B\Rightarrow \neg A\qquad 拒取式\\ (A\vee B)\wedge \neg B \Rightarrow A \qquad 析取三段论\\ (A\to B)\wedge (B\to C)\Rightarrow (A\to C) \qquad 假言三段论\\ $$
-推理证明格式 例3.3 在自然推理系统P中构造下面推理的证明。 前提：$$P\vee q,q\to r,p\to s,\neg s$$...</p>
-</section>
-<footer class=entry-footer>
-October 7, 2021&nbsp;·&nbsp;December 14, 2021&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Yiming Shen
-</footer>
-<a class=entry-link aria-label="post link to 离散数学CH03-命题逻辑的推理理论" href=https://shenyiming.life/discrete-mathematics/ch03/></a>
-</article>
-<article class="post-entry tag-entry">
-<header class=entry-header>
-<h2>
-3.3 一次同余方程
-</h2>
-</header>
-<section class=entry-content>
-<p>一次同余方程 定义3.1.1 变数个数多于方程个数，且取整数值的方程（或方程组）称为不定方程（组）
-定理3.1.1 二元一次不定方程ax+by+n有整数解的充要条件是(a,b) | n
-定理3.1.2 设二元一次不定方程ax+by=n有解 $$ x_0,y_0 为它的一组整数解(特解)，则该方程的通解为：\\ x=x_0+\frac{b}{(a,b)}t\\ y=y_0-\frac{a}{(a,b)}t,t\in Z $$
-例3.1.1 求解2x+3y=7的通解 解： $$ (2,3)=1,易知x_0=2,y_0=1是原方程一解，则由定理3.1.2知\\ x=x_0+bt=2+3t\\ y=y_0-at=1-2t $$
-定理3.1.3 一次同余方程结论 $$ 同余方程ax+b\equiv 0(mod\quad m)有解当且仅当(a,m) | b\\ 若ax+b\equiv 0(mod\quad m)有解，则在模m的意义下解数为(a,m)个\\ 记x_0为其中一个解，则该方程通解为\\ x_0+t\frac{m}{(a,m)}(mod\quad m)\\ 其中0\le t \lt (a,m),t\in Z $$
-证明： $$ ax+b\equiv 0(mod\quad m)\leftrightarrow ax+b=my\\ 套用定理3.1.1和3.1.2即可 $$
-例题3.1.3 求解一次同余方程 $$ 32x\equiv 12(mod \quad 8)\\ (32,8)=8\nmid 12无解 $$...</p>
-</section>
-<footer class=entry-footer>
-September 30, 2021&nbsp;·&nbsp;January 20, 2022&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Yiming Shen
-</footer>
-<a class=entry-link aria-label="post link to 3.3 一次同余方程" href=https://shenyiming.life/cryptologymath/3.3_%E4%B8%80%E6%AC%A1%E5%90%8C%E4%BD%99%E6%96%B9%E7%A8%8B/></a>
-</article>
 <footer class=page-footer>
 <nav class=pagination>
 <a class=next href=https://shenyiming.life/categories/notes/page/2/>Next Page »</a>

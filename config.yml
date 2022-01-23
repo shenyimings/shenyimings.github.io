@@ -1,6 +1,6 @@
 baseURL: "https://shenyiming.life"
 title: "Console.makeHappy(_1ming)"
-paginate: 15
+paginate: 12
 theme: PaperMod
 publishDir: "docs"
 enableRobotsTXT: true
