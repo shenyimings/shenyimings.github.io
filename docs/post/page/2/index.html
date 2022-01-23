@@ -11,7 +11,7 @@
 <meta name=google-site-verification content="XYZabc">
 <meta name=yandex-verification content="XYZabc">
 <meta name=msvalidate.01 content="XYZabc">
-<link href=/assets/css/stylesheet.min.cc6fa62c20a16fb511b7f16f42116db086f0e3301b8aa79e60d5077d6dc5f320.css integrity="sha256-zG+mLCChb7URt/FvQhFtsIbw4zAbiqeeYNUHfW3F8yA=" rel="preload stylesheet" as=style>
+<link href=/assets/css/stylesheet.min.2cee07e6344a7554a754be620f60a87042a1942959924762f2e6c0ffee66ad9b.css integrity="sha256-LO4H5jRKdVSnVL5iD2CocEKhlClZkkdi8ubA/+5mrZs=" rel="preload stylesheet" as=style>
 <link rel=icon href=https://shenyiming.life/favicon.ico>
 <link rel=icon type=image/png sizes=16x16 href=https://shenyiming.life/favicon-16x16.png>
 <link rel=icon type=image/png sizes=32x32 href=https://shenyiming.life/favicon-32x32.png>
@@ -97,6 +97,37 @@
 </div>
 <h1>文章</h1>
 </header>
+<article class=post-entry>
+<header class=entry-header>
+<h2>
+MoeCTF 2021 西电新生赛WP
+</h2>
+</header>
+<section class=entry-content>
+<p>前言-2021/8/10 今天学长在群里发了西电的新生CTF比赛，题目较为基础，适合我们初学者。
+想来还是感慨颇多的，西电不愧是网安的头部院校，信安的新生还没入学就开始打CTF比赛了，我大二了才刚刚踏入大门而已。
+1. Web安全入门指北-GET &lt;?php include "flag.php"; $moe = $_GET['moe']; if ($moe == "flag") { echo $flag; }else { highlight_file(__FILE__); } 签到题。已给出源代码，根据题目提示，可以看出是一个简单的get命令题。
+在地址栏中发送get请求：
+http://47.93.215.154:10000/?moe=flag
+得到flag：
+moectf{We1c0me_t0_CTF_Web!}
+2. Web安全入门指北-POST &lt;?php include "flag.php"; $moe = $_POST['moe']; if ($moe == "flag") { echo $flag; }else { highlight_file(__FILE__); } 给出源代码，只需要发送post请求给moe变量赋值flag即可。
+用hackbar：
+在post参数里填入moe=flag
+Execute执行即可得flag:moectf{POST_1s_an_1mp0rtant_m3th0d!}
+3. Web安全入门指北-小饼干 这道题非常有意思，通过网页提示:
+You are not VIP,I will give flag to VIP!
+可以大致猜测要伪造某些访问项目，将非VIP改为VIP。
+用Burp Suite抓包得到，有一个cookie项为VIP=0，可以通过篡改VIP值来达到伪造cookies的目的。
+将抓包结果发送到重发器，将VIP值改为1，点击发送。
+得到flag。
+4. 2048 打开环境，发现是一个2048小游戏...</p>
+</section>
+<footer class=entry-footer>
+August 19, 2021&nbsp;·&nbsp;December 11, 2021&nbsp;·&nbsp;2 min&nbsp;·&nbsp;Yiming Shen
+</footer>
+<a class=entry-link aria-label="post link to MoeCTF 2021 西电新生赛WP" href=https://shenyiming.life/post/12.moectf-web-write-up/></a>
+</article>
 <article class=post-entry>
 <header class=entry-header>
 <h2>

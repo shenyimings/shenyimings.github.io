@@ -9,7 +9,25 @@
       <link>https://shenyiming.life/android-chrome-512x512.png</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Thu, 20 Jan 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://shenyiming.life/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 23 Jan 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://shenyiming.life/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Idea</title>
+      <link>https://shenyiming.life/tags/idea/</link>
+      <pubDate>Sun, 23 Jan 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://shenyiming.life/tags/idea/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Life</title>
+      <link>https://shenyiming.life/tags/life/</link>
+      <pubDate>Sun, 23 Jan 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://shenyiming.life/tags/life/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>Plan</title>
       <link>https://shenyiming.life/tags/plan/</link>
@@ -52,24 +70,6 @@
       <pubDate>Fri, 31 Dec 2021 00:00:00 +0000</pubDate>
       
       <guid>https://shenyiming.life/tags/essay/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Idea</title>
-      <link>https://shenyiming.life/tags/idea/</link>
-      <pubDate>Fri, 31 Dec 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://shenyiming.life/tags/idea/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Life</title>
-      <link>https://shenyiming.life/tags/life/</link>
-      <pubDate>Fri, 31 Dec 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://shenyiming.life/tags/life/</guid>
       <description></description>
     </item>
     

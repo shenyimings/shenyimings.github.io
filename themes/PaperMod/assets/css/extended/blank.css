@@ -93,7 +93,7 @@
 }
 
 .frienddiv {
-    overflow: auto;
+    overflow: clip;
     height: 100px;
     width: 49%;
     display: inline-block !important;
@@ -134,29 +134,29 @@
 
 .friendname {
     text-overflow: ellipsis;
-    font-size: 110%;
+    font-size: 100%;
   
     margin-bottom: 5px;
     color: var(--primary);
 }
 
 .friendinfo {
-    font-size: 70%;
+
+    text-overflow: ellipsis;
+    font-size: 73%;
     color: var(--primary);
 }
 
 @media screen and (max-width: 600px) {
-    .friendinfo {
-        display: none;
-    }
+
     .frienddivleft {
         width: 84px;
         margin: auto;
     }
     .frienddivright {
         height: 100%;
-        margin: auto;
-        display: flex;
+        margin: 14px;
+
         align-items: center;
         justify-content: center;
     }

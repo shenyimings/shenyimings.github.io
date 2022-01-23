@@ -9,7 +9,23 @@
       <link>https://shenyiming.life/android-chrome-512x512.png</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Fri, 31 Dec 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://shenyiming.life/tags/idea/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 23 Jan 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://shenyiming.life/tags/idea/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>积重难返</title>
+      <link>https://shenyiming.life/post/%E8%A3%85%E6%9C%BA%E5%90%A7/</link>
+      <pubDate>Sun, 23 Jan 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://shenyiming.life/post/%E8%A3%85%E6%9C%BA%E5%90%A7/</guid>
+      <description>更换机箱-更换电脑 上图是我组装过的第六台电脑，是一台ITX，也是真正属于我的第一台电脑。
+这是一个空间利用率极高的A4机箱，对于2020年浮躁的我来说，能塞好点亮，就是任务完成，并未作长远考虑，这对于后来一年两次往返2000km+的两地的我和以性价比高为特点的配件来说，都是灾难。
+长期的颠簸导致一开始错误固定的显卡、电源、主板出现了一定的问题，具体请参考有关细节
+在2022年的寒假，终于忍受不了的我选择打翻重来，换掉机箱，重新组装。
+新机箱先马趣造I&amp;rsquo;m 其实是一个MATX机箱，经过我并不严格的参数比对后认为，新机箱仍能放进行李箱里，便舍弃了itx方案，将配件拆下后放进了如下图所示的新机箱，盖上玻璃侧板后，颜值比照片高很多，可惜由于是itx主板加sfx电源，有大量空间被浪费，失去了原先酷鱼G5 Plus 满满当当分量十足的感觉。
+旧机箱挂在闲鱼上一个小时便成功卖出，应该是带了显卡延长线卖的又十分便宜的原因，想不到今年装机市场还是如此景气。
+ 装好后好景不长，又双叒叕碰上了正常开机无显示信号的问题，经排查发现是显卡接触不良造成，正是过去错误安装加上长途运输时未拔显卡导致pcb板变形，两侧受力不均造成，积重难返！
+随后拆机，松显卡固定螺丝并给显卡电源线绑了个扎线带，提供一个向下侧拉扯的力，一时半会能正常使用，但并非是一个长久之计，若非显卡价格严重虚高，可能已经出了换张亮机卡了，早已过了爱折腾的时候，只祈求稳定能用。</description>
+    </item>
+    
     <item>
       <title>我的2021</title>
       <link>https://shenyiming.life/post/2021%E5%B9%B4%E7%BB%88%E6%80%BB%E7%BB%93/</link>

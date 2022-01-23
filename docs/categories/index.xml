@@ -9,7 +9,25 @@
       <link>https://shenyiming.life/android-chrome-512x512.png</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Thu, 20 Jan 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://shenyiming.life/categories/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 23 Jan 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://shenyiming.life/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Essays</title>
+      <link>https://shenyiming.life/categories/essays/</link>
+      <pubDate>Sun, 23 Jan 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://shenyiming.life/categories/essays/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Ideas</title>
+      <link>https://shenyiming.life/categories/ideas/</link>
+      <pubDate>Sun, 23 Jan 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://shenyiming.life/categories/ideas/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>Plans</title>
       <link>https://shenyiming.life/categories/plans/</link>
@@ -34,24 +52,6 @@
       <pubDate>Sat, 15 Jan 2022 00:00:00 +0000</pubDate>
       
       <guid>https://shenyiming.life/categories/notes/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Essays</title>
-      <link>https://shenyiming.life/categories/essays/</link>
-      <pubDate>Fri, 31 Dec 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://shenyiming.life/categories/essays/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Ideas</title>
-      <link>https://shenyiming.life/categories/ideas/</link>
-      <pubDate>Mon, 27 Dec 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://shenyiming.life/categories/ideas/</guid>
       <description></description>
     </item>
     
