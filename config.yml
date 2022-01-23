@@ -1,0 +1,153 @@
+baseURL: "https://shenyiming.life"
+title: "Console.makeHappy(_1ming)"
+paginate: 15
+theme: PaperMod
+publishDir: "docs"
+enableRobotsTXT: true
+buildDrafts: false
+buildFuture: false
+buildExpired: false
+
+googleAnalytics: UA-123-45
+
+minify:
+    disableXML: true
+    minifyOutput: true
+
+params:
+    math: true
+    env: production # to enable google analytics, opengraph, twitter-cards and schema.
+    title: Yiming
+    description: "Yiming' blog"
+    keywords: [Blog, CTF, Geek]
+    author: Me
+    # author: ["Me", "You"] # multiple authors
+    images: ["/android-chrome-512x512.png"]
+    DateFormat: "January 2, 2006"
+    defaultTheme: auto # dark, light
+    disableThemeToggle: false
+
+    ShowReadingTime: true
+    ShowShareButtons: true
+    ShowPostNavLinks: true
+    ShowBreadCrumbs: true
+    ShowCodeCopyButtons: false
+    disableSpecial1stPost: false
+    disableScrollToTop: false
+    comments: false
+    hidemeta: false
+    hideSummary: false
+    showtoc: false
+    tocopen: true
+    unsafe: true
+
+    label:
+        text: "相位 "
+        icon: /favicon.ico
+        iconHeight: 35
+
+    # profile-mode
+    profileMode:
+        enabled: true # needs to be explicitly set
+        title: Hi, Yiming🚀
+        subtitle: 
+            "Either outstanding or out.   \n
+            
+            **// System.out.println(new File(\"..\\about_1ming.md\"))**
+            "
+        imageUrl: "/android-chrome-512x512.png"
+        imageWidth: 120
+        imageHeight: 120
+        imageTitle: Phase
+        buttons:
+            - name: 文章
+              url: post
+            - name: 标签
+              url: tags
+            - name: 友链
+              url: friends
+            - name: 关于
+              url: about
+
+    # home-info mode
+    homeInfoParams:
+        Title: "Hi, Yiming🚀"
+        Content:
+            "Either outstanding or out.   \n
+            
+            **// System.out.println(new File(\"..\\about_1ming.md\"))**
+            "
+  
+    socialIcons:
+        - name: instagram
+          url: "https://www.instagram.com/shenyimings/"
+        - name: github
+          url: "https://github.com/shenyimings/"
+        - name: QQ
+          url: "QQ.jpg"
+        - name: email
+          url: "mailto:seuilping@outlook.com"
+        - name: telegram
+          url: "https://www.zhihu.com/people/shen-yi-ming-91"
+
+    analytics:
+        google:
+            SiteVerificationTag: "XYZabc"
+        bing:
+            SiteVerificationTag: "XYZabc"
+        yandex:
+            SiteVerificationTag: "XYZabc"
+
+    cover:
+        hidden: false # hide everywhere but not in structured data
+        hiddenInList: false # hide on list pages and home
+        hiddenInSingle: false # hide on single page
+
+    editPost:
+        URL: "https://github.com/shenyimings/shenyimings.github.io/tree/main/docs"
+        Text: "Issue" # edit text
+        appendFilePath: false # to append file path to Edit link
+
+    # for search
+    # https://fusejs.io/api/options.html
+    fuseOpts:
+        isCaseSensitive: false
+        shouldSort: true
+        location: 0
+        distance: 1000
+        threshold: 0.4
+        minMatchCharLength: 0
+        keys: ["title", "permalink", "summary", "content"]
+menu:
+    main:
+        - identifier: archive
+          name: 归档
+          url: /archive/
+          weight: 10
+        - identifier: categories
+          name: 分类
+          url: /categories/
+          weight: 20
+        - identifier: tags
+          name: 标签
+          url: /tags/
+          weight: 30
+        - identifier: search
+          name: 搜索
+          url: /search/
+          weight: 40
+outputs:
+    home:
+        - HTML
+        - RSS
+        - JSON # is necessary
+
+# Read: https://github.com/adityatelange/hugo-PaperMod/wiki/FAQs#using-hugos-syntax-highlighter-chroma
+# pygmentsUseClasses: true
+# markup:
+#     highlight:
+#         # anchorLineNos: true
+#         codeFences: true
+#         guessSyntax: true
+#         lineNos: true
+#         style: monokai
