@@ -9,7 +9,26 @@
       <link>https://shenyiming.life/android-chrome-512x512.png</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sat, 15 Jan 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://shenyiming.life/tags/matlab/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 23 Jan 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://shenyiming.life/tags/matlab/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Less-2 结构程序与自定函数</title>
+      <link>https://shenyiming.life/post/less-2_scriptfunction/</link>
+      <pubDate>Sun, 23 Jan 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://shenyiming.life/post/less-2_scriptfunction/</guid>
+      <description>脚本模式 脚本模式用于编写结构化程序
+示例
+for i=1:10 x=linspace(0,10,100); plot(x,sin(x+i)); print(gcf,&amp;#39;-deps&amp;#39;,strcat(&amp;#39;plot&amp;#39;,num2str(i),&amp;#39;.ps&amp;#39;)); end 画0-10内sin图像
+   F5 运行程序
+  打断点可调试运行
+  % 是注释
+  选中 Ctrl + R 可批量注释
+  选中 Ctrl + I 智能缩进
+   自定函数  在某个函数文件中定义函数，在命令行窗口或脚本模式进行调用。
+ 单变量计算 $$ x = x_0 +v_0t +\frac{1}{2}gt^2 $$
+function x =freebody(x0,v0,t) x = x0 + v0 .*t + 1/2*9.8*t.*t % 采用点乘 可以以矩阵形式同时计算多组变量 多变量计算 $$ a = \frac{v_2-v_1}{t_2-t_1} \newline F=ma $$</description>
+    </item>
+    
     <item>
       <title>Less-1 MATLAB基本操作与矩阵输入</title>
       <link>https://shenyiming.life/post/less-1_matlab%E5%9F%BA%E7%A1%80/</link>

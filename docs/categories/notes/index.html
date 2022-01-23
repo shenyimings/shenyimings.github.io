@@ -99,6 +99,30 @@
 <article class="post-entry tag-entry">
 <header class=entry-header>
 <h2>
+Less-2 结构程序与自定函数
+</h2>
+</header>
+<section class=entry-content>
+<p>脚本模式 脚本模式用于编写结构化程序
+示例
+for i=1:10 x=linspace(0,10,100); plot(x,sin(x+i)); print(gcf,'-deps',strcat('plot',num2str(i),'.ps')); end 画0-10内sin图像
+F5 运行程序
+打断点可调试运行
+% 是注释
+选中 Ctrl + R 可批量注释
+选中 Ctrl + I 智能缩进
+自定函数 在某个函数文件中定义函数，在命令行窗口或脚本模式进行调用。
+单变量计算 $$ x = x_0 +v_0t +\frac{1}{2}gt^2 $$
+function x =freebody(x0,v0,t) x = x0 + v0 .*t + 1/2*9.8*t.*t % 采用点乘 可以以矩阵形式同时计算多组变量 多变量计算 $$ a = \frac{v_2-v_1}{t_2-t_1} \newline F=ma $$...</p>
+</section>
+<footer class=entry-footer>
+January 23, 2022&nbsp;·&nbsp;January 23, 2022&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Yiming Shen
+</footer>
+<a class=entry-link aria-label="post link to Less-2 结构程序与自定函数" href=https://shenyiming.life/post/less-2_scriptfunction/></a>
+</article>
+<article class="post-entry tag-entry">
+<header class=entry-header>
+<h2>
 Less-1 MATLAB基本操作与矩阵输入
 </h2>
 </header>
@@ -379,25 +403,6 @@ cond2(no)->e2
 October 9, 2021&nbsp;·&nbsp;December 11, 2022&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Yiming Shen
 </footer>
 <a class=entry-link aria-label="post link to 3.4 流程图" href=https://shenyiming.life/cryptologymath/3.4%E5%AE%9E%E9%AA%8C_%E5%9F%BA%E4%BA%8E%E4%B8%AD%E5%9B%BD%E5%89%A9%E4%BD%99%E5%AE%9A%E7%90%86%E7%9A%84%E7%A7%98%E5%AF%86%E5%85%B1%E4%BA%AB%E6%96%B9%E6%A1%88/></a>
-</article>
-<article class="post-entry tag-entry">
-<header class=entry-header>
-<h2>
-3.4 基于中国剩余定理的秘密共享
-</h2>
-</header>
-<section class=entry-content>
-<p>背景 $$ 将秘密k分成n个子秘密k_1,k_2,\cdots,k_n,满足下面两个条件：\\ (1)\quad 如果已知t个k_i 值，易于恢复出k\\ (2)\quad 如果已知任意t-1个或更少个k_i值，不能恢复出k\\ $$
-比如，将一个密钥分成n份，那么n个人中至少t人在场才能获得密钥
-方案 分割 $$ (t,n)门限，选择n个整数d_1,d_2,\cdots,d_n，满足\\ (1)d_1&lt;d_2&lt;\cdots &lt;d_n\quad d_i严格递增\\ (2)(d_i,d_j)=1,i\ne j; \quad d_i两两互素\\ (3)N=d_1\times d_2\times\cdots \times d_t\\ M=d_{n-t+2}\times d_{n-t+3}\times \cdots \times d_n,有N\gt M\\ \\ 对于某个秘密k,要求N\gt k\gt M, 计算\\ k_1 \equiv k(mod \quad d_1)\\ $$
-恢复 $$ 在n个子秘密里任意选择t个:\\ (k_{i1},d_{i1}),\cdots,(k_{i_t},d_{i_t})\\ 基于中国剩余定理计算下列一次同余方程组\\ x\equiv k_{i1}(mod\quad d_{i_1})\\ x\equiv k_{i_2}(mod\quad d_{i_2})\\ \vdots\\ x\equiv k_{i_t}(mod\quad d_{i_t})\\ 恢复出\\ x\equiv k(mod\quad N_1),N_1=d_{i_1},d_{i_2}\cdots,d_{i_t} $$
-计算中国剩余定理中，x用公式最后求出来的解一定是模m的
-例题 例题3.4.1 $$ (2,3)门限，选择3个整数d_1=9,d_2=11,d_3=13\\ N=99,M=13,有N\gt M\\ 对于秘密k=74,要求99\gt 74\gt 13,计算\\ k_1 \equiv 74\equiv 2 (mod\quad 9)\\ k_2 \equiv 74\equiv 8 (mod\quad 11)\\ k_n \equiv 74\equiv 9 (mod\quad 13)\\ 子密钥为(9,2),(11,8), $$</p>
-</section>
-<footer class=entry-footer>
-October 8, 2021&nbsp;·&nbsp;January 20, 2022&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Yiming Shen
-</footer>
-<a class=entry-link aria-label="post link to 3.4 基于中国剩余定理的秘密共享" href=https://shenyiming.life/cryptologymath/3.4_%E5%9F%BA%E4%BA%8E%E4%B8%AD%E5%9B%BD%E5%89%A9%E4%BD%99%E5%AE%9A%E7%90%86%E7%9A%84%E7%A7%98%E5%AF%86%E5%85%B1%E4%BA%AB/></a>
 </article>
 <footer class=page-footer>
 <nav class=pagination>
