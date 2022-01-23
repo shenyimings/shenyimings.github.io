@@ -10,7 +10,7 @@ ShowShareButtons: false
 typora-root-url: ..\static\
 ---
 
-{{<friend name= "相位" url="https://shenyiming.life" logo="https://shenyiming.life/apple-touch-icon.png" word="🚀Either outstanding or out.">}}
+{{<friend name= "相位🚀" url="https://shenyiming.life" logo="https://shenyiming.life/apple-touch-icon.png" word="Either outstanding or out.">}}
 
 {{<friend name= "霖霖子" url="https://fiveml.github.io" logo="/icon/fiveml1.jpg" word="FIGHTING!">}}
 
