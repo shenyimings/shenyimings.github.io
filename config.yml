@@ -64,8 +64,6 @@ params:
               url: post
             - name: 标签
               url: tags
-            - name: 笔记
-              url: tags/note
             - name: 友链
               url: friends
             - name: 关于
