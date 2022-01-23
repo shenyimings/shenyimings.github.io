@@ -1,0 +1,287 @@
+<!doctype html><html lang=en dir=auto>
+<head><meta charset=utf-8>
+<meta http-equiv=x-ua-compatible content="IE=edge">
+<meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no">
+<meta name=robots content="index, follow">
+<title>DVWA环境搭建 + BurpSuite2.1安装 + Chrome配置 | Console.makeHappy(_1ming)</title>
+<meta name=keywords content="CTF,Note">
+<meta name=description content="[TOC]
+DVWA环境搭建  DVWA（Damn Vulnerable Web Application）是一个用来进行安全脆弱性鉴定的PHP/MySQL Web应用，旨在为安全专业人员测试自己的专业技能和工具提供合法的环境，帮助web开发者更好的理解web应用安全防范的过程。
+ DVWA运行基于LAMP（Linux+Apache+MySQL+PHP），出于时间和个人能力的考虑，很难成功地从0开始搭建这样一套体系，故而使用小皮的PHPStudy环境。
+PHPStudy：https://www.xp.cn/
+DVWA：http://www.dvwa.co.uk/
+一、安装PHP Study 二、配置DVWA 将下载的DVWA压缩包解压到PHP Study的WWW目录下并解压，进入目录中的config文件夹，编辑config.inc.php文件，找到_DVWA['db_password']='root'行，将user改为‘root’；password改为‘root’。
+三、配置PHP Study 开启Apache和PHP服务，点击左边栏网站，左上角创建网站，域名为设置为本机本地域名，查看本地域名方法：进入powershell输入命令ipconfig查看，我电脑本机域名为192.168.0.104
+为什么不设置为localhost 127.0.0.1：Burp Suite配合chrome浏览器抓包时可能无法拦截localhost的数据。
+根目录指向刚刚解压的DVWA-master目录下，点击确认，网站创建成功。
+四、浏览器进入192.108.0.104 点击Create/Reset Database创建数据库
+用户名：admin 默认密码：password
+登陆进入后即部署成功。
+BurpSuite2.1安装  BurpSuite 是用于攻击web 应用程序的集成平台，包含了许多工具。Burp Suite为这些工具设计了许多接口，以加快攻击应用程序的过程。所有工具都共享一个请求，并能处理对应的HTTP 消息、持久性、认证、代理、日志、警报。
+ 1. JDK及BurpSuite破解版下载 链接：https://pan.baidu.com/s/11lrFGT0aGCd4BQcAJrL55w 提取码：w5lg
+2. 配置JAVA环境 安装好jdk后，右键计算机-属性-系统设置-高级-环境变量
+新增两个环境变量
+  %JAVA_HOME%=jdk安装文件夹所在位置，如...\jdk1.8.0_201
+  %CLASSPATH%=.;%JAVA_HOME%\lib\dt.jar;%JAVA_HOME%\lib\tools.jar
+  修改path变量，分别添加jdk和jre安装文件夹下的bin目录。
+3. 激活BurpSuite jdk配置完毕后，先打开burp-loader-keygen.jar文件
+点击run
+将license许可证复制入弹出的框中，点击Next，选择Manual activation手动激活。
+将生成的申请码粘贴入注册机中，自动算号，将生成的激活码复制入框中，点击Next即激活成功。
+此后想打开Burp Suite，双击运行目录下的VBS脚本即可。
+BurpSuite Chrome配置 1. 设置流量代理Proxy ​	在谷歌应用商店中安装Falcon Proxy，添加一个新的代理127.">
+<meta name=author content="Yiming Shen">
+<link rel=canonical href=https://shenyiming.life/post/9.dvwa%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA+burpsuite2.1%E5%AE%89%E8%A3%85/>
+<meta name=google-site-verification content="XYZabc">
+<meta name=yandex-verification content="XYZabc">
+<meta name=msvalidate.01 content="XYZabc">
+<link href=/assets/css/stylesheet.min.22e11df5b9fa62e23287ab05fa8d4cfb620bd508f25c35c7f414f95019d21377.css integrity="sha256-IuEd9bn6YuIyh6sF+o1M+2IL1QjyXDXH9BT5UBnSE3c=" rel="preload stylesheet" as=style>
+<link rel=icon href=https://shenyiming.life/favicon.ico>
+<link rel=icon type=image/png sizes=16x16 href=https://shenyiming.life/favicon-16x16.png>
+<link rel=icon type=image/png sizes=32x32 href=https://shenyiming.life/favicon-32x32.png>
+<link rel=apple-touch-icon href=https://shenyiming.life/apple-touch-icon.png>
+<link rel=mask-icon href=https://shenyiming.life/safari-pinned-tab.svg>
+<meta name=theme-color content="#2e2e33">
+<meta name=msapplication-TileColor content="#2e2e33">
+<meta name=generator content="Hugo 0.91.0">
+<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css integrity=sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X crossorigin=anonymous>
+<script defer src=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js integrity=sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4 crossorigin=anonymous></script>
+<script defer src=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js integrity=sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa crossorigin=anonymous onload=renderMathInElement(document.body)></script>
+<script type=application/javascript>var doNotTrack=!1;doNotTrack||(window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga('create','UA-123-45','auto'),ga('send','pageview'))</script>
+<script async src=https://www.google-analytics.com/analytics.js></script>
+<meta property="og:title" content="DVWA环境搭建 + BurpSuite2.1安装 + Chrome配置">
+<meta property="og:description" content="[TOC]
+DVWA环境搭建  DVWA（Damn Vulnerable Web Application）是一个用来进行安全脆弱性鉴定的PHP/MySQL Web应用，旨在为安全专业人员测试自己的专业技能和工具提供合法的环境，帮助web开发者更好的理解web应用安全防范的过程。
+ DVWA运行基于LAMP（Linux+Apache+MySQL+PHP），出于时间和个人能力的考虑，很难成功地从0开始搭建这样一套体系，故而使用小皮的PHPStudy环境。
+PHPStudy：https://www.xp.cn/
+DVWA：http://www.dvwa.co.uk/
+一、安装PHP Study 二、配置DVWA 将下载的DVWA压缩包解压到PHP Study的WWW目录下并解压，进入目录中的config文件夹，编辑config.inc.php文件，找到_DVWA['db_password']='root'行，将user改为‘root’；password改为‘root’。
+三、配置PHP Study 开启Apache和PHP服务，点击左边栏网站，左上角创建网站，域名为设置为本机本地域名，查看本地域名方法：进入powershell输入命令ipconfig查看，我电脑本机域名为192.168.0.104
+为什么不设置为localhost 127.0.0.1：Burp Suite配合chrome浏览器抓包时可能无法拦截localhost的数据。
+根目录指向刚刚解压的DVWA-master目录下，点击确认，网站创建成功。
+四、浏览器进入192.108.0.104 点击Create/Reset Database创建数据库
+用户名：admin 默认密码：password
+登陆进入后即部署成功。
+BurpSuite2.1安装  BurpSuite 是用于攻击web 应用程序的集成平台，包含了许多工具。Burp Suite为这些工具设计了许多接口，以加快攻击应用程序的过程。所有工具都共享一个请求，并能处理对应的HTTP 消息、持久性、认证、代理、日志、警报。
+ 1. JDK及BurpSuite破解版下载 链接：https://pan.baidu.com/s/11lrFGT0aGCd4BQcAJrL55w 提取码：w5lg
+2. 配置JAVA环境 安装好jdk后，右键计算机-属性-系统设置-高级-环境变量
+新增两个环境变量
+  %JAVA_HOME%=jdk安装文件夹所在位置，如...\jdk1.8.0_201
+  %CLASSPATH%=.;%JAVA_HOME%\lib\dt.jar;%JAVA_HOME%\lib\tools.jar
+  修改path变量，分别添加jdk和jre安装文件夹下的bin目录。
+3. 激活BurpSuite jdk配置完毕后，先打开burp-loader-keygen.jar文件
+点击run
+将license许可证复制入弹出的框中，点击Next，选择Manual activation手动激活。
+将生成的申请码粘贴入注册机中，自动算号，将生成的激活码复制入框中，点击Next即激活成功。
+此后想打开Burp Suite，双击运行目录下的VBS脚本即可。
+BurpSuite Chrome配置 1. 设置流量代理Proxy ​	在谷歌应用商店中安装Falcon Proxy，添加一个新的代理127.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://shenyiming.life/post/9.dvwa%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA+burpsuite2.1%E5%AE%89%E8%A3%85/"><meta property="og:image" content="https://shenyiming.life/android-chrome-512x512.png"><meta property="article:section" content="post">
+<meta property="article:published_time" content="2021-08-05T00:00:00+00:00">
+<meta property="article:modified_time" content="2021-09-05T00:00:00+00:00"><meta property="og:site_name" content="Yiming">
+<meta name=twitter:card content="summary_large_image">
+<meta name=twitter:image content="https://shenyiming.life/android-chrome-512x512.png">
+<meta name=twitter:title content="DVWA环境搭建 + BurpSuite2.1安装 + Chrome配置">
+<meta name=twitter:description content="[TOC]
+DVWA环境搭建  DVWA（Damn Vulnerable Web Application）是一个用来进行安全脆弱性鉴定的PHP/MySQL Web应用，旨在为安全专业人员测试自己的专业技能和工具提供合法的环境，帮助web开发者更好的理解web应用安全防范的过程。
+ DVWA运行基于LAMP（Linux+Apache+MySQL+PHP），出于时间和个人能力的考虑，很难成功地从0开始搭建这样一套体系，故而使用小皮的PHPStudy环境。
+PHPStudy：https://www.xp.cn/
+DVWA：http://www.dvwa.co.uk/
+一、安装PHP Study 二、配置DVWA 将下载的DVWA压缩包解压到PHP Study的WWW目录下并解压，进入目录中的config文件夹，编辑config.inc.php文件，找到_DVWA['db_password']='root'行，将user改为‘root’；password改为‘root’。
+三、配置PHP Study 开启Apache和PHP服务，点击左边栏网站，左上角创建网站，域名为设置为本机本地域名，查看本地域名方法：进入powershell输入命令ipconfig查看，我电脑本机域名为192.168.0.104
+为什么不设置为localhost 127.0.0.1：Burp Suite配合chrome浏览器抓包时可能无法拦截localhost的数据。
+根目录指向刚刚解压的DVWA-master目录下，点击确认，网站创建成功。
+四、浏览器进入192.108.0.104 点击Create/Reset Database创建数据库
+用户名：admin 默认密码：password
+登陆进入后即部署成功。
+BurpSuite2.1安装  BurpSuite 是用于攻击web 应用程序的集成平台，包含了许多工具。Burp Suite为这些工具设计了许多接口，以加快攻击应用程序的过程。所有工具都共享一个请求，并能处理对应的HTTP 消息、持久性、认证、代理、日志、警报。
+ 1. JDK及BurpSuite破解版下载 链接：https://pan.baidu.com/s/11lrFGT0aGCd4BQcAJrL55w 提取码：w5lg
+2. 配置JAVA环境 安装好jdk后，右键计算机-属性-系统设置-高级-环境变量
+新增两个环境变量
+  %JAVA_HOME%=jdk安装文件夹所在位置，如...\jdk1.8.0_201
+  %CLASSPATH%=.;%JAVA_HOME%\lib\dt.jar;%JAVA_HOME%\lib\tools.jar
+  修改path变量，分别添加jdk和jre安装文件夹下的bin目录。
+3. 激活BurpSuite jdk配置完毕后，先打开burp-loader-keygen.jar文件
+点击run
+将license许可证复制入弹出的框中，点击Next，选择Manual activation手动激活。
+将生成的申请码粘贴入注册机中，自动算号，将生成的激活码复制入框中，点击Next即激活成功。
+此后想打开Burp Suite，双击运行目录下的VBS脚本即可。
+BurpSuite Chrome配置 1. 设置流量代理Proxy ​	在谷歌应用商店中安装Falcon Proxy，添加一个新的代理127.">
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":2,"name":"文章","item":"https://shenyiming.life/post/"},{"@type":"ListItem","position":3,"name":"DVWA环境搭建 + BurpSuite2.1安装 + Chrome配置","item":"https://shenyiming.life/post/9.dvwa%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA+burpsuite2.1%E5%AE%89%E8%A3%85/"}]}</script>
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"DVWA环境搭建 + BurpSuite2.1安装 + Chrome配置","name":"DVWA环境搭建 \u002b BurpSuite2.1安装 \u002b Chrome配置","description":"[TOC]\nDVWA环境搭建  DVWA（Damn Vulnerable Web Application）是一个用来进行安全脆弱性鉴定的PHP/MySQL Web应用，旨在为安全专业人员测试自己的专业技能和工具提供合法的环境，帮助web开发者更好的理解web应用安全防范的过程。\n DVWA运行基于LAMP（Linux+Apache+MySQL+PHP），出于时间和个人能力的考虑，很难成功地从0开始搭建这样一套体系，故而使用小皮的PHPStudy环境。\nPHPStudy：https://www.xp.cn/\nDVWA：http://www.dvwa.co.uk/\n一、安装PHP Study 二、配置DVWA 将下载的DVWA压缩包解压到PHP Study的WWW目录下并解压，进入目录中的config文件夹，编辑config.inc.php文件，找到_DVWA['db_password']='root'行，将user改为‘root’；password改为‘root’。\n三、配置PHP Study 开启Apache和PHP服务，点击左边栏网站，左上角创建网站，域名为设置为本机本地域名，查看本地域名方法：进入powershell输入命令ipconfig查看，我电脑本机域名为192.168.0.104\n为什么不设置为localhost 127.0.0.1：Burp Suite配合chrome浏览器抓包时可能无法拦截localhost的数据。\n根目录指向刚刚解压的DVWA-master目录下，点击确认，网站创建成功。\n四、浏览器进入192.108.0.104 点击Create/Reset Database创建数据库\n用户名：admin 默认密码：password\n登陆进入后即部署成功。\nBurpSuite2.1安装  BurpSuite 是用于攻击web 应用程序的集成平台，包含了许多工具。Burp Suite为这些工具设计了许多接口，以加快攻击应用程序的过程。所有工具都共享一个请求，并能处理对应的HTTP 消息、持久性、认证、代理、日志、警报。\n 1. JDK及BurpSuite破解版下载 链接：https://pan.baidu.com/s/11lrFGT0aGCd4BQcAJrL55w 提取码：w5lg\n2. 配置JAVA环境 安装好jdk后，右键计算机-属性-系统设置-高级-环境变量\n新增两个环境变量\n  %JAVA_HOME%=jdk安装文件夹所在位置，如...\\jdk1.8.0_201\n  %CLASSPATH%=.;%JAVA_HOME%\\lib\\dt.jar;%JAVA_HOME%\\lib\\tools.jar\n  修改path变量，分别添加jdk和jre安装文件夹下的bin目录。\n3. 激活BurpSuite jdk配置完毕后，先打开burp-loader-keygen.jar文件\n点击run\n将license许可证复制入弹出的框中，点击Next，选择Manual activation手动激活。\n将生成的申请码粘贴入注册机中，自动算号，将生成的激活码复制入框中，点击Next即激活成功。\n此后想打开Burp Suite，双击运行目录下的VBS脚本即可。\nBurpSuite Chrome配置 1. 设置流量代理Proxy ​\t在谷歌应用商店中安装Falcon Proxy，添加一个新的代理127.","keywords":["CTF","Note"],"articleBody":" [TOC]\nDVWA环境搭建  DVWA（Damn Vulnerable Web Application）是一个用来进行安全脆弱性鉴定的PHP/MySQL Web应用，旨在为安全专业人员测试自己的专业技能和工具提供合法的环境，帮助web开发者更好的理解web应用安全防范的过程。\n DVWA运行基于LAMP（Linux+Apache+MySQL+PHP），出于时间和个人能力的考虑，很难成功地从0开始搭建这样一套体系，故而使用小皮的PHPStudy环境。\nPHPStudy：https://www.xp.cn/\nDVWA：http://www.dvwa.co.uk/\n一、安装PHP Study 二、配置DVWA 将下载的DVWA压缩包解压到PHP Study的WWW目录下并解压，进入目录中的config文件夹，编辑config.inc.php文件，找到_DVWA['db_password']='root'行，将user改为‘root’；password改为‘root’。\n三、配置PHP Study 开启Apache和PHP服务，点击左边栏网站，左上角创建网站，域名为设置为本机本地域名，查看本地域名方法：进入powershell输入命令ipconfig查看，我电脑本机域名为192.168.0.104\n为什么不设置为localhost 127.0.0.1：Burp Suite配合chrome浏览器抓包时可能无法拦截localhost的数据。\n根目录指向刚刚解压的DVWA-master目录下，点击确认，网站创建成功。\n四、浏览器进入192.108.0.104 点击Create/Reset Database创建数据库\n用户名：admin 默认密码：password\n登陆进入后即部署成功。\nBurpSuite2.1安装  BurpSuite 是用于攻击web 应用程序的集成平台，包含了许多工具。Burp Suite为这些工具设计了许多接口，以加快攻击应用程序的过程。所有工具都共享一个请求，并能处理对应的HTTP 消息、持久性、认证、代理、日志、警报。\n 1. JDK及BurpSuite破解版下载 链接：https://pan.baidu.com/s/11lrFGT0aGCd4BQcAJrL55w 提取码：w5lg\n2. 配置JAVA环境 安装好jdk后，右键计算机-属性-系统设置-高级-环境变量\n新增两个环境变量\n  %JAVA_HOME%=jdk安装文件夹所在位置，如...\\jdk1.8.0_201\n  %CLASSPATH%=.;%JAVA_HOME%\\lib\\dt.jar;%JAVA_HOME%\\lib\\tools.jar\n  修改path变量，分别添加jdk和jre安装文件夹下的bin目录。\n3. 激活BurpSuite jdk配置完毕后，先打开burp-loader-keygen.jar文件\n点击run\n将license许可证复制入弹出的框中，点击Next，选择Manual activation手动激活。\n将生成的申请码粘贴入注册机中，自动算号，将生成的激活码复制入框中，点击Next即激活成功。\n此后想打开Burp Suite，双击运行目录下的VBS脚本即可。\nBurpSuite Chrome配置 1. 设置流量代理Proxy ​\t在谷歌应用商店中安装Falcon Proxy，添加一个新的代理127.0.0.1:8080，注意和Burp Suite中代理监听器保持一致。\n2. 导入SSL证书以便抓取HTTPS网站内容。 ​\t挂好代理后只能访问http网址，对于https网址则提示不安全，解决方法：访问http:\\\\burp\\，点击右上角下载证书certification，得到一个.der文件，在chrome浏览器进入设置-隐私设置和安全性-管理证书，点击受信任的根证书颁发机构，导入刚刚得到的der证书，注意格式选择所有文件。\n参考 [1] DVWA完整搭建教程\n[2] Burp Suite超详细安装教程\n[3] Burp Suite + Chrome详细抓包教程\n[4] Burp Suite不能拦截localhost\n","wordCount":"80","inLanguage":"en","datePublished":"2021-08-05T00:00:00Z","dateModified":"2021-09-05T00:00:00Z","author":{"@type":"Person","name":"Yiming Shen"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://shenyiming.life/post/9.dvwa%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA+burpsuite2.1%E5%AE%89%E8%A3%85/"},"publisher":{"@type":"Organization","name":"Console.makeHappy(_1ming)","logo":{"@type":"ImageObject","url":"https://shenyiming.life/favicon.ico"}}}</script>
+</head>
+<body id=top>
+<script>localStorage.getItem("pref-theme")==="dark"?document.body.classList.add('dark'):localStorage.getItem("pref-theme")==="light"?document.body.classList.remove('dark'):window.matchMedia('(prefers-color-scheme: dark)').matches&&document.body.classList.add('dark')</script>
+<noscript>
+<style type=text/css>#theme-toggle,.top-link{display:none}</style>
+<style>@media(prefers-color-scheme:dark){:root{--theme:#1d1e20;--entry:#2e2e33;--primary:rgba(255, 255, 255, 0.84);--secondary:rgba(255, 255, 255, 0.56);--tertiary:rgba(255, 255, 255, 0.16);--content:rgba(255, 255, 255, 0.74);--hljs-bg:#2e2e33;--code-bg:#37383e;--border:#333}.list{background:var(--theme)}.list:not(.dark)::-webkit-scrollbar-track{background:0 0}.list:not(.dark)::-webkit-scrollbar-thumb{border-color:var(--theme)}}</style>
+</noscript>
+<header class=header>
+<nav class=nav>
+<div class=logo>
+<a href=https://shenyiming.life accesskey=h title="相位  (Alt + H)">
+<img src=/favicon.ico alt=logo aria-label=logo height=35>相位 </a>
+<span class=logo-switches>
+<button id=theme-toggle accesskey=t title="(Alt + T)"><svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg><svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+</button>
+</span>
+</div>
+<ul id=menu onscroll=menu_on_scroll()>
+<li>
+<a href=https://shenyiming.life/post/ title=文章>
+<span>文章</span>
+</a>
+</li>
+<li>
+<a href=https://shenyiming.life/archive/ title=归档>
+<span>归档</span>
+</a>
+</li>
+<li>
+<a href=https://shenyiming.life/categories/ title=分类>
+<span>分类</span>
+</a>
+</li>
+<li>
+<a href=https://shenyiming.life/tags/ title=标签>
+<span>标签</span>
+</a>
+</li>
+<li>
+<a href=https://shenyiming.life/search/ title="搜索 (Alt + /)" accesskey=/>
+<span>搜索</span>
+</a>
+</li>
+<li>
+<a href=https://shenyiming.life/friends/ title=友链>
+<span>友链</span>
+</a>
+</li>
+<li>
+<a href=https://shenyiming.life/about/ title=关于>
+<span>关于</span>
+</a>
+</li></ul>
+</nav>
+</header>
+<main class=main>
+<article class=post-single>
+<header class=post-header>
+<div class=breadcrumbs>
+<a href=https://shenyiming.life>首页</a>&nbsp;»&nbsp;<a href=https://shenyiming.life/post/>文章</a>
+</div>
+<h1 class=post-title>
+DVWA环境搭建 + BurpSuite2.1安装 + Chrome配置
+</h1>
+<div class=post-meta>
+August 5, 2021&nbsp;·&nbsp;September 5, 2021&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Yiming Shen
+|&nbsp;<a href=https://github.com/shenyimings/shenyimings.github.io/tree/main/docs rel="noopener noreferrer" target=_blank>Issue</a>
+</div>
+</header>
+<div class=post-content>
+<h1 id=heading><a hidden class=anchor aria-hidden=true href=#heading>#</a></h1>
+<p>[TOC]</p>
+<h2 id=dvwa环境搭建>DVWA环境搭建<a hidden class=anchor aria-hidden=true href=#dvwa环境搭建>#</a></h2>
+<blockquote>
+<p><a href="https://link.zhihu.com/?target=http%3A//www.dvwa.co.uk/">DVWA（Damn Vulnerable Web Application）</a>是一个用来进行安全脆弱性鉴定的PHP/MySQL Web应用，旨在为安全专业人员测试自己的专业技能和工具提供合法的环境，帮助web开发者更好的理解web应用安全防范的过程。</p>
+</blockquote>
+<p>DVWA运行基于LAMP（Linux+Apache+MySQL+PHP），出于时间和个人能力的考虑，很难成功地从0开始搭建这样一套体系，故而使用小皮的PHPStudy环境。</p>
+<p>PHPStudy：https://www.xp.cn/</p>
+<p>DVWA：http://www.dvwa.co.uk/</p>
+<h3 id=一安装php-study>一、安装PHP Study<a hidden class=anchor aria-hidden=true href=#一安装php-study>#</a></h3>
+<h3 id=二配置dvwa>二、配置DVWA<a hidden class=anchor aria-hidden=true href=#二配置dvwa>#</a></h3>
+<p>将下载的DVWA压缩包解压到PHP Study的WWW目录下并解压，进入目录中的config文件夹，编辑config.inc.php文件，找到<code>_DVWA['db_password']='root'</code>行，将user改为‘root’；password改为‘root’。</p>
+<h3 id=三配置php-study>三、配置PHP Study<a hidden class=anchor aria-hidden=true href=#三配置php-study>#</a></h3>
+<p>开启Apache和PHP服务，点击左边栏<em>网站</em>，左上角<em>创建网站</em>，域名为设置为本机本地域名，查看本地域名方法：进入<code>powershell</code>输入命令<code>ipconfig</code>查看，我电脑本机域名为<em>192.168.0.104</em></p>
+<p>为什么不设置为localhost <em>127.0.0.1</em>：Burp Suite配合chrome浏览器抓包时可能无法拦截localhost的数据。</p>
+<p>根目录指向刚刚解压的DVWA-master目录下，点击确认，网站创建成功。</p>
+<h3 id=四浏览器进入1921080104>四、浏览器进入192.108.0.104<a hidden class=anchor aria-hidden=true href=#四浏览器进入1921080104>#</a></h3>
+<p>点击<em>Create/Reset Database</em>创建数据库</p>
+<p>用户名：admin 默认密码：password</p>
+<p>登陆进入后即部署成功。</p>
+<h2 id=burpsuite21安装>BurpSuite2.1安装<a hidden class=anchor aria-hidden=true href=#burpsuite21安装>#</a></h2>
+<blockquote>
+<p>BurpSuite 是用于攻击web 应用程序的集成平台，包含了许多工具。Burp Suite为这些工具设计了许多接口，以加快攻击应用程序的过程。所有工具都共享一个请求，并能处理对应的HTTP 消息、持久性、认证、代理、日志、警报。</p>
+</blockquote>
+<h3 id=1-jdk及burpsuite破解版下载>1. JDK及BurpSuite破解版下载<a hidden class=anchor aria-hidden=true href=#1-jdk及burpsuite破解版下载>#</a></h3>
+<p>链接：https://pan.baidu.com/s/11lrFGT0aGCd4BQcAJrL55w
+提取码：w5lg</p>
+<h3 id=2-配置java环境>2. 配置JAVA环境<a hidden class=anchor aria-hidden=true href=#2-配置java环境>#</a></h3>
+<p>安装好jdk后，右键计算机-属性-系统设置-高级-环境变量</p>
+<p>新增两个环境变量</p>
+<ol>
+<li>
+<p><code>%JAVA_HOME%=</code>jdk安装文件夹所在位置，如<code>...\jdk1.8.0_201</code></p>
+</li>
+<li>
+<p><code>%CLASSPATH%=.;%JAVA_HOME%\lib\dt.jar;%JAVA_HOME%\lib\tools.jar</code></p>
+</li>
+</ol>
+<p>修改path变量，分别添加jdk和jre安装文件夹下的bin目录。</p>
+<h3 id=3-激活burpsuite>3. 激活BurpSuite<a hidden class=anchor aria-hidden=true href=#3-激活burpsuite>#</a></h3>
+<p>jdk配置完毕后，先打开burp-loader-keygen.jar文件</p>
+<p>点击<code>run</code></p>
+<p>将license许可证复制入弹出的框中，点击<code>Next</code>，选择<code>Manual activation</code>手动激活。</p>
+<p>将生成的申请码粘贴入注册机中，自动算号，将生成的激活码复制入框中，点击<code>Next</code>即激活成功。</p>
+<p>此后想打开Burp Suite，双击运行目录下的VBS脚本即可。</p>
+<h2 id=burpsuite-chrome配置>BurpSuite Chrome配置<a hidden class=anchor aria-hidden=true href=#burpsuite-chrome配置>#</a></h2>
+<h3 id=1-设置流量代理proxy>1. 设置流量代理Proxy<a hidden class=anchor aria-hidden=true href=#1-设置流量代理proxy>#</a></h3>
+<p>​ 在谷歌应用商店中安装<code>Falcon Proxy</code>，添加一个新的代理<code>127.0.0.1:8080</code>，注意和Burp Suite中代理监听器保持一致。</p>
+<h3 id=2-导入ssl证书以便抓取https网站内容>2. 导入SSL证书以便抓取HTTPS网站内容。<a hidden class=anchor aria-hidden=true href=#2-导入ssl证书以便抓取https网站内容>#</a></h3>
+<p>​ 挂好代理后只能访问http网址，对于https网址则提示不安全，解决方法：访问<code>http:\\burp\</code>，点击右上角下载证书certification，得到一个<code>.der</code>文件，在chrome浏览器进入设置-隐私设置和安全性-管理证书，点击<em>受信任的根证书颁发机构</em>，导入刚刚得到的der证书，注意格式选择所有文件。</p>
+<h2 id=参考>参考<a hidden class=anchor aria-hidden=true href=#参考>#</a></h2>
+<p>[1] <a href=https://blog.csdn.net/qq_45756971/article/details/110001169>DVWA完整搭建教程</a></p>
+<p>[2] <a href=https://blog.csdn.net/LUOBIKUN/article/details/87457545>Burp Suite超详细安装教程</a></p>
+<p>[3] <a href=https://www.jianshu.com/p/eba4077ab1ef>Burp Suite + Chrome详细抓包教程</a></p>
+<p>[4] <a href=https://blog.csdn.net/qq_43422918/article/details/114939896>Burp Suite不能拦截localhost</a></p>
+</div>
+<footer class=post-footer>
+<ul class=post-tags>
+<li><a href=https://shenyiming.life/tags/ctf/>CTF</a></li>
+<li><a href=https://shenyiming.life/tags/note/>Note</a></li>
+</ul>
+<nav class=paginav>
+<a class=prev href=https://shenyiming.life/post/12.moectf-web-write-up/>
+<span class=title>« Prev Page</span>
+<br>
+<span>MoeCTF 2021 西电新生赛WP</span>
+</a>
+<a class=next href=https://shenyiming.life/post/6.bugku_misc/>
+<span class=title>Next Page »</span>
+<br>
+<span>MISC类型题目及技巧</span>
+</a>
+</nav>
+<div class=share-buttons>
+<a target=_blank rel="noopener noreferrer" aria-label="share DVWA环境搭建 + BurpSuite2.1安装 + Chrome配置 on twitter" href="https://twitter.com/intent/tweet/?text=DVWA%e7%8e%af%e5%a2%83%e6%90%ad%e5%bb%ba%20%2b%20BurpSuite2.1%e5%ae%89%e8%a3%85%20%2b%20Chrome%e9%85%8d%e7%bd%ae&url=https%3a%2f%2fshenyiming.life%2fpost%2f9.dvwa%25E7%258E%25AF%25E5%25A2%2583%25E6%2590%25AD%25E5%25BB%25BA%2bburpsuite2.1%25E5%25AE%2589%25E8%25A3%2585%2f&hashtags=CTF%2cNote"><svg viewBox="0 0 512 512"><path d="M449.446.0C483.971.0 512 28.03 512 62.554v386.892C512 483.97 483.97 512 449.446 512H62.554c-34.524.0-62.554-28.03-62.554-62.554V62.554c0-34.524 28.029-62.554 62.554-62.554h386.892zM195.519 424.544c135.939.0 210.268-112.643 210.268-210.268.0-3.218.0-6.437-.153-9.502 14.406-10.421 26.973-23.448 36.935-38.314-13.18 5.824-27.433 9.809-42.452 11.648 15.326-9.196 26.973-23.602 32.49-40.92-14.252 8.429-30.038 14.56-46.896 17.931-13.487-14.406-32.644-23.295-53.946-23.295-40.767.0-73.87 33.104-73.87 73.87.0 5.824.613 11.494 1.992 16.858-61.456-3.065-115.862-32.49-152.337-77.241-6.284 10.881-9.962 23.601-9.962 37.088.0 25.594 13.027 48.276 32.95 61.456-12.107-.307-23.448-3.678-33.41-9.196v.92c0 35.862 25.441 65.594 59.311 72.49-6.13 1.686-12.72 2.606-19.464 2.606-4.751.0-9.348-.46-13.946-1.38 9.349 29.426 36.628 50.728 68.965 51.341-25.287 19.771-57.164 31.571-91.8 31.571-5.977.0-11.801-.306-17.625-1.073 32.337 21.15 71.264 33.41 112.95 33.41z"/></svg>
+</a>
+<a target=_blank rel="noopener noreferrer" aria-label="share DVWA环境搭建 + BurpSuite2.1安装 + Chrome配置 on linkedin" href="https://www.linkedin.com/shareArticle?mini=true&url=https%3a%2f%2fshenyiming.life%2fpost%2f9.dvwa%25E7%258E%25AF%25E5%25A2%2583%25E6%2590%25AD%25E5%25BB%25BA%2bburpsuite2.1%25E5%25AE%2589%25E8%25A3%2585%2f&title=DVWA%e7%8e%af%e5%a2%83%e6%90%ad%e5%bb%ba%20%2b%20BurpSuite2.1%e5%ae%89%e8%a3%85%20%2b%20Chrome%e9%85%8d%e7%bd%ae&summary=DVWA%e7%8e%af%e5%a2%83%e6%90%ad%e5%bb%ba%20%2b%20BurpSuite2.1%e5%ae%89%e8%a3%85%20%2b%20Chrome%e9%85%8d%e7%bd%ae&source=https%3a%2f%2fshenyiming.life%2fpost%2f9.dvwa%25E7%258E%25AF%25E5%25A2%2583%25E6%2590%25AD%25E5%25BB%25BA%2bburpsuite2.1%25E5%25AE%2589%25E8%25A3%2585%2f"><svg viewBox="0 0 512 512"><path d="M449.446.0C483.971.0 512 28.03 512 62.554v386.892C512 483.97 483.97 512 449.446 512H62.554c-34.524.0-62.554-28.03-62.554-62.554V62.554c0-34.524 28.029-62.554 62.554-62.554h386.892zM160.461 423.278V197.561h-75.04v225.717h75.04zm270.539.0V293.839c0-69.333-37.018-101.586-86.381-101.586-39.804.0-57.634 21.891-67.617 37.266v-31.958h-75.021c.995 21.181.0 225.717.0 225.717h75.02V297.222c0-6.748.486-13.492 2.474-18.315 5.414-13.475 17.767-27.434 38.494-27.434 27.135.0 38.007 20.707 38.007 51.037v120.768H431zM123.448 88.722C97.774 88.722 81 105.601 81 127.724c0 21.658 16.264 39.002 41.455 39.002h.484c26.165.0 42.452-17.344 42.452-39.002-.485-22.092-16.241-38.954-41.943-39.002z"/></svg>
+</a>
+<a target=_blank rel="noopener noreferrer" aria-label="share DVWA环境搭建 + BurpSuite2.1安装 + Chrome配置 on reddit" href="https://reddit.com/submit?url=https%3a%2f%2fshenyiming.life%2fpost%2f9.dvwa%25E7%258E%25AF%25E5%25A2%2583%25E6%2590%25AD%25E5%25BB%25BA%2bburpsuite2.1%25E5%25AE%2589%25E8%25A3%2585%2f&title=DVWA%e7%8e%af%e5%a2%83%e6%90%ad%e5%bb%ba%20%2b%20BurpSuite2.1%e5%ae%89%e8%a3%85%20%2b%20Chrome%e9%85%8d%e7%bd%ae"><svg viewBox="0 0 512 512"><path d="M449.446.0C483.971.0 512 28.03 512 62.554v386.892C512 483.97 483.97 512 449.446 512H62.554c-34.524.0-62.554-28.03-62.554-62.554V62.554c0-34.524 28.029-62.554 62.554-62.554h386.892zM446 265.638c0-22.964-18.616-41.58-41.58-41.58-11.211.0-21.361 4.457-28.841 11.666-28.424-20.508-67.586-33.757-111.204-35.278l18.941-89.121 61.884 13.157c.756 15.734 13.642 28.29 29.56 28.29 16.407.0 29.706-13.299 29.706-29.701.0-16.403-13.299-29.702-29.706-29.702-11.666.0-21.657 6.792-26.515 16.578l-69.105-14.69c-1.922-.418-3.939-.042-5.585 1.036-1.658 1.073-2.811 2.761-3.224 4.686l-21.152 99.438c-44.258 1.228-84.046 14.494-112.837 35.232-7.468-7.164-17.589-11.591-28.757-11.591-22.965.0-41.585 18.616-41.585 41.58.0 16.896 10.095 31.41 24.568 37.918-.639 4.135-.99 8.328-.99 12.576.0 63.977 74.469 115.836 166.33 115.836s166.334-51.859 166.334-115.836c0-4.218-.347-8.387-.977-12.493 14.564-6.47 24.735-21.034 24.735-38.001zM326.526 373.831c-20.27 20.241-59.115 21.816-70.534 21.816-11.428.0-50.277-1.575-70.522-21.82-3.007-3.008-3.007-7.882.0-10.889 3.003-2.999 7.882-3.003 10.885.0 12.777 12.781 40.11 17.317 59.637 17.317 19.522.0 46.86-4.536 59.657-17.321 3.016-2.999 7.886-2.995 10.885.008 3.008 3.011 3.003 7.882-.008 10.889zm-5.23-48.781c-16.373.0-29.701-13.324-29.701-29.698.0-16.381 13.328-29.714 29.701-29.714 16.378.0 29.706 13.333 29.706 29.714.0 16.374-13.328 29.698-29.706 29.698zM160.91 295.348c0-16.381 13.328-29.71 29.714-29.71 16.369.0 29.689 13.329 29.689 29.71.0 16.373-13.32 29.693-29.689 29.693-16.386.0-29.714-13.32-29.714-29.693z"/></svg>
+</a>
+<a target=_blank rel="noopener noreferrer" aria-label="share DVWA环境搭建 + BurpSuite2.1安装 + Chrome配置 on facebook" href="https://facebook.com/sharer/sharer.php?u=https%3a%2f%2fshenyiming.life%2fpost%2f9.dvwa%25E7%258E%25AF%25E5%25A2%2583%25E6%2590%25AD%25E5%25BB%25BA%2bburpsuite2.1%25E5%25AE%2589%25E8%25A3%2585%2f"><svg viewBox="0 0 512 512"><path d="M449.446.0C483.971.0 512 28.03 512 62.554v386.892C512 483.97 483.97 512 449.446 512H342.978V319.085h66.6l12.672-82.621h-79.272v-53.617c0-22.603 11.073-44.636 46.58-44.636H425.6v-70.34s-32.71-5.582-63.982-5.582c-65.288.0-107.96 39.569-107.96 111.204v62.971h-72.573v82.621h72.573V512h-191.104c-34.524.0-62.554-28.03-62.554-62.554V62.554c0-34.524 28.029-62.554 62.554-62.554h386.892z"/></svg>
+</a>
+<a target=_blank rel="noopener noreferrer" aria-label="share DVWA环境搭建 + BurpSuite2.1安装 + Chrome配置 on whatsapp" href="https://api.whatsapp.com/send?text=DVWA%e7%8e%af%e5%a2%83%e6%90%ad%e5%bb%ba%20%2b%20BurpSuite2.1%e5%ae%89%e8%a3%85%20%2b%20Chrome%e9%85%8d%e7%bd%ae%20-%20https%3a%2f%2fshenyiming.life%2fpost%2f9.dvwa%25E7%258E%25AF%25E5%25A2%2583%25E6%2590%25AD%25E5%25BB%25BA%2bburpsuite2.1%25E5%25AE%2589%25E8%25A3%2585%2f"><svg viewBox="0 0 512 512"><path d="M449.446.0C483.971.0 512 28.03 512 62.554v386.892C512 483.97 483.97 512 449.446 512H62.554c-34.524.0-62.554-28.03-62.554-62.554V62.554c0-34.524 28.029-62.554 62.554-62.554h386.892zm-58.673 127.703c-33.842-33.881-78.847-52.548-126.798-52.568-98.799.0-179.21 80.405-179.249 179.234-.013 31.593 8.241 62.428 23.927 89.612l-25.429 92.884 95.021-24.925c26.181 14.28 55.659 21.807 85.658 21.816h.074c98.789.0 179.206-80.413 179.247-179.243.018-47.895-18.61-92.93-52.451-126.81zM263.976 403.485h-.06c-26.734-.01-52.954-7.193-75.828-20.767l-5.441-3.229-56.386 14.792 15.05-54.977-3.542-5.637c-14.913-23.72-22.791-51.136-22.779-79.287.033-82.142 66.867-148.971 149.046-148.971 39.793.014 77.199 15.531 105.329 43.692 28.128 28.16 43.609 65.592 43.594 105.4-.034 82.149-66.866 148.983-148.983 148.984zm81.721-111.581c-4.479-2.242-26.499-13.075-30.604-14.571-4.105-1.495-7.091-2.241-10.077 2.241-2.986 4.483-11.569 14.572-14.182 17.562-2.612 2.988-5.225 3.364-9.703 1.12-4.479-2.241-18.91-6.97-36.017-22.23C231.8 264.15 222.81 249.484 220.198 245s-.279-6.908 1.963-9.14c2.016-2.007 4.48-5.232 6.719-7.847 2.24-2.615 2.986-4.484 4.479-7.472 1.493-2.99.747-5.604-.374-7.846-1.119-2.241-10.077-24.288-13.809-33.256-3.635-8.733-7.327-7.55-10.077-7.688-2.609-.13-5.598-.158-8.583-.158-2.986.0-7.839 1.121-11.944 5.604-4.105 4.484-15.675 15.32-15.675 37.364.0 22.046 16.048 43.342 18.287 46.332 2.24 2.99 31.582 48.227 76.511 67.627 10.685 4.615 19.028 7.371 25.533 9.434 10.728 3.41 20.492 2.929 28.209 1.775 8.605-1.285 26.499-10.833 30.231-21.295 3.732-10.464 3.732-19.431 2.612-21.298-1.119-1.869-4.105-2.99-8.583-5.232z"/></svg>
+</a>
+<a target=_blank rel="noopener noreferrer" aria-label="share DVWA环境搭建 + BurpSuite2.1安装 + Chrome配置 on telegram" href="https://telegram.me/share/url?text=DVWA%e7%8e%af%e5%a2%83%e6%90%ad%e5%bb%ba%20%2b%20BurpSuite2.1%e5%ae%89%e8%a3%85%20%2b%20Chrome%e9%85%8d%e7%bd%ae&url=https%3a%2f%2fshenyiming.life%2fpost%2f9.dvwa%25E7%258E%25AF%25E5%25A2%2583%25E6%2590%25AD%25E5%25BB%25BA%2bburpsuite2.1%25E5%25AE%2589%25E8%25A3%2585%2f"><svg viewBox="2 2 28 28"><path d="M26.49 29.86H5.5a3.37 3.37.0 01-2.47-1 3.35 3.35.0 01-1-2.47V5.48A3.36 3.36.0 013 3 3.37 3.37.0 015.5 2h21A3.38 3.38.0 0129 3a3.36 3.36.0 011 2.46V26.37a3.35 3.35.0 01-1 2.47 3.38 3.38.0 01-2.51 1.02zm-5.38-6.71a.79.79.0 00.85-.66L24.73 9.24a.55.55.0 00-.18-.46.62.62.0 00-.41-.17q-.08.0-16.53 6.11a.59.59.0 00-.41.59.57.57.0 00.43.52l4 1.24 1.61 4.83a.62.62.0 00.63.43.56.56.0 00.4-.17L16.54 20l4.09 3A.9.9.0 0021.11 23.15zM13.8 20.71l-1.21-4q8.72-5.55 8.78-5.55c.15.0.23.0.23.16a.18.18.0 010 .06s-2.51 2.3-7.52 6.8z"/></svg>
+</a>
+</div>
+</footer>
+</article>
+</main><footer class=footer>
+<span>&copy; 2022 <a href=https://shenyiming.life>Console.makeHappy(_1ming)</a></span>
+<span>&#183;</span>
+<span>Powered by <a href=https://gohugo.io/ rel="noopener noreferrer" target=_blank>Hugo</a></span>
+<span>&#183;</span>
+<span>Theme <a href=https://git.io/hugopapermod rel=noopener target=_blank>PaperMod</a></span>
+</footer>
+<a href=#top aria-label="go to top" title="Go to Top (Alt + G)">
+<button class=top-link id=top-link type=button accesskey=g><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentcolor"><path d="M12 6H0l6-6z"/></svg>
+</button>
+</a>
+<script defer src=/assets/js/highlight.min.7680afc38aa6b15ddf158a4f3780b7b1f7dde7e91d26f073e6229bb7a0793c92.js integrity="sha256-doCvw4qmsV3fFYpPN4C3sffd5+kdJvBz5iKbt6B5PJI=" onload=hljs.initHighlightingOnLoad()></script>
+<script>window.onload=function(){localStorage.getItem("menu-scroll-position")&&(document.getElementById('menu').scrollLeft=localStorage.getItem("menu-scroll-position"))};function menu_on_scroll(){localStorage.setItem("menu-scroll-position",document.getElementById('menu').scrollLeft)}document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener("click",function(b){b.preventDefault();var a=this.getAttribute("href").substr(1);window.matchMedia('(prefers-reduced-motion: reduce)').matches?document.querySelector(`[id='${decodeURIComponent(a)}']`).scrollIntoView():document.querySelector(`[id='${decodeURIComponent(a)}']`).scrollIntoView({behavior:"smooth"}),a==="top"?history.replaceState(null,null," "):history.pushState(null,null,`#${a}`)})})</script>
+<script>var mybutton=document.getElementById("top-link");window.onscroll=function(){document.body.scrollTop>800||document.documentElement.scrollTop>800?(mybutton.style.visibility="visible",mybutton.style.opacity="1"):(mybutton.style.visibility="hidden",mybutton.style.opacity="0")}</script>
+<script>document.getElementById("theme-toggle").addEventListener("click",()=>{document.body.className.includes("dark")?(document.body.classList.remove('dark'),localStorage.setItem("pref-theme",'light')):(document.body.classList.add('dark'),localStorage.setItem("pref-theme",'dark'))})</script>
+</body>
+</html>

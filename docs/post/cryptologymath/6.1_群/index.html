@@ -1,0 +1,461 @@
+<!doctype html><html lang=en dir=auto>
+<head><meta charset=utf-8>
+<meta http-equiv=x-ua-compatible content="IE=edge">
+<meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no">
+<meta name=robots content="index, follow">
+<title>6 群环域 | Console.makeHappy(_1ming)</title>
+<meta name=keywords content="密码学数学基础,Note,cryptology">
+<meta name=description content="半群 只满足封闭性和结合律
+含幺半群 满足封闭性、结合律和单位元
+  含幺半群G中的单位元e是唯一的 含幺半群G中任意可逆元a，其逆元是唯一的（可以没有逆元）   Abel群（交换群） 满足封闭性、结合律、单位元、逆元的同时，还满足交换律
+有限群 无限群 元素个数
+子群  设H为群G的一个非空子集，若H对G的运算&#34;.&ldquo;也构成群，则称H为群G的子群，记作H<=G
+ $$ 在通常意义的加法运算下\\ Z\le Q $$
+子群判定定理 知1求2
+1证2 2证3 3证1
+商群  定义6.3.1 陪集 陪集是一个集合
+例6.3.1 模8加法群
+定理6.3.1 陪集的性质 证明 陪集构成了群元素的一个类，互不相交，互不包含
+定义6.3.2 H在G中的指数 子群H在群G中不同陪集的个数，称为H在G中的指数，记为[G:H]
+定理6.3.2 拉格朗日定理 设H是有限群G的子群，则|G|=|H|·|G:H|
+G中元素个数=子群H中元素个数*H在G中的不同陪集个数
+定义6.3.3 正规子群 $$ 设G为群，H\le G,若对G中任一元素a均有aH=Ha，则称H为G的正规子群\\ 即为H\lhd G $$
+当G为Abel群时，它的任意子群均为它的正规子群。
+子群{e}/群G本身为它的两个平凡正规子群。
+定理6.3.3 正规子群判定定理 $$ aHa^{-1}
+$$
+定义6.3.4 商群 $$ 上述定理中G/H关于子集的乘法构成的群 $$
+例题6.3.5 $$ 模8加法群(Z_8,+)，H={0,2,4,6}为子群。 $$">
+<meta name=author content="Yiming Shen">
+<link rel=canonical href=https://shenyiming.life/post/cryptologymath/6.1_%E7%BE%A4/>
+<meta name=google-site-verification content="XYZabc">
+<meta name=yandex-verification content="XYZabc">
+<meta name=msvalidate.01 content="XYZabc">
+<link href=/assets/css/stylesheet.min.f9092021aef6d632dd5d85b4ef7506ea512c07571f252872303184b75d09180e.css integrity="sha256-+QkgIa721jLdXYW073UG6lEsB1cfJShyMDGEt10JGA4=" rel="preload stylesheet" as=style>
+<link rel=icon href=https://shenyiming.life/favicon.ico>
+<link rel=icon type=image/png sizes=16x16 href=https://shenyiming.life/favicon-16x16.png>
+<link rel=icon type=image/png sizes=32x32 href=https://shenyiming.life/favicon-32x32.png>
+<link rel=apple-touch-icon href=https://shenyiming.life/apple-touch-icon.png>
+<link rel=mask-icon href=https://shenyiming.life/safari-pinned-tab.svg>
+<meta name=theme-color content="#2e2e33">
+<meta name=msapplication-TileColor content="#2e2e33">
+<meta name=generator content="Hugo 0.91.0">
+<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css integrity=sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X crossorigin=anonymous>
+<script defer src=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js integrity=sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4 crossorigin=anonymous></script>
+<script defer src=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js integrity=sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa crossorigin=anonymous onload=renderMathInElement(document.body)></script>
+<script type=application/javascript>var doNotTrack=!1;doNotTrack||(window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga('create','UA-123-45','auto'),ga('send','pageview'))</script>
+<script async src=https://www.google-analytics.com/analytics.js></script>
+<meta property="og:title" content="6 群环域">
+<meta property="og:description" content="半群 只满足封闭性和结合律
+含幺半群 满足封闭性、结合律和单位元
+  含幺半群G中的单位元e是唯一的 含幺半群G中任意可逆元a，其逆元是唯一的（可以没有逆元）   Abel群（交换群） 满足封闭性、结合律、单位元、逆元的同时，还满足交换律
+有限群 无限群 元素个数
+子群  设H为群G的一个非空子集，若H对G的运算&#34;.&ldquo;也构成群，则称H为群G的子群，记作H<=G
+ $$ 在通常意义的加法运算下\\ Z\le Q $$
+子群判定定理 知1求2
+1证2 2证3 3证1
+商群  定义6.3.1 陪集 陪集是一个集合
+例6.3.1 模8加法群
+定理6.3.1 陪集的性质 证明 陪集构成了群元素的一个类，互不相交，互不包含
+定义6.3.2 H在G中的指数 子群H在群G中不同陪集的个数，称为H在G中的指数，记为[G:H]
+定理6.3.2 拉格朗日定理 设H是有限群G的子群，则|G|=|H|·|G:H|
+G中元素个数=子群H中元素个数*H在G中的不同陪集个数
+定义6.3.3 正规子群 $$ 设G为群，H\le G,若对G中任一元素a均有aH=Ha，则称H为G的正规子群\\ 即为H\lhd G $$
+当G为Abel群时，它的任意子群均为它的正规子群。
+子群{e}/群G本身为它的两个平凡正规子群。
+定理6.3.3 正规子群判定定理 $$ aHa^{-1}
+$$
+定义6.3.4 商群 $$ 上述定理中G/H关于子集的乘法构成的群 $$
+例题6.3.5 $$ 模8加法群(Z_8,+)，H={0,2,4,6}为子群。 $$">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://shenyiming.life/post/cryptologymath/6.1_%E7%BE%A4/"><meta property="og:image" content="https://shenyiming.life/android-chrome-512x512.png"><meta property="article:section" content="post">
+<meta property="article:published_time" content="2021-11-08T00:00:00+00:00">
+<meta property="article:modified_time" content="2022-01-20T00:00:00+00:00"><meta property="og:site_name" content="Yiming">
+<meta name=twitter:card content="summary_large_image">
+<meta name=twitter:image content="https://shenyiming.life/android-chrome-512x512.png">
+<meta name=twitter:title content="6 群环域">
+<meta name=twitter:description content="半群 只满足封闭性和结合律
+含幺半群 满足封闭性、结合律和单位元
+  含幺半群G中的单位元e是唯一的 含幺半群G中任意可逆元a，其逆元是唯一的（可以没有逆元）   Abel群（交换群） 满足封闭性、结合律、单位元、逆元的同时，还满足交换律
+有限群 无限群 元素个数
+子群  设H为群G的一个非空子集，若H对G的运算&#34;.&ldquo;也构成群，则称H为群G的子群，记作H<=G
+ $$ 在通常意义的加法运算下\\ Z\le Q $$
+子群判定定理 知1求2
+1证2 2证3 3证1
+商群  定义6.3.1 陪集 陪集是一个集合
+例6.3.1 模8加法群
+定理6.3.1 陪集的性质 证明 陪集构成了群元素的一个类，互不相交，互不包含
+定义6.3.2 H在G中的指数 子群H在群G中不同陪集的个数，称为H在G中的指数，记为[G:H]
+定理6.3.2 拉格朗日定理 设H是有限群G的子群，则|G|=|H|·|G:H|
+G中元素个数=子群H中元素个数*H在G中的不同陪集个数
+定义6.3.3 正规子群 $$ 设G为群，H\le G,若对G中任一元素a均有aH=Ha，则称H为G的正规子群\\ 即为H\lhd G $$
+当G为Abel群时，它的任意子群均为它的正规子群。
+子群{e}/群G本身为它的两个平凡正规子群。
+定理6.3.3 正规子群判定定理 $$ aHa^{-1}
+$$
+定义6.3.4 商群 $$ 上述定理中G/H关于子集的乘法构成的群 $$
+例题6.3.5 $$ 模8加法群(Z_8,+)，H={0,2,4,6}为子群。 $$">
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":2,"name":"文章","item":"https://shenyiming.life/post/"},{"@type":"ListItem","position":3,"name":"6 群环域","item":"https://shenyiming.life/post/cryptologymath/6.1_%E7%BE%A4/"}]}</script>
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"6 群环域","name":"6 群环域","description":"半群 只满足封闭性和结合律\n含幺半群 满足封闭性、结合律和单位元\n  含幺半群G中的单位元e是唯一的 含幺半群G中任意可逆元a，其逆元是唯一的（可以没有逆元）   Abel群（交换群） 满足封闭性、结合律、单位元、逆元的同时，还满足交换律\n有限群 无限群 元素个数\n子群  设H为群G的一个非空子集，若H对G的运算\u0026quot;.\u0026ldquo;也构成群，则称H为群G的子群，记作H\u0026lt;=G\n $$ 在通常意义的加法运算下\\\\ Z\\le Q $$\n子群判定定理 知1求2\n1证2 2证3 3证1\n商群  定义6.3.1 陪集 陪集是一个集合\n例6.3.1 模8加法群\n定理6.3.1 陪集的性质 证明 陪集构成了群元素的一个类，互不相交，互不包含\n定义6.3.2 H在G中的指数 子群H在群G中不同陪集的个数，称为H在G中的指数，记为[G:H]\n定理6.3.2 拉格朗日定理 设H是有限群G的子群，则|G|=|H|·|G:H|\nG中元素个数=子群H中元素个数*H在G中的不同陪集个数\n定义6.3.3 正规子群 $$ 设G为群，H\\le G,若对G中任一元素a均有aH=Ha，则称H为G的正规子群\\\\ 即为H\\lhd G $$\n当G为Abel群时，它的任意子群均为它的正规子群。\n子群{e}/群G本身为它的两个平凡正规子群。\n定理6.3.3 正规子群判定定理 $$ aHa^{-1}\n$$\n定义6.3.4 商群 $$ 上述定理中G/H关于子集的乘法构成的群 $$\n例题6.3.5 $$ 模8加法群(Z_8,+)，H={0,2,4,6}为子群。 $$","keywords":["密码学数学基础","Note","cryptology"],"articleBody":"半群 只满足封闭性和结合律\n含幺半群 满足封闭性、结合律和单位元\n  含幺半群G中的单位元e是唯一的 含幺半群G中任意可逆元a，其逆元是唯一的（可以没有逆元）   Abel群（交换群） 满足封闭性、结合律、单位元、逆元的同时，还满足交换律\n有限群 无限群 元素个数\n子群  设H为群G的一个非空子集，若H对G的运算\".“也构成群，则称H为群G的子群，记作H$$ 在通常意义的加法运算下\\\\ Z\\le Q $$\n子群判定定理 知1求2\n1证2 2证3 3证1\n商群  定义6.3.1 陪集 陪集是一个集合\n例6.3.1 模8加法群\n定理6.3.1 陪集的性质 证明 陪集构成了群元素的一个类，互不相交，互不包含\n定义6.3.2 H在G中的指数 子群H在群G中不同陪集的个数，称为H在G中的指数，记为[G:H]\n定理6.3.2 拉格朗日定理 设H是有限群G的子群，则|G|=|H|·|G:H|\nG中元素个数=子群H中元素个数*H在G中的不同陪集个数\n定义6.3.3 正规子群 $$ 设G为群，H\\le G,若对G中任一元素a均有aH=Ha，则称H为G的正规子群\\\\ 即为H\\lhd G $$\n当G为Abel群时，它的任意子群均为它的正规子群。\n子群{e}/群G本身为它的两个平凡正规子群。\n定理6.3.3 正规子群判定定理 $$ aHa^{-1}\n$$\n定义6.3.4 商群 $$ 上述定理中G/H关于子集的乘法构成的群 $$\n例题6.3.5 $$ 模8加法群(Z_8,+)，H={0,2,4,6}为子群。 $$\n群同态 定义6.4.1 同态 $$ 设(G.\\cdot),(G',\\degree)是两个群，f是G到G’的一个映射\\\\ 如果对任意a,b\\in G,都有\\\\ f(a\\cdot b)=f(a)\\degree f(b)\\\\ 则称f为G到G’的一个同态\\\\ 记作G~G' $$\n定理6.4.1 同态基本定理 $$ 设f：G\\rightarrow G' 是一个满同态，N=ker(f),则\\\\ G/N \\cong G'。设\\phi 为G到G/N的自然同态，则存在\\\\ G/N到G’的同构\\sigma,使得f=\\sigma \\phi。 $$\n循环群 定义6.5.1 群元素的阶 $$ 设G为群，a\\in G，则使a^n=e成立的最小正整数n\\\\ 称为元素a的阶，记为ord(a)。 $$\n群元素的阶，显然具有如下性质： $$\n 设G为群，a\\in G, a^m=e ord(a)|m\\\\ 设G为群，a\\in G, ord(a)=n,k为任意正整数 $$  定义6.5.2 循环群 $$ 若群G的每一个元素都是某一固定元素a的幂，即\\\\ G={a^n|n\\in Z}\\\\ 则称G为循环群，或称G是由元素a生成的，记为G=\\\\ 其中，a称为G的一个生成元。 $$\n循环群是Abel群\n例题6.5.1 $$ 模8加法群(Z_8,+),Z_8={0,1,2,3,4,5,6,7,}\\\\ 是否是循环群？ $$\n定理6.5.1 循环群的子群仍然是循环群。  循环群的子群仍然是循环群。\n 定理6.5.2 素数阶群均为循环群  素数阶群均为循环群\n 环 定义7.1.1 环  设R为非空集合，R内定义两种二元运算，加法运算”+“和乘法运算”·\"，满足以下条件： $$\n R关于加法运算\"+“构成一个Abel群\\\\ R关于乘法运算”·“构成一个半群;\\\\ \\forall a,b,c\\in R, 有\\\\ a\\cdot (b+c)=a\\cdot b+ a\\cdot c \\qquad (b+c)\\cdot a = b\\cdot a +c\\cdot a\\\\ 即分配律成立\\\\ 则称R关于+和·形成一个环，记作(R,+,·) $$   (1) R 关于加法运算“+”构成一个Abel群\n 对加法封闭性 对加法结合律 对加法存在加法单位元（零元）0 对加法存在逆元（负元）  定义7.1.4 除环  环R的非零元全体在乘法运算”·“下构成群，则称该环为除环\n 域 定义7.2.1 域  可交换的除环称为域，记为(F,+,·)。\n ","wordCount":"170","inLanguage":"en","datePublished":"2021-11-08T00:00:00Z","dateModified":"2022-01-20T00:00:00Z","author":{"@type":"Person","name":"Yiming Shen"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://shenyiming.life/post/cryptologymath/6.1_%E7%BE%A4/"},"publisher":{"@type":"Organization","name":"Console.makeHappy(_1ming)","logo":{"@type":"ImageObject","url":"https://shenyiming.life/favicon.ico"}}}</script>
+</head>
+<body id=top>
+<script>localStorage.getItem("pref-theme")==="dark"?document.body.classList.add('dark'):localStorage.getItem("pref-theme")==="light"?document.body.classList.remove('dark'):window.matchMedia('(prefers-color-scheme: dark)').matches&&document.body.classList.add('dark')</script>
+<noscript>
+<style type=text/css>#theme-toggle,.top-link{display:none}</style>
+<style>@media(prefers-color-scheme:dark){:root{--theme:#1d1e20;--entry:#2e2e33;--primary:rgba(255, 255, 255, 0.84);--secondary:rgba(255, 255, 255, 0.56);--tertiary:rgba(255, 255, 255, 0.16);--content:rgba(255, 255, 255, 0.74);--hljs-bg:#2e2e33;--code-bg:#37383e;--border:#333}.list{background:var(--theme)}.list:not(.dark)::-webkit-scrollbar-track{background:0 0}.list:not(.dark)::-webkit-scrollbar-thumb{border-color:var(--theme)}}</style>
+</noscript>
+<header class=header>
+<nav class=nav>
+<div class=logo>
+<a href=https://shenyiming.life accesskey=h title="相位  (Alt + H)">
+<img src=/favicon.ico alt=logo aria-label=logo height=35>相位 </a>
+<span class=logo-switches>
+<button id=theme-toggle accesskey=t title="(Alt + T)"><svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg><svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+</button>
+</span>
+</div>
+<ul id=menu onscroll=menu_on_scroll()>
+<li>
+<a href=https://shenyiming.life/post/ title=文章>
+<span>文章</span>
+</a>
+</li>
+<li>
+<a href=https://shenyiming.life/archive/ title=归档>
+<span>归档</span>
+</a>
+</li>
+<li>
+<a href=https://shenyiming.life/categories/ title=分类>
+<span>分类</span>
+</a>
+</li>
+<li>
+<a href=https://shenyiming.life/tags/ title=标签>
+<span>标签</span>
+</a>
+</li>
+<li>
+<a href=https://shenyiming.life/search/ title="搜索 (Alt + /)" accesskey=/>
+<span>搜索</span>
+</a>
+</li>
+<li>
+<a href=https://shenyiming.life/about/ title=关于>
+<span>关于</span>
+</a>
+</li></ul>
+</nav>
+</header>
+<main class=main>
+<article class=post-single>
+<header class=post-header>
+<div class=breadcrumbs>
+<a href=https://shenyiming.life>Home</a>&nbsp;»&nbsp;<a href=https://shenyiming.life/post/>文章</a>
+</div>
+<h1 class=post-title>
+6 群环域
+</h1>
+<div class=post-meta>
+November 8, 2021&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Yiming Shen
+|&nbsp;<a href=https://github.com/shenyimings/shenyimings.github.io/tree/main/docs rel="noopener noreferrer" target=_blank>Issue</a>
+</div>
+</header>
+<aside id=toc-container class="toc-container wide">
+<div class=toc>
+<details open>
+<summary accesskey=c title="(Alt + C)">
+<span class=details>Table of Contents</span>
+</summary>
+<div class=inner><ul><ul><ul>
+<li>
+<a href=#%e5%8d%8a%e7%be%a4 aria-label=半群>半群</a></li>
+<li>
+<a href=#%e5%90%ab%e5%b9%ba%e5%8d%8a%e7%be%a4 aria-label=含幺半群>含幺半群</a></li>
+<li>
+<a href=#abel%e7%be%a4%e4%ba%a4%e6%8d%a2%e7%be%a4 aria-label=Abel群（交换群）>Abel群（交换群）</a></li>
+<li>
+<a href=#%e6%9c%89%e9%99%90%e7%be%a4-%e6%97%a0%e9%99%90%e7%be%a4 aria-label="有限群 无限群">有限群 无限群</a></li></ul>
+</ul>
+<li>
+<a href=#%e5%ad%90%e7%be%a4 aria-label=子群>子群</a><ul>
+<li>
+<a href=#%e5%ad%90%e7%be%a4%e5%88%a4%e5%ae%9a%e5%ae%9a%e7%90%86 aria-label=子群判定定理>子群判定定理</a></li></ul>
+</li>
+<li>
+<a href=#%e5%95%86%e7%be%a4 aria-label=商群>商群</a><ul>
+<li>
+<a href=#%e5%ae%9a%e4%b9%89631-%e9%99%aa%e9%9b%86 aria-label="定义6.3.1 陪集">定义6.3.1 陪集</a><ul>
+<li>
+<a href=#%e4%be%8b631 aria-label=例6.3.1>例6.3.1</a></li></ul>
+</li>
+<li>
+<a href=#%e5%ae%9a%e7%90%86631-%e9%99%aa%e9%9b%86%e7%9a%84%e6%80%a7%e8%b4%a8 aria-label="定理6.3.1 陪集的性质">定理6.3.1 陪集的性质</a><ul>
+<li>
+<a href=#%e8%af%81%e6%98%8e aria-label=证明>证明</a></li></ul>
+</li>
+<li>
+<a href=#%e5%ae%9a%e4%b9%89632-h%e5%9c%a8g%e4%b8%ad%e7%9a%84%e6%8c%87%e6%95%b0 aria-label="定义6.3.2 H在G中的指数">定义6.3.2 H在G中的指数</a></li>
+<li>
+<a href=#%e5%ae%9a%e7%90%86632-%e6%8b%89%e6%a0%bc%e6%9c%97%e6%97%a5%e5%ae%9a%e7%90%86 aria-label="定理6.3.2 拉格朗日定理">定理6.3.2 拉格朗日定理</a></li>
+<li>
+<a href=#%e5%ae%9a%e4%b9%89633-%e6%ad%a3%e8%a7%84%e5%ad%90%e7%be%a4 aria-label="定义6.3.3 正规子群">定义6.3.3 正规子群</a></li>
+<li>
+<a href=#%e5%ae%9a%e7%90%86633-%e6%ad%a3%e8%a7%84%e5%ad%90%e7%be%a4%e5%88%a4%e5%ae%9a%e5%ae%9a%e7%90%86 aria-label="定理6.3.3 正规子群判定定理">定理6.3.3 正规子群判定定理</a></li>
+<li>
+<a href=#%e5%ae%9a%e4%b9%89634-%e5%95%86%e7%be%a4 aria-label="定义6.3.4 商群">定义6.3.4 商群</a><ul>
+<li>
+<a href=#%e4%be%8b%e9%a2%98635 aria-label=例题6.3.5>例题6.3.5</a></li></ul>
+</li></ul>
+</li>
+<li>
+<a href=#%e7%be%a4%e5%90%8c%e6%80%81 aria-label=群同态>群同态</a><ul>
+<li>
+<a href=#%e5%ae%9a%e4%b9%89641-%e5%90%8c%e6%80%81 aria-label="定义6.4.1 同态">定义6.4.1 同态</a></li>
+<li>
+<a href=#%e5%ae%9a%e7%90%86641-%e5%90%8c%e6%80%81%e5%9f%ba%e6%9c%ac%e5%ae%9a%e7%90%86 aria-label="定理6.4.1 同态基本定理">定理6.4.1 同态基本定理</a></li></ul>
+</li>
+<li>
+<a href=#%e5%be%aa%e7%8e%af%e7%be%a4 aria-label=循环群>循环群</a><ul>
+<li>
+<a href=#%e5%ae%9a%e4%b9%89651-%e7%be%a4%e5%85%83%e7%b4%a0%e7%9a%84%e9%98%b6 aria-label="定义6.5.1 群元素的阶">定义6.5.1 群元素的阶</a></li>
+<li>
+<a href=#%e5%ae%9a%e4%b9%89652-%e5%be%aa%e7%8e%af%e7%be%a4 aria-label="定义6.5.2 循环群">定义6.5.2 循环群</a><ul>
+<li>
+<a href=#%e4%be%8b%e9%a2%98651 aria-label=例题6.5.1>例题6.5.1</a></li></ul>
+</li>
+<li>
+<a href=#%e5%ae%9a%e7%90%86651-%e5%be%aa%e7%8e%af%e7%be%a4%e7%9a%84%e5%ad%90%e7%be%a4%e4%bb%8d%e7%84%b6%e6%98%af%e5%be%aa%e7%8e%af%e7%be%a4 aria-label="定理6.5.1 循环群的子群仍然是循环群。">定理6.5.1 循环群的子群仍然是循环群。</a></li>
+<li>
+<a href=#%e5%ae%9a%e7%90%86652-%e7%b4%a0%e6%95%b0%e9%98%b6%e7%be%a4%e5%9d%87%e4%b8%ba%e5%be%aa%e7%8e%af%e7%be%a4 aria-label="定理6.5.2 素数阶群均为循环群">定理6.5.2 素数阶群均为循环群</a></li></ul>
+</li>
+<li>
+<a href=#%e7%8e%af aria-label=环>环</a><ul>
+<li>
+<a href=#%e5%ae%9a%e4%b9%89711-%e7%8e%af aria-label="定义7.1.1 环">定义7.1.1 环</a></li>
+<li>
+<a href=#%e5%ae%9a%e4%b9%89714-%e9%99%a4%e7%8e%af aria-label="定义7.1.4 除环">定义7.1.4 除环</a></li></ul>
+</li>
+<li>
+<a href=#%e5%9f%9f aria-label=域>域</a><ul>
+<li>
+<a href=#%e5%ae%9a%e4%b9%89721-%e5%9f%9f aria-label="定义7.2.1 域">定义7.2.1 域</a>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</details>
+</div>
+</aside>
+<script>let activeElement,elements;window.addEventListener('DOMContentLoaded',function(b){checkTocPosition(),elements=document.querySelectorAll('h1[id],h2[id],h3[id],h4[id],h5[id],h6[id]'),activeElement=elements[0];const a=encodeURI(activeElement.getAttribute('id')).toLowerCase();document.querySelector(`.inner ul li a[href="#${a}"]`).classList.add('active')},!1),window.addEventListener('resize',function(a){checkTocPosition()},!1),window.addEventListener('scroll',()=>{activeElement=Array.from(elements).find(a=>{if(getOffsetTop(a)-window.pageYOffset>0&&getOffsetTop(a)-window.pageYOffset<window.innerHeight/2)return a})||activeElement,elements.forEach(a=>{const b=encodeURI(a.getAttribute('id')).toLowerCase();a===activeElement?document.querySelector(`.inner ul li a[href="#${b}"]`).classList.add('active'):document.querySelector(`.inner ul li a[href="#${b}"]`).classList.remove('active')})},!1);const main=parseInt(getComputedStyle(document.body).getPropertyValue('--article-width'),10),toc=parseInt(getComputedStyle(document.body).getPropertyValue('--toc-width'),10),gap=parseInt(getComputedStyle(document.body).getPropertyValue('--gap'),10);function checkTocPosition(){const a=document.body.scrollWidth;a-main-toc*2-gap*4>0?document.getElementById("toc-container").classList.add("wide"):document.getElementById("toc-container").classList.remove("wide")}function getOffsetTop(a){if(!a.getClientRects().length)return 0;let b=a.getBoundingClientRect(),c=a.ownerDocument.defaultView;return b.top+c.pageYOffset}</script>
+<div class=post-content>
+<p><img loading=lazy src=/6.1_%e7%be%a4.assets/image-20211211000559525.png alt=image-20211211000559525>
+</p>
+<h3 id=半群>半群<a hidden class=anchor aria-hidden=true href=#半群>#</a></h3>
+<p>只满足封闭性和结合律</p>
+<h3 id=含幺半群>含幺半群<a hidden class=anchor aria-hidden=true href=#含幺半群>#</a></h3>
+<p>满足封闭性、结合律和单位元</p>
+<blockquote>
+<ol>
+<li>含幺半群G中的单位元e是唯一的</li>
+<li>含幺半群G中任意可逆元a，其逆元是唯一的（可以没有逆元）</li>
+</ol>
+</blockquote>
+<h3 id=abel群交换群>Abel群（交换群）<a hidden class=anchor aria-hidden=true href=#abel群交换群>#</a></h3>
+<p>满足封闭性、结合律、单位元、逆元的同时，还满足交换律</p>
+<h3 id=有限群-无限群>有限群 无限群<a hidden class=anchor aria-hidden=true href=#有限群-无限群>#</a></h3>
+<p>元素个数</p>
+<h1 id=子群>子群<a hidden class=anchor aria-hidden=true href=#子群>#</a></h1>
+<blockquote>
+<p>设H为群G的一个非空子集，若H对G的运算".&ldquo;也构成群，则称H为群G的<strong>子群</strong>，记作H&lt;=G</p>
+</blockquote>
+<p><img loading=lazy src=/6.2_%e5%ad%90%e7%be%a4.assets/image-20211211000850077.png alt=image-20211211000850077>
+$$
+在通常意义的加法运算下\\
+Z\le Q <br>
+$$</p>
+<h2 id=子群判定定理>子群判定定理<a hidden class=anchor aria-hidden=true href=#子群判定定理>#</a></h2>
+<p><img loading=lazy src=/6.2_%e5%ad%90%e7%be%a4.assets/image-20211211102248430.png alt=image-20211211102248430>
+</p>
+<p><strong>知1求2</strong></p>
+<p>1证2 2证3 <strong>3证1</strong></p>
+<p><img loading=lazy src=/6.2_%e5%ad%90%e7%be%a4.assets/image-20211211102825287.png alt=image-20211211102825287>
+</p>
+<h1 id=商群>商群<a hidden class=anchor aria-hidden=true href=#商群>#</a></h1>
+<hr>
+<h2 id=定义631-陪集>定义6.3.1 陪集<a hidden class=anchor aria-hidden=true href=#定义631-陪集>#</a></h2>
+<p><img loading=lazy src=/6.3_%e5%95%86%e7%be%a4.assets/image-20211211114004146.png alt=image-20211211114004146>
+</p>
+<p>陪集是一个集合</p>
+<h3 id=例631>例6.3.1<a hidden class=anchor aria-hidden=true href=#例631>#</a></h3>
+<p>模8加法群</p>
+<h2 id=定理631-陪集的性质>定理6.3.1 陪集的性质<a hidden class=anchor aria-hidden=true href=#定理631-陪集的性质>#</a></h2>
+<p><img loading=lazy src=/6.3_%e5%95%86%e7%be%a4.assets/image-20211211115812650.png alt=image-20211211115812650>
+</p>
+<h3 id=证明>证明<a hidden class=anchor aria-hidden=true href=#证明>#</a></h3>
+<p><img loading=lazy src=/6.3_%e5%95%86%e7%be%a4.assets/image-20211211131446941.png alt=image-20211211131446941>
+</p>
+<p>陪集构成了群元素的一个类，互不相交，互不包含</p>
+<h2 id=定义632-h在g中的指数>定义6.3.2 H在G中的指数<a hidden class=anchor aria-hidden=true href=#定义632-h在g中的指数>#</a></h2>
+<p>子群H在群G中不同陪集的个数，称为H在G中的指数，记为[G:H]</p>
+<h2 id=定理632-拉格朗日定理>定理6.3.2 拉格朗日定理<a hidden class=anchor aria-hidden=true href=#定理632-拉格朗日定理>#</a></h2>
+<p><strong>设H是有限群G的子群，则|G|=|H|·|G:H|</strong></p>
+<p>G中元素个数=子群H中元素个数*H在G中的不同陪集个数</p>
+<h2 id=定义633-正规子群>定义6.3.3 正规子群<a hidden class=anchor aria-hidden=true href=#定义633-正规子群>#</a></h2>
+<p>$$
+设G为群，H\le G,若对G中任一元素a均有aH=Ha，则称H为G的正规子群\\
+即为H\lhd G
+$$</p>
+<p>当G为Abel群时，它的任意子群均为它的正规子群。</p>
+<p>子群{e}/群G本身为它的两个平凡正规子群。</p>
+<h2 id=定理633-正规子群判定定理>定理6.3.3 正规子群判定定理<a hidden class=anchor aria-hidden=true href=#定理633-正规子群判定定理>#</a></h2>
+<p>$$
+aHa^{-1}<br>
+$$</p>
+<h2 id=定义634-商群>定义6.3.4 商群<a hidden class=anchor aria-hidden=true href=#定义634-商群>#</a></h2>
+<p>$$
+上述定理中G/H关于子集的乘法构成的群
+$$</p>
+<h3 id=例题635>例题6.3.5<a hidden class=anchor aria-hidden=true href=#例题635>#</a></h3>
+<p>$$
+模8加法群(Z_8,+)，H={0,2,4,6}为子群。
+$$</p>
+<h1 id=群同态>群同态<a hidden class=anchor aria-hidden=true href=#群同态>#</a></h1>
+<h2 id=定义641-同态>定义6.4.1 同态<a hidden class=anchor aria-hidden=true href=#定义641-同态>#</a></h2>
+<p>$$
+设(G.\cdot),(G',\degree)是两个群，f是G到G&rsquo;的一个映射\\
+如果对任意a,b\in G,都有\\
+f(a\cdot b)=f(a)\degree f(b)\\
+则称f为G到G&rsquo;的一个同态\\
+记作G~G'
+$$</p>
+<h2 id=定理641-同态基本定理>定理6.4.1 同态基本定理<a hidden class=anchor aria-hidden=true href=#定理641-同态基本定理>#</a></h2>
+<p>$$
+设f：G\rightarrow G' 是一个满同态，N=ker(f),则\\
+G/N \cong G'。设\phi 为G到G/N的自然同态，则存在\\
+G/N到G&rsquo;的同构\sigma,使得f=\sigma \phi。
+$$</p>
+<h1 id=循环群>循环群<a hidden class=anchor aria-hidden=true href=#循环群>#</a></h1>
+<h2 id=定义651-群元素的阶>定义6.5.1 群元素的阶<a hidden class=anchor aria-hidden=true href=#定义651-群元素的阶>#</a></h2>
+<p>$$
+设G为群，a\in G，则使a^n=e成立的最小正整数n\\
+称为元素a的阶，记为ord(a)。
+$$</p>
+<p>群元素的阶，显然具有如下性质：
+$$</p>
+<ol>
+<li>设G为群，a\in G, a^m=e ord(a)|m\\</li>
+<li>设G为群，a\in G, ord(a)=n,k为任意正整数
+$$</li>
+</ol>
+<h2 id=定义652-循环群>定义6.5.2 循环群<a hidden class=anchor aria-hidden=true href=#定义652-循环群>#</a></h2>
+<p>$$
+若群G的每一个元素都是某一固定元素a的幂，即\\
+G={a^n|n\in Z}\\
+则称G为循环群，或称G是由元素a生成的，记为G=\\
+其中，a称为G的一个生成元。
+$$</p>
+<p><strong>循环群是Abel群</strong></p>
+<h3 id=例题651>例题6.5.1<a hidden class=anchor aria-hidden=true href=#例题651>#</a></h3>
+<p>$$
+模8加法群(Z_8,+),Z_8={0,1,2,3,4,5,6,7,}\\
+是否是循环群？
+$$</p>
+<p><img loading=lazy src=/6.5_%e5%be%aa%e7%8e%af%e7%be%a4.assets/image-20211108151749401.png alt=image-20211108151749401>
+</p>
+<h2 id=定理651-循环群的子群仍然是循环群>定理6.5.1 循环群的子群仍然是循环群。<a hidden class=anchor aria-hidden=true href=#定理651-循环群的子群仍然是循环群>#</a></h2>
+<blockquote>
+<p>循环群的子群仍然是循环群。</p>
+</blockquote>
+<h2 id=定理652-素数阶群均为循环群>定理6.5.2 素数阶群均为循环群<a hidden class=anchor aria-hidden=true href=#定理652-素数阶群均为循环群>#</a></h2>
+<blockquote>
+<p>素数阶群均为循环群</p>
+</blockquote>
+<h1 id=环>环<a hidden class=anchor aria-hidden=true href=#环>#</a></h1>
+<p><img loading=lazy src=/7.1_%e7%8e%af.assets/image-20211211223342071.png alt=image-20211211223342071>
+</p>
+<p><img loading=lazy src=/7.1_%e7%8e%af.assets/image-20211211223455986.png alt=image-20211211223455986>
+</p>
+<h2 id=定义711-环>定义7.1.1 环<a hidden class=anchor aria-hidden=true href=#定义711-环>#</a></h2>
+<blockquote>
+<p>设R为非空集合，R内定义两种二元运算，加法运算&rdquo;+&ldquo;和乘法运算&rdquo;·"，满足以下条件：
+$$</p>
+<ol>
+<li>R关于加法运算"+&ldquo;构成一个Abel群\\</li>
+<li>R关于乘法运算&rdquo;·&ldquo;构成一个半群;\\</li>
+<li>\forall a,b,c\in R, 有\\
+a\cdot (b+c)=a\cdot b+ a\cdot c \qquad (b+c)\cdot a = b\cdot a +c\cdot a\\
+即分配律成立\\
+则称R关于+和·形成一个环，记作(R,+,·)
+$$</li>
+</ol>
+</blockquote>
+<p>(1) R 关于加法运算“+”构成一个Abel群</p>
+<ol>
+<li>对加法封闭性</li>
+<li>对加法结合律</li>
+<li>对加法存在加法单位元（零元）0</li>
+<li>对加法存在逆元（负元）</li>
+</ol>
+<h2 id=定义714-除环>定义7.1.4 除环<a hidden class=anchor aria-hidden=true href=#定义714-除环>#</a></h2>
+<blockquote>
+<p>环R的非零元全体在乘法运算&rdquo;·&ldquo;下构成群，则称该环为除环</p>
+</blockquote>
+<h1 id=域>域<a hidden class=anchor aria-hidden=true href=#域>#</a></h1>
+<h2 id=定义721-域>定义7.2.1 域<a hidden class=anchor aria-hidden=true href=#定义721-域>#</a></h2>
+<blockquote>
+<p>可交换的除环称为域，记为(F,+,·)。</p>
+</blockquote>
+</div>
+<footer class=post-footer>
+<ul class=post-tags>
+<li><a href=https://shenyiming.life/tags/%E5%AF%86%E7%A0%81%E5%AD%A6%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/>密码学数学基础</a></li>
+<li><a href=https://shenyiming.life/tags/note/>Note</a></li>
+<li><a href=https://shenyiming.life/tags/cryptology/>cryptology</a></li>
+</ul>
+<nav class=paginav>
+<a class=prev href=https://shenyiming.life/post/public-key-cryptography/>
+<span class=title>« Prev Page</span>
+<br>
+<span>Public Key Cryptology</span>
+</a>
+<a class=next href=https://shenyiming.life/post/cryptologymath/5.1_%E5%8E%9F%E6%A0%B9%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5%E4%B8%8E%E6%80%A7%E8%B4%A8/>
+<span class=title>Next Page »</span>
+<br>
+<span>5 原根</span>
+</a>
+</nav>
+<div class=share-buttons>
+<a target=_blank rel="noopener noreferrer" aria-label="share 6 群环域 on twitter" href="https://twitter.com/intent/tweet/?text=6%20%e7%be%a4%e7%8e%af%e5%9f%9f&url=https%3a%2f%2fshenyiming.life%2fpost%2fcryptologymath%2f6.1_%25E7%25BE%25A4%2f&hashtags=%e5%af%86%e7%a0%81%e5%ad%a6%e6%95%b0%e5%ad%a6%e5%9f%ba%e7%a1%80%2cNote%2ccryptology"><svg viewBox="0 0 512 512"><path d="M449.446.0C483.971.0 512 28.03 512 62.554v386.892C512 483.97 483.97 512 449.446 512H62.554c-34.524.0-62.554-28.03-62.554-62.554V62.554c0-34.524 28.029-62.554 62.554-62.554h386.892zM195.519 424.544c135.939.0 210.268-112.643 210.268-210.268.0-3.218.0-6.437-.153-9.502 14.406-10.421 26.973-23.448 36.935-38.314-13.18 5.824-27.433 9.809-42.452 11.648 15.326-9.196 26.973-23.602 32.49-40.92-14.252 8.429-30.038 14.56-46.896 17.931-13.487-14.406-32.644-23.295-53.946-23.295-40.767.0-73.87 33.104-73.87 73.87.0 5.824.613 11.494 1.992 16.858-61.456-3.065-115.862-32.49-152.337-77.241-6.284 10.881-9.962 23.601-9.962 37.088.0 25.594 13.027 48.276 32.95 61.456-12.107-.307-23.448-3.678-33.41-9.196v.92c0 35.862 25.441 65.594 59.311 72.49-6.13 1.686-12.72 2.606-19.464 2.606-4.751.0-9.348-.46-13.946-1.38 9.349 29.426 36.628 50.728 68.965 51.341-25.287 19.771-57.164 31.571-91.8 31.571-5.977.0-11.801-.306-17.625-1.073 32.337 21.15 71.264 33.41 112.95 33.41z"/></svg>
+</a>
+<a target=_blank rel="noopener noreferrer" aria-label="share 6 群环域 on linkedin" href="https://www.linkedin.com/shareArticle?mini=true&url=https%3a%2f%2fshenyiming.life%2fpost%2fcryptologymath%2f6.1_%25E7%25BE%25A4%2f&title=6%20%e7%be%a4%e7%8e%af%e5%9f%9f&summary=6%20%e7%be%a4%e7%8e%af%e5%9f%9f&source=https%3a%2f%2fshenyiming.life%2fpost%2fcryptologymath%2f6.1_%25E7%25BE%25A4%2f"><svg viewBox="0 0 512 512"><path d="M449.446.0C483.971.0 512 28.03 512 62.554v386.892C512 483.97 483.97 512 449.446 512H62.554c-34.524.0-62.554-28.03-62.554-62.554V62.554c0-34.524 28.029-62.554 62.554-62.554h386.892zM160.461 423.278V197.561h-75.04v225.717h75.04zm270.539.0V293.839c0-69.333-37.018-101.586-86.381-101.586-39.804.0-57.634 21.891-67.617 37.266v-31.958h-75.021c.995 21.181.0 225.717.0 225.717h75.02V297.222c0-6.748.486-13.492 2.474-18.315 5.414-13.475 17.767-27.434 38.494-27.434 27.135.0 38.007 20.707 38.007 51.037v120.768H431zM123.448 88.722C97.774 88.722 81 105.601 81 127.724c0 21.658 16.264 39.002 41.455 39.002h.484c26.165.0 42.452-17.344 42.452-39.002-.485-22.092-16.241-38.954-41.943-39.002z"/></svg>
+</a>
+<a target=_blank rel="noopener noreferrer" aria-label="share 6 群环域 on reddit" href="https://reddit.com/submit?url=https%3a%2f%2fshenyiming.life%2fpost%2fcryptologymath%2f6.1_%25E7%25BE%25A4%2f&title=6%20%e7%be%a4%e7%8e%af%e5%9f%9f"><svg viewBox="0 0 512 512"><path d="M449.446.0C483.971.0 512 28.03 512 62.554v386.892C512 483.97 483.97 512 449.446 512H62.554c-34.524.0-62.554-28.03-62.554-62.554V62.554c0-34.524 28.029-62.554 62.554-62.554h386.892zM446 265.638c0-22.964-18.616-41.58-41.58-41.58-11.211.0-21.361 4.457-28.841 11.666-28.424-20.508-67.586-33.757-111.204-35.278l18.941-89.121 61.884 13.157c.756 15.734 13.642 28.29 29.56 28.29 16.407.0 29.706-13.299 29.706-29.701.0-16.403-13.299-29.702-29.706-29.702-11.666.0-21.657 6.792-26.515 16.578l-69.105-14.69c-1.922-.418-3.939-.042-5.585 1.036-1.658 1.073-2.811 2.761-3.224 4.686l-21.152 99.438c-44.258 1.228-84.046 14.494-112.837 35.232-7.468-7.164-17.589-11.591-28.757-11.591-22.965.0-41.585 18.616-41.585 41.58.0 16.896 10.095 31.41 24.568 37.918-.639 4.135-.99 8.328-.99 12.576.0 63.977 74.469 115.836 166.33 115.836s166.334-51.859 166.334-115.836c0-4.218-.347-8.387-.977-12.493 14.564-6.47 24.735-21.034 24.735-38.001zM326.526 373.831c-20.27 20.241-59.115 21.816-70.534 21.816-11.428.0-50.277-1.575-70.522-21.82-3.007-3.008-3.007-7.882.0-10.889 3.003-2.999 7.882-3.003 10.885.0 12.777 12.781 40.11 17.317 59.637 17.317 19.522.0 46.86-4.536 59.657-17.321 3.016-2.999 7.886-2.995 10.885.008 3.008 3.011 3.003 7.882-.008 10.889zm-5.23-48.781c-16.373.0-29.701-13.324-29.701-29.698.0-16.381 13.328-29.714 29.701-29.714 16.378.0 29.706 13.333 29.706 29.714.0 16.374-13.328 29.698-29.706 29.698zM160.91 295.348c0-16.381 13.328-29.71 29.714-29.71 16.369.0 29.689 13.329 29.689 29.71.0 16.373-13.32 29.693-29.689 29.693-16.386.0-29.714-13.32-29.714-29.693z"/></svg>
+</a>
+<a target=_blank rel="noopener noreferrer" aria-label="share 6 群环域 on facebook" href="https://facebook.com/sharer/sharer.php?u=https%3a%2f%2fshenyiming.life%2fpost%2fcryptologymath%2f6.1_%25E7%25BE%25A4%2f"><svg viewBox="0 0 512 512"><path d="M449.446.0C483.971.0 512 28.03 512 62.554v386.892C512 483.97 483.97 512 449.446 512H342.978V319.085h66.6l12.672-82.621h-79.272v-53.617c0-22.603 11.073-44.636 46.58-44.636H425.6v-70.34s-32.71-5.582-63.982-5.582c-65.288.0-107.96 39.569-107.96 111.204v62.971h-72.573v82.621h72.573V512h-191.104c-34.524.0-62.554-28.03-62.554-62.554V62.554c0-34.524 28.029-62.554 62.554-62.554h386.892z"/></svg>
+</a>
+<a target=_blank rel="noopener noreferrer" aria-label="share 6 群环域 on whatsapp" href="https://api.whatsapp.com/send?text=6%20%e7%be%a4%e7%8e%af%e5%9f%9f%20-%20https%3a%2f%2fshenyiming.life%2fpost%2fcryptologymath%2f6.1_%25E7%25BE%25A4%2f"><svg viewBox="0 0 512 512"><path d="M449.446.0C483.971.0 512 28.03 512 62.554v386.892C512 483.97 483.97 512 449.446 512H62.554c-34.524.0-62.554-28.03-62.554-62.554V62.554c0-34.524 28.029-62.554 62.554-62.554h386.892zm-58.673 127.703c-33.842-33.881-78.847-52.548-126.798-52.568-98.799.0-179.21 80.405-179.249 179.234-.013 31.593 8.241 62.428 23.927 89.612l-25.429 92.884 95.021-24.925c26.181 14.28 55.659 21.807 85.658 21.816h.074c98.789.0 179.206-80.413 179.247-179.243.018-47.895-18.61-92.93-52.451-126.81zM263.976 403.485h-.06c-26.734-.01-52.954-7.193-75.828-20.767l-5.441-3.229-56.386 14.792 15.05-54.977-3.542-5.637c-14.913-23.72-22.791-51.136-22.779-79.287.033-82.142 66.867-148.971 149.046-148.971 39.793.014 77.199 15.531 105.329 43.692 28.128 28.16 43.609 65.592 43.594 105.4-.034 82.149-66.866 148.983-148.983 148.984zm81.721-111.581c-4.479-2.242-26.499-13.075-30.604-14.571-4.105-1.495-7.091-2.241-10.077 2.241-2.986 4.483-11.569 14.572-14.182 17.562-2.612 2.988-5.225 3.364-9.703 1.12-4.479-2.241-18.91-6.97-36.017-22.23C231.8 264.15 222.81 249.484 220.198 245s-.279-6.908 1.963-9.14c2.016-2.007 4.48-5.232 6.719-7.847 2.24-2.615 2.986-4.484 4.479-7.472 1.493-2.99.747-5.604-.374-7.846-1.119-2.241-10.077-24.288-13.809-33.256-3.635-8.733-7.327-7.55-10.077-7.688-2.609-.13-5.598-.158-8.583-.158-2.986.0-7.839 1.121-11.944 5.604-4.105 4.484-15.675 15.32-15.675 37.364.0 22.046 16.048 43.342 18.287 46.332 2.24 2.99 31.582 48.227 76.511 67.627 10.685 4.615 19.028 7.371 25.533 9.434 10.728 3.41 20.492 2.929 28.209 1.775 8.605-1.285 26.499-10.833 30.231-21.295 3.732-10.464 3.732-19.431 2.612-21.298-1.119-1.869-4.105-2.99-8.583-5.232z"/></svg>
+</a>
+<a target=_blank rel="noopener noreferrer" aria-label="share 6 群环域 on telegram" href="https://telegram.me/share/url?text=6%20%e7%be%a4%e7%8e%af%e5%9f%9f&url=https%3a%2f%2fshenyiming.life%2fpost%2fcryptologymath%2f6.1_%25E7%25BE%25A4%2f"><svg viewBox="2 2 28 28"><path d="M26.49 29.86H5.5a3.37 3.37.0 01-2.47-1 3.35 3.35.0 01-1-2.47V5.48A3.36 3.36.0 013 3 3.37 3.37.0 015.5 2h21A3.38 3.38.0 0129 3a3.36 3.36.0 011 2.46V26.37a3.35 3.35.0 01-1 2.47 3.38 3.38.0 01-2.51 1.02zm-5.38-6.71a.79.79.0 00.85-.66L24.73 9.24a.55.55.0 00-.18-.46.62.62.0 00-.41-.17q-.08.0-16.53 6.11a.59.59.0 00-.41.59.57.57.0 00.43.52l4 1.24 1.61 4.83a.62.62.0 00.63.43.56.56.0 00.4-.17L16.54 20l4.09 3A.9.9.0 0021.11 23.15zM13.8 20.71l-1.21-4q8.72-5.55 8.78-5.55c.15.0.23.0.23.16a.18.18.0 010 .06s-2.51 2.3-7.52 6.8z"/></svg>
+</a>
+</div>
+</footer>
+</article>
+</main><footer class=footer>
+<span>&copy; 2022 <a href=https://shenyiming.life>Console.makeHappy(_1ming)</a></span>
+<span>&#183;</span>
+<span>Powered by <a href=https://gohugo.io/ rel="noopener noreferrer" target=_blank>Hugo</a></span>
+<span>&#183;</span>
+<span>Theme <a href=https://git.io/hugopapermod rel=noopener target=_blank>PaperMod</a></span>
+</footer>
+<a href=#top aria-label="go to top" title="Go to Top (Alt + G)">
+<button class=top-link id=top-link type=button accesskey=g><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentcolor"><path d="M12 6H0l6-6z"/></svg>
+</button>
+</a>
+<script defer src=/assets/js/highlight.min.7680afc38aa6b15ddf158a4f3780b7b1f7dde7e91d26f073e6229bb7a0793c92.js integrity="sha256-doCvw4qmsV3fFYpPN4C3sffd5+kdJvBz5iKbt6B5PJI=" onload=hljs.initHighlightingOnLoad()></script>
+<script>window.onload=function(){localStorage.getItem("menu-scroll-position")&&(document.getElementById('menu').scrollLeft=localStorage.getItem("menu-scroll-position"))};function menu_on_scroll(){localStorage.setItem("menu-scroll-position",document.getElementById('menu').scrollLeft)}document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener("click",function(b){b.preventDefault();var a=this.getAttribute("href").substr(1);window.matchMedia('(prefers-reduced-motion: reduce)').matches?document.querySelector(`[id='${decodeURIComponent(a)}']`).scrollIntoView():document.querySelector(`[id='${decodeURIComponent(a)}']`).scrollIntoView({behavior:"smooth"}),a==="top"?history.replaceState(null,null," "):history.pushState(null,null,`#${a}`)})})</script>
+<script>var mybutton=document.getElementById("top-link");window.onscroll=function(){document.body.scrollTop>800||document.documentElement.scrollTop>800?(mybutton.style.visibility="visible",mybutton.style.opacity="1"):(mybutton.style.visibility="hidden",mybutton.style.opacity="0")}</script>
+<script>document.getElementById("theme-toggle").addEventListener("click",()=>{document.body.className.includes("dark")?(document.body.classList.remove('dark'),localStorage.setItem("pref-theme",'light')):(document.body.classList.add('dark'),localStorage.setItem("pref-theme",'dark'))})</script>
+</body>
+</html>

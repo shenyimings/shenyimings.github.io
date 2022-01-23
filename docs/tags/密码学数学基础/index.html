@@ -1,0 +1,428 @@
+<!doctype html><html lang=en dir=auto>
+<head><meta charset=utf-8>
+<meta http-equiv=x-ua-compatible content="IE=edge">
+<meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no">
+<meta name=robots content="index, follow">
+<title>密码学数学基础 | Console.makeHappy(_1ming)</title>
+<meta name=keywords content>
+<meta name=description content="Yiming' blog">
+<meta name=author content="Me">
+<link rel=canonical href=https://shenyiming.life/tags/%E5%AF%86%E7%A0%81%E5%AD%A6%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/>
+<meta name=google-site-verification content="XYZabc">
+<meta name=yandex-verification content="XYZabc">
+<meta name=msvalidate.01 content="XYZabc">
+<link href=/assets/css/stylesheet.min.22e11df5b9fa62e23287ab05fa8d4cfb620bd508f25c35c7f414f95019d21377.css integrity="sha256-IuEd9bn6YuIyh6sF+o1M+2IL1QjyXDXH9BT5UBnSE3c=" rel="preload stylesheet" as=style>
+<link rel=icon href=https://shenyiming.life/favicon.ico>
+<link rel=icon type=image/png sizes=16x16 href=https://shenyiming.life/favicon-16x16.png>
+<link rel=icon type=image/png sizes=32x32 href=https://shenyiming.life/favicon-32x32.png>
+<link rel=apple-touch-icon href=https://shenyiming.life/apple-touch-icon.png>
+<link rel=mask-icon href=https://shenyiming.life/safari-pinned-tab.svg>
+<meta name=theme-color content="#2e2e33">
+<meta name=msapplication-TileColor content="#2e2e33">
+<meta name=generator content="Hugo 0.91.0">
+<link rel=alternate type=application/rss+xml href=https://shenyiming.life/tags/%E5%AF%86%E7%A0%81%E5%AD%A6%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/index.xml>
+<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css integrity=sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X crossorigin=anonymous>
+<script defer src=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js integrity=sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4 crossorigin=anonymous></script>
+<script defer src=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js integrity=sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa crossorigin=anonymous onload=renderMathInElement(document.body)></script>
+<script type=application/javascript>var doNotTrack=!1;doNotTrack||(window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga('create','UA-123-45','auto'),ga('send','pageview'))</script>
+<script async src=https://www.google-analytics.com/analytics.js></script>
+<meta property="og:title" content="密码学数学基础">
+<meta property="og:description" content="Yiming' blog">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://shenyiming.life/tags/%E5%AF%86%E7%A0%81%E5%AD%A6%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/"><meta property="og:image" content="https://shenyiming.life/android-chrome-512x512.png"><meta property="og:site_name" content="Yiming">
+<meta name=twitter:card content="summary_large_image">
+<meta name=twitter:image content="https://shenyiming.life/android-chrome-512x512.png">
+<meta name=twitter:title content="密码学数学基础">
+<meta name=twitter:description content="Yiming' blog">
+</head>
+<body class=list id=top>
+<script>localStorage.getItem("pref-theme")==="dark"?document.body.classList.add('dark'):localStorage.getItem("pref-theme")==="light"?document.body.classList.remove('dark'):window.matchMedia('(prefers-color-scheme: dark)').matches&&document.body.classList.add('dark')</script>
+<noscript>
+<style type=text/css>#theme-toggle,.top-link{display:none}</style>
+<style>@media(prefers-color-scheme:dark){:root{--theme:#1d1e20;--entry:#2e2e33;--primary:rgba(255, 255, 255, 0.84);--secondary:rgba(255, 255, 255, 0.56);--tertiary:rgba(255, 255, 255, 0.16);--content:rgba(255, 255, 255, 0.74);--hljs-bg:#2e2e33;--code-bg:#37383e;--border:#333}.list{background:var(--theme)}.list:not(.dark)::-webkit-scrollbar-track{background:0 0}.list:not(.dark)::-webkit-scrollbar-thumb{border-color:var(--theme)}}</style>
+</noscript>
+<header class=header>
+<nav class=nav>
+<div class=logo>
+<a href=https://shenyiming.life accesskey=h title="相位  (Alt + H)">
+<img src=/favicon.ico alt=logo aria-label=logo height=35>相位 </a>
+<span class=logo-switches>
+<button id=theme-toggle accesskey=t title="(Alt + T)"><svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg><svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+</button>
+</span>
+</div>
+<ul id=menu onscroll=menu_on_scroll()>
+<li>
+<a href=https://shenyiming.life/post/ title=文章>
+<span>文章</span>
+</a>
+</li>
+<li>
+<a href=https://shenyiming.life/archive/ title=归档>
+<span>归档</span>
+</a>
+</li>
+<li>
+<a href=https://shenyiming.life/categories/ title=分类>
+<span>分类</span>
+</a>
+</li>
+<li>
+<a href=https://shenyiming.life/tags/ title=标签>
+<span>标签</span>
+</a>
+</li>
+<li>
+<a href=https://shenyiming.life/search/ title="搜索 (Alt + /)" accesskey=/>
+<span>搜索</span>
+</a>
+</li>
+<li>
+<a href=https://shenyiming.life/friends/ title=友链>
+<span>友链</span>
+</a>
+</li>
+<li>
+<a href=https://shenyiming.life/about/ title=关于>
+<span>关于</span>
+</a>
+</li></ul>
+</nav>
+</header>
+<main class=main>
+<header class=page-header>
+<div class=breadcrumbs>
+<a href=https://shenyiming.life>首页</a>&nbsp;»&nbsp;<a href=https://shenyiming.life/tags/>标签</a>
+</div>
+<h1>密码学数学基础</h1>
+</header>
+<article class="post-entry tag-entry">
+<header class=entry-header>
+<h2>
+密码学数学基础-大纲
+</h2>
+</header>
+<section class=entry-content>
+<p>数论 整除 带余除法 最小公倍数与最大公约数 计算()和[] 欧几里得算法 同余 模逆 模逆的计算（扩展欧几里得算法） 同余的各种性质与运算（加乘指数） Wilson定理 $$设p为素数，则(p-1)!\equiv -1(mod\quad p)$$
+同余类、既约同余类 剩余系、完全剩余系、既约剩余系 欧拉函数 欧拉定理 费马小定理 费马素性检测算法 米勒罗宾素性检测算法 同余方程 同余方程是否有解判定与解的个数计算 二元一次不定方程 单一解的一次同余方程的两种解法 快速模指数运算 解一次同余方程组——中国剩余定理 基于中国剩余定理的秘密共享 高次同余 二次剩余 $$ x^2\equiv a(mod\quad p) $$
+有解则称a是模p的二次剩余
+欧拉判别法 $$ a^{\frac{p-1}{2}}\equiv 1(mod\quad p) 是二次剩余\\ a^{\frac{p-1}{2}}\equiv -1(mod\quad p) 是二次非剩余\\ $$
+勒让德符号与雅可比符号 高斯引理 二次互反律计算勒让德符号 原根 阶及其计算 原根的计算 已知一个原根 求其余阶和原根 离散对数 代数 群 群满足的4条性质 Abel群 半群 含幺半群 有限群 无限群 置换群 对称群 置换群与对称群 子群 商群 循环群 子群判定定理 知1求2...</p>
+</section>
+<footer class=entry-footer>
+December 12, 2021&nbsp;·&nbsp;December 13, 2022&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Yiming Shen
+</footer>
+<a class=entry-link aria-label="post link to 密码学数学基础-大纲" href=https://shenyiming.life/cryptologymath/%E5%AF%86%E7%A0%81%E5%AD%A6%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%A4%A7%E7%BA%B2/></a>
+</article>
+<article class="post-entry tag-entry">
+<header class=entry-header>
+<h2>
+6 群环域
+</h2>
+</header>
+<section class=entry-content>
+<p>半群 只满足封闭性和结合律
+含幺半群 满足封闭性、结合律和单位元
+含幺半群G中的单位元e是唯一的 含幺半群G中任意可逆元a，其逆元是唯一的（可以没有逆元） Abel群（交换群） 满足封闭性、结合律、单位元、逆元的同时，还满足交换律
+有限群 无限群 元素个数
+子群 设H为群G的一个非空子集，若H对G的运算".“也构成群，则称H为群G的子群，记作H&lt;=G
+$$ 在通常意义的加法运算下\\ Z\le Q $$
+子群判定定理 知1求2
+1证2 2证3 3证1
+商群 定义6.3.1 陪集 陪集是一个集合
+例6.3.1 模8加法群
+定理6.3.1 陪集的性质 证明 陪集构成了群元素的一个类，互不相交，互不包含
+定义6.3.2 H在G中的指数 子群H在群G中不同陪集的个数，称为H在G中的指数，记为[G:H]
+定理6.3.2 拉格朗日定理 设H是有限群G的子群，则|G|=|H|·|G:H|
+G中元素个数=子群H中元素个数*H在G中的不同陪集个数
+定义6.3.3 正规子群 $$ 设G为群，H\le G,若对G中任一元素a均有aH=Ha，则称H为G的正规子群\\ 即为H\lhd G $$
+当G为Abel群时，它的任意子群均为它的正规子群。
+子群{e}/群G本身为它的两个平凡正规子群。
+定理6.3.3 正规子群判定定理 $$ aHa^{-1}
+$$
+定义6.3.4 商群 $$ 上述定理中G/H关于子集的乘法构成的群 $$
+例题6.3.5 $$ 模8加法群(Z_8,+)，H={0,2,4,6}为子群。 $$...</p>
+</section>
+<footer class=entry-footer>
+November 8, 2021&nbsp;·&nbsp;January 20, 2022&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Yiming Shen
+</footer>
+<a class=entry-link aria-label="post link to 6 群环域" href=https://shenyiming.life/cryptologymath/6.1_%E7%BE%A4/></a>
+</article>
+<article class="post-entry tag-entry">
+<header class=entry-header>
+<h2>
+5 原根
+</h2>
+</header>
+<section class=entry-content>
+<p>原根的基本概念与性质 定义 $$ 设m为正整数，(a,m)=1，使得a^d\equiv 1(mod\quad m)成立的\最小正整数d，称为a对模m的阶，记作ord_m(a) $$
+原根的计算 已知一个原根，算所有阶
+例题 </p>
+</section>
+<footer class=entry-footer>
+October 24, 2021&nbsp;·&nbsp;January 20, 2022&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Yiming Shen
+</footer>
+<a class=entry-link aria-label="post link to 5 原根" href=https://shenyiming.life/cryptologymath/5.1_%E5%8E%9F%E6%A0%B9%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5%E4%B8%8E%E6%80%A7%E8%B4%A8/></a>
+</article>
+<article class="post-entry tag-entry">
+<header class=entry-header>
+<h2>
+4 二次剩余
+</h2>
+</header>
+<section class=entry-content>
+<p>定义4.1.1 $$ 设a为整数，p为奇素数，p\nmid a，如果同余方程\ x^2\equiv a(mod\quad p)有解，则称a是模p的二次剩余\ 否则称a是模p的二次非剩余。 $$
+4.2 勒让德符号 定义4.2.1 $$ 设p为奇素数，对于每个整数a，定义勒让德符号如下\ (\frac{a}{p})=1, p\nmid a 并且a是 $$
+定理 4.2.1 $$ 若p为奇素数，则\ (1)(欧拉判别法)\ (\frac{a}{p})\equiv a^{\frac{p-1}{2}}(mod\quad p) \ p\mid a ,() $$
+整数的标准素因数分解式 $$ a=+- 2^e q^{e_1}_1\cdots q^{e_s}_s $$ 则 $$ (\frac{a}{p})=(\frac{+-1}{p})(\frac{2}{p})^e (\frac{q_1}{p})^{e_1}\cdots (\frac{q_s}{p})^{e_s} $$
+定理4.2.2 $$ 若p为奇素数，则\ (1)(\frac{a}{p})=(\frac{a+p}{p});\ (2)当p\nmid a时\ (3)(\frac{1}{p})=1\ (\frac{1}{p})\equiv 1^{\frac{p-1}{2}}\equiv 1(mod\quad p) $$</p>
+</section>
+<footer class=entry-footer>
+October 11, 2021&nbsp;·&nbsp;January 20, 2022&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Yiming Shen
+</footer>
+<a class=entry-link aria-label="post link to 4 二次剩余" href=https://shenyiming.life/cryptologymath/4.1_%E4%BA%8C%E6%AC%A1%E5%89%A9%E4%BD%99%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5%E5%92%8C%E6%80%A7%E8%B4%A8/></a>
+</article>
+<article class="post-entry tag-entry">
+<header class=entry-header>
+<h2>
+3.4 流程图
+</h2>
+</header>
+<section class=entry-content>
+<p>st=>start: 开始
+op1=>operation: 读入秘密K
+op2=>operation: 生成数组d[n]
+cond=>condition: 判断是否满足N>K>M
+op3=>operation: K依次模d生成密钥串k[n]
+op4=>operation: 使用t个密钥利用CRT还原K'
+cond2=>condition: 判断K'是否等于K
+e1=>end: 恢复成功
+e2=>end: 恢复失败
+st->op1->op2->cond->op3->op4->cond2
+cond(yes)->op3
+cond(no)->op2
+cond2(yes)->e1
+cond2(no)->e2
+</p>
+</section>
+<footer class=entry-footer>
+October 9, 2021&nbsp;·&nbsp;December 11, 2022&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Yiming Shen
+</footer>
+<a class=entry-link aria-label="post link to 3.4 流程图" href=https://shenyiming.life/cryptologymath/3.4%E5%AE%9E%E9%AA%8C_%E5%9F%BA%E4%BA%8E%E4%B8%AD%E5%9B%BD%E5%89%A9%E4%BD%99%E5%AE%9A%E7%90%86%E7%9A%84%E7%A7%98%E5%AF%86%E5%85%B1%E4%BA%AB%E6%96%B9%E6%A1%88/></a>
+</article>
+<article class="post-entry tag-entry">
+<header class=entry-header>
+<h2>
+3.4 基于中国剩余定理的秘密共享
+</h2>
+</header>
+<section class=entry-content>
+<p>背景 $$ 将秘密k分成n个子秘密k_1,k_2,\cdots,k_n,满足下面两个条件：\\ (1)\quad 如果已知t个k_i 值，易于恢复出k\\ (2)\quad 如果已知任意t-1个或更少个k_i值，不能恢复出k\\ $$
+比如，将一个密钥分成n份，那么n个人中至少t人在场才能获得密钥
+方案 分割 $$ (t,n)门限，选择n个整数d_1,d_2,\cdots,d_n，满足\\ (1)d_1&lt;d_2&lt;\cdots &lt;d_n\quad d_i严格递增\\ (2)(d_i,d_j)=1,i\ne j; \quad d_i两两互素\\ (3)N=d_1\times d_2\times\cdots \times d_t\\ M=d_{n-t+2}\times d_{n-t+3}\times \cdots \times d_n,有N\gt M\\ \\ 对于某个秘密k,要求N\gt k\gt M, 计算\\ k_1 \equiv k(mod \quad d_1)\\ $$
+恢复 $$ 在n个子秘密里任意选择t个:\\ (k_{i1},d_{i1}),\cdots,(k_{i_t},d_{i_t})\\ 基于中国剩余定理计算下列一次同余方程组\\ x\equiv k_{i1}(mod\quad d_{i_1})\\ x\equiv k_{i_2}(mod\quad d_{i_2})\\ \vdots\\ x\equiv k_{i_t}(mod\quad d_{i_t})\\ 恢复出\\ x\equiv k(mod\quad N_1),N_1=d_{i_1},d_{i_2}\cdots,d_{i_t} $$
+计算中国剩余定理中，x用公式最后求出来的解一定是模m的
+例题 例题3.4.1 $$ (2,3)门限，选择3个整数d_1=9,d_2=11,d_3=13\\ N=99,M=13,有N\gt M\\ 对于秘密k=74,要求99\gt 74\gt 13,计算\\ k_1 \equiv 74\equiv 2 (mod\quad 9)\\ k_2 \equiv 74\equiv 8 (mod\quad 11)\\ k_n \equiv 74\equiv 9 (mod\quad 13)\\ 子密钥为(9,2),(11,8), $$</p>
+</section>
+<footer class=entry-footer>
+October 8, 2021&nbsp;·&nbsp;January 20, 2022&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Yiming Shen
+</footer>
+<a class=entry-link aria-label="post link to 3.4 基于中国剩余定理的秘密共享" href=https://shenyiming.life/cryptologymath/3.4_%E5%9F%BA%E4%BA%8E%E4%B8%AD%E5%9B%BD%E5%89%A9%E4%BD%99%E5%AE%9A%E7%90%86%E7%9A%84%E7%A7%98%E5%AF%86%E5%85%B1%E4%BA%AB/></a>
+</article>
+<article class="post-entry tag-entry">
+<header class=entry-header>
+<h2>
+3.3 一次同余方程
+</h2>
+</header>
+<section class=entry-content>
+<p>一次同余方程 定义3.1.1 变数个数多于方程个数，且取整数值的方程（或方程组）称为不定方程（组）
+定理3.1.1 二元一次不定方程ax+by+n有整数解的充要条件是(a,b) | n
+定理3.1.2 设二元一次不定方程ax+by=n有解 $$ x_0,y_0 为它的一组整数解(特解)，则该方程的通解为：\\ x=x_0+\frac{b}{(a,b)}t\\ y=y_0-\frac{a}{(a,b)}t,t\in Z $$
+例3.1.1 求解2x+3y=7的通解 解： $$ (2,3)=1,易知x_0=2,y_0=1是原方程一解，则由定理3.1.2知\\ x=x_0+bt=2+3t\\ y=y_0-at=1-2t $$
+定理3.1.3 一次同余方程结论 $$ 同余方程ax+b\equiv 0(mod\quad m)有解当且仅当(a,m) | b\\ 若ax+b\equiv 0(mod\quad m)有解，则在模m的意义下解数为(a,m)个\\ 记x_0为其中一个解，则该方程通解为\\ x_0+t\frac{m}{(a,m)}(mod\quad m)\\ 其中0\le t \lt (a,m),t\in Z $$
+证明： $$ ax+b\equiv 0(mod\quad m)\leftrightarrow ax+b=my\\ 套用定理3.1.1和3.1.2即可 $$
+例题3.1.3 求解一次同余方程 $$ 32x\equiv 12(mod \quad 8)\\ (32,8)=8\nmid 12无解 $$...</p>
+</section>
+<footer class=entry-footer>
+September 30, 2021&nbsp;·&nbsp;January 20, 2022&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Yiming Shen
+</footer>
+<a class=entry-link aria-label="post link to 3.3 一次同余方程" href=https://shenyiming.life/cryptologymath/3.3_%E4%B8%80%E6%AC%A1%E5%90%8C%E4%BD%99%E6%96%B9%E7%A8%8B/></a>
+</article>
+<article class="post-entry tag-entry">
+<header class=entry-header>
+<h2>
+2.5 素性检测算法
+</h2>
+</header>
+<section class=entry-content>
+<p>费马小定理 根据费马小定理，p为素数，对任意整数b就有 $$ b^{p-1}\equiv 1(mod\quad p) $$ 问题： $$ 如果有一个整数b,(b,m)=1,使得\\ b^{m-1}\neq 1(mod\quad m)\\ 则m是一个合数，\\ 但反之不一定。 $$
+定义2.5.1 $$ 设m是一个奇合数，如果整数b,(b,m)=1,使得同余式\\ b^{m-1}\equiv 1(mod\quad m)\\ 成立，则m称为对于基b的伪素数。 $$
+费马概率素性检验算法 $$ 给定奇整数m\ge 3和安全参数k\\
+随机选取整数b,2\le b\le m -2\\ 计算g=(b,m),如果g\ne 1，则m为合数\\ 计算r\equiv b^{m-1}(mod\quad m)，如果r\ne 1,则m为合数\\ 如果不是上述两种，则m可能为素数\\ 上述过程重复k次，如果每次都是m可能为素数，则m为素数的概率为1-\frac{1}{2^k}\\ $$ MILLER-RABIN素性检测算法 $$ 设m是奇素数，并且有m-1=2^st，则有以下因数分解式：\\ b^{m-1}-1=(b^{2^{s-1}t}+1)(b^{2^{s-2}t}+1)\cdots (b^t+1)(b^t-1)\\ b^{m-1}\equiv 1(mod\quad m) $$
+定义2.5.2 $$ 设m是一个奇合数，且有表示式m-1=2^st，其中t为奇数\\ 设整数b和m互素，如果整数m和b满足条件\\ b^t\equiv 1(mod\quad m)\\ 或者存在一个整数r,0\le r\lt s使得\\ b^{2^rt}\equiv -1(mod\quad m)\\ 则m称为对于基b的强伪素数 $$
+例 $$ m=2047=23\cdot 89 \\ m-1=2046=2^1\cdot 1023\\ 设b=2\\ 2^t=2^1023=(2^11)^93 = 2048^93\equiv 1(mod\quad 2047) $$...</p>
+</section>
+<footer class=entry-footer>
+September 26, 2021&nbsp;·&nbsp;January 20, 2022&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Yiming Shen
+</footer>
+<a class=entry-link aria-label="post link to 2.5 素性检测算法" href=https://shenyiming.life/cryptologymath/2.5_%E7%B4%A0%E6%80%A7%E6%A3%80%E6%B5%8B%E7%AE%97%E6%B3%95/></a>
+</article>
+<article class="post-entry tag-entry">
+<header class=entry-header>
+<h2>
+2.6 RSA公钥密码算法
+</h2>
+</header>
+<section class=entry-content>
+<p>密钥生成 随机生成两个不同的大素数p和q $计算n=pq和\phi(n)=(p-1)(q-1)$ 随机选取整数e,$1\lt e\lt \phi(n)，使得(e,\phi(n))=1$ 计算唯一的整数d,使得 $$ed\equiv 1(mod\quad \phi(n))$$ $$ 公钥是K^A_e = (n,e)\\ 私钥是K_d^A=d\\ $$
+加密过程 用公钥加密明文m,产生密文c
+获取公钥 $$c\equiv m ^e(mod\quad n)$$ 发送密文 解密过程 </p>
+</section>
+<footer class=entry-footer>
+September 25, 2021&nbsp;·&nbsp;January 20, 2022&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Yiming Shen
+</footer>
+<a class=entry-link aria-label="post link to 2.6 RSA公钥密码算法" href=https://shenyiming.life/cryptologymath/2.6_rsa%E5%85%AC%E9%92%A5%E5%AF%86%E7%A0%81%E7%AE%97%E6%B3%95/></a>
+</article>
+<article class="post-entry tag-entry">
+<header class=entry-header>
+<h2>
+2.4 欧拉定理和费马小定理
+</h2>
+</header>
+<section class=entry-content>
+<p>定理2.4.1 (欧拉定理) $$ 设m为正整数，a为整数，并且(a,m)=1，则\\ a^{\phi(m)}\equiv 1(mod\quad m)\\ $$
+证明： $$ 取模m的一个即约剩余系b_1,b_2,\cdots,b_s, s=\phi(m),则\\ ab_1,ab_2,\cdots,ab_s也是取模m的一个即约剩余系，于是\\ b_1\cdot b_2\cdots b_s\equiv ab_1\cdot ab_2\cdots ab_s\equiv a^s\cdot b_1\cdot b_2\cdots b_s $$
+定理2.4.2 (费马小定理) $$ 设p为素数，则对于每个整数a，有\\ a^p\equiv a(mod\quad p) $$
+证明： $$ p | a 时\\ a^p(mod\quad p)\equiv 0,a(mod\quad p)\equiv 0,即 a^p\equiv a\equiv 0(mod\quad p)\\ p\nmid a时,由于p为素数，故(a,p)=1，由欧拉定理有\\ a^{p-1}\equiv 1(mod\quad p) $$
+例题 例题2.4.1 $$ 设m=11,a=2,有(2,11)=1,\phi(11)=10\\ 故 2^{10} \equiv 1(mod \quad 11) $$
+例题2.4.3 $$ 计算7^{10001}(mod\quad 10) $$
+解： $$ a=7,m=10 $$</p>
+</section>
+<footer class=entry-footer>
+September 24, 2021&nbsp;·&nbsp;January 20, 2022&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Yiming Shen
+</footer>
+<a class=entry-link aria-label="post link to 2.4 欧拉定理和费马小定理" href=https://shenyiming.life/cryptologymath/2.4_%E6%AC%A7%E6%8B%89%E5%AE%9A%E7%90%86%E5%92%8C%E8%B4%B9%E9%A9%AC%E5%B0%8F%E5%AE%9A%E7%90%86/></a>
+</article>
+<article class="post-entry tag-entry">
+<header class=entry-header>
+<h2>
+2.3 欧拉函数
+</h2>
+</header>
+<section class=entry-content>
+<p>定理2.3.1 $$ 设m是正整数，a,b\in Z,且(a,m)=1,若x遍历模m的一个完全剩余系，则ax+b也遍历模m的一个完全剩余系。 $$
+定理2.3.2 $$ 设m_1,m_2是两个互素的正整数，若x_1,x_2分别遍历m_1,m_2的完全剩余系，则m_2x_1+m_1m_2遍历\\模m_1m_2的完全剩余系。 $$
+定理2.3.3 $$ 设m是一个正整数，a\in Z,且(a,m)=1。\\若x遍历模m的一个既约剩余系，则ax也遍历模m的一个既约剩余系。 $$
+证明： $$ 因为(a,m)=1,(x,m)=1,有\\ (ax,m)=1\\ 这说明ax是某个既约同余类中元素。\\ 又ax_1\equiv ax_2(mod\quad m)时，有x_1\equiv x_2(mod\quad m)\\ $$
+定理2.3.4 $$ 设m_1,m_2是互素的两个正整数，如果x_1,x_2分别遍历模m_1和模m_2的既约剩余系\\ 则m_2x_1+m_1x_2遍历模m_1m_2的既约剩余系。 $$
+证明： $$ 首先证明m_2x_1+m_1x_2与m_1m_2互素，因为\\ (m_2x_1 +m_1x_2,m_1)=(m_2x_1,m_1)=(x_1,m_1)=1\\ (m_2x_1+m_1x_2,m_2)=(m_1x_2,m_2)=(x_2,m_2)=1\\ 所以得到\\ (m_2x_1+m_1x_2,m_1m_2)=1 $$
+定理2.3.5 乘积的欧拉函数就等于欧拉函数的乘积 $$ 设n，m是互素的两个正整数，则\\ \phi(nm)=\phi(n)\phi(m) $$
+定理2.3.6 欧拉函数的计算 $$ 设\phi(1)=1。当n\ge 2时，设n=p_1^{e_1}p_2^{e_2}\cdots p_s^{e_s}是n的标准分解式，则\\ \phi(n)=\Sigma_{l=1}^{s}(p_l^{e_l}-p_l^{e_{l-1}})=n\cdot \Sigma^s_{l=1}(1-\frac{1}{p_l})\\ $$
+例题 例2.3.1 若已知 $$ m_1=8,完全剩余系{0,1,2,3,4,5,6,7}，即约剩余系{1,3,5,7}\\ m_2=3,完全剩余系{0,1,2},即约剩余系{1,2}\\ 求模24完全剩余系和模24即约剩余系： $$ 解： $$ 模24完全剩余系\\ {m_2x_1+m_1x_2}={3\cdot{0,1,2,3,4,5,6,7}+8\cdot{0,1,2}}\\ ={0,1,2,3,4,5,6,7,8,9,10,\cdots,23} $$
+例2.3.2 计算下列欧拉函数 $$ \phi(286)=\phi(2\cdot 11\cdot 13)=\phi(2)\cdot \phi(11)\cdot\phi(13)\\ =1\cdot 10 \cdot 12 =120 $$</p>
+</section>
+<footer class=entry-footer>
+September 23, 2021&nbsp;·&nbsp;September 23, 2021&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Yiming Shen
+</footer>
+<a class=entry-link aria-label="post link to 2.3 欧拉函数" href=https://shenyiming.life/cryptologymath/2.3_%E6%AC%A7%E6%8B%89%E5%87%BD%E6%95%B0/></a>
+</article>
+<article class="post-entry tag-entry">
+<header class=entry-header>
+<h2>
+2.2 同余类与既约同余类
+</h2>
+</header>
+<section class=entry-content>
+<p>例题2.2.1 设 $$m=6,\forall a\in Z,a=6q+r,其中q,r\in Z ,r=0,1,2,3,4,5$$
+可分为6类，例如r=0时，所有a为模6同余于0 $$ a_1\equiv a_2 \equiv \cdots a_n \equiv 0 (mod\quad 6)\\ -18,-12,-6,0,6\cdots代表元为0, 表示为[0] $$ [0],[1],[2],[3],[4],[5]称为模6的同余类
+具有如下性质：
+6个集合彼此不相交 并集为Z 定义2.2.1 同余类 $$ m\in N^+,\forall i \in Z, 记[i]={x:x\in Z,x\equiv i (mod\quad m)} $$
+则每个集合[i]称为模m的一个同余类
+若(i,m)=1,则同余类[i]称作模m的既约同余类
+m=6的既约同余类有[1],[5] 2个，即$\phi(6)=2$（欧拉函数）
+定理2.2.1 同余类 $$ 设m\in N^+,[a],[b]模m的同余类，则有\\ [a]=[b]\Leftrightarrow a\equiv b(mod\quad m) $$
+定义2.2.2 欧拉函数 $$ m\in Z^+,小于m且与m互素的整数的个数表示成\phi(m)，称为m的欧拉函数 $$
+定义2.2.3 剩余系 $$ m个整数a_1,a_2,\cdots,a_m称作模m的完全剩余系，是指a_1,a_2,\cdots,a_m彼此模m不同余。 $$
+完系由m个整数组成，这m个整数彼此模m不同余。 $$ \phi(m)个整数b_1,b_2,\cdots,b_{\phi(m)}称作模m的既约剩余系，是指其彼此模m不同余且均与m互素 $$ 既约剩余系又称缩系。...</p>
+</section>
+<footer class=entry-footer>
+September 22, 2021&nbsp;·&nbsp;October 25, 2021&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Yiming Shen
+</footer>
+<a class=entry-link aria-label="post link to 2.2 同余类与既约同余类" href=https://shenyiming.life/cryptologymath/2.2_%E5%90%8C%E4%BD%99%E7%B1%BB%E4%B8%8E%E6%97%A2%E7%BA%A6%E5%90%8C%E4%BD%99%E7%B1%BB/></a>
+</article>
+<article class="post-entry tag-entry">
+<header class=entry-header>
+<h2>
+2.1 同余
+</h2>
+</header>
+<section class=entry-content>
+<p>定义2.1.1 $$ 设m\in N^+,a_1,a_2\in Z，如果m\mid (a_2-a_1)，则称a_1和a_2模m同余，记作\\ a_1 \equiv a_a(mod\quad m) $$ 该式称为模m的同余式，简称同余式。
+$$ 反之，如果m\nmid a_2-a_1，则称不同余。\\ $$ $$ 39\equiv25(mod\quad7)\\ $$ $$ a\equiv0(mod\quad n)\Leftrightarrow n|a\\ 所有的偶数表示为a\equiv 0(mod\quad 2) 所有的奇数表示为a\equiv 1(mod\quad 2) $$
+定理2.1.1 设n是一个正整数，则模n同余是等价关系，具有以下性质：
+自反性 对称性 传递性 定理2.1.2 设$$n\in N^+,a\equiv b(mod\quad n),c\equiv d(mod\quad n),k\in Z$$
+$$a+c\equiv b+d(mod\quad n),特别地，a+k\equiv b+k(mod\quad n)$$ $$ac\equiv bd(mod\quad n),ak\equiv bk(mod\quad n),a^n\equiv b^n(mod\quad n)$$ $$若m为非零整数，则a\equiv b(mod \quad n)\Leftrightarrow am\equiv bm(mod\quad nm)$$ $$若m|n，则a\equiv b(mod\quad n)，则有a\equiv b(mod\quad m)，特别地，若l\in N^+，a\equiv b(mod\quad n^l)$$。 $$若k\in Z,ak\equiv bk(mod\quad m)，则a\equiv b(mod\frac{m}{(k,m)})。特别地，若(k,m)=1，a\equiv b(mod\quad m)$$（整除的性质（6）） 定理2....</p>
+</section>
+<footer class=entry-footer>
+September 20, 2021&nbsp;·&nbsp;January 20, 2022&nbsp;·&nbsp;2 min&nbsp;·&nbsp;Yiming Shen
+</footer>
+<a class=entry-link aria-label="post link to 2.1 同余" href=https://shenyiming.life/cryptologymath/2.1_%E5%90%8C%E4%BD%99/></a>
+</article>
+<article class="post-entry tag-entry">
+<header class=entry-header>
+<h2>
+1.5 素数的生成
+</h2>
+</header>
+<section class=entry-content>
+<p>定理1.5.1 埃拉托斯特尼筛法 埃氏筛 设n是一个正整数，如果对所有的素数 $$ p\le\sqrt{n} $$ 都有 $$ p\nmid n $$ ，则n一定是素数。
+证明（反证法）：假设n是合数，则n有一个大于1的最小正因数p，则有 $$ p\mid n $$ ,且p是素数，且 $$ p\le \sqrt{a} $$
+这是因为如果p是合数，则存在整数q，1&lt;q&lt;p，使得 $$ q\mid p $$ ，又 $$ p\mid n $$ ，所以 $$ q\mid n $$ ，这与p是n的最小正因数矛盾。 因为n是合数，所以存在整数 $$ n_1 $$ ，使得 $$ n=n_1\cdot p_1,1&lt;p\le n_1&lt;n $$ ，因此 $$ p^2\le n，故p\le \sqrt{n} $$ </p>
+</section>
+<footer class=entry-footer>
+September 16, 2021&nbsp;·&nbsp;January 20, 2022&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Yiming Shen
+</footer>
+<a class=entry-link aria-label="post link to 1.5 素数的生成" href=https://shenyiming.life/cryptologymath/1.5_%E7%B4%A0%E6%95%B0%E7%9A%84%E7%94%9F%E6%88%90-/></a>
+</article>
+<article class="post-entry tag-entry">
+<header class=entry-header>
+<h2>
+第一章 例题
+</h2>
+</header>
+<section class=entry-content>
+<p>1. 对任意整数a,b,c，证明：[(a,b),(a,c)]=(a,[b,c]) 证明： $$ 设a=p_1^{a_1}p_2^{a_2}\cdots p_s^{a_s},b=\cdots,c=\cdots则 \\ (标准素因数分解) \\ [(a,b),(a,c)]=\Sigma_{i=1}^sp_i^{max(min(a_i,b_i),min(a_i,c_i))} \\ (a,[b,c])=\Sigma_{i=1}^sp_i^{min(a_i,max(b_i,c_i))} $$
+2. 设m,n为正整数，m是奇数，求证：$2^m-1和2^n+1$互素 证明： $$ 假设(2^m-1,2^n+1)=d,d\ge2,于是\exist x,y\in Z使得\\ 2^m=dx +1\\ 2^n=dy -1\\ \exist\mu\in Z \quad2^{mn}=(2^m)^n=d\mu+1\\ 注意到，m为奇数，故\\ \exist v\in Z \quad 2^{mn}=(2^n)^m=dv-1\\ 所以有d(v-\mu)=2，从而必有d=2,矛盾。 $$
+3. 利用最大公因数的表达式证明：若$(a,m)=(b,m)=1$，则有$(ab,m)=1$。 证明：
+由$(a,m)=(b,m)=1$可知，$\exist x,y,u,v\in Z$，使得 $$ ax+my=1,bu+mv=1\\ (ax)(bu)=(1-my)(1-mv)\\ 1-my-mv+m\cdot myv\\ ab(xu)+m(y+v-myv)=1\\ 由xu,y+v-myv\in Z可知，(ab,m)=1 $$
+4. 利用最大公因数的表达式证明：若(m,a)=1,$m\mid ab$则有$m\mid b$ 证明：
+由$(m,a)=1$知 $$ mx+ay=1\\ 两边同乘b\\ mbx+aby=b\\ 因为m\mid ab,m\mid m 所以等式左边能被m整除\\ 故右边-b能被m整除\\ 所以m\mid b $$
+5. 求方程243x+198y=909的一组整数解 利用欧几里德算法，as+bt=(a,b)...</p>
+</section>
+<footer class=entry-footer>
+September 16, 2021&nbsp;·&nbsp;January 20, 2022&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Yiming Shen
+</footer>
+<a class=entry-link aria-label="post link to 第一章 例题" href=https://shenyiming.life/cryptologymath/1.6_%E7%AC%AC%E4%B8%80%E7%AB%A0%E4%BE%8B%E9%A2%98/></a>
+</article>
+<footer class=page-footer>
+<nav class=pagination>
+<a class=next href=https://shenyiming.life/tags/%E5%AF%86%E7%A0%81%E5%AD%A6%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/page/2/>Next Page »</a>
+</nav>
+</footer>
+</main><footer class=footer>
+<span>&copy; 2022 <a href=https://shenyiming.life>Console.makeHappy(_1ming)</a></span>
+<span>&#183;</span>
+<span>Powered by <a href=https://gohugo.io/ rel="noopener noreferrer" target=_blank>Hugo</a></span>
+<span>&#183;</span>
+<span>Theme <a href=https://git.io/hugopapermod rel=noopener target=_blank>PaperMod</a></span>
+</footer>
+<a href=#top aria-label="go to top" title="Go to Top (Alt + G)">
+<button class=top-link id=top-link type=button accesskey=g><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentcolor"><path d="M12 6H0l6-6z"/></svg>
+</button>
+</a>
+<script>window.onload=function(){localStorage.getItem("menu-scroll-position")&&(document.getElementById('menu').scrollLeft=localStorage.getItem("menu-scroll-position"))};function menu_on_scroll(){localStorage.setItem("menu-scroll-position",document.getElementById('menu').scrollLeft)}document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener("click",function(b){b.preventDefault();var a=this.getAttribute("href").substr(1);window.matchMedia('(prefers-reduced-motion: reduce)').matches?document.querySelector(`[id='${decodeURIComponent(a)}']`).scrollIntoView():document.querySelector(`[id='${decodeURIComponent(a)}']`).scrollIntoView({behavior:"smooth"}),a==="top"?history.replaceState(null,null," "):history.pushState(null,null,`#${a}`)})})</script>
+<script>var mybutton=document.getElementById("top-link");window.onscroll=function(){document.body.scrollTop>800||document.documentElement.scrollTop>800?(mybutton.style.visibility="visible",mybutton.style.opacity="1"):(mybutton.style.visibility="hidden",mybutton.style.opacity="0")}</script>
+<script>document.getElementById("theme-toggle").addEventListener("click",()=>{document.body.className.includes("dark")?(document.body.classList.remove('dark'),localStorage.setItem("pref-theme",'light')):(document.body.classList.add('dark'),localStorage.setItem("pref-theme",'dark'))})</script>
+</body>
+</html>
