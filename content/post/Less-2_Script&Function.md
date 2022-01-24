@@ -115,9 +115,21 @@ ezplot(@sin, [0, 2 * pi]);
    $$
    
    ```matlab
+   clc;
+   A = [0 -1 4;9 -14 25;-34 49 64];
    
-   
-   
+   disp(A);
+   B = [0];
+   for n=1:9
+       if A(n)<0
+           disp(A(n));
+           B(end)=n;
+           B(end+1)=0;
+           A(n)=0;
+       end
+   end
+   disp(A);
+   disp(B);
    ```
    
 2. 编写一个将华氏度转换为摄氏度的函数
@@ -125,10 +137,30 @@ ezplot(@sin, [0, 2 * pi]);
    > input, isempty, break, disp, num2str
    
    ```matlab
-   
-   
-   
+   function  F2C()
+   %F2C 将华氏度转换为摄氏度
+   %   C: Celsus F:FahrenHeit
+   while 1
+       F = input('Please input °F >');
+       if (isempty(F))
+           return;
+       end
+       C = 5/9 * (F - 32);
+       disp(['Temperature in Celsus: ' num2str(C) '℃']);
+   end
+   end
    ```
    
-   
+
+## 注意事项
+
+
+
+在每个脚本的开头应加入以下语句：
+
+```matlab
+clear all	% 清空工作区内存中的变量
+close all 	% 关闭之前程序绘制的图像
+clc			% 清空之前程序在终端的输出
+```
 
