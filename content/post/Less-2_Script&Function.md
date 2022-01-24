@@ -107,8 +107,8 @@ ezplot(@sin, [0, 2 * pi]);
    $$
    \left[
     \begin{matrix}
-      0 & -1 & 4 \newline
-      9 & -14 & 25 \newline
+      0 & -1 & 4 \\\\
+      9 & -14 & 25 \\\\
       -34 & 49 & 64
      \end{matrix}
      \right]
