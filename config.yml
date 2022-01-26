@@ -58,7 +58,7 @@ params:
         imageUrl: "/android-chrome-512x512.png"
         imageWidth: 120
         imageHeight: 120
-        imageTitle: Phase
+        imageTitle: 申一鸣
         buttons:
             - name: 文章
               url: post

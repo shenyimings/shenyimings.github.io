@@ -1,7 +1,7 @@
 ---
 author: "Yiming Shen"
 date: 2022-01-23
-lastmod: 2022-01-23
+lastmod: 2022-01-24
 title: "Less-2 结构程序与自定函数"
 tags: [
     "MATLAB",
@@ -93,7 +93,7 @@ varargout % 输出变量的长度
 
 ### 函数句柄
 
-> 借助函数句柄，可以方便地画出各类函数的图像，这类绘图函数往往以ez开头，下面我将演示ezplot, ezsurf两个函数。
+> 借助函数句柄，可以方便地画出各类函数的图像，这类绘图函数往往以ez开头，下面演示ezplot, ezsurf两个函数。
 
 ```matlab
 % ezplot画sin函数在[0, 2 * pi]内的曲线

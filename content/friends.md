@@ -12,7 +12,7 @@ typora-root-url: ..\static\
 
 {{<friend name= "相位🚀" url="https://shenyiming.life" logo="https://shenyiming.life/apple-touch-icon.png" word="Either outstanding or out.">}}
 
-{{<friend name= "F.I.V.E" url="https://shenyiming.life" logo="/icon/fiveml1.jpg" word="FIGHTING!">}}
+{{<friend name= "F.I.V.E" url="https://shenyiming.life" logo="https://fiveml.github.io/apple-touch-icon.png" word="FIGHTING!">}}
 
 {{<friend name= "Air" url="https://airkqx.github.io/" logo="/icon/Air.bmp" word="吾善养吾浩然气">}}
 
