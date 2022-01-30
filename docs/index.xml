@@ -26,7 +26,7 @@ BLOG RESTART
  刷CTF web题 学习python爬虫 学习kali linux    带crypto小组
   时间安排 2022年1月21日至2022年2月18日
 高效率可能还是放在返校后
-   序号 时间 任务 完成情况     1 9:00-11:30 学习MATLAB并整理笔记 [ ]   2 15:00-16:00 做CTF show题目 [ ]   3 16:00-17:00 整理笔记 [ ]   4 22:00-23:00 看《数学模型》 [ ]    </description>
+学习计划模板   序号 时间 任务 完成情况     1 9:00-11:30 学习MATLAB并整理笔记 [ ]   2 15:00-16:00 做CTF show题目 [ ]   3 16:00-17:00 整理笔记 [ ]   4 22:00-23:00 看《数学模型》 [ ]    事项  MATLAB跟视频学到绘图 看MATLAB 数学建模书，积累模型，多敲代码 熟悉MATLAB的绘图 数学模型 CTF-show xss类题目     序号 任务 日期 完成情况     1 MATLAB数据结构与存储     2 Crypto小组组会 1月30日20:30    3      4      5      6       </description>
     </item>
     
     <item>
@@ -75,14 +75,13 @@ About My Blog  正经人谁写日记啊。
 &amp;amp;nbsp
 &amp;amp;nbsp
 &amp;amp;nbsp
-Releases 22 Jan 2022 0.2.3
+Releases 28 Jan 2022 0.2.4
+ 【更新描述】
+  开启unsafe模式，允许md文档中插入HTML代码   22 Jan 2022 0.2.3
  【更新描述】
   增加友链功能 增加文章封面 完成页面汉化 增加entry动画 调整了tags的termcss样式  未来计划：迁移至gitee或腾讯云
  【博客快照】
-21 Jan 2022 0.2.0
- 【更新描述】
-   将博客调整为Profile Mode
-  更改目录方案为侧边栏显示</description>
+21 Jan 2022 0.</description>
     </item>
     
     <item>
