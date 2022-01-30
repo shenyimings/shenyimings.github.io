@@ -11,7 +11,7 @@ typora-root-url: ..\static\
 
 
 
-![头像](/about.assets/123.jpg)
+<img src="/about.assets/123.jpg" alt="头像" style="zoom: 30%;" />
 
 *A crappy photographer, a terrible CTFer, a lazy geek.*
 
@@ -42,7 +42,21 @@ typora-root-url: ..\static\
 &nbsp
 
 &nbsp
+
+
+
 ## Releases
+
+##### 28 Jan 2022
+
+**0.2.4**
+
+---
+
+**【更新描述】**
+
+> - 开启unsafe模式，允许md文档中插入HTML代码
+
 ##### 22 Jan 2022
 
 **0.2.3**

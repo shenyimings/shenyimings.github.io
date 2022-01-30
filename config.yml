@@ -39,7 +39,8 @@ params:
     hideSummary: false
     showtoc: false
     tocopen: true
-    unsafe: true
+
+
 
     label:
         text: "相位 "
@@ -142,6 +143,10 @@ outputs:
         - RSS
         - JSON # is necessary
 
+markup:
+  goldmark:
+    renderer:
+      unsafe: true
 # Read: https://github.com/adityatelange/hugo-PaperMod/wiki/FAQs#using-hugos-syntax-highlighter-chroma
 # pygmentsUseClasses: true
 # markup:
