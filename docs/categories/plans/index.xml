@@ -9,7 +9,7 @@
       <link>https://shenyiming.life/android-chrome-512x512.png</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Thu, 20 Jan 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://shenyiming.life/categories/plans/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 30 Jan 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://shenyiming.life/categories/plans/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>👨🏻‍🔧寒假学习计划</title>
       <link>https://shenyiming.life/post/%E5%AF%92%E5%81%87%E5%AD%A6%E4%B9%A0%E8%AE%A1%E5%88%92/</link>
@@ -27,6 +27,32 @@ BLOG RESTART
   时间安排 2022年1月21日至2022年2月18日
 高效率可能还是放在返校后
 学习计划模板   序号 时间 任务 完成情况     1 9:00-11:30 学习MATLAB并整理笔记 [ ]   2 15:00-16:00 做CTF show题目 [ ]   3 16:00-17:00 整理笔记 [ ]   4 22:00-23:00 看《数学模型》 [ ]    事项  MATLAB跟视频学到绘图 看MATLAB 数学建模书，积累模型，多敲代码 熟悉MATLAB的绘图 数学模型 CTF-show xss类题目     序号 任务 日期 完成情况     1 重新配置ghpages 1月30日上午 完成   2 Crypto小组组会 1月30日20:30    3 MATLAB数据结构与存储     4      5      6       </description>
+    </item>
+    
+    <item>
+      <title>Crypto方向的寒假计划</title>
+      <link>https://shenyiming.life/post/crypto/</link>
+      <pubDate>Sun, 30 Jan 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://shenyiming.life/post/crypto/</guid>
+      <description>寒假计划……寒假已经过半的寒假计划
+ Crypto 方向 - 密码学  密码学作为数学的延伸，主要应用于计算机类的信息科学，现在应用十分广泛，哪里需要信息的传递，哪里就需要密码学。学习密码学这种交叉信息学科对数学和计算机的要求都较高，二者缺一不可。
+  经典（古典）密码学 现代密码学  CTF中的crypto类题目主要以现代密码学为主，现阶段熟练现代密码学的形式和解题套路即对于竞赛大有裨益。难题则反而更接近于古典密码学，类似奥数难题。古典密码但与现代密码只是目的一致而道路差异较大。
+密码学应学习的内容/具备的素养  语言表达能力，多语言能力（包括程序语言） 逻辑思维 从具象到抽象的能力 主动学习，思维灵活 数学基础（代数），数学思维，对数学的应用能力 至少一门脚本语言（如Python） 基本熟悉各种类型的密码加密与解密 尽可能在学习时深入至原理，与4实现双循环。  仅剩的半个月我该做什么  种一棵树最好的时间是十年前，其次是现在。
+ 明确自己要学什么 寒假时间并不长，建议分以下几个方向单项推进或同时进行
+数学  高等数学 线性代数 离散数学 初等数论 抽象代数
+ 不用害怕，反正这些你早晚都得学，与密码学息息相关的是后两者，初等数论较为简单（应用简单原理难），可作为休息项目进行学习，重点在于建立数学的逻辑思维和养成数学语言表达习惯。
+提前学高数下和线代也行，虽然与我们小组没啥关系，或许你学好了下学期有更充裕的时间刷crypto题？（并不会）
+编程  C C++ Java Python Ruby Perl……
+ 人生苦短，咱学Python
+学一门语言的诀窍在于：多用
+英语如此，程序语言也如此，一定要进行大量练习配合学习。
+密码学  古典密码（略）公钥密码 分组密码 流密码 数字签名 图像加密 ……
+ 不是特别建议单纯推进这一方向，可以同时带上编程或者数学的学习。
+推荐按照书籍《深入浅出密码学》的目录顺序进行了解学习并辅以类似ctf-crypto的题目进行练习
+同时还可以检验自己编程学习成果，用自己学到的语言独立地完成加密解密算法编写。
+勤记笔记！
+列一张计划表    序号 时间 任务 完成情况     1 2月1日 9:30 赖床 √   2 2月1日 22:30 学习《深入浅出密码学》P18-32页并记笔记 ×    公开计划表* 无论是向全网公开，还是发到朋友圈QQ空间，还是告诉自己的父母朋友，有限度地公开既能装逼又能督促自己完成计划，父母从此再也不会说你在玩电脑了lmao</description>
     </item>
     
     <item>

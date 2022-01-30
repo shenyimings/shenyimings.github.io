@@ -9,7 +9,43 @@
       <link>https://shenyiming.life/android-chrome-512x512.png</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sun, 23 Jan 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://shenyiming.life/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 30 Jan 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://shenyiming.life/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Crypto</title>
+      <link>https://shenyiming.life/tags/crypto/</link>
+      <pubDate>Sun, 30 Jan 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://shenyiming.life/tags/crypto/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>CTF</title>
+      <link>https://shenyiming.life/tags/ctf/</link>
+      <pubDate>Sun, 30 Jan 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://shenyiming.life/tags/ctf/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Note</title>
+      <link>https://shenyiming.life/tags/note/</link>
+      <pubDate>Sun, 30 Jan 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://shenyiming.life/tags/note/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Plan</title>
+      <link>https://shenyiming.life/tags/plan/</link>
+      <pubDate>Sun, 30 Jan 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://shenyiming.life/tags/plan/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>Idea</title>
       <link>https://shenyiming.life/tags/idea/</link>
@@ -38,29 +74,11 @@
     </item>
     
     <item>
-      <title>Note</title>
-      <link>https://shenyiming.life/tags/note/</link>
-      <pubDate>Sun, 23 Jan 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://shenyiming.life/tags/note/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>数学建模</title>
       <link>https://shenyiming.life/tags/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/</link>
       <pubDate>Sun, 23 Jan 2022 00:00:00 +0000</pubDate>
       
       <guid>https://shenyiming.life/tags/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Plan</title>
-      <link>https://shenyiming.life/tags/plan/</link>
-      <pubDate>Thu, 20 Jan 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://shenyiming.life/tags/plan/</guid>
       <description></description>
     </item>
     
@@ -133,15 +151,6 @@
       <pubDate>Tue, 09 Nov 2021 00:00:00 +0000</pubDate>
       
       <guid>https://shenyiming.life/tags/public-key/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>CTF</title>
-      <link>https://shenyiming.life/tags/ctf/</link>
-      <pubDate>Sun, 24 Oct 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://shenyiming.life/tags/ctf/</guid>
       <description></description>
     </item>
     
