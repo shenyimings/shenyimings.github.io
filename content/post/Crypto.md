@@ -6,7 +6,7 @@ title: "Crypto方向的寒假计划"
 tags: [
     "Plan",
     "Note",
-    "Crypto",
+    "Cryptology",
     "CTF"
 ]
 categories: [
