@@ -10,7 +10,6 @@ tags: [
 ]
 categories: [
     "Essays", 
-    "Film Reviews",
 ]
 # weight: 1
 math: true

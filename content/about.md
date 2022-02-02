@@ -56,6 +56,8 @@ typora-root-url: ..\static\
 **【更新描述】**
 
 > - 开启unsafe模式，允许md文档中插入HTML代码
+>
+> 未来计划：修改font-family，加入报宋体
 
 ##### 22 Jan 2022
 
