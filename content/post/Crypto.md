@@ -17,6 +17,8 @@ categories: [
 math: true
 ShowToc: true
 draft: false
+cover:
+    image: "/寒假学习计划.assets/image-20220120223635513.png"
 typora-root-url: ..\..\static\
 ---
 
