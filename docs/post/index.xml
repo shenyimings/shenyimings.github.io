@@ -9,7 +9,7 @@
       <link>https://shenyiming.life/android-chrome-512x512.png</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Wed, 02 Feb 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://shenyiming.life/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 03 Feb 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://shenyiming.life/post/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>👨🏻‍🔧寒假学习计划</title>
       <link>https://shenyiming.life/post/%E5%AF%92%E5%81%87%E5%AD%A6%E4%B9%A0%E8%AE%A1%E5%88%92/</link>
@@ -45,6 +45,19 @@ BLOG RESTART
       
       <guid>https://shenyiming.life/discrete-mathematics/</guid>
       <description>数理逻辑部分笔记知识点整理</description>
+    </item>
+    
+    <item>
+      <title>Less-4 MATLAB初阶绘图</title>
+      <link>https://shenyiming.life/post/less-4_%E5%88%9D%E9%98%B6%E7%BB%98%E5%9B%BE/</link>
+      <pubDate>Thu, 03 Feb 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://shenyiming.life/post/less-4_%E5%88%9D%E9%98%B6%E7%BB%98%E5%9B%BE/</guid>
+      <description>图线绘制  在MATLAB中，使用plot()函数绘制图线，语法为：
+ plot(x,y,linespec)  x:图线的横坐标 y:图线的纵坐标  可以仅指定x或者y变量内容，另一参数由系统自动按由小到大顺序生成整数数列。
+绘制(0,2π)内余弦函数图像 x = 0:pi/20:2*pi; y = cos(x); plot(x,y) 图线装饰 线条参数   linespec图线的线条参数
+ 由线型，标记符号，颜色这三个设定符组成的字符串，设定符不区分先后顺序。
+      线性 设定符 标记 设定符 颜色 设定符     实线（默认） - 圆圈 o 红色 r   虚线 -- 加号 + 绿色 g   点线 : 星号 * 蓝色 b   点划线 -. 叉号 x 黑色 k    详情参考MATLAB官方文档 LineSpec（线条设定）-MathWorks</description>
     </item>
     
     <item>

@@ -97,6 +97,24 @@
 <h1>Notes</h1>
 </header>
 <article class="post-entry tag-entry">
+<header class=entry-header>
+<h2>
+Less-4 MATLAB初阶绘图
+</h2>
+</header>
+<section class=entry-content>
+<p>图线绘制 在MATLAB中，使用plot()函数绘制图线，语法为：
+plot(x,y,linespec) x:图线的横坐标 y:图线的纵坐标 可以仅指定x或者y变量内容，另一参数由系统自动按由小到大顺序生成整数数列。
+绘制(0,2π)内余弦函数图像 x = 0:pi/20:2*pi; y = cos(x); plot(x,y) 图线装饰 线条参数 linespec图线的线条参数
+由线型，标记符号，颜色这三个设定符组成的字符串，设定符不区分先后顺序。
+线性 设定符 标记 设定符 颜色 设定符 实线（默认） - 圆圈 o 红色 r 虚线 -- 加号 + 绿色 g 点线 : 星号 * 蓝色 b 点划线 -. 叉号 x 黑色 k 详情参考MATLAB官方文档 LineSpec（线条设定）-MathWorks...</p>
+</section>
+<footer class=entry-footer>
+February 3, 2022&nbsp;·&nbsp;February 4, 2022&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Yiming Shen
+</footer>
+<a class=entry-link aria-label="post link to Less-4 MATLAB初阶绘图" href=https://shenyiming.life/post/less-4_%E5%88%9D%E9%98%B6%E7%BB%98%E5%9B%BE/></a>
+</article>
+<article class="post-entry tag-entry">
 <figure class=entry-cover><img src=https://shenyiming.life/%E5%AF%92%E5%81%87%E5%AD%A6%E4%B9%A0%E8%AE%A1%E5%88%92.assets/image-20220120223635513.png alt>
 </figure>
 <header class=entry-header>
@@ -385,27 +403,6 @@ base64绕过 base64编码中只包含64个可打印字符，而PHP在解码base6
 October 20, 2021&nbsp;·&nbsp;October 22, 2021&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Yiming Shen
 </footer>
 <a class=entry-link aria-label="post link to RCE 远程命令执行漏洞" href=https://shenyiming.life/post/13.rce%E4%B8%93%E6%A0%8F/></a>
-</article>
-<article class="post-entry tag-entry">
-<header class=entry-header>
-<h2>
-离散数学CH05-一阶逻辑等值演算与推理
-</h2>
-</header>
-<section class=entry-content>
-<p>一阶逻辑等值式与置换规则 定义5.1 $$ 设A,B是一阶逻辑中任意两个公式，若A\leftrightarrow B 是永真式，则称A与B等值 \\ 记作A\Leftrightarrow B $$
-基本等值式 第1组 第二章P21页，16组重言式
-双重否定律、幂等律、交换律、结合律等
-第2组 量词否定等值式 $$ \neg \forall xA(x)\Leftrightarrow \exist x \neg A(x) $$
-量词辖域收缩与扩张等值式
-设公式A(x)含自由出现的个体变项x，B不含x的自由出现，则 $$ \forall x (A(x)\vee B)\Leftrightarrow \forall xA(x)\vee B \\ \forall x (A(x)\rightarrow B)\Leftrightarrow \exist xA(x)\rightarrow B \\ \exist x(A(x)\rightarrow B)\Leftrightarrow \forall x A(x)\rightarrow B \\ $$
-量词分配等值式 $$ \forall x(A(x)\wedge B(x))\Leftrightarrow \forall xA(x)\wedge \forall xB(x) $$
-进行等值演算，除以上基本等值式外，还有以下2条规则...</p>
-</section>
-<footer class=entry-footer>
-October 12, 2021&nbsp;·&nbsp;January 3, 2022&nbsp;·&nbsp;2 min&nbsp;·&nbsp;Yiming Shen
-</footer>
-<a class=entry-link aria-label="post link to 离散数学CH05-一阶逻辑等值演算与推理" href=https://shenyiming.life/discrete-mathematics/ch05/></a>
 </article>
 <footer class=page-footer>
 <nav class=pagination>
