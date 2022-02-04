@@ -2,7 +2,7 @@
 author: "Yiming Shen"
 date: 2022-01-23
 lastmod: 2022-01-24
-title: "Less-2 结构程序与自定函数"
+title: "Less-2 MATLAB结构程序与自定函数"
 tags: [
     "MATLAB",
     "数学建模",
