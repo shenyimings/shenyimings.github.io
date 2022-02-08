@@ -154,3 +154,6 @@ xlswrite('04Score.xlsx', {'Mean'}, 1, 'E1');
 ## 参考
 
 [1] [MATLAB03:数据类型与文件读写](https://blog.csdn.net/ncepu_Chen/article/details/103065580)
+
+[2] [读取 Microsoft Excel 电子表格文件](https://ww2.mathworks.cn/help/matlab/ref/xlsread.html?searchHighlight=xlsread&s_tid=srchtitle_xlsread_1#d123e1511912)
+

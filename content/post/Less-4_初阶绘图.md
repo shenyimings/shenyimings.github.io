@@ -58,7 +58,50 @@ plot(x,y)
 
 
 
+## 例题
 
+### EX1
+
+> 读取股票行情表格`sz000004.xls`并进行初步分析
+
+```matlab
+%% 导入电子表格中的数据
+[~, ~, raw] = xlsread('sz000004.xls','Sheet1','A2:H99');
+%% 创建输出变量
+data = reshape([raw{:}],size(raw));
+% disp(data)
+%% 将导入的数组分配给列变量名称
+raw(:,1)
+Date = data(:,1);
+DateNum = data(:,2);
+Popen = data(:,3);
+Phigh = data(:,4);
+Plow = data(:,5);
+Pclose = data(:,6);
+Volum = data(:,7);
+Turn = data(:,8);
+
+%% 清除临时变量
+clearvars data raw;
+```
+
+
+
+### EX2
+
+> 在表格中写入随机温度
+
+```matlab
+%% 写随机数至表格中
+tmp = 36.1 + 0.1*double(int8(8.5*rand(17,14)))
+xlswrite('1.xls',tmp);
+```
+
+
+
+### EX3
+
+> 画股票行情表
 
 
 ## 参考
