@@ -1,7 +1,7 @@
 ---
 author: "Yiming Shen"
 date: 2022-02-03
-lastmod: 2022-02-04
+lastmod: 2022-02-08
 title: "Less-4 MATLAB初阶绘图"
 tags: [
     "MATLAB",

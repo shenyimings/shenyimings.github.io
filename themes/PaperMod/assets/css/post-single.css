@@ -5,7 +5,8 @@
 
 .post-title {
     margin-bottom: 2px;
-    font-size: 40px
+    font-size: 40px;
+    font-family: "Noto Serif SC", "Hiragino Sans GB", "Droid Sans Fallback", "Microsoft YaHei";
 }
 
 .post-description {
@@ -36,7 +37,8 @@
 }
 
 .post-content {
-    color: var(--content)
+    color: var(--content);
+    font-family: "Noto Serif SC", "Hiragino Sans GB", "Droid Sans Fallback", "Microsoft YaHei";
 }
 
 .post-content h3,
