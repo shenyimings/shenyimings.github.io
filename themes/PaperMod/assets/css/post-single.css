@@ -5,10 +5,11 @@
 
 .post-title {
     margin-bottom: 2px;
-    font-size: 40px;
+    font-size: 38px;
     font-family: "Noto Serif SC", "Hiragino Sans GB", "Droid Sans Fallback", "Microsoft YaHei";
+    
 }
-
+ 
 .post-description {
     margin-top: 10px;
     margin-bottom: 5px;
@@ -17,10 +18,11 @@
 .post-meta,
 .breadcrumbs {
     color: var(--secondary);
-    font-size: 16px;
+    font-size: 14.5px;
     line-height: 2.5em;
     display: flex;
-    flex-wrap: wrap
+    flex-wrap: wrap;
+    
 }
 
 .post-meta .i18n_list li {
@@ -33,7 +35,8 @@
 .breadcrumbs a {
     font-size: 17px;
     line-height: 2.5em;
-    font-family: Arial;
+    font-family: "Noto Serif SC", "Hiragino Sans GB", "Droid Sans Fallback", "Microsoft YaHei";
+
 }
 
 .post-content {

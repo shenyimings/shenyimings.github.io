@@ -12,6 +12,8 @@
     display: block
 }
 
+
+
 .logo,
 #menu {
     display: flex;
@@ -22,9 +24,20 @@
     flex-wrap: inherit
 }
 
+.logo :hover {
+    transition: transform 0.8s;
+    webkit-transform: scale(1.15);
+    -moz-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    -o-transform: scale(1.1);
+    transform: scale(1.15);
+}
+
 .logo a {
-    font-size: 24px;
-    font-weight: 700;
+    font-size: 26px;
+    font-weight: bold;
+    font-family: "Noto Serif SC", "Hiragino Sans GB", "Droid Sans Fallback", "Microsoft YaHei";
+
 }
 
 .logo a img {
@@ -57,7 +70,7 @@ body:not(.dark) #sun {
 #menu {
     list-style: none;
     word-break: keep-all;
-    overflow-x: auto;
+    overflow-x: visible;
     white-space: nowrap
 }
 
@@ -66,13 +79,25 @@ body:not(.dark) #sun {
 }
 
 #menu a {
-    font-size: 16px
+    font-size: 17px;
+    font-family: "Noto Serif SC", "Hiragino Sans GB", "Droid Sans Fallback", "Microsoft YaHei";
 }
 
 #menu .active {
     font-weight: 500;
-    border-bottom: 2px solid currentColor
+
+    border-bottom: 2px solid currentColor;
+    
 }
+#menu :hover {
+    transition: transform 0.5s;
+    webkit-transform: scale(1.05);
+    -moz-transform: scale(1.05);
+    -ms-transform: scale(1.05);
+    -o-transform: scale(1.05);
+    transform: scale(1.08);
+}
+
 
 .lang-switch li,
 .lang-switch ul,

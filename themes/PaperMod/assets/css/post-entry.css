@@ -1,10 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;700&display=swap');
 .first-entry {
     position: relative;
     display: flex;
     flex-direction: column;
     justify-content: center;
     min-height: 320px;
-
+    
 
 }
 
@@ -18,17 +19,23 @@
 
 .first-entry .entry-header h1 {
     font-size: 34px;
-    line-height: 1.3
+    line-height: 1.3;
+    font-family: "Noto Serif SC", "Hiragino Sans GB", "Droid Sans Fallback", "Microsoft YaHei";
+
 }
 
 .first-entry .entry-content {
     margin: 14px 0;
     font-size: 16px;
-    -webkit-line-clamp: 3
+    -webkit-line-clamp: 3;
+    font-family: "Noto Serif SC", "Hiragino Sans GB", "Droid Sans Fallback", "Microsoft YaHei";
+
 }
 
 .first-entry .entry-footer {
-    font-size: 14px
+    font-size: 14px;
+    font-family: "Noto Serif SC", "Hiragino Sans GB", "Droid Sans Fallback", "Microsoft YaHei";
+
 }
 
 .home-info .entry-content {
@@ -43,6 +50,7 @@
     border-radius: var(--radius);
     transition: transform .1s;
     border: 1px solid var(--border);
+
 }
 
 
@@ -68,13 +76,16 @@
 }
 
 .entry-header h2 {
-    font-size: 26px
+    font-size: 26px;
+    font-family: "Noto Serif SC", "Hiragino Sans GB", "Droid Sans Fallback", "Microsoft YaHei";
 }
 
 .entry-content {
     margin: 8px 0;
     color: var(--secondary);
     font-size: 14px;
+    font-family: "Noto Serif SC", "Hiragino Sans GB", "Droid Sans Fallback", "Microsoft YaHei";
+    
     line-height: 1.6;
     overflow: hidden;
     display: -webkit-box;

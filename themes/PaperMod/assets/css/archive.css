@@ -1,10 +1,14 @@
 .archive-posts {
     width: 100%;
-    font-size: 16px
+    font-size: 16px;
+    font-family: "Noto Serif SC", "Hiragino Sans GB", "Droid Sans Fallback", "Microsoft YaHei";
+
 }
 
 .archive-year {
-    margin-top: 40px
+    margin-top: 40px;
+    font-family: "Noto Serif SC", "Hiragino Sans GB", "Droid Sans Fallback", "Microsoft YaHei";
+
 }
 
 .archive-year:not(:last-of-type) {
@@ -19,7 +23,9 @@
 
 .archive-month-header {
     margin: 25px 0;
-    width: 200px
+    width: 200px;
+    font-family: "Noto Serif SC", "Hiragino Sans GB", "Droid Sans Fallback", "Microsoft YaHei";
+
 }
 
 .archive-month:not(:last-of-type) {
@@ -29,12 +35,16 @@
 .archive-entry {
     position: relative;
     padding: 5px;
-    margin: 10px 0
+    margin: 10px 0;
+    font-family: "Noto Serif SC", "Hiragino Sans GB", "Droid Sans Fallback", "Microsoft YaHei";
+
 }
 
 .archive-entry-title {
     margin: 5px 0;
-    font-weight: 400
+    font-weight: 400;
+    font-family: "Noto Serif SC", "Hiragino Sans GB", "Droid Sans Fallback", "Microsoft YaHei";
+
 }
 
 .archive-count,

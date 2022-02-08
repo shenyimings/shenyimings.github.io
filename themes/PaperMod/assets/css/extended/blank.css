@@ -10,6 +10,8 @@
     background: var(--entry);
     border-radius: var(--radius);
     padding: 0.4em;
+    font-family: "Noto Serif SC", "Hiragino Sans GB", "Droid Sans Fallback", "Microsoft YaHei";
+
 }
 
 .toc-container.wide {
@@ -142,7 +144,7 @@
 
 .friendinfo {
 
-    text-overflow: ellipsis;
+    text-overflow: visible;
     font-size: 70%;
     color: var(--primary);
 }

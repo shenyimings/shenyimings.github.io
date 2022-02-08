@@ -7,7 +7,9 @@
 }
 
 .page-header h1 {
-    font-size: 40px
+    font-size: 36px;
+    font-family: "Noto Serif SC", "Hiragino Sans GB", "Droid Sans Fallback", "Microsoft YaHei";
+
 }
 
 .pagination {
@@ -17,6 +19,7 @@
 .pagination a {
     color: var(--theme);
     font-size: 13px;
+    font-family: "Noto Serif SC", "Hiragino Sans GB", "Droid Sans Fallback", "Microsoft YaHei";
     line-height: 36px;
     background: var(--primary);
     border-radius: calc(36px / 2);

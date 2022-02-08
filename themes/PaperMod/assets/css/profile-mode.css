@@ -10,11 +10,13 @@
     right: 0;
     align-items: center;
     height: 80%;
-    text-align: center
+    text-align: center;
+    
 }
 
 .profile .profile_inner h1 {
-    padding: 12px 0
+    padding: 12px 0;
+    
 }
 
 .profile img {
@@ -34,13 +36,17 @@
     padding: 6px ;
     transition: transform .1s;
     border-bottom: 2px solid #535353;
+    font-size: 20px;
+    font-family: "Noto Serif SC", "Hiragino Sans GB", "Droid Sans Fallback", "Microsoft YaHei";
+    
 }
 
 .button-inner {
-    padding: 0 8px
+    padding: 0 8px;
+    
 }
 
-.button:active {
+.button :active {
     transform: scale(.96)
 }
 
@@ -50,6 +56,5 @@
     -moz-transform: scale(2);
     -ms-transform: scale(2);
     -o-transform: scale(2);
- 
     transform: scale(1.2);
 }
