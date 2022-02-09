@@ -9,7 +9,42 @@
       <link>https://shenyiming.life/android-chrome-512x512.png</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Wed, 02 Feb 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://shenyiming.life/categories/essays/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 09 Feb 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://shenyiming.life/categories/essays/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>域名选择：有哪些很酷的域名？</title>
+      <link>https://shenyiming.life/post/domain_choice/</link>
+      <pubDate>Wed, 09 Feb 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://shenyiming.life/post/domain_choice/</guid>
+      <description>前言 很久很久以前就对域名非常感兴趣，也间歇性的关注过顶级域名的价格变化，以很低的价格注册过一些首年折扣的廉价域名，如ilufreedom.pw yiming.space 和现在的shenyiming.life
+我也访问过很多非常有意思的域名，故于此分享给大家，并提供一点我在选择域名时的思考和个人刻板印象。
+注意事项 1. 域名服务商  GoDaddy
+Gandi
+腾讯云(DNSPod)
+阿里云(万网)
+ 大陆建站首推腾讯云和阿里云，我的域名是在腾讯云上购买的，实名认证（域名备案）速度快，可以一键申请配置免费SSL证书。大众域名价格要比GoDaddy低，首年折扣力度大，如果云服务器也是腾讯云的话联动会更加方便。
+小众域名和.io域名国内服务商暂不提供注册，可在GoDaddy和Gandi等国外服务商申请。我曾在Gandi上注册过域名，注册还送邮箱服务器，可惜国内速度较慢，发出的邮件也会被归入垃圾邮件……实用性较差，但是酷啊。
+GoDaddy和Gandi都支持支付宝支付，前提是不要挂代理。
+2. 一步到位 很多域名在前期的推广阶段都有首年折扣的优惠，力度很大，几近白嫖，然而这种情况往往第二年续费价格十分高昂，如有长期建站的打算应尽可能避免或做好预算，毕竟域名的更换可不仅仅是重新dns解析那么简单，还涉及到重新优化seo和推广的问题。
+最好还是在选域名阶段多多费心，尽量一步到位。
+3. 选择能在大陆备案的域名 自18年后只有通过工信部认证的域名才可进行备案，倘若购买国内云服务器/vps/虚拟空间建站是必须要备案的，也就是通常展示在网站footer的京ICP备2022xxxxxx号和京公网安备xxxxx号字样。
+若选择香港或国外服务器建站则无需备案也无法备案。
+腾讯云和阿里云开放注册的域名都可以在国内备案。
+4. 如无必要，避免溢价域名 常见顶级域名注册人数非常多，再加上域名资源的独占性，具有特定含义的和长度较短的域名在域名服务商那里已被标注或者被域名拍卖商抢注挂靠，会加价卖出，甚至域名服务商标注的价格只是协商谈判费……
+至于确有用途却被占用的域名，可以通过增添数字、下划线的方式修改（废话），也可使用域名hack，用二级或者三级域名拼出网站名称，如goo.gl zhi.hu youtu.be 等。
+域名选择 中规中矩：选.com .org .net与.cn总不会错  .com是互联网之DNS上的一个顶级域（TLD）。它的名称源自英文单词“commercial”，表明由商业组织注册此域名的原始意图。然而，随着.com、.org及.net开放无限制注册，这个差别已不复存在。
+  .cn为中华人民共和国的顶级域域名（ccTLD）。在中国大陆，.cn域名由中华人民共和国工业和信息化部管理。.cn域名注册的管理机构为中国互联网络信息中心（CNNIC）。和其他国家一样，实际的注册是通过商业的域名注册服务机构。Neulevel已经和CNNIC合作，在中国大陆之外进行商业的.cn域名注册服务。
+ 我们谈到“一个网址”，首先想到的一定是www和.com，未注册的.com域名的价格也没有想象的那么贵，因此该域名以及是建设公司、机构或平台类网站的不二之选，中规中矩。
+若.com域名被占用也可退而求其次，选择功能相近的.cn域名，然而.cn域名用作大企业的主站有点小家子气，用作小企业的主站略显不够上进，用作个人博客又有一点小题大做，还有种我倒，你也网上冲浪 老气的感觉，地位尴尬。
+最Geek与互联网： .io  在计算机科学领域，“IO”常被作为“I/O”（输入/输出；Input/Output）的缩写，这使得.io域名很适合与技术相关的服务。因此该顶级域也十分受初创公司和IT公司欢迎，经常被开源项目、API（如put.io API和pen.io API）和在线服务使用
+ 近年非常流行，也是我个人最喜欢的域名，我们可以用gh-pages白嫖github的三级域名.github.io。
+围绕该域名后缀也发展出了一大批基于网页浏览器的io类线上游戏，如Agar.io(原版球球大作战)、Slither.io(原版贪吃蛇大作战)、Paper.io等等。
+由.io域名含义中包含的客户端与服务端之间的交互意义决定了，.io几乎可以驾驭各种建站需求，访问网站本身就是一个I/O过程。
+It works！.sh .run  .sh（源自圣赫勒拿、阿森松和特里斯坦-达库尼亚的英文：British Overseas Territory of Saint Helena）为英国海外属地圣赫勒拿在互联网域名系统中拥有的国家及地区顶级域
+ Unix的shell脚本的扩展名正是*.sh，该域名简直是做UNIX开发的不二之选。
+我在macOS上安装hugo时，用到了Homebrew这一包管理系统，其官方网站正是brew.sh，看到这一域名时佩服的五体投地，试着访问了test.sh,果真被人注册，还温暖的提示：It works! ，这句话一定是所有开发者头晕眼花的折腾半天运行脚本最想得到的反馈吧。</description>
+    </item>
+    
     <item>
       <title>⛴逆水行舟，不进则退</title>
       <link>https://shenyiming.life/post/%E9%80%86%E6%B0%B4%E8%A1%8C%E8%88%9F/</link>

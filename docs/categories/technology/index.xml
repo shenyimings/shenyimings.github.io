@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Ideas on Console.makeHappy(_1ming)</title>
-    <link>https://shenyiming.life/categories/ideas/</link>
-    <description>Recent content in Ideas on Console.makeHappy(_1ming)</description>
+    <title>Technology on Console.makeHappy(_1ming)</title>
+    <link>https://shenyiming.life/categories/technology/</link>
+    <description>Recent content in Technology on Console.makeHappy(_1ming)</description>
     <image>
       <url>https://shenyiming.life/android-chrome-512x512.png</url>
       <link>https://shenyiming.life/android-chrome-512x512.png</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Wed, 09 Feb 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://shenyiming.life/categories/ideas/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 09 Feb 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://shenyiming.life/categories/technology/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>域名选择：有哪些很酷的域名？</title>
       <link>https://shenyiming.life/post/domain_choice/</link>
@@ -43,47 +43,6 @@ GoDaddy和Gandi都支持支付宝支付，前提是不要挂代理。
 It works！.sh .run  .sh（源自圣赫勒拿、阿森松和特里斯坦-达库尼亚的英文：British Overseas Territory of Saint Helena）为英国海外属地圣赫勒拿在互联网域名系统中拥有的国家及地区顶级域
  Unix的shell脚本的扩展名正是*.sh，该域名简直是做UNIX开发的不二之选。
 我在macOS上安装hugo时，用到了Homebrew这一包管理系统，其官方网站正是brew.sh，看到这一域名时佩服的五体投地，试着访问了test.sh,果真被人注册，还温暖的提示：It works! ，这句话一定是所有开发者头晕眼花的折腾半天运行脚本最想得到的反馈吧。</description>
-    </item>
-    
-    <item>
-      <title>⛴逆水行舟，不进则退</title>
-      <link>https://shenyiming.life/post/%E9%80%86%E6%B0%B4%E8%A1%8C%E8%88%9F/</link>
-      <pubDate>Wed, 02 Feb 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://shenyiming.life/post/%E9%80%86%E6%B0%B4%E8%A1%8C%E8%88%9F/</guid>
-      <description>大年初二，给大伙拜个晚年，虎虎生威。
-晚上和许久未曾联系的高中同学聊了几句，他和我学了相同的专业。他问了我建站方面的问题，域名解析服务器搭建皆已完成，问起情况也都对答入流。我自诩捣鼓web前后端方面的东西很早，在我们还未进入高中一轮复习的时候我就用国外vps+lnmp成功搭好了第一个wordpress网站，而当时的他并未踏足这个领域些许。我确信大学的科班是不会这么早教这些东西的，看来我们没有什么不同，面向搜索引擎式的学习都能进步飞快，自己所谓的comfort zone 也能很快被被人所涉猎掌握。他能学会我在高中时了解的东西，可我现在还能弥补高中时留下的坑吗？我这种打个信息差的拆东墙补西墙式学习，并没有让现在的自己立于任何不败之地，反而更有可能躺在自己所谓的舒适圈里混吃等死。
-刚刚在日常搜索hugo问题时再次访问了各种大佬的博客，我最喜欢的是点开他们的about页面浏览他们的概括好的前半程。他们有的是还在读高三的学生却已经把前端html/css玩的十分溜道，我认识的同龄人中最聪明的也不及他的高度（在这方面），更多的是已经在BAT大厂上班的职工，并非出自什么名校，写出自己大学的也有双非一本和末流211，其中却有人早在在校时就编写无数APP，拿到一个学校的电费API接口就能用一上午写出带ui的跨平台查询程序甚至维护至今造福后人。
-我在我自以为擅长的领域都已被全面碾压，21岁时就已经进入了中年危机，不愧是满头白发呀。
-现在的学习能力在我整个人生中应该也算高点，却已有学海无涯永无止境之感，到40岁后是否还有任何精力去踏足未知的领域呢？这是个未知数，也是个定数。
-还是那句话，趁年轻，抓紧时间搞搞吧，我再不安分的内心恐怕也会让岁月彻底磨平。</description>
-    </item>
-    
-    <item>
-      <title>积重难返</title>
-      <link>https://shenyiming.life/post/%E8%A3%85%E6%9C%BA%E5%90%A7/</link>
-      <pubDate>Sun, 23 Jan 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://shenyiming.life/post/%E8%A3%85%E6%9C%BA%E5%90%A7/</guid>
-      <description>更换机箱-更换电脑 上图是我组装过的第六台电脑，是一台ITX，也是真正属于我的第一台电脑。
-这是一个空间利用率极高的A4机箱，对于2020年浮躁的我来说，能塞好点亮，就是任务完成，并未作长远考虑，这对于后来一年两次往返2000km+的两地的我和以性价比高为特点的配件来说，都是灾难。
-长期的颠簸导致一开始错误固定的显卡、电源、主板出现了一定的问题，具体请参考有关细节
-在2022年的寒假，终于忍受不了的我选择打翻重来，换掉机箱，重新组装。
-新机箱先马趣造I&amp;rsquo;m 其实是一个MATX机箱，经过我并不严格的参数比对后认为，新机箱仍能放进行李箱里，便舍弃了itx方案，将配件拆下后放进了如下图所示的新机箱，盖上玻璃侧板后，颜值比照片高很多，可惜由于是itx主板加sfx电源，有大量空间被浪费，失去了原先酷鱼G5 Plus 满满当当分量十足的感觉。
-旧机箱挂在闲鱼上一个小时便成功卖出，应该是带了显卡延长线卖的又十分便宜的原因，想不到今年装机市场还是如此景气。
- 装好后好景不长，又双叒叕碰上了正常开机无显示信号的问题，经排查发现是显卡接触不良造成，正是过去错误安装加上长途运输时未拔显卡导致pcb板变形，两侧受力不均造成，积重难返！
-随后拆机，松显卡固定螺丝并给显卡电源线绑了个扎线带，提供一个向下侧拉扯的力，一时半会能正常使用，但并非是一个长久之计，若非显卡价格严重虚高，可能已经出了换张亮机卡了，早已过了爱折腾的时候，只祈求稳定能用。</description>
-    </item>
-    
-    <item>
-      <title>早起可能是有意义的</title>
-      <link>https://shenyiming.life/post/%E6%97%A9%E8%B5%B7%E7%9A%84%E6%84%8F%E4%B9%89/</link>
-      <pubDate>Mon, 27 Dec 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://shenyiming.life/post/%E6%97%A9%E8%B5%B7%E7%9A%84%E6%84%8F%E4%B9%89/</guid>
-      <description>到期末复习周了，天天自由自在9:00以后起床，想睡多久睡多久，终于摆脱了沙雕的一天只有一节课，一节7:40起床的架构型排课了……
-但随着每天晚起，发现中午到点睡不着，睡不好，虽然我告诉自己在床上闭眼呼吸就算睡着，可下午身体还是不听指挥，头昏脑涨，全然没有一觉睡醒后的改天换地之感……
-看来啊，想要保持高效率的一天，早起一点还是有必要的，这个早起未必是起多早，总而言之不能是自然醒。</description>
     </item>
     
   </channel>
