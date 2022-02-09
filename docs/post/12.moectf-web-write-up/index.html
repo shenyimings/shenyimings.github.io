@@ -5,24 +5,7 @@
 <meta name=robots content="index, follow">
 <title>MoeCTF 2021 西电新生赛WP | Console.makeHappy(_1ming)</title>
 <meta name=keywords content="CTF,WriteUP,Note">
-<meta name=description content="前言-2021/8/10 今天学长在群里发了西电的新生CTF比赛，题目较为基础，适合我们初学者。
-想来还是感慨颇多的，西电不愧是网安的头部院校，信安的新生还没入学就开始打CTF比赛了，我大二了才刚刚踏入大门而已。
-1. Web安全入门指北-GET <?php include &#34;flag.php&#34;; $moe = $_GET['moe']; if ($moe == &#34;flag&#34;) { echo $flag; }else { highlight_file(__FILE__); } 签到题。已给出源代码，根据题目提示，可以看出是一个简单的get命令题。
-在地址栏中发送get请求：
-http://47.93.215.154:10000/?moe=flag
-得到flag：
-moectf{We1c0me_t0_CTF_Web!}
-2. Web安全入门指北-POST <?php include &#34;flag.php&#34;; $moe = $_POST['moe']; if ($moe == &#34;flag&#34;) { echo $flag; }else { highlight_file(__FILE__); } 给出源代码，只需要发送post请求给moe变量赋值flag即可。
-用hackbar：
-在post参数里填入moe=flag
-Execute执行即可得flag:moectf{POST_1s_an_1mp0rtant_m3th0d!}
-3. Web安全入门指北-小饼干 这道题非常有意思，通过网页提示:
-You are not VIP,I will give flag to VIP!
-可以大致猜测要伪造某些访问项目，将非VIP改为VIP。
-用Burp Suite抓包得到，有一个cookie项为VIP=0，可以通过篡改VIP值来达到伪造cookies的目的。
-将抓包结果发送到重发器，将VIP值改为1，点击发送。
-得到flag。
-4. 2048 打开环境，发现是一个2048小游戏">
+<meta name=description content="前言-2021/8/10 今天学长在群里发了西电的新生CTF比赛，题目较为基础，适合我们初学者。 想来还是感慨颇多的，西电不愧是网安的头部院校，">
 <meta name=author content="Yiming Shen">
 <link rel=canonical href=https://shenyiming.life/post/12.moectf-web-write-up/>
 <meta name=google-site-verification content="XYZabc">
@@ -43,24 +26,7 @@ You are not VIP,I will give flag to VIP!
 <script type=application/javascript>var doNotTrack=!1;doNotTrack||(window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga('create','UA-123-45','auto'),ga('send','pageview'))</script>
 <script async src=https://www.google-analytics.com/analytics.js></script>
 <meta property="og:title" content="MoeCTF 2021 西电新生赛WP">
-<meta property="og:description" content="前言-2021/8/10 今天学长在群里发了西电的新生CTF比赛，题目较为基础，适合我们初学者。
-想来还是感慨颇多的，西电不愧是网安的头部院校，信安的新生还没入学就开始打CTF比赛了，我大二了才刚刚踏入大门而已。
-1. Web安全入门指北-GET <?php include &#34;flag.php&#34;; $moe = $_GET['moe']; if ($moe == &#34;flag&#34;) { echo $flag; }else { highlight_file(__FILE__); } 签到题。已给出源代码，根据题目提示，可以看出是一个简单的get命令题。
-在地址栏中发送get请求：
-http://47.93.215.154:10000/?moe=flag
-得到flag：
-moectf{We1c0me_t0_CTF_Web!}
-2. Web安全入门指北-POST <?php include &#34;flag.php&#34;; $moe = $_POST['moe']; if ($moe == &#34;flag&#34;) { echo $flag; }else { highlight_file(__FILE__); } 给出源代码，只需要发送post请求给moe变量赋值flag即可。
-用hackbar：
-在post参数里填入moe=flag
-Execute执行即可得flag:moectf{POST_1s_an_1mp0rtant_m3th0d!}
-3. Web安全入门指北-小饼干 这道题非常有意思，通过网页提示:
-You are not VIP,I will give flag to VIP!
-可以大致猜测要伪造某些访问项目，将非VIP改为VIP。
-用Burp Suite抓包得到，有一个cookie项为VIP=0，可以通过篡改VIP值来达到伪造cookies的目的。
-将抓包结果发送到重发器，将VIP值改为1，点击发送。
-得到flag。
-4. 2048 打开环境，发现是一个2048小游戏">
+<meta property="og:description" content="前言-2021/8/10 今天学长在群里发了西电的新生CTF比赛，题目较为基础，适合我们初学者。 想来还是感慨颇多的，西电不愧是网安的头部院校，">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://shenyiming.life/post/12.moectf-web-write-up/"><meta property="og:image" content="https://shenyiming.life/android-chrome-512x512.png"><meta property="article:section" content="post">
 <meta property="article:published_time" content="2021-08-19T00:00:00+00:00">
@@ -68,26 +34,9 @@ You are not VIP,I will give flag to VIP!
 <meta name=twitter:card content="summary_large_image">
 <meta name=twitter:image content="https://shenyiming.life/android-chrome-512x512.png">
 <meta name=twitter:title content="MoeCTF 2021 西电新生赛WP">
-<meta name=twitter:description content="前言-2021/8/10 今天学长在群里发了西电的新生CTF比赛，题目较为基础，适合我们初学者。
-想来还是感慨颇多的，西电不愧是网安的头部院校，信安的新生还没入学就开始打CTF比赛了，我大二了才刚刚踏入大门而已。
-1. Web安全入门指北-GET <?php include &#34;flag.php&#34;; $moe = $_GET['moe']; if ($moe == &#34;flag&#34;) { echo $flag; }else { highlight_file(__FILE__); } 签到题。已给出源代码，根据题目提示，可以看出是一个简单的get命令题。
-在地址栏中发送get请求：
-http://47.93.215.154:10000/?moe=flag
-得到flag：
-moectf{We1c0me_t0_CTF_Web!}
-2. Web安全入门指北-POST <?php include &#34;flag.php&#34;; $moe = $_POST['moe']; if ($moe == &#34;flag&#34;) { echo $flag; }else { highlight_file(__FILE__); } 给出源代码，只需要发送post请求给moe变量赋值flag即可。
-用hackbar：
-在post参数里填入moe=flag
-Execute执行即可得flag:moectf{POST_1s_an_1mp0rtant_m3th0d!}
-3. Web安全入门指北-小饼干 这道题非常有意思，通过网页提示:
-You are not VIP,I will give flag to VIP!
-可以大致猜测要伪造某些访问项目，将非VIP改为VIP。
-用Burp Suite抓包得到，有一个cookie项为VIP=0，可以通过篡改VIP值来达到伪造cookies的目的。
-将抓包结果发送到重发器，将VIP值改为1，点击发送。
-得到flag。
-4. 2048 打开环境，发现是一个2048小游戏">
+<meta name=twitter:description content="前言-2021/8/10 今天学长在群里发了西电的新生CTF比赛，题目较为基础，适合我们初学者。 想来还是感慨颇多的，西电不愧是网安的头部院校，">
 <script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":2,"name":"文章","item":"https://shenyiming.life/post/"},{"@type":"ListItem","position":3,"name":"MoeCTF 2021 西电新生赛WP","item":"https://shenyiming.life/post/12.moectf-web-write-up/"}]}</script>
-<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"MoeCTF 2021 西电新生赛WP","name":"MoeCTF 2021 西电新生赛WP","description":"前言-2021/8/10 今天学长在群里发了西电的新生CTF比赛，题目较为基础，适合我们初学者。\n想来还是感慨颇多的，西电不愧是网安的头部院校，信安的新生还没入学就开始打CTF比赛了，我大二了才刚刚踏入大门而已。\n1. Web安全入门指北-GET \u0026lt;?php include \u0026#34;flag.php\u0026#34;; $moe = $_GET[\u0026#39;moe\u0026#39;]; if ($moe == \u0026#34;flag\u0026#34;) { echo $flag; }else { highlight_file(__FILE__); } 签到题。已给出源代码，根据题目提示，可以看出是一个简单的get命令题。\n在地址栏中发送get请求：\nhttp://47.93.215.154:10000/?moe=flag\n得到flag：\nmoectf{We1c0me_t0_CTF_Web!}\n2. Web安全入门指北-POST \u0026lt;?php include \u0026#34;flag.php\u0026#34;; $moe = $_POST[\u0026#39;moe\u0026#39;]; if ($moe == \u0026#34;flag\u0026#34;) { echo $flag; }else { highlight_file(__FILE__); } 给出源代码，只需要发送post请求给moe变量赋值flag即可。\n用hackbar：\n在post参数里填入moe=flag\nExecute执行即可得flag:moectf{POST_1s_an_1mp0rtant_m3th0d!}\n3. Web安全入门指北-小饼干 这道题非常有意思，通过网页提示:\nYou are not VIP,I will give flag to VIP!\n可以大致猜测要伪造某些访问项目，将非VIP改为VIP。\n用Burp Suite抓包得到，有一个cookie项为VIP=0，可以通过篡改VIP值来达到伪造cookies的目的。\n将抓包结果发送到重发器，将VIP值改为1，点击发送。\n得到flag。\n4. 2048 打开环境，发现是一个2048小游戏","keywords":["CTF","WriteUP","Note"],"articleBody":"前言-2021/8/10 今天学长在群里发了西电的新生CTF比赛，题目较为基础，适合我们初学者。\n想来还是感慨颇多的，西电不愧是网安的头部院校，信安的新生还没入学就开始打CTF比赛了，我大二了才刚刚踏入大门而已。\n1. Web安全入门指北-GET php include \"flag.php\"; $moe = $_GET['moe']; if ($moe == \"flag\") { echo $flag; }else { highlight_file(__FILE__); } 签到题。已给出源代码，根据题目提示，可以看出是一个简单的get命令题。\n在地址栏中发送get请求：\nhttp://47.93.215.154:10000/?moe=flag\n得到flag：\nmoectf{We1c0me_t0_CTF_Web!}\n2. Web安全入门指北-POST php include \"flag.php\"; $moe = $_POST['moe']; if ($moe == \"flag\") { echo $flag; }else { highlight_file(__FILE__); } 给出源代码，只需要发送post请求给moe变量赋值flag即可。\n用hackbar：\n在post参数里填入moe=flag\nExecute执行即可得flag:moectf{POST_1s_an_1mp0rtant_m3th0d!}\n3. Web安全入门指北-小饼干 这道题非常有意思，通过网页提示:\nYou are not VIP,I will give flag to VIP!\n可以大致猜测要伪造某些访问项目，将非VIP改为VIP。\n用Burp Suite抓包得到，有一个cookie项为VIP=0，可以通过篡改VIP值来达到伪造cookies的目的。\n将抓包结果发送到重发器，将VIP值改为1，点击发送。\n得到flag。\n4. 2048 打开环境，发现是一个2048小游戏\n先玩一下，失败后提示要达到50000分以后才能得到flag。\n试一下盲加get payload：/?score=60000\n无任何效果，说明负载点选则的不对，抓包看一下在游戏失败后会发送什么数据。\n顺便一提，我瞎按的分数都比认真玩的分高。\n失败后，成功抓到包：\n可以看到，原来是在flag.php页面下进行score的get请求。\n既然是get请求，那么直接在浏览器地址栏手动输入即可。\n/flag.php?score=60000\n得到flag。\n5. Web_Inc 这个题卡了很长时间。根据题目提示，是一道MD5绕过题。\nphp error_reporting(0); $a=$_GET['a']; $b=$_POST['b']; if(isset($a)){ if($a!=$b\u0026\u0026md5($a)===md5($b)){ include_once \"flag\"; }else{ echo 'try again'; } }else{ highlight_file(__FILE__); } 题目给出了源代码，据此可以得出，我们需要提供一个get方法变量a和一个post方法变量b，a的值不能等于b的值，但a的md5要等于b的md5。\n查阅网上资料得知，PHP在处理哈希字符串时，它把每一个以“0E”开头的哈希值都按照科学计数法处理为0，如此0=0，我们只需要找到两个md5值为0e开头的字符串即可。\n QNKCDZO\n240610708\ns878926199a\ns155964671as\n214587387a\ns214587387a\n 以上几组数均为一次md5结果为0e开头的字符串，得到这个信息后，我开开心心的打开hackbar传入一组get参数和post参数：\n尝试过多组解，甚至改用BP intruder进行爆破，仍然是冷冰冰的try again。\n无奈，回头仔细观察源代码：\nmd5($a)===md5($b)\n这一项有三个等于号！\n上网查询，发现PHP中===意味着只有类型相同才会进行比较，否则直接返回false，掐断了使用md5为0e的字符串绕过的可能性！\n再查询发现，PHP中的md5函数有漏洞，无法处理数组，遇到数组会报错，但程序能够继续执行。\n故传入a[]=1,b[]=2即可。\n果然，try again的字样消失了，那么flag在哪呢？\n点sources查看一下源代码：\nflag藏在注释里，成功！\n强类型绕过 使用全等于判断时，若数组无效，直接构造两组答案不同但md5相同的payload即可。\n PHP强类型绕过\na=%4d%c9%68%ff%0e%e3%5c%20%95%72%d4%77%7b%72%15%87%d3%6f%a7%b2%1b%dc%56%b7%4a%3d%c0%78%3e%7b%95%18%af%bf%a2%00%a8%28%4b%f3%6e%8e%4b%55%b3%5f%42%75%93%d8%49%67%6d%a0%d1%55%5d%83%60%fb%5f%07%fe%a2\r\u0026b=%4d%c9%68%ff%0e%e3%5c%20%95%72%d4%77%7b%72%15%87%d3%6f%a7%b2%1b%dc%56%b7%4a%3d%c0%78%3e%7b%95%18%af%bf%a2%02%a8%28%4b%f3%6e%8e%4b%55%b3%5f%42%75%93%d8%49%67%6d%a0%d1%d5%5d%83%60%fb%5f%07%fe%a2\r 6. ezinclude php error_reporting(0); if(isset($_GET['file'])){ $file = $_GET['file']; include($file); }else{ highlight_file(__FILE__); } 文件包含，使用了include函数。\n先使用PHP://input流，可以访问请求的原始数据的只读流，将post请求的数据当作php代码执行。\npost代码：\nphp phpinfo(); ?无效果，怀疑过滤了PHP://input，尝试PHP://filter，可以获取指定文件源码。当它与包含函数结合时，php://filter流会被当作php文件执行。\nget一下：?flie=php://filter/read=convert.base64-encode/resource=flag.php\n但很多时候信息不会直接显示在响应页面中，可以将文件内容进行base64编码再读取，然后再自行解码：\nbase64解码后即得到flag:\nflag = moectf{Do_y0u_l1k3_Rcccccccccccccce?}\n7. Do you know HTTP? 这是一道非常有意思的HTTP请求头伪造题，一步一步。\n根据题意，BP抓包后发给Repeater重发器，修改请求头参数为HS\n发送后发现，需要本地ip才可以访问。\n增加XFF项，修改值为127.0.0.1，成功\n接下来需要将网页来源修改为www.ltyyds.com\n增加referer项，值修改为www.ltyyds.com，成功\n浏览器需要LT？在User-Agent项中，将值清空后改为LT。\n成功得到flag！\n8.地狱通信??? 9.babeRCE php $rce = $_GET['rce']; if (isset($rce)) { if (!preg_match(\"/cat|more|less|head|tac|tail|nl|od|vi|vim|sort|flag| |\\;|[0-9]|\\*|\\`|\\%|\\|\\\\\"/i\", $rce)) { system($rce); }else { echo \"hhhhhhacker!!!\".\"\\n\"; } } else { highlight_file(__FILE__); } 源码如图，作为一道RCE（远程命令执行）题，可以说过滤了相当多命令，把命令注入限死在一个很小的范围内，其中，几乎所有查看文件的命令都被过滤了，还把空格过滤了……\n好在，没有过滤转义反斜杠和ls/dir等查看目录命令\n先get传一个ls命令：\n那么，问题就简化了，我们只需要绕过过滤掉的无数命令，试图读取flag.php即可。\n上网搜一下Linux还剩哪些命令：file -f\n该命令在查询出错后会返回文件内容！\n那么，空格怎么替换呢？有${IFS}可以当空格使\n战战兢兢的对照了下，没有被过滤掉的非法字，拼一个命令试试：\n/?rce=file${IFS}-f${IFS}fla\\g.php\n进入地址栏……复制粘贴……回车……没有出现返回内容！\n成功了？右键-查看源代码，果然！\n得到flag！AC！\n参考 [1] CTF中常见php-MD5()函数漏洞\n[2] CTF中文件包含漏洞总结\n[3] CTF之HAHA浏览器修改\n[4] HTTP头伪造\n[5] ctfshow命令执行[50]与常见过滤的思考\n[6] MD5绕过各种姿势\n","wordCount":"214","inLanguage":"en","datePublished":"2021-08-19T00:00:00Z","dateModified":"2021-12-11T00:00:00Z","author":{"@type":"Person","name":"Yiming Shen"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://shenyiming.life/post/12.moectf-web-write-up/"},"publisher":{"@type":"Organization","name":"Console.makeHappy(_1ming)","logo":{"@type":"ImageObject","url":"https://shenyiming.life/favicon.ico"}}}</script>
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"MoeCTF 2021 西电新生赛WP","name":"MoeCTF 2021 西电新生赛WP","description":"前言-2021/8/10 今天学长在群里发了西电的新生CTF比赛，题目较为基础，适合我们初学者。 想来还是感慨颇多的，西电不愧是网安的头部院校，","keywords":["CTF","WriteUP","Note"],"articleBody":"前言-2021/8/10 今天学长在群里发了西电的新生CTF比赛，题目较为基础，适合我们初学者。\n想来还是感慨颇多的，西电不愧是网安的头部院校，信安的新生还没入学就开始打CTF比赛了，我大二了才刚刚踏入大门而已。\n1. Web安全入门指北-GET php include \"flag.php\"; $moe = $_GET['moe']; if ($moe == \"flag\") { echo $flag; }else { highlight_file(__FILE__); } 签到题。已给出源代码，根据题目提示，可以看出是一个简单的get命令题。\n在地址栏中发送get请求：\nhttp://47.93.215.154:10000/?moe=flag\n得到flag：\nmoectf{We1c0me_t0_CTF_Web!}\n2. Web安全入门指北-POST php include \"flag.php\"; $moe = $_POST['moe']; if ($moe == \"flag\") { echo $flag; }else { highlight_file(__FILE__); } 给出源代码，只需要发送post请求给moe变量赋值flag即可。\n用hackbar：\n在post参数里填入moe=flag\nExecute执行即可得flag:moectf{POST_1s_an_1mp0rtant_m3th0d!}\n3. Web安全入门指北-小饼干 这道题非常有意思，通过网页提示:\nYou are not VIP,I will give flag to VIP!\n可以大致猜测要伪造某些访问项目，将非VIP改为VIP。\n用Burp Suite抓包得到，有一个cookie项为VIP=0，可以通过篡改VIP值来达到伪造cookies的目的。\n将抓包结果发送到重发器，将VIP值改为1，点击发送。\n得到flag。\n4. 2048 打开环境，发现是一个2048小游戏\n先玩一下，失败后提示要达到50000分以后才能得到flag。\n试一下盲加get payload：/?score=60000\n无任何效果，说明负载点选则的不对，抓包看一下在游戏失败后会发送什么数据。\n顺便一提，我瞎按的分数都比认真玩的分高。\n失败后，成功抓到包：\n可以看到，原来是在flag.php页面下进行score的get请求。\n既然是get请求，那么直接在浏览器地址栏手动输入即可。\n/flag.php?score=60000\n得到flag。\n5. Web_Inc 这个题卡了很长时间。根据题目提示，是一道MD5绕过题。\nphp error_reporting(0); $a=$_GET['a']; $b=$_POST['b']; if(isset($a)){ if($a!=$b\u0026\u0026md5($a)===md5($b)){ include_once \"flag\"; }else{ echo 'try again'; } }else{ highlight_file(__FILE__); } 题目给出了源代码，据此可以得出，我们需要提供一个get方法变量a和一个post方法变量b，a的值不能等于b的值，但a的md5要等于b的md5。\n查阅网上资料得知，PHP在处理哈希字符串时，它把每一个以“0E”开头的哈希值都按照科学计数法处理为0，如此0=0，我们只需要找到两个md5值为0e开头的字符串即可。\n QNKCDZO\n240610708\ns878926199a\ns155964671as\n214587387a\ns214587387a\n 以上几组数均为一次md5结果为0e开头的字符串，得到这个信息后，我开开心心的打开hackbar传入一组get参数和post参数：\n尝试过多组解，甚至改用BP intruder进行爆破，仍然是冷冰冰的try again。\n无奈，回头仔细观察源代码：\nmd5($a)===md5($b)\n这一项有三个等于号！\n上网查询，发现PHP中===意味着只有类型相同才会进行比较，否则直接返回false，掐断了使用md5为0e的字符串绕过的可能性！\n再查询发现，PHP中的md5函数有漏洞，无法处理数组，遇到数组会报错，但程序能够继续执行。\n故传入a[]=1,b[]=2即可。\n果然，try again的字样消失了，那么flag在哪呢？\n点sources查看一下源代码：\nflag藏在注释里，成功！\n强类型绕过 使用全等于判断时，若数组无效，直接构造两组答案不同但md5相同的payload即可。\n PHP强类型绕过\na=%4d%c9%68%ff%0e%e3%5c%20%95%72%d4%77%7b%72%15%87%d3%6f%a7%b2%1b%dc%56%b7%4a%3d%c0%78%3e%7b%95%18%af%bf%a2%00%a8%28%4b%f3%6e%8e%4b%55%b3%5f%42%75%93%d8%49%67%6d%a0%d1%55%5d%83%60%fb%5f%07%fe%a2\r\u0026b=%4d%c9%68%ff%0e%e3%5c%20%95%72%d4%77%7b%72%15%87%d3%6f%a7%b2%1b%dc%56%b7%4a%3d%c0%78%3e%7b%95%18%af%bf%a2%02%a8%28%4b%f3%6e%8e%4b%55%b3%5f%42%75%93%d8%49%67%6d%a0%d1%d5%5d%83%60%fb%5f%07%fe%a2\r 6. ezinclude php error_reporting(0); if(isset($_GET['file'])){ $file = $_GET['file']; include($file); }else{ highlight_file(__FILE__); } 文件包含，使用了include函数。\n先使用PHP://input流，可以访问请求的原始数据的只读流，将post请求的数据当作php代码执行。\npost代码：\nphp phpinfo(); ?无效果，怀疑过滤了PHP://input，尝试PHP://filter，可以获取指定文件源码。当它与包含函数结合时，php://filter流会被当作php文件执行。\nget一下：?flie=php://filter/read=convert.base64-encode/resource=flag.php\n但很多时候信息不会直接显示在响应页面中，可以将文件内容进行base64编码再读取，然后再自行解码：\nbase64解码后即得到flag:\nflag = moectf{Do_y0u_l1k3_Rcccccccccccccce?}\n7. Do you know HTTP? 这是一道非常有意思的HTTP请求头伪造题，一步一步。\n根据题意，BP抓包后发给Repeater重发器，修改请求头参数为HS\n发送后发现，需要本地ip才可以访问。\n增加XFF项，修改值为127.0.0.1，成功\n接下来需要将网页来源修改为www.ltyyds.com\n增加referer项，值修改为www.ltyyds.com，成功\n浏览器需要LT？在User-Agent项中，将值清空后改为LT。\n成功得到flag！\n8.地狱通信??? 9.babeRCE php $rce = $_GET['rce']; if (isset($rce)) { if (!preg_match(\"/cat|more|less|head|tac|tail|nl|od|vi|vim|sort|flag| |\\;|[0-9]|\\*|\\`|\\%|\\|\\\\\"/i\", $rce)) { system($rce); }else { echo \"hhhhhhacker!!!\".\"\\n\"; } } else { highlight_file(__FILE__); } 源码如图，作为一道RCE（远程命令执行）题，可以说过滤了相当多命令，把命令注入限死在一个很小的范围内，其中，几乎所有查看文件的命令都被过滤了，还把空格过滤了……\n好在，没有过滤转义反斜杠和ls/dir等查看目录命令\n先get传一个ls命令：\n那么，问题就简化了，我们只需要绕过过滤掉的无数命令，试图读取flag.php即可。\n上网搜一下Linux还剩哪些命令：file -f\n该命令在查询出错后会返回文件内容！\n那么，空格怎么替换呢？有${IFS}可以当空格使\n战战兢兢的对照了下，没有被过滤掉的非法字，拼一个命令试试：\n/?rce=file${IFS}-f${IFS}fla\\g.php\n进入地址栏……复制粘贴……回车……没有出现返回内容！\n成功了？右键-查看源代码，果然！\n得到flag！AC！\n参考 [1] CTF中常见php-MD5()函数漏洞\n[2] CTF中文件包含漏洞总结\n[3] CTF之HAHA浏览器修改\n[4] HTTP头伪造\n[5] ctfshow命令执行[50]与常见过滤的思考\n[6] MD5绕过各种姿势\n","wordCount":"2231","inLanguage":"en","datePublished":"2021-08-19T00:00:00Z","dateModified":"2021-12-11T00:00:00Z","author":{"@type":"Person","name":"Yiming Shen"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://shenyiming.life/post/12.moectf-web-write-up/"},"publisher":{"@type":"Organization","name":"Console.makeHappy(_1ming)","logo":{"@type":"ImageObject","url":"https://shenyiming.life/favicon.ico"}}}</script>
 </head>
 <body id=top>
 <script>localStorage.getItem("pref-theme")==="dark"?document.body.classList.add('dark'):localStorage.getItem("pref-theme")==="light"?document.body.classList.remove('dark'):window.matchMedia('(prefers-color-scheme: dark)').matches&&document.body.classList.add('dark')</script>
@@ -155,7 +104,7 @@ You are not VIP,I will give flag to VIP!
 MoeCTF 2021 西电新生赛WP
 </h1>
 <div class=post-meta>
-August 19, 2021&nbsp;·&nbsp;December 11, 2021&nbsp;·&nbsp;2 min&nbsp;·&nbsp;Yiming Shen
+August 19, 2021&nbsp;·&nbsp;December 11, 2021&nbsp;·&nbsp;5 min&nbsp;·&nbsp;Yiming Shen
 |&nbsp;<a href=https://github.com/shenyimings/shenyimings.github.io/tree/main/docs rel="noopener noreferrer" target=_blank>Issue</a>
 </div>
 </header>

@@ -5,13 +5,7 @@
 <meta name=robots content="index, follow">
 <title>3.3 一次同余方程 | Console.makeHappy(_1ming)</title>
 <meta name=keywords content="密码学数学基础,Note,cryptology">
-<meta name=description content="一次同余方程 定义3.1.1  变数个数多于方程个数，且取整数值的方程（或方程组）称为不定方程（组）
- 定理3.1.1  二元一次不定方程ax+by+n有整数解的充要条件是(a,b) | n
- 定理3.1.2  设二元一次不定方程ax+by=n有解 $$ x_0,y_0 为它的一组整数解(特解)，则该方程的通解为：\\ x=x_0+\frac{b}{(a,b)}t\\ y=y_0-\frac{a}{(a,b)}t,t\in Z $$
- 例3.1.1 求解2x+3y=7的通解 解： $$ (2,3)=1,易知x_0=2,y_0=1是原方程一解，则由定理3.1.2知\\ x=x_0+bt=2+3t\\ y=y_0-at=1-2t $$
-定理3.1.3 一次同余方程结论  $$ 同余方程ax+b\equiv 0(mod\quad m)有解当且仅当(a,m) | b\\ 若ax+b\equiv 0(mod\quad m)有解，则在模m的意义下解数为(a,m)个\\ 记x_0为其中一个解，则该方程通解为\\ x_0+t\frac{m}{(a,m)}(mod\quad m)\\ 其中0\le t \lt (a,m),t\in Z $$
- 证明： $$ ax+b\equiv 0(mod\quad m)\leftrightarrow ax+b=my\\ 套用定理3.1.1和3.1.2即可 $$
-例题3.1.3 求解一次同余方程 $$ 32x\equiv 12(mod \quad 8)\\ (32,8)=8\nmid 12无解 $$">
+<meta name=description content="一次同余方程 定义3.1.1 变数个数多于方程个数，且取整数值的方程（或方程组）称为不定方程（组） 定理3.1.1 二元一次不定方程ax+by+n有">
 <meta name=author content="Yiming Shen">
 <link rel=canonical href=https://shenyiming.life/cryptologymath/3.3_%E4%B8%80%E6%AC%A1%E5%90%8C%E4%BD%99%E6%96%B9%E7%A8%8B/>
 <meta name=google-site-verification content="XYZabc">
@@ -32,13 +26,7 @@
 <script type=application/javascript>var doNotTrack=!1;doNotTrack||(window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga('create','UA-123-45','auto'),ga('send','pageview'))</script>
 <script async src=https://www.google-analytics.com/analytics.js></script>
 <meta property="og:title" content="3.3 一次同余方程">
-<meta property="og:description" content="一次同余方程 定义3.1.1  变数个数多于方程个数，且取整数值的方程（或方程组）称为不定方程（组）
- 定理3.1.1  二元一次不定方程ax+by+n有整数解的充要条件是(a,b) | n
- 定理3.1.2  设二元一次不定方程ax+by=n有解 $$ x_0,y_0 为它的一组整数解(特解)，则该方程的通解为：\\ x=x_0+\frac{b}{(a,b)}t\\ y=y_0-\frac{a}{(a,b)}t,t\in Z $$
- 例3.1.1 求解2x+3y=7的通解 解： $$ (2,3)=1,易知x_0=2,y_0=1是原方程一解，则由定理3.1.2知\\ x=x_0+bt=2+3t\\ y=y_0-at=1-2t $$
-定理3.1.3 一次同余方程结论  $$ 同余方程ax+b\equiv 0(mod\quad m)有解当且仅当(a,m) | b\\ 若ax+b\equiv 0(mod\quad m)有解，则在模m的意义下解数为(a,m)个\\ 记x_0为其中一个解，则该方程通解为\\ x_0+t\frac{m}{(a,m)}(mod\quad m)\\ 其中0\le t \lt (a,m),t\in Z $$
- 证明： $$ ax+b\equiv 0(mod\quad m)\leftrightarrow ax+b=my\\ 套用定理3.1.1和3.1.2即可 $$
-例题3.1.3 求解一次同余方程 $$ 32x\equiv 12(mod \quad 8)\\ (32,8)=8\nmid 12无解 $$">
+<meta property="og:description" content="一次同余方程 定义3.1.1 变数个数多于方程个数，且取整数值的方程（或方程组）称为不定方程（组） 定理3.1.1 二元一次不定方程ax+by+n有">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://shenyiming.life/cryptologymath/3.3_%E4%B8%80%E6%AC%A1%E5%90%8C%E4%BD%99%E6%96%B9%E7%A8%8B/"><meta property="og:image" content="https://shenyiming.life/android-chrome-512x512.png"><meta property="article:section" content="CryptologyMath">
 <meta property="article:published_time" content="2021-09-30T00:00:00+00:00">
@@ -46,15 +34,9 @@
 <meta name=twitter:card content="summary_large_image">
 <meta name=twitter:image content="https://shenyiming.life/android-chrome-512x512.png">
 <meta name=twitter:title content="3.3 一次同余方程">
-<meta name=twitter:description content="一次同余方程 定义3.1.1  变数个数多于方程个数，且取整数值的方程（或方程组）称为不定方程（组）
- 定理3.1.1  二元一次不定方程ax+by+n有整数解的充要条件是(a,b) | n
- 定理3.1.2  设二元一次不定方程ax+by=n有解 $$ x_0,y_0 为它的一组整数解(特解)，则该方程的通解为：\\ x=x_0+\frac{b}{(a,b)}t\\ y=y_0-\frac{a}{(a,b)}t,t\in Z $$
- 例3.1.1 求解2x+3y=7的通解 解： $$ (2,3)=1,易知x_0=2,y_0=1是原方程一解，则由定理3.1.2知\\ x=x_0+bt=2+3t\\ y=y_0-at=1-2t $$
-定理3.1.3 一次同余方程结论  $$ 同余方程ax+b\equiv 0(mod\quad m)有解当且仅当(a,m) | b\\ 若ax+b\equiv 0(mod\quad m)有解，则在模m的意义下解数为(a,m)个\\ 记x_0为其中一个解，则该方程通解为\\ x_0+t\frac{m}{(a,m)}(mod\quad m)\\ 其中0\le t \lt (a,m),t\in Z $$
- 证明： $$ ax+b\equiv 0(mod\quad m)\leftrightarrow ax+b=my\\ 套用定理3.1.1和3.1.2即可 $$
-例题3.1.3 求解一次同余方程 $$ 32x\equiv 12(mod \quad 8)\\ (32,8)=8\nmid 12无解 $$">
+<meta name=twitter:description content="一次同余方程 定义3.1.1 变数个数多于方程个数，且取整数值的方程（或方程组）称为不定方程（组） 定理3.1.1 二元一次不定方程ax+by+n有">
 <script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":2,"name":"密码学数学基础笔记","item":"https://shenyiming.life/cryptologymath/"},{"@type":"ListItem","position":3,"name":"3.3 一次同余方程","item":"https://shenyiming.life/cryptologymath/3.3_%E4%B8%80%E6%AC%A1%E5%90%8C%E4%BD%99%E6%96%B9%E7%A8%8B/"}]}</script>
-<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"3.3 一次同余方程","name":"3.3 一次同余方程","description":"一次同余方程 定义3.1.1  变数个数多于方程个数，且取整数值的方程（或方程组）称为不定方程（组）\n 定理3.1.1  二元一次不定方程ax+by+n有整数解的充要条件是(a,b) | n\n 定理3.1.2  设二元一次不定方程ax+by=n有解 $$ x_0,y_0 为它的一组整数解(特解)，则该方程的通解为：\\\\ x=x_0+\\frac{b}{(a,b)}t\\\\ y=y_0-\\frac{a}{(a,b)}t,t\\in Z $$\n 例3.1.1 求解2x+3y=7的通解 解： $$ (2,3)=1,易知x_0=2,y_0=1是原方程一解，则由定理3.1.2知\\\\ x=x_0+bt=2+3t\\\\ y=y_0-at=1-2t $$\n定理3.1.3 一次同余方程结论  $$ 同余方程ax+b\\equiv 0(mod\\quad m)有解当且仅当(a,m) | b\\\\ 若ax+b\\equiv 0(mod\\quad m)有解，则在模m的意义下解数为(a,m)个\\\\ 记x_0为其中一个解，则该方程通解为\\\\ x_0+t\\frac{m}{(a,m)}(mod\\quad m)\\\\ 其中0\\le t \\lt (a,m),t\\in Z $$\n 证明： $$ ax+b\\equiv 0(mod\\quad m)\\leftrightarrow ax+b=my\\\\ 套用定理3.1.1和3.1.2即可 $$\n例题3.1.3 求解一次同余方程 $$ 32x\\equiv 12(mod \\quad 8)\\\\ (32,8)=8\\nmid 12无解 $$","keywords":["密码学数学基础","Note","cryptology"],"articleBody":"一次同余方程 定义3.1.1  变数个数多于方程个数，且取整数值的方程（或方程组）称为不定方程（组）\n 定理3.1.1  二元一次不定方程ax+by+n有整数解的充要条件是(a,b) | n\n 定理3.1.2  设二元一次不定方程ax+by=n有解 $$ x_0,y_0 为它的一组整数解(特解)，则该方程的通解为：\\\\ x=x_0+\\frac{b}{(a,b)}t\\\\ y=y_0-\\frac{a}{(a,b)}t,t\\in Z $$\n 例3.1.1 求解2x+3y=7的通解 解： $$ (2,3)=1,易知x_0=2,y_0=1是原方程一解，则由定理3.1.2知\\\\ x=x_0+bt=2+3t\\\\ y=y_0-at=1-2t $$\n定理3.1.3 一次同余方程结论  $$ 同余方程ax+b\\equiv 0(mod\\quad m)有解当且仅当(a,m) | b\\\\ 若ax+b\\equiv 0(mod\\quad m)有解，则在模m的意义下解数为(a,m)个\\\\ 记x_0为其中一个解，则该方程通解为\\\\ x_0+t\\frac{m}{(a,m)}(mod\\quad m)\\\\ 其中0\\le t \\lt (a,m),t\\in Z $$\n 证明： $$ ax+b\\equiv 0(mod\\quad m)\\leftrightarrow ax+b=my\\\\ 套用定理3.1.1和3.1.2即可 $$\n例题3.1.3 求解一次同余方程 $$ 32x\\equiv 12(mod \\quad 8)\\\\ (32,8)=8\\nmid 12无解 $$\n例题3.1.4 $$ 6x\\equiv 2(mod\\quad 8)\\\\ 有(6,8)=2个解\\\\ 特解：x_0\\equiv 3(mod\\quad 8)\\\\ 原方程的解为\\\\ x\\equiv 3+\\frac{8}{(6,8)}t\\equiv 3,7\\qquad t=0,1 $$\n若同余方程只有一个解 根据定理2.1.3,若(a,m)=1，则对于每个整数b $$ 同余方程ax\\equiv b(mod\\quad m)\\\\ 均有解，模m解数为1,即\\\\ x\\equiv a^{-1}\\cdot b(mod\\quad m)\\\\ $$\n还可根据欧拉定理： $$ a^{\\phi(m)}\\equiv 1(mod\\quad m)\\\\ 于是求解一次同余方程\\\\ ax\\equiv b(mod\\quad m)\\\\ 即x\\equiv a^{\\phi(m)-1}\\cdot b(mod\\quad m) $$\n例题3.1.5 $$ 24x\\equiv 7(mod\\quad 59)\\\\ 59=2\\times 24+11\\\\ 24=2\\times 11+2\\\\ 11=5\\times 2+1\\\\ 2=2\\times 1\\\\ 24^{-1}=-27(mod\\quad 59)\\\\ x\\equiv 24^{-1}\\cdot 7(mod\\quad 59)\\equiv (-27)\\cdot 7(mod \\quad 59)\\equiv -12(m) $$\n","wordCount":"128","inLanguage":"en","datePublished":"2021-09-30T00:00:00Z","dateModified":"2022-01-20T00:00:00Z","author":{"@type":"Person","name":"Yiming Shen"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://shenyiming.life/cryptologymath/3.3_%E4%B8%80%E6%AC%A1%E5%90%8C%E4%BD%99%E6%96%B9%E7%A8%8B/"},"publisher":{"@type":"Organization","name":"Console.makeHappy(_1ming)","logo":{"@type":"ImageObject","url":"https://shenyiming.life/favicon.ico"}}}</script>
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"3.3 一次同余方程","name":"3.3 一次同余方程","description":"一次同余方程 定义3.1.1 变数个数多于方程个数，且取整数值的方程（或方程组）称为不定方程（组） 定理3.1.1 二元一次不定方程ax+by+n有","keywords":["密码学数学基础","Note","cryptology"],"articleBody":"一次同余方程 定义3.1.1  变数个数多于方程个数，且取整数值的方程（或方程组）称为不定方程（组）\n 定理3.1.1  二元一次不定方程ax+by+n有整数解的充要条件是(a,b) | n\n 定理3.1.2  设二元一次不定方程ax+by=n有解 $$ x_0,y_0 为它的一组整数解(特解)，则该方程的通解为：\\\\ x=x_0+\\frac{b}{(a,b)}t\\\\ y=y_0-\\frac{a}{(a,b)}t,t\\in Z $$\n 例3.1.1 求解2x+3y=7的通解 解： $$ (2,3)=1,易知x_0=2,y_0=1是原方程一解，则由定理3.1.2知\\\\ x=x_0+bt=2+3t\\\\ y=y_0-at=1-2t $$\n定理3.1.3 一次同余方程结论  $$ 同余方程ax+b\\equiv 0(mod\\quad m)有解当且仅当(a,m) | b\\\\ 若ax+b\\equiv 0(mod\\quad m)有解，则在模m的意义下解数为(a,m)个\\\\ 记x_0为其中一个解，则该方程通解为\\\\ x_0+t\\frac{m}{(a,m)}(mod\\quad m)\\\\ 其中0\\le t \\lt (a,m),t\\in Z $$\n 证明： $$ ax+b\\equiv 0(mod\\quad m)\\leftrightarrow ax+b=my\\\\ 套用定理3.1.1和3.1.2即可 $$\n例题3.1.3 求解一次同余方程 $$ 32x\\equiv 12(mod \\quad 8)\\\\ (32,8)=8\\nmid 12无解 $$\n例题3.1.4 $$ 6x\\equiv 2(mod\\quad 8)\\\\ 有(6,8)=2个解\\\\ 特解：x_0\\equiv 3(mod\\quad 8)\\\\ 原方程的解为\\\\ x\\equiv 3+\\frac{8}{(6,8)}t\\equiv 3,7\\qquad t=0,1 $$\n若同余方程只有一个解 根据定理2.1.3,若(a,m)=1，则对于每个整数b $$ 同余方程ax\\equiv b(mod\\quad m)\\\\ 均有解，模m解数为1,即\\\\ x\\equiv a^{-1}\\cdot b(mod\\quad m)\\\\ $$\n还可根据欧拉定理： $$ a^{\\phi(m)}\\equiv 1(mod\\quad m)\\\\ 于是求解一次同余方程\\\\ ax\\equiv b(mod\\quad m)\\\\ 即x\\equiv a^{\\phi(m)-1}\\cdot b(mod\\quad m) $$\n例题3.1.5 $$ 24x\\equiv 7(mod\\quad 59)\\\\ 59=2\\times 24+11\\\\ 24=2\\times 11+2\\\\ 11=5\\times 2+1\\\\ 2=2\\times 1\\\\ 24^{-1}=-27(mod\\quad 59)\\\\ x\\equiv 24^{-1}\\cdot 7(mod\\quad 59)\\equiv (-27)\\cdot 7(mod \\quad 59)\\equiv -12(m) $$\n","wordCount":"564","inLanguage":"en","datePublished":"2021-09-30T00:00:00Z","dateModified":"2022-01-20T00:00:00Z","author":{"@type":"Person","name":"Yiming Shen"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://shenyiming.life/cryptologymath/3.3_%E4%B8%80%E6%AC%A1%E5%90%8C%E4%BD%99%E6%96%B9%E7%A8%8B/"},"publisher":{"@type":"Organization","name":"Console.makeHappy(_1ming)","logo":{"@type":"ImageObject","url":"https://shenyiming.life/favicon.ico"}}}</script>
 </head>
 <body id=top>
 <script>localStorage.getItem("pref-theme")==="dark"?document.body.classList.add('dark'):localStorage.getItem("pref-theme")==="light"?document.body.classList.remove('dark'):window.matchMedia('(prefers-color-scheme: dark)').matches&&document.body.classList.add('dark')</script>
@@ -122,7 +104,7 @@
 3.3 一次同余方程
 </h1>
 <div class=post-meta>
-September 30, 2021&nbsp;·&nbsp;January 20, 2022&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Yiming Shen
+September 30, 2021&nbsp;·&nbsp;January 20, 2022&nbsp;·&nbsp;2 min&nbsp;·&nbsp;Yiming Shen
 |&nbsp;<a href=https://github.com/shenyimings/shenyimings.github.io/tree/main/docs rel="noopener noreferrer" target=_blank>Issue</a>
 </div>
 </header>

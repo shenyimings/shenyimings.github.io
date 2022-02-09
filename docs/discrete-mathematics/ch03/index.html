@@ -5,11 +5,7 @@
 <meta name=robots content="index, follow">
 <title>离散数学CH03-命题逻辑的推理理论 | Console.makeHappy(_1ming)</title>
 <meta name=keywords content="离散数学,Note">
-<meta name=description content="前言  所谓推理是指从前提出发推出结论的思维过程，而前提是已知的命题公式集合，结论是从前提出发应用推理规则推出的命题公式。
- 定理3.1  命题公式 $$ A_1,A_2,\cdots,A_k $$ 推出B的推理正确当且仅当 $$ A_1\wedge A_2,\wedge \cdots,\wedge A_k \to B $$ 为重言式。
- 今后把推理的形式结构写成: $$ 前提：A_1,A_2,\cdots,A_k\\ 结论：B $$ 并根据判断定理3.1的蕴含式是否是重言式来确定推理是否正确。根据前2章的讨论，判断是否为重言式有下面3种方法：
- 真值表法 等值演算法 主析取范式法  常用重言蕴含式（推理定律）  $$ (A\to B)\wedge A \Rightarrow B \qquad 假言推理\\ (A\to B)\wedge \neg B\Rightarrow \neg A\qquad 拒取式\\ (A\vee B)\wedge \neg B \Rightarrow A \qquad 析取三段论\\ (A\to B)\wedge (B\to C)\Rightarrow (A\to C) \qquad 假言三段论\\ $$
- 推理证明格式 例3.3 在自然推理系统P中构造下面推理的证明。 前提：$$P\vee q,q\to r,p\to s,\neg s$$">
+<meta name=description content="前言 所谓推理是指从前提出发推出结论的思维过程，而前提是已知的命题公式集合，结论是从前提出发应用推理规则推出的命题公式。 定理3.1 命题公式 $$ A_1,A_2,\cdots,A_k">
 <meta name=author content="Yiming Shen">
 <link rel=canonical href=https://shenyiming.life/discrete-mathematics/ch03/>
 <meta name=google-site-verification content="XYZabc">
@@ -30,11 +26,7 @@
 <script type=application/javascript>var doNotTrack=!1;doNotTrack||(window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga('create','UA-123-45','auto'),ga('send','pageview'))</script>
 <script async src=https://www.google-analytics.com/analytics.js></script>
 <meta property="og:title" content="离散数学CH03-命题逻辑的推理理论">
-<meta property="og:description" content="前言  所谓推理是指从前提出发推出结论的思维过程，而前提是已知的命题公式集合，结论是从前提出发应用推理规则推出的命题公式。
- 定理3.1  命题公式 $$ A_1,A_2,\cdots,A_k $$ 推出B的推理正确当且仅当 $$ A_1\wedge A_2,\wedge \cdots,\wedge A_k \to B $$ 为重言式。
- 今后把推理的形式结构写成: $$ 前提：A_1,A_2,\cdots,A_k\\ 结论：B $$ 并根据判断定理3.1的蕴含式是否是重言式来确定推理是否正确。根据前2章的讨论，判断是否为重言式有下面3种方法：
- 真值表法 等值演算法 主析取范式法  常用重言蕴含式（推理定律）  $$ (A\to B)\wedge A \Rightarrow B \qquad 假言推理\\ (A\to B)\wedge \neg B\Rightarrow \neg A\qquad 拒取式\\ (A\vee B)\wedge \neg B \Rightarrow A \qquad 析取三段论\\ (A\to B)\wedge (B\to C)\Rightarrow (A\to C) \qquad 假言三段论\\ $$
- 推理证明格式 例3.3 在自然推理系统P中构造下面推理的证明。 前提：$$P\vee q,q\to r,p\to s,\neg s$$">
+<meta property="og:description" content="前言 所谓推理是指从前提出发推出结论的思维过程，而前提是已知的命题公式集合，结论是从前提出发应用推理规则推出的命题公式。 定理3.1 命题公式 $$ A_1,A_2,\cdots,A_k">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://shenyiming.life/discrete-mathematics/ch03/"><meta property="og:image" content="https://shenyiming.life/android-chrome-512x512.png"><meta property="article:section" content="Discrete-Mathematics">
 <meta property="article:published_time" content="2021-10-07T00:00:00+00:00">
@@ -42,13 +34,9 @@
 <meta name=twitter:card content="summary_large_image">
 <meta name=twitter:image content="https://shenyiming.life/android-chrome-512x512.png">
 <meta name=twitter:title content="离散数学CH03-命题逻辑的推理理论">
-<meta name=twitter:description content="前言  所谓推理是指从前提出发推出结论的思维过程，而前提是已知的命题公式集合，结论是从前提出发应用推理规则推出的命题公式。
- 定理3.1  命题公式 $$ A_1,A_2,\cdots,A_k $$ 推出B的推理正确当且仅当 $$ A_1\wedge A_2,\wedge \cdots,\wedge A_k \to B $$ 为重言式。
- 今后把推理的形式结构写成: $$ 前提：A_1,A_2,\cdots,A_k\\ 结论：B $$ 并根据判断定理3.1的蕴含式是否是重言式来确定推理是否正确。根据前2章的讨论，判断是否为重言式有下面3种方法：
- 真值表法 等值演算法 主析取范式法  常用重言蕴含式（推理定律）  $$ (A\to B)\wedge A \Rightarrow B \qquad 假言推理\\ (A\to B)\wedge \neg B\Rightarrow \neg A\qquad 拒取式\\ (A\vee B)\wedge \neg B \Rightarrow A \qquad 析取三段论\\ (A\to B)\wedge (B\to C)\Rightarrow (A\to C) \qquad 假言三段论\\ $$
- 推理证明格式 例3.3 在自然推理系统P中构造下面推理的证明。 前提：$$P\vee q,q\to r,p\to s,\neg s$$">
+<meta name=twitter:description content="前言 所谓推理是指从前提出发推出结论的思维过程，而前提是已知的命题公式集合，结论是从前提出发应用推理规则推出的命题公式。 定理3.1 命题公式 $$ A_1,A_2,\cdots,A_k">
 <script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":2,"name":"离散数学笔记","item":"https://shenyiming.life/discrete-mathematics/"},{"@type":"ListItem","position":3,"name":"离散数学CH03-命题逻辑的推理理论","item":"https://shenyiming.life/discrete-mathematics/ch03/"}]}</script>
-<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"离散数学CH03-命题逻辑的推理理论","name":"离散数学CH03-命题逻辑的推理理论","description":"前言  所谓推理是指从前提出发推出结论的思维过程，而前提是已知的命题公式集合，结论是从前提出发应用推理规则推出的命题公式。\n 定理3.1  命题公式 $$ A_1,A_2,\\cdots,A_k $$ 推出B的推理正确当且仅当 $$ A_1\\wedge A_2,\\wedge \\cdots,\\wedge A_k \\to B $$ 为重言式。\n 今后把推理的形式结构写成: $$ 前提：A_1,A_2,\\cdots,A_k\\\\ 结论：B $$ 并根据判断定理3.1的蕴含式是否是重言式来确定推理是否正确。根据前2章的讨论，判断是否为重言式有下面3种方法：\n 真值表法 等值演算法 主析取范式法  常用重言蕴含式（推理定律）  $$ (A\\to B)\\wedge A \\Rightarrow B \\qquad 假言推理\\\\ (A\\to B)\\wedge \\neg B\\Rightarrow \\neg A\\qquad 拒取式\\\\ (A\\vee B)\\wedge \\neg B \\Rightarrow A \\qquad 析取三段论\\\\ (A\\to B)\\wedge (B\\to C)\\Rightarrow (A\\to C) \\qquad 假言三段论\\\\ $$\n 推理证明格式 例3.3 在自然推理系统P中构造下面推理的证明。 前提：$$P\\vee q,q\\to r,p\\to s,\\neg s$$","keywords":["离散数学","Note"],"articleBody":"前言  所谓推理是指从前提出发推出结论的思维过程，而前提是已知的命题公式集合，结论是从前提出发应用推理规则推出的命题公式。\n 定理3.1  命题公式 $$ A_1,A_2,\\cdots,A_k $$ 推出B的推理正确当且仅当 $$ A_1\\wedge A_2,\\wedge \\cdots,\\wedge A_k \\to B $$ 为重言式。\n 今后把推理的形式结构写成: $$ 前提：A_1,A_2,\\cdots,A_k\\\\ 结论：B $$ 并根据判断定理3.1的蕴含式是否是重言式来确定推理是否正确。根据前2章的讨论，判断是否为重言式有下面3种方法：\n 真值表法 等值演算法 主析取范式法  常用重言蕴含式（推理定律）  $$ (A\\to B)\\wedge A \\Rightarrow B \\qquad 假言推理\\\\ (A\\to B)\\wedge \\neg B\\Rightarrow \\neg A\\qquad 拒取式\\\\ (A\\vee B)\\wedge \\neg B \\Rightarrow A \\qquad 析取三段论\\\\ (A\\to B)\\wedge (B\\to C)\\Rightarrow (A\\to C) \\qquad 假言三段论\\\\ $$\n 推理证明格式 例3.3 在自然推理系统P中构造下面推理的证明。 前提：$$P\\vee q,q\\to r,p\\to s,\\neg s$$\n结论：$$r\\wedge (p\\vee q)$$\n 解 证明： $$ \\begin{align}\np\\to s \\quad 前提引入\\tag{1}\\\\ \\neg s \\quad 前提引入\\tag{2}\\\\ \\neg p \\quad (1)(2)拒取式\\tag{3}\\\\ p\\vee s \\quad 前提引入\\tag{4}\\\\ q \\quad (3)(4)析取三段论\\tag{5}\\\\ q\\to r \\qquad 前提引入\\tag{6}\\\\ r \\quad (5)(6)假言推理\\tag{7}\\\\ r\\wedge (p\\vee q) \\quad (7)(4)合取引入\\tag{8}\\\\\n\\end{align} $$\n ","wordCount":"107","inLanguage":"en","datePublished":"2021-10-07T00:00:00Z","dateModified":"2021-12-14T00:00:00Z","author":{"@type":"Person","name":"Yiming Shen"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://shenyiming.life/discrete-mathematics/ch03/"},"publisher":{"@type":"Organization","name":"Console.makeHappy(_1ming)","logo":{"@type":"ImageObject","url":"https://shenyiming.life/favicon.ico"}}}</script>
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"离散数学CH03-命题逻辑的推理理论","name":"离散数学CH03-命题逻辑的推理理论","description":"前言 所谓推理是指从前提出发推出结论的思维过程，而前提是已知的命题公式集合，结论是从前提出发应用推理规则推出的命题公式。 定理3.1 命题公式 $$ A_1,A_2,\\cdots,A_k","keywords":["离散数学","Note"],"articleBody":"前言  所谓推理是指从前提出发推出结论的思维过程，而前提是已知的命题公式集合，结论是从前提出发应用推理规则推出的命题公式。\n 定理3.1  命题公式 $$ A_1,A_2,\\cdots,A_k $$ 推出B的推理正确当且仅当 $$ A_1\\wedge A_2,\\wedge \\cdots,\\wedge A_k \\to B $$ 为重言式。\n 今后把推理的形式结构写成: $$ 前提：A_1,A_2,\\cdots,A_k\\\\ 结论：B $$ 并根据判断定理3.1的蕴含式是否是重言式来确定推理是否正确。根据前2章的讨论，判断是否为重言式有下面3种方法：\n 真值表法 等值演算法 主析取范式法  常用重言蕴含式（推理定律）  $$ (A\\to B)\\wedge A \\Rightarrow B \\qquad 假言推理\\\\ (A\\to B)\\wedge \\neg B\\Rightarrow \\neg A\\qquad 拒取式\\\\ (A\\vee B)\\wedge \\neg B \\Rightarrow A \\qquad 析取三段论\\\\ (A\\to B)\\wedge (B\\to C)\\Rightarrow (A\\to C) \\qquad 假言三段论\\\\ $$\n 推理证明格式 例3.3 在自然推理系统P中构造下面推理的证明。 前提：$$P\\vee q,q\\to r,p\\to s,\\neg s$$\n结论：$$r\\wedge (p\\vee q)$$\n 解 证明： $$ \\begin{align}\np\\to s \\quad 前提引入\\tag{1}\\\\ \\neg s \\quad 前提引入\\tag{2}\\\\ \\neg p \\quad (1)(2)拒取式\\tag{3}\\\\ p\\vee s \\quad 前提引入\\tag{4}\\\\ q \\quad (3)(4)析取三段论\\tag{5}\\\\ q\\to r \\qquad 前提引入\\tag{6}\\\\ r \\quad (5)(6)假言推理\\tag{7}\\\\ r\\wedge (p\\vee q) \\quad (7)(4)合取引入\\tag{8}\\\\\n\\end{align} $$\n ","wordCount":"490","inLanguage":"en","datePublished":"2021-10-07T00:00:00Z","dateModified":"2021-12-14T00:00:00Z","author":{"@type":"Person","name":"Yiming Shen"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://shenyiming.life/discrete-mathematics/ch03/"},"publisher":{"@type":"Organization","name":"Console.makeHappy(_1ming)","logo":{"@type":"ImageObject","url":"https://shenyiming.life/favicon.ico"}}}</script>
 </head>
 <body id=top>
 <script>localStorage.getItem("pref-theme")==="dark"?document.body.classList.add('dark'):localStorage.getItem("pref-theme")==="light"?document.body.classList.remove('dark'):window.matchMedia('(prefers-color-scheme: dark)').matches&&document.body.classList.add('dark')</script>

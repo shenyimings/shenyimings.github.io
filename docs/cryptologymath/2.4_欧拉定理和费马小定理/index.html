@@ -5,13 +5,7 @@
 <meta name=robots content="index, follow">
 <title>2.4 欧拉定理和费马小定理 | Console.makeHappy(_1ming)</title>
 <meta name=keywords content="密码学数学基础,Note,cryptology">
-<meta name=description content="定理2.4.1 (欧拉定理) $$ 设m为正整数，a为整数，并且(a,m)=1，则\\ a^{\phi(m)}\equiv 1(mod\quad m)\\ $$
-证明： $$ 取模m的一个即约剩余系b_1,b_2,\cdots,b_s, s=\phi(m),则\\ ab_1,ab_2,\cdots,ab_s也是取模m的一个即约剩余系，于是\\ b_1\cdot b_2\cdots b_s\equiv ab_1\cdot ab_2\cdots ab_s\equiv a^s\cdot b_1\cdot b_2\cdots b_s $$
-定理2.4.2 (费马小定理) $$ 设p为素数，则对于每个整数a，有\\ a^p\equiv a(mod\quad p) $$
-证明： $$ p | a 时\\ a^p(mod\quad p)\equiv 0,a(mod\quad p)\equiv 0,即 a^p\equiv a\equiv 0(mod\quad p)\\ p\nmid a时,由于p为素数，故(a,p)=1，由欧拉定理有\\ a^{p-1}\equiv 1(mod\quad p) $$
-例题 例题2.4.1 $$ 设m=11,a=2,有(2,11)=1,\phi(11)=10\\ 故 2^{10} \equiv 1(mod \quad 11) $$
-例题2.4.3 $$ 计算7^{10001}(mod\quad 10) $$
-解： $$ a=7,m=10 $$">
+<meta name=description content="定理2.4.1 (欧拉定理) $$ 设m为正整数，a为整数，并且(a,m)=1，则\\ a^{\phi(m)}\equiv 1(mod\quad m)\\ $$ 证明： $$ 取模m的一个即约剩余系b_1,b_2,\cdo">
 <meta name=author content="Yiming Shen">
 <link rel=canonical href=https://shenyiming.life/cryptologymath/2.4_%E6%AC%A7%E6%8B%89%E5%AE%9A%E7%90%86%E5%92%8C%E8%B4%B9%E9%A9%AC%E5%B0%8F%E5%AE%9A%E7%90%86/>
 <meta name=google-site-verification content="XYZabc">
@@ -32,13 +26,7 @@
 <script type=application/javascript>var doNotTrack=!1;doNotTrack||(window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga('create','UA-123-45','auto'),ga('send','pageview'))</script>
 <script async src=https://www.google-analytics.com/analytics.js></script>
 <meta property="og:title" content="2.4 欧拉定理和费马小定理">
-<meta property="og:description" content="定理2.4.1 (欧拉定理) $$ 设m为正整数，a为整数，并且(a,m)=1，则\\ a^{\phi(m)}\equiv 1(mod\quad m)\\ $$
-证明： $$ 取模m的一个即约剩余系b_1,b_2,\cdots,b_s, s=\phi(m),则\\ ab_1,ab_2,\cdots,ab_s也是取模m的一个即约剩余系，于是\\ b_1\cdot b_2\cdots b_s\equiv ab_1\cdot ab_2\cdots ab_s\equiv a^s\cdot b_1\cdot b_2\cdots b_s $$
-定理2.4.2 (费马小定理) $$ 设p为素数，则对于每个整数a，有\\ a^p\equiv a(mod\quad p) $$
-证明： $$ p | a 时\\ a^p(mod\quad p)\equiv 0,a(mod\quad p)\equiv 0,即 a^p\equiv a\equiv 0(mod\quad p)\\ p\nmid a时,由于p为素数，故(a,p)=1，由欧拉定理有\\ a^{p-1}\equiv 1(mod\quad p) $$
-例题 例题2.4.1 $$ 设m=11,a=2,有(2,11)=1,\phi(11)=10\\ 故 2^{10} \equiv 1(mod \quad 11) $$
-例题2.4.3 $$ 计算7^{10001}(mod\quad 10) $$
-解： $$ a=7,m=10 $$">
+<meta property="og:description" content="定理2.4.1 (欧拉定理) $$ 设m为正整数，a为整数，并且(a,m)=1，则\\ a^{\phi(m)}\equiv 1(mod\quad m)\\ $$ 证明： $$ 取模m的一个即约剩余系b_1,b_2,\cdo">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://shenyiming.life/cryptologymath/2.4_%E6%AC%A7%E6%8B%89%E5%AE%9A%E7%90%86%E5%92%8C%E8%B4%B9%E9%A9%AC%E5%B0%8F%E5%AE%9A%E7%90%86/"><meta property="og:image" content="https://shenyiming.life/android-chrome-512x512.png"><meta property="article:section" content="CryptologyMath">
 <meta property="article:published_time" content="2021-09-24T00:00:00+00:00">
@@ -46,15 +34,9 @@
 <meta name=twitter:card content="summary_large_image">
 <meta name=twitter:image content="https://shenyiming.life/android-chrome-512x512.png">
 <meta name=twitter:title content="2.4 欧拉定理和费马小定理">
-<meta name=twitter:description content="定理2.4.1 (欧拉定理) $$ 设m为正整数，a为整数，并且(a,m)=1，则\\ a^{\phi(m)}\equiv 1(mod\quad m)\\ $$
-证明： $$ 取模m的一个即约剩余系b_1,b_2,\cdots,b_s, s=\phi(m),则\\ ab_1,ab_2,\cdots,ab_s也是取模m的一个即约剩余系，于是\\ b_1\cdot b_2\cdots b_s\equiv ab_1\cdot ab_2\cdots ab_s\equiv a^s\cdot b_1\cdot b_2\cdots b_s $$
-定理2.4.2 (费马小定理) $$ 设p为素数，则对于每个整数a，有\\ a^p\equiv a(mod\quad p) $$
-证明： $$ p | a 时\\ a^p(mod\quad p)\equiv 0,a(mod\quad p)\equiv 0,即 a^p\equiv a\equiv 0(mod\quad p)\\ p\nmid a时,由于p为素数，故(a,p)=1，由欧拉定理有\\ a^{p-1}\equiv 1(mod\quad p) $$
-例题 例题2.4.1 $$ 设m=11,a=2,有(2,11)=1,\phi(11)=10\\ 故 2^{10} \equiv 1(mod \quad 11) $$
-例题2.4.3 $$ 计算7^{10001}(mod\quad 10) $$
-解： $$ a=7,m=10 $$">
+<meta name=twitter:description content="定理2.4.1 (欧拉定理) $$ 设m为正整数，a为整数，并且(a,m)=1，则\\ a^{\phi(m)}\equiv 1(mod\quad m)\\ $$ 证明： $$ 取模m的一个即约剩余系b_1,b_2,\cdo">
 <script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":2,"name":"密码学数学基础笔记","item":"https://shenyiming.life/cryptologymath/"},{"@type":"ListItem","position":3,"name":"2.4 欧拉定理和费马小定理","item":"https://shenyiming.life/cryptologymath/2.4_%E6%AC%A7%E6%8B%89%E5%AE%9A%E7%90%86%E5%92%8C%E8%B4%B9%E9%A9%AC%E5%B0%8F%E5%AE%9A%E7%90%86/"}]}</script>
-<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"2.4 欧拉定理和费马小定理","name":"2.4 欧拉定理和费马小定理","description":"定理2.4.1 (欧拉定理) $$ 设m为正整数，a为整数，并且(a,m)=1，则\\\\ a^{\\phi(m)}\\equiv 1(mod\\quad m)\\\\ $$\n证明： $$ 取模m的一个即约剩余系b_1,b_2,\\cdots,b_s, s=\\phi(m),则\\\\ ab_1,ab_2,\\cdots,ab_s也是取模m的一个即约剩余系，于是\\\\ b_1\\cdot b_2\\cdots b_s\\equiv ab_1\\cdot ab_2\\cdots ab_s\\equiv a^s\\cdot b_1\\cdot b_2\\cdots b_s $$\n定理2.4.2 (费马小定理) $$ 设p为素数，则对于每个整数a，有\\\\ a^p\\equiv a(mod\\quad p) $$\n证明： $$ p | a 时\\\\ a^p(mod\\quad p)\\equiv 0,a(mod\\quad p)\\equiv 0,即 a^p\\equiv a\\equiv 0(mod\\quad p)\\\\ p\\nmid a时,由于p为素数，故(a,p)=1，由欧拉定理有\\\\ a^{p-1}\\equiv 1(mod\\quad p) $$\n例题 例题2.4.1 $$ 设m=11,a=2,有(2,11)=1,\\phi(11)=10\\\\ 故 2^{10} \\equiv 1(mod \\quad 11) $$\n例题2.4.3 $$ 计算7^{10001}(mod\\quad 10) $$\n解： $$ a=7,m=10 $$","keywords":["密码学数学基础","Note","cryptology"],"articleBody":"定理2.4.1 (欧拉定理) $$ 设m为正整数，a为整数，并且(a,m)=1，则\\\\ a^{\\phi(m)}\\equiv 1(mod\\quad m)\\\\ $$\n证明： $$ 取模m的一个即约剩余系b_1,b_2,\\cdots,b_s, s=\\phi(m),则\\\\ ab_1,ab_2,\\cdots,ab_s也是取模m的一个即约剩余系，于是\\\\ b_1\\cdot b_2\\cdots b_s\\equiv ab_1\\cdot ab_2\\cdots ab_s\\equiv a^s\\cdot b_1\\cdot b_2\\cdots b_s $$\n定理2.4.2 (费马小定理) $$ 设p为素数，则对于每个整数a，有\\\\ a^p\\equiv a(mod\\quad p) $$\n证明： $$ p | a 时\\\\ a^p(mod\\quad p)\\equiv 0,a(mod\\quad p)\\equiv 0,即 a^p\\equiv a\\equiv 0(mod\\quad p)\\\\ p\\nmid a时,由于p为素数，故(a,p)=1，由欧拉定理有\\\\ a^{p-1}\\equiv 1(mod\\quad p) $$\n例题 例题2.4.1 $$ 设m=11,a=2,有(2,11)=1,\\phi(11)=10\\\\ 故 2^{10} \\equiv 1(mod \\quad 11) $$\n例题2.4.3 $$ 计算7^{10001}(mod\\quad 10) $$\n解： $$ a=7,m=10 $$\n","wordCount":"73","inLanguage":"en","datePublished":"2021-09-24T00:00:00Z","dateModified":"2022-01-20T00:00:00Z","author":{"@type":"Person","name":"Yiming Shen"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://shenyiming.life/cryptologymath/2.4_%E6%AC%A7%E6%8B%89%E5%AE%9A%E7%90%86%E5%92%8C%E8%B4%B9%E9%A9%AC%E5%B0%8F%E5%AE%9A%E7%90%86/"},"publisher":{"@type":"Organization","name":"Console.makeHappy(_1ming)","logo":{"@type":"ImageObject","url":"https://shenyiming.life/favicon.ico"}}}</script>
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"2.4 欧拉定理和费马小定理","name":"2.4 欧拉定理和费马小定理","description":"定理2.4.1 (欧拉定理) $$ 设m为正整数，a为整数，并且(a,m)=1，则\\\\ a^{\\phi(m)}\\equiv 1(mod\\quad m)\\\\ $$ 证明： $$ 取模m的一个即约剩余系b_1,b_2,\\cdo","keywords":["密码学数学基础","Note","cryptology"],"articleBody":"定理2.4.1 (欧拉定理) $$ 设m为正整数，a为整数，并且(a,m)=1，则\\\\ a^{\\phi(m)}\\equiv 1(mod\\quad m)\\\\ $$\n证明： $$ 取模m的一个即约剩余系b_1,b_2,\\cdots,b_s, s=\\phi(m),则\\\\ ab_1,ab_2,\\cdots,ab_s也是取模m的一个即约剩余系，于是\\\\ b_1\\cdot b_2\\cdots b_s\\equiv ab_1\\cdot ab_2\\cdots ab_s\\equiv a^s\\cdot b_1\\cdot b_2\\cdots b_s $$\n定理2.4.2 (费马小定理) $$ 设p为素数，则对于每个整数a，有\\\\ a^p\\equiv a(mod\\quad p) $$\n证明： $$ p | a 时\\\\ a^p(mod\\quad p)\\equiv 0,a(mod\\quad p)\\equiv 0,即 a^p\\equiv a\\equiv 0(mod\\quad p)\\\\ p\\nmid a时,由于p为素数，故(a,p)=1，由欧拉定理有\\\\ a^{p-1}\\equiv 1(mod\\quad p) $$\n例题 例题2.4.1 $$ 设m=11,a=2,有(2,11)=1,\\phi(11)=10\\\\ 故 2^{10} \\equiv 1(mod \\quad 11) $$\n例题2.4.3 $$ 计算7^{10001}(mod\\quad 10) $$\n解： $$ a=7,m=10 $$\n","wordCount":"315","inLanguage":"en","datePublished":"2021-09-24T00:00:00Z","dateModified":"2022-01-20T00:00:00Z","author":{"@type":"Person","name":"Yiming Shen"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://shenyiming.life/cryptologymath/2.4_%E6%AC%A7%E6%8B%89%E5%AE%9A%E7%90%86%E5%92%8C%E8%B4%B9%E9%A9%AC%E5%B0%8F%E5%AE%9A%E7%90%86/"},"publisher":{"@type":"Organization","name":"Console.makeHappy(_1ming)","logo":{"@type":"ImageObject","url":"https://shenyiming.life/favicon.ico"}}}</script>
 </head>
 <body id=top>
 <script>localStorage.getItem("pref-theme")==="dark"?document.body.classList.add('dark'):localStorage.getItem("pref-theme")==="light"?document.body.classList.remove('dark'):window.matchMedia('(prefers-color-scheme: dark)').matches&&document.body.classList.add('dark')</script>

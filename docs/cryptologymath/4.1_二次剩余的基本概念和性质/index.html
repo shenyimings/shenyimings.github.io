@@ -5,11 +5,7 @@
 <meta name=robots content="index, follow">
 <title>4 二次剩余 | Console.makeHappy(_1ming)</title>
 <meta name=keywords content="密码学数学基础,Note,cryptology">
-<meta name=description content="定义4.1.1 $$ 设a为整数，p为奇素数，p\nmid a，如果同余方程\ x^2\equiv a(mod\quad p)有解，则称a是模p的二次剩余\ 否则称a是模p的二次非剩余。 $$
-4.2 勒让德符号 定义4.2.1 $$ 设p为奇素数，对于每个整数a，定义勒让德符号如下\ (\frac{a}{p})=1, p\nmid a 并且a是 $$
-定理 4.2.1 $$ 若p为奇素数，则\ (1)(欧拉判别法)\ (\frac{a}{p})\equiv a^{\frac{p-1}{2}}(mod\quad p) \ p\mid a ,() $$
-整数的标准素因数分解式 $$ a=+- 2^e q^{e_1}_1\cdots q^{e_s}_s $$ 则 $$ (\frac{a}{p})=(\frac{+-1}{p})(\frac{2}{p})^e (\frac{q_1}{p})^{e_1}\cdots (\frac{q_s}{p})^{e_s} $$
-定理4.2.2 $$ 若p为奇素数，则\ (1)(\frac{a}{p})=(\frac{a+p}{p});\ (2)当p\nmid a时\ (3)(\frac{1}{p})=1\ (\frac{1}{p})\equiv 1^{\frac{p-1}{2}}\equiv 1(mod\quad p) $$">
+<meta name=description content="定义4.1.1 $$ 设a为整数，p为奇素数，p\nmid a，如果同余方程\ x^2\equiv a(mod\quad p)有解，则称a是模p的二次剩余\ 否则称a是模p的二次非剩余。 $$ 4.2">
 <meta name=author content="Yiming Shen">
 <link rel=canonical href=https://shenyiming.life/cryptologymath/4.1_%E4%BA%8C%E6%AC%A1%E5%89%A9%E4%BD%99%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5%E5%92%8C%E6%80%A7%E8%B4%A8/>
 <meta name=google-site-verification content="XYZabc">
@@ -30,11 +26,7 @@
 <script type=application/javascript>var doNotTrack=!1;doNotTrack||(window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga('create','UA-123-45','auto'),ga('send','pageview'))</script>
 <script async src=https://www.google-analytics.com/analytics.js></script>
 <meta property="og:title" content="4 二次剩余">
-<meta property="og:description" content="定义4.1.1 $$ 设a为整数，p为奇素数，p\nmid a，如果同余方程\ x^2\equiv a(mod\quad p)有解，则称a是模p的二次剩余\ 否则称a是模p的二次非剩余。 $$
-4.2 勒让德符号 定义4.2.1 $$ 设p为奇素数，对于每个整数a，定义勒让德符号如下\ (\frac{a}{p})=1, p\nmid a 并且a是 $$
-定理 4.2.1 $$ 若p为奇素数，则\ (1)(欧拉判别法)\ (\frac{a}{p})\equiv a^{\frac{p-1}{2}}(mod\quad p) \ p\mid a ,() $$
-整数的标准素因数分解式 $$ a=+- 2^e q^{e_1}_1\cdots q^{e_s}_s $$ 则 $$ (\frac{a}{p})=(\frac{+-1}{p})(\frac{2}{p})^e (\frac{q_1}{p})^{e_1}\cdots (\frac{q_s}{p})^{e_s} $$
-定理4.2.2 $$ 若p为奇素数，则\ (1)(\frac{a}{p})=(\frac{a+p}{p});\ (2)当p\nmid a时\ (3)(\frac{1}{p})=1\ (\frac{1}{p})\equiv 1^{\frac{p-1}{2}}\equiv 1(mod\quad p) $$">
+<meta property="og:description" content="定义4.1.1 $$ 设a为整数，p为奇素数，p\nmid a，如果同余方程\ x^2\equiv a(mod\quad p)有解，则称a是模p的二次剩余\ 否则称a是模p的二次非剩余。 $$ 4.2">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://shenyiming.life/cryptologymath/4.1_%E4%BA%8C%E6%AC%A1%E5%89%A9%E4%BD%99%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5%E5%92%8C%E6%80%A7%E8%B4%A8/"><meta property="og:image" content="https://shenyiming.life/android-chrome-512x512.png"><meta property="article:section" content="CryptologyMath">
 <meta property="article:published_time" content="2021-10-11T00:00:00+00:00">
@@ -42,13 +34,9 @@
 <meta name=twitter:card content="summary_large_image">
 <meta name=twitter:image content="https://shenyiming.life/android-chrome-512x512.png">
 <meta name=twitter:title content="4 二次剩余">
-<meta name=twitter:description content="定义4.1.1 $$ 设a为整数，p为奇素数，p\nmid a，如果同余方程\ x^2\equiv a(mod\quad p)有解，则称a是模p的二次剩余\ 否则称a是模p的二次非剩余。 $$
-4.2 勒让德符号 定义4.2.1 $$ 设p为奇素数，对于每个整数a，定义勒让德符号如下\ (\frac{a}{p})=1, p\nmid a 并且a是 $$
-定理 4.2.1 $$ 若p为奇素数，则\ (1)(欧拉判别法)\ (\frac{a}{p})\equiv a^{\frac{p-1}{2}}(mod\quad p) \ p\mid a ,() $$
-整数的标准素因数分解式 $$ a=+- 2^e q^{e_1}_1\cdots q^{e_s}_s $$ 则 $$ (\frac{a}{p})=(\frac{+-1}{p})(\frac{2}{p})^e (\frac{q_1}{p})^{e_1}\cdots (\frac{q_s}{p})^{e_s} $$
-定理4.2.2 $$ 若p为奇素数，则\ (1)(\frac{a}{p})=(\frac{a+p}{p});\ (2)当p\nmid a时\ (3)(\frac{1}{p})=1\ (\frac{1}{p})\equiv 1^{\frac{p-1}{2}}\equiv 1(mod\quad p) $$">
+<meta name=twitter:description content="定义4.1.1 $$ 设a为整数，p为奇素数，p\nmid a，如果同余方程\ x^2\equiv a(mod\quad p)有解，则称a是模p的二次剩余\ 否则称a是模p的二次非剩余。 $$ 4.2">
 <script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":2,"name":"密码学数学基础笔记","item":"https://shenyiming.life/cryptologymath/"},{"@type":"ListItem","position":3,"name":"4 二次剩余","item":"https://shenyiming.life/cryptologymath/4.1_%E4%BA%8C%E6%AC%A1%E5%89%A9%E4%BD%99%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5%E5%92%8C%E6%80%A7%E8%B4%A8/"}]}</script>
-<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"4 二次剩余","name":"4 二次剩余","description":"定义4.1.1 $$ 设a为整数，p为奇素数，p\\nmid a，如果同余方程\\ x^2\\equiv a(mod\\quad p)有解，则称a是模p的二次剩余\\ 否则称a是模p的二次非剩余。 $$\n4.2 勒让德符号 定义4.2.1 $$ 设p为奇素数，对于每个整数a，定义勒让德符号如下\\ (\\frac{a}{p})=1, p\\nmid a 并且a是 $$\n定理 4.2.1 $$ 若p为奇素数，则\\ (1)(欧拉判别法)\\ (\\frac{a}{p})\\equiv a^{\\frac{p-1}{2}}(mod\\quad p) \\ p\\mid a ,() $$\n整数的标准素因数分解式 $$ a=+- 2^e q^{e_1}_1\\cdots q^{e_s}_s $$ 则 $$ (\\frac{a}{p})=(\\frac{+-1}{p})(\\frac{2}{p})^e (\\frac{q_1}{p})^{e_1}\\cdots (\\frac{q_s}{p})^{e_s} $$\n定理4.2.2 $$ 若p为奇素数，则\\ (1)(\\frac{a}{p})=(\\frac{a+p}{p});\\ (2)当p\\nmid a时\\ (3)(\\frac{1}{p})=1\\ (\\frac{1}{p})\\equiv 1^{\\frac{p-1}{2}}\\equiv 1(mod\\quad p) $$","keywords":["密码学数学基础","Note","cryptology"],"articleBody":"定义4.1.1 $$ 设a为整数，p为奇素数，p\\nmid a，如果同余方程\\ x^2\\equiv a(mod\\quad p)有解，则称a是模p的二次剩余\\ 否则称a是模p的二次非剩余。 $$\n4.2 勒让德符号 定义4.2.1 $$ 设p为奇素数，对于每个整数a，定义勒让德符号如下\\ (\\frac{a}{p})=1, p\\nmid a 并且a是 $$\n定理 4.2.1 $$ 若p为奇素数，则\\ (1)(欧拉判别法)\\ (\\frac{a}{p})\\equiv a^{\\frac{p-1}{2}}(mod\\quad p) \\ p\\mid a ,() $$\n整数的标准素因数分解式 $$ a=+- 2^e q^{e_1}_1\\cdots q^{e_s}_s $$ 则 $$ (\\frac{a}{p})=(\\frac{+-1}{p})(\\frac{2}{p})^e (\\frac{q_1}{p})^{e_1}\\cdots (\\frac{q_s}{p})^{e_s} $$\n定理4.2.2 $$ 若p为奇素数，则\\ (1)(\\frac{a}{p})=(\\frac{a+p}{p});\\ (2)当p\\nmid a时\\ (3)(\\frac{1}{p})=1\\ (\\frac{1}{p})\\equiv 1^{\\frac{p-1}{2}}\\equiv 1(mod\\quad p) $$\n","wordCount":"57","inLanguage":"en","datePublished":"2021-10-11T00:00:00Z","dateModified":"2022-01-20T00:00:00Z","author":{"@type":"Person","name":"Yiming Shen"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://shenyiming.life/cryptologymath/4.1_%E4%BA%8C%E6%AC%A1%E5%89%A9%E4%BD%99%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5%E5%92%8C%E6%80%A7%E8%B4%A8/"},"publisher":{"@type":"Organization","name":"Console.makeHappy(_1ming)","logo":{"@type":"ImageObject","url":"https://shenyiming.life/favicon.ico"}}}</script>
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"4 二次剩余","name":"4 二次剩余","description":"定义4.1.1 $$ 设a为整数，p为奇素数，p\\nmid a，如果同余方程\\ x^2\\equiv a(mod\\quad p)有解，则称a是模p的二次剩余\\ 否则称a是模p的二次非剩余。 $$ 4.2","keywords":["密码学数学基础","Note","cryptology"],"articleBody":"定义4.1.1 $$ 设a为整数，p为奇素数，p\\nmid a，如果同余方程\\ x^2\\equiv a(mod\\quad p)有解，则称a是模p的二次剩余\\ 否则称a是模p的二次非剩余。 $$\n4.2 勒让德符号 定义4.2.1 $$ 设p为奇素数，对于每个整数a，定义勒让德符号如下\\ (\\frac{a}{p})=1, p\\nmid a 并且a是 $$\n定理 4.2.1 $$ 若p为奇素数，则\\ (1)(欧拉判别法)\\ (\\frac{a}{p})\\equiv a^{\\frac{p-1}{2}}(mod\\quad p) \\ p\\mid a ,() $$\n整数的标准素因数分解式 $$ a=+- 2^e q^{e_1}_1\\cdots q^{e_s}_s $$ 则 $$ (\\frac{a}{p})=(\\frac{+-1}{p})(\\frac{2}{p})^e (\\frac{q_1}{p})^{e_1}\\cdots (\\frac{q_s}{p})^{e_s} $$\n定理4.2.2 $$ 若p为奇素数，则\\ (1)(\\frac{a}{p})=(\\frac{a+p}{p});\\ (2)当p\\nmid a时\\ (3)(\\frac{1}{p})=1\\ (\\frac{1}{p})\\equiv 1^{\\frac{p-1}{2}}\\equiv 1(mod\\quad p) $$\n","wordCount":"208","inLanguage":"en","datePublished":"2021-10-11T00:00:00Z","dateModified":"2022-01-20T00:00:00Z","author":{"@type":"Person","name":"Yiming Shen"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://shenyiming.life/cryptologymath/4.1_%E4%BA%8C%E6%AC%A1%E5%89%A9%E4%BD%99%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5%E5%92%8C%E6%80%A7%E8%B4%A8/"},"publisher":{"@type":"Organization","name":"Console.makeHappy(_1ming)","logo":{"@type":"ImageObject","url":"https://shenyiming.life/favicon.ico"}}}</script>
 </head>
 <body id=top>
 <script>localStorage.getItem("pref-theme")==="dark"?document.body.classList.add('dark'):localStorage.getItem("pref-theme")==="light"?document.body.classList.remove('dark'):window.matchMedia('(prefers-color-scheme: dark)').matches&&document.body.classList.add('dark')</script>

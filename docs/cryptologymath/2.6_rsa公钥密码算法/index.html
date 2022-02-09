@@ -5,9 +5,7 @@
 <meta name=robots content="index, follow">
 <title>2.6 RSA公钥密码算法 | Console.makeHappy(_1ming)</title>
 <meta name=keywords content="密码学数学基础,Note,cryptology">
-<meta name=description content="密钥生成  随机生成两个不同的大素数p和q $计算n=pq和\phi(n)=(p-1)(q-1)$ 随机选取整数e,$1\lt e\lt \phi(n)，使得(e,\phi(n))=1$ 计算唯一的整数d,使得 $$ed\equiv 1(mod\quad \phi(n))$$  $$ 公钥是K^A_e = (n,e)\\ 私钥是K_d^A=d\\ $$
-加密过程 用公钥加密明文m,产生密文c
- 获取公钥 $$c\equiv m ^e(mod\quad n)$$ 发送密文  解密过程 ">
+<meta name=description content="密钥生成 随机生成两个不同的大素数p和q $计算n=pq和\phi(n)=(p-1)(q-1)$ 随机选取整数e,$1\lt e\lt \phi(n)，使得">
 <meta name=author content="Yiming Shen">
 <link rel=canonical href=https://shenyiming.life/cryptologymath/2.6_rsa%E5%85%AC%E9%92%A5%E5%AF%86%E7%A0%81%E7%AE%97%E6%B3%95/>
 <meta name=google-site-verification content="XYZabc">
@@ -28,9 +26,7 @@
 <script type=application/javascript>var doNotTrack=!1;doNotTrack||(window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga('create','UA-123-45','auto'),ga('send','pageview'))</script>
 <script async src=https://www.google-analytics.com/analytics.js></script>
 <meta property="og:title" content="2.6 RSA公钥密码算法">
-<meta property="og:description" content="密钥生成  随机生成两个不同的大素数p和q $计算n=pq和\phi(n)=(p-1)(q-1)$ 随机选取整数e,$1\lt e\lt \phi(n)，使得(e,\phi(n))=1$ 计算唯一的整数d,使得 $$ed\equiv 1(mod\quad \phi(n))$$  $$ 公钥是K^A_e = (n,e)\\ 私钥是K_d^A=d\\ $$
-加密过程 用公钥加密明文m,产生密文c
- 获取公钥 $$c\equiv m ^e(mod\quad n)$$ 发送密文  解密过程 ">
+<meta property="og:description" content="密钥生成 随机生成两个不同的大素数p和q $计算n=pq和\phi(n)=(p-1)(q-1)$ 随机选取整数e,$1\lt e\lt \phi(n)，使得">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://shenyiming.life/cryptologymath/2.6_rsa%E5%85%AC%E9%92%A5%E5%AF%86%E7%A0%81%E7%AE%97%E6%B3%95/"><meta property="og:image" content="https://shenyiming.life/android-chrome-512x512.png"><meta property="article:section" content="CryptologyMath">
 <meta property="article:published_time" content="2021-09-25T00:00:00+00:00">
@@ -38,11 +34,9 @@
 <meta name=twitter:card content="summary_large_image">
 <meta name=twitter:image content="https://shenyiming.life/android-chrome-512x512.png">
 <meta name=twitter:title content="2.6 RSA公钥密码算法">
-<meta name=twitter:description content="密钥生成  随机生成两个不同的大素数p和q $计算n=pq和\phi(n)=(p-1)(q-1)$ 随机选取整数e,$1\lt e\lt \phi(n)，使得(e,\phi(n))=1$ 计算唯一的整数d,使得 $$ed\equiv 1(mod\quad \phi(n))$$  $$ 公钥是K^A_e = (n,e)\\ 私钥是K_d^A=d\\ $$
-加密过程 用公钥加密明文m,产生密文c
- 获取公钥 $$c\equiv m ^e(mod\quad n)$$ 发送密文  解密过程 ">
+<meta name=twitter:description content="密钥生成 随机生成两个不同的大素数p和q $计算n=pq和\phi(n)=(p-1)(q-1)$ 随机选取整数e,$1\lt e\lt \phi(n)，使得">
 <script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":2,"name":"密码学数学基础笔记","item":"https://shenyiming.life/cryptologymath/"},{"@type":"ListItem","position":3,"name":"2.6 RSA公钥密码算法","item":"https://shenyiming.life/cryptologymath/2.6_rsa%E5%85%AC%E9%92%A5%E5%AF%86%E7%A0%81%E7%AE%97%E6%B3%95/"}]}</script>
-<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"2.6 RSA公钥密码算法","name":"2.6 RSA公钥密码算法","description":"密钥生成  随机生成两个不同的大素数p和q $计算n=pq和\\phi(n)=(p-1)(q-1)$ 随机选取整数e,$1\\lt e\\lt \\phi(n)，使得(e,\\phi(n))=1$ 计算唯一的整数d,使得 $$ed\\equiv 1(mod\\quad \\phi(n))$$  $$ 公钥是K^A_e = (n,e)\\\\ 私钥是K_d^A=d\\\\ $$\n加密过程 用公钥加密明文m,产生密文c\n 获取公钥 $$c\\equiv m ^e(mod\\quad n)$$ 发送密文  解密过程 ","keywords":["密码学数学基础","Note","cryptology"],"articleBody":"密钥生成  随机生成两个不同的大素数p和q $计算n=pq和\\phi(n)=(p-1)(q-1)$ 随机选取整数e,$1\\lt e\\lt \\phi(n)，使得(e,\\phi(n))=1$ 计算唯一的整数d,使得 $$ed\\equiv 1(mod\\quad \\phi(n))$$  $$ 公钥是K^A_e = (n,e)\\\\ 私钥是K_d^A=d\\\\ $$\n加密过程 用公钥加密明文m,产生密文c\n 获取公钥 $$c\\equiv m ^e(mod\\quad n)$$ 发送密文  解密过程 ","wordCount":"25","inLanguage":"en","datePublished":"2021-09-25T00:00:00Z","dateModified":"2022-01-20T00:00:00Z","author":{"@type":"Person","name":"Yiming Shen"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://shenyiming.life/cryptologymath/2.6_rsa%E5%85%AC%E9%92%A5%E5%AF%86%E7%A0%81%E7%AE%97%E6%B3%95/"},"publisher":{"@type":"Organization","name":"Console.makeHappy(_1ming)","logo":{"@type":"ImageObject","url":"https://shenyiming.life/favicon.ico"}}}</script>
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"2.6 RSA公钥密码算法","name":"2.6 RSA公钥密码算法","description":"密钥生成 随机生成两个不同的大素数p和q $计算n=pq和\\phi(n)=(p-1)(q-1)$ 随机选取整数e,$1\\lt e\\lt \\phi(n)，使得","keywords":["密码学数学基础","Note","cryptology"],"articleBody":"密钥生成  随机生成两个不同的大素数p和q $计算n=pq和\\phi(n)=(p-1)(q-1)$ 随机选取整数e,$1\\lt e\\lt \\phi(n)，使得(e,\\phi(n))=1$ 计算唯一的整数d,使得 $$ed\\equiv 1(mod\\quad \\phi(n))$$  $$ 公钥是K^A_e = (n,e)\\\\ 私钥是K_d^A=d\\\\ $$\n加密过程 用公钥加密明文m,产生密文c\n 获取公钥 $$c\\equiv m ^e(mod\\quad n)$$ 发送密文  解密过程 ","wordCount":"156","inLanguage":"en","datePublished":"2021-09-25T00:00:00Z","dateModified":"2022-01-20T00:00:00Z","author":{"@type":"Person","name":"Yiming Shen"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://shenyiming.life/cryptologymath/2.6_rsa%E5%85%AC%E9%92%A5%E5%AF%86%E7%A0%81%E7%AE%97%E6%B3%95/"},"publisher":{"@type":"Organization","name":"Console.makeHappy(_1ming)","logo":{"@type":"ImageObject","url":"https://shenyiming.life/favicon.ico"}}}</script>
 </head>
 <body id=top>
 <script>localStorage.getItem("pref-theme")==="dark"?document.body.classList.add('dark'):localStorage.getItem("pref-theme")==="light"?document.body.classList.remove('dark'):window.matchMedia('(prefers-color-scheme: dark)').matches&&document.body.classList.add('dark')</script>

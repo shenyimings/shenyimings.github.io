@@ -5,17 +5,7 @@
 <meta name=robots content="index, follow">
 <title>2.2 同余类与既约同余类 | Console.makeHappy(_1ming)</title>
 <meta name=keywords content="密码学数学基础,Note,cryptology">
-<meta name=description content="例题2.2.1 设 $$m=6,\forall a\in Z,a=6q+r,其中q,r\in Z ,r=0,1,2,3,4,5$$
-可分为6类，例如r=0时，所有a为模6同余于0 $$ a_1\equiv a_2 \equiv \cdots a_n \equiv 0 (mod\quad 6)\\ -18,-12,-6,0,6\cdots代表元为0, 表示为[0] $$ [0],[1],[2],[3],[4],[5]称为模6的同余类
-具有如下性质：
- 6个集合彼此不相交 并集为Z  定义2.2.1 同余类 $$ m\in N^+,\forall i \in Z, 记[i]={x:x\in Z,x\equiv i (mod\quad m)} $$
-则每个集合[i]称为模m的一个同余类
-若(i,m)=1,则同余类[i]称作模m的既约同余类
-m=6的既约同余类有[1],[5] 2个，即$\phi(6)=2$（欧拉函数）
-定理2.2.1 同余类 $$ 设m\in N^+,[a],[b]模m的同余类，则有\\ [a]=[b]\Leftrightarrow a\equiv b(mod\quad m) $$
-定义2.2.2 欧拉函数 $$ m\in Z^+,小于m且与m互素的整数的个数表示成\phi(m)，称为m的欧拉函数 $$
-定义2.2.3 剩余系 $$ m个整数a_1,a_2,\cdots,a_m称作模m的完全剩余系，是指a_1,a_2,\cdots,a_m彼此模m不同余。 $$
-完系由m个整数组成，这m个整数彼此模m不同余。 $$ \phi(m)个整数b_1,b_2,\cdots,b_{\phi(m)}称作模m的既约剩余系，是指其彼此模m不同余且均与m互素 $$ 既约剩余系又称缩系。">
+<meta name=description content="例题2.2.1 设 $$m=6,\forall a\in Z,a=6q+r,其中q,r\in Z ,r=0,1,2,3,4,5$$ 可分为6类，例如r=0时，所有a为模6同余于0 $$ a_1\equiv a_2 \equiv \cdots a_n \equiv 0 (mod\quad 6)\\ -18,-12,">
 <meta name=author content="Yiming Shen">
 <link rel=canonical href=https://shenyiming.life/cryptologymath/2.2_%E5%90%8C%E4%BD%99%E7%B1%BB%E4%B8%8E%E6%97%A2%E7%BA%A6%E5%90%8C%E4%BD%99%E7%B1%BB/>
 <meta name=google-site-verification content="XYZabc">
@@ -36,17 +26,7 @@ m=6的既约同余类有[1],[5] 2个，即$\phi(6)=2$（欧拉函数）
 <script type=application/javascript>var doNotTrack=!1;doNotTrack||(window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga('create','UA-123-45','auto'),ga('send','pageview'))</script>
 <script async src=https://www.google-analytics.com/analytics.js></script>
 <meta property="og:title" content="2.2 同余类与既约同余类">
-<meta property="og:description" content="例题2.2.1 设 $$m=6,\forall a\in Z,a=6q+r,其中q,r\in Z ,r=0,1,2,3,4,5$$
-可分为6类，例如r=0时，所有a为模6同余于0 $$ a_1\equiv a_2 \equiv \cdots a_n \equiv 0 (mod\quad 6)\\ -18,-12,-6,0,6\cdots代表元为0, 表示为[0] $$ [0],[1],[2],[3],[4],[5]称为模6的同余类
-具有如下性质：
- 6个集合彼此不相交 并集为Z  定义2.2.1 同余类 $$ m\in N^+,\forall i \in Z, 记[i]={x:x\in Z,x\equiv i (mod\quad m)} $$
-则每个集合[i]称为模m的一个同余类
-若(i,m)=1,则同余类[i]称作模m的既约同余类
-m=6的既约同余类有[1],[5] 2个，即$\phi(6)=2$（欧拉函数）
-定理2.2.1 同余类 $$ 设m\in N^+,[a],[b]模m的同余类，则有\\ [a]=[b]\Leftrightarrow a\equiv b(mod\quad m) $$
-定义2.2.2 欧拉函数 $$ m\in Z^+,小于m且与m互素的整数的个数表示成\phi(m)，称为m的欧拉函数 $$
-定义2.2.3 剩余系 $$ m个整数a_1,a_2,\cdots,a_m称作模m的完全剩余系，是指a_1,a_2,\cdots,a_m彼此模m不同余。 $$
-完系由m个整数组成，这m个整数彼此模m不同余。 $$ \phi(m)个整数b_1,b_2,\cdots,b_{\phi(m)}称作模m的既约剩余系，是指其彼此模m不同余且均与m互素 $$ 既约剩余系又称缩系。">
+<meta property="og:description" content="例题2.2.1 设 $$m=6,\forall a\in Z,a=6q+r,其中q,r\in Z ,r=0,1,2,3,4,5$$ 可分为6类，例如r=0时，所有a为模6同余于0 $$ a_1\equiv a_2 \equiv \cdots a_n \equiv 0 (mod\quad 6)\\ -18,-12,">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://shenyiming.life/cryptologymath/2.2_%E5%90%8C%E4%BD%99%E7%B1%BB%E4%B8%8E%E6%97%A2%E7%BA%A6%E5%90%8C%E4%BD%99%E7%B1%BB/"><meta property="og:image" content="https://shenyiming.life/android-chrome-512x512.png"><meta property="article:section" content="CryptologyMath">
 <meta property="article:published_time" content="2021-09-22T00:00:00+00:00">
@@ -54,19 +34,9 @@ m=6的既约同余类有[1],[5] 2个，即$\phi(6)=2$（欧拉函数）
 <meta name=twitter:card content="summary_large_image">
 <meta name=twitter:image content="https://shenyiming.life/android-chrome-512x512.png">
 <meta name=twitter:title content="2.2 同余类与既约同余类">
-<meta name=twitter:description content="例题2.2.1 设 $$m=6,\forall a\in Z,a=6q+r,其中q,r\in Z ,r=0,1,2,3,4,5$$
-可分为6类，例如r=0时，所有a为模6同余于0 $$ a_1\equiv a_2 \equiv \cdots a_n \equiv 0 (mod\quad 6)\\ -18,-12,-6,0,6\cdots代表元为0, 表示为[0] $$ [0],[1],[2],[3],[4],[5]称为模6的同余类
-具有如下性质：
- 6个集合彼此不相交 并集为Z  定义2.2.1 同余类 $$ m\in N^+,\forall i \in Z, 记[i]={x:x\in Z,x\equiv i (mod\quad m)} $$
-则每个集合[i]称为模m的一个同余类
-若(i,m)=1,则同余类[i]称作模m的既约同余类
-m=6的既约同余类有[1],[5] 2个，即$\phi(6)=2$（欧拉函数）
-定理2.2.1 同余类 $$ 设m\in N^+,[a],[b]模m的同余类，则有\\ [a]=[b]\Leftrightarrow a\equiv b(mod\quad m) $$
-定义2.2.2 欧拉函数 $$ m\in Z^+,小于m且与m互素的整数的个数表示成\phi(m)，称为m的欧拉函数 $$
-定义2.2.3 剩余系 $$ m个整数a_1,a_2,\cdots,a_m称作模m的完全剩余系，是指a_1,a_2,\cdots,a_m彼此模m不同余。 $$
-完系由m个整数组成，这m个整数彼此模m不同余。 $$ \phi(m)个整数b_1,b_2,\cdots,b_{\phi(m)}称作模m的既约剩余系，是指其彼此模m不同余且均与m互素 $$ 既约剩余系又称缩系。">
+<meta name=twitter:description content="例题2.2.1 设 $$m=6,\forall a\in Z,a=6q+r,其中q,r\in Z ,r=0,1,2,3,4,5$$ 可分为6类，例如r=0时，所有a为模6同余于0 $$ a_1\equiv a_2 \equiv \cdots a_n \equiv 0 (mod\quad 6)\\ -18,-12,">
 <script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":2,"name":"密码学数学基础笔记","item":"https://shenyiming.life/cryptologymath/"},{"@type":"ListItem","position":3,"name":"2.2 同余类与既约同余类","item":"https://shenyiming.life/cryptologymath/2.2_%E5%90%8C%E4%BD%99%E7%B1%BB%E4%B8%8E%E6%97%A2%E7%BA%A6%E5%90%8C%E4%BD%99%E7%B1%BB/"}]}</script>
-<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"2.2 同余类与既约同余类","name":"2.2 同余类与既约同余类","description":"例题2.2.1 设 $$m=6,\\forall a\\in Z,a=6q+r,其中q,r\\in Z ,r=0,1,2,3,4,5$$\n可分为6类，例如r=0时，所有a为模6同余于0 $$ a_1\\equiv a_2 \\equiv \\cdots a_n \\equiv 0 (mod\\quad 6)\\\\ -18,-12,-6,0,6\\cdots代表元为0, 表示为[0] $$ [0],[1],[2],[3],[4],[5]称为模6的同余类\n具有如下性质：\n 6个集合彼此不相交 并集为Z  定义2.2.1 同余类 $$ m\\in N^+,\\forall i \\in Z, 记[i]={x:x\\in Z,x\\equiv i (mod\\quad m)} $$\n则每个集合[i]称为模m的一个同余类\n若(i,m)=1,则同余类[i]称作模m的既约同余类\nm=6的既约同余类有[1],[5] 2个，即$\\phi(6)=2$（欧拉函数）\n定理2.2.1 同余类 $$ 设m\\in N^+,[a],[b]模m的同余类，则有\\\\ [a]=[b]\\Leftrightarrow a\\equiv b(mod\\quad m) $$\n定义2.2.2 欧拉函数 $$ m\\in Z^+,小于m且与m互素的整数的个数表示成\\phi(m)，称为m的欧拉函数 $$\n定义2.2.3 剩余系 $$ m个整数a_1,a_2,\\cdots,a_m称作模m的完全剩余系，是指a_1,a_2,\\cdots,a_m彼此模m不同余。 $$\n完系由m个整数组成，这m个整数彼此模m不同余。 $$ \\phi(m)个整数b_1,b_2,\\cdots,b_{\\phi(m)}称作模m的既约剩余系，是指其彼此模m不同余且均与m互素 $$ 既约剩余系又称缩系。","keywords":["密码学数学基础","Note","cryptology"],"articleBody":"例题2.2.1 设 $$m=6,\\forall a\\in Z,a=6q+r,其中q,r\\in Z ,r=0,1,2,3,4,5$$\n可分为6类，例如r=0时，所有a为模6同余于0 $$ a_1\\equiv a_2 \\equiv \\cdots a_n \\equiv 0 (mod\\quad 6)\\\\ -18,-12,-6,0,6\\cdots代表元为0, 表示为[0] $$ [0],[1],[2],[3],[4],[5]称为模6的同余类\n具有如下性质：\n 6个集合彼此不相交 并集为Z  定义2.2.1 同余类 $$ m\\in N^+,\\forall i \\in Z, 记[i]={x:x\\in Z,x\\equiv i (mod\\quad m)} $$\n则每个集合[i]称为模m的一个同余类\n若(i,m)=1,则同余类[i]称作模m的既约同余类\nm=6的既约同余类有[1],[5] 2个，即$\\phi(6)=2$（欧拉函数）\n定理2.2.1 同余类 $$ 设m\\in N^+,[a],[b]模m的同余类，则有\\\\ [a]=[b]\\Leftrightarrow a\\equiv b(mod\\quad m) $$\n定义2.2.2 欧拉函数 $$ m\\in Z^+,小于m且与m互素的整数的个数表示成\\phi(m)，称为m的欧拉函数 $$\n定义2.2.3 剩余系 $$ m个整数a_1,a_2,\\cdots,a_m称作模m的完全剩余系，是指a_1,a_2,\\cdots,a_m彼此模m不同余。 $$\n完系由m个整数组成，这m个整数彼此模m不同余。 $$ \\phi(m)个整数b_1,b_2,\\cdots,b_{\\phi(m)}称作模m的既约剩余系，是指其彼此模m不同余且均与m互素 $$ 既约剩余系又称缩系。\n定义2.2.4 同余类运算 定义同余类加法如下： $$ [a]\\oplus[b]=[a+b]\\\\ 其中a\\in [a],b\\in [b]。通常用[a]+[b]代替[a]\\oplus [b] $$ 定义同余类乘法如下 $$ [a]\\odot [b]=[ab] $$\n","wordCount":"84","inLanguage":"en","datePublished":"2021-09-22T00:00:00Z","dateModified":"2021-10-25T00:00:00Z","author":{"@type":"Person","name":"Yiming Shen"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://shenyiming.life/cryptologymath/2.2_%E5%90%8C%E4%BD%99%E7%B1%BB%E4%B8%8E%E6%97%A2%E7%BA%A6%E5%90%8C%E4%BD%99%E7%B1%BB/"},"publisher":{"@type":"Organization","name":"Console.makeHappy(_1ming)","logo":{"@type":"ImageObject","url":"https://shenyiming.life/favicon.ico"}}}</script>
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"2.2 同余类与既约同余类","name":"2.2 同余类与既约同余类","description":"例题2.2.1 设 $$m=6,\\forall a\\in Z,a=6q+r,其中q,r\\in Z ,r=0,1,2,3,4,5$$ 可分为6类，例如r=0时，所有a为模6同余于0 $$ a_1\\equiv a_2 \\equiv \\cdots a_n \\equiv 0 (mod\\quad 6)\\\\ -18,-12,","keywords":["密码学数学基础","Note","cryptology"],"articleBody":"例题2.2.1 设 $$m=6,\\forall a\\in Z,a=6q+r,其中q,r\\in Z ,r=0,1,2,3,4,5$$\n可分为6类，例如r=0时，所有a为模6同余于0 $$ a_1\\equiv a_2 \\equiv \\cdots a_n \\equiv 0 (mod\\quad 6)\\\\ -18,-12,-6,0,6\\cdots代表元为0, 表示为[0] $$ [0],[1],[2],[3],[4],[5]称为模6的同余类\n具有如下性质：\n 6个集合彼此不相交 并集为Z  定义2.2.1 同余类 $$ m\\in N^+,\\forall i \\in Z, 记[i]={x:x\\in Z,x\\equiv i (mod\\quad m)} $$\n则每个集合[i]称为模m的一个同余类\n若(i,m)=1,则同余类[i]称作模m的既约同余类\nm=6的既约同余类有[1],[5] 2个，即$\\phi(6)=2$（欧拉函数）\n定理2.2.1 同余类 $$ 设m\\in N^+,[a],[b]模m的同余类，则有\\\\ [a]=[b]\\Leftrightarrow a\\equiv b(mod\\quad m) $$\n定义2.2.2 欧拉函数 $$ m\\in Z^+,小于m且与m互素的整数的个数表示成\\phi(m)，称为m的欧拉函数 $$\n定义2.2.3 剩余系 $$ m个整数a_1,a_2,\\cdots,a_m称作模m的完全剩余系，是指a_1,a_2,\\cdots,a_m彼此模m不同余。 $$\n完系由m个整数组成，这m个整数彼此模m不同余。 $$ \\phi(m)个整数b_1,b_2,\\cdots,b_{\\phi(m)}称作模m的既约剩余系，是指其彼此模m不同余且均与m互素 $$ 既约剩余系又称缩系。\n定义2.2.4 同余类运算 定义同余类加法如下： $$ [a]\\oplus[b]=[a+b]\\\\ 其中a\\in [a],b\\in [b]。通常用[a]+[b]代替[a]\\oplus [b] $$ 定义同余类乘法如下 $$ [a]\\odot [b]=[ab] $$\n","wordCount":"597","inLanguage":"en","datePublished":"2021-09-22T00:00:00Z","dateModified":"2021-10-25T00:00:00Z","author":{"@type":"Person","name":"Yiming Shen"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://shenyiming.life/cryptologymath/2.2_%E5%90%8C%E4%BD%99%E7%B1%BB%E4%B8%8E%E6%97%A2%E7%BA%A6%E5%90%8C%E4%BD%99%E7%B1%BB/"},"publisher":{"@type":"Organization","name":"Console.makeHappy(_1ming)","logo":{"@type":"ImageObject","url":"https://shenyiming.life/favicon.ico"}}}</script>
 </head>
 <body id=top>
 <script>localStorage.getItem("pref-theme")==="dark"?document.body.classList.add('dark'):localStorage.getItem("pref-theme")==="light"?document.body.classList.remove('dark'):window.matchMedia('(prefers-color-scheme: dark)').matches&&document.body.classList.add('dark')</script>
@@ -134,7 +104,7 @@ m=6的既约同余类有[1],[5] 2个，即$\phi(6)=2$（欧拉函数）
 2.2 同余类与既约同余类
 </h1>
 <div class=post-meta>
-September 22, 2021&nbsp;·&nbsp;October 25, 2021&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Yiming Shen
+September 22, 2021&nbsp;·&nbsp;October 25, 2021&nbsp;·&nbsp;2 min&nbsp;·&nbsp;Yiming Shen
 |&nbsp;<a href=https://github.com/shenyimings/shenyimings.github.io/tree/main/docs rel="noopener noreferrer" target=_blank>Issue</a>
 </div>
 </header>

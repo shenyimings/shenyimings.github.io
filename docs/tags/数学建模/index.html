@@ -105,11 +105,7 @@ Less-4 MATLAB初阶绘图
 </h2>
 </header>
 <section class=entry-content>
-<p>图线绘制 在MATLAB中，使用plot()函数绘制图线，语法为：
-plot(x,y,linespec) x:图线的横坐标 y:图线的纵坐标 可以仅指定x或者y变量内容，另一参数由系统自动按由小到大顺序生成整数数列。
-绘制(0,2π)内余弦函数图像 x = 0:pi/20:2*pi; y = cos(x); plot(x,y) 图线装饰 线条参数 linespec图线的线条参数
-由线型，标记符号，颜色这三个设定符组成的字符串，设定符不区分先后顺序。
-线性 设定符 标记 设定符 颜色 设定符 实线（默认） - 圆圈 o 红色 r 虚线 -- 加号 + 绿色 g 点线 : 星号 * 蓝色 b 点划线 -. 叉号 x 黑色 k 详情参考MATLAB官方文档 LineSpec（线条设定）-MathWorks...</p>
+<p>图线绘制 在MATLAB中，使用plot()函数绘制图线，语法为： plot(x,y,linespec) x:图线的横坐标 y:图线的纵坐标 可以仅指定x或者y变量内容，另一参数由系统...</p>
 </section>
 <footer class=entry-footer>
 February 3, 2022&nbsp;·&nbsp;February 8, 2022&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Yiming Shen
@@ -123,9 +119,7 @@ Less-3 MATLAB数据结构&文件存取
 </h2>
 </header>
 <section class=entry-content>
-<p>数据类型 数值类型 默认为double类型，可用int8()转换为int型
-数值型 描述 double 双精度浮点数 single 单精度浮点数 uint8 uint16 uint32 uint64 8~64位无符号整数 int8 int16 int32 int64 8~64位带符号整数 字符型 字符型在MATLAB中以字符矩阵形式存储，可使用矩阵索引对其进行操作。
-str3 = [str1 str2]; size(str3) str4 = 'aardvark' 'a' == str4 % 判断每个索引位置是否为a并返回结果 [1 1 0 0 0 1 0 0] str4(str4 == 'a') = 'A' % 将str4中为a的位置替换为A 'AArdvArk' 结构体(Structure) MATLAB中的结构体类似Python中字典，键值一一对应。...</p>
+<p>数据类型 数值类型 默认为double类型，可用int8()转换为int型 数值型 描述 double 双精度浮点数 single 单精度浮点数 uint8 uint16 uint32 uint64 8~64位无符号整数 int8 int16...</p>
 </section>
 <footer class=entry-footer>
 January 29, 2022&nbsp;·&nbsp;January 31, 2022&nbsp;·&nbsp;2 min&nbsp;·&nbsp;Yiming Shen
@@ -139,20 +133,10 @@ Less-2 MATLAB结构程序与自定函数
 </h2>
 </header>
 <section class=entry-content>
-<p>脚本模式 脚本模式用于编写结构化程序
-示例
-for i=1:10 x=linspace(0,10,100); plot(x,sin(x+i)); print(gcf,'-deps',strcat('plot',num2str(i),'.ps')); end 画0-10内sin图像
-F5 运行程序
-打断点可调试运行
-% 是注释
-选中 Ctrl + R 可批量注释
-选中 Ctrl + I 智能缩进
-自定函数 在某个函数文件中定义函数，在命令行窗口或脚本模式进行调用。
-单变量计算 $$ x = x_0 +v_0t +\frac{1}{2}gt^2 $$
-function x =freebody(x0,v0,t) x = x0 + v0 .*t + 1/2*9.8*t.*t % 采用点乘 可以以矩阵形式同时计算多组变量 多变量计算 $$ a = \frac{v_2-v_1}{t_2-t_1} \newline F=ma $$...</p>
+<p>脚本模式 脚本模式用于编写结构化程序 示例 for i=1:10 x=linspace(0,10,100); plot(x,sin(x+i)); print(gcf,'-deps',strcat('plot',num2str(i),'.ps')); end 画0-10内sin图像 F5 运行程序 打断点可调试运行 % 是注释 选中 Ctrl + R 可批量注释 选中 Ctrl + I 智能...</p>
 </section>
 <footer class=entry-footer>
-January 23, 2022&nbsp;·&nbsp;January 24, 2022&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Yiming Shen
+January 23, 2022&nbsp;·&nbsp;January 24, 2022&nbsp;·&nbsp;2 min&nbsp;·&nbsp;Yiming Shen
 </footer>
 <a class=entry-link aria-label="post link to Less-2 MATLAB结构程序与自定函数" href=https://shenyiming.life/post/less-2_scriptfunction/></a>
 </article>
@@ -163,18 +147,10 @@ Less-1 MATLAB基本操作与矩阵输入
 </h2>
 </header>
 <section class=entry-content>
-<p>基本操作 命令行模式
-公式输入 直接输入算式即可计算结果
-输入格式基本同自然语言
-计算： $$ cos(\sqrt{(\frac{1+2+3+4}{5})}) $$
-cos(sqrt((1+2+3+4)/5)) 注意：5/2 是5除以2 5\2是2除以5
-变量定义 定义变量与python相同，无需声明，默认类型为double
-不能声明为变量的系统关键字：显示格式
-format long 格式种类：
-clc #清屏 clear a #删除变量a who #查询变量 whos #查询变量详细信息 矩阵输入 矩阵定义 a = [1 2 3 4] #定义1*4矩阵 b = [1;2;3;4] #定义4*1矩阵 a = [1 2 3 4;1 2 3 4;1 2 3 4;1 2 3 4] #定义4*4矩阵 矩阵索引 取/修改某个值 a(8) #取第8个值（按行从上往下数）a(8)=4 a([1 3 5])#取第1 3 5个值 a([1 3;1 3])#取第1个数和第3个数 两遍 a(3,2) #取第三行第二列的数 a([1 2],[2 3])#取第1行第2行和第2列第3列的交集为一个新矩阵 k = [k,10] k(end+1) = 10; k = [k(1:5),5....</p>
+<p>基本操作 命令行模式 公式输入 直接输入算式即可计算结果 输入格式基本同自然语言 计算： $$ cos(\sqrt{(\frac{1+2+3+4}{5})}) $$ cos(sqrt((1+2+3+4)/5)) 注意：5/2 是5除以2 5\2是2除以5 变量定义 定义变量...</p>
 </section>
 <footer class=entry-footer>
-January 15, 2022&nbsp;·&nbsp;January 20, 2022&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Yiming Shen
+January 15, 2022&nbsp;·&nbsp;January 20, 2022&nbsp;·&nbsp;2 min&nbsp;·&nbsp;Yiming Shen
 </footer>
 <a class=entry-link aria-label="post link to Less-1 MATLAB基本操作与矩阵输入" href=https://shenyiming.life/post/less-1_matlab%E5%9F%BA%E7%A1%80/></a>
 </article>

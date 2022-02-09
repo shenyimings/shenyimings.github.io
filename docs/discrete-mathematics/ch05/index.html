@@ -5,14 +5,7 @@
 <meta name=robots content="index, follow">
 <title>离散数学CH05-一阶逻辑等值演算与推理 | Console.makeHappy(_1ming)</title>
 <meta name=keywords content="离散数学,Note">
-<meta name=description content="一阶逻辑等值式与置换规则 定义5.1 $$ 设A,B是一阶逻辑中任意两个公式，若A\leftrightarrow B 是永真式，则称A与B等值 \\ 记作A\Leftrightarrow B $$
-基本等值式 第1组 第二章P21页，16组重言式
-双重否定律、幂等律、交换律、结合律等
-第2组   量词否定等值式 $$ \neg \forall xA(x)\Leftrightarrow \exist x \neg A(x) $$
-  量词辖域收缩与扩张等值式
-设公式A(x)含自由出现的个体变项x，B不含x的自由出现，则 $$ \forall x (A(x)\vee B)\Leftrightarrow \forall xA(x)\vee B \\ \forall x (A(x)\rightarrow B)\Leftrightarrow \exist xA(x)\rightarrow B \\ \exist x(A(x)\rightarrow B)\Leftrightarrow \forall x A(x)\rightarrow B \\ $$
-  量词分配等值式 $$ \forall x(A(x)\wedge B(x))\Leftrightarrow \forall xA(x)\wedge \forall xB(x) $$
-  进行等值演算，除以上基本等值式外，还有以下2条规则">
+<meta name=description content="一阶逻辑等值式与置换规则 定义5.1 $$ 设A,B是一阶逻辑中任意两个公式，若A\leftrightarrow B 是永真式，则称A与B等值 \\ 记作A\">
 <meta name=author content="Yiming Shen">
 <link rel=canonical href=https://shenyiming.life/discrete-mathematics/ch05/>
 <meta name=google-site-verification content="XYZabc">
@@ -33,14 +26,7 @@
 <script type=application/javascript>var doNotTrack=!1;doNotTrack||(window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga('create','UA-123-45','auto'),ga('send','pageview'))</script>
 <script async src=https://www.google-analytics.com/analytics.js></script>
 <meta property="og:title" content="离散数学CH05-一阶逻辑等值演算与推理">
-<meta property="og:description" content="一阶逻辑等值式与置换规则 定义5.1 $$ 设A,B是一阶逻辑中任意两个公式，若A\leftrightarrow B 是永真式，则称A与B等值 \\ 记作A\Leftrightarrow B $$
-基本等值式 第1组 第二章P21页，16组重言式
-双重否定律、幂等律、交换律、结合律等
-第2组   量词否定等值式 $$ \neg \forall xA(x)\Leftrightarrow \exist x \neg A(x) $$
-  量词辖域收缩与扩张等值式
-设公式A(x)含自由出现的个体变项x，B不含x的自由出现，则 $$ \forall x (A(x)\vee B)\Leftrightarrow \forall xA(x)\vee B \\ \forall x (A(x)\rightarrow B)\Leftrightarrow \exist xA(x)\rightarrow B \\ \exist x(A(x)\rightarrow B)\Leftrightarrow \forall x A(x)\rightarrow B \\ $$
-  量词分配等值式 $$ \forall x(A(x)\wedge B(x))\Leftrightarrow \forall xA(x)\wedge \forall xB(x) $$
-  进行等值演算，除以上基本等值式外，还有以下2条规则">
+<meta property="og:description" content="一阶逻辑等值式与置换规则 定义5.1 $$ 设A,B是一阶逻辑中任意两个公式，若A\leftrightarrow B 是永真式，则称A与B等值 \\ 记作A\">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://shenyiming.life/discrete-mathematics/ch05/"><meta property="og:image" content="https://shenyiming.life/android-chrome-512x512.png"><meta property="article:section" content="Discrete-Mathematics">
 <meta property="article:published_time" content="2021-10-12T00:00:00+00:00">
@@ -48,16 +34,9 @@
 <meta name=twitter:card content="summary_large_image">
 <meta name=twitter:image content="https://shenyiming.life/android-chrome-512x512.png">
 <meta name=twitter:title content="离散数学CH05-一阶逻辑等值演算与推理">
-<meta name=twitter:description content="一阶逻辑等值式与置换规则 定义5.1 $$ 设A,B是一阶逻辑中任意两个公式，若A\leftrightarrow B 是永真式，则称A与B等值 \\ 记作A\Leftrightarrow B $$
-基本等值式 第1组 第二章P21页，16组重言式
-双重否定律、幂等律、交换律、结合律等
-第2组   量词否定等值式 $$ \neg \forall xA(x)\Leftrightarrow \exist x \neg A(x) $$
-  量词辖域收缩与扩张等值式
-设公式A(x)含自由出现的个体变项x，B不含x的自由出现，则 $$ \forall x (A(x)\vee B)\Leftrightarrow \forall xA(x)\vee B \\ \forall x (A(x)\rightarrow B)\Leftrightarrow \exist xA(x)\rightarrow B \\ \exist x(A(x)\rightarrow B)\Leftrightarrow \forall x A(x)\rightarrow B \\ $$
-  量词分配等值式 $$ \forall x(A(x)\wedge B(x))\Leftrightarrow \forall xA(x)\wedge \forall xB(x) $$
-  进行等值演算，除以上基本等值式外，还有以下2条规则">
+<meta name=twitter:description content="一阶逻辑等值式与置换规则 定义5.1 $$ 设A,B是一阶逻辑中任意两个公式，若A\leftrightarrow B 是永真式，则称A与B等值 \\ 记作A\">
 <script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":2,"name":"离散数学笔记","item":"https://shenyiming.life/discrete-mathematics/"},{"@type":"ListItem","position":3,"name":"离散数学CH05-一阶逻辑等值演算与推理","item":"https://shenyiming.life/discrete-mathematics/ch05/"}]}</script>
-<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"离散数学CH05-一阶逻辑等值演算与推理","name":"离散数学CH05-一阶逻辑等值演算与推理","description":"一阶逻辑等值式与置换规则 定义5.1 $$ 设A,B是一阶逻辑中任意两个公式，若A\\leftrightarrow B 是永真式，则称A与B等值 \\\\ 记作A\\Leftrightarrow B $$\n基本等值式 第1组 第二章P21页，16组重言式\n双重否定律、幂等律、交换律、结合律等\n第2组   量词否定等值式 $$ \\neg \\forall xA(x)\\Leftrightarrow \\exist x \\neg A(x) $$\n  量词辖域收缩与扩张等值式\n设公式A(x)含自由出现的个体变项x，B不含x的自由出现，则 $$ \\forall x (A(x)\\vee B)\\Leftrightarrow \\forall xA(x)\\vee B \\\\ \\forall x (A(x)\\rightarrow B)\\Leftrightarrow \\exist xA(x)\\rightarrow B \\\\ \\exist x(A(x)\\rightarrow B)\\Leftrightarrow \\forall x A(x)\\rightarrow B \\\\ $$\n  量词分配等值式 $$ \\forall x(A(x)\\wedge B(x))\\Leftrightarrow \\forall xA(x)\\wedge \\forall xB(x) $$\n  进行等值演算，除以上基本等值式外，还有以下2条规则","keywords":["离散数学","Note"],"articleBody":"一阶逻辑等值式与置换规则 定义5.1 $$ 设A,B是一阶逻辑中任意两个公式，若A\\leftrightarrow B 是永真式，则称A与B等值 \\\\ 记作A\\Leftrightarrow B $$\n基本等值式 第1组 第二章P21页，16组重言式\n双重否定律、幂等律、交换律、结合律等\n第2组   量词否定等值式 $$ \\neg \\forall xA(x)\\Leftrightarrow \\exist x \\neg A(x) $$\n  量词辖域收缩与扩张等值式\n设公式A(x)含自由出现的个体变项x，B不含x的自由出现，则 $$ \\forall x (A(x)\\vee B)\\Leftrightarrow \\forall xA(x)\\vee B \\\\ \\forall x (A(x)\\rightarrow B)\\Leftrightarrow \\exist xA(x)\\rightarrow B \\\\ \\exist x(A(x)\\rightarrow B)\\Leftrightarrow \\forall x A(x)\\rightarrow B \\\\ $$\n  量词分配等值式 $$ \\forall x(A(x)\\wedge B(x))\\Leftrightarrow \\forall xA(x)\\wedge \\forall xB(x) $$\n  进行等值演算，除以上基本等值式外，还有以下2条规则\n  置换规则\n  换名规则\n  $$ 设A为一公式，将A中某量词辖域中的一个约束变项的所有出现及相应指导变元全部改成该量词辖域 \\\\ 中未曾出现过的某个个体变项符号，公式中其余部分不变，将所得公式记作A' \\\\ 则A'\\Leftrightarrow A $$\n例题5.1 将下面公式化成等值的公式，使其不含既是约束出现又是自由出现的个体变项。 $$ (1)\\quad \\forall xF(x,y,z)\\rightarrow \\exist y G(x,y,z) \\\\ (2)\\quad \\forall x(F(x,y)\\rightarrow \\exist y G(x,y,z)) $$\n解 $$ (1)公式中x,y都是既约束出现又自由出现的个体变项，可以换名消去 \\\\ \\forall xF(x,y,z)\\rightarrow \\exist yG(x,y,z) \\\\ \\forall tF(t,y,z)\\rightarrow \\exist yG(x,y,z) \\\\ \\forall tF(t,y,z)\\rightarrow \\exist wG(x,w,z) \\\\ (2)x只有约束出现，y既约束又自由，需要处理 \\\\ \\forall x(F(x,y)\\rightarrow \\exist tG(x,t,z)) $$\n全称量词对析取没有分配律，存在量词对合取无分配律 一阶逻辑前束范式 定义5.2 $$ 具有如下形式\\\\ Q_1x_1Q_2x_2\\cdots Q_kx_kB \\\\ 的一阶逻辑公式称作前束范式，其中Q_i为\\forall 或\\exist，B为不含量词的公式 $$\n定理5.1（前束范式存在定理）  一阶逻辑中的任何公式都存在等值的前束范式\n 例题 $$ 求前束范式：\\\\ \\forall x F(x,y)\\rightarrow \\exist yG(x,y)\\\\ \\forall t F(t,y)\\rightarrow \\exist wG(x,w)\\\\ \\exist t \\exist w(F(t,y)\\rightarrow G(x,w)) $$\n一阶逻辑的推理理论  全称量词消去规则  $$ 全称量词消去规则(记为\\forall -)\\\\ \\frac{\\forall xA(x)}{\\therefore A(y)} 或 \\frac{\\forall xA(x)}{\\therefore A(c)}\\\\ A中x不在\\forall y 和\\exist y 的辖域中自由出现 $$\n全称量词消去规则  $$ 全称量词引入规则(记为\\forall +)\\\\ \\frac{A(y)}{\\therefore \\forall xA(x)}\\\\ A中x不在\\forall y 和\\exist y 的辖域中自由出现\\\\ $$\n存在量词消去规则  $$ 存在量词消去规则(记为\\exist -)\\\\ \\frac{\\exist xA(x) \\quad A(y)\\to B}{\\therefore B} 或 \\frac{A(y)\\to B}{\\therefore \\exist xA(x)\\to B}\\\\ A中x不在\\forall y 和\\exist y 的辖域中自由出现\\\\ $$\n存在量词引入规则  $$ 存在量词引入规则(记为\\exist +)\\\\ \\frac{A(y)}{\\therefore \\exist xA(x)}\\\\ A中x不在\\forall y 和\\exist y 的辖域中自由出现\\\\ $$\n定义5.3 自然推理系统   字母表 合式公式 推理规则  前提引入规则 结论引入规则 置换规则 假言推理规则 附加规则 化简规则 拒取式规则 假言三段论 析取三段论 构造性二难 合取引入 全称消去 全称引入 存在消去 存在引入     ","wordCount":"235","inLanguage":"en","datePublished":"2021-10-12T00:00:00Z","dateModified":"2022-01-03T00:00:00Z","author":{"@type":"Person","name":"Yiming Shen"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://shenyiming.life/discrete-mathematics/ch05/"},"publisher":{"@type":"Organization","name":"Console.makeHappy(_1ming)","logo":{"@type":"ImageObject","url":"https://shenyiming.life/favicon.ico"}}}</script>
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"离散数学CH05-一阶逻辑等值演算与推理","name":"离散数学CH05-一阶逻辑等值演算与推理","description":"一阶逻辑等值式与置换规则 定义5.1 $$ 设A,B是一阶逻辑中任意两个公式，若A\\leftrightarrow B 是永真式，则称A与B等值 \\\\ 记作A\\","keywords":["离散数学","Note"],"articleBody":"一阶逻辑等值式与置换规则 定义5.1 $$ 设A,B是一阶逻辑中任意两个公式，若A\\leftrightarrow B 是永真式，则称A与B等值 \\\\ 记作A\\Leftrightarrow B $$\n基本等值式 第1组 第二章P21页，16组重言式\n双重否定律、幂等律、交换律、结合律等\n第2组   量词否定等值式 $$ \\neg \\forall xA(x)\\Leftrightarrow \\exist x \\neg A(x) $$\n  量词辖域收缩与扩张等值式\n设公式A(x)含自由出现的个体变项x，B不含x的自由出现，则 $$ \\forall x (A(x)\\vee B)\\Leftrightarrow \\forall xA(x)\\vee B \\\\ \\forall x (A(x)\\rightarrow B)\\Leftrightarrow \\exist xA(x)\\rightarrow B \\\\ \\exist x(A(x)\\rightarrow B)\\Leftrightarrow \\forall x A(x)\\rightarrow B \\\\ $$\n  量词分配等值式 $$ \\forall x(A(x)\\wedge B(x))\\Leftrightarrow \\forall xA(x)\\wedge \\forall xB(x) $$\n  进行等值演算，除以上基本等值式外，还有以下2条规则\n  置换规则\n  换名规则\n  $$ 设A为一公式，将A中某量词辖域中的一个约束变项的所有出现及相应指导变元全部改成该量词辖域 \\\\ 中未曾出现过的某个个体变项符号，公式中其余部分不变，将所得公式记作A' \\\\ 则A'\\Leftrightarrow A $$\n例题5.1 将下面公式化成等值的公式，使其不含既是约束出现又是自由出现的个体变项。 $$ (1)\\quad \\forall xF(x,y,z)\\rightarrow \\exist y G(x,y,z) \\\\ (2)\\quad \\forall x(F(x,y)\\rightarrow \\exist y G(x,y,z)) $$\n解 $$ (1)公式中x,y都是既约束出现又自由出现的个体变项，可以换名消去 \\\\ \\forall xF(x,y,z)\\rightarrow \\exist yG(x,y,z) \\\\ \\forall tF(t,y,z)\\rightarrow \\exist yG(x,y,z) \\\\ \\forall tF(t,y,z)\\rightarrow \\exist wG(x,w,z) \\\\ (2)x只有约束出现，y既约束又自由，需要处理 \\\\ \\forall x(F(x,y)\\rightarrow \\exist tG(x,t,z)) $$\n全称量词对析取没有分配律，存在量词对合取无分配律 一阶逻辑前束范式 定义5.2 $$ 具有如下形式\\\\ Q_1x_1Q_2x_2\\cdots Q_kx_kB \\\\ 的一阶逻辑公式称作前束范式，其中Q_i为\\forall 或\\exist，B为不含量词的公式 $$\n定理5.1（前束范式存在定理）  一阶逻辑中的任何公式都存在等值的前束范式\n 例题 $$ 求前束范式：\\\\ \\forall x F(x,y)\\rightarrow \\exist yG(x,y)\\\\ \\forall t F(t,y)\\rightarrow \\exist wG(x,w)\\\\ \\exist t \\exist w(F(t,y)\\rightarrow G(x,w)) $$\n一阶逻辑的推理理论  全称量词消去规则  $$ 全称量词消去规则(记为\\forall -)\\\\ \\frac{\\forall xA(x)}{\\therefore A(y)} 或 \\frac{\\forall xA(x)}{\\therefore A(c)}\\\\ A中x不在\\forall y 和\\exist y 的辖域中自由出现 $$\n全称量词消去规则  $$ 全称量词引入规则(记为\\forall +)\\\\ \\frac{A(y)}{\\therefore \\forall xA(x)}\\\\ A中x不在\\forall y 和\\exist y 的辖域中自由出现\\\\ $$\n存在量词消去规则  $$ 存在量词消去规则(记为\\exist -)\\\\ \\frac{\\exist xA(x) \\quad A(y)\\to B}{\\therefore B} 或 \\frac{A(y)\\to B}{\\therefore \\exist xA(x)\\to B}\\\\ A中x不在\\forall y 和\\exist y 的辖域中自由出现\\\\ $$\n存在量词引入规则  $$ 存在量词引入规则(记为\\exist +)\\\\ \\frac{A(y)}{\\therefore \\exist xA(x)}\\\\ A中x不在\\forall y 和\\exist y 的辖域中自由出现\\\\ $$\n定义5.3 自然推理系统   字母表 合式公式 推理规则  前提引入规则 结论引入规则 置换规则 假言推理规则 附加规则 化简规则 拒取式规则 假言三段论 析取三段论 构造性二难 合取引入 全称消去 全称引入 存在消去 存在引入     ","wordCount":"1017","inLanguage":"en","datePublished":"2021-10-12T00:00:00Z","dateModified":"2022-01-03T00:00:00Z","author":{"@type":"Person","name":"Yiming Shen"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://shenyiming.life/discrete-mathematics/ch05/"},"publisher":{"@type":"Organization","name":"Console.makeHappy(_1ming)","logo":{"@type":"ImageObject","url":"https://shenyiming.life/favicon.ico"}}}</script>
 </head>
 <body id=top>
 <script>localStorage.getItem("pref-theme")==="dark"?document.body.classList.add('dark'):localStorage.getItem("pref-theme")==="light"?document.body.classList.remove('dark'):window.matchMedia('(prefers-color-scheme: dark)').matches&&document.body.classList.add('dark')</script>
@@ -125,7 +104,7 @@
 离散数学CH05-一阶逻辑等值演算与推理
 </h1>
 <div class=post-meta>
-October 12, 2021&nbsp;·&nbsp;January 3, 2022&nbsp;·&nbsp;2 min&nbsp;·&nbsp;Yiming Shen
+October 12, 2021&nbsp;·&nbsp;January 3, 2022&nbsp;·&nbsp;3 min&nbsp;·&nbsp;Yiming Shen
 |&nbsp;<a href=https://github.com/shenyimings/shenyimings.github.io/tree/main/docs rel="noopener noreferrer" target=_blank>Issue</a>
 </div>
 </header>

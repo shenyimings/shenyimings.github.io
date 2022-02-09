@@ -5,16 +5,7 @@
 <meta name=robots content="index, follow">
 <title>2.3 欧拉函数 | Console.makeHappy(_1ming)</title>
 <meta name=keywords content="密码学数学基础,Note,cryptology">
-<meta name=description content="定理2.3.1 $$ 设m是正整数，a,b\in Z,且(a,m)=1,若x遍历模m的一个完全剩余系，则ax+b也遍历模m的一个完全剩余系。 $$
-定理2.3.2 $$ 设m_1,m_2是两个互素的正整数，若x_1,x_2分别遍历m_1,m_2的完全剩余系，则m_2x_1+m_1m_2遍历\\模m_1m_2的完全剩余系。 $$
-定理2.3.3 $$ 设m是一个正整数，a\in Z,且(a,m)=1。\\若x遍历模m的一个既约剩余系，则ax也遍历模m的一个既约剩余系。 $$
-证明： $$ 因为(a,m)=1,(x,m)=1,有\\ (ax,m)=1\\ 这说明ax是某个既约同余类中元素。\\ 又ax_1\equiv ax_2(mod\quad m)时，有x_1\equiv x_2(mod\quad m)\\ $$
-定理2.3.4 $$ 设m_1,m_2是互素的两个正整数，如果x_1,x_2分别遍历模m_1和模m_2的既约剩余系\\ 则m_2x_1+m_1x_2遍历模m_1m_2的既约剩余系。 $$
- 证明： $$ 首先证明m_2x_1+m_1x_2与m_1m_2互素，因为\\ (m_2x_1 +m_1x_2,m_1)=(m_2x_1,m_1)=(x_1,m_1)=1\\ (m_2x_1+m_1x_2,m_2)=(m_1x_2,m_2)=(x_2,m_2)=1\\ 所以得到\\ (m_2x_1+m_1x_2,m_1m_2)=1 $$
-定理2.3.5 乘积的欧拉函数就等于欧拉函数的乘积 $$ 设n，m是互素的两个正整数，则\\ \phi(nm)=\phi(n)\phi(m) $$
-定理2.3.6 欧拉函数的计算 $$ 设\phi(1)=1。当n\ge 2时，设n=p_1^{e_1}p_2^{e_2}\cdots p_s^{e_s}是n的标准分解式，则\\ \phi(n)=\Sigma_{l=1}^{s}(p_l^{e_l}-p_l^{e_{l-1}})=n\cdot \Sigma^s_{l=1}(1-\frac{1}{p_l})\\ $$
-例题 例2.3.1 若已知 $$ m_1=8,完全剩余系{0,1,2,3,4,5,6,7}，即约剩余系{1,3,5,7}\\ m_2=3,完全剩余系{0,1,2},即约剩余系{1,2}\\ 求模24完全剩余系和模24即约剩余系： $$ 解： $$ 模24完全剩余系\\ {m_2x_1+m_1x_2}={3\cdot{0,1,2,3,4,5,6,7}+8\cdot{0,1,2}}\\ ={0,1,2,3,4,5,6,7,8,9,10,\cdots,23} $$
-例2.3.2 计算下列欧拉函数 $$ \phi(286)=\phi(2\cdot 11\cdot 13)=\phi(2)\cdot \phi(11)\cdot\phi(13)\\ =1\cdot 10 \cdot 12 =120 $$">
+<meta name=description content="定理2.3.1 $$ 设m是正整数，a,b\in Z,且(a,m)=1,若x遍历模m的一个完全剩余系，则ax+b也遍历模m的一个完全剩余系。 $$ 定理2">
 <meta name=author content="Yiming Shen">
 <link rel=canonical href=https://shenyiming.life/cryptologymath/2.3_%E6%AC%A7%E6%8B%89%E5%87%BD%E6%95%B0/>
 <meta name=google-site-verification content="XYZabc">
@@ -35,16 +26,7 @@
 <script type=application/javascript>var doNotTrack=!1;doNotTrack||(window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga('create','UA-123-45','auto'),ga('send','pageview'))</script>
 <script async src=https://www.google-analytics.com/analytics.js></script>
 <meta property="og:title" content="2.3 欧拉函数">
-<meta property="og:description" content="定理2.3.1 $$ 设m是正整数，a,b\in Z,且(a,m)=1,若x遍历模m的一个完全剩余系，则ax+b也遍历模m的一个完全剩余系。 $$
-定理2.3.2 $$ 设m_1,m_2是两个互素的正整数，若x_1,x_2分别遍历m_1,m_2的完全剩余系，则m_2x_1+m_1m_2遍历\\模m_1m_2的完全剩余系。 $$
-定理2.3.3 $$ 设m是一个正整数，a\in Z,且(a,m)=1。\\若x遍历模m的一个既约剩余系，则ax也遍历模m的一个既约剩余系。 $$
-证明： $$ 因为(a,m)=1,(x,m)=1,有\\ (ax,m)=1\\ 这说明ax是某个既约同余类中元素。\\ 又ax_1\equiv ax_2(mod\quad m)时，有x_1\equiv x_2(mod\quad m)\\ $$
-定理2.3.4 $$ 设m_1,m_2是互素的两个正整数，如果x_1,x_2分别遍历模m_1和模m_2的既约剩余系\\ 则m_2x_1+m_1x_2遍历模m_1m_2的既约剩余系。 $$
- 证明： $$ 首先证明m_2x_1+m_1x_2与m_1m_2互素，因为\\ (m_2x_1 +m_1x_2,m_1)=(m_2x_1,m_1)=(x_1,m_1)=1\\ (m_2x_1+m_1x_2,m_2)=(m_1x_2,m_2)=(x_2,m_2)=1\\ 所以得到\\ (m_2x_1+m_1x_2,m_1m_2)=1 $$
-定理2.3.5 乘积的欧拉函数就等于欧拉函数的乘积 $$ 设n，m是互素的两个正整数，则\\ \phi(nm)=\phi(n)\phi(m) $$
-定理2.3.6 欧拉函数的计算 $$ 设\phi(1)=1。当n\ge 2时，设n=p_1^{e_1}p_2^{e_2}\cdots p_s^{e_s}是n的标准分解式，则\\ \phi(n)=\Sigma_{l=1}^{s}(p_l^{e_l}-p_l^{e_{l-1}})=n\cdot \Sigma^s_{l=1}(1-\frac{1}{p_l})\\ $$
-例题 例2.3.1 若已知 $$ m_1=8,完全剩余系{0,1,2,3,4,5,6,7}，即约剩余系{1,3,5,7}\\ m_2=3,完全剩余系{0,1,2},即约剩余系{1,2}\\ 求模24完全剩余系和模24即约剩余系： $$ 解： $$ 模24完全剩余系\\ {m_2x_1+m_1x_2}={3\cdot{0,1,2,3,4,5,6,7}+8\cdot{0,1,2}}\\ ={0,1,2,3,4,5,6,7,8,9,10,\cdots,23} $$
-例2.3.2 计算下列欧拉函数 $$ \phi(286)=\phi(2\cdot 11\cdot 13)=\phi(2)\cdot \phi(11)\cdot\phi(13)\\ =1\cdot 10 \cdot 12 =120 $$">
+<meta property="og:description" content="定理2.3.1 $$ 设m是正整数，a,b\in Z,且(a,m)=1,若x遍历模m的一个完全剩余系，则ax+b也遍历模m的一个完全剩余系。 $$ 定理2">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://shenyiming.life/cryptologymath/2.3_%E6%AC%A7%E6%8B%89%E5%87%BD%E6%95%B0/"><meta property="og:image" content="https://shenyiming.life/android-chrome-512x512.png"><meta property="article:section" content="CryptologyMath">
 <meta property="article:published_time" content="2021-09-23T00:00:00+00:00">
@@ -52,18 +34,9 @@
 <meta name=twitter:card content="summary_large_image">
 <meta name=twitter:image content="https://shenyiming.life/android-chrome-512x512.png">
 <meta name=twitter:title content="2.3 欧拉函数">
-<meta name=twitter:description content="定理2.3.1 $$ 设m是正整数，a,b\in Z,且(a,m)=1,若x遍历模m的一个完全剩余系，则ax+b也遍历模m的一个完全剩余系。 $$
-定理2.3.2 $$ 设m_1,m_2是两个互素的正整数，若x_1,x_2分别遍历m_1,m_2的完全剩余系，则m_2x_1+m_1m_2遍历\\模m_1m_2的完全剩余系。 $$
-定理2.3.3 $$ 设m是一个正整数，a\in Z,且(a,m)=1。\\若x遍历模m的一个既约剩余系，则ax也遍历模m的一个既约剩余系。 $$
-证明： $$ 因为(a,m)=1,(x,m)=1,有\\ (ax,m)=1\\ 这说明ax是某个既约同余类中元素。\\ 又ax_1\equiv ax_2(mod\quad m)时，有x_1\equiv x_2(mod\quad m)\\ $$
-定理2.3.4 $$ 设m_1,m_2是互素的两个正整数，如果x_1,x_2分别遍历模m_1和模m_2的既约剩余系\\ 则m_2x_1+m_1x_2遍历模m_1m_2的既约剩余系。 $$
- 证明： $$ 首先证明m_2x_1+m_1x_2与m_1m_2互素，因为\\ (m_2x_1 +m_1x_2,m_1)=(m_2x_1,m_1)=(x_1,m_1)=1\\ (m_2x_1+m_1x_2,m_2)=(m_1x_2,m_2)=(x_2,m_2)=1\\ 所以得到\\ (m_2x_1+m_1x_2,m_1m_2)=1 $$
-定理2.3.5 乘积的欧拉函数就等于欧拉函数的乘积 $$ 设n，m是互素的两个正整数，则\\ \phi(nm)=\phi(n)\phi(m) $$
-定理2.3.6 欧拉函数的计算 $$ 设\phi(1)=1。当n\ge 2时，设n=p_1^{e_1}p_2^{e_2}\cdots p_s^{e_s}是n的标准分解式，则\\ \phi(n)=\Sigma_{l=1}^{s}(p_l^{e_l}-p_l^{e_{l-1}})=n\cdot \Sigma^s_{l=1}(1-\frac{1}{p_l})\\ $$
-例题 例2.3.1 若已知 $$ m_1=8,完全剩余系{0,1,2,3,4,5,6,7}，即约剩余系{1,3,5,7}\\ m_2=3,完全剩余系{0,1,2},即约剩余系{1,2}\\ 求模24完全剩余系和模24即约剩余系： $$ 解： $$ 模24完全剩余系\\ {m_2x_1+m_1x_2}={3\cdot{0,1,2,3,4,5,6,7}+8\cdot{0,1,2}}\\ ={0,1,2,3,4,5,6,7,8,9,10,\cdots,23} $$
-例2.3.2 计算下列欧拉函数 $$ \phi(286)=\phi(2\cdot 11\cdot 13)=\phi(2)\cdot \phi(11)\cdot\phi(13)\\ =1\cdot 10 \cdot 12 =120 $$">
+<meta name=twitter:description content="定理2.3.1 $$ 设m是正整数，a,b\in Z,且(a,m)=1,若x遍历模m的一个完全剩余系，则ax+b也遍历模m的一个完全剩余系。 $$ 定理2">
 <script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":2,"name":"密码学数学基础笔记","item":"https://shenyiming.life/cryptologymath/"},{"@type":"ListItem","position":3,"name":"2.3 欧拉函数","item":"https://shenyiming.life/cryptologymath/2.3_%E6%AC%A7%E6%8B%89%E5%87%BD%E6%95%B0/"}]}</script>
-<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"2.3 欧拉函数","name":"2.3 欧拉函数","description":"定理2.3.1 $$ 设m是正整数，a,b\\in Z,且(a,m)=1,若x遍历模m的一个完全剩余系，则ax+b也遍历模m的一个完全剩余系。 $$\n定理2.3.2 $$ 设m_1,m_2是两个互素的正整数，若x_1,x_2分别遍历m_1,m_2的完全剩余系，则m_2x_1+m_1m_2遍历\\\\模m_1m_2的完全剩余系。 $$\n定理2.3.3 $$ 设m是一个正整数，a\\in Z,且(a,m)=1。\\\\若x遍历模m的一个既约剩余系，则ax也遍历模m的一个既约剩余系。 $$\n证明： $$ 因为(a,m)=1,(x,m)=1,有\\\\ (ax,m)=1\\\\ 这说明ax是某个既约同余类中元素。\\\\ 又ax_1\\equiv ax_2(mod\\quad m)时，有x_1\\equiv x_2(mod\\quad m)\\\\ $$\n定理2.3.4 $$ 设m_1,m_2是互素的两个正整数，如果x_1,x_2分别遍历模m_1和模m_2的既约剩余系\\\\ 则m_2x_1+m_1x_2遍历模m_1m_2的既约剩余系。 $$\n 证明： $$ 首先证明m_2x_1+m_1x_2与m_1m_2互素，因为\\\\ (m_2x_1 +m_1x_2,m_1)=(m_2x_1,m_1)=(x_1,m_1)=1\\\\ (m_2x_1+m_1x_2,m_2)=(m_1x_2,m_2)=(x_2,m_2)=1\\\\ 所以得到\\\\ (m_2x_1+m_1x_2,m_1m_2)=1 $$\n定理2.3.5 乘积的欧拉函数就等于欧拉函数的乘积 $$ 设n，m是互素的两个正整数，则\\\\ \\phi(nm)=\\phi(n)\\phi(m) $$\n定理2.3.6 欧拉函数的计算 $$ 设\\phi(1)=1。当n\\ge 2时，设n=p_1^{e_1}p_2^{e_2}\\cdots p_s^{e_s}是n的标准分解式，则\\\\ \\phi(n)=\\Sigma_{l=1}^{s}(p_l^{e_l}-p_l^{e_{l-1}})=n\\cdot \\Sigma^s_{l=1}(1-\\frac{1}{p_l})\\\\ $$\n例题 例2.3.1 若已知 $$ m_1=8,完全剩余系{0,1,2,3,4,5,6,7}，即约剩余系{1,3,5,7}\\\\ m_2=3,完全剩余系{0,1,2},即约剩余系{1,2}\\\\ 求模24完全剩余系和模24即约剩余系： $$ 解： $$ 模24完全剩余系\\\\ {m_2x_1+m_1x_2}={3\\cdot{0,1,2,3,4,5,6,7}+8\\cdot{0,1,2}}\\\\ ={0,1,2,3,4,5,6,7,8,9,10,\\cdots,23} $$\n例2.3.2 计算下列欧拉函数 $$ \\phi(286)=\\phi(2\\cdot 11\\cdot 13)=\\phi(2)\\cdot \\phi(11)\\cdot\\phi(13)\\\\ =1\\cdot 10 \\cdot 12 =120 $$","keywords":["密码学数学基础","Note","cryptology"],"articleBody":"定理2.3.1 $$ 设m是正整数，a,b\\in Z,且(a,m)=1,若x遍历模m的一个完全剩余系，则ax+b也遍历模m的一个完全剩余系。 $$\n定理2.3.2 $$ 设m_1,m_2是两个互素的正整数，若x_1,x_2分别遍历m_1,m_2的完全剩余系，则m_2x_1+m_1m_2遍历\\\\模m_1m_2的完全剩余系。 $$\n定理2.3.3 $$ 设m是一个正整数，a\\in Z,且(a,m)=1。\\\\若x遍历模m的一个既约剩余系，则ax也遍历模m的一个既约剩余系。 $$\n证明： $$ 因为(a,m)=1,(x,m)=1,有\\\\ (ax,m)=1\\\\ 这说明ax是某个既约同余类中元素。\\\\ 又ax_1\\equiv ax_2(mod\\quad m)时，有x_1\\equiv x_2(mod\\quad m)\\\\ $$\n定理2.3.4 $$ 设m_1,m_2是互素的两个正整数，如果x_1,x_2分别遍历模m_1和模m_2的既约剩余系\\\\ 则m_2x_1+m_1x_2遍历模m_1m_2的既约剩余系。 $$\n 证明： $$ 首先证明m_2x_1+m_1x_2与m_1m_2互素，因为\\\\ (m_2x_1 +m_1x_2,m_1)=(m_2x_1,m_1)=(x_1,m_1)=1\\\\ (m_2x_1+m_1x_2,m_2)=(m_1x_2,m_2)=(x_2,m_2)=1\\\\ 所以得到\\\\ (m_2x_1+m_1x_2,m_1m_2)=1 $$\n定理2.3.5 乘积的欧拉函数就等于欧拉函数的乘积 $$ 设n，m是互素的两个正整数，则\\\\ \\phi(nm)=\\phi(n)\\phi(m) $$\n定理2.3.6 欧拉函数的计算 $$ 设\\phi(1)=1。当n\\ge 2时，设n=p_1^{e_1}p_2^{e_2}\\cdots p_s^{e_s}是n的标准分解式，则\\\\ \\phi(n)=\\Sigma_{l=1}^{s}(p_l^{e_l}-p_l^{e_{l-1}})=n\\cdot \\Sigma^s_{l=1}(1-\\frac{1}{p_l})\\\\ $$\n例题 例2.3.1 若已知 $$ m_1=8,完全剩余系{0,1,2,3,4,5,6,7}，即约剩余系{1,3,5,7}\\\\ m_2=3,完全剩余系{0,1,2},即约剩余系{1,2}\\\\ 求模24完全剩余系和模24即约剩余系： $$ 解： $$ 模24完全剩余系\\\\ {m_2x_1+m_1x_2}={3\\cdot{0,1,2,3,4,5,6,7}+8\\cdot{0,1,2}}\\\\ ={0,1,2,3,4,5,6,7,8,9,10,\\cdots,23} $$\n例2.3.2 计算下列欧拉函数 $$ \\phi(286)=\\phi(2\\cdot 11\\cdot 13)=\\phi(2)\\cdot \\phi(11)\\cdot\\phi(13)\\\\ =1\\cdot 10 \\cdot 12 =120 $$\n","wordCount":"81","inLanguage":"en","datePublished":"2021-09-23T00:00:00Z","dateModified":"2021-09-23T00:00:00Z","author":{"@type":"Person","name":"Yiming Shen"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://shenyiming.life/cryptologymath/2.3_%E6%AC%A7%E6%8B%89%E5%87%BD%E6%95%B0/"},"publisher":{"@type":"Organization","name":"Console.makeHappy(_1ming)","logo":{"@type":"ImageObject","url":"https://shenyiming.life/favicon.ico"}}}</script>
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"2.3 欧拉函数","name":"2.3 欧拉函数","description":"定理2.3.1 $$ 设m是正整数，a,b\\in Z,且(a,m)=1,若x遍历模m的一个完全剩余系，则ax+b也遍历模m的一个完全剩余系。 $$ 定理2","keywords":["密码学数学基础","Note","cryptology"],"articleBody":"定理2.3.1 $$ 设m是正整数，a,b\\in Z,且(a,m)=1,若x遍历模m的一个完全剩余系，则ax+b也遍历模m的一个完全剩余系。 $$\n定理2.3.2 $$ 设m_1,m_2是两个互素的正整数，若x_1,x_2分别遍历m_1,m_2的完全剩余系，则m_2x_1+m_1m_2遍历\\\\模m_1m_2的完全剩余系。 $$\n定理2.3.3 $$ 设m是一个正整数，a\\in Z,且(a,m)=1。\\\\若x遍历模m的一个既约剩余系，则ax也遍历模m的一个既约剩余系。 $$\n证明： $$ 因为(a,m)=1,(x,m)=1,有\\\\ (ax,m)=1\\\\ 这说明ax是某个既约同余类中元素。\\\\ 又ax_1\\equiv ax_2(mod\\quad m)时，有x_1\\equiv x_2(mod\\quad m)\\\\ $$\n定理2.3.4 $$ 设m_1,m_2是互素的两个正整数，如果x_1,x_2分别遍历模m_1和模m_2的既约剩余系\\\\ 则m_2x_1+m_1x_2遍历模m_1m_2的既约剩余系。 $$\n 证明： $$ 首先证明m_2x_1+m_1x_2与m_1m_2互素，因为\\\\ (m_2x_1 +m_1x_2,m_1)=(m_2x_1,m_1)=(x_1,m_1)=1\\\\ (m_2x_1+m_1x_2,m_2)=(m_1x_2,m_2)=(x_2,m_2)=1\\\\ 所以得到\\\\ (m_2x_1+m_1x_2,m_1m_2)=1 $$\n定理2.3.5 乘积的欧拉函数就等于欧拉函数的乘积 $$ 设n，m是互素的两个正整数，则\\\\ \\phi(nm)=\\phi(n)\\phi(m) $$\n定理2.3.6 欧拉函数的计算 $$ 设\\phi(1)=1。当n\\ge 2时，设n=p_1^{e_1}p_2^{e_2}\\cdots p_s^{e_s}是n的标准分解式，则\\\\ \\phi(n)=\\Sigma_{l=1}^{s}(p_l^{e_l}-p_l^{e_{l-1}})=n\\cdot \\Sigma^s_{l=1}(1-\\frac{1}{p_l})\\\\ $$\n例题 例2.3.1 若已知 $$ m_1=8,完全剩余系{0,1,2,3,4,5,6,7}，即约剩余系{1,3,5,7}\\\\ m_2=3,完全剩余系{0,1,2},即约剩余系{1,2}\\\\ 求模24完全剩余系和模24即约剩余系： $$ 解： $$ 模24完全剩余系\\\\ {m_2x_1+m_1x_2}={3\\cdot{0,1,2,3,4,5,6,7}+8\\cdot{0,1,2}}\\\\ ={0,1,2,3,4,5,6,7,8,9,10,\\cdots,23} $$\n例2.3.2 计算下列欧拉函数 $$ \\phi(286)=\\phi(2\\cdot 11\\cdot 13)=\\phi(2)\\cdot \\phi(11)\\cdot\\phi(13)\\\\ =1\\cdot 10 \\cdot 12 =120 $$\n","wordCount":"704","inLanguage":"en","datePublished":"2021-09-23T00:00:00Z","dateModified":"2021-09-23T00:00:00Z","author":{"@type":"Person","name":"Yiming Shen"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://shenyiming.life/cryptologymath/2.3_%E6%AC%A7%E6%8B%89%E5%87%BD%E6%95%B0/"},"publisher":{"@type":"Organization","name":"Console.makeHappy(_1ming)","logo":{"@type":"ImageObject","url":"https://shenyiming.life/favicon.ico"}}}</script>
 </head>
 <body id=top>
 <script>localStorage.getItem("pref-theme")==="dark"?document.body.classList.add('dark'):localStorage.getItem("pref-theme")==="light"?document.body.classList.remove('dark'):window.matchMedia('(prefers-color-scheme: dark)').matches&&document.body.classList.add('dark')</script>
@@ -131,7 +104,7 @@
 2.3 欧拉函数
 </h1>
 <div class=post-meta>
-September 23, 2021&nbsp;·&nbsp;September 23, 2021&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Yiming Shen
+September 23, 2021&nbsp;·&nbsp;September 23, 2021&nbsp;·&nbsp;2 min&nbsp;·&nbsp;Yiming Shen
 |&nbsp;<a href=https://github.com/shenyimings/shenyimings.github.io/tree/main/docs rel="noopener noreferrer" target=_blank>Issue</a>
 </div>
 </header>
