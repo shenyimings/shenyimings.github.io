@@ -59,6 +59,7 @@ typora-root-url: ..\static\
 > - **以Vercel和MongoDB部署的方式加入Twikoo评论系统**
 > - 评论设置了邮箱提醒
 > - **修改主题css和layout，更换font-family，加入思源宋体**
+> - 为主页menu加入hover动画
 >
 > Yiming's Blog向动态网站迈出一大步✌🏻
 
@@ -94,7 +95,7 @@ typora-root-url: ..\static\
 > - 增加entry动画
 > - 调整了tags的termcss样式
 >
-> - [ ] 未来计划：迁移至gitee或腾讯云
+> - [ ] 未来计划：迁移至gitee或腾讯云以进行备案
 
 【博客快照】
 

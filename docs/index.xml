@@ -53,7 +53,10 @@ BLOG RESTART
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://shenyiming.life/friends/</guid>
-      <description>相位🚀Either outstanding or out.F.I.V.EFIGHTING!Air吾善养吾浩然气WingerBlogto think and to share 大佬博客 </description>
+      <description>相位🚀Either outstanding or out.F.I.V.EFIGHTING!Air吾善养吾浩然气WingerBlogto think and to share 特别鸣谢  Kevin大佬的博客，本站友链、目录和twikoo评论都是按照他发布的教程设置的，在我建站过程中提供了非常非常大的帮助。
+ Sulv’s Blog一个记录技术、阅读、生活的博客  Mantyke大佬，本站参考他配置的stack主题更换了字体，非常喜欢他的主题和域名。
+ 小球飞鱼我们会一起遇见鲸鱼吗？  謝宗晅 南洋理工的大佬，本站根据他的教程为papermod主题加入了渲染 Katex 数学公式。
+ 謝宗晅NTU CSIE B07  cloxnu，帅气的IOS开发者。</description>
     </item>
     
     <item>
@@ -77,7 +80,7 @@ About My Blog  正经人谁写日记啊。
 &amp;amp;nbsp
 Releases 09 Feb 2022 0.3.0
  【更新描述】
-  以Vercel和MongoDB部署的方式加入Twikoo评论系统 评论设置了邮箱提醒 修改主题css和layout，更换font-family，加入思源宋体  Yiming&amp;rsquo;s Blog向动态网站迈出一大步✌🏻
+  以Vercel和MongoDB部署的方式加入Twikoo评论系统 评论设置了邮箱提醒 修改主题css和layout，更换font-family，加入思源宋体 为主页menu加入hover动画  Yiming&amp;rsquo;s Blog向动态网站迈出一大步✌🏻
  【博客快照】
 28 Jan 2022 0.2.4
  【更新描述】

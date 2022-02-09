@@ -20,5 +20,39 @@ typora-root-url: ..\static\
 
 ---
 
-## 大佬博客
+## 特别鸣谢
+
+>Kevin大佬的博客，本站友链、目录和twikoo评论都是按照他发布的教程设置的，在我建站过程中提供了非常非常大的帮助。
+
+{{<friend name= "Sulv’s Blog" url="https://www.sulvblog.cn/" logo="https://www.sulvblog.cn/img/Q.gif" word="一个记录技术、阅读、生活的博客">}}
+
+---
+
+> Mantyke大佬，本站参考他配置的stack主题更换了字体，非常喜欢他的主题和域名。
+
+{{<friend name= "小球飞鱼" url="https://mantyke.icu/" logo="https://cdn.jsdelivr.net/gh/Mantyke/photo@master/star_min.png" word="我们会一起遇见鲸鱼吗？">}}
+
+---
+
+> 謝宗晅 南洋理工的大佬，本站根据他的教程为papermod主题加入了渲染 `Katex` 数学公式。
+
+{{<friend name= "謝宗晅" url="https://vincentthh35.csie.org/" logo="https://vincentthh35.csie.org/img/avatar_huae49e2d2509fc0ee3202a897fdbbd84a_10389_300x0_resize_q75_box.jpg" word="NTU CSIE B07">}}
+
+---
+
+> cloxnu，帅气的IOS开发者。
+
+{{<friend name= "I'm cloxnu" url="https://clox.nu/" logo="https://clox.nu/logo/favicon.ico" word="Welcome to cloxnu’s creative space.">}}
+
+## 交换友链
+
+可在本页下提交评论
+
+> 名称： 相位🚀
+>
+> 网址： [https:/shenyiming.life](https:/shenyiming.life)
+>
+> 图标： https://shenyiming.life/apple-touch-icon.png
+>
+> 描述： Either outstanding or out.
 
