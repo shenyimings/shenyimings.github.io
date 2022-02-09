@@ -96,7 +96,7 @@ GoDaddy和Gandi都支持支付宝支付，前提是不要挂代理。
 
 Unix的shell脚本的扩展名正是`*.sh`，该域名简直是做UNIX开发的不二之选。
 
-我在macOS上安装hugo时，用到了**Homebrew**这一包管理系统，其官方网站正是`brew.sh`，看到这一域名时佩服的五体投地，试着访问了[test.sh](https://test.sh),果真被人注册，还温暖的提示：`It works!` ，这句话一定是所有开发者头晕眼花的折腾半天运行脚本最想得到的反馈吧。
+我在macOS上安装hugo时，用到了**Homebrew**这一包管理系统，其官方网站正是`brew.sh`，看到这一域名时佩服的五体投地，试着访问了[test.sh](http://test.sh),果真被人注册，还温暖的提示：`It works!` ，这句话一定是所有开发者头晕眼花的折腾半天运行脚本最想得到的反馈吧。
 
 还有`start.sh` 和 `run.sh`这俩被挂靠在park.io坐等注册，大有前途啊。
 

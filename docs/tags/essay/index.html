@@ -234,6 +234,35 @@ December 20, 2021&nbsp;·&nbsp;December 20, 2021&nbsp;·&nbsp;1 min&nbsp;·&nbsp
 </footer>
 <a class=entry-link aria-label="post link to 有关细节✒️" href=https://shenyiming.life/post/%E6%9C%89%E5%85%B3%E7%BB%86%E8%8A%82/></a>
 </article>
+<article class="post-entry tag-entry">
+<figure class=entry-cover><img src=https://pic1.zhimg.com/v2-3d39b77daca514c6f051d98096855989_1440w.jpg alt>
+</figure>
+<header class=entry-header>
+<h2>
+Windows11体验报告：你可以永远相信微软的审美
+</h2>
+</header>
+<section class=entry-content>
+<p>前言 Windows11从dev版本进入beta版本后，我便决定加入预览者大军，亲眼看看号称Windows10是最后一版Windows之后的微软搞出了怎样一个套壳系统。
+配置 Intel I5 9400F/RX580 2048SP/16G/256G SATA SSD+512G NVME SSD
+安装 安装Windows11，首先要确定设备是否开启了TPM2.0。
+Win+R 输入tpm.msc，若显示TPM已就绪，可以使用，则已开启TPM2.0。若未开启，可进入主板BIOS界面，在高级选项卡中，Intel 芯片组找PTT设置为enable，AMD芯片组找AMD ftpm设置为enable即可，具体教程可搜索XX主板开启TPM2.0，文章不再赘述。
+开启TPM2.0 后，基于微软官方已给出了预览计划提前升级安装的方案，不必再进行全新安装。故进入设置-Windows更新-Windows预览体验计划，加入beta版本预览体验后，重启，再次进入Windows更新，即可获得Windows11 beta版。 使用报告 界面很惊艳，特别像Ubuntu和MAC风（趋势，趋势，不是抄袭）
+任务栏全部居中，和我之前用Windows10时用FalconX更改的一致，偏向于Mac系统的dock栏方向。
+全新的UI、开机声音、交互音效。
+暂未遇到应用兼容性问题，果真是Windows10套壳#滑稽
+右键菜单加入了在Windows终端中打开命令，向Linux系统靠拢。复制粘贴剪切命令变成了小图标，右键菜单部分非系统命令被折叠，如压缩解压文件命令，十分不便，正在养成用Shift+F10命令直接展开菜单的习惯。目前网上也有提供regedit改回原菜单的方法。
+设计语言不统一，这个主要是应用的锅，还没有进行Windows11适配，导致圆角和直角并存，群魔乱舞。很有意思的一点是窗口占满全屏或贴边后会从圆角变为直角。
+WSL和Windows终端的配合体验极佳。最新版的WSL2支持GPU，允许直接在Windows系统运行基于Linux的图形界面，如上图运行着基于Ubuntu的Chrome 64。Windows11现在已经可以直接在应用商店安装运行少数Android应用了，只是目前国内应用发行商适配极少。果然，Windows11才是Linux最好的发行版，实锤了。
+开始菜单安卓化，取消了磁贴，应用一屏放不下，且个性化空间较小，十分类似安卓的抽屉。
+应用商店可用性比以前大大提高，更加人性化，下载安装速度加快，不再是花架子了。 Windows defender用原来组策略修改的方法关不掉了…… DefenderControl也只是关的了一时，这对满电脑后门脚本修改器破解补丁的我造成了很大的困扰。 BUG 资源管理器经常出现莫名的卡顿，具体表现为鼠标操作缓慢，文件拖拽迟缓，鼠标错位/出现两个鼠标指针 圆角直角同时存在，设计语言不统一。 我在两天的使用过程中，暂未碰到网友反映的游戏掉帧、SSD速度变慢、系统内存占用高的问题，考虑到以上原因切实存在，以及有人说AMD CPU存在性能变差的问题，建议等待正式版再行更新。
+参考 [1] Cnbeta [2] 知乎-三无小号 </p>
+</section>
+<footer class=entry-footer>
+August 4, 2021&nbsp;·&nbsp;September 1, 2021&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Yiming Shen
+</footer>
+<a class=entry-link aria-label="post link to Windows11体验报告：你可以永远相信微软的审美" href=https://shenyiming.life/post/windows11/></a>
+</article>
 </main><footer class=footer>
 <span>Copyright &copy; 2021-2022 <a href=https://shenyiming.life><b>Shenyiming.Life</b></a></span>
 <span>&#183;</span>
