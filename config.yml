@@ -1,6 +1,6 @@
 baseURL: "https://shenyiming.life"
 title: "Console.makeHappy(_1ming)"
-paginate: 12
+paginate: 15
 theme: PaperMod
 publishDir: "docs"
 enableRobotsTXT: true
@@ -15,6 +15,9 @@ minify:
     minifyOutput: true
 
 params:
+    twikoo:
+      version: 1.4.17
+    
     math: true
     env: production # to enable google analytics, opengraph, twitter-cards and schema.
     title: Yiming
@@ -34,7 +37,7 @@ params:
     ShowCodeCopyButtons: false
     disableSpecial1stPost: false
     disableScrollToTop: false
-    comments: false
+    comments: true
     hidemeta: false
     hideSummary: false
     showtoc: false

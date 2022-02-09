@@ -406,6 +406,73 @@ October 20, 2021&nbsp;·&nbsp;October 22, 2021&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Y
 </footer>
 <a class=entry-link aria-label="post link to RCE 远程命令执行漏洞" href=https://shenyiming.life/post/13.rce%E4%B8%93%E6%A0%8F/></a>
 </article>
+<article class="post-entry tag-entry">
+<header class=entry-header>
+<h2>
+离散数学CH05-一阶逻辑等值演算与推理
+</h2>
+</header>
+<section class=entry-content>
+<p>一阶逻辑等值式与置换规则 定义5.1 $$ 设A,B是一阶逻辑中任意两个公式，若A\leftrightarrow B 是永真式，则称A与B等值 \\ 记作A\Leftrightarrow B $$
+基本等值式 第1组 第二章P21页，16组重言式
+双重否定律、幂等律、交换律、结合律等
+第2组 量词否定等值式 $$ \neg \forall xA(x)\Leftrightarrow \exist x \neg A(x) $$
+量词辖域收缩与扩张等值式
+设公式A(x)含自由出现的个体变项x，B不含x的自由出现，则 $$ \forall x (A(x)\vee B)\Leftrightarrow \forall xA(x)\vee B \\ \forall x (A(x)\rightarrow B)\Leftrightarrow \exist xA(x)\rightarrow B \\ \exist x(A(x)\rightarrow B)\Leftrightarrow \forall x A(x)\rightarrow B \\ $$
+量词分配等值式 $$ \forall x(A(x)\wedge B(x))\Leftrightarrow \forall xA(x)\wedge \forall xB(x) $$
+进行等值演算，除以上基本等值式外，还有以下2条规则...</p>
+</section>
+<footer class=entry-footer>
+October 12, 2021&nbsp;·&nbsp;January 3, 2022&nbsp;·&nbsp;2 min&nbsp;·&nbsp;Yiming Shen
+</footer>
+<a class=entry-link aria-label="post link to 离散数学CH05-一阶逻辑等值演算与推理" href=https://shenyiming.life/discrete-mathematics/ch05/></a>
+</article>
+<article class="post-entry tag-entry">
+<header class=entry-header>
+<h2>
+4 二次剩余
+</h2>
+</header>
+<section class=entry-content>
+<p>定义4.1.1 $$ 设a为整数，p为奇素数，p\nmid a，如果同余方程\ x^2\equiv a(mod\quad p)有解，则称a是模p的二次剩余\ 否则称a是模p的二次非剩余。 $$
+4.2 勒让德符号 定义4.2.1 $$ 设p为奇素数，对于每个整数a，定义勒让德符号如下\ (\frac{a}{p})=1, p\nmid a 并且a是 $$
+定理 4.2.1 $$ 若p为奇素数，则\ (1)(欧拉判别法)\ (\frac{a}{p})\equiv a^{\frac{p-1}{2}}(mod\quad p) \ p\mid a ,() $$
+整数的标准素因数分解式 $$ a=+- 2^e q^{e_1}_1\cdots q^{e_s}_s $$ 则 $$ (\frac{a}{p})=(\frac{+-1}{p})(\frac{2}{p})^e (\frac{q_1}{p})^{e_1}\cdots (\frac{q_s}{p})^{e_s} $$
+定理4.2.2 $$ 若p为奇素数，则\ (1)(\frac{a}{p})=(\frac{a+p}{p});\ (2)当p\nmid a时\ (3)(\frac{1}{p})=1\ (\frac{1}{p})\equiv 1^{\frac{p-1}{2}}\equiv 1(mod\quad p) $$</p>
+</section>
+<footer class=entry-footer>
+October 11, 2021&nbsp;·&nbsp;January 20, 2022&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Yiming Shen
+</footer>
+<a class=entry-link aria-label="post link to 4 二次剩余" href=https://shenyiming.life/cryptologymath/4.1_%E4%BA%8C%E6%AC%A1%E5%89%A9%E4%BD%99%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5%E5%92%8C%E6%80%A7%E8%B4%A8/></a>
+</article>
+<article class="post-entry tag-entry">
+<header class=entry-header>
+<h2>
+3.4 流程图
+</h2>
+</header>
+<section class=entry-content>
+<p>st=>start: 开始
+op1=>operation: 读入秘密K
+op2=>operation: 生成数组d[n]
+cond=>condition: 判断是否满足N>K>M
+op3=>operation: K依次模d生成密钥串k[n]
+op4=>operation: 使用t个密钥利用CRT还原K'
+cond2=>condition: 判断K'是否等于K
+e1=>end: 恢复成功
+e2=>end: 恢复失败
+st->op1->op2->cond->op3->op4->cond2
+cond(yes)->op3
+cond(no)->op2
+cond2(yes)->e1
+cond2(no)->e2
+</p>
+</section>
+<footer class=entry-footer>
+October 9, 2021&nbsp;·&nbsp;December 11, 2022&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Yiming Shen
+</footer>
+<a class=entry-link aria-label="post link to 3.4 流程图" href=https://shenyiming.life/cryptologymath/3.4%E5%AE%9E%E9%AA%8C_%E5%9F%BA%E4%BA%8E%E4%B8%AD%E5%9B%BD%E5%89%A9%E4%BD%99%E5%AE%9A%E7%90%86%E7%9A%84%E7%A7%98%E5%AF%86%E5%85%B1%E4%BA%AB%E6%96%B9%E6%A1%88/></a>
+</article>
 <footer class=page-footer>
 <nav class=pagination>
 <a class=next href=https://shenyiming.life/categories/notes/page/2/>Next Page »</a>

@@ -4,6 +4,8 @@ date: 2001-11-09
 lastmod: 2021-12-14
 menu: "main"
 weight: 50
+showtoc: true
+ShowShareButtons: false
 typora-root-url: ..\static\
 ---
 
@@ -47,6 +49,25 @@ typora-root-url: ..\static\
 
 ## Releases
 
+##### 09 Feb 2022
+
+**0.3.0**
+
+---
+
+**【更新描述】**
+> - **以Vercel和MongoDB部署的方式加入Twikoo评论系统**
+> - 评论设置了邮箱提醒
+> - **修改主题css和layout，更换font-family，加入思源宋体**
+>
+> Yiming's Blog向动态网站迈出一大步✌🏻
+
+【博客快照】
+
+![image-20220209125604194](/about.assets/%7D/image-20220209125604194.png)
+
+![image-20220209125702179](/about.assets/%7D/image-20220209125702179.png)
+
 ##### 28 Jan 2022
 
 **0.2.4**
@@ -57,7 +78,7 @@ typora-root-url: ..\static\
 
 > - 开启unsafe模式，允许md文档中插入HTML代码
 >
-> 未来计划：修改font-family，加入报宋体
+> - [x] 未来计划：修改font-family，加入报宋体
 
 ##### 22 Jan 2022
 
@@ -73,7 +94,7 @@ typora-root-url: ..\static\
 > - 增加entry动画
 > - 调整了tags的termcss样式
 >
-> 未来计划：迁移至gitee或腾讯云
+> - [ ] 未来计划：迁移至gitee或腾讯云
 
 【博客快照】
 
@@ -98,7 +119,7 @@ typora-root-url: ..\static\
 >
 > https://shenyiming.life
 >
-> 未来计划：增加友链页和Twikoo评论功能
+> - [x] 未来计划：增加友链页和Twikoo评论功能
 
 **【博客快照】**
 

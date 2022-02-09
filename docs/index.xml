@@ -53,7 +53,7 @@ BLOG RESTART
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://shenyiming.life/friends/</guid>
-      <description>相位🚀Either outstanding or out.F.I.V.EFIGHTING!Air吾善养吾浩然气WingerBlogto think and to share</description>
+      <description>相位🚀Either outstanding or out.F.I.V.EFIGHTING!Air吾善养吾浩然气WingerBlogto think and to share 大佬博客 </description>
     </item>
     
     <item>
@@ -75,14 +75,15 @@ About My Blog  正经人谁写日记啊。
 &amp;amp;nbsp
 &amp;amp;nbsp
 &amp;amp;nbsp
-Releases 28 Jan 2022 0.2.4
+Releases 09 Feb 2022 0.3.0
  【更新描述】
-  开启unsafe模式，允许md文档中插入HTML代码  未来计划：修改font-family，加入报宋体
- 22 Jan 2022 0.2.3
- 【更新描述】
-  增加友链功能 增加文章封面 完成页面汉化 增加entry动画 调整了tags的termcss样式  未来计划：迁移至gitee或腾讯云
+  以Vercel和MongoDB部署的方式加入Twikoo评论系统 评论设置了邮箱提醒 修改主题css和layout，更换font-family，加入思源宋体  Yiming&amp;rsquo;s Blog向动态网站迈出一大步✌🏻
  【博客快照】
-21 Jan 2022 0.</description>
+28 Jan 2022 0.2.4
+ 【更新描述】
+   开启unsafe模式，允许md文档中插入HTML代码
+  未来计划：修改font-family，加入报宋体
+   22 Jan 2022 0.</description>
     </item>
     
     <item>

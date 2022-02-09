@@ -18,3 +18,7 @@ typora-root-url: ..\static\
 
 {{<friend name= "WingerBlog" url="https://blog.winger216.bid/" logo="https://blog.winger216.bid/img/avatar_hu660a25d0d5393b05f07783c8b24b29d6_29042_300x0_resize_box_2.png" word="to think and to share">}} 
 
+---
+
+## 大佬博客
+

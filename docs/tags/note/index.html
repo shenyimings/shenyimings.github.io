@@ -406,6 +406,71 @@ October 12, 2021&nbsp;·&nbsp;January 3, 2022&nbsp;·&nbsp;2 min&nbsp;·&nbsp;Yi
 </footer>
 <a class=entry-link aria-label="post link to 离散数学CH05-一阶逻辑等值演算与推理" href=https://shenyiming.life/discrete-mathematics/ch05/></a>
 </article>
+<article class="post-entry tag-entry">
+<header class=entry-header>
+<h2>
+4 二次剩余
+</h2>
+</header>
+<section class=entry-content>
+<p>定义4.1.1 $$ 设a为整数，p为奇素数，p\nmid a，如果同余方程\ x^2\equiv a(mod\quad p)有解，则称a是模p的二次剩余\ 否则称a是模p的二次非剩余。 $$
+4.2 勒让德符号 定义4.2.1 $$ 设p为奇素数，对于每个整数a，定义勒让德符号如下\ (\frac{a}{p})=1, p\nmid a 并且a是 $$
+定理 4.2.1 $$ 若p为奇素数，则\ (1)(欧拉判别法)\ (\frac{a}{p})\equiv a^{\frac{p-1}{2}}(mod\quad p) \ p\mid a ,() $$
+整数的标准素因数分解式 $$ a=+- 2^e q^{e_1}_1\cdots q^{e_s}_s $$ 则 $$ (\frac{a}{p})=(\frac{+-1}{p})(\frac{2}{p})^e (\frac{q_1}{p})^{e_1}\cdots (\frac{q_s}{p})^{e_s} $$
+定理4.2.2 $$ 若p为奇素数，则\ (1)(\frac{a}{p})=(\frac{a+p}{p});\ (2)当p\nmid a时\ (3)(\frac{1}{p})=1\ (\frac{1}{p})\equiv 1^{\frac{p-1}{2}}\equiv 1(mod\quad p) $$</p>
+</section>
+<footer class=entry-footer>
+October 11, 2021&nbsp;·&nbsp;January 20, 2022&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Yiming Shen
+</footer>
+<a class=entry-link aria-label="post link to 4 二次剩余" href=https://shenyiming.life/cryptologymath/4.1_%E4%BA%8C%E6%AC%A1%E5%89%A9%E4%BD%99%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5%E5%92%8C%E6%80%A7%E8%B4%A8/></a>
+</article>
+<article class="post-entry tag-entry">
+<header class=entry-header>
+<h2>
+3.4 流程图
+</h2>
+</header>
+<section class=entry-content>
+<p>st=>start: 开始
+op1=>operation: 读入秘密K
+op2=>operation: 生成数组d[n]
+cond=>condition: 判断是否满足N>K>M
+op3=>operation: K依次模d生成密钥串k[n]
+op4=>operation: 使用t个密钥利用CRT还原K'
+cond2=>condition: 判断K'是否等于K
+e1=>end: 恢复成功
+e2=>end: 恢复失败
+st->op1->op2->cond->op3->op4->cond2
+cond(yes)->op3
+cond(no)->op2
+cond2(yes)->e1
+cond2(no)->e2
+</p>
+</section>
+<footer class=entry-footer>
+October 9, 2021&nbsp;·&nbsp;December 11, 2022&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Yiming Shen
+</footer>
+<a class=entry-link aria-label="post link to 3.4 流程图" href=https://shenyiming.life/cryptologymath/3.4%E5%AE%9E%E9%AA%8C_%E5%9F%BA%E4%BA%8E%E4%B8%AD%E5%9B%BD%E5%89%A9%E4%BD%99%E5%AE%9A%E7%90%86%E7%9A%84%E7%A7%98%E5%AF%86%E5%85%B1%E4%BA%AB%E6%96%B9%E6%A1%88/></a>
+</article>
+<article class="post-entry tag-entry">
+<header class=entry-header>
+<h2>
+3.4 基于中国剩余定理的秘密共享
+</h2>
+</header>
+<section class=entry-content>
+<p>背景 $$ 将秘密k分成n个子秘密k_1,k_2,\cdots,k_n,满足下面两个条件：\\ (1)\quad 如果已知t个k_i 值，易于恢复出k\\ (2)\quad 如果已知任意t-1个或更少个k_i值，不能恢复出k\\ $$
+比如，将一个密钥分成n份，那么n个人中至少t人在场才能获得密钥
+方案 分割 $$ (t,n)门限，选择n个整数d_1,d_2,\cdots,d_n，满足\\ (1)d_1&lt;d_2&lt;\cdots &lt;d_n\quad d_i严格递增\\ (2)(d_i,d_j)=1,i\ne j; \quad d_i两两互素\\ (3)N=d_1\times d_2\times\cdots \times d_t\\ M=d_{n-t+2}\times d_{n-t+3}\times \cdots \times d_n,有N\gt M\\ \\ 对于某个秘密k,要求N\gt k\gt M, 计算\\ k_1 \equiv k(mod \quad d_1)\\ $$
+恢复 $$ 在n个子秘密里任意选择t个:\\ (k_{i1},d_{i1}),\cdots,(k_{i_t},d_{i_t})\\ 基于中国剩余定理计算下列一次同余方程组\\ x\equiv k_{i1}(mod\quad d_{i_1})\\ x\equiv k_{i_2}(mod\quad d_{i_2})\\ \vdots\\ x\equiv k_{i_t}(mod\quad d_{i_t})\\ 恢复出\\ x\equiv k(mod\quad N_1),N_1=d_{i_1},d_{i_2}\cdots,d_{i_t} $$
+计算中国剩余定理中，x用公式最后求出来的解一定是模m的
+例题 例题3.4.1 $$ (2,3)门限，选择3个整数d_1=9,d_2=11,d_3=13\\ N=99,M=13,有N\gt M\\ 对于秘密k=74,要求99\gt 74\gt 13,计算\\ k_1 \equiv 74\equiv 2 (mod\quad 9)\\ k_2 \equiv 74\equiv 8 (mod\quad 11)\\ k_n \equiv 74\equiv 9 (mod\quad 13)\\ 子密钥为(9,2),(11,8), $$</p>
+</section>
+<footer class=entry-footer>
+October 8, 2021&nbsp;·&nbsp;January 20, 2022&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Yiming Shen
+</footer>
+<a class=entry-link aria-label="post link to 3.4 基于中国剩余定理的秘密共享" href=https://shenyiming.life/cryptologymath/3.4_%E5%9F%BA%E4%BA%8E%E4%B8%AD%E5%9B%BD%E5%89%A9%E4%BD%99%E5%AE%9A%E7%90%86%E7%9A%84%E7%A7%98%E5%AF%86%E5%85%B1%E4%BA%AB/></a>
+</article>
 <footer class=page-footer>
 <nav class=pagination>
 <a class=next href=https://shenyiming.life/tags/note/page/2/>Next Page »</a>
