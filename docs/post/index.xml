@@ -9,7 +9,7 @@
       <link>https://shenyiming.life/android-chrome-512x512.png</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Wed, 09 Feb 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://shenyiming.life/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 18 Feb 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://shenyiming.life/post/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>👨🏻‍🔧寒假学习计划</title>
       <link>https://shenyiming.life/post/%E5%AF%92%E5%81%87%E5%AD%A6%E4%B9%A0%E8%AE%A1%E5%88%92/</link>
@@ -35,6 +35,15 @@
       
       <guid>https://shenyiming.life/discrete-mathematics/</guid>
       <description>数理逻辑部分笔记知识点整理</description>
+    </item>
+    
+    <item>
+      <title>MCM/ICM 文档</title>
+      <link>https://shenyiming.life/post/2022%E7%BE%8E%E8%B5%9B%E6%96%87%E6%A1%A3/</link>
+      <pubDate>Fri, 18 Feb 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://shenyiming.life/post/2022%E7%BE%8E%E8%B5%9B%E6%96%87%E6%A1%A3/</guid>
+      <description>题目 Problem A Power Profile of a Cyclist Develop a model that can be applied to any type of rider that determines the relationship between the rider’s position on the course and the power the rider applies. Keep in mind that the rider has a limit on the total energy that can be expended over the course, as well as limits that accumulate</description>
     </item>
     
     <item>
