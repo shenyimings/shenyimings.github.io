@@ -9,7 +9,7 @@
       <link>https://shenyiming.life/android-chrome-512x512.png</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Fri, 18 Feb 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://shenyiming.life/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 09 Feb 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://shenyiming.life/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>👨🏻‍🔧寒假学习计划</title>
       <link>https://shenyiming.life/post/%E5%AF%92%E5%81%87%E5%AD%A6%E4%B9%A0%E8%AE%A1%E5%88%92/</link>
@@ -56,15 +56,6 @@
     </item>
     
     <item>
-      <title>MCM/ICM 文档</title>
-      <link>https://shenyiming.life/post/2022%E7%BE%8E%E8%B5%9B%E6%96%87%E6%A1%A3/</link>
-      <pubDate>Fri, 18 Feb 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://shenyiming.life/post/2022%E7%BE%8E%E8%B5%9B%E6%96%87%E6%A1%A3/</guid>
-      <description>题目 Problem A Power Profile of a Cyclist Develop a model that can be applied to any type of rider that determines the relationship between the rider’s position on the course and the power the rider applies. Keep in mind that the rider has a limit on the total energy that can be expended over the course, as well as limits that accumulate</description>
-    </item>
-    
-    <item>
       <title>域名选择：有哪些很酷的域名？</title>
       <link>https://shenyiming.life/post/domain_choice/</link>
       <pubDate>Wed, 09 Feb 2022 00:00:00 +0000</pubDate>
@@ -80,6 +71,15 @@
       
       <guid>https://shenyiming.life/post/less-4_%E5%88%9D%E9%98%B6%E7%BB%98%E5%9B%BE/</guid>
       <description>图线绘制 在MATLAB中，使用plot()函数绘制图线，语法为： plot(x,y,linespec) x:图线的横坐标 y:图线的纵坐标 可以仅指定x或者y变量内容，另一参数由系统</description>
+    </item>
+    
+    <item>
+      <title>Less-4 MATLAB初阶绘图</title>
+      <link>https://shenyiming.life/post/less-4_%E5%88%9D%E9%98%B6%E7%BB%98%E5%9B%BE.sync-conflict-20220219-110305-m45zake/</link>
+      <pubDate>Thu, 03 Feb 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://shenyiming.life/post/less-4_%E5%88%9D%E9%98%B6%E7%BB%98%E5%9B%BE.sync-conflict-20220219-110305-m45zake/</guid>
+      <description>画图 参考 [1] MATLAB03:数据类型与文件读写</description>
     </item>
     
     <item>
@@ -106,6 +106,15 @@
       <pubDate>Sat, 29 Jan 2022 00:00:00 +0000</pubDate>
       
       <guid>https://shenyiming.life/post/less-3_%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E6%96%87%E4%BB%B6%E5%AD%98%E5%8F%96/</guid>
+      <description>数据类型 数值类型 默认为double类型，可用int8()转换为int型 数值型 描述 double 双精度浮点数 single 单精度浮点数 uint8 uint16 uint32 uint64 8~64位无符号整数 int8 int16</description>
+    </item>
+    
+    <item>
+      <title>Less-3 MATLAB数据结构&amp;文件存取</title>
+      <link>https://shenyiming.life/post/less-3_%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E6%96%87%E4%BB%B6%E5%AD%98%E5%8F%96.sync-conflict-20220219-110257-m45zake/</link>
+      <pubDate>Sat, 29 Jan 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://shenyiming.life/post/less-3_%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E6%96%87%E4%BB%B6%E5%AD%98%E5%8F%96.sync-conflict-20220219-110257-m45zake/</guid>
       <description>数据类型 数值类型 默认为double类型，可用int8()转换为int型 数值型 描述 double 双精度浮点数 single 单精度浮点数 uint8 uint16 uint32 uint64 8~64位无符号整数 int8 int16</description>
     </item>
     
@@ -242,15 +251,6 @@
       
       <guid>https://shenyiming.life/post/14.cnss-recruit-web-write-up/</guid>
       <description>前言 躺在床上，不想动鼠标，那就先写写前言吧。 这个CTF比赛是我打的第二场比较正规、完整的比赛。 惨不忍睹，当然，作为刚入门的noob来说也可以</description>
-    </item>
-    
-    <item>
-      <title>RCE 远程命令执行漏洞</title>
-      <link>https://shenyiming.life/post/13.rce%E4%B8%93%E6%A0%8F/</link>
-      <pubDate>Wed, 20 Oct 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://shenyiming.life/post/13.rce%E4%B8%93%E6%A0%8F/</guid>
-      <description>本文以CTF-show Web入门29-41题作为例题，学习RCE相关知识。 Web 29 过滤了flag字样 ?c=system(&amp;quot;cat f*&amp;quot;); Web 30 过滤了flag|system|php</description>
     </item>
     
     <item>

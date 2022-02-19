@@ -29,15 +29,6 @@
     </item>
     
     <item>
-      <title>RCE 远程命令执行漏洞</title>
-      <link>https://shenyiming.life/post/13.rce%E4%B8%93%E6%A0%8F/</link>
-      <pubDate>Wed, 20 Oct 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://shenyiming.life/post/13.rce%E4%B8%93%E6%A0%8F/</guid>
-      <description>本文以CTF-show Web入门29-41题作为例题，学习RCE相关知识。 Web 29 过滤了flag字样 ?c=system(&amp;quot;cat f*&amp;quot;); Web 30 过滤了flag|system|php</description>
-    </item>
-    
-    <item>
       <title>MoeCTF 2021 西电新生赛WP</title>
       <link>https://shenyiming.life/post/12.moectf-web-write-up/</link>
       <pubDate>Thu, 19 Aug 2021 00:00:00 +0000</pubDate>
