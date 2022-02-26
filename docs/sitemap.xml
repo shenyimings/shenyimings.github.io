@@ -30,6 +30,12 @@
     <loc>https://shenyiming.life/</loc>
     <lastmod>2022-12-13T00:00:00+00:00</lastmod>
   </url><url>
+    <loc>https://shenyiming.life/tags/ctf/</loc>
+    <lastmod>2022-02-26T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://shenyiming.life/categories/ctf/</loc>
+    <lastmod>2022-02-26T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://shenyiming.life/tags/html/</loc>
     <lastmod>2022-02-26T00:00:00+00:00</lastmod>
   </url><url>
@@ -46,6 +52,12 @@
     <lastmod>2022-02-26T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://shenyiming.life/tags/web/</loc>
+    <lastmod>2022-02-26T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://shenyiming.life/tags/xss/</loc>
+    <lastmod>2022-02-26T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://shenyiming.life/post/ctf/xss/xss/</loc>
     <lastmod>2022-02-26T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://shenyiming.life/categories/</loc>
@@ -109,9 +121,6 @@
     <lastmod>2022-12-13T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://shenyiming.life/post/crypto/</loc>
-    <lastmod>2022-01-30T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://shenyiming.life/tags/ctf/</loc>
     <lastmod>2022-01-30T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://shenyiming.life/post/matlab/less-3_%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E6%96%87%E4%BB%B6%E5%AD%98%E5%8F%96/</loc>
@@ -182,9 +191,6 @@
   </url><url>
     <loc>https://shenyiming.life/post/bugku-sql%E6%B3%A8%E5%85%A5/</loc>
     <lastmod>2021-10-24T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://shenyiming.life/categories/ctf/</loc>
-    <lastmod>2021-12-11T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://shenyiming.life/tags/writeup/</loc>
     <lastmod>2021-12-11T00:00:00+00:00</lastmod>
