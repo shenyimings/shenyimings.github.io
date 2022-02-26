@@ -11,7 +11,7 @@
 <meta name=google-site-verification content="XYZabc">
 <meta name=yandex-verification content="XYZabc">
 <meta name=msvalidate.01 content="XYZabc">
-<link href=/assets/css/stylesheet.min.9eb22f89569db6222910f1a1b16b636d9adce21fe4037de04d60c3648de96c1e.css integrity="sha256-nrIviVadtiIpEPGhsWtjbZrc4h/kA33gTWDDZI3pbB4=" rel="preload stylesheet" as=style>
+<link href=/assets/css/stylesheet.min.d32e04e4e05ba717d64f7cc4d5d7984df0a58c072526e387253880784a78c1df.css integrity="sha256-0y4E5OBbpxfWT3zE1deYTfCljAclJuOHJTiAeEp4wd8=" rel="preload stylesheet" as=style>
 <link rel=icon href=https://shenyiming.life/favicon.ico>
 <link rel=icon type=image/png sizes=16x16 href=https://shenyiming.life/favicon-16x16.png>
 <link rel=icon type=image/png sizes=32x32 href=https://shenyiming.life/favicon-32x32.png>
@@ -35,7 +35,7 @@
 <meta name=twitter:image content="https://shenyiming.life/android-chrome-512x512.png">
 <meta name=twitter:title content="Less-4 MATLAB初阶绘图">
 <meta name=twitter:description content="图线绘制 在MATLAB中，使用plot()函数绘制图线，语法为： plot(x,y,linespec) x:图线的横坐标 y:图线的纵坐标 可以仅指定x或者y变量内容，另一参数由系统">
-<script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":2,"name":"文章","item":"https://shenyiming.life/post/"},{"@type":"ListItem","position":3,"name":"MATLAB","item":"https://shenyiming.life/post/matlab/"},{"@type":"ListItem","position":4,"name":"Less-4 MATLAB初阶绘图","item":"https://shenyiming.life/post/matlab/less-4_%E5%88%9D%E9%98%B6%E7%BB%98%E5%9B%BE/"}]}</script>
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":2,"name":"文章","item":"https://shenyiming.life/post/"},{"@type":"ListItem","position":3,"name":"MATLAB 学习","item":"https://shenyiming.life/post/matlab/"},{"@type":"ListItem","position":4,"name":"Less-4 MATLAB初阶绘图","item":"https://shenyiming.life/post/matlab/less-4_%E5%88%9D%E9%98%B6%E7%BB%98%E5%9B%BE/"}]}</script>
 <script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"Less-4 MATLAB初阶绘图","name":"Less-4 MATLAB初阶绘图","description":"图线绘制 在MATLAB中，使用plot()函数绘制图线，语法为： plot(x,y,linespec) x:图线的横坐标 y:图线的纵坐标 可以仅指定x或者y变量内容，另一参数由系统","keywords":["MATLAB","数学建模","Note"],"articleBody":"图线绘制  在MATLAB中，使用plot()函数绘制图线，语法为：\n plot(x,y,linespec)  x:图线的横坐标 y:图线的纵坐标  可以仅指定x或者y变量内容，另一参数由系统自动按由小到大顺序生成整数数列。\n绘制(0,2π)内余弦函数图像 x = 0:pi/20:2*pi; y = cos(x); plot(x,y) 图线装饰 线条参数   linespec图线的线条参数\n 由线型，标记符号，颜色这三个设定符组成的字符串，设定符不区分先后顺序。\n      线性 设定符 标记 设定符 颜色 设定符     实线（默认） - 圆圈 o 红色 r   虚线 -- 加号 + 绿色 g   点线 : 星号 * 蓝色 b   点划线 -. 叉号 x 黑色 k    详情参考MATLAB官方文档 LineSpec（线条设定）-MathWorks\n例题 EX1  读取股票行情表格sz000004.xls并进行初步分析\n %% 导入电子表格中的数据 [~, ~, raw] = xlsread('sz000004.xls','Sheet1','A2:H99'); %% 创建输出变量 data = reshape([raw{:}],size(raw)); % disp(data) %% 将导入的数组分配给列变量名称 raw(:,1) Date = data(:,1); DateNum = data(:,2); Popen = data(:,3); Phigh = data(:,4); Plow = data(:,5); Pclose = data(:,6); Volum = data(:,7); Turn = data(:,8); %% 清除临时变量 clearvars data raw; EX2  在表格中写入随机温度\n %% 写随机数至表格中 tmp = 36.1 + 0.1*double(int8(8.5*rand(17,14))) xlswrite('1.xls',tmp); EX3  画股票行情表\n 参考  [1] MATLAB04:基础绘图 [2] LineSpec（线条设定）-MathWorks  ","wordCount":"442","inLanguage":"en","datePublished":"2022-02-03T00:00:00Z","dateModified":"2022-02-08T00:00:00Z","author":{"@type":"Person","name":"Yiming Shen"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://shenyiming.life/post/matlab/less-4_%E5%88%9D%E9%98%B6%E7%BB%98%E5%9B%BE/"},"publisher":{"@type":"Organization","name":"Console.makeHappy(_1ming)","logo":{"@type":"ImageObject","url":"https://shenyiming.life/favicon.ico"}}}</script>
 </head>
 <body id=top>
@@ -98,12 +98,14 @@
 <article class=post-single>
 <header class=post-header>
 <div class=breadcrumbs>
-<a href=https://shenyiming.life>首页</a>&nbsp;»&nbsp;<a href=https://shenyiming.life/post/>文章</a>&nbsp;»&nbsp;<a href=https://shenyiming.life/post/matlab/>MATLAB</a>
+<a href=https://shenyiming.life>首页</a>&nbsp;»&nbsp;<a href=https://shenyiming.life/post/>文章</a>&nbsp;»&nbsp;<a href=https://shenyiming.life/post/matlab/>MATLAB 学习</a>
 </div>
 <h1 class=post-title>
 Less-4 MATLAB初阶绘图
 </h1>
 <div class=post-meta>
+<style>:root{--article-font-family:"Noto Serif SC", var(--base-font-family)}</style>
+<script>(function(){const a=document.createElement('link');a.href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;700&display=swap",a.type="text/css",a.rel="stylesheet",document.head.appendChild(a)})()</script>
 February 3, 2022&nbsp;·&nbsp;February 8, 2022&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Yiming Shen
 |&nbsp;<a href=https://github.com/shenyimings/shenyimings.github.io/tree/main/docs rel="noopener noreferrer" target=_blank>Issue</a>
 </div>
@@ -290,6 +292,8 @@ xlswrite(<span style=color:#e6db74>&#39;1.xls&#39;</span>,tmp);
 </a>
 </div>
 </footer>
+<style>:root{--article-font-family:"Noto Serif SC", var(--base-font-family)}</style>
+<script>(function(){const a=document.createElement('link');a.href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;700&display=swap",a.type="text/css",a.rel="stylesheet",document.head.appendChild(a)})()</script>
 <div>
 <div class=pagination__title>
 <span class=pagination__title-h style=font-size:20px>💬评论</span>

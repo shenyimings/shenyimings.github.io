@@ -11,7 +11,7 @@
 <meta name=google-site-verification content="XYZabc">
 <meta name=yandex-verification content="XYZabc">
 <meta name=msvalidate.01 content="XYZabc">
-<link href=/assets/css/stylesheet.min.9eb22f89569db6222910f1a1b16b636d9adce21fe4037de04d60c3648de96c1e.css integrity="sha256-nrIviVadtiIpEPGhsWtjbZrc4h/kA33gTWDDZI3pbB4=" rel="preload stylesheet" as=style>
+<link href=/assets/css/stylesheet.min.d32e04e4e05ba717d64f7cc4d5d7984df0a58c072526e387253880784a78c1df.css integrity="sha256-0y4E5OBbpxfWT3zE1deYTfCljAclJuOHJTiAeEp4wd8=" rel="preload stylesheet" as=style>
 <link rel=icon href=https://shenyiming.life/favicon.ico>
 <link rel=icon type=image/png sizes=16x16 href=https://shenyiming.life/favicon-16x16.png>
 <link rel=icon type=image/png sizes=32x32 href=https://shenyiming.life/favicon-32x32.png>
@@ -35,7 +35,7 @@
 <meta name=twitter:image content="https://shenyiming.life/android-chrome-512x512.png">
 <meta name=twitter:title content="Less-1 MATLAB基本操作与矩阵输入">
 <meta name=twitter:description content="基本操作 命令行模式 公式输入 直接输入算式即可计算结果 输入格式基本同自然语言 计算： $$ cos(\sqrt{(\frac{1+2+3+4}{5})}) $$ cos(sqrt((1+2+3+4)/5)) 注意：5/2 是5除以2 5\2是2除以5 变量定义 定义变量">
-<script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":2,"name":"文章","item":"https://shenyiming.life/post/"},{"@type":"ListItem","position":3,"name":"MATLAB","item":"https://shenyiming.life/post/matlab/"},{"@type":"ListItem","position":4,"name":"Less-1 MATLAB基本操作与矩阵输入","item":"https://shenyiming.life/post/matlab/less-1_matlab%E5%9F%BA%E7%A1%80/"}]}</script>
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":2,"name":"文章","item":"https://shenyiming.life/post/"},{"@type":"ListItem","position":3,"name":"MATLAB 学习","item":"https://shenyiming.life/post/matlab/"},{"@type":"ListItem","position":4,"name":"Less-1 MATLAB基本操作与矩阵输入","item":"https://shenyiming.life/post/matlab/less-1_matlab%E5%9F%BA%E7%A1%80/"}]}</script>
 <script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"Less-1 MATLAB基本操作与矩阵输入","name":"Less-1 MATLAB基本操作与矩阵输入","description":"基本操作 命令行模式 公式输入 直接输入算式即可计算结果 输入格式基本同自然语言 计算： $$ cos(\\sqrt{(\\frac{1+2+3+4}{5})}) $$ cos(sqrt((1+2+3+4)/5)) 注意：5/2 是5除以2 5\\2是2除以5 变量定义 定义变量","keywords":["MATLAB","数学建模","Note"],"articleBody":"基本操作 命令行模式\n公式输入 直接输入算式即可计算结果\n输入格式基本同自然语言\n计算： $$ cos(\\sqrt{(\\frac{1+2+3+4}{5})}) $$\ncos(sqrt((1+2+3+4)/5)) 注意：5/2 是5除以2 5\\2是2除以5\n变量定义 定义变量与python相同，无需声明，默认类型为double\n不能声明为变量的系统关键字：显示格式\nformat long 格式种类：\nclc #清屏 clear a #删除变量a who #查询变量 whos #查询变量详细信息 矩阵输入 矩阵定义 a = [1 2 3 4] #定义1*4矩阵 b = [1;2;3;4] #定义4*1矩阵 a = [1 2 3 4;1 2 3 4;1 2 3 4;1 2 3 4] #定义4*4矩阵 矩阵索引 取/修改某个值 a(8) #取第8个值（按行从上往下数）a(8)=4 a([1 3 5])#取第1 3 5个值 a([1 3;1 3])#取第1个数和第3个数 两遍 a(3,2) #取第三行第二列的数 a([1 2],[2 3])#取第1行第2行和第2列第3列的交集为一个新矩阵 k = [k,10] k(end+1) = 10; k = [k(1:5),5.5,k(6:end)] 修改：a()=[]\n迭代生成 a = 1:100 b = 1:2:99 #步长为2 1-99 str = 'a':2:'z' a(1,:) #输出第一行的值 a(:,1) #输出第一列的值 矩阵连接（增广） F = [A B] #横向合成 F = [A;B] #纵向合成 矩阵运算（线代） y1 = A * B #矩阵乘法 y2 = A .* B #矩阵点乘，(1,1)*(1,1) (1,2)*(1,2) B' #B矩阵的转置 eye(n) #生成一个n阶单位矩阵 zeros(n,m) #生成一个n*m的零矩阵 ones(n,m) #生成一个n*m的1矩阵（全是1） diag([2 3 4]) #单位对角化 linspace(0,13,6) #按比例生成从0-13的6个数 mean(A) #求A的列平均数 mean(mean(A)) #A的全部平均数 find(A==1) #找到矩阵A中值为1的绝对位置 ","wordCount":"540","inLanguage":"en","datePublished":"2022-01-15T00:00:00Z","dateModified":"2022-01-20T00:00:00Z","author":{"@type":"Person","name":"Yiming Shen"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://shenyiming.life/post/matlab/less-1_matlab%E5%9F%BA%E7%A1%80/"},"publisher":{"@type":"Organization","name":"Console.makeHappy(_1ming)","logo":{"@type":"ImageObject","url":"https://shenyiming.life/favicon.ico"}}}</script>
 </head>
 <body id=top>
@@ -98,12 +98,14 @@
 <article class=post-single>
 <header class=post-header>
 <div class=breadcrumbs>
-<a href=https://shenyiming.life>首页</a>&nbsp;»&nbsp;<a href=https://shenyiming.life/post/>文章</a>&nbsp;»&nbsp;<a href=https://shenyiming.life/post/matlab/>MATLAB</a>
+<a href=https://shenyiming.life>首页</a>&nbsp;»&nbsp;<a href=https://shenyiming.life/post/>文章</a>&nbsp;»&nbsp;<a href=https://shenyiming.life/post/matlab/>MATLAB 学习</a>
 </div>
 <h1 class=post-title>
 Less-1 MATLAB基本操作与矩阵输入
 </h1>
 <div class=post-meta>
+<style>:root{--article-font-family:"Noto Serif SC", var(--base-font-family)}</style>
+<script>(function(){const a=document.createElement('link');a.href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;700&display=swap",a.type="text/css",a.rel="stylesheet",document.head.appendChild(a)})()</script>
 January 15, 2022&nbsp;·&nbsp;January 20, 2022&nbsp;·&nbsp;2 min&nbsp;·&nbsp;Yiming Shen
 |&nbsp;<a href=https://github.com/shenyimings/shenyimings.github.io/tree/main/docs rel="noopener noreferrer" target=_blank>Issue</a>
 </div>
@@ -253,6 +255,8 @@ find(A<span style=color:#f92672>==</span><span style=color:#ae81ff>1</span>) #�
 </a>
 </div>
 </footer>
+<style>:root{--article-font-family:"Noto Serif SC", var(--base-font-family)}</style>
+<script>(function(){const a=document.createElement('link');a.href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;700&display=swap",a.type="text/css",a.rel="stylesheet",document.head.appendChild(a)})()</script>
 <div>
 <div class=pagination__title>
 <span class=pagination__title-h style=font-size:20px>💬评论</span>

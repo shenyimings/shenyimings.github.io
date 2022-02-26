@@ -16,7 +16,25 @@
       <pubDate>Tue, 22 Feb 2022 00:00:00 +0000</pubDate>
       
       <guid>https://shenyiming.life/post/plan_sophomore_year_2/</guid>
-      <description>[TOC] Readme 关键半年 大二下是关键的半年，从时间上讲，大学四年过半，正是决定何去何从的时候；从课程上讲，难度较大，涉及一门408，由理论转向应用。学分</description>
+      <description>Readme 关键半年 大二下是关键的半年，从时间上讲，大学四年过半，正是决定何去何从的时候；从课程上讲，难度较大，涉及一门408，由理论转向应用。学分占</description>
+    </item>
+    
+    <item>
+      <title>Web 前后端</title>
+      <link>https://shenyiming.life/post/php/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://shenyiming.life/post/php/</guid>
+      <description>HTML CSS JavaScript PHP</description>
+    </item>
+    
+    <item>
+      <title>MATLAB 学习</title>
+      <link>https://shenyiming.life/post/matlab/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://shenyiming.life/post/matlab/</guid>
+      <description>数学建模笔记</description>
     </item>
     
     <item>
@@ -156,37 +174,37 @@
     
     <item>
       <title>Bugku-SQL注入-WriteUP</title>
-      <link>https://shenyiming.life/post/15.bugku-sql%E6%B3%A8%E5%85%A5/</link>
+      <link>https://shenyiming.life/post/bugku-sql%E6%B3%A8%E5%85%A5/</link>
       <pubDate>Sun, 24 Oct 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://shenyiming.life/post/15.bugku-sql%E6%B3%A8%E5%85%A5/</guid>
+      <guid>https://shenyiming.life/post/bugku-sql%E6%B3%A8%E5%85%A5/</guid>
       <description>题目网址：sql注入 一个很正经的界面，有实战那味了。 上来先尝试经典组合： admin~password 很幸运，用户名猜中了。 利用单引号检测是否存在SQL注入 admin&#39; or 1 = 1 报</description>
     </item>
     
     <item>
       <title>CNSS Recruit-Web Write UP</title>
-      <link>https://shenyiming.life/post/14.cnss-recruit-web-write-up/</link>
+      <link>https://shenyiming.life/post/cnss-recruit-web-write-up/</link>
       <pubDate>Thu, 21 Oct 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://shenyiming.life/post/14.cnss-recruit-web-write-up/</guid>
+      <guid>https://shenyiming.life/post/cnss-recruit-web-write-up/</guid>
       <description>前言 躺在床上，不想动鼠标，那就先写写前言吧。 这个CTF比赛是我打的第二场比较正规、完整的比赛。 惨不忍睹，当然，作为刚入门的noob来说也可以</description>
     </item>
     
     <item>
       <title>MoeCTF 2021 西电新生赛WP</title>
-      <link>https://shenyiming.life/post/12.moectf-web-write-up/</link>
+      <link>https://shenyiming.life/post/moectf-web-write-up/</link>
       <pubDate>Thu, 19 Aug 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://shenyiming.life/post/12.moectf-web-write-up/</guid>
+      <guid>https://shenyiming.life/post/moectf-web-write-up/</guid>
       <description>前言-2021/8/10 今天学长在群里发了西电的新生CTF比赛，题目较为基础，适合我们初学者。 想来还是感慨颇多的，西电不愧是网安的头部院校，</description>
     </item>
     
     <item>
       <title>DVWA环境搭建 &#43; BurpSuite2.1安装 &#43; Chrome配置</title>
-      <link>https://shenyiming.life/post/9.dvwa%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA&#43;burpsuite2.1%E5%AE%89%E8%A3%85/</link>
+      <link>https://shenyiming.life/post/dvwa%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA&#43;burpsuite2.1%E5%AE%89%E8%A3%85/</link>
       <pubDate>Thu, 05 Aug 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://shenyiming.life/post/9.dvwa%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA&#43;burpsuite2.1%E5%AE%89%E8%A3%85/</guid>
+      <guid>https://shenyiming.life/post/dvwa%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA&#43;burpsuite2.1%E5%AE%89%E8%A3%85/</guid>
       <description>[TOC] DVWA环境搭建 DVWA（Damn Vulnerable Web Application）是一个用来进行安全脆弱性鉴定的PHP/MySQL Web应用，旨在为安全专业人</description>
     </item>
     
@@ -201,46 +219,55 @@
     
     <item>
       <title>MISC类型题目及技巧</title>
-      <link>https://shenyiming.life/post/6.bugku_misc/</link>
+      <link>https://shenyiming.life/post/bugku_misc/</link>
       <pubDate>Fri, 23 Jul 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://shenyiming.life/post/6.bugku_misc/</guid>
+      <guid>https://shenyiming.life/post/bugku_misc/</guid>
       <description>图片隐写 图片EXIF信息 GIF图片 文件头 16进制编码 编码 Readflag 社工 Bugku社工_进阶收集 根据题目给出的说说截图，有如下信息： 终点位置突出特征：</description>
     </item>
     
     <item>
-      <title>暑假CTF学习计划</title>
-      <link>https://shenyiming.life/post/4.%E5%81%87%E6%9C%9F%E5%AD%A6%E4%B9%A0%E8%AE%A1%E5%88%92/</link>
+      <title>SSTI类型题目积累及资料</title>
+      <link>https://shenyiming.life/post/bugku_ssti/</link>
       <pubDate>Thu, 22 Jul 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://shenyiming.life/post/4.%E5%81%87%E6%9C%9F%E5%AD%A6%E4%B9%A0%E8%AE%A1%E5%88%92/</guid>
+      <guid>https://shenyiming.life/post/bugku_ssti/</guid>
+      <description>SSTI类型介绍 SSTI即服务端模板注入攻击，服务端接收用户输入，将其作为Web应用模板的一部分，渲染编译后执行了恶意内容，导致敏感信息泄露</description>
+    </item>
+    
+    <item>
+      <title>暑假CTF学习计划</title>
+      <link>https://shenyiming.life/post/%E5%81%87%E6%9C%9F%E5%AD%A6%E4%B9%A0%E8%AE%A1%E5%88%92/</link>
+      <pubDate>Thu, 22 Jul 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://shenyiming.life/post/%E5%81%87%E6%9C%9F%E5%AD%A6%E4%B9%A0%E8%AE%A1%E5%88%92/</guid>
       <description>学习内容 根据上一篇笔记选择的比赛方向：Web和Crypto，安排并希望在假期进行以下内容的学习： Python编程基础-网络编程，并提升Pyt</description>
     </item>
     
     <item>
       <title>CTF比赛方向选择</title>
-      <link>https://shenyiming.life/post/3.ctf%E6%AF%94%E8%B5%9B%E6%96%B9%E5%90%91%E9%80%89%E6%8B%A9/</link>
+      <link>https://shenyiming.life/post/ctf%E6%AF%94%E8%B5%9B%E6%96%B9%E5%90%91%E9%80%89%E6%8B%A9/</link>
       <pubDate>Wed, 21 Jul 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://shenyiming.life/post/3.ctf%E6%AF%94%E8%B5%9B%E6%96%B9%E5%90%91%E9%80%89%E6%8B%A9/</guid>
+      <guid>https://shenyiming.life/post/ctf%E6%AF%94%E8%B5%9B%E6%96%B9%E5%90%91%E9%80%89%E6%8B%A9/</guid>
       <description>了解CTF CTF 的前身是传统黑客之间的网络技术比拼游戏，起源于 1996 年第四届 DEFCON。CTF比赛有以下突出特点： 比赛侧重于对计算机底层和系统安全</description>
     </item>
     
     <item>
       <title>Ubuntu 18.04 LTS的配置与入门</title>
-      <link>https://shenyiming.life/post/2.ubuntu%E9%85%8D%E7%BD%AE%E5%8F%8A%E5%91%BD%E4%BB%A4%E5%85%A5%E9%97%A8/</link>
+      <link>https://shenyiming.life/post/ubuntu%E9%85%8D%E7%BD%AE%E5%8F%8A%E5%91%BD%E4%BB%A4%E5%85%A5%E9%97%A8/</link>
       <pubDate>Tue, 20 Jul 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://shenyiming.life/post/2.ubuntu%E9%85%8D%E7%BD%AE%E5%8F%8A%E5%91%BD%E4%BB%A4%E5%85%A5%E9%97%A8/</guid>
+      <guid>https://shenyiming.life/post/ubuntu%E9%85%8D%E7%BD%AE%E5%8F%8A%E5%91%BD%E4%BB%A4%E5%85%A5%E9%97%A8/</guid>
       <description>系统选择 Linux有多种发行版，作为一名小白，我选择Ubuntu的原因是以前用过并且感觉桌面界面十分讨喜，再者，Ubuntu作为常见的个人桌</description>
     </item>
     
     <item>
       <title>学习Markdown语法</title>
-      <link>https://shenyiming.life/post/1.markdown%E7%AC%94%E8%AE%B0%E5%AD%A6%E4%B9%A0/</link>
+      <link>https://shenyiming.life/post/markdown%E7%AC%94%E8%AE%B0%E5%AD%A6%E4%B9%A0/</link>
       <pubDate>Mon, 19 Jul 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://shenyiming.life/post/1.markdown%E7%AC%94%E8%AE%B0%E5%AD%A6%E4%B9%A0/</guid>
+      <guid>https://shenyiming.life/post/markdown%E7%AC%94%E8%AE%B0%E5%AD%A6%E4%B9%A0/</guid>
       <description>2021年7月18日 了解Markdown Markdown是一种轻量级标记语言，属于HTML格式的一种，易读易写易更改，处处透着极简主义的影子</description>
     </item>
     

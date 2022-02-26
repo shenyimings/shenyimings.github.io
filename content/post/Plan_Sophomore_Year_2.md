@@ -18,8 +18,6 @@ cover:
 typora-root-url: ..\..\static\
 ---
 
-[TOC]
-
 ## Readme
 
 > **关键半年**

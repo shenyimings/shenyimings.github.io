@@ -1,0 +1,13 @@
+---
+title: "离散数学 Discrete Mathematics"
+author: "Notes"
+date: "1234"
+url: "/discrete-mathematics/"
+weight: 5
+showtoc: false
+tocopen: false
+showReadingTime: false
+---
+
+数理逻辑部分笔记知识点整理
+

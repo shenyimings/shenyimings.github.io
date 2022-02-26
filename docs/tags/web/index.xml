@@ -21,29 +21,38 @@
     
     <item>
       <title>Bugku-SQL注入-WriteUP</title>
-      <link>https://shenyiming.life/post/15.bugku-sql%E6%B3%A8%E5%85%A5/</link>
+      <link>https://shenyiming.life/post/bugku-sql%E6%B3%A8%E5%85%A5/</link>
       <pubDate>Sun, 24 Oct 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://shenyiming.life/post/15.bugku-sql%E6%B3%A8%E5%85%A5/</guid>
+      <guid>https://shenyiming.life/post/bugku-sql%E6%B3%A8%E5%85%A5/</guid>
       <description>题目网址：sql注入 一个很正经的界面，有实战那味了。 上来先尝试经典组合： admin~password 很幸运，用户名猜中了。 利用单引号检测是否存在SQL注入 admin&#39; or 1 = 1 报</description>
     </item>
     
     <item>
       <title>CNSS Recruit-Web Write UP</title>
-      <link>https://shenyiming.life/post/14.cnss-recruit-web-write-up/</link>
+      <link>https://shenyiming.life/post/cnss-recruit-web-write-up/</link>
       <pubDate>Thu, 21 Oct 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://shenyiming.life/post/14.cnss-recruit-web-write-up/</guid>
+      <guid>https://shenyiming.life/post/cnss-recruit-web-write-up/</guid>
       <description>前言 躺在床上，不想动鼠标，那就先写写前言吧。 这个CTF比赛是我打的第二场比较正规、完整的比赛。 惨不忍睹，当然，作为刚入门的noob来说也可以</description>
     </item>
     
     <item>
       <title>MoeCTF 2021 西电新生赛WP</title>
-      <link>https://shenyiming.life/post/12.moectf-web-write-up/</link>
+      <link>https://shenyiming.life/post/moectf-web-write-up/</link>
       <pubDate>Thu, 19 Aug 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://shenyiming.life/post/12.moectf-web-write-up/</guid>
+      <guid>https://shenyiming.life/post/moectf-web-write-up/</guid>
       <description>前言-2021/8/10 今天学长在群里发了西电的新生CTF比赛，题目较为基础，适合我们初学者。 想来还是感慨颇多的，西电不愧是网安的头部院校，</description>
+    </item>
+    
+    <item>
+      <title>SSTI类型题目积累及资料</title>
+      <link>https://shenyiming.life/post/bugku_ssti/</link>
+      <pubDate>Thu, 22 Jul 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://shenyiming.life/post/bugku_ssti/</guid>
+      <description>SSTI类型介绍 SSTI即服务端模板注入攻击，服务端接收用户输入，将其作为Web应用模板的一部分，渲染编译后执行了恶意内容，导致敏感信息泄露</description>
     </item>
     
   </channel>

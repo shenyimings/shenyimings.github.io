@@ -5,8 +5,6 @@
     flex-direction: column;
     justify-content: center;
     min-height: 320px;
-    
-
 }
 
 .first-entry .entry-header {
@@ -121,6 +119,11 @@
     text-align: center
 }
 
+.post-entry .entry-cover img {
+    display: initial;
+    max-width: 100%;
+}
+
 .entry-cover img {
     border-radius: var(--radius);
     pointer-events: none;
@@ -134,4 +137,3 @@
     color: var(--secondary);
     box-shadow: 0 1px 0 var(--primary)
 }
-

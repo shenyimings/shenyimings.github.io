@@ -11,7 +11,7 @@
 <meta name=google-site-verification content="XYZabc">
 <meta name=yandex-verification content="XYZabc">
 <meta name=msvalidate.01 content="XYZabc">
-<link href=/assets/css/stylesheet.min.9eb22f89569db6222910f1a1b16b636d9adce21fe4037de04d60c3648de96c1e.css integrity="sha256-nrIviVadtiIpEPGhsWtjbZrc4h/kA33gTWDDZI3pbB4=" rel="preload stylesheet" as=style>
+<link href=/assets/css/stylesheet.min.d32e04e4e05ba717d64f7cc4d5d7984df0a58c072526e387253880784a78c1df.css integrity="sha256-0y4E5OBbpxfWT3zE1deYTfCljAclJuOHJTiAeEp4wd8=" rel="preload stylesheet" as=style>
 <link rel=icon href=https://shenyiming.life/favicon.ico>
 <link rel=icon type=image/png sizes=16x16 href=https://shenyiming.life/favicon-16x16.png>
 <link rel=icon type=image/png sizes=32x32 href=https://shenyiming.life/favicon-32x32.png>
@@ -35,7 +35,7 @@
 <meta name=twitter:image content="https://shenyiming.life/android-chrome-512x512.png">
 <meta name=twitter:title content="Less-2 MATLAB结构程序与自定函数">
 <meta name=twitter:description content="脚本模式 脚本模式用于编写结构化程序 示例 for i=1:10 x=linspace(0,10,100); plot(x,sin(x+i)); print(gcf,'-deps',strcat('plot',num2str(i),'.ps')); end 画0-10内sin图像 F5 运行程序 打断点可调试运行 % 是注释 选中 Ctrl + R 可批量注释 选中 Ctrl + I 智能">
-<script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":2,"name":"文章","item":"https://shenyiming.life/post/"},{"@type":"ListItem","position":3,"name":"MATLAB","item":"https://shenyiming.life/post/matlab/"},{"@type":"ListItem","position":4,"name":"Less-2 MATLAB结构程序与自定函数","item":"https://shenyiming.life/post/matlab/less-2_scriptfunction/"}]}</script>
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":2,"name":"文章","item":"https://shenyiming.life/post/"},{"@type":"ListItem","position":3,"name":"MATLAB 学习","item":"https://shenyiming.life/post/matlab/"},{"@type":"ListItem","position":4,"name":"Less-2 MATLAB结构程序与自定函数","item":"https://shenyiming.life/post/matlab/less-2_scriptfunction/"}]}</script>
 <script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"Less-2 MATLAB结构程序与自定函数","name":"Less-2 MATLAB结构程序与自定函数","description":"脚本模式 脚本模式用于编写结构化程序 示例 for i=1:10 x=linspace(0,10,100); plot(x,sin(x+i)); print(gcf,\u0026#39;-deps\u0026#39;,strcat(\u0026#39;plot\u0026#39;,num2str(i),\u0026#39;.ps\u0026#39;)); end 画0-10内sin图像 F5 运行程序 打断点可调试运行 % 是注释 选中 Ctrl + R 可批量注释 选中 Ctrl + I 智能","keywords":["MATLAB","数学建模","Note"],"articleBody":"脚本模式 脚本模式用于编写结构化程序\n示例\nfor i=1:10 x=linspace(0,10,100); plot(x,sin(x+i)); print(gcf,'-deps',strcat('plot',num2str(i),'.ps')); end 画0-10内sin图像\n   F5 运行程序\n  打断点可调试运行\n  % 是注释\n  选中 Ctrl + R 可批量注释\n  选中 Ctrl + I 智能缩进\n   自定函数  在某个函数文件中定义函数，在命令行窗口或脚本模式进行调用。\n 单变量计算 $$ x = x_0 +v_0t +\\frac{1}{2}gt^2 $$\nfunction x =freebody(x0,v0,t) x = x0 + v0 .*t + 1/2*9.8*t.*t % 采用点乘 可以以矩阵形式同时计算多组变量 多变量计算 $$ a = \\frac{v_2-v_1}{t_2-t_1} \\newline F=ma $$\nfunction [a F] = acc(v2,v1,t2,t1,m) a=(v2-v1)./(t2-t1); F = m.*a; [Acc Force] = acc(20,10,5,4,1)\ninputname % 函数输入变量名 mfilename % 正在运行的函数所在文件名 nargin % 函数输入变量个数 nargout % 函数输出变量个数 varargin % 输入变量的长度 varargout % 输出变量的长度 函数句柄  借助函数句柄，可以方便地画出各类函数的图像，这类绘图函数往往以ez开头，下面演示ezplot, ezsurf两个函数。\n % ezplot画sin函数在[0, 2 * pi]内的曲线 ezplot(@sin, [0, 2 * pi]); Exercise   编写程序找到矩阵A中的负数，将其坐标存至矩阵B中，并将负数更改为0 $$ \\left[ \\begin{matrix} 0 \u0026 -1 \u0026 4 \\\\ 9 \u0026 -14 \u0026 25 \\\\ -34 \u0026 49 \u0026 64 \\end{matrix} \\right] $$\nclc; A = [0 -1 4;9 -14 25;-34 49 64]; disp(A); B = [0]; for n=1:9 if A(n)0 disp(A(n)); B(end)=n; B(end+1)=0; A(n)=0; end end disp(A); disp(B);   编写一个将华氏度转换为摄氏度的函数\n input, isempty, break, disp, num2str\n function F2C() %F2C 将华氏度转换为摄氏度 % C: Celsus F:FahrenHeit while 1 F = input('Please input °F '); if (isempty(F)) return; end C = 5/9 * (F - 32); disp(['Temperature in Celsus: ' num2str(C) '℃']); end end   注意事项 在每个脚本的开头应加入以下语句：\nclear all\t% 清空工作区内存中的变量 close all % 关闭之前程序绘制的图像 clc\t% 清空之前程序在终端的输出 ","wordCount":"552","inLanguage":"en","datePublished":"2022-01-23T00:00:00Z","dateModified":"2022-01-24T00:00:00Z","author":{"@type":"Person","name":"Yiming Shen"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://shenyiming.life/post/matlab/less-2_scriptfunction/"},"publisher":{"@type":"Organization","name":"Console.makeHappy(_1ming)","logo":{"@type":"ImageObject","url":"https://shenyiming.life/favicon.ico"}}}</script>
 </head>
 <body id=top>
@@ -98,12 +98,14 @@
 <article class=post-single>
 <header class=post-header>
 <div class=breadcrumbs>
-<a href=https://shenyiming.life>首页</a>&nbsp;»&nbsp;<a href=https://shenyiming.life/post/>文章</a>&nbsp;»&nbsp;<a href=https://shenyiming.life/post/matlab/>MATLAB</a>
+<a href=https://shenyiming.life>首页</a>&nbsp;»&nbsp;<a href=https://shenyiming.life/post/>文章</a>&nbsp;»&nbsp;<a href=https://shenyiming.life/post/matlab/>MATLAB 学习</a>
 </div>
 <h1 class=post-title>
 Less-2 MATLAB结构程序与自定函数
 </h1>
 <div class=post-meta>
+<style>:root{--article-font-family:"Noto Serif SC", var(--base-font-family)}</style>
+<script>(function(){const a=document.createElement('link');a.href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;700&display=swap",a.type="text/css",a.rel="stylesheet",document.head.appendChild(a)})()</script>
 January 23, 2022&nbsp;·&nbsp;January 24, 2022&nbsp;·&nbsp;2 min&nbsp;·&nbsp;Yiming Shen
 |&nbsp;<a href=https://github.com/shenyimings/shenyimings.github.io/tree/main/docs rel="noopener noreferrer" target=_blank>Issue</a>
 </div>
@@ -294,6 +296,8 @@ clc			<span style=color:#75715e>% 清空之前程序在终端的输出</span>
 </a>
 </div>
 </footer>
+<style>:root{--article-font-family:"Noto Serif SC", var(--base-font-family)}</style>
+<script>(function(){const a=document.createElement('link');a.href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;700&display=swap",a.type="text/css",a.rel="stylesheet",document.head.appendChild(a)})()</script>
 <div>
 <div class=pagination__title>
 <span class=pagination__title-h style=font-size:20px>💬评论</span>

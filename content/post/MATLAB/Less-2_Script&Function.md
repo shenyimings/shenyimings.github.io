@@ -15,7 +15,7 @@ categories: [
 math: true
 ShowToc: true
 draft: false
-typora-root-url: ..\..\static\
+typora-root-url: ..\..\..\static\
 ---
 
 ## 脚本模式

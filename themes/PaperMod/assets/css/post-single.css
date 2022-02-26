@@ -1,6 +1,7 @@
 .page-header,
 .post-header {
     margin: 24px auto var(--content-gap) auto
+    
 }
 
 .post-title {
@@ -13,6 +14,8 @@
 .post-description {
     margin-top: 10px;
     margin-bottom: 5px;
+    font-family: "Noto Serif SC", "Hiragino Sans GB", "Droid Sans Fallback", "Microsoft YaHei";
+
 }
 
 .post-meta,
@@ -29,7 +32,9 @@
     display: inline-flex;
     list-style: none;
     margin: auto 3px;
-    box-shadow: 0 1px 0 var(--secondary)
+    box-shadow: 0 1px 0 var(--secondary);
+    font-family: "Noto Serif SC", "Hiragino Sans GB", "Droid Sans Fallback", "Microsoft YaHei";
+
 }
 
 .breadcrumbs a {
@@ -248,6 +253,7 @@
 .post-content img {
     border-radius: 4px
 }
+
 
 .post-content img[src*='#center'] {
     margin: auto
