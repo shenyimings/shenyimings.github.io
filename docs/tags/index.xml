@@ -9,22 +9,40 @@
       <link>https://shenyiming.life/android-chrome-512x512.png</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Tue, 22 Feb 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://shenyiming.life/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 26 Feb 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://shenyiming.life/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>MATLAB</title>
-      <link>https://shenyiming.life/tags/matlab/</link>
-      <pubDate>Tue, 22 Feb 2022 00:00:00 +0000</pubDate>
+      <title>HTML</title>
+      <link>https://shenyiming.life/tags/html/</link>
+      <pubDate>Sat, 26 Feb 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://shenyiming.life/tags/matlab/</guid>
+      <guid>https://shenyiming.life/tags/html/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Note</title>
       <link>https://shenyiming.life/tags/note/</link>
-      <pubDate>Tue, 22 Feb 2022 00:00:00 +0000</pubDate>
+      <pubDate>Sat, 26 Feb 2022 00:00:00 +0000</pubDate>
       
       <guid>https://shenyiming.life/tags/note/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Web</title>
+      <link>https://shenyiming.life/tags/web/</link>
+      <pubDate>Sat, 26 Feb 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://shenyiming.life/tags/web/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>MATLAB</title>
+      <link>https://shenyiming.life/tags/matlab/</link>
+      <pubDate>Tue, 22 Feb 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://shenyiming.life/tags/matlab/</guid>
       <description></description>
     </item>
     
