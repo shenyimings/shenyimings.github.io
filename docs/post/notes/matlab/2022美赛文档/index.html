@@ -1,0 +1,883 @@
+<!doctype html><html lang=en dir=auto>
+<head><meta charset=utf-8>
+<meta http-equiv=x-ua-compatible content="IE=edge">
+<meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no">
+<meta name=robots content="index, follow">
+<title>MCM/ICM 赛后总结 | Console.makeHappy(_1ming)</title>
+<meta name=keywords content="MATLAB,数学建模,Note,MCM/ICM">
+<meta name=description content="声明 Statement 本文写作于2022年2月22日10时美赛结束后 发布于2月22日17时。 This article was written at 10 am. on February 22, 2022 and published at 5 pm. on February 22, after the end of the MCM/ICM. 题目 Problem A Power Profile of">
+<meta name=author content="Yiming Shen, Tianxing Li, Kunhua LI">
+<link rel=canonical href=https://shenyiming.life/post/notes/matlab/2022%E7%BE%8E%E8%B5%9B%E6%96%87%E6%A1%A3/>
+<meta name=google-site-verification content="XYZabc">
+<meta name=yandex-verification content="XYZabc">
+<meta name=msvalidate.01 content="XYZabc">
+<link href=/assets/css/stylesheet.min.7e3eeb64291efee05353e5dcfee7152bc0d0a16497d5b1d05f2c7bb5361bf66b.css integrity="sha256-fj7rZCke/uBTU+Xc/ucVK8DQoWSX1bHQXyx7tTYb9ms=" rel="preload stylesheet" as=style>
+<link rel=icon href=https://shenyiming.life/favicon.ico>
+<link rel=icon type=image/png sizes=16x16 href=https://shenyiming.life/favicon-16x16.png>
+<link rel=icon type=image/png sizes=32x32 href=https://shenyiming.life/favicon-32x32.png>
+<link rel=apple-touch-icon href=https://shenyiming.life/apple-touch-icon.png>
+<link rel=mask-icon href=https://shenyiming.life/safari-pinned-tab.svg>
+<meta name=theme-color content="#2e2e33">
+<meta name=msapplication-TileColor content="#2e2e33">
+<meta name=generator content="Hugo 0.91.0">
+<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css integrity=sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X crossorigin=anonymous>
+<script defer src=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js integrity=sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4 crossorigin=anonymous></script>
+<script defer src=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js integrity=sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa crossorigin=anonymous onload=renderMathInElement(document.body)></script>
+<script type=application/javascript>var doNotTrack=!1;doNotTrack||(window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga('create','UA-123-45','auto'),ga('send','pageview'))</script>
+<script async src=https://www.google-analytics.com/analytics.js></script>
+<meta property="og:title" content="MCM/ICM 赛后总结">
+<meta property="og:description" content="声明 Statement 本文写作于2022年2月22日10时美赛结束后 发布于2月22日17时。 This article was written at 10 am. on February 22, 2022 and published at 5 pm. on February 22, after the end of the MCM/ICM. 题目 Problem A Power Profile of">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://shenyiming.life/post/notes/matlab/2022%E7%BE%8E%E8%B5%9B%E6%96%87%E6%A1%A3/"><meta property="og:image" content="https://shenyiming.life/android-chrome-512x512.png"><meta property="article:section" content="post">
+<meta property="article:published_time" content="2022-02-22T00:00:00+00:00">
+<meta property="article:modified_time" content="2022-02-22T00:00:00+00:00"><meta property="og:site_name" content="Yiming">
+<meta name=twitter:card content="summary_large_image">
+<meta name=twitter:image content="https://shenyiming.life/android-chrome-512x512.png">
+<meta name=twitter:title content="MCM/ICM 赛后总结">
+<meta name=twitter:description content="声明 Statement 本文写作于2022年2月22日10时美赛结束后 发布于2月22日17时。 This article was written at 10 am. on February 22, 2022 and published at 5 pm. on February 22, after the end of the MCM/ICM. 题目 Problem A Power Profile of">
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":2,"name":"文章","item":"https://shenyiming.life/post/"},{"@type":"ListItem","position":3,"name":"📝笔记","item":"https://shenyiming.life/post/notes/"},{"@type":"ListItem","position":4,"name":"🧮MATLAB 学习","item":"https://shenyiming.life/post/notes/matlab/"},{"@type":"ListItem","position":5,"name":"MCM/ICM 赛后总结","item":"https://shenyiming.life/post/notes/matlab/2022%E7%BE%8E%E8%B5%9B%E6%96%87%E6%A1%A3/"}]}</script>
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"MCM/ICM 赛后总结","name":"MCM\/ICM 赛后总结","description":"声明 Statement 本文写作于2022年2月22日10时美赛结束后 发布于2月22日17时。 This article was written at 10 am. on February 22, 2022 and published at 5 pm. on February 22, after the end of the MCM/ICM. 题目 Problem A Power Profile of","keywords":["MATLAB","数学建模","Note","MCM/ICM"],"articleBody":"声明 Statement  本文写作于2022年2月22日10时美赛结束后 发布于2月22日17时。\n This article was written at 10 am. on February 22, 2022 and published at 5 pm. on February 22, after the end of the MCM/ICM.\n题目 Problem A Power Profile of a Cyclist  Develop a model that can be applied to any type of rider that determines the relationship between the rider’s position on the course and the power the rider applies. Keep in mind that the rider has a limit on the total energy that can be expended over the course, as well as limits that accumulate from past aggressiveness and for exceeding the power curve limits.\n背景介绍 自行车公路赛有很多类型，包括小型公路赛、团队计时赛和个人计时赛。骑手在这些比赛中的成功机会可能不同，这取决于 赛事类型、赛道和骑手的能力而有所不同。在个人计时赛中，每个人都要在固定的路线上单独骑行，用最少的时间完成骑行的人就是赢家。个人骑手可以在不同的时间内产生不同的动力水平，而功率的大小和给定功率的时间长短在不同的骑手之间有很大的不同。一个骑手的功率曲线表明一个骑手能在多长时间内产生一定量的功率。 力量。换句话说，在一个特定的时间长度内，功率曲线提供了骑手在该时间段内所能保持的最大功率。 骑士可以在该时间内保持的最大功率。一般来说，骑手产生的动力越多，骑手能保持的时间就越短。 骑手在不得不降低功率和恢复之前，能够保持该功率的时间越短。 恢复。骑手可能会选择短暂地超过他们的功率曲线的限制，但骑手随后会 需要额外的时间在较低的功率水平上进行恢复。此外，骑手过去的功率输出很重要。 而且，车手过去的功率输出很重要，随着比赛的进行，车手会越来越疲劳。 骑手们总是希望尽量减少完成特定距离所需的时间。鉴于一个 根据该车手的功率曲线，该车手应该如何应用功率，同时穿越特定的时间。 在穿越给定的计时赛道时，应该如何应用动力？此外，许多类型的骑手可能 参加个人计时赛，如计时赛专家、爬坡选手、短跑选手、轮滑选手或惩罚性选手。 每种类型的车手都有不同的功率曲线。\n要求 开发一个可适用于任何类型的骑手的模型，以确定骑手的位置和速度之间的关系。 骑手在赛道上的位置和骑手应用的力量之间的关系。请记住，骑手有 骑手在赛道上可以消耗的总能量是有限制的，同时也有过去的攻击性和积累下来的限制。 累积的限制，以及超过功率曲线的限制。\n 定义两种类型的骑手的功率曲线。其中一位骑手应该是计时赛专家，另一位是骑手。 其中一个车手应该是计时赛专家，另一个是另一种类型的车手。你还应该考虑不同性别车手的情况。 不同性别的骑手。 将你的模型应用于各种计时赛道，至少包括以下所列课程 以下是你所定义的每一种力量概况。 o 2021年日本东京的奥运计时赛道。 o 2021年在比利时弗兰德斯举行的UCI世界锦标赛计时赛道。 o 至少有一条你自己设计的赛道，其中包括至少四个急转弯和 至少有一个你自己设计的赛道，包括至少四个急转弯和至少一个不小的道路坡度。赛道的终点应接近其起点。 点。 确定天气条件的潜在影响，包括风向和风力。 强度，以确定你的结果对天气和环境的微小差异有多敏感。 和环境的微小差异有多敏感。 确定结果对骑手偏离目标功率有多敏感 分布。一个骑手不可能按照一个非常详细的计划而错过了 错过目标功率。骑手和体育指导员将对关键部分的预期分速的可能范围有一些了解。 骑手和体育总监将对特定赛道的关键部分的预期分离时间的范围有一些了解。 讨论如何扩展你的模型以包括团队计时赛的最佳功率使用 每队有六名车手，当第四名车手冲过终点时，团队的时间就会被确定。 队伍的时间是在第四个骑手越过终点线时确定的。  作为解决方案的一部分，请为一个车队的体育总监写一份两页的车手比赛指导。 骑手的比赛指导应该集中在一个骑手和一个计时赛的结果上。它 它应该包含对骑手的指导的概述。它还应包括一个广泛的 的总结，但要适合没有数学背景的指导员和骑手。 数学背景的人。 你的PDF解决方案总页数不超过25页，应包括。\n 一页的摘要表。 目录。 你的完整解决方案。 两页的骑手比赛指导，供体育总监参考。 参考资料清单。  注意：MCM比赛有25页的限制。您提交的所有内容都计入 25页的限制（摘要表、目录、参考资料清单和任何附录）。你必须 你必须为你的想法、图像和报告中使用的任何其他材料注明来源。\n 开发一个可适用于任何类型骑手的模型，确定骑手在赛道上的位置和骑手应用的力量之间的关系，请记住，骑手在赛场上可以消耗的总能量是有限制的，同时也有过去的发力所积累和超过功率曲线的限制。\n 开发一个描述运动员运动能量消耗的模型  输入  运动员体重/肌肉水平(由运动类型决定) 运动总时长 能耗比 影响因子   输出  力量在时间上的分布→力量在距离上的分布 力量/距离分布曲线      Problem B  Develop and analyze a mathematical model that will assist negotiators to respond to a fixed set of water supply and demand conditions. Use the model to inform dam operations: When the water level in Lake Mead is M and the water level in Lake Powell is P, how much water should be drawn from each lake to meet stated demands? If no additional water is supplied (from rainfall, etc.), and considering the demands as fixed, how long will it take before the demands are not met? How much additional water must be supplied over time to ensure that these fixed demands are met?\nUse your model to recommend the best means to resolve the competing interests of water availability for general (agricultural, industrial, residential) usage and electricity production. Explicitly state the criteria you are using to resolve competing interests.\nUse your model to address what should be done if there is not enough water to meet all water and electricity demands.\n Problem C Problem D  Due to company regulations, ICM Corporation is unable to share specifics about their people, technologies, processes, or data with your team. However, a general description of ICM Corporation’s operations and the types of data that they deal with on a regular basis is included below on page 3. Develop a model to evaluate the D\u0026A system of ICM Corporation. Your model development and report should include the following:\n Problem E  Develop a carbon sequestration model to determine how much carbon dioxide a forest and its products can be expected to sequester over time. Your model should determine what forest management plan is most effective at sequestering carbon dioxide.\n 开发一个碳吸收模型，以确定一片森林及其产品在一段时间内预计吸收多少二氧化碳。你的模型应该确定什么样的森林管理计划在吸收二氧化碳方面最有效。\n 建立碳吸收模型 创建森林管理模型 - 满足碳吸收的过程且森林数量动态稳定  Problem F  全球公平问题\n 任务安排 2月18日 团队\n 读题+翻译题目 确定选题 收集参考资料  建模手\n 分析并建立模型一-运动员的Power Curve  编程手和作文手\n 收集参考文献 收集运动员数据 收集赛道数据  2月19日 建模手\n 建立模型二-证明同一路段保持匀速骑行功耗比最小 建立模型三第一部分-决策模型中的速度、功率、总功关系 建立模型三第二部分-骑手疲劳度限制  编程手\n 编程计算并画出四个运动员的CP曲线 编程优化非线性规划的模型三前两部分并求解  作文手\n 绘制赛道剖面图和部分文章配图 写引文，疲劳度模型 参与建立模型三中的弯道模型  2月20日 建模手\n 建立模型三中的弯道模型  编程手\n 设计运动员和地图参数Excel模板 编写基于模型三的程序，实现任意数量的连续赛道速度决策  作文手\n 文章完成匀速运动模型  2月21日 建模手\n 写情况分析-团队赛 规划敏感性分析 写给裁判的信  编程手\n 修正程序-输出功率和速度 画三个地图及其决策结果示意图 以自定地图为例，分析比赛结果 进行敏感性分析 写模型计算部分   程序运行iter数据图\n 作文手\n 文章完成决策模型 基本写完文章  2月22日 团队\n 添加、绘制配图 校正细节 提交模型文档  确定选题 通读全题后，确定A/E/F三题作为选择范围，首选A题，保底E题。\nProblem_A 解析 背景 自行车公路赛\n 街道赛（Criterium） 个人计时赛 团体计时赛  问题解决方案 建立一个描述不同骑手功率曲线的数学模型 数据收集 收集两名不同性别不同方向运动员的CP和W’参数\n   name gender specialty weight/kg CP/w W'/J max power/w     Mathieu Van der Poel male individual time trial 75 407.0 309440 1400   Miranda Griffiths Female climber 47 250.0 95840 737    两个不同性别不同方向的运动员的功率曲线\n功率曲线公式 $$ CP = \\frac{(12\\times P_{12})-(3\\times P_3)}{9}\\\\ $$\n$$ W' = 0.24\\times(P_3-P_{12})\\\\ $$ $$ T = \\frac{1000\\times W'}{(P- CP)}\\\\ $$ $$ P = \\frac{1000\\times W'}{T}+CP $$\nclear all; %% 导入数据 [~, ~, raw0_0] = xlsread('D:\\Sync\\atxe6-gxmdf\\Experiment\\编程-申一鸣\\2022_Problem_A\\MATLAB\\Athletes\\athletes_data.xlsx','Sheet1','A2:A5'); [~, ~, raw0_1] = xlsread('D:\\Sync\\atxe6-gxmdf\\Experiment\\编程-申一鸣\\2022_Problem_A\\MATLAB\\Athletes\\athletes_data.xlsx','Sheet1','D2:F5'); raw = [raw0_0,raw0_1]; raw(cellfun(@(x) ~isempty(x) \u0026\u0026 isnumeric(x) \u0026\u0026 isnan(x),raw)) = {''}; cellVectors = raw(:,1); raw = raw(:,[2,3,4]); %% 将非数值元胞替换为 NaN R = cellfun(@(x) ~isnumeric(x) \u0026\u0026 ~islogical(x),raw); % 查找非数值元胞 raw(R) = {NaN}; % 替换非数值元胞 %% 创建输出变量 data = reshape([raw{:}],size(raw)); %% 创建表 athletesdata = table; %% 将导入的数组分配给列变量名称 athletesdata.name = cellVectors(:,1); athletesdata.weightkg = data(:,1); athletesdata.CPW = data(:,2); athletesdata.WJmin1 = data(:,3); %% 清除临时变量 clearvars data raw raw0_0 raw0_1 cellVectors R; %% 绘图 CP = athletesdata.CPW; W = athletesdata.WJmin1; P = 230:2:1000; [r,c]=size(athletesdata.name); for x=1:r T(x,:) = W(x,:)./(P- CP(x,:)); end figHand=figure; %设置图柄 set(figHand,'position',[100 100 800 900]); %设置位置 set(gca,'position',[0.15 0.15 0.80 0.80]); for x=1:r subplot(r,1,x); plot(P,T(x,:),'k','linewidth',1.1); xlim([0 inf]); ylim([100 15000]); xlabel('Power (W)'); ylabel('Time (s)'); set(gca, 'linewidth', 1.1, 'fontsize', 16, 'fontname', 'times'); legend(athletesdata.name(x,:), 'fontsize', 14, 'fontname', 'times') end saveas(figHand,'Athletes\\athletes_data.png') 得到功率曲线\n计算MP和CP下的速度 function [ Vmax,Vmin ] = NP_V( CP,MP ) syms x ans1 = vpasolve(MP==0.03*65*9.8*x+0.5*0.3*1.157*x^3); Vmax = ans1(1,1); ans2 = vpasolve(CP==0.03*65*9.8*x+0.5*0.3*1.157*x^3); Vmin = ans2(1,1); end 建立赛道模型 赛道参数  路程s 上坡/下坡: 坡度i tan坡角 摩擦系数μ; 侧摩擦系数μc 最小转弯半径R  上下坡  坡度i不同\n 急转弯  转弯半径R 不同\n 突发状况 随机应变\n建立有关时间和速度的决策模型 模型参数  s1 上坡长度; s2 直道长度; s3 下坡长度;s4 弯道长度 P1 上坡功率; P2 直道功率; P3 下坡功率; CP 可长时间维持的临界功率 W' 无氧供能的能力 在CP功率以上的功 MP 瞬时最大功率 VCP 在CP下的速度; VMP 在MP下的速度 CdA 阻力系数*迎风面积 ρ 空气密度  $$ min\\quad t(v)=\\frac{s_i}{v_i}+\\dots+\\frac{s_n}{v_n} =\\sum_{i=1}^{n}\\frac{s_i}{v_i}\\newline P_i = \\mu mgv_i\\cos(\\arctan i_1)+\\frac12CdA\\rho v_i^3+mg\\sin(\\arctan i_1)\\newline s.t.\\left{ \\begin{aligned} \\sum_{i=1}^{n}(P_i-CP)\\frac{s_i}{v_i} \u0026 \\le \u0026 W' \\newline \\sum_{i=1}^{n}\\frac{(MP-CP)(P_i-CP)}{W'(MP-P_i)}\\frac{s_i}{V_i} \u0026 \\le \u0026 1 \\newline 3.6v_c-\\sqrt{127(i_2+\\mu_c)R} \u0026\\le\u00260 \\newline VCP \\le v_i \u0026\\le\u0026 VMP \\end{aligned} \\right. $$\n函数优化-非线性规划  内点法是求解不等式约束最优化问题的一种十分有效方法，但不能处理等式约束**。**因为构造的内点惩罚函数是定义在可行域内的函数，而等式约束优化问题不存在可行域空间，因此，内点法不能用来求解等式约束优化问题。\n %% 待优化函数 function t = NP_func( V ) % NP % 计算最短时间t s = [1000,4000,1000]; t = s(1)/V(1) + s(2)/V(2) + s(3)/V(3); end %% 限制条件 function [g,h] = NP_cond(V) %NP2 s.t. %  muf = 0.03; mui = 0.03; i = tan(pi/6); m = 65; G = 9.8; Pcp = 407; Pm = 1400; W0 = 309440; s = [1000,4000,1000]; [Vmax, Vmin] = NP_V(Pcp,Pm); Vmax = double(Vmax); Vmin = double(Vmin); P(1) = mui*m*G*V(1)*cos(atan(i)) + 1/2*V(1)^3+m*G*sin(pi/6); P(2) = muf*m*G*V(2) + 1/2*V(2)^3; P(3) = mui*m*G*V(3)*cos(atan(i)) + 1/2*V(2)^3-m*G*sin(pi/6); g(1)=V(1)-Vmax; g(2)=V(2)-Vmax; g(3)=V(3)-Vmax; g(4)=-V(1)+Vmin; g(5)=-V(2)+Vmin; g(6)=-V(3)+Vmin; g(7) = (P(1)-Pcp).*(s(1)./V(1)) + (P(2)-Pcp).*(s(2)./V(2)) + (P(3)-Pcp).*(s(3)./V(3)) - W0; for i=1:3 g(7+i) = (Pm-Pcp).*(P(i)-Pcp)./(W0*(Pm-P(i))) .* s(i)./V(i)-1; end h = []; end %% 非线性规划 options = optimset; [x,y]=fmincon('NP_func',rand(3,1),[],[],[],[],zeros(3,1),[],'NP_cond',options); disp(V); disp(t); function t = NP_func( V ) % NP % 计算最短时间t s = evalin('base', 's'); rmap = evalin('base', 'rmap'); t=0; for x=1:rmap t = t + s(x)./V(x); end end function [g,h] = NP_cond(V) %% 选择运动员编号 ath_num = 2; %% 读入赛道模型参数 s = evalin('base', 's'); mu = evalin('base', 'mu'); muc = evalin('base', 'muc'); i1 = evalin('base', 'i1'); i2 = evalin('base', 'i2'); R = evalin('base', 'R'); G = evalin('base', 'G'); rho = evalin('base', 'rho'); %% 读入运动员模型参数 m = evalin('base', 'm'); CP = evalin('base', 'CP'); MP = evalin('base', 'MP'); W0 = evalin('base', 'W0'); CdA = evalin('base', 'CdA'); VMP = evalin('base', 'VMP'); VCP = evalin('base', 'VCP'); %% 列出 s.t. [rmap,~] = size (s); i1 = atan(i1); P = zeros(size(s)); g = zeros(2*rmap+3,1); for x = 1:rmap P(x) = mu(x)*m(ath_num)*G(x)*V(x)*cos(i1(x)) + 0.5*CdA(ath_num)*rho(x)*V(x)^3+m(ath_num)*G(x)*sin(i1(x)); g(x) = V(x)-VMP(ath_num); end for x = 1: rmap g(x + rmap) = -V(x)+VCP(ath_num); end %% PROBLOEM npo = x + rmap+1; g(npo) = 0; g(npo+1) = 0; for x = 1:rmap g(npo) = g(npo) + (P(x)-CP(ath_num)).*(s(x)./V(x)); %fuck = P(x) %fucked = P(x)-CP(ath_num) g(npo+1) = g(npo+1) + (MP(ath_num)-CP(ath_num)).*(P(x)-CP(ath_num))./(W0(ath_num)*(MP(ath_num)-P(x))) .* (s(x)./V(x)); end g(npo) = g(npo) - W0(ath_num); g(npo+1) = g(npo+1) - 1; %% npo = npo+1; g(npo+1) = 0; index = find(R~=0); [rindex,~] = size(index); for x = 1:rindex g(npo+x) = V(index(x))- sqrt(127*(i2(index(x))+muc(index(x)))*R(index(x))); end h = []; end %clear all; %% 导入赛道数据 [~, ~, raw] = xlsread('D:\\Sync\\atxe6-gxmdf\\Experiment\\编程-申一鸣\\2022_Problem_A\\MATLAB\\Map\\map_template.xlsx','Sheet1','A2:I13'); raw(cellfun(@(x) ~isempty(x) \u0026\u0026 isnumeric(x) \u0026\u0026 isnan(x),raw)) = {''}; %% 将非数值元胞替换为 NaN Rr = cellfun(@(x) ~isnumeric(x) \u0026\u0026 ~islogical(x),raw); % 查找非数值元胞 raw(Rr) = {NaN}; % 替换非数值元胞 %% 创建输出变量 data = reshape([raw{:}],size(raw)); %% 将导入的数组分配给列变量名称 s = data(:,1); H = data(:,2); R = data(:,3); i1 = data(:,4); mu = data(:,5); i2 = data(:,6); muc = data(:,7); rho = data(:,8); G = data(:,9); %% 清除临时变量 clearvars data raw Rr; %% 导入骑手数据 [~, ~, raw] = xlsread('D:\\Sync\\atxe6-gxmdf\\Experiment\\编程-申一鸣\\2022_Problem_A\\MATLAB\\Athletes\\athlete_template.xlsx','Sheet1','A2:H5'); raw(cellfun(@(x) ~isempty(x) \u0026\u0026 isnumeric(x) \u0026\u0026 isnan(x),raw)) = {''}; cellVectors = raw(:,1); raw = raw(:,[2,3,4,5,6,7,8]); %% 创建输出变量 data = reshape([raw{:}],size(raw)); %% 将导入的数组分配给列变量名称 name = cellVectors(:,1); m = data(:,1); CP = data(:,2); W0 = data(:,3); MP = data(:,4); CdA = data(:,5); VCP = data(:,6); VMP = data(:,7); %% 清除临时变量 clearvars data raw cellVectors; %% 决策模型 [rmap,~] = size (s); [rath,~] = size (name); options = optimset; [V,t] = fmincon('NP_func',rand(rmap,1),[],[],[],[],zeros(rmap,1),[],'NP_cond',options) [abc,~]=NP_cond(V) 结果 $$ v_1 \u0026= \u002616.7000\u0026m/s\\newline v_2 \u0026=\u0026 18.1644\u0026m/s\\newline v_3 \u0026=\u0026 18.2310\u0026m/s\\newline \\newline t \u0026=\u0026 334.9431\u0026s\\newline \\\\ V \u0026=\u002610.8908\\newline \u0026\u002610.8909\\newline \u0026\u002610.8918\\newline \u0026\u002610.8889\\newline \u0026\u002610.8885\\newline \u0026\u002610.8885\\newline \u0026\u002610.8883\\newline \u0026\u002618.1314\\newline \u0026\u002617.9582\\newline \u0026\u002610.8895\\newline \u0026\u002617.8243\\newline \u0026\u002610.8904 \\quad m/s \\newline\nt \u0026=\u0026 3.7333e+03 \\quad 3733.3s $$\n问题扩展 团队模型 敏感性分析 风力 偏离 参考文献 [1] Gordon, S. Optimising distribution of power during a cycling time trial. Sports Eng 8, 81–90 (2005).\n[2] Leo, P., Spragg, J., Podlogar, T. et al. Power profiling and the power-duration relationship in cycling: a narrative review. Eur J Appl Physiol 122, 301–316 (2022).\n[3] Jones, A.M., Vanhatalo, A. The ‘Critical Power’ Concept: Applications to Sports Performance with a Focus on Intermittent High-Intensity Exercise. Sports Med 47, 65–78 (2017).\n[4] Thorsten Dahmen, Stefan Wolf, Dietmar Saupe,Applications of Mathematical Models of Road Cycling,IFAC Proceedings Volumes,Volume 45, Issue 2,2012,Pages 804-809.\n[5] Malizia, F., \u0026 Blocken, B. (2021). Cyclist aerodynamics through time: Better, faster, stronger. Journal of Wind Engineering and Industrial Aerodynamics, 214, [104673].\n[6] Morton RH. A 3-parameter critical power model. Ergonomics. 1996;39(4):611-619.\n[7] Guide to Road Design Part 3: Geometric Design (No. AGRD03-16; 3.4, ISBN 978-1-922382-15–3). (2021).\n[8] David Sundström, Peter Carlsson, Mats Tinnsten, On Optimization of Pacing Strategy in Road Cycling,Procedia Engineering,Volume 60,2013,Pages 118-123,ISSN 1877-7058.\n[9] Bert Blocken, Yasin Toparlar, Thijs van Druenen, Thomas Andrianne, Aerodynamic drag in cycling team time trials, Journal of Wind Engineering and Industrial Aerodynamics, Volume 182, 2018, Pages 128-145,ISSN 0167-6105.\n","wordCount":"4873","inLanguage":"en","datePublished":"2022-02-22T00:00:00Z","dateModified":"2022-02-22T00:00:00Z","author":{"@type":"Person","name":"Yiming Shen, Tianxing Li, Kunhua LI"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://shenyiming.life/post/notes/matlab/2022%E7%BE%8E%E8%B5%9B%E6%96%87%E6%A1%A3/"},"publisher":{"@type":"Organization","name":"Console.makeHappy(_1ming)","logo":{"@type":"ImageObject","url":"https://shenyiming.life/favicon.ico"}}}</script>
+</head>
+<body id=top>
+<script>localStorage.getItem("pref-theme")==="dark"?document.body.classList.add('dark'):localStorage.getItem("pref-theme")==="light"?document.body.classList.remove('dark'):window.matchMedia('(prefers-color-scheme: dark)').matches&&document.body.classList.add('dark')</script>
+<noscript>
+<style type=text/css>#theme-toggle,.top-link{display:none}</style>
+<style>@media(prefers-color-scheme:dark){:root{--theme:#1d1e20;--entry:#2e2e33;--primary:rgba(255, 255, 255, 0.84);--secondary:rgba(255, 255, 255, 0.56);--tertiary:rgba(255, 255, 255, 0.16);--content:rgba(255, 255, 255, 0.74);--hljs-bg:#2e2e33;--code-bg:#37383e;--border:#333}.list{background:var(--theme)}.list:not(.dark)::-webkit-scrollbar-track{background:0 0}.list:not(.dark)::-webkit-scrollbar-thumb{border-color:var(--theme)}}</style>
+</noscript>
+<header class=header>
+<nav class=nav>
+<div class=logo>
+<a href=https://shenyiming.life accesskey=h title="相位  (Alt + H)">
+<img src=/favicon.ico alt=logo aria-label=logo height=35>相位 </a>
+<span class=logo-switches>
+<button id=theme-toggle accesskey=t title="(Alt + T)"><svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg><svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+</button>
+</span>
+</div>
+<ul id=menu onscroll=menu_on_scroll()>
+<li>
+<a href=https://shenyiming.life/post/ title=文章>
+<span>文章</span>
+</a>
+</li>
+<li>
+<a href=https://shenyiming.life/archive/ title=归档>
+<span>归档</span>
+</a>
+</li>
+<li>
+<a href=https://shenyiming.life/categories/ title=分类>
+<span>分类</span>
+</a>
+</li>
+<li>
+<a href=https://shenyiming.life/tags/ title=标签>
+<span>标签</span>
+</a>
+</li>
+<li>
+<a href=https://shenyiming.life/search/ title="搜索 (Alt + /)" accesskey=/>
+<span>搜索</span>
+</a>
+</li>
+<li>
+<a href=https://shenyiming.life/friends/ title=友链>
+<span>友链</span>
+</a>
+</li>
+<li>
+<a href=https://shenyiming.life/about/ title=关于>
+<span>关于</span>
+</a>
+</li></ul>
+</nav>
+</header>
+<main class=main>
+<style>:root{--article-font-family:"Noto Serif SC", var(--base-font-family)}</style>
+<script>(function(){const a=document.createElement('link');a.href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;700&display=swap",a.type="text/css",a.rel="stylesheet",document.head.appendChild(a)})()</script>
+<article class=post-single>
+<header class=post-header>
+<div class=breadcrumbs>
+<a href=https://shenyiming.life>首页</a>&nbsp;»&nbsp;<a href=https://shenyiming.life/post/>文章</a>&nbsp;»&nbsp;<a href=https://shenyiming.life/post/notes/>📝笔记</a>&nbsp;»&nbsp;<a href=https://shenyiming.life/post/notes/matlab/>🧮MATLAB 学习</a>
+</div>
+<h1 class=post-title>
+MCM/ICM 赛后总结
+</h1>
+<div class=post-meta>
+<style>:root{--article-font-family:"Noto Serif SC", var(--base-font-family)}</style>
+<script>(function(){const a=document.createElement('link');a.href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;700&display=swap",a.type="text/css",a.rel="stylesheet",document.head.appendChild(a)})()</script>
+February 22, 2022&nbsp;·&nbsp;February 22, 2022&nbsp;·&nbsp;10 min&nbsp;·&nbsp;Yiming Shen, Tianxing Li, Kunhua LI
+|&nbsp;<a href=https://github.com/shenyimings/shenyimings.github.io/tree/main/docs rel="noopener noreferrer" target=_blank>Issue</a>
+</div>
+</header>
+<aside id=toc-container class="toc-container wide">
+<div class=toc>
+<details open>
+<summary accesskey=c title="(Alt + C)">
+<span class=details>目录</span>
+</summary>
+<div class=inner><ul><ul>
+<li>
+<a href=#%e5%a3%b0%e6%98%8e-statement aria-label="声明 Statement">声明 Statement</a></li></ul>
+<li>
+<a href=#%e9%a2%98%e7%9b%ae aria-label=题目>题目</a><ul>
+<li>
+<a href=#problem-a--power-profile-of-a-cyclist aria-label="Problem A  Power Profile of a Cyclist">Problem A Power Profile of a Cyclist</a></li>
+<li>
+<a href=#problem-b aria-label="Problem B">Problem B</a></li>
+<li>
+<a href=#problem-c aria-label="Problem C">Problem C</a></li>
+<li>
+<a href=#problem-d aria-label="Problem D">Problem D</a></li>
+<li>
+<a href=#problem-e aria-label="Problem E">Problem E</a></li>
+<li>
+<a href=#problem-f aria-label="Problem F">Problem F</a></li></ul>
+</li>
+<li>
+<a href=#%e4%bb%bb%e5%8a%a1%e5%ae%89%e6%8e%92 aria-label=任务安排>任务安排</a><ul>
+<li>
+<a href=#2%e6%9c%8818%e6%97%a5 aria-label=2月18日>2月18日</a></li>
+<li>
+<a href=#2%e6%9c%8819%e6%97%a5 aria-label=2月19日>2月19日</a></li>
+<li>
+<a href=#2%e6%9c%8820%e6%97%a5 aria-label=2月20日>2月20日</a></li>
+<li>
+<a href=#2%e6%9c%8821%e6%97%a5 aria-label=2月21日>2月21日</a></li>
+<li>
+<a href=#2%e6%9c%8822%e6%97%a5 aria-label=2月22日>2月22日</a></li></ul>
+</li>
+<li>
+<a href=#%e7%a1%ae%e5%ae%9a%e9%80%89%e9%a2%98 aria-label=确定选题>确定选题</a></li>
+<li>
+<a href=#problem_a-%e8%a7%a3%e6%9e%90 aria-label="Problem_A 解析">Problem_A 解析</a><ul>
+<li>
+<a href=#%e8%83%8c%e6%99%af aria-label=背景>背景</a></li>
+<li>
+<a href=#%e9%97%ae%e9%a2%98%e8%a7%a3%e5%86%b3%e6%96%b9%e6%a1%88 aria-label=问题解决方案>问题解决方案</a><ul>
+<li>
+<a href=#%e5%bb%ba%e7%ab%8b%e4%b8%80%e4%b8%aa%e6%8f%8f%e8%bf%b0%e4%b8%8d%e5%90%8c%e9%aa%91%e6%89%8b%e5%8a%9f%e7%8e%87%e6%9b%b2%e7%ba%bf%e7%9a%84%e6%95%b0%e5%ad%a6%e6%a8%a1%e5%9e%8b aria-label=建立一个描述不同骑手功率曲线的数学模型><strong>建立一个描述不同骑手功率曲线的数学模型</strong></a><ul>
+<li>
+<a href=#%e6%95%b0%e6%8d%ae%e6%94%b6%e9%9b%86 aria-label=数据收集>数据收集</a></li>
+<li>
+<a href=#%e5%8a%9f%e7%8e%87%e6%9b%b2%e7%ba%bf%e5%85%ac%e5%bc%8f aria-label=功率曲线公式>功率曲线公式</a></li>
+<li>
+<a href=#%e8%ae%a1%e7%ae%97mp%e5%92%8ccp%e4%b8%8b%e7%9a%84%e9%80%9f%e5%ba%a6 aria-label=计算MP和CP下的速度>计算MP和CP下的速度</a></li></ul>
+</li>
+<li>
+<a href=#%e5%bb%ba%e7%ab%8b%e8%b5%9b%e9%81%93%e6%a8%a1%e5%9e%8b aria-label=建立赛道模型>建立赛道模型</a><ul>
+<li>
+<a href=#%e8%b5%9b%e9%81%93%e5%8f%82%e6%95%b0 aria-label=赛道参数>赛道参数</a><ul>
+<li>
+<a href=#%e4%b8%8a%e4%b8%8b%e5%9d%a1 aria-label=上下坡>上下坡</a></li>
+<li>
+<a href=#%e6%80%a5%e8%bd%ac%e5%bc%af aria-label=急转弯>急转弯</a></li></ul>
+</li></ul>
+</li>
+<li>
+<a href=#%e5%bb%ba%e7%ab%8b%e6%9c%89%e5%85%b3%e6%97%b6%e9%97%b4%e5%92%8c%e9%80%9f%e5%ba%a6%e7%9a%84%e5%86%b3%e7%ad%96%e6%a8%a1%e5%9e%8b aria-label=建立有关时间和速度的决策模型><strong>建立有关时间和速度的决策模型</strong></a><ul>
+<li>
+<a href=#%e6%a8%a1%e5%9e%8b%e5%8f%82%e6%95%b0 aria-label=模型参数>模型参数</a></li>
+<li>
+<a href=#%e5%87%bd%e6%95%b0%e4%bc%98%e5%8c%96-%e9%9d%9e%e7%ba%bf%e6%80%a7%e8%a7%84%e5%88%92 aria-label=函数优化-非线性规划>函数优化-非线性规划</a></li></ul>
+</li></ul>
+</li>
+<li>
+<a href=#%e9%97%ae%e9%a2%98%e6%89%a9%e5%b1%95 aria-label=问题扩展>问题扩展</a><ul>
+<ul>
+<li>
+<a href=#%e5%9b%a2%e9%98%9f%e6%a8%a1%e5%9e%8b aria-label=团队模型>团队模型</a></li>
+<li>
+<a href=#%e6%95%8f%e6%84%9f%e6%80%a7%e5%88%86%e6%9e%90 aria-label=敏感性分析>敏感性分析</a><ul>
+<li>
+<a href=#%e9%a3%8e%e5%8a%9b aria-label=风力>风力</a></li>
+<li>
+<a href=#%e5%81%8f%e7%a6%bb aria-label=偏离>偏离</a></li></ul>
+</li></ul>
+<li>
+<a href=#%e5%8f%82%e8%80%83%e6%96%87%e7%8c%ae aria-label=参考文献>参考文献</a>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</details>
+</div>
+</aside>
+<script>let activeElement,elements;window.addEventListener('DOMContentLoaded',function(b){checkTocPosition(),elements=document.querySelectorAll('h1[id],h2[id],h3[id],h4[id],h5[id],h6[id]'),activeElement=elements[0];const a=encodeURI(activeElement.getAttribute('id')).toLowerCase();document.querySelector(`.inner ul li a[href="#${a}"]`).classList.add('active')},!1),window.addEventListener('resize',function(a){checkTocPosition()},!1),window.addEventListener('scroll',()=>{activeElement=Array.from(elements).find(a=>{if(getOffsetTop(a)-window.pageYOffset>0&&getOffsetTop(a)-window.pageYOffset<window.innerHeight/2)return a})||activeElement,elements.forEach(a=>{const b=encodeURI(a.getAttribute('id')).toLowerCase();a===activeElement?document.querySelector(`.inner ul li a[href="#${b}"]`).classList.add('active'):document.querySelector(`.inner ul li a[href="#${b}"]`).classList.remove('active')})},!1);const main=parseInt(getComputedStyle(document.body).getPropertyValue('--article-width'),10),toc=parseInt(getComputedStyle(document.body).getPropertyValue('--toc-width'),10),gap=parseInt(getComputedStyle(document.body).getPropertyValue('--gap'),10);function checkTocPosition(){const a=document.body.scrollWidth;a-main-toc*2-gap*4>0?document.getElementById("toc-container").classList.add("wide"):document.getElementById("toc-container").classList.remove("wide")}function getOffsetTop(a){if(!a.getClientRects().length)return 0;let b=a.getBoundingClientRect(),c=a.ownerDocument.defaultView;return b.top+c.pageYOffset}</script>
+<div class=post-content>
+<h2 id=声明-statement>声明 Statement<a hidden class=anchor aria-hidden=true href=#声明-statement>#</a></h2>
+<blockquote>
+<p>本文写作于2022年2月22日10时美赛结束后 发布于2月22日17时。</p>
+</blockquote>
+<p><strong>This article was written at 10 am. on February 22, 2022 and published at 5 pm. on February 22, after the end of the MCM/ICM.</strong></p>
+<h1 id=题目>题目<a hidden class=anchor aria-hidden=true href=#题目>#</a></h1>
+<h2 id=problem-a--power-profile-of-a-cyclist>Problem A Power Profile of a Cyclist<a hidden class=anchor aria-hidden=true href=#problem-a--power-profile-of-a-cyclist>#</a></h2>
+<blockquote>
+<p>Develop a model that can be applied to any type of rider that determines the relationship between
+the rider’s position on the course and the power the rider applies. Keep in mind that the rider has
+a limit on the total energy that can be expended over the course, as well as limits that accumulate
+from past aggressiveness and for exceeding the power curve limits.</p>
+<p>背景介绍
+自行车公路赛有很多类型，包括小型公路赛、团队计时赛和个人计时赛。骑手在这些比赛中的成功机会可能不同，这取决于
+赛事类型、赛道和骑手的能力而有所不同。在个人计时赛中，每个人都要在固定的路线上单独骑行，用最少的时间完成骑行的人就是赢家。个人骑手可以在不同的时间内产生不同的动力水平，而功率的大小和给定功率的时间长短在不同的骑手之间有很大的不同。一个骑手的功率曲线表明一个骑手能在多长时间内产生一定量的功率。
+力量。换句话说，在一个特定的时间长度内，功率曲线提供了骑手在该时间段内所能保持的最大功率。
+骑士可以在该时间内保持的最大功率。一般来说，骑手产生的动力越多，骑手能保持的时间就越短。
+骑手在不得不降低功率和恢复之前，能够保持该功率的时间越短。
+恢复。骑手可能会选择短暂地超过他们的功率曲线的限制，但骑手随后会
+需要额外的时间在较低的功率水平上进行恢复。此外，骑手过去的功率输出很重要。
+而且，车手过去的功率输出很重要，随着比赛的进行，车手会越来越疲劳。
+骑手们总是希望尽量减少完成特定距离所需的时间。鉴于一个
+根据该车手的功率曲线，该车手应该如何应用功率，同时穿越特定的时间。
+在穿越给定的计时赛道时，应该如何应用动力？此外，许多类型的骑手可能
+参加个人计时赛，如计时赛专家、爬坡选手、短跑选手、轮滑选手或惩罚性选手。
+每种类型的车手都有不同的功率曲线。</p>
+<p>要求
+开发一个可适用于任何类型的骑手的模型，以确定骑手的位置和速度之间的关系。
+骑手在赛道上的位置和骑手应用的力量之间的关系。请记住，骑手有
+骑手在赛道上可以消耗的总能量是有限制的，同时也有过去的攻击性和积累下来的限制。
+累积的限制，以及超过功率曲线的限制。</p>
+<ul>
+<li>定义两种类型的骑手的功率曲线。其中一位骑手应该是计时赛专家，另一位是骑手。
+其中一个车手应该是计时赛专家，另一个是另一种类型的车手。你还应该考虑不同性别车手的情况。
+不同性别的骑手。</li>
+<li>将你的模型应用于各种计时赛道，至少包括以下所列课程
+以下是你所定义的每一种力量概况。
+o 2021年日本东京的奥运计时赛道。
+o 2021年在比利时弗兰德斯举行的UCI世界锦标赛计时赛道。
+o 至少有一条你自己设计的赛道，其中包括至少四个急转弯和
+至少有一个你自己设计的赛道，包括至少四个急转弯和至少一个不小的道路坡度。赛道的终点应接近其起点。
+点。</li>
+<li>确定天气条件的潜在影响，包括风向和风力。
+强度，以确定你的结果对天气和环境的微小差异有多敏感。
+和环境的微小差异有多敏感。</li>
+<li>确定结果对骑手偏离目标功率有多敏感
+分布。一个骑手不可能按照一个非常详细的计划而错过了
+错过目标功率。骑手和体育指导员将对关键部分的预期分速的可能范围有一些了解。
+骑手和体育总监将对特定赛道的关键部分的预期分离时间的范围有一些了解。</li>
+<li>讨论如何扩展你的模型以包括团队计时赛的最佳功率使用
+每队有六名车手，当第四名车手冲过终点时，团队的时间就会被确定。
+队伍的时间是在第四个骑手越过终点线时确定的。</li>
+</ul>
+<p>作为解决方案的一部分，请为一个车队的体育总监写一份两页的车手比赛指导。
+骑手的比赛指导应该集中在一个骑手和一个计时赛的结果上。它
+它应该包含对骑手的指导的概述。它还应包括一个广泛的
+的总结，但要适合没有数学背景的指导员和骑手。
+数学背景的人。
+你的PDF解决方案总页数不超过25页，应包括。</p>
+<ul>
+<li>一页的摘要表。</li>
+<li>目录。</li>
+<li>你的完整解决方案。</li>
+<li>两页的骑手比赛指导，供体育总监参考。</li>
+<li>参考资料清单。</li>
+</ul>
+<p>注意：MCM比赛有25页的限制。您提交的所有内容都计入
+25页的限制（摘要表、目录、参考资料清单和任何附录）。你必须
+你必须为你的想法、图像和报告中使用的任何其他材料注明来源。</p>
+</blockquote>
+<p>开发一个可适用于任何类型骑手的模型，确定骑手在赛道上的位置和骑手应用的力量之间的关系，请记住，骑手在赛场上可以消耗的总能量是有限制的，同时也有过去的发力所积累和超过功率曲线的限制。</p>
+<ol>
+<li>开发一个描述运动员运动能量消耗的模型
+<ol>
+<li>输入
+<ol>
+<li>运动员体重/肌肉水平(由运动类型决定)</li>
+<li>运动总时长</li>
+<li>能耗比</li>
+<li>影响因子</li>
+</ol>
+</li>
+<li>输出
+<ol>
+<li>力量在时间上的分布→力量在距离上的分布</li>
+<li>力量/距离分布曲线</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+<h2 id=problem-b>Problem B<a hidden class=anchor aria-hidden=true href=#problem-b>#</a></h2>
+<blockquote>
+<p>Develop and analyze a mathematical model that will assist negotiators to respond to a
+fixed set of water supply and demand conditions. Use the model to inform dam
+operations: When the water level in Lake Mead is M and the water level in Lake Powell
+is P, how much water should be drawn from each lake to meet stated demands? If no
+additional water is supplied (from rainfall, etc.), and considering the demands as fixed,
+how long will it take before the demands are not met? How much additional water must
+be supplied over time to ensure that these fixed demands are met?</p>
+<p>Use your model to recommend the best means to resolve the competing interests of water
+availability for general (agricultural, industrial, residential) usage and electricity
+production. Explicitly state the criteria you are using to resolve competing interests.</p>
+<p>Use your model to address what should be done if there is not enough water to meet all
+water and electricity demands.</p>
+</blockquote>
+<h2 id=problem-c>Problem C<a hidden class=anchor aria-hidden=true href=#problem-c>#</a></h2>
+<h2 id=problem-d>Problem D<a hidden class=anchor aria-hidden=true href=#problem-d>#</a></h2>
+<blockquote>
+<p>Due to company regulations, ICM Corporation is unable to share specifics about their people, technologies, processes, or data with your team. However, a general description of ICM Corporation’s operations and the types of data that they deal with on a regular basis is included below on page 3. Develop a model to evaluate the D&A system of ICM Corporation. Your model development and report should include the following:</p>
+</blockquote>
+<h2 id=problem-e>Problem E<a hidden class=anchor aria-hidden=true href=#problem-e>#</a></h2>
+<blockquote>
+<p>Develop a carbon sequestration model to determine how much carbon dioxide a forest
+and its products can be expected to sequester over time. Your model should determine
+what forest management plan is most effective at sequestering carbon dioxide.</p>
+</blockquote>
+<p>开发一个碳吸收模型，以确定一片森林及其产品在一段时间内预计吸收多少二氧化碳。你的模型应该确定什么样的森林管理计划在吸收二氧化碳方面最有效。</p>
+<ol>
+<li>建立碳吸收模型</li>
+<li>创建森林管理模型 - 满足碳吸收的过程且森林数量动态稳定</li>
+</ol>
+<h2 id=problem-f>Problem F<a hidden class=anchor aria-hidden=true href=#problem-f>#</a></h2>
+<blockquote>
+<p>全球公平问题</p>
+</blockquote>
+<h1 id=任务安排>任务安排<a hidden class=anchor aria-hidden=true href=#任务安排>#</a></h1>
+<h2 id=2月18日>2月18日<a hidden class=anchor aria-hidden=true href=#2月18日>#</a></h2>
+<p>团队</p>
+<ul>
+<li><input checked disabled type=checkbox> 读题+翻译题目</li>
+<li><input checked disabled type=checkbox> 确定选题</li>
+<li><input checked disabled type=checkbox> 收集参考资料</li>
+</ul>
+<p>建模手</p>
+<ul>
+<li><input checked disabled type=checkbox> 分析并建立模型一-运动员的Power Curve</li>
+</ul>
+<p>编程手和作文手</p>
+<ul>
+<li><input checked disabled type=checkbox> 收集参考文献</li>
+<li><input checked disabled type=checkbox> 收集运动员数据</li>
+<li><input checked disabled type=checkbox> 收集赛道数据</li>
+</ul>
+<h2 id=2月19日>2月19日<a hidden class=anchor aria-hidden=true href=#2月19日>#</a></h2>
+<p>建模手</p>
+<ul>
+<li><input checked disabled type=checkbox> 建立模型二-证明同一路段保持匀速骑行功耗比最小</li>
+<li><input checked disabled type=checkbox> 建立模型三第一部分-决策模型中的速度、功率、总功关系</li>
+<li><input checked disabled type=checkbox> 建立模型三第二部分-骑手疲劳度限制</li>
+</ul>
+<p>编程手</p>
+<ul>
+<li><input checked disabled type=checkbox> 编程计算并画出四个运动员的CP曲线</li>
+<li><input checked disabled type=checkbox> 编程优化非线性规划的模型三前两部分并求解</li>
+</ul>
+<p>作文手</p>
+<ul>
+<li><input checked disabled type=checkbox> 绘制赛道剖面图和部分文章配图</li>
+<li><input checked disabled type=checkbox> 写引文，疲劳度模型</li>
+<li><input checked disabled type=checkbox> 参与建立模型三中的弯道模型</li>
+</ul>
+<h2 id=2月20日>2月20日<a hidden class=anchor aria-hidden=true href=#2月20日>#</a></h2>
+<p>建模手</p>
+<ul>
+<li><input checked disabled type=checkbox> 建立模型三中的弯道模型</li>
+</ul>
+<p>编程手</p>
+<ul>
+<li><input checked disabled type=checkbox> 设计运动员和地图参数Excel模板</li>
+<li><input checked disabled type=checkbox> 编写基于模型三的程序，实现任意数量的连续赛道速度决策</li>
+</ul>
+<p>作文手</p>
+<ul>
+<li><input checked disabled type=checkbox> 文章完成匀速运动模型</li>
+</ul>
+<h2 id=2月21日>2月21日<a hidden class=anchor aria-hidden=true href=#2月21日>#</a></h2>
+<p>建模手</p>
+<ul>
+<li><input checked disabled type=checkbox> 写情况分析-团队赛</li>
+<li><input checked disabled type=checkbox> 规划敏感性分析</li>
+<li><input checked disabled type=checkbox> 写给裁判的信</li>
+</ul>
+<p>编程手</p>
+<ul>
+<li><input checked disabled type=checkbox> 修正程序-输出功率和速度</li>
+<li><input checked disabled type=checkbox> 画三个地图及其决策结果示意图</li>
+<li><input disabled type=checkbox> <del>以自定地图为例，分析比赛结果</del></li>
+<li><input checked disabled type=checkbox> 进行敏感性分析</li>
+<li><input checked disabled type=checkbox> 写模型计算部分</li>
+</ul>
+<blockquote>
+<p>程序运行iter数据图</p>
+</blockquote>
+<p>作文手</p>
+<ul>
+<li><input checked disabled type=checkbox> 文章完成决策模型</li>
+<li><input checked disabled type=checkbox> 基本写完文章</li>
+</ul>
+<h2 id=2月22日>2月22日<a hidden class=anchor aria-hidden=true href=#2月22日>#</a></h2>
+<p>团队</p>
+<ul>
+<li><input checked disabled type=checkbox> 添加、绘制配图</li>
+<li><input disabled type=checkbox> <del>校正细节</del></li>
+<li><input checked disabled type=checkbox> <strong>提交模型文档</strong></li>
+</ul>
+<h1 id=确定选题>确定选题<a hidden class=anchor aria-hidden=true href=#确定选题>#</a></h1>
+<p>通读全题后，确定A/E/F三题作为选择范围，<strong>首选A题</strong>，保底E题。</p>
+<h1 id=problem_a-解析>Problem_A 解析<a hidden class=anchor aria-hidden=true href=#problem_a-解析>#</a></h1>
+<img src=/2022%E7%BE%8E%E8%B5%9B%E6%96%87%E6%A1%A3.assets/%7D/CP.001.jpeg alt=CP.001.jpeg style=zoom:50%>
+<h2 id=背景>背景<a hidden class=anchor aria-hidden=true href=#背景>#</a></h2>
+<p>自行车公路赛</p>
+<ol>
+<li>街道赛（Criterium）</li>
+<li>个人计时赛</li>
+<li>团体计时赛</li>
+</ol>
+<h2 id=问题解决方案>问题解决方案<a hidden class=anchor aria-hidden=true href=#问题解决方案>#</a></h2>
+<h3 id=建立一个描述不同骑手功率曲线的数学模型><strong>建立一个描述不同骑手功率曲线的数学模型</strong><a hidden class=anchor aria-hidden=true href=#建立一个描述不同骑手功率曲线的数学模型>#</a></h3>
+<h4 id=数据收集>数据收集<a hidden class=anchor aria-hidden=true href=#数据收集>#</a></h4>
+<p>收集两名不同性别不同方向运动员的CP和W&rsquo;参数</p>
+<table>
+<thead>
+<tr>
+<th>name</th>
+<th>gender</th>
+<th>specialty</th>
+<th>weight/kg</th>
+<th>CP/w</th>
+<th>W'/J</th>
+<th>max power/w</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Mathieu Van der Poel</td>
+<td>male</td>
+<td>individual time trial</td>
+<td>75</td>
+<td>407.0</td>
+<td>309440</td>
+<td>1400</td>
+</tr>
+<tr>
+<td>Miranda Griffiths</td>
+<td>Female</td>
+<td>climber</td>
+<td>47</td>
+<td>250.0</td>
+<td>95840</td>
+<td>737</td>
+</tr>
+</tbody>
+</table>
+<p><em>两个不同性别不同方向的运动员的功率曲线</em></p>
+<h4 id=功率曲线公式>功率曲线公式<a hidden class=anchor aria-hidden=true href=#功率曲线公式>#</a></h4>
+<p>$$
+CP = \frac{(12\times P_{12})-(3\times P_3)}{9}\\
+$$</p>
+<p>$$
+W' = 0.24\times(P_3-P_{12})\\
+$$
+$$
+T = \frac{1000\times W'}{(P- CP)}\\
+$$
+$$
+P = \frac{1000\times W'}{T}+CP
+$$</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-matlab data-lang=matlab>clear all;
+<span style=color:#75715e>%% 导入数据</span>
+[<span style=color:#f92672>~</span>, <span style=color:#f92672>~</span>, raw0_0] = xlsread(<span style=color:#e6db74>&#39;D:\Sync\atxe6-gxmdf\Experiment\编程-申一鸣\2022_Problem_A\MATLAB\Athletes\athletes_data.xlsx&#39;</span>,<span style=color:#e6db74>&#39;Sheet1&#39;</span>,<span style=color:#e6db74>&#39;A2:A5&#39;</span>);
+[<span style=color:#f92672>~</span>, <span style=color:#f92672>~</span>, raw0_1] = xlsread(<span style=color:#e6db74>&#39;D:\Sync\atxe6-gxmdf\Experiment\编程-申一鸣\2022_Problem_A\MATLAB\Athletes\athletes_data.xlsx&#39;</span>,<span style=color:#e6db74>&#39;Sheet1&#39;</span>,<span style=color:#e6db74>&#39;D2:F5&#39;</span>);
+raw = [raw0_0,raw0_1];
+raw(cellfun(@(x) <span style=color:#f92672>~</span>isempty(x) <span style=color:#f92672>&amp;&amp;</span> isnumeric(x) <span style=color:#f92672>&amp;&amp;</span> isnan(x),raw)) = {<span style=color:#e6db74>&#39;&#39;</span>};
+cellVectors = raw(:,<span style=color:#ae81ff>1</span>);
+raw = raw(:,[<span style=color:#ae81ff>2</span>,<span style=color:#ae81ff>3</span>,<span style=color:#ae81ff>4</span>]);
+
+<span style=color:#75715e>%% 将非数值元胞替换为 NaN</span>
+R = cellfun(@(x) <span style=color:#f92672>~</span>isnumeric(x) <span style=color:#f92672>&amp;&amp;</span> <span style=color:#f92672>~</span>islogical(x),raw); <span style=color:#75715e>% 查找非数值元胞</span>
+raw(R) = {NaN}; <span style=color:#75715e>% 替换非数值元胞</span>
+
+<span style=color:#75715e>%% 创建输出变量</span>
+data = reshape([raw{:}],size(raw));
+
+<span style=color:#75715e>%% 创建表</span>
+athletesdata = table;
+
+<span style=color:#75715e>%% 将导入的数组分配给列变量名称</span>
+athletesdata.name = cellVectors(:,<span style=color:#ae81ff>1</span>);
+athletesdata.weightkg = data(:,<span style=color:#ae81ff>1</span>);
+athletesdata.CPW = data(:,<span style=color:#ae81ff>2</span>);
+athletesdata.WJmin1 = data(:,<span style=color:#ae81ff>3</span>);
+
+
+<span style=color:#75715e>%% 清除临时变量</span>
+clearvars data raw raw0_0 raw0_1 cellVectors R;
+<span style=color:#75715e>%% 绘图</span>
+CP = athletesdata.CPW;
+W = athletesdata.WJmin1;
+P = <span style=color:#ae81ff>230</span>:<span style=color:#ae81ff>2</span>:<span style=color:#ae81ff>1000</span>;
+[r,c]=size(athletesdata.name);
+<span style=color:#66d9ef>for</span> x=<span style=color:#ae81ff>1</span>:r
+    T(x,:) = W(x,:)<span style=color:#f92672>./</span>(P<span style=color:#f92672>-</span> CP(x,:));
+<span style=color:#66d9ef>end</span>
+
+figHand=figure; <span style=color:#75715e>%设置图柄</span>
+
+set(figHand,<span style=color:#e6db74>&#39;position&#39;</span>,[<span style=color:#ae81ff>100</span> <span style=color:#ae81ff>100</span> <span style=color:#ae81ff>800</span> <span style=color:#ae81ff>900</span>]); <span style=color:#75715e>%设置位置</span>
+set(gca,<span style=color:#e6db74>&#39;position&#39;</span>,[<span style=color:#ae81ff>0.15</span> <span style=color:#ae81ff>0.15</span> <span style=color:#ae81ff>0.80</span> <span style=color:#ae81ff>0.80</span>]);
+
+<span style=color:#66d9ef>for</span> x=<span style=color:#ae81ff>1</span>:r
+    subplot(r,<span style=color:#ae81ff>1</span>,x);
+    plot(P,T(x,:),<span style=color:#e6db74>&#39;k&#39;</span>,<span style=color:#e6db74>&#39;linewidth&#39;</span>,<span style=color:#ae81ff>1.1</span>);
+    xlim([<span style=color:#ae81ff>0</span> inf]);
+    ylim([<span style=color:#ae81ff>100</span> <span style=color:#ae81ff>15000</span>]);
+    xlabel(<span style=color:#e6db74>&#39;Power (W)&#39;</span>);
+    ylabel(<span style=color:#e6db74>&#39;Time (s)&#39;</span>);
+    set(gca, <span style=color:#e6db74>&#39;linewidth&#39;</span>, <span style=color:#ae81ff>1.1</span>, <span style=color:#e6db74>&#39;fontsize&#39;</span>, <span style=color:#ae81ff>16</span>, <span style=color:#e6db74>&#39;fontname&#39;</span>, <span style=color:#e6db74>&#39;times&#39;</span>);
+    legend(athletesdata.name(x,:), <span style=color:#e6db74>&#39;fontsize&#39;</span>, <span style=color:#ae81ff>14</span>, <span style=color:#e6db74>&#39;fontname&#39;</span>, <span style=color:#e6db74>&#39;times&#39;</span>)
+<span style=color:#66d9ef>end</span>
+
+saveas(figHand,<span style=color:#e6db74>&#39;Athletes\athletes_data.png&#39;</span>)
+
+</code></pre></div><p><strong>得到功率曲线</strong></p>
+<p><img loading=lazy src=/2022%E7%BE%8E%E8%B5%9B%E6%96%87%E6%A1%A3.assets/%7D/POWER_CURVE.jpg alt=POWER_CURVE>
+</p>
+<p><img loading=lazy src=/2022%E7%BE%8E%E8%B5%9B%E6%96%87%E6%A1%A3.assets/%7D/athletes_data.png alt=athletes_data>
+</p>
+<h4 id=计算mp和cp下的速度>计算MP和CP下的速度<a hidden class=anchor aria-hidden=true href=#计算mp和cp下的速度>#</a></h4>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-matlab data-lang=matlab><span style=color:#66d9ef>function</span> [ Vmax,Vmin ] = <span style=color:#a6e22e>NP_V</span>( CP,MP )
+syms x
+ans1 = vpasolve(MP<span style=color:#f92672>==</span><span style=color:#ae81ff>0.03</span><span style=color:#f92672>*</span><span style=color:#ae81ff>65</span><span style=color:#f92672>*</span><span style=color:#ae81ff>9.8</span><span style=color:#f92672>*</span>x<span style=color:#f92672>+</span><span style=color:#ae81ff>0.5</span><span style=color:#f92672>*</span><span style=color:#ae81ff>0.3</span><span style=color:#f92672>*</span><span style=color:#ae81ff>1.157</span><span style=color:#f92672>*</span>x^<span style=color:#ae81ff>3</span>);
+Vmax = ans1(<span style=color:#ae81ff>1</span>,<span style=color:#ae81ff>1</span>);
+ans2 = vpasolve(CP<span style=color:#f92672>==</span><span style=color:#ae81ff>0.03</span><span style=color:#f92672>*</span><span style=color:#ae81ff>65</span><span style=color:#f92672>*</span><span style=color:#ae81ff>9.8</span><span style=color:#f92672>*</span>x<span style=color:#f92672>+</span><span style=color:#ae81ff>0.5</span><span style=color:#f92672>*</span><span style=color:#ae81ff>0.3</span><span style=color:#f92672>*</span><span style=color:#ae81ff>1.157</span><span style=color:#f92672>*</span>x^<span style=color:#ae81ff>3</span>);
+Vmin = ans2(<span style=color:#ae81ff>1</span>,<span style=color:#ae81ff>1</span>);
+<span style=color:#66d9ef>end</span>
+
+</code></pre></div><h3 id=建立赛道模型>建立赛道模型<a hidden class=anchor aria-hidden=true href=#建立赛道模型>#</a></h3>
+<h4 id=赛道参数>赛道参数<a hidden class=anchor aria-hidden=true href=#赛道参数>#</a></h4>
+<ol>
+<li>路程s</li>
+<li>上坡/下坡: 坡度i tan坡角</li>
+<li>摩擦系数μ; 侧摩擦系数μc</li>
+<li>最小转弯半径R</li>
+</ol>
+<h5 id=上下坡>上下坡<a hidden class=anchor aria-hidden=true href=#上下坡>#</a></h5>
+<blockquote>
+<p>坡度i不同</p>
+</blockquote>
+<h5 id=急转弯>急转弯<a hidden class=anchor aria-hidden=true href=#急转弯>#</a></h5>
+<blockquote>
+<p>转弯半径R 不同</p>
+</blockquote>
+<p><img loading=lazy src=/2022%E7%BE%8E%E8%B5%9B%E6%96%87%E6%A1%A3.assets/%7D/76APNL%5B2%7B_W3EAYWZSY0%5DI.jpg alt=img>
+</p>
+<p><em>突发状况 随机应变</em></p>
+<h3 id=建立有关时间和速度的决策模型><strong>建立有关时间和速度的决策模型</strong><a hidden class=anchor aria-hidden=true href=#建立有关时间和速度的决策模型>#</a></h3>
+<h4 id=模型参数>模型参数<a hidden class=anchor aria-hidden=true href=#模型参数>#</a></h4>
+<ol>
+<li>s1 上坡长度; s2 直道长度; s3 下坡长度;s4 弯道长度</li>
+<li>P1 上坡功率; P2 直道功率; P3 下坡功率;</li>
+<li>CP 可长时间维持的临界功率</li>
+<li>W' 无氧供能的能力 在CP功率以上的功</li>
+<li>MP 瞬时最大功率</li>
+<li>VCP 在CP下的速度; VMP 在MP下的速度</li>
+<li>CdA 阻力系数*迎风面积</li>
+<li>ρ 空气密度</li>
+</ol>
+<p>$$
+min\quad t(v)=\frac{s_i}{v_i}+\dots+\frac{s_n}{v_n}
+=\sum_{i=1}^{n}\frac{s_i}{v_i}\newline
+P_i = \mu mgv_i\cos(\arctan i_1)+\frac12CdA\rho v_i^3+mg\sin(\arctan i_1)\newline
+s.t.\left{
+\begin{aligned}
+\sum_{i=1}^{n}(P_i-CP)\frac{s_i}{v_i} & \le & W' \newline
+\sum_{i=1}^{n}\frac{(MP-CP)(P_i-CP)}{W'(MP-P_i)}\frac{s_i}{V_i} & \le & 1 \newline
+3.6v_c-\sqrt{127(i_2+\mu_c)R} &\le&0 \newline
+VCP \le v_i &\le& VMP
+\end{aligned}
+\right.
+$$</p>
+<h4 id=函数优化-非线性规划>函数优化-非线性规划<a hidden class=anchor aria-hidden=true href=#函数优化-非线性规划>#</a></h4>
+<blockquote>
+<p>内点法是求解不等式约束最优化问题的一种十分有效方法，但不能处理等式约束**。**因为构造的内点惩罚函数是定义在可行域内的函数，而等式约束优化问题不存在可行域空间，因此，内点法不能用来求解等式约束优化问题。</p>
+</blockquote>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-matlab data-lang=matlab><span style=color:#75715e>%% 待优化函数</span>
+
+<span style=color:#66d9ef>function</span> t = <span style=color:#a6e22e>NP_func</span>( V )
+<span style=color:#75715e>% NP</span>
+<span style=color:#75715e>%   计算最短时间t</span>
+s = [<span style=color:#ae81ff>1000</span>,<span style=color:#ae81ff>4000</span>,<span style=color:#ae81ff>1000</span>];
+t = s(<span style=color:#ae81ff>1</span>)<span style=color:#f92672>/</span>V(<span style=color:#ae81ff>1</span>) <span style=color:#f92672>+</span> s(<span style=color:#ae81ff>2</span>)<span style=color:#f92672>/</span>V(<span style=color:#ae81ff>2</span>) <span style=color:#f92672>+</span> s(<span style=color:#ae81ff>3</span>)<span style=color:#f92672>/</span>V(<span style=color:#ae81ff>3</span>);
+<span style=color:#66d9ef>end</span>
+
+<span style=color:#75715e>%% 限制条件</span>
+
+<span style=color:#66d9ef>function</span> [g,h] = <span style=color:#a6e22e>NP_cond</span>(V)
+<span style=color:#75715e>%NP2 s.t.</span>
+<span style=color:#75715e>%   </span>
+muf = <span style=color:#ae81ff>0.03</span>;
+mui = <span style=color:#ae81ff>0.03</span>;
+i = tan(pi<span style=color:#f92672>/</span><span style=color:#ae81ff>6</span>);
+m = <span style=color:#ae81ff>65</span>;
+G = <span style=color:#ae81ff>9.8</span>;
+Pcp = <span style=color:#ae81ff>407</span>;
+Pm = <span style=color:#ae81ff>1400</span>;
+W0 = <span style=color:#ae81ff>309440</span>;
+s = [<span style=color:#ae81ff>1000</span>,<span style=color:#ae81ff>4000</span>,<span style=color:#ae81ff>1000</span>];
+
+[Vmax, Vmin] = NP_V(Pcp,Pm);
+Vmax = double(Vmax);
+Vmin = double(Vmin);
+
+P(<span style=color:#ae81ff>1</span>) = mui<span style=color:#f92672>*</span>m<span style=color:#f92672>*</span>G<span style=color:#f92672>*</span>V(<span style=color:#ae81ff>1</span>)<span style=color:#f92672>*</span>cos(atan(i)) <span style=color:#f92672>+</span> <span style=color:#ae81ff>1</span><span style=color:#f92672>/</span><span style=color:#ae81ff>2</span><span style=color:#f92672>*</span>V(<span style=color:#ae81ff>1</span>)^<span style=color:#ae81ff>3</span><span style=color:#f92672>+</span>m<span style=color:#f92672>*</span>G<span style=color:#f92672>*</span>sin(pi<span style=color:#f92672>/</span><span style=color:#ae81ff>6</span>);
+P(<span style=color:#ae81ff>2</span>) = muf<span style=color:#f92672>*</span>m<span style=color:#f92672>*</span>G<span style=color:#f92672>*</span>V(<span style=color:#ae81ff>2</span>) <span style=color:#f92672>+</span> <span style=color:#ae81ff>1</span><span style=color:#f92672>/</span><span style=color:#ae81ff>2</span><span style=color:#f92672>*</span>V(<span style=color:#ae81ff>2</span>)^<span style=color:#ae81ff>3</span>;
+P(<span style=color:#ae81ff>3</span>) = mui<span style=color:#f92672>*</span>m<span style=color:#f92672>*</span>G<span style=color:#f92672>*</span>V(<span style=color:#ae81ff>3</span>)<span style=color:#f92672>*</span>cos(atan(i)) <span style=color:#f92672>+</span> <span style=color:#ae81ff>1</span><span style=color:#f92672>/</span><span style=color:#ae81ff>2</span><span style=color:#f92672>*</span>V(<span style=color:#ae81ff>2</span>)^<span style=color:#ae81ff>3</span><span style=color:#f92672>-</span>m<span style=color:#f92672>*</span>G<span style=color:#f92672>*</span>sin(pi<span style=color:#f92672>/</span><span style=color:#ae81ff>6</span>);
+
+
+g(<span style=color:#ae81ff>1</span>)=V(<span style=color:#ae81ff>1</span>)<span style=color:#f92672>-</span>Vmax;
+g(<span style=color:#ae81ff>2</span>)=V(<span style=color:#ae81ff>2</span>)<span style=color:#f92672>-</span>Vmax;
+g(<span style=color:#ae81ff>3</span>)=V(<span style=color:#ae81ff>3</span>)<span style=color:#f92672>-</span>Vmax;
+g(<span style=color:#ae81ff>4</span>)=<span style=color:#f92672>-</span>V(<span style=color:#ae81ff>1</span>)<span style=color:#f92672>+</span>Vmin;
+g(<span style=color:#ae81ff>5</span>)=<span style=color:#f92672>-</span>V(<span style=color:#ae81ff>2</span>)<span style=color:#f92672>+</span>Vmin;
+g(<span style=color:#ae81ff>6</span>)=<span style=color:#f92672>-</span>V(<span style=color:#ae81ff>3</span>)<span style=color:#f92672>+</span>Vmin;
+
+g(<span style=color:#ae81ff>7</span>) = (P(<span style=color:#ae81ff>1</span>)<span style=color:#f92672>-</span>Pcp)<span style=color:#f92672>.*</span>(s(<span style=color:#ae81ff>1</span>)<span style=color:#f92672>./</span>V(<span style=color:#ae81ff>1</span>)) <span style=color:#f92672>+</span> (P(<span style=color:#ae81ff>2</span>)<span style=color:#f92672>-</span>Pcp)<span style=color:#f92672>.*</span>(s(<span style=color:#ae81ff>2</span>)<span style=color:#f92672>./</span>V(<span style=color:#ae81ff>2</span>)) <span style=color:#f92672>+</span> (P(<span style=color:#ae81ff>3</span>)<span style=color:#f92672>-</span>Pcp)<span style=color:#f92672>.*</span>(s(<span style=color:#ae81ff>3</span>)<span style=color:#f92672>./</span>V(<span style=color:#ae81ff>3</span>)) <span style=color:#f92672>-</span> W0;
+
+<span style=color:#66d9ef>for</span> i=<span style=color:#ae81ff>1</span>:<span style=color:#ae81ff>3</span>
+g(<span style=color:#ae81ff>7</span><span style=color:#f92672>+</span>i) = (Pm<span style=color:#f92672>-</span>Pcp)<span style=color:#f92672>.*</span>(P(i)<span style=color:#f92672>-</span>Pcp)<span style=color:#f92672>./</span>(W0<span style=color:#f92672>*</span>(Pm<span style=color:#f92672>-</span>P(i))) <span style=color:#f92672>.*</span> s(i)<span style=color:#f92672>./</span>V(i)<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>;
+<span style=color:#66d9ef>end</span>
+
+h = [];
+<span style=color:#66d9ef>end</span>
+
+<span style=color:#75715e>%% 非线性规划</span>
+options = optimset;
+[x,y]=fmincon(<span style=color:#e6db74>&#39;NP_func&#39;</span>,rand(<span style=color:#ae81ff>3</span>,<span style=color:#ae81ff>1</span>),[],[],[],[],zeros(<span style=color:#ae81ff>3</span>,<span style=color:#ae81ff>1</span>),[],<span style=color:#e6db74>&#39;NP_cond&#39;</span>,options);
+disp(V);
+disp(t);
+</code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-matlab data-lang=matlab><span style=color:#66d9ef>function</span> t = <span style=color:#a6e22e>NP_func</span>( V )
+<span style=color:#75715e>% NP</span>
+<span style=color:#75715e>%   计算最短时间t</span>
+s = evalin(<span style=color:#e6db74>&#39;base&#39;</span>, <span style=color:#e6db74>&#39;s&#39;</span>);
+rmap = evalin(<span style=color:#e6db74>&#39;base&#39;</span>, <span style=color:#e6db74>&#39;rmap&#39;</span>);
+t=<span style=color:#ae81ff>0</span>;
+
+<span style=color:#66d9ef>for</span> x=<span style=color:#ae81ff>1</span>:rmap
+    t = t <span style=color:#f92672>+</span> s(x)<span style=color:#f92672>./</span>V(x);
+<span style=color:#66d9ef>end</span>
+
+<span style=color:#66d9ef>end</span>
+
+
+<span style=color:#66d9ef>function</span> [g,h] = <span style=color:#a6e22e>NP_cond</span>(V)
+<span style=color:#75715e>%% 选择运动员编号</span>
+ath_num = <span style=color:#ae81ff>2</span>;
+<span style=color:#75715e>%% 读入赛道模型参数</span>
+s = evalin(<span style=color:#e6db74>&#39;base&#39;</span>, <span style=color:#e6db74>&#39;s&#39;</span>);
+mu = evalin(<span style=color:#e6db74>&#39;base&#39;</span>, <span style=color:#e6db74>&#39;mu&#39;</span>);
+muc = evalin(<span style=color:#e6db74>&#39;base&#39;</span>, <span style=color:#e6db74>&#39;muc&#39;</span>);
+i1 = evalin(<span style=color:#e6db74>&#39;base&#39;</span>, <span style=color:#e6db74>&#39;i1&#39;</span>);
+i2 = evalin(<span style=color:#e6db74>&#39;base&#39;</span>, <span style=color:#e6db74>&#39;i2&#39;</span>);
+R = evalin(<span style=color:#e6db74>&#39;base&#39;</span>, <span style=color:#e6db74>&#39;R&#39;</span>);
+G = evalin(<span style=color:#e6db74>&#39;base&#39;</span>, <span style=color:#e6db74>&#39;G&#39;</span>);
+rho = evalin(<span style=color:#e6db74>&#39;base&#39;</span>, <span style=color:#e6db74>&#39;rho&#39;</span>);
+<span style=color:#75715e>%% 读入运动员模型参数</span>
+m = evalin(<span style=color:#e6db74>&#39;base&#39;</span>, <span style=color:#e6db74>&#39;m&#39;</span>);
+CP = evalin(<span style=color:#e6db74>&#39;base&#39;</span>, <span style=color:#e6db74>&#39;CP&#39;</span>);
+MP = evalin(<span style=color:#e6db74>&#39;base&#39;</span>, <span style=color:#e6db74>&#39;MP&#39;</span>);
+W0 = evalin(<span style=color:#e6db74>&#39;base&#39;</span>, <span style=color:#e6db74>&#39;W0&#39;</span>);
+CdA = evalin(<span style=color:#e6db74>&#39;base&#39;</span>, <span style=color:#e6db74>&#39;CdA&#39;</span>);
+VMP = evalin(<span style=color:#e6db74>&#39;base&#39;</span>, <span style=color:#e6db74>&#39;VMP&#39;</span>);
+VCP = evalin(<span style=color:#e6db74>&#39;base&#39;</span>, <span style=color:#e6db74>&#39;VCP&#39;</span>);
+<span style=color:#75715e>%% 列出 s.t.</span>
+[rmap,<span style=color:#f92672>~</span>] = size (s);
+
+i1 = atan(i1);
+P = zeros(size(s));
+g = zeros(<span style=color:#ae81ff>2</span><span style=color:#f92672>*</span>rmap<span style=color:#f92672>+</span><span style=color:#ae81ff>3</span>,<span style=color:#ae81ff>1</span>);
+<span style=color:#66d9ef>for</span> x = <span style=color:#ae81ff>1</span>:rmap
+   P(x) = mu(x)<span style=color:#f92672>*</span>m(ath_num)<span style=color:#f92672>*</span>G(x)<span style=color:#f92672>*</span>V(x)<span style=color:#f92672>*</span>cos(i1(x)) <span style=color:#f92672>+</span> <span style=color:#ae81ff>0.5</span><span style=color:#f92672>*</span>CdA(ath_num)<span style=color:#f92672>*</span>rho(x)<span style=color:#f92672>*</span>V(x)^<span style=color:#ae81ff>3</span><span style=color:#f92672>+</span>m(ath_num)<span style=color:#f92672>*</span>G(x)<span style=color:#f92672>*</span>sin(i1(x));
+   g(x) = V(x)<span style=color:#f92672>-</span>VMP(ath_num);
+<span style=color:#66d9ef>end</span>
+
+<span style=color:#66d9ef>for</span> x = <span style=color:#ae81ff>1</span>: rmap
+    g(x <span style=color:#f92672>+</span> rmap) = <span style=color:#f92672>-</span>V(x)<span style=color:#f92672>+</span>VCP(ath_num);
+<span style=color:#66d9ef>end</span>
+
+<span style=color:#75715e>%% PROBLOEM</span>
+npo = x <span style=color:#f92672>+</span> rmap<span style=color:#f92672>+</span><span style=color:#ae81ff>1</span>;
+g(npo) = <span style=color:#ae81ff>0</span>;
+g(npo<span style=color:#f92672>+</span><span style=color:#ae81ff>1</span>) = <span style=color:#ae81ff>0</span>;
+<span style=color:#66d9ef>for</span> x = <span style=color:#ae81ff>1</span>:rmap
+   g(npo) = g(npo) <span style=color:#f92672>+</span> (P(x)<span style=color:#f92672>-</span>CP(ath_num))<span style=color:#f92672>.*</span>(s(x)<span style=color:#f92672>./</span>V(x));
+   <span style=color:#75715e>%fuck = P(x)</span>
+   <span style=color:#75715e>%fucked = P(x)-CP(ath_num)</span>
+   g(npo<span style=color:#f92672>+</span><span style=color:#ae81ff>1</span>) = g(npo<span style=color:#f92672>+</span><span style=color:#ae81ff>1</span>) <span style=color:#f92672>+</span> (MP(ath_num)<span style=color:#f92672>-</span>CP(ath_num))<span style=color:#f92672>.*</span>(P(x)<span style=color:#f92672>-</span>CP(ath_num))<span style=color:#f92672>./</span>(W0(ath_num)<span style=color:#f92672>*</span>(MP(ath_num)<span style=color:#f92672>-</span>P(x))) <span style=color:#f92672>.*</span> (s(x)<span style=color:#f92672>./</span>V(x));
+<span style=color:#66d9ef>end</span>
+g(npo) = g(npo) <span style=color:#f92672>-</span> W0(ath_num);
+g(npo<span style=color:#f92672>+</span><span style=color:#ae81ff>1</span>) = g(npo<span style=color:#f92672>+</span><span style=color:#ae81ff>1</span>) <span style=color:#f92672>-</span> <span style=color:#ae81ff>1</span>;
+<span style=color:#75715e>%%</span>
+
+npo = npo<span style=color:#f92672>+</span><span style=color:#ae81ff>1</span>;
+g(npo<span style=color:#f92672>+</span><span style=color:#ae81ff>1</span>) = <span style=color:#ae81ff>0</span>;
+index = find(R<span style=color:#f92672>~=</span><span style=color:#ae81ff>0</span>);
+[rindex,<span style=color:#f92672>~</span>] = size(index);
+
+<span style=color:#66d9ef>for</span> x = <span style=color:#ae81ff>1</span>:rindex
+   g(npo<span style=color:#f92672>+</span>x) = V(index(x))<span style=color:#f92672>-</span> sqrt(<span style=color:#ae81ff>127</span><span style=color:#f92672>*</span>(i2(index(x))<span style=color:#f92672>+</span>muc(index(x)))<span style=color:#f92672>*</span>R(index(x)));
+<span style=color:#66d9ef>end</span>
+h = [];
+
+<span style=color:#66d9ef>end</span>
+
+<span style=color:#75715e>%clear all;</span>
+<span style=color:#75715e>%% 导入赛道数据</span>
+[<span style=color:#f92672>~</span>, <span style=color:#f92672>~</span>, raw] = xlsread(<span style=color:#e6db74>&#39;D:\Sync\atxe6-gxmdf\Experiment\编程-申一鸣\2022_Problem_A\MATLAB\Map\map_template.xlsx&#39;</span>,<span style=color:#e6db74>&#39;Sheet1&#39;</span>,<span style=color:#e6db74>&#39;A2:I13&#39;</span>);
+raw(cellfun(@(x) <span style=color:#f92672>~</span>isempty(x) <span style=color:#f92672>&amp;&amp;</span> isnumeric(x) <span style=color:#f92672>&amp;&amp;</span> isnan(x),raw)) = {<span style=color:#e6db74>&#39;&#39;</span>};
+
+<span style=color:#75715e>%% 将非数值元胞替换为 NaN</span>
+Rr = cellfun(@(x) <span style=color:#f92672>~</span>isnumeric(x) <span style=color:#f92672>&amp;&amp;</span> <span style=color:#f92672>~</span>islogical(x),raw); <span style=color:#75715e>% 查找非数值元胞</span>
+raw(Rr) = {NaN}; <span style=color:#75715e>% 替换非数值元胞</span>
+
+<span style=color:#75715e>%% 创建输出变量</span>
+data = reshape([raw{:}],size(raw));
+
+<span style=color:#75715e>%% 将导入的数组分配给列变量名称</span>
+s = data(:,<span style=color:#ae81ff>1</span>);
+H = data(:,<span style=color:#ae81ff>2</span>);
+R = data(:,<span style=color:#ae81ff>3</span>);
+i1 = data(:,<span style=color:#ae81ff>4</span>);
+mu = data(:,<span style=color:#ae81ff>5</span>);
+i2 = data(:,<span style=color:#ae81ff>6</span>);
+muc = data(:,<span style=color:#ae81ff>7</span>);
+rho = data(:,<span style=color:#ae81ff>8</span>);
+G = data(:,<span style=color:#ae81ff>9</span>);
+
+<span style=color:#75715e>%% 清除临时变量</span>
+clearvars data raw Rr;
+
+<span style=color:#75715e>%% 导入骑手数据</span>
+[<span style=color:#f92672>~</span>, <span style=color:#f92672>~</span>, raw] = xlsread(<span style=color:#e6db74>&#39;D:\Sync\atxe6-gxmdf\Experiment\编程-申一鸣\2022_Problem_A\MATLAB\Athletes\athlete_template.xlsx&#39;</span>,<span style=color:#e6db74>&#39;Sheet1&#39;</span>,<span style=color:#e6db74>&#39;A2:H5&#39;</span>);
+raw(cellfun(@(x) <span style=color:#f92672>~</span>isempty(x) <span style=color:#f92672>&amp;&amp;</span> isnumeric(x) <span style=color:#f92672>&amp;&amp;</span> isnan(x),raw)) = {<span style=color:#e6db74>&#39;&#39;</span>};
+cellVectors = raw(:,<span style=color:#ae81ff>1</span>);
+raw = raw(:,[<span style=color:#ae81ff>2</span>,<span style=color:#ae81ff>3</span>,<span style=color:#ae81ff>4</span>,<span style=color:#ae81ff>5</span>,<span style=color:#ae81ff>6</span>,<span style=color:#ae81ff>7</span>,<span style=color:#ae81ff>8</span>]);
+
+<span style=color:#75715e>%% 创建输出变量</span>
+data = reshape([raw{:}],size(raw));
+
+<span style=color:#75715e>%% 将导入的数组分配给列变量名称</span>
+name = cellVectors(:,<span style=color:#ae81ff>1</span>);
+m = data(:,<span style=color:#ae81ff>1</span>);
+CP = data(:,<span style=color:#ae81ff>2</span>);
+W0 = data(:,<span style=color:#ae81ff>3</span>);
+MP = data(:,<span style=color:#ae81ff>4</span>);
+CdA = data(:,<span style=color:#ae81ff>5</span>);
+VCP = data(:,<span style=color:#ae81ff>6</span>);
+VMP = data(:,<span style=color:#ae81ff>7</span>);
+
+<span style=color:#75715e>%% 清除临时变量</span>
+clearvars data raw cellVectors;
+<span style=color:#75715e>%% 决策模型</span>
+[rmap,<span style=color:#f92672>~</span>] = size (s);
+[rath,<span style=color:#f92672>~</span>] = size (name);
+
+options = optimset;
+
+[V,t] = fmincon(<span style=color:#e6db74>&#39;NP_func&#39;</span>,rand(rmap,<span style=color:#ae81ff>1</span>),[],[],[],[],zeros(rmap,<span style=color:#ae81ff>1</span>),[],<span style=color:#e6db74>&#39;NP_cond&#39;</span>,options)
+ [abc,<span style=color:#f92672>~</span>]=NP_cond(V)
+
+</code></pre></div><p>结果
+$$
+v_1 &= &16.7000&m/s\newline
+v_2 &=& 18.1644&m/s\newline
+v_3 &=& 18.2310&m/s\newline
+\newline
+t &=& 334.9431&s\newline
+\\
+V &=&10.8908\newline
+&&10.8909\newline
+&&10.8918\newline
+&&10.8889\newline
+&&10.8885\newline
+&&10.8885\newline
+&&10.8883\newline
+&&18.1314\newline
+&&17.9582\newline
+&&10.8895\newline
+&&17.8243\newline
+&&10.8904 \quad m/s \newline</p>
+<p>t &=& 3.7333e+03 \quad 3733.3s
+$$</p>
+<h2 id=问题扩展>问题扩展<a hidden class=anchor aria-hidden=true href=#问题扩展>#</a></h2>
+<h4 id=团队模型>团队模型<a hidden class=anchor aria-hidden=true href=#团队模型>#</a></h4>
+<h4 id=敏感性分析>敏感性分析<a hidden class=anchor aria-hidden=true href=#敏感性分析>#</a></h4>
+<h5 id=风力>风力<a hidden class=anchor aria-hidden=true href=#风力>#</a></h5>
+<img src=/2022%E7%BE%8E%E8%B5%9B%E6%96%87%E6%A1%A3.assets/%7D/%E6%95%8F%E6%84%9F%E6%80%A7%E5%88%86%E6%9E%90-%E9%A3%8E%E5%8A%9B.png alt=敏感性分析-风力 style=zoom:50%>
+<h5 id=偏离>偏离<a hidden class=anchor aria-hidden=true href=#偏离>#</a></h5>
+<img src=/2022%E7%BE%8E%E8%B5%9B%E6%96%87%E6%A1%A3.assets/%7D/%E6%95%8F%E6%84%9F%E6%80%A7%E5%88%86%E6%9E%90-%E5%81%8F%E7%A6%BB.png alt=敏感性分析-偏离 style=zoom:67%>
+<h3 id=参考文献>参考文献<a hidden class=anchor aria-hidden=true href=#参考文献>#</a></h3>
+<p>[1] Gordon, S. Optimising distribution of power during a cycling time trial. <em>Sports Eng</em> <strong>8,</strong> 81–90 (2005).</p>
+<p>[2] Leo, P., Spragg, J., Podlogar, T. <em>et al.</em> Power profiling and the power-duration relationship in cycling: a narrative review. <em>Eur J Appl Physiol</em> <strong>122,</strong> 301–316 (2022).</p>
+<p>[3] Jones, A.M., Vanhatalo, A. The ‘Critical Power’ Concept: Applications to Sports Performance with a Focus on Intermittent High-Intensity Exercise. <em>Sports Med</em> <strong>47,</strong> 65–78 (2017).</p>
+<p>[4] Thorsten Dahmen, Stefan Wolf, Dietmar Saupe,Applications of Mathematical Models of Road Cycling,IFAC Proceedings Volumes,Volume 45, Issue 2,2012,Pages 804-809.</p>
+<p>[5] Malizia, F., & Blocken, B. (2021). Cyclist aerodynamics through time: Better, faster, stronger. <em>Journal of Wind Engineering and Industrial Aerodynamics</em>, <em>214</em>, [104673].</p>
+<p>[6] Morton RH. A 3-parameter critical power model. <em>Ergonomics</em>. 1996;39(4):611-619.</p>
+<p>[7] <em>Guide to Road Design Part 3: Geometric Design</em> (No. AGRD03-16; 3.4, ISBN 978-1-922382-15–3). (2021).</p>
+<p>[8] David Sundström, Peter Carlsson, Mats Tinnsten, On Optimization of Pacing Strategy in Road Cycling,Procedia Engineering,Volume 60,2013,Pages 118-123,ISSN 1877-7058.</p>
+<p>[9] Bert Blocken, Yasin Toparlar, Thijs van Druenen, Thomas Andrianne, Aerodynamic drag in cycling team time trials, Journal of Wind Engineering and Industrial Aerodynamics, Volume 182, 2018, Pages 128-145,ISSN 0167-6105.</p>
+</div>
+<footer class=post-footer>
+<ul class=post-tags>
+<li><a href=https://shenyiming.life/tags/matlab/>MATLAB</a></li>
+<li><a href=https://shenyiming.life/tags/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/>数学建模</a></li>
+<li><a href=https://shenyiming.life/tags/note/>Note</a></li>
+<li><a href=https://shenyiming.life/tags/mcm/icm/>MCM/ICM</a></li>
+</ul>
+<nav class=paginav>
+<a class=prev href=https://shenyiming.life/post/ctf/xss/xss/>
+<span class=title>« Prev Page</span>
+<br>
+<span>XSS类型题目积累及资料</span>
+</a>
+<a class=next href=https://shenyiming.life/post/essays/domain_choice/>
+<span class=title>Next Page »</span>
+<br>
+<span>域名选择：有哪些很酷的域名？</span>
+</a>
+</nav>
+<div class=share-buttons>
+<a target=_blank rel="noopener noreferrer" aria-label="share MCM/ICM 赛后总结 on twitter" href="https://twitter.com/intent/tweet/?text=MCM%2fICM%20%e8%b5%9b%e5%90%8e%e6%80%bb%e7%bb%93&url=https%3a%2f%2fshenyiming.life%2fpost%2fnotes%2fmatlab%2f2022%25E7%25BE%258E%25E8%25B5%259B%25E6%2596%2587%25E6%25A1%25A3%2f&hashtags=MATLAB%2c%e6%95%b0%e5%ad%a6%e5%bb%ba%e6%a8%a1%2cNote%2cMCM%2fICM"><svg viewBox="0 0 512 512"><path d="M449.446.0C483.971.0 512 28.03 512 62.554v386.892C512 483.97 483.97 512 449.446 512H62.554c-34.524.0-62.554-28.03-62.554-62.554V62.554c0-34.524 28.029-62.554 62.554-62.554h386.892zM195.519 424.544c135.939.0 210.268-112.643 210.268-210.268.0-3.218.0-6.437-.153-9.502 14.406-10.421 26.973-23.448 36.935-38.314-13.18 5.824-27.433 9.809-42.452 11.648 15.326-9.196 26.973-23.602 32.49-40.92-14.252 8.429-30.038 14.56-46.896 17.931-13.487-14.406-32.644-23.295-53.946-23.295-40.767.0-73.87 33.104-73.87 73.87.0 5.824.613 11.494 1.992 16.858-61.456-3.065-115.862-32.49-152.337-77.241-6.284 10.881-9.962 23.601-9.962 37.088.0 25.594 13.027 48.276 32.95 61.456-12.107-.307-23.448-3.678-33.41-9.196v.92c0 35.862 25.441 65.594 59.311 72.49-6.13 1.686-12.72 2.606-19.464 2.606-4.751.0-9.348-.46-13.946-1.38 9.349 29.426 36.628 50.728 68.965 51.341-25.287 19.771-57.164 31.571-91.8 31.571-5.977.0-11.801-.306-17.625-1.073 32.337 21.15 71.264 33.41 112.95 33.41z"/></svg>
+</a>
+<a target=_blank rel="noopener noreferrer" aria-label="share MCM/ICM 赛后总结 on linkedin" href="https://www.linkedin.com/shareArticle?mini=true&url=https%3a%2f%2fshenyiming.life%2fpost%2fnotes%2fmatlab%2f2022%25E7%25BE%258E%25E8%25B5%259B%25E6%2596%2587%25E6%25A1%25A3%2f&title=MCM%2fICM%20%e8%b5%9b%e5%90%8e%e6%80%bb%e7%bb%93&summary=MCM%2fICM%20%e8%b5%9b%e5%90%8e%e6%80%bb%e7%bb%93&source=https%3a%2f%2fshenyiming.life%2fpost%2fnotes%2fmatlab%2f2022%25E7%25BE%258E%25E8%25B5%259B%25E6%2596%2587%25E6%25A1%25A3%2f"><svg viewBox="0 0 512 512"><path d="M449.446.0C483.971.0 512 28.03 512 62.554v386.892C512 483.97 483.97 512 449.446 512H62.554c-34.524.0-62.554-28.03-62.554-62.554V62.554c0-34.524 28.029-62.554 62.554-62.554h386.892zM160.461 423.278V197.561h-75.04v225.717h75.04zm270.539.0V293.839c0-69.333-37.018-101.586-86.381-101.586-39.804.0-57.634 21.891-67.617 37.266v-31.958h-75.021c.995 21.181.0 225.717.0 225.717h75.02V297.222c0-6.748.486-13.492 2.474-18.315 5.414-13.475 17.767-27.434 38.494-27.434 27.135.0 38.007 20.707 38.007 51.037v120.768H431zM123.448 88.722C97.774 88.722 81 105.601 81 127.724c0 21.658 16.264 39.002 41.455 39.002h.484c26.165.0 42.452-17.344 42.452-39.002-.485-22.092-16.241-38.954-41.943-39.002z"/></svg>
+</a>
+<a target=_blank rel="noopener noreferrer" aria-label="share MCM/ICM 赛后总结 on reddit" href="https://reddit.com/submit?url=https%3a%2f%2fshenyiming.life%2fpost%2fnotes%2fmatlab%2f2022%25E7%25BE%258E%25E8%25B5%259B%25E6%2596%2587%25E6%25A1%25A3%2f&title=MCM%2fICM%20%e8%b5%9b%e5%90%8e%e6%80%bb%e7%bb%93"><svg viewBox="0 0 512 512"><path d="M449.446.0C483.971.0 512 28.03 512 62.554v386.892C512 483.97 483.97 512 449.446 512H62.554c-34.524.0-62.554-28.03-62.554-62.554V62.554c0-34.524 28.029-62.554 62.554-62.554h386.892zM446 265.638c0-22.964-18.616-41.58-41.58-41.58-11.211.0-21.361 4.457-28.841 11.666-28.424-20.508-67.586-33.757-111.204-35.278l18.941-89.121 61.884 13.157c.756 15.734 13.642 28.29 29.56 28.29 16.407.0 29.706-13.299 29.706-29.701.0-16.403-13.299-29.702-29.706-29.702-11.666.0-21.657 6.792-26.515 16.578l-69.105-14.69c-1.922-.418-3.939-.042-5.585 1.036-1.658 1.073-2.811 2.761-3.224 4.686l-21.152 99.438c-44.258 1.228-84.046 14.494-112.837 35.232-7.468-7.164-17.589-11.591-28.757-11.591-22.965.0-41.585 18.616-41.585 41.58.0 16.896 10.095 31.41 24.568 37.918-.639 4.135-.99 8.328-.99 12.576.0 63.977 74.469 115.836 166.33 115.836s166.334-51.859 166.334-115.836c0-4.218-.347-8.387-.977-12.493 14.564-6.47 24.735-21.034 24.735-38.001zM326.526 373.831c-20.27 20.241-59.115 21.816-70.534 21.816-11.428.0-50.277-1.575-70.522-21.82-3.007-3.008-3.007-7.882.0-10.889 3.003-2.999 7.882-3.003 10.885.0 12.777 12.781 40.11 17.317 59.637 17.317 19.522.0 46.86-4.536 59.657-17.321 3.016-2.999 7.886-2.995 10.885.008 3.008 3.011 3.003 7.882-.008 10.889zm-5.23-48.781c-16.373.0-29.701-13.324-29.701-29.698.0-16.381 13.328-29.714 29.701-29.714 16.378.0 29.706 13.333 29.706 29.714.0 16.374-13.328 29.698-29.706 29.698zM160.91 295.348c0-16.381 13.328-29.71 29.714-29.71 16.369.0 29.689 13.329 29.689 29.71.0 16.373-13.32 29.693-29.689 29.693-16.386.0-29.714-13.32-29.714-29.693z"/></svg>
+</a>
+<a target=_blank rel="noopener noreferrer" aria-label="share MCM/ICM 赛后总结 on facebook" href="https://facebook.com/sharer/sharer.php?u=https%3a%2f%2fshenyiming.life%2fpost%2fnotes%2fmatlab%2f2022%25E7%25BE%258E%25E8%25B5%259B%25E6%2596%2587%25E6%25A1%25A3%2f"><svg viewBox="0 0 512 512"><path d="M449.446.0C483.971.0 512 28.03 512 62.554v386.892C512 483.97 483.97 512 449.446 512H342.978V319.085h66.6l12.672-82.621h-79.272v-53.617c0-22.603 11.073-44.636 46.58-44.636H425.6v-70.34s-32.71-5.582-63.982-5.582c-65.288.0-107.96 39.569-107.96 111.204v62.971h-72.573v82.621h72.573V512h-191.104c-34.524.0-62.554-28.03-62.554-62.554V62.554c0-34.524 28.029-62.554 62.554-62.554h386.892z"/></svg>
+</a>
+<a target=_blank rel="noopener noreferrer" aria-label="share MCM/ICM 赛后总结 on whatsapp" href="https://api.whatsapp.com/send?text=MCM%2fICM%20%e8%b5%9b%e5%90%8e%e6%80%bb%e7%bb%93%20-%20https%3a%2f%2fshenyiming.life%2fpost%2fnotes%2fmatlab%2f2022%25E7%25BE%258E%25E8%25B5%259B%25E6%2596%2587%25E6%25A1%25A3%2f"><svg viewBox="0 0 512 512"><path d="M449.446.0C483.971.0 512 28.03 512 62.554v386.892C512 483.97 483.97 512 449.446 512H62.554c-34.524.0-62.554-28.03-62.554-62.554V62.554c0-34.524 28.029-62.554 62.554-62.554h386.892zm-58.673 127.703c-33.842-33.881-78.847-52.548-126.798-52.568-98.799.0-179.21 80.405-179.249 179.234-.013 31.593 8.241 62.428 23.927 89.612l-25.429 92.884 95.021-24.925c26.181 14.28 55.659 21.807 85.658 21.816h.074c98.789.0 179.206-80.413 179.247-179.243.018-47.895-18.61-92.93-52.451-126.81zM263.976 403.485h-.06c-26.734-.01-52.954-7.193-75.828-20.767l-5.441-3.229-56.386 14.792 15.05-54.977-3.542-5.637c-14.913-23.72-22.791-51.136-22.779-79.287.033-82.142 66.867-148.971 149.046-148.971 39.793.014 77.199 15.531 105.329 43.692 28.128 28.16 43.609 65.592 43.594 105.4-.034 82.149-66.866 148.983-148.983 148.984zm81.721-111.581c-4.479-2.242-26.499-13.075-30.604-14.571-4.105-1.495-7.091-2.241-10.077 2.241-2.986 4.483-11.569 14.572-14.182 17.562-2.612 2.988-5.225 3.364-9.703 1.12-4.479-2.241-18.91-6.97-36.017-22.23C231.8 264.15 222.81 249.484 220.198 245s-.279-6.908 1.963-9.14c2.016-2.007 4.48-5.232 6.719-7.847 2.24-2.615 2.986-4.484 4.479-7.472 1.493-2.99.747-5.604-.374-7.846-1.119-2.241-10.077-24.288-13.809-33.256-3.635-8.733-7.327-7.55-10.077-7.688-2.609-.13-5.598-.158-8.583-.158-2.986.0-7.839 1.121-11.944 5.604-4.105 4.484-15.675 15.32-15.675 37.364.0 22.046 16.048 43.342 18.287 46.332 2.24 2.99 31.582 48.227 76.511 67.627 10.685 4.615 19.028 7.371 25.533 9.434 10.728 3.41 20.492 2.929 28.209 1.775 8.605-1.285 26.499-10.833 30.231-21.295 3.732-10.464 3.732-19.431 2.612-21.298-1.119-1.869-4.105-2.99-8.583-5.232z"/></svg>
+</a>
+<a target=_blank rel="noopener noreferrer" aria-label="share MCM/ICM 赛后总结 on telegram" href="https://telegram.me/share/url?text=MCM%2fICM%20%e8%b5%9b%e5%90%8e%e6%80%bb%e7%bb%93&url=https%3a%2f%2fshenyiming.life%2fpost%2fnotes%2fmatlab%2f2022%25E7%25BE%258E%25E8%25B5%259B%25E6%2596%2587%25E6%25A1%25A3%2f"><svg viewBox="2 2 28 28"><path d="M26.49 29.86H5.5a3.37 3.37.0 01-2.47-1 3.35 3.35.0 01-1-2.47V5.48A3.36 3.36.0 013 3 3.37 3.37.0 015.5 2h21A3.38 3.38.0 0129 3a3.36 3.36.0 011 2.46V26.37a3.35 3.35.0 01-1 2.47 3.38 3.38.0 01-2.51 1.02zm-5.38-6.71a.79.79.0 00.85-.66L24.73 9.24a.55.55.0 00-.18-.46.62.62.0 00-.41-.17q-.08.0-16.53 6.11a.59.59.0 00-.41.59.57.57.0 00.43.52l4 1.24 1.61 4.83a.62.62.0 00.63.43.56.56.0 00.4-.17L16.54 20l4.09 3A.9.9.0 0021.11 23.15zM13.8 20.71l-1.21-4q8.72-5.55 8.78-5.55c.15.0.23.0.23.16a.18.18.0 010 .06s-2.51 2.3-7.52 6.8z"/></svg>
+</a>
+</div>
+</footer>
+<style>:root{--article-font-family:"Noto Serif SC", var(--base-font-family)}</style>
+<script>(function(){const a=document.createElement('link');a.href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;700&display=swap",a.type="text/css",a.rel="stylesheet",document.head.appendChild(a)})()</script>
+<div>
+<div class=pagination__title>
+<span class=pagination__title-h style=font-size:20px>💬评论</span>
+<hr>
+</div>
+<div id=tcomment></div>
+<script src=https://cdn.jsdelivr.net/npm/twikoo@1.4.17/dist/twikoo.all.min.js></script>
+<script>twikoo.init({envId:"https://shenyiming-github-io-comments.vercel.app/",el:"#tcomment",lang:'zh-CN',region:'ap-shanghai',path:'window.TWIKOO_MAGIC_PATH||window.location.pathname'})</script>
+</div>
+</article>
+</main><footer class=footer>
+<span>Copyright &copy; 2021-2022 <a href=https://shenyiming.life><b>Shenyiming.Life</b></a></span>
+<span>&#183;</span>
+<span>Built With <a href=https://gohugo.io/ rel="noopener noreferrer" target=_blank>Hugo</a></span>
+<span>&#183;</span>
+<span>All Rights Reserved.</span>
+</footer>
+<a href=#top aria-label="go to top" title="Go to Top (Alt + G)">
+<button class=top-link id=top-link type=button accesskey=g><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentcolor"><path d="M12 6H0l6-6z"/></svg>
+</button>
+</a>
+<script defer src=/assets/js/highlight.min.7680afc38aa6b15ddf158a4f3780b7b1f7dde7e91d26f073e6229bb7a0793c92.js integrity="sha256-doCvw4qmsV3fFYpPN4C3sffd5+kdJvBz5iKbt6B5PJI=" onload=hljs.initHighlightingOnLoad()></script>
+<script>window.onload=function(){localStorage.getItem("menu-scroll-position")&&(document.getElementById('menu').scrollLeft=localStorage.getItem("menu-scroll-position"))};function menu_on_scroll(){localStorage.setItem("menu-scroll-position",document.getElementById('menu').scrollLeft)}document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener("click",function(b){b.preventDefault();var a=this.getAttribute("href").substr(1);window.matchMedia('(prefers-reduced-motion: reduce)').matches?document.querySelector(`[id='${decodeURIComponent(a)}']`).scrollIntoView():document.querySelector(`[id='${decodeURIComponent(a)}']`).scrollIntoView({behavior:"smooth"}),a==="top"?history.replaceState(null,null," "):history.pushState(null,null,`#${a}`)})})</script>
+<script>var mybutton=document.getElementById("top-link");window.onscroll=function(){document.body.scrollTop>800||document.documentElement.scrollTop>800?(mybutton.style.visibility="visible",mybutton.style.opacity="1"):(mybutton.style.visibility="hidden",mybutton.style.opacity="0")}</script>
+<script>document.getElementById("theme-toggle").addEventListener("click",()=>{document.body.className.includes("dark")?(document.body.classList.remove('dark'),localStorage.setItem("pref-theme",'light')):(document.body.classList.add('dark'),localStorage.setItem("pref-theme",'dark'))})</script>
+</body>
+</html>

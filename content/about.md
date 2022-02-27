@@ -9,11 +9,17 @@ ShowShareButtons: false
 typora-root-url: ..\static\
 ---
 
-### 申一鸣 Yiming Shen
+<div class="golf">
+	<div class="photo" style="float:left;width:8%;margin-bottom: 20px; "><img src="/about.assets/123.jpg" style="border-radius: 550px; "></div>
+	<div class="intro" style="float:left ">
+		<p> </p>
+	    <h3 style="margin-top:-5px ">&nbsp 申一鸣 Yiming Shen</h3>
+	</div>
+</div>
 
-
-
-<img src="/about.assets/123.jpg" alt="头像" style="zoom: 30%;" />
+<br>
+<br>
+<br>
 
 *A crappy photographer, a terrible CTFer, a lazy geek.*
 
@@ -48,6 +54,18 @@ typora-root-url: ..\static\
 
 
 ## Releases
+
+##### 27 Feb 2022
+
+**0.3.1**
+
+---
+
+**【更新描述】**
+> - 将文章列表更改为list分类列出
+> - 为文章列表添加阴影
+
+反思：要自己创新。
 
 ##### 09 Feb 2022
 
@@ -140,7 +158,7 @@ typora-root-url: ..\static\
 
 ![image-20220121135020105](/about.assets/image-20220121135020105.png)
 
-##### 20 Jan 2022
+##### 19 Jan 2022
 
 **0.1.4**
 

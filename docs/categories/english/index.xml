@@ -12,19 +12,19 @@
     <lastBuildDate>Tue, 22 Feb 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://shenyiming.life/categories/english/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>MCM/ICM 赛后总结</title>
-      <link>https://shenyiming.life/post/2022%E7%BE%8E%E8%B5%9B%E6%96%87%E6%A1%A3/</link>
+      <link>https://shenyiming.life/post/notes/matlab/2022%E7%BE%8E%E8%B5%9B%E6%96%87%E6%A1%A3/</link>
       <pubDate>Tue, 22 Feb 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://shenyiming.life/post/2022%E7%BE%8E%E8%B5%9B%E6%96%87%E6%A1%A3/</guid>
+      <guid>https://shenyiming.life/post/notes/matlab/2022%E7%BE%8E%E8%B5%9B%E6%96%87%E6%A1%A3/</guid>
       <description>声明 Statement 本文写作于2022年2月22日10时美赛结束后 发布于2月22日17时。 This article was written at 10 am. on February 22, 2022 and published at 5 pm. on February 22, after the end of the MCM/ICM. 题目 Problem A Power Profile of</description>
     </item>
     
     <item>
       <title>Public Key Cryptology</title>
-      <link>https://shenyiming.life/post/public-key-cryptography/</link>
+      <link>https://shenyiming.life/post/ctf/crypto/public-key-cryptography/</link>
       <pubDate>Tue, 09 Nov 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://shenyiming.life/post/public-key-cryptography/</guid>
+      <guid>https://shenyiming.life/post/ctf/crypto/public-key-cryptography/</guid>
       <description>CONTEXT ​	The first general purpose computers were built in the 1940s. They were large, filling big rooms, using hundreds of valves and consuming many kilowatts of electricity. Although they were considered amazing for the ability to execute thousands of instructions per second at that time, all these huge machines were rapidly became history and might have been lost in the mists of time. With the increasing speed of computing, networks of computers were established allowing people to have access to communicate with others in distant places.</description>
     </item>
     

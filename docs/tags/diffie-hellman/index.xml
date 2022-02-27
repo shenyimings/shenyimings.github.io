@@ -12,10 +12,10 @@
     <lastBuildDate>Tue, 09 Nov 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://shenyiming.life/tags/diffie-hellman/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Public Key Cryptology</title>
-      <link>https://shenyiming.life/post/public-key-cryptography/</link>
+      <link>https://shenyiming.life/post/ctf/crypto/public-key-cryptography/</link>
       <pubDate>Tue, 09 Nov 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://shenyiming.life/post/public-key-cryptography/</guid>
+      <guid>https://shenyiming.life/post/ctf/crypto/public-key-cryptography/</guid>
       <description>CONTEXT ​	The first general purpose computers were built in the 1940s. They were large, filling big rooms, using hundreds of valves and consuming many kilowatts of electricity. Although they were considered amazing for the ability to execute thousands of instructions per second at that time, all these huge machines were rapidly became history and might have been lost in the mists of time. With the increasing speed of computing, networks of computers were established allowing people to have access to communicate with others in distant places.</description>
     </item>
     

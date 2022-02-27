@@ -1,0 +1,350 @@
+<!doctype html><html lang=en dir=auto>
+<head><meta charset=utf-8>
+<meta http-equiv=x-ua-compatible content="IE=edge">
+<meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no">
+<meta name=robots content="index, follow">
+<title>MoeCTF 2021 西电新生赛WP | Console.makeHappy(_1ming)</title>
+<meta name=keywords content="CTF,WriteUP,Web,Note">
+<meta name=description content="前言-2021/8/10 今天学长在群里发了西电的新生CTF比赛，题目较为基础，适合我们初学者。 想来还是感慨颇多的，西电不愧是网安的头部院校，">
+<meta name=author content="Yiming Shen">
+<link rel=canonical href=https://shenyiming.life/post/ctf/wp/moectf-web-write-up/>
+<meta name=google-site-verification content="XYZabc">
+<meta name=yandex-verification content="XYZabc">
+<meta name=msvalidate.01 content="XYZabc">
+<link href=/assets/css/stylesheet.min.7e3eeb64291efee05353e5dcfee7152bc0d0a16497d5b1d05f2c7bb5361bf66b.css integrity="sha256-fj7rZCke/uBTU+Xc/ucVK8DQoWSX1bHQXyx7tTYb9ms=" rel="preload stylesheet" as=style>
+<link rel=icon href=https://shenyiming.life/favicon.ico>
+<link rel=icon type=image/png sizes=16x16 href=https://shenyiming.life/favicon-16x16.png>
+<link rel=icon type=image/png sizes=32x32 href=https://shenyiming.life/favicon-32x32.png>
+<link rel=apple-touch-icon href=https://shenyiming.life/apple-touch-icon.png>
+<link rel=mask-icon href=https://shenyiming.life/safari-pinned-tab.svg>
+<meta name=theme-color content="#2e2e33">
+<meta name=msapplication-TileColor content="#2e2e33">
+<meta name=generator content="Hugo 0.91.0">
+<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css integrity=sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X crossorigin=anonymous>
+<script defer src=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js integrity=sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4 crossorigin=anonymous></script>
+<script defer src=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js integrity=sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa crossorigin=anonymous onload=renderMathInElement(document.body)></script>
+<script type=application/javascript>var doNotTrack=!1;doNotTrack||(window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga('create','UA-123-45','auto'),ga('send','pageview'))</script>
+<script async src=https://www.google-analytics.com/analytics.js></script>
+<meta property="og:title" content="MoeCTF 2021 西电新生赛WP">
+<meta property="og:description" content="前言-2021/8/10 今天学长在群里发了西电的新生CTF比赛，题目较为基础，适合我们初学者。 想来还是感慨颇多的，西电不愧是网安的头部院校，">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://shenyiming.life/post/ctf/wp/moectf-web-write-up/"><meta property="og:image" content="https://shenyiming.life/android-chrome-512x512.png"><meta property="article:section" content="post">
+<meta property="article:published_time" content="2021-08-19T00:00:00+00:00">
+<meta property="article:modified_time" content="2021-12-11T00:00:00+00:00"><meta property="og:site_name" content="Yiming">
+<meta name=twitter:card content="summary_large_image">
+<meta name=twitter:image content="https://shenyiming.life/android-chrome-512x512.png">
+<meta name=twitter:title content="MoeCTF 2021 西电新生赛WP">
+<meta name=twitter:description content="前言-2021/8/10 今天学长在群里发了西电的新生CTF比赛，题目较为基础，适合我们初学者。 想来还是感慨颇多的，西电不愧是网安的头部院校，">
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":2,"name":"文章","item":"https://shenyiming.life/post/"},{"@type":"ListItem","position":3,"name":"🏁CTF","item":"https://shenyiming.life/post/ctf/"},{"@type":"ListItem","position":4,"name":"WriteUP","item":"https://shenyiming.life/post/ctf/wp/"},{"@type":"ListItem","position":5,"name":"MoeCTF 2021 西电新生赛WP","item":"https://shenyiming.life/post/ctf/wp/moectf-web-write-up/"}]}</script>
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"MoeCTF 2021 西电新生赛WP","name":"MoeCTF 2021 西电新生赛WP","description":"前言-2021/8/10 今天学长在群里发了西电的新生CTF比赛，题目较为基础，适合我们初学者。 想来还是感慨颇多的，西电不愧是网安的头部院校，","keywords":["CTF","WriteUP","Web","Note"],"articleBody":"前言-2021/8/10 今天学长在群里发了西电的新生CTF比赛，题目较为基础，适合我们初学者。\n想来还是感慨颇多的，西电不愧是网安的头部院校，信安的新生还没入学就开始打CTF比赛了，我大二了才刚刚踏入大门而已。\n1. Web安全入门指北-GET php include \"flag.php\"; $moe = $_GET['moe']; if ($moe == \"flag\") { echo $flag; }else { highlight_file(__FILE__); } 签到题。已给出源代码，根据题目提示，可以看出是一个简单的get命令题。\n在地址栏中发送get请求：\nhttp://47.93.215.154:10000/?moe=flag\n得到flag：\nmoectf{We1c0me_t0_CTF_Web!}\n2. Web安全入门指北-POST php include \"flag.php\"; $moe = $_POST['moe']; if ($moe == \"flag\") { echo $flag; }else { highlight_file(__FILE__); } 给出源代码，只需要发送post请求给moe变量赋值flag即可。\n用hackbar：\n在post参数里填入moe=flag\nExecute执行即可得flag:moectf{POST_1s_an_1mp0rtant_m3th0d!}\n3. Web安全入门指北-小饼干 这道题非常有意思，通过网页提示:\nYou are not VIP,I will give flag to VIP!\n可以大致猜测要伪造某些访问项目，将非VIP改为VIP。\n用Burp Suite抓包得到，有一个cookie项为VIP=0，可以通过篡改VIP值来达到伪造cookies的目的。\n将抓包结果发送到重发器，将VIP值改为1，点击发送。\n得到flag。\n4. 2048 打开环境，发现是一个2048小游戏\n先玩一下，失败后提示要达到50000分以后才能得到flag。\n试一下盲加get payload：/?score=60000\n无任何效果，说明负载点选则的不对，抓包看一下在游戏失败后会发送什么数据。\n顺便一提，我瞎按的分数都比认真玩的分高。\n失败后，成功抓到包：\n可以看到，原来是在flag.php页面下进行score的get请求。\n既然是get请求，那么直接在浏览器地址栏手动输入即可。\n/flag.php?score=60000\n得到flag。\n5. Web_Inc 这个题卡了很长时间。根据题目提示，是一道MD5绕过题。\nphp error_reporting(0); $a=$_GET['a']; $b=$_POST['b']; if(isset($a)){ if($a!=$b\u0026\u0026md5($a)===md5($b)){ include_once \"flag\"; }else{ echo 'try again'; } }else{ highlight_file(__FILE__); } 题目给出了源代码，据此可以得出，我们需要提供一个get方法变量a和一个post方法变量b，a的值不能等于b的值，但a的md5要等于b的md5。\n查阅网上资料得知，PHP在处理哈希字符串时，它把每一个以“0E”开头的哈希值都按照科学计数法处理为0，如此0=0，我们只需要找到两个md5值为0e开头的字符串即可。\n QNKCDZO\n240610708\ns878926199a\ns155964671as\n214587387a\ns214587387a\n 以上几组数均为一次md5结果为0e开头的字符串，得到这个信息后，我开开心心的打开hackbar传入一组get参数和post参数：\n尝试过多组解，甚至改用BP intruder进行爆破，仍然是冷冰冰的try again。\n无奈，回头仔细观察源代码：\nmd5($a)===md5($b)\n这一项有三个等于号！\n上网查询，发现PHP中===意味着只有类型相同才会进行比较，否则直接返回false，掐断了使用md5为0e的字符串绕过的可能性！\n再查询发现，PHP中的md5函数有漏洞，无法处理数组，遇到数组会报错，但程序能够继续执行。\n故传入a[]=1,b[]=2即可。\n果然，try again的字样消失了，那么flag在哪呢？\n点sources查看一下源代码：\nflag藏在注释里，成功！\n强类型绕过 使用全等于判断时，若数组无效，直接构造两组答案不同但md5相同的payload即可。\n PHP强类型绕过\na=%4d%c9%68%ff%0e%e3%5c%20%95%72%d4%77%7b%72%15%87%d3%6f%a7%b2%1b%dc%56%b7%4a%3d%c0%78%3e%7b%95%18%af%bf%a2%00%a8%28%4b%f3%6e%8e%4b%55%b3%5f%42%75%93%d8%49%67%6d%a0%d1%55%5d%83%60%fb%5f%07%fe%a2\r\u0026b=%4d%c9%68%ff%0e%e3%5c%20%95%72%d4%77%7b%72%15%87%d3%6f%a7%b2%1b%dc%56%b7%4a%3d%c0%78%3e%7b%95%18%af%bf%a2%02%a8%28%4b%f3%6e%8e%4b%55%b3%5f%42%75%93%d8%49%67%6d%a0%d1%d5%5d%83%60%fb%5f%07%fe%a2\r 6. ezinclude php error_reporting(0); if(isset($_GET['file'])){ $file = $_GET['file']; include($file); }else{ highlight_file(__FILE__); } 文件包含，使用了include函数。\n先使用PHP://input流，可以访问请求的原始数据的只读流，将post请求的数据当作php代码执行。\npost代码：\nphp phpinfo(); ?无效果，怀疑过滤了PHP://input，尝试PHP://filter，可以获取指定文件源码。当它与包含函数结合时，php://filter流会被当作php文件执行。\nget一下：?flie=php://filter/read=convert.base64-encode/resource=flag.php\n但很多时候信息不会直接显示在响应页面中，可以将文件内容进行base64编码再读取，然后再自行解码：\nbase64解码后即得到flag:\nflag = moectf{Do_y0u_l1k3_Rcccccccccccccce?}\n7. Do you know HTTP? 这是一道非常有意思的HTTP请求头伪造题，一步一步。\n根据题意，BP抓包后发给Repeater重发器，修改请求头参数为HS\n发送后发现，需要本地ip才可以访问。\n增加XFF项，修改值为127.0.0.1，成功\n接下来需要将网页来源修改为www.ltyyds.com\n增加referer项，值修改为www.ltyyds.com，成功\n浏览器需要LT？在User-Agent项中，将值清空后改为LT。\n成功得到flag！\n8.地狱通信??? 9.babeRCE php $rce = $_GET['rce']; if (isset($rce)) { if (!preg_match(\"/cat|more|less|head|tac|tail|nl|od|vi|vim|sort|flag| |\\;|[0-9]|\\*|\\`|\\%|\\|\\\\\"/i\", $rce)) { system($rce); }else { echo \"hhhhhhacker!!!\".\"\\n\"; } } else { highlight_file(__FILE__); } 源码如图，作为一道RCE（远程命令执行）题，可以说过滤了相当多命令，把命令注入限死在一个很小的范围内，其中，几乎所有查看文件的命令都被过滤了，还把空格过滤了……\n好在，没有过滤转义反斜杠和ls/dir等查看目录命令\n先get传一个ls命令：\n那么，问题就简化了，我们只需要绕过过滤掉的无数命令，试图读取flag.php即可。\n上网搜一下Linux还剩哪些命令：file -f\n该命令在查询出错后会返回文件内容！\n那么，空格怎么替换呢？有${IFS}可以当空格使\n战战兢兢的对照了下，没有被过滤掉的非法字，拼一个命令试试：\n/?rce=file${IFS}-f${IFS}fla\\g.php\n进入地址栏……复制粘贴……回车……没有出现返回内容！\n成功了？右键-查看源代码，果然！\n得到flag！AC！\n参考 [1] CTF中常见php-MD5()函数漏洞\n[2] CTF中文件包含漏洞总结\n[3] CTF之HAHA浏览器修改\n[4] HTTP头伪造\n[5] ctfshow命令执行[50]与常见过滤的思考\n[6] MD5绕过各种姿势\n","wordCount":"2231","inLanguage":"en","datePublished":"2021-08-19T00:00:00Z","dateModified":"2021-12-11T00:00:00Z","author":{"@type":"Person","name":"Yiming Shen"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://shenyiming.life/post/ctf/wp/moectf-web-write-up/"},"publisher":{"@type":"Organization","name":"Console.makeHappy(_1ming)","logo":{"@type":"ImageObject","url":"https://shenyiming.life/favicon.ico"}}}</script>
+</head>
+<body id=top>
+<script>localStorage.getItem("pref-theme")==="dark"?document.body.classList.add('dark'):localStorage.getItem("pref-theme")==="light"?document.body.classList.remove('dark'):window.matchMedia('(prefers-color-scheme: dark)').matches&&document.body.classList.add('dark')</script>
+<noscript>
+<style type=text/css>#theme-toggle,.top-link{display:none}</style>
+<style>@media(prefers-color-scheme:dark){:root{--theme:#1d1e20;--entry:#2e2e33;--primary:rgba(255, 255, 255, 0.84);--secondary:rgba(255, 255, 255, 0.56);--tertiary:rgba(255, 255, 255, 0.16);--content:rgba(255, 255, 255, 0.74);--hljs-bg:#2e2e33;--code-bg:#37383e;--border:#333}.list{background:var(--theme)}.list:not(.dark)::-webkit-scrollbar-track{background:0 0}.list:not(.dark)::-webkit-scrollbar-thumb{border-color:var(--theme)}}</style>
+</noscript>
+<header class=header>
+<nav class=nav>
+<div class=logo>
+<a href=https://shenyiming.life accesskey=h title="相位  (Alt + H)">
+<img src=/favicon.ico alt=logo aria-label=logo height=35>相位 </a>
+<span class=logo-switches>
+<button id=theme-toggle accesskey=t title="(Alt + T)"><svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg><svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+</button>
+</span>
+</div>
+<ul id=menu onscroll=menu_on_scroll()>
+<li>
+<a href=https://shenyiming.life/post/ title=文章>
+<span>文章</span>
+</a>
+</li>
+<li>
+<a href=https://shenyiming.life/archive/ title=归档>
+<span>归档</span>
+</a>
+</li>
+<li>
+<a href=https://shenyiming.life/categories/ title=分类>
+<span>分类</span>
+</a>
+</li>
+<li>
+<a href=https://shenyiming.life/tags/ title=标签>
+<span>标签</span>
+</a>
+</li>
+<li>
+<a href=https://shenyiming.life/search/ title="搜索 (Alt + /)" accesskey=/>
+<span>搜索</span>
+</a>
+</li>
+<li>
+<a href=https://shenyiming.life/friends/ title=友链>
+<span>友链</span>
+</a>
+</li>
+<li>
+<a href=https://shenyiming.life/about/ title=关于>
+<span>关于</span>
+</a>
+</li></ul>
+</nav>
+</header>
+<main class=main>
+<style>:root{--article-font-family:"Noto Serif SC", var(--base-font-family)}</style>
+<script>(function(){const a=document.createElement('link');a.href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;700&display=swap",a.type="text/css",a.rel="stylesheet",document.head.appendChild(a)})()</script>
+<article class=post-single>
+<header class=post-header>
+<div class=breadcrumbs>
+<a href=https://shenyiming.life>首页</a>&nbsp;»&nbsp;<a href=https://shenyiming.life/post/>文章</a>&nbsp;»&nbsp;<a href=https://shenyiming.life/post/ctf/>🏁CTF</a>&nbsp;»&nbsp;<a href=https://shenyiming.life/post/ctf/wp/>WriteUP</a>
+</div>
+<h1 class=post-title>
+MoeCTF 2021 西电新生赛WP
+</h1>
+<div class=post-meta>
+<style>:root{--article-font-family:"Noto Serif SC", var(--base-font-family)}</style>
+<script>(function(){const a=document.createElement('link');a.href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;700&display=swap",a.type="text/css",a.rel="stylesheet",document.head.appendChild(a)})()</script>
+August 19, 2021&nbsp;·&nbsp;December 11, 2021&nbsp;·&nbsp;5 min&nbsp;·&nbsp;Yiming Shen
+|&nbsp;<a href=https://github.com/shenyimings/shenyimings.github.io/tree/main/docs rel="noopener noreferrer" target=_blank>Issue</a>
+</div>
+</header>
+<div class=post-content>
+<h3 id=前言-2021810>前言-2021/8/10<a hidden class=anchor aria-hidden=true href=#前言-2021810>#</a></h3>
+<p>今天学长在群里发了西电的新生CTF比赛，题目较为基础，适合我们初学者。</p>
+<p>想来还是感慨颇多的，西电不愧是网安的头部院校，信安的新生还没入学就开始打CTF比赛了，我大二了才刚刚踏入大门而已。</p>
+<h2 id=1-web安全入门指北-get>1. Web安全入门指北-GET<a hidden class=anchor aria-hidden=true href=#1-web安全入门指北-get>#</a></h2>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-php data-lang=php><span style=color:#f92672>&lt;?</span><span style=color:#a6e22e>php</span>
+<span style=color:#66d9ef>include</span> <span style=color:#e6db74>&#34;flag.php&#34;</span>;
+$moe <span style=color:#f92672>=</span> $_GET[<span style=color:#e6db74>&#39;moe&#39;</span>];
+<span style=color:#66d9ef>if</span> ($moe <span style=color:#f92672>==</span> <span style=color:#e6db74>&#34;flag&#34;</span>) {
+    <span style=color:#66d9ef>echo</span> $flag;
+}<span style=color:#66d9ef>else</span> {
+    <span style=color:#a6e22e>highlight_file</span>(<span style=color:#66d9ef>__FILE__</span>);
+}
+</code></pre></div><p>签到题。已给出源代码，根据题目提示，可以看出是一个简单的get命令题。</p>
+<p>在地址栏中发送get请求：</p>
+<p><code>http://47.93.215.154:10000/?moe=flag</code></p>
+<p>得到flag：</p>
+<p><code>moectf{We1c0me_t0_CTF_Web!}</code></p>
+<h2 id=2-web安全入门指北-post>2. Web安全入门指北-POST<a hidden class=anchor aria-hidden=true href=#2-web安全入门指北-post>#</a></h2>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-php data-lang=php><span style=color:#f92672>&lt;?</span><span style=color:#a6e22e>php</span>
+<span style=color:#66d9ef>include</span> <span style=color:#e6db74>&#34;flag.php&#34;</span>;
+$moe <span style=color:#f92672>=</span> $_POST[<span style=color:#e6db74>&#39;moe&#39;</span>];
+<span style=color:#66d9ef>if</span> ($moe <span style=color:#f92672>==</span> <span style=color:#e6db74>&#34;flag&#34;</span>) {
+    <span style=color:#66d9ef>echo</span> $flag;
+}<span style=color:#66d9ef>else</span> {
+    <span style=color:#a6e22e>highlight_file</span>(<span style=color:#66d9ef>__FILE__</span>);
+}
+</code></pre></div><p>给出源代码，只需要发送post请求给moe变量赋值flag即可。</p>
+<p>用hackbar：</p>
+<p>在post参数里填入<code>moe=flag</code></p>
+<p>Execute执行即可得flag:<code>moectf{POST_1s_an_1mp0rtant_m3th0d!}</code></p>
+<h2 id=3-web安全入门指北-小饼干>3. Web安全入门指北-小饼干<a hidden class=anchor aria-hidden=true href=#3-web安全入门指北-小饼干>#</a></h2>
+<p>这道题非常有意思，通过网页提示:</p>
+<p><code>You are not VIP,I will give flag to VIP!</code></p>
+<p>可以大致猜测要伪造某些访问项目，将非VIP改为VIP。</p>
+<p>用Burp Suite抓包得到，有一个cookie项为VIP=0，可以通过篡改VIP值来达到伪造cookies的目的。</p>
+<p>将抓包结果发送到重发器，将VIP值改为1，点击发送。</p>
+<p>得到flag。</p>
+<h2 id=4-2048>4. 2048<a hidden class=anchor aria-hidden=true href=#4-2048>#</a></h2>
+<p>打开环境，发现是一个2048小游戏</p>
+<p>先玩一下，失败后提示要达到50000分以后才能得到flag。</p>
+<p>试一下盲加get payload：<code>/?score=60000</code></p>
+<p>无任何效果，说明负载点选则的不对，抓包看一下在游戏失败后会发送什么数据。</p>
+<p>顺便一提，我瞎按的分数都比认真玩的分高。</p>
+<p>失败后，成功抓到包：</p>
+<p>可以看到，原来是在<code>flag.php</code>页面下进行score的get请求。</p>
+<p>既然是get请求，那么直接在浏览器地址栏手动输入即可。</p>
+<p><code>/flag.php?score=60000</code></p>
+<p>得到flag。</p>
+<h2 id=5-web_inc>5. Web_Inc<a hidden class=anchor aria-hidden=true href=#5-web_inc>#</a></h2>
+<p>这个题卡了很长时间。根据题目提示，是一道MD5绕过题。</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-php data-lang=php><span style=color:#f92672>&lt;?</span><span style=color:#a6e22e>php</span>
+<span style=color:#a6e22e>error_reporting</span>(<span style=color:#ae81ff>0</span>);
+$a<span style=color:#f92672>=</span>$_GET[<span style=color:#e6db74>&#39;a&#39;</span>];
+$b<span style=color:#f92672>=</span>$_POST[<span style=color:#e6db74>&#39;b&#39;</span>];
+<span style=color:#66d9ef>if</span>(<span style=color:#a6e22e>isset</span>($a)){
+    <span style=color:#66d9ef>if</span>($a<span style=color:#f92672>!=</span>$b<span style=color:#f92672>&amp;&amp;</span><span style=color:#a6e22e>md5</span>($a)<span style=color:#f92672>===</span><span style=color:#a6e22e>md5</span>($b)){
+        <span style=color:#66d9ef>include_once</span> <span style=color:#e6db74>&#34;flag&#34;</span>;
+    }<span style=color:#66d9ef>else</span>{
+        <span style=color:#66d9ef>echo</span> <span style=color:#e6db74>&#39;try again&#39;</span>;
+    }
+}<span style=color:#66d9ef>else</span>{
+    <span style=color:#a6e22e>highlight_file</span>(<span style=color:#66d9ef>__FILE__</span>);
+}
+</code></pre></div><p>题目给出了源代码，据此可以得出，我们需要提供一个get方法变量a和一个post方法变量b，a的值不能等于b的值，但a的md5要等于b的md5。</p>
+<p>查阅网上资料得知，PHP在处理哈希字符串时，它把每一个以“0E”开头的哈希值都按照科学计数法处理为0，如此0=0，我们只需要找到两个md5值为0e开头的字符串即可。</p>
+<blockquote>
+<p>QNKCDZO</p>
+<p>240610708</p>
+<p>s878926199a</p>
+<p>s155964671as</p>
+<p>214587387a</p>
+<p>s214587387a</p>
+</blockquote>
+<p>以上几组数均为一次md5结果为0e开头的字符串，得到这个信息后，我开开心心的打开hackbar传入一组get参数和post参数：</p>
+<p><img loading=lazy src=C:%5cUsers%5cSeuil%5cAppData%5cRoaming%5cTypora%5ctypora-user-images%5cimage-20210810220645848.png alt=image-20210810220645848>
+</p>
+<p>尝试过多组解，甚至改用BP intruder进行爆破，仍然是冷冰冰的try again。</p>
+<p>无奈，回头仔细观察源代码：</p>
+<p><code>md5($a)===md5($b)</code></p>
+<p>这一项有三个等于号！</p>
+<p>上网查询，发现PHP中<code>===</code>意味着只有类型相同才会进行比较，否则直接返回false，掐断了使用md5为0e的字符串绕过的可能性！</p>
+<p>再查询发现，PHP中的md5函数有漏洞，无法处理数组，遇到数组会报错，但程序能够继续执行。</p>
+<p>故传入a[]=1,b[]=2即可。</p>
+<p><img loading=lazy src=C:%5cUsers%5cSeuil%5cAppData%5cRoaming%5cTypora%5ctypora-user-images%5cimage-20210810222139367.png alt=image-20210810222139367>
+</p>
+<p>果然，try again的字样消失了，那么flag在哪呢？</p>
+<p>点sources查看一下源代码：</p>
+<p><img loading=lazy src=C:%5cUsers%5cSeuil%5cAppData%5cRoaming%5cTypora%5ctypora-user-images%5cimage-20210810222237029.png alt=image-20210810222237029>
+</p>
+<p>flag藏在注释里，成功！</p>
+<h3 id=强类型绕过>强类型绕过<a hidden class=anchor aria-hidden=true href=#强类型绕过>#</a></h3>
+<p>使用全等于判断时，若数组无效，直接构造两组答案不同但md5相同的payload即可。</p>
+<blockquote>
+<p>PHP强类型绕过</p>
+<pre tabindex=0><code>a=%4d%c9%68%ff%0e%e3%5c%20%95%72%d4%77%7b%72%15%87%d3%6f%a7%b2%1b%dc%56%b7%4a%3d%c0%78%3e%7b%95%18%af%bf%a2%00%a8%28%4b%f3%6e%8e%4b%55%b3%5f%42%75%93%d8%49%67%6d%a0%d1%55%5d%83%60%fb%5f%07%fe%a2
+&amp;b=%4d%c9%68%ff%0e%e3%5c%20%95%72%d4%77%7b%72%15%87%d3%6f%a7%b2%1b%dc%56%b7%4a%3d%c0%78%3e%7b%95%18%af%bf%a2%02%a8%28%4b%f3%6e%8e%4b%55%b3%5f%42%75%93%d8%49%67%6d%a0%d1%d5%5d%83%60%fb%5f%07%fe%a2
+</code></pre></blockquote>
+<h2 id=6-ezinclude>6. ezinclude<a hidden class=anchor aria-hidden=true href=#6-ezinclude>#</a></h2>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-php data-lang=php><span style=color:#f92672>&lt;?</span><span style=color:#a6e22e>php</span>
+<span style=color:#a6e22e>error_reporting</span>(<span style=color:#ae81ff>0</span>);
+<span style=color:#66d9ef>if</span>(<span style=color:#a6e22e>isset</span>($_GET[<span style=color:#e6db74>&#39;file&#39;</span>])){
+    $file <span style=color:#f92672>=</span> $_GET[<span style=color:#e6db74>&#39;file&#39;</span>];
+    <span style=color:#66d9ef>include</span>($file);
+}<span style=color:#66d9ef>else</span>{
+    <span style=color:#a6e22e>highlight_file</span>(<span style=color:#66d9ef>__FILE__</span>);
+} 
+</code></pre></div><p>文件包含，使用了include函数。</p>
+<p>先使用<code>PHP://input</code>流，可以访问请求的原始数据的只读流，将post请求的数据当作php代码执行。</p>
+<p>post代码：</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-php data-lang=php><span style=color:#f92672>&lt;?</span><span style=color:#a6e22e>php</span> <span style=color:#a6e22e>phpinfo</span>(); <span style=color:#75715e>?&gt;</span><span style=color:#960050;background-color:#1e0010>
+</span></code></pre></div><p>无效果，怀疑过滤了<code>PHP://input</code>，尝试<code>PHP://filter</code>，可以获取指定文件源码。当它与包含函数结合时，<code>php://filter</code>流会被当作php文件执行。</p>
+<p>get一下：<code>?flie=php://filter/read=convert.base64-encode/resource=flag.php</code></p>
+<p>但很多时候信息不会直接显示在响应页面中，可以将文件内容进行base64编码再读取，然后再自行解码：</p>
+<p><img loading=lazy src=C:%5cUsers%5cSeuil%5cAppData%5cRoaming%5cTypora%5ctypora-user-images%5cimage-20210810232516100.png alt=image-20210810232516100>
+</p>
+<p>base64解码后即得到flag:</p>
+<p><code>flag = moectf{Do_y0u_l1k3_Rcccccccccccccce?}</code></p>
+<h2 id=7-do-you-know-http>7. Do you know HTTP?<a hidden class=anchor aria-hidden=true href=#7-do-you-know-http>#</a></h2>
+<p>这是一道非常有意思的HTTP请求头伪造题，一步一步。</p>
+<p><img loading=lazy src=C:%5cUsers%5cSeuil%5cAppData%5cRoaming%5cTypora%5ctypora-user-images%5cimage-20210810233151625.png alt=image-20210810233151625>
+</p>
+<p>根据题意，BP抓包后发给Repeater重发器，修改请求头参数为HS</p>
+<p><img loading=lazy src=C:%5cUsers%5cSeuil%5cAppData%5cRoaming%5cTypora%5ctypora-user-images%5cimage-20210810233314168.png alt=image-20210810233314168>
+</p>
+<p>发送后发现，需要本地ip才可以访问。</p>
+<p>增加XFF项，修改值为127.0.0.1，成功</p>
+<p><img loading=lazy src=/12.MoeCTF-Web%20Write%20UP.assets/image-20210810233755436.png alt=image-20210810233755436>
+</p>
+<p>接下来需要将网页来源修改为www.ltyyds.com</p>
+<p>增加referer项，值修改为www.ltyyds.com，成功</p>
+<p><img loading=lazy src=/12.MoeCTF-Web%20Write%20UP.assets/image-20210810233943858.png alt=image-20210810233943858>
+</p>
+<p>浏览器需要LT？在User-Agent项中，将值清空后改为LT。</p>
+<p><img loading=lazy src=/12.MoeCTF-Web%20Write%20UP.assets/image-20210810234119130.png alt=image-20210810234119130>
+</p>
+<p>成功得到flag！</p>
+<h2 id=8地狱通信>8.地狱通信???<a hidden class=anchor aria-hidden=true href=#8地狱通信>#</a></h2>
+<h2 id=9baberce>9.babeRCE<a hidden class=anchor aria-hidden=true href=#9baberce>#</a></h2>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-php data-lang=php><span style=color:#f92672>&lt;?</span><span style=color:#a6e22e>php</span>
+
+$rce <span style=color:#f92672>=</span> $_GET[<span style=color:#e6db74>&#39;rce&#39;</span>];
+<span style=color:#66d9ef>if</span> (<span style=color:#a6e22e>isset</span>($rce)) {
+    <span style=color:#66d9ef>if</span> (<span style=color:#f92672>!</span><span style=color:#a6e22e>preg_match</span>(<span style=color:#e6db74>&#34;/cat|more|less|head|tac|tail|nl|od|vi|vim|sort|flag| |\;|[0-9]|\*|\`|\%|\&gt;|\&lt;|\&#39;|</span><span style=color:#ae81ff>\&#34;</span><span style=color:#e6db74>/i&#34;</span>, $rce)) {
+        <span style=color:#a6e22e>system</span>($rce);
+    }<span style=color:#66d9ef>else</span> {
+        <span style=color:#66d9ef>echo</span> <span style=color:#e6db74>&#34;hhhhhhacker!!!&#34;</span><span style=color:#f92672>.</span><span style=color:#e6db74>&#34;</span><span style=color:#ae81ff>\n</span><span style=color:#e6db74>&#34;</span>;
+    }
+} <span style=color:#66d9ef>else</span> {
+    <span style=color:#a6e22e>highlight_file</span>(<span style=color:#66d9ef>__FILE__</span>);
+}
+</code></pre></div><p>源码如图，作为一道RCE（远程命令执行）题，可以说过滤了相当多命令，把命令注入限死在一个很小的范围内，其中，几乎所有查看文件的命令都被过滤了，还把空格过滤了……</p>
+<p>好在，没有过滤转义反斜杠和ls/dir等查看目录命令</p>
+<p>先get传一个ls命令：</p>
+<p><img loading=lazy src=/12.MoeCTF-Web%20Write%20UP.assets/image-20210810235348697.png alt=image-20210810235348697>
+</p>
+<p>那么，问题就简化了，我们只需要绕过过滤掉的无数命令，试图读取<code>flag.php</code>即可。</p>
+<p>上网搜一下Linux还剩哪些命令：<code>file -f</code></p>
+<p>该命令在查询出错后会返回文件内容！</p>
+<p>那么，空格怎么替换呢？有<code>${IFS}</code>可以当空格使</p>
+<p>战战兢兢的对照了下，没有被过滤掉的非法字，拼一个命令试试：</p>
+<p><code>/?rce=file${IFS}-f${IFS}fla\g.php</code></p>
+<p>进入地址栏……复制粘贴……回车……没有出现返回内容！</p>
+<p>成功了？右键-查看源代码，果然！</p>
+<p><img loading=lazy src=/12.MoeCTF-Web%20Write%20UP.assets/image-20210810235946744.png alt=image-20210810235946744>
+</p>
+<p>得到flag！AC！</p>
+<h3 id=参考>参考<a hidden class=anchor aria-hidden=true href=#参考>#</a></h3>
+<p>[1] <a href="https://blog.csdn.net/qq_19980431/article/details/83018232?utm_medium=distribute.pc_relevant_t0.none-task-blog-2%7Edefault%7EBlogCommendFromMachineLearnPai2%7Edefault-1.pc_relevant_baidujshouduan&depth_1-utm_source=distribute.pc_relevant_t0.none-task-blog-2%7Edefault%7EBlogCommendFromMachineLearnPai2%7Edefault-1.pc_relevant_baidujshouduan">CTF中常见php-MD5()函数漏洞</a></p>
+<p>[2] <a href=https://blog.csdn.net/qq_42181428/article/details/87090539>CTF中文件包含漏洞总结</a></p>
+<p>[3] <a href=https://www.cnblogs.com/jasy/p/13473129.html>CTF之HAHA浏览器修改</a></p>
+<p>[4] <a href=https://www.pianshen.com/article/99021982896/>HTTP头伪造</a></p>
+<p>[5] <a href=https://blog.csdn.net/weixin_39667041/article/details/116165436>ctfshow命令执行[50]与常见过滤的思考</a></p>
+<p>[6] <a href=https://blog.csdn.net/CSDNiamcoming/article/details/108837347>MD5绕过各种姿势</a></p>
+</div>
+<footer class=post-footer>
+<ul class=post-tags>
+<li><a href=https://shenyiming.life/tags/ctf/>CTF</a></li>
+<li><a href=https://shenyiming.life/tags/writeup/>WriteUP</a></li>
+<li><a href=https://shenyiming.life/tags/web/>Web</a></li>
+<li><a href=https://shenyiming.life/tags/note/>Note</a></li>
+</ul>
+<nav class=paginav>
+<a class=prev href=https://shenyiming.life/post/notes/cryptologymath/1.4_%E6%AC%A7%E5%87%A0%E9%87%8C%E5%BE%B7%E7%AE%97%E6%B3%95/>
+<span class=title>« Prev Page</span>
+<br>
+<span>欧几里德算法</span>
+</a>
+<a class=next href=https://shenyiming.life/post/ctf/dvwa%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA+burpsuite2.1%E5%AE%89%E8%A3%85/>
+<span class=title>Next Page »</span>
+<br>
+<span>DVWA环境搭建 + BurpSuite2.1安装 + Chrome配置</span>
+</a>
+</nav>
+<div class=share-buttons>
+<a target=_blank rel="noopener noreferrer" aria-label="share MoeCTF 2021 西电新生赛WP on twitter" href="https://twitter.com/intent/tweet/?text=MoeCTF%202021%20%e8%a5%bf%e7%94%b5%e6%96%b0%e7%94%9f%e8%b5%9bWP&url=https%3a%2f%2fshenyiming.life%2fpost%2fctf%2fwp%2fmoectf-web-write-up%2f&hashtags=CTF%2cWriteUP%2cWeb%2cNote"><svg viewBox="0 0 512 512"><path d="M449.446.0C483.971.0 512 28.03 512 62.554v386.892C512 483.97 483.97 512 449.446 512H62.554c-34.524.0-62.554-28.03-62.554-62.554V62.554c0-34.524 28.029-62.554 62.554-62.554h386.892zM195.519 424.544c135.939.0 210.268-112.643 210.268-210.268.0-3.218.0-6.437-.153-9.502 14.406-10.421 26.973-23.448 36.935-38.314-13.18 5.824-27.433 9.809-42.452 11.648 15.326-9.196 26.973-23.602 32.49-40.92-14.252 8.429-30.038 14.56-46.896 17.931-13.487-14.406-32.644-23.295-53.946-23.295-40.767.0-73.87 33.104-73.87 73.87.0 5.824.613 11.494 1.992 16.858-61.456-3.065-115.862-32.49-152.337-77.241-6.284 10.881-9.962 23.601-9.962 37.088.0 25.594 13.027 48.276 32.95 61.456-12.107-.307-23.448-3.678-33.41-9.196v.92c0 35.862 25.441 65.594 59.311 72.49-6.13 1.686-12.72 2.606-19.464 2.606-4.751.0-9.348-.46-13.946-1.38 9.349 29.426 36.628 50.728 68.965 51.341-25.287 19.771-57.164 31.571-91.8 31.571-5.977.0-11.801-.306-17.625-1.073 32.337 21.15 71.264 33.41 112.95 33.41z"/></svg>
+</a>
+<a target=_blank rel="noopener noreferrer" aria-label="share MoeCTF 2021 西电新生赛WP on linkedin" href="https://www.linkedin.com/shareArticle?mini=true&url=https%3a%2f%2fshenyiming.life%2fpost%2fctf%2fwp%2fmoectf-web-write-up%2f&title=MoeCTF%202021%20%e8%a5%bf%e7%94%b5%e6%96%b0%e7%94%9f%e8%b5%9bWP&summary=MoeCTF%202021%20%e8%a5%bf%e7%94%b5%e6%96%b0%e7%94%9f%e8%b5%9bWP&source=https%3a%2f%2fshenyiming.life%2fpost%2fctf%2fwp%2fmoectf-web-write-up%2f"><svg viewBox="0 0 512 512"><path d="M449.446.0C483.971.0 512 28.03 512 62.554v386.892C512 483.97 483.97 512 449.446 512H62.554c-34.524.0-62.554-28.03-62.554-62.554V62.554c0-34.524 28.029-62.554 62.554-62.554h386.892zM160.461 423.278V197.561h-75.04v225.717h75.04zm270.539.0V293.839c0-69.333-37.018-101.586-86.381-101.586-39.804.0-57.634 21.891-67.617 37.266v-31.958h-75.021c.995 21.181.0 225.717.0 225.717h75.02V297.222c0-6.748.486-13.492 2.474-18.315 5.414-13.475 17.767-27.434 38.494-27.434 27.135.0 38.007 20.707 38.007 51.037v120.768H431zM123.448 88.722C97.774 88.722 81 105.601 81 127.724c0 21.658 16.264 39.002 41.455 39.002h.484c26.165.0 42.452-17.344 42.452-39.002-.485-22.092-16.241-38.954-41.943-39.002z"/></svg>
+</a>
+<a target=_blank rel="noopener noreferrer" aria-label="share MoeCTF 2021 西电新生赛WP on reddit" href="https://reddit.com/submit?url=https%3a%2f%2fshenyiming.life%2fpost%2fctf%2fwp%2fmoectf-web-write-up%2f&title=MoeCTF%202021%20%e8%a5%bf%e7%94%b5%e6%96%b0%e7%94%9f%e8%b5%9bWP"><svg viewBox="0 0 512 512"><path d="M449.446.0C483.971.0 512 28.03 512 62.554v386.892C512 483.97 483.97 512 449.446 512H62.554c-34.524.0-62.554-28.03-62.554-62.554V62.554c0-34.524 28.029-62.554 62.554-62.554h386.892zM446 265.638c0-22.964-18.616-41.58-41.58-41.58-11.211.0-21.361 4.457-28.841 11.666-28.424-20.508-67.586-33.757-111.204-35.278l18.941-89.121 61.884 13.157c.756 15.734 13.642 28.29 29.56 28.29 16.407.0 29.706-13.299 29.706-29.701.0-16.403-13.299-29.702-29.706-29.702-11.666.0-21.657 6.792-26.515 16.578l-69.105-14.69c-1.922-.418-3.939-.042-5.585 1.036-1.658 1.073-2.811 2.761-3.224 4.686l-21.152 99.438c-44.258 1.228-84.046 14.494-112.837 35.232-7.468-7.164-17.589-11.591-28.757-11.591-22.965.0-41.585 18.616-41.585 41.58.0 16.896 10.095 31.41 24.568 37.918-.639 4.135-.99 8.328-.99 12.576.0 63.977 74.469 115.836 166.33 115.836s166.334-51.859 166.334-115.836c0-4.218-.347-8.387-.977-12.493 14.564-6.47 24.735-21.034 24.735-38.001zM326.526 373.831c-20.27 20.241-59.115 21.816-70.534 21.816-11.428.0-50.277-1.575-70.522-21.82-3.007-3.008-3.007-7.882.0-10.889 3.003-2.999 7.882-3.003 10.885.0 12.777 12.781 40.11 17.317 59.637 17.317 19.522.0 46.86-4.536 59.657-17.321 3.016-2.999 7.886-2.995 10.885.008 3.008 3.011 3.003 7.882-.008 10.889zm-5.23-48.781c-16.373.0-29.701-13.324-29.701-29.698.0-16.381 13.328-29.714 29.701-29.714 16.378.0 29.706 13.333 29.706 29.714.0 16.374-13.328 29.698-29.706 29.698zM160.91 295.348c0-16.381 13.328-29.71 29.714-29.71 16.369.0 29.689 13.329 29.689 29.71.0 16.373-13.32 29.693-29.689 29.693-16.386.0-29.714-13.32-29.714-29.693z"/></svg>
+</a>
+<a target=_blank rel="noopener noreferrer" aria-label="share MoeCTF 2021 西电新生赛WP on facebook" href="https://facebook.com/sharer/sharer.php?u=https%3a%2f%2fshenyiming.life%2fpost%2fctf%2fwp%2fmoectf-web-write-up%2f"><svg viewBox="0 0 512 512"><path d="M449.446.0C483.971.0 512 28.03 512 62.554v386.892C512 483.97 483.97 512 449.446 512H342.978V319.085h66.6l12.672-82.621h-79.272v-53.617c0-22.603 11.073-44.636 46.58-44.636H425.6v-70.34s-32.71-5.582-63.982-5.582c-65.288.0-107.96 39.569-107.96 111.204v62.971h-72.573v82.621h72.573V512h-191.104c-34.524.0-62.554-28.03-62.554-62.554V62.554c0-34.524 28.029-62.554 62.554-62.554h386.892z"/></svg>
+</a>
+<a target=_blank rel="noopener noreferrer" aria-label="share MoeCTF 2021 西电新生赛WP on whatsapp" href="https://api.whatsapp.com/send?text=MoeCTF%202021%20%e8%a5%bf%e7%94%b5%e6%96%b0%e7%94%9f%e8%b5%9bWP%20-%20https%3a%2f%2fshenyiming.life%2fpost%2fctf%2fwp%2fmoectf-web-write-up%2f"><svg viewBox="0 0 512 512"><path d="M449.446.0C483.971.0 512 28.03 512 62.554v386.892C512 483.97 483.97 512 449.446 512H62.554c-34.524.0-62.554-28.03-62.554-62.554V62.554c0-34.524 28.029-62.554 62.554-62.554h386.892zm-58.673 127.703c-33.842-33.881-78.847-52.548-126.798-52.568-98.799.0-179.21 80.405-179.249 179.234-.013 31.593 8.241 62.428 23.927 89.612l-25.429 92.884 95.021-24.925c26.181 14.28 55.659 21.807 85.658 21.816h.074c98.789.0 179.206-80.413 179.247-179.243.018-47.895-18.61-92.93-52.451-126.81zM263.976 403.485h-.06c-26.734-.01-52.954-7.193-75.828-20.767l-5.441-3.229-56.386 14.792 15.05-54.977-3.542-5.637c-14.913-23.72-22.791-51.136-22.779-79.287.033-82.142 66.867-148.971 149.046-148.971 39.793.014 77.199 15.531 105.329 43.692 28.128 28.16 43.609 65.592 43.594 105.4-.034 82.149-66.866 148.983-148.983 148.984zm81.721-111.581c-4.479-2.242-26.499-13.075-30.604-14.571-4.105-1.495-7.091-2.241-10.077 2.241-2.986 4.483-11.569 14.572-14.182 17.562-2.612 2.988-5.225 3.364-9.703 1.12-4.479-2.241-18.91-6.97-36.017-22.23C231.8 264.15 222.81 249.484 220.198 245s-.279-6.908 1.963-9.14c2.016-2.007 4.48-5.232 6.719-7.847 2.24-2.615 2.986-4.484 4.479-7.472 1.493-2.99.747-5.604-.374-7.846-1.119-2.241-10.077-24.288-13.809-33.256-3.635-8.733-7.327-7.55-10.077-7.688-2.609-.13-5.598-.158-8.583-.158-2.986.0-7.839 1.121-11.944 5.604-4.105 4.484-15.675 15.32-15.675 37.364.0 22.046 16.048 43.342 18.287 46.332 2.24 2.99 31.582 48.227 76.511 67.627 10.685 4.615 19.028 7.371 25.533 9.434 10.728 3.41 20.492 2.929 28.209 1.775 8.605-1.285 26.499-10.833 30.231-21.295 3.732-10.464 3.732-19.431 2.612-21.298-1.119-1.869-4.105-2.99-8.583-5.232z"/></svg>
+</a>
+<a target=_blank rel="noopener noreferrer" aria-label="share MoeCTF 2021 西电新生赛WP on telegram" href="https://telegram.me/share/url?text=MoeCTF%202021%20%e8%a5%bf%e7%94%b5%e6%96%b0%e7%94%9f%e8%b5%9bWP&url=https%3a%2f%2fshenyiming.life%2fpost%2fctf%2fwp%2fmoectf-web-write-up%2f"><svg viewBox="2 2 28 28"><path d="M26.49 29.86H5.5a3.37 3.37.0 01-2.47-1 3.35 3.35.0 01-1-2.47V5.48A3.36 3.36.0 013 3 3.37 3.37.0 015.5 2h21A3.38 3.38.0 0129 3a3.36 3.36.0 011 2.46V26.37a3.35 3.35.0 01-1 2.47 3.38 3.38.0 01-2.51 1.02zm-5.38-6.71a.79.79.0 00.85-.66L24.73 9.24a.55.55.0 00-.18-.46.62.62.0 00-.41-.17q-.08.0-16.53 6.11a.59.59.0 00-.41.59.57.57.0 00.43.52l4 1.24 1.61 4.83a.62.62.0 00.63.43.56.56.0 00.4-.17L16.54 20l4.09 3A.9.9.0 0021.11 23.15zM13.8 20.71l-1.21-4q8.72-5.55 8.78-5.55c.15.0.23.0.23.16a.18.18.0 010 .06s-2.51 2.3-7.52 6.8z"/></svg>
+</a>
+</div>
+</footer>
+<style>:root{--article-font-family:"Noto Serif SC", var(--base-font-family)}</style>
+<script>(function(){const a=document.createElement('link');a.href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;700&display=swap",a.type="text/css",a.rel="stylesheet",document.head.appendChild(a)})()</script>
+<div>
+<div class=pagination__title>
+<span class=pagination__title-h style=font-size:20px>💬评论</span>
+<hr>
+</div>
+<div id=tcomment></div>
+<script src=https://cdn.jsdelivr.net/npm/twikoo@1.4.17/dist/twikoo.all.min.js></script>
+<script>twikoo.init({envId:"https://shenyiming-github-io-comments.vercel.app/",el:"#tcomment",lang:'zh-CN',region:'ap-shanghai',path:'window.TWIKOO_MAGIC_PATH||window.location.pathname'})</script>
+</div>
+</article>
+</main><footer class=footer>
+<span>Copyright &copy; 2021-2022 <a href=https://shenyiming.life><b>Shenyiming.Life</b></a></span>
+<span>&#183;</span>
+<span>Built With <a href=https://gohugo.io/ rel="noopener noreferrer" target=_blank>Hugo</a></span>
+<span>&#183;</span>
+<span>All Rights Reserved.</span>
+</footer>
+<a href=#top aria-label="go to top" title="Go to Top (Alt + G)">
+<button class=top-link id=top-link type=button accesskey=g><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentcolor"><path d="M12 6H0l6-6z"/></svg>
+</button>
+</a>
+<script defer src=/assets/js/highlight.min.7680afc38aa6b15ddf158a4f3780b7b1f7dde7e91d26f073e6229bb7a0793c92.js integrity="sha256-doCvw4qmsV3fFYpPN4C3sffd5+kdJvBz5iKbt6B5PJI=" onload=hljs.initHighlightingOnLoad()></script>
+<script>window.onload=function(){localStorage.getItem("menu-scroll-position")&&(document.getElementById('menu').scrollLeft=localStorage.getItem("menu-scroll-position"))};function menu_on_scroll(){localStorage.setItem("menu-scroll-position",document.getElementById('menu').scrollLeft)}document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener("click",function(b){b.preventDefault();var a=this.getAttribute("href").substr(1);window.matchMedia('(prefers-reduced-motion: reduce)').matches?document.querySelector(`[id='${decodeURIComponent(a)}']`).scrollIntoView():document.querySelector(`[id='${decodeURIComponent(a)}']`).scrollIntoView({behavior:"smooth"}),a==="top"?history.replaceState(null,null," "):history.pushState(null,null,`#${a}`)})})</script>
+<script>var mybutton=document.getElementById("top-link");window.onscroll=function(){document.body.scrollTop>800||document.documentElement.scrollTop>800?(mybutton.style.visibility="visible",mybutton.style.opacity="1"):(mybutton.style.visibility="hidden",mybutton.style.opacity="0")}</script>
+<script>document.getElementById("theme-toggle").addEventListener("click",()=>{document.body.className.includes("dark")?(document.body.classList.remove('dark'),localStorage.setItem("pref-theme",'light')):(document.body.classList.add('dark'),localStorage.setItem("pref-theme",'dark'))})</script>
+</body>
+</html>

