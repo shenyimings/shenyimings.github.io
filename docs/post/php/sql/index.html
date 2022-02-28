@@ -37,7 +37,7 @@
 <meta name=twitter:title content="SQL Tutorial">
 <meta name=twitter:description content="Database&SQL">
 <script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":2,"name":"文章","item":"https://shenyiming.life/post/"},{"@type":"ListItem","position":3,"name":"👨🏻‍💻Web 前后端","item":"https://shenyiming.life/post/php/"},{"@type":"ListItem","position":4,"name":"SQL Tutorial","item":"https://shenyiming.life/post/php/sql/"}]}</script>
-<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"SQL Tutorial","name":"SQL Tutorial","description":"Database\u0026SQL","keywords":["Web","SQL","Note"],"articleBody":"Less- 1 SELECT 查询 数据库 数据库由若干张表(Table)组成，这里说的数据Table很像Excel里的表; 正如Excel里的表格，Table也是由 行(rows)和列(columns)组成\nSELECT SELECT 查询属性列\nSELECT column1, column2,... FROM _table; 查询结果为一个行列组成的二维表格。\n用*号代替所有列名\nSELECT * FROM _table; 查询结果为整个数据库（表）\nLess-2 条件查询 ","wordCount":"148","inLanguage":"en","image":"https://shenyiming.life/SQL.assets/%7D/5863241277243392.png","datePublished":"2022-02-28T00:00:00Z","dateModified":"2022-02-28T00:00:00Z","author":{"@type":"Person","name":"Yiming Shen"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://shenyiming.life/post/php/sql/"},"publisher":{"@type":"Organization","name":"Console.makeHappy(_1ming)","logo":{"@type":"ImageObject","url":"https://shenyiming.life/favicon.ico"}}}</script>
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"SQL Tutorial","name":"SQL Tutorial","description":"Database\u0026SQL","keywords":["Web","SQL","Note"],"articleBody":"Less- 1 SELECT 查询 数据库 数据库由若干张表(Table)组成，这里说的数据Table很像Excel里的表; 正如Excel里的表格，Table也是由 行(rows)和列(columns)组成\nSELECT SELECT 查询属性列\nSELECT column1, column2,... FROM _table; 查询结果为一个行列组成的二维表格。\n用*号代替所有列名\nSELECT * FROM _table; 查询结果为整个数据库（表）\nLess-2 条件查询-1 以表中的某列名为条件，返回符合条件行(rows)的结果\n条件查询语法\nSELECT column1, column2,... FROM _table where condition1 AND/OR condition2; /*condition 描述属性*/    Operator（关键字） Condition（意思） SQL Example(例子）     =, !=, , = Standard numerical operators 基础的 大于，等于等比较 col_name != 4   BETWEEN … AND … Number is within range of two values (inclusive) 在两个数之间 col_name BETWEEN 1.5 AND 10.5   NOT BETWEEN … AND … Number is not within range of two values (inclusive) 不在两个数之间 col_name NOT BETWEEN 1 AND 10   IN (…) Number exists in a list 在一个列表 col_name IN (2, 4, 6)   NOT IN (…) Number does not exist in a list 不在一个列表 col_name NOT IN (1, 3, 5)    Exercise    Id Title Director Year Length_minutes     1 Toy Story John Lasseter 1995 81   2 A Bug’s Life John Lasseter 1998 95   3 Toy Story 2 John Lasseter 1999 93   4 Monsters, Inc. Pete Docter 2001 92   5 Finding Nemo Finding Nemo 2003 107     找到id为6的电影  SELECT * FROM movies where id =6; 找到2000-2010间上映的电影  SELECT * FROM movies where year between 2000 and 2010; 找到不在2000-2010间上映的电影  SELECT * FROM movies where year not between 2000 and 2010; 找到头5部电影  SELECT * FROM movies where id5; 找到2010（含）年之后的电影里片长小于两个小时的片子  SELECT * FROM movies where year=2010 and Length_minutes120; Less-3 条件查询-2 之前学习了使用where筛选数字类型属性，若属性是字符串，则会用到下面的操作符号。\n   Operator（操作符） Condition（解释） Example（例子）     = Case sensitive exact string comparison (notice the single equals)完全等于 col_name = “abc”   != or  Case sensitive exact string inequality comparison 不等于 col_name != “abcd”   LIKE Case insensitive exact string comparison 没有用通配符等价于 = col_name LIKE “ABC”   NOT LIKE Case insensitive exact string inequality comparison 没有用通配符等价于 != col_name NOT LIKE “ABCD”   % Used anywhere in a string to match a sequence of zero or more characters (only with LIKE or NOT LIKE) 通配符，代表匹配0个以上的字符 col_name LIKE “%AT%” (matches “AT”, “ATTIC”, “CAT” or even “BATS”) “%AT%” 代表AT 前后可以有任意字符   _ Used anywhere in a string to match a single character (only with LIKE or NOT LIKE) 和% 相似，代表1个字符 col_name LIKE “AN_” (matches “AND”, but not “AN”)   IN (…) String exists in a list 在列表 col_name IN (“A”, “B”, “C”)   NOT IN (…) String does not exist in a list 不在列表 col_name NOT IN (“D”, “E”, “F”)    类似正则表达式\n字符串需要用双引号包含，不包含将被认作列名\nExercise  在上一章的表中完成以下任务\n   【复杂条件】找到所有Toy Story系列电影\nSELECT * FROM movies where title like \"%Toy Story%\";   【复杂条件】找到所有John Lasseter导演的电影\nSELECT * FROM movies where director like \"%John%\";   【复杂条件】找到所有不是John Lasseter导演的电影\nSELECT * FROM movies where director not like \"%John%\";   【复杂条件】找到所有电影名为\"WALL-\"开头的电影\nSELECT * FROM movies where title like \"WALL-%\";   【复杂条件】有一部98年电影中文名《虫虫危机》请给我找出来\nSELECT * FROM movies where year=1998;   Less-4 查询结果处理 DISTINCT 用于指定某个或某些属性列返回唯一值\nSELECT DISTINCT column1,column2, ... FROM _table where condition1; ","wordCount":"1074","inLanguage":"en","image":"https://shenyiming.life/SQL.assets/%7D/5863241277243392.png","datePublished":"2022-02-28T00:00:00Z","dateModified":"2022-02-28T00:00:00Z","author":{"@type":"Person","name":"Yiming Shen"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://shenyiming.life/post/php/sql/"},"publisher":{"@type":"Organization","name":"Console.makeHappy(_1ming)","logo":{"@type":"ImageObject","url":"https://shenyiming.life/favicon.ico"}}}</script>
 </head>
 <body id=top>
 <script>localStorage.getItem("pref-theme")==="dark"?document.body.classList.add('dark'):localStorage.getItem("pref-theme")==="light"?document.body.classList.remove('dark'):window.matchMedia('(prefers-color-scheme: dark)').matches&&document.body.classList.add('dark')</script>
@@ -110,7 +110,7 @@ Database&SQL
 <div class=post-meta>
 <style>:root{--article-font-family:"Noto Serif SC", var(--base-font-family)}</style>
 <script>(function(){const a=document.createElement('link');a.href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;700&display=swap",a.type="text/css",a.rel="stylesheet",document.head.appendChild(a)})()</script>
-February 28, 2022&nbsp;·&nbsp;February 28, 2022&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Yiming Shen
+February 28, 2022&nbsp;·&nbsp;February 28, 2022&nbsp;·&nbsp;3 min&nbsp;·&nbsp;Yiming Shen
 |&nbsp;<a href=https://github.com/shenyimings/shenyimings.github.io/tree/main/docs rel="noopener noreferrer" target=_blank>Issue</a>
 </div>
 </header>
@@ -131,7 +131,17 @@ February 28, 2022&nbsp;·&nbsp;February 28, 2022&nbsp;·&nbsp;1 min&nbsp;·&nbsp
 <a href=#select aria-label=SELECT>SELECT</a></li></ul>
 </li>
 <li>
-<a href=#less-2-%e6%9d%a1%e4%bb%b6%e6%9f%a5%e8%af%a2 aria-label="Less-2 条件查询">Less-2 条件查询</a>
+<a href=#less-2-%e6%9d%a1%e4%bb%b6%e6%9f%a5%e8%af%a2-1 aria-label="Less-2 条件查询-1">Less-2 条件查询-1</a><ul>
+<li>
+<a href=#exercise aria-label=Exercise>Exercise</a></li></ul>
+</li>
+<li>
+<a href=#less-3-%e6%9d%a1%e4%bb%b6%e6%9f%a5%e8%af%a2-2 aria-label="Less-3 条件查询-2">Less-3 条件查询-2</a><ul>
+<li>
+<a href=#exercise-1 aria-label=Exercise>Exercise</a></li></ul>
+</li>
+<li>
+<a href=#less-4-%e6%9f%a5%e8%af%a2%e7%bb%93%e6%9e%9c%e5%a4%84%e7%90%86 aria-label="Less-4 查询结果处理">Less-4 查询结果处理</a>
 </li>
 </ul>
 </div>
@@ -144,13 +154,207 @@ February 28, 2022&nbsp;·&nbsp;February 28, 2022&nbsp;·&nbsp;1 min&nbsp;·&nbsp
 <h3 id=数据库>数据库<a hidden class=anchor aria-hidden=true href=#数据库>#</a></h3>
 <p>数据库由若干张<code>表</code>(Table)组成，这里说的数据Table很像Excel里的表; 正如Excel里的表格，Table也是由 <code>行(rows)</code>和<code>列(columns)</code>组成</p>
 <h3 id=select>SELECT<a hidden class=anchor aria-hidden=true href=#select>#</a></h3>
-<p><em><code>SELECT 查询属性列</code></em></p>
+<p><em>SELECT 查询属性列</em></p>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sql data-lang=sql><span style=color:#66d9ef>SELECT</span> column1, column2,... <span style=color:#66d9ef>FROM</span> _table;
 </code></pre></div><p>查询结果为一个行列组成的二维表格。</p>
 <p><em>用*号代替所有列名</em></p>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sql data-lang=sql><span style=color:#66d9ef>SELECT</span> <span style=color:#f92672>*</span> <span style=color:#66d9ef>FROM</span> _table;
 </code></pre></div><p>查询结果为整个数据库（表）</p>
-<h2 id=less-2-条件查询>Less-2 条件查询<a hidden class=anchor aria-hidden=true href=#less-2-条件查询>#</a></h2>
+<h2 id=less-2-条件查询-1>Less-2 条件查询-1<a hidden class=anchor aria-hidden=true href=#less-2-条件查询-1>#</a></h2>
+<p>以表中的某列名为条件，返回符合条件行(rows)的结果</p>
+<p><em>条件查询语法</em></p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sql data-lang=sql><span style=color:#66d9ef>SELECT</span> column1, column2,... <span style=color:#66d9ef>FROM</span> _table <span style=color:#66d9ef>where</span> condition1 <span style=color:#66d9ef>AND</span><span style=color:#f92672>/</span><span style=color:#66d9ef>OR</span> condition2;
+<span style=color:#75715e>/*condition 描述属性*/</span>
+</code></pre></div><table>
+<thead>
+<tr>
+<th>Operator（关键字）</th>
+<th>Condition（意思）</th>
+<th>SQL Example(例子）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>=, !=, &lt; &lt;=, >, >=</td>
+<td>Standard numerical operators 基础的 大于，等于等比较</td>
+<td>col_name != 4</td>
+</tr>
+<tr>
+<td>BETWEEN … AND …</td>
+<td>Number is within range of two values (inclusive) 在两个数之间</td>
+<td>col_name BETWEEN 1.5 AND 10.5</td>
+</tr>
+<tr>
+<td>NOT BETWEEN … AND …</td>
+<td>Number is not within range of two values (inclusive) 不在两个数之间</td>
+<td>col_name NOT BETWEEN 1 AND 10</td>
+</tr>
+<tr>
+<td>IN (…)</td>
+<td>Number exists in a list 在一个列表</td>
+<td>col_name IN (2, 4, 6)</td>
+</tr>
+<tr>
+<td>NOT IN (…)</td>
+<td>Number does not exist in a list 不在一个列表</td>
+<td>col_name NOT IN (1, 3, 5)</td>
+</tr>
+</tbody>
+</table>
+<h3 id=exercise>Exercise<a hidden class=anchor aria-hidden=true href=#exercise>#</a></h3>
+<table>
+<thead>
+<tr>
+<th>Id</th>
+<th>Title</th>
+<th>Director</th>
+<th>Year</th>
+<th>Length_minutes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Toy Story</td>
+<td>John Lasseter</td>
+<td>1995</td>
+<td>81</td>
+</tr>
+<tr>
+<td>2</td>
+<td>A Bug&rsquo;s Life</td>
+<td>John Lasseter</td>
+<td>1998</td>
+<td>95</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Toy Story 2</td>
+<td>John Lasseter</td>
+<td>1999</td>
+<td>93</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Monsters, Inc.</td>
+<td>Pete Docter</td>
+<td>2001</td>
+<td>92</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Finding Nemo</td>
+<td>Finding Nemo</td>
+<td>2003</td>
+<td>107</td>
+</tr>
+</tbody>
+</table>
+<ol>
+<li>找到id为6的电影</li>
+</ol>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sql data-lang=sql><span style=color:#66d9ef>SELECT</span> <span style=color:#f92672>*</span> <span style=color:#66d9ef>FROM</span> movies <span style=color:#66d9ef>where</span> id <span style=color:#f92672>=</span><span style=color:#ae81ff>6</span>;
+</code></pre></div><ol start=2>
+<li>找到2000-2010间上映的电影</li>
+</ol>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sql data-lang=sql><span style=color:#66d9ef>SELECT</span> <span style=color:#f92672>*</span> <span style=color:#66d9ef>FROM</span> movies <span style=color:#66d9ef>where</span> <span style=color:#66d9ef>year</span> <span style=color:#66d9ef>between</span> <span style=color:#ae81ff>2000</span> <span style=color:#66d9ef>and</span> <span style=color:#ae81ff>2010</span>;
+</code></pre></div><ol start=3>
+<li>找到不在2000-2010间上映的电影</li>
+</ol>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sql data-lang=sql><span style=color:#66d9ef>SELECT</span> <span style=color:#f92672>*</span> <span style=color:#66d9ef>FROM</span> movies <span style=color:#66d9ef>where</span> <span style=color:#66d9ef>year</span> <span style=color:#66d9ef>not</span> <span style=color:#66d9ef>between</span> <span style=color:#ae81ff>2000</span> <span style=color:#66d9ef>and</span> <span style=color:#ae81ff>2010</span>;
+</code></pre></div><ol start=4>
+<li>找到头5部电影</li>
+</ol>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sql data-lang=sql><span style=color:#66d9ef>SELECT</span> <span style=color:#f92672>*</span> <span style=color:#66d9ef>FROM</span> movies <span style=color:#66d9ef>where</span> id<span style=color:#f92672>&lt;=</span><span style=color:#ae81ff>5</span>;
+</code></pre></div><ol start=5>
+<li>找到2010（含）年之后的电影里片长小于两个小时的片子</li>
+</ol>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sql data-lang=sql><span style=color:#66d9ef>SELECT</span> <span style=color:#f92672>*</span> <span style=color:#66d9ef>FROM</span> movies <span style=color:#66d9ef>where</span> <span style=color:#66d9ef>year</span><span style=color:#f92672>&gt;=</span><span style=color:#ae81ff>2010</span> <span style=color:#66d9ef>and</span> Length_minutes<span style=color:#f92672>&lt;</span><span style=color:#ae81ff>120</span>;
+</code></pre></div><h2 id=less-3-条件查询-2>Less-3 条件查询-2<a hidden class=anchor aria-hidden=true href=#less-3-条件查询-2>#</a></h2>
+<p>之前学习了使用where筛选数字类型属性，若属性是字符串，则会用到下面的操作符号。</p>
+<table>
+<thead>
+<tr>
+<th>Operator（操作符）</th>
+<th>Condition（解释）</th>
+<th>Example（例子）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>=</td>
+<td>Case sensitive exact string comparison (<em>notice the single equals</em>)完全等于</td>
+<td>col_name = &ldquo;abc&rdquo;</td>
+</tr>
+<tr>
+<td>!= or &lt;></td>
+<td>Case sensitive exact string inequality comparison 不等于</td>
+<td>col_name != &ldquo;abcd&rdquo;</td>
+</tr>
+<tr>
+<td>LIKE</td>
+<td>Case insensitive exact string comparison 没有用通配符等价于 =</td>
+<td>col_name LIKE &ldquo;ABC&rdquo;</td>
+</tr>
+<tr>
+<td>NOT LIKE</td>
+<td>Case insensitive exact string inequality comparison 没有用通配符等价于 !=</td>
+<td>col_name NOT LIKE &ldquo;ABCD&rdquo;</td>
+</tr>
+<tr>
+<td>%</td>
+<td>Used anywhere in a string to match a sequence of zero or more characters (only with LIKE or NOT LIKE) 通配符，代表匹配0个以上的字符</td>
+<td>col_name LIKE &ldquo;%AT%&rdquo; (matches &ldquo;AT&rdquo;, &ldquo;ATTIC&rdquo;, &ldquo;CAT&rdquo; or even &ldquo;BATS&rdquo;) &ldquo;%AT%&rdquo; 代表AT 前后可以有任意字符</td>
+</tr>
+<tr>
+<td>_</td>
+<td>Used anywhere in a string to match a single character (only with LIKE or NOT LIKE) 和% 相似，代表1个字符</td>
+<td>col_name LIKE &ldquo;AN_&rdquo; (matches &ldquo;AND&rdquo;, but not &ldquo;AN&rdquo;)</td>
+</tr>
+<tr>
+<td>IN (…)</td>
+<td>String exists in a list 在列表</td>
+<td>col_name IN (&ldquo;A&rdquo;, &ldquo;B&rdquo;, &ldquo;C&rdquo;)</td>
+</tr>
+<tr>
+<td>NOT IN (…)</td>
+<td>String does not exist in a list 不在列表</td>
+<td>col_name NOT IN (&ldquo;D&rdquo;, &ldquo;E&rdquo;, &ldquo;F&rdquo;)</td>
+</tr>
+</tbody>
+</table>
+<p>类似正则表达式</p>
+<p><strong>字符串需要用双引号包含，不包含将被认作列名</strong></p>
+<h3 id=exercise-1>Exercise<a hidden class=anchor aria-hidden=true href=#exercise-1>#</a></h3>
+<blockquote>
+<p>在上一章的表中完成以下任务</p>
+</blockquote>
+<ol>
+<li>
+<p>【复杂条件】找到所有<code>Toy Story</code>系列电影</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sql data-lang=sql><span style=color:#66d9ef>SELECT</span> <span style=color:#f92672>*</span> <span style=color:#66d9ef>FROM</span> movies <span style=color:#66d9ef>where</span> title <span style=color:#66d9ef>like</span> <span style=color:#e6db74>&#34;%Toy Story%&#34;</span>;
+</code></pre></div></li>
+<li>
+<p>【复杂条件】找到所有<code>John Lasseter</code>导演的电影</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sql data-lang=sql><span style=color:#66d9ef>SELECT</span> <span style=color:#f92672>*</span> <span style=color:#66d9ef>FROM</span> movies <span style=color:#66d9ef>where</span> director <span style=color:#66d9ef>like</span> <span style=color:#e6db74>&#34;%John%&#34;</span>;
+</code></pre></div></li>
+<li>
+<p>【复杂条件】找到所有不是<code>John Lasseter</code>导演的电影</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sql data-lang=sql><span style=color:#66d9ef>SELECT</span> <span style=color:#f92672>*</span> <span style=color:#66d9ef>FROM</span> movies <span style=color:#66d9ef>where</span> director <span style=color:#66d9ef>not</span> <span style=color:#66d9ef>like</span> <span style=color:#e6db74>&#34;%John%&#34;</span>;
+</code></pre></div></li>
+<li>
+<p>【复杂条件】找到所有电影名为<code>"WALL-"</code>开头的电影</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sql data-lang=sql><span style=color:#66d9ef>SELECT</span> <span style=color:#f92672>*</span> <span style=color:#66d9ef>FROM</span> movies <span style=color:#66d9ef>where</span> title <span style=color:#66d9ef>like</span> <span style=color:#e6db74>&#34;WALL-%&#34;</span>;
+</code></pre></div></li>
+<li>
+<p>【复杂条件】有一部98年电影中文名《虫虫危机》请给我找出来</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-mysql data-lang=mysql><span style=color:#66d9ef>SELECT</span> <span style=color:#f92672>*</span> <span style=color:#66d9ef>FROM</span> movies <span style=color:#66d9ef>where</span> <span style=color:#66d9ef>year</span><span style=color:#f92672>=</span><span style=color:#ae81ff>1998</span>;
+</code></pre></div></li>
+</ol>
+<h2 id=less-4-查询结果处理>Less-4 查询结果处理<a hidden class=anchor aria-hidden=true href=#less-4-查询结果处理>#</a></h2>
+<p><code>DISTINCT</code> 用于指定某个或某些属性列返回唯一值</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sql data-lang=sql><span style=color:#66d9ef>SELECT</span> <span style=color:#66d9ef>DISTINCT</span> column1,column2, ... <span style=color:#66d9ef>FROM</span> _table <span style=color:#66d9ef>where</span> condition1;
+</code></pre></div>
 </div>
 <footer class=post-footer>
 <ul class=post-tags>
