@@ -9,7 +9,16 @@
       <link>https://shenyiming.life/android-chrome-512x512.png</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sat, 26 Feb 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://shenyiming.life/categories/notes/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 28 Feb 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://shenyiming.life/categories/notes/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>SQL Tutorial</title>
+      <link>https://shenyiming.life/post/php/sql/</link>
+      <pubDate>Mon, 28 Feb 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://shenyiming.life/post/php/sql/</guid>
+      <description>Database&amp;amp;SQL</description>
+    </item>
+    
     <item>
       <title>HTML Tutorial</title>
       <link>https://shenyiming.life/post/php/html_tutorial/</link>
@@ -61,6 +70,15 @@
       <pubDate>Sun, 30 Jan 2022 00:00:00 +0000</pubDate>
       
       <guid>https://shenyiming.life/post/ctf/crypto/crypto/</guid>
+      <description>寒假计划……寒假已经过半的寒假计划 Crypto 方向 - 密码学 密码学作为数学的延伸，主要应用于计算机类的信息科学，现在应用十分广泛，哪里需要信息的传递，哪</description>
+    </item>
+    
+    <item>
+      <title>Crypto方向的寒假计划</title>
+      <link>https://shenyiming.life/post/plan/crypto/</link>
+      <pubDate>Sun, 30 Jan 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://shenyiming.life/post/plan/crypto/</guid>
       <description>寒假计划……寒假已经过半的寒假计划 Crypto 方向 - 密码学 密码学作为数学的延伸，主要应用于计算机类的信息科学，现在应用十分广泛，哪里需要信息的传递，哪</description>
     </item>
     

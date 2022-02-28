@@ -9,7 +9,7 @@
       <link>https://shenyiming.life/android-chrome-512x512.png</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sat, 26 Feb 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://shenyiming.life/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 28 Feb 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://shenyiming.life/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>🏃大二下的一点想法</title>
       <link>https://shenyiming.life/post/plan/plan_sophomore_year_2/</link>
@@ -35,6 +35,15 @@
       
       <guid>https://shenyiming.life/about/</guid>
       <description>&amp;nbsp 申一鸣 Yiming Shen A crappy photographer, a terrible CTFer, a lazy geek. A photography lover, a CTF learner, a geek spirit follower. About My Blog 正经人谁写日记啊。 我是正经人，我写。 现在的互联网上最不缺的就是内容发布平台，小到个人</description>
+    </item>
+    
+    <item>
+      <title>SQL Tutorial</title>
+      <link>https://shenyiming.life/post/php/sql/</link>
+      <pubDate>Mon, 28 Feb 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://shenyiming.life/post/php/sql/</guid>
+      <description>Database&amp;amp;SQL</description>
     </item>
     
     <item>
@@ -97,6 +106,15 @@
       <pubDate>Sun, 30 Jan 2022 00:00:00 +0000</pubDate>
       
       <guid>https://shenyiming.life/post/ctf/crypto/crypto/</guid>
+      <description>寒假计划……寒假已经过半的寒假计划 Crypto 方向 - 密码学 密码学作为数学的延伸，主要应用于计算机类的信息科学，现在应用十分广泛，哪里需要信息的传递，哪</description>
+    </item>
+    
+    <item>
+      <title>Crypto方向的寒假计划</title>
+      <link>https://shenyiming.life/post/plan/crypto/</link>
+      <pubDate>Sun, 30 Jan 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://shenyiming.life/post/plan/crypto/</guid>
       <description>寒假计划……寒假已经过半的寒假计划 Crypto 方向 - 密码学 密码学作为数学的延伸，主要应用于计算机类的信息科学，现在应用十分广泛，哪里需要信息的传递，哪</description>
     </item>
     
