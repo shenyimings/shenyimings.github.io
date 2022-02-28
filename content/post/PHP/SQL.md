@@ -17,6 +17,8 @@ math: true
 ShowToc: true
 draft: false
 typora-root-url: ..\..\..\static\
+cover: 
+    image: "/SQL.assets/%7D/5863241277243392.png"
 ---
 
  ## Less- 1 SELECT 查询
