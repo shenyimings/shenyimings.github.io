@@ -1,7 +1,7 @@
 ---
 author: "Yiming Shen"
 date: 2022-02-26
-lastmod: 2022-03-01
+lastmod: 2022-03-03
 title: "HTML Tutorial"
 tags: [
     "HTML",
@@ -100,14 +100,14 @@ For nearly 60 years, WWF has been protecting the future of nature. The world's l
 
 ```html
 <div style="background-color:black;color:white;padding:20px;">
-  <h2>London</h2>
+  <h2 style="color:white">London</h2>
   <p>London is the capital city of England. It is the most populous city in the United Kingdom, with a metropolitan area of over 13 million inhabitants.</p>
 </div>
 ```
 
 效果：
 
-<div style="background-color:black;color:white;padding:20px;">  <h2>London</h2>  <p>London is the capital city of England. It is the most populous city in the United Kingdom, with a metropolitan area of over 13 million inhabitants.</p></div>
+<div style="background-color:black;color:white;padding:20px;">  <h2 style="color:white">London</h2>  <p>London is the capital city of England. It is the most populous city in the United Kingdom, with a metropolitan area of over 13 million inhabitants.</p></div>
 
 ## `class`属性
 
@@ -130,4 +130,83 @@ For nearly 60 years, WWF has been protecting the future of nature. The world's l
 <h2 class="city">Paris</h2>
 <h2 class="city">Tokyo</h2>
 ```
+
+## `id`属性
+
+> `id`属性用于给HTML元素指定一个唯一的标识。
+
+#### 应用独立的CSS样式
+
+```css
+#myHeader {
+  background-color: lightblue;
+  color: black;
+  padding: 40px;
+  text-align: center;
+}
+```
+
+*给id为myheader的元素应用样式*
+
+**注意：id名区分大小写，同一个id在一页只能出现一次。**
+
+#### 书签跳转
+
+```html
+<a href="#C1">Jump to Chapter 1 </a>
+
+<h2 id="C1">Chapter 1</h2>
+```
+
+也可指向其他文件中的id：
+
+```html
+<a href="html_demo.html#C1">Jump to Chapter 1</a>
+```
+
+### 通过JavaScript调用
+
+<h1 id="myHeader">Hello World!</h1>
+<button onclick="displayResult()">Change text</button>
+
+<script>
+function displayResult() {
+  document.getElementById("myHeader").innerHTML = "Have a nice day!";
+}
+</script>
+
+```html
+<h1 id="myHeader">Hello World!</h1>
+<button onclick="displayResult()">Change text</button>
+
+<script>
+function displayResult() {
+  document.getElementById("myHeader").innerHTML = "Have a nice day!";
+}
+</script>
+```
+
+## `iframe`标签
+
+> 内联iframe标签可以将另一个html文档的内容嵌入当前文档
+
+代码示意
+
+```html
+<iframe src="demo_iframe.htm" style="border:none;" title="Iframe Example"></iframe>
+```
+
+## HTML实体
+
+| Result | Description                        | Entity Name | Entity Number |
+| :----- | :--------------------------------- | :---------- | :------------ |
+|        | non-breaking space                 | &nbsp;      | &#160;        |
+| <      | less than                          | &lt;        | &#60;         |
+| >      | greater than                       | &gt;        | &#62;         |
+| &      | ampersand                          | &amp;       | &#38;         |
+| "      | double quotation mark              | &quot;      | &#34;         |
+| '      | single quotation mark (apostrophe) | &apos;      | &#39;         |
+| ¢      | cent                               | &cent;      | &#162;        |
+| £      | pound                              | &pound;     | &#163;        |
+| ¥      | yen                                | &yen;       | &#165;        |
 
