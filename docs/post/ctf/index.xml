@@ -11,21 +11,21 @@
     <generator>Hugo -- gohugo.io</generator>
     <lastBuildDate>Sat, 26 Feb 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://shenyiming.life/post/ctf/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>CTF比赛方向选择&amp;学习内容</title>
+      <link>https://shenyiming.life/post/ctf/ctf%E6%AF%94%E8%B5%9B%E6%96%B9%E5%90%91%E9%80%89%E6%8B%A9/</link>
+      <pubDate>Wed, 21 Jul 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://shenyiming.life/post/ctf/ctf%E6%AF%94%E8%B5%9B%E6%96%B9%E5%90%91%E9%80%89%E6%8B%A9/</guid>
+      <description>了解CTF CTF 的前身是传统黑客之间的网络技术比拼游戏，起源于 1996 年第四届 DEFCON。CTF比赛有以下突出特点： 比赛侧重于对计算机底层和系统安全</description>
+    </item>
+    
+    <item>
       <title>DVWA环境搭建 &#43; BurpSuite2.1安装 &#43; Chrome配置</title>
       <link>https://shenyiming.life/post/ctf/dvwa%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA&#43;burpsuite2.1%E5%AE%89%E8%A3%85/</link>
       <pubDate>Thu, 05 Aug 2021 00:00:00 +0000</pubDate>
       
       <guid>https://shenyiming.life/post/ctf/dvwa%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA&#43;burpsuite2.1%E5%AE%89%E8%A3%85/</guid>
       <description>[TOC] DVWA环境搭建 DVWA（Damn Vulnerable Web Application）是一个用来进行安全脆弱性鉴定的PHP/MySQL Web应用，旨在为安全专业人</description>
-    </item>
-    
-    <item>
-      <title>CTF比赛方向选择</title>
-      <link>https://shenyiming.life/post/ctf/ctf%E6%AF%94%E8%B5%9B%E6%96%B9%E5%90%91%E9%80%89%E6%8B%A9/</link>
-      <pubDate>Wed, 21 Jul 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://shenyiming.life/post/ctf/ctf%E6%AF%94%E8%B5%9B%E6%96%B9%E5%90%91%E9%80%89%E6%8B%A9/</guid>
-      <description>了解CTF CTF 的前身是传统黑客之间的网络技术比拼游戏，起源于 1996 年第四届 DEFCON。CTF比赛有以下突出特点： 比赛侧重于对计算机底层和系统安全</description>
     </item>
     
     <item>

