@@ -14,10 +14,6 @@ categories: [
 math: true
 ---
 
-# 
-
-[TOC]
-
 ## DVWA环境搭建
 
 >[DVWA（Damn Vulnerable Web Application）](https://link.zhihu.com/?target=http%3A//www.dvwa.co.uk/)是一个用来进行安全脆弱性鉴定的PHP/MySQL Web应用，旨在为安全专业人员测试自己的专业技能和工具提供合法的环境，帮助web开发者更好的理解web应用安全防范的过程。

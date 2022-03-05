@@ -13,6 +13,8 @@ categories: [
 ]
 weight: 1
 math: true
+showtoc: true
+tocopen: true
 typora-root-url: ..\..\..\static\
 ---
 

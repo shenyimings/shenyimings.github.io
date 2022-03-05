@@ -62,7 +62,7 @@ typora-root-url: ..\..\..\static\
 
 2. PHP基础（基础语法、内置函数和类）
 
-   [PHP入门 - 慕课网](http%3A//www.imooc.com/learn/54)
+   [PHP入门 - 慕课网](http://www.imooc.com/learn/54)
 
 3. **PHP的应用**（一定要学到这一步）
 

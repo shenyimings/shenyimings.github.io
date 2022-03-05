@@ -29,3 +29,7 @@ typora-root-url: ..\..\..\static\
 
 ![CSS selector](/CSS_Tutorial.assets/%7D/img_selector.gif)
 
+[^侧边栏效果实现](https://www.youtube.com/watch?v=ArTVfdHOB-M&t=152s)
+
+
+

