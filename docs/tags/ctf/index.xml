@@ -47,6 +47,15 @@
     </item>
     
     <item>
+      <title>Web方向入门课程-大纲</title>
+      <link>https://shenyiming.life/post/ctf/web_tutorial/</link>
+      <pubDate>Thu, 04 Nov 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://shenyiming.life/post/ctf/web_tutorial/</guid>
+      <description>主讲人：HnuSec - 申一鸣 1. CTF与网络安全 2. CTF-Web方向简介 3. 以Bugku例题(sql注入)引出CTF中的Web题型 题目- sql注</description>
+    </item>
+    
+    <item>
       <title>Bugku-SQL注入-WriteUP</title>
       <link>https://shenyiming.life/post/ctf/sql/bugku-sql%E6%B3%A8%E5%85%A5/</link>
       <pubDate>Sun, 24 Oct 2021 00:00:00 +0000</pubDate>

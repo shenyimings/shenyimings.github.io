@@ -31,5 +31,14 @@ typora-root-url: ..\..\..\static\
 
 [^侧边栏效果实现](https://www.youtube.com/watch?v=ArTVfdHOB-M&t=152s)
 
+**Codepen** 读代码
 
+## 选择器 Selector
 
+完成[^CSS Dinner](https://flukeout.github.io/#) 32关即解决
+
+操作CSS元素的多种神之一手。
+
+## 参考
+
+[1] [6个学习CSS的免费在线游戏网站 - 六星教育的文章 - 知乎 ](https://zhuanlan.zhihu.com/p/447712326)
