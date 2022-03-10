@@ -1,7 +1,7 @@
 ---
 author: "Yiming Shen"
 date: 2022-02-22
-lastmod: 2022-02-28
+lastmod: 2022-03-08
 title: "🏃大二下的一点想法"
 tags: [
     "Plan",

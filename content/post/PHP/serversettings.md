@@ -53,19 +53,130 @@ typora-root-url: ..\..\..\static\
 
 ### 2. 安装并使用Screen
 
+> Screen是一个可以在多个进程之间多路复用一个物理终端的全屏窗口管理器。Screen中有会话的概念，用户可以在一个会话中创建多个screen窗口，在每一个screen窗口中就像操作一个真实的telnet/SSH连接窗口那样。
 
+安装Screen(CentOS)
+
+`yum install screen`
+
+#### 创建会话
+
+```bash
+screen -S lnmp
+```
+
+#### 查看会话
+
+```bash
+screen -ls
+```
+
+#### 关闭/切换会话
+
+```bash
+先Ctrl+A 再按D键，即可关闭当前会话（对进程无影响）
+
+Ctrl+A 再按N或P，即切换到下一个/上一会话
+```
+
+#### 恢复会话
+
+```bash
+screen -r lnmp
+```
+
+> 有时在恢复screen时会出现There is no screen to be resumed matching \****，遇到这种情况咋办呢？输入命令
+>
+> `screen -d ****`
+
+#### 退出会话
+
+```bash
+exit
+```
 
 ### 3. 安装Lnmp
 
+我使用了Lnmp一键安装包：
 
+``` bash
+screen -S lnmp
 
-### 4. 安装配置docker
+wget http://soft.vpser.net/lnmp/lnmp1.8.tar.gz -cO lnmp1.8.tar.gz && tar zxf lnmp1.8.tar.gz && cd lnmp1.8 && ./install.sh lnmp
+```
 
+安装时间较长，最后安装成功显示：
 
+<p style="color: green">
+Nginx:OK<br>
+MySQL:OK<br>
+PHP:OK<br>
+</p>
 
-## 使用Syncthing同步网站
+#### Lnmp状态管理命令
 
+LNMP 1.2+状态管理: `lnmp {start|stop|reload|restart|kill|status}`
 
+LNMP 1.2+各个程序状态管理: `lnmp {nginx|mysql|mariadb|php-fpm|pureftpd} {start|stop|reload|restart|kill|status}`
+
+Nginx状态管理：`/etc/init.d/nginx {start|stop|reload|restart}`
+
+MySQL状态管理：`/etc/init.d/mysql {start|stop|restart|reload|force-reload|status}`
+
+PHP-FPM状态管理：`/etc/init.d/php-fpm {start|stop|quit|restart|reload|logrotate}`
+
+### 4. 安装Docker
+
+```bash
+sudo yum install docker-ce docker-ce-cli containerd.io
+```
+
+安装完成后 启动Docker
+
+```bash
+sudo systemctl enable docker
+sudo systemctl start docker
+```
+
+测试Docker是否安装正确 - 运行Helloworld
+
+```bash
+docker run --rm hello-world
+```
+
+## Syncthing配置
+
+### 安装
+
+安装Docker后，可直接拉取Syncthing镜像
+
+```bash
+docker pull syncthing/syncthing
+```
+
+### 运行
+
+```bash
+docker run -d -p 8384:8384 -p 22000:22000 -v /home/sync:/var/syncthing --restart=always syncthing/syncthing:latest
+```
+
+其中，`/home/sync:/var/syncthing`的意义是，将docker容器内部的虚拟存储挂载到外部的/home/sync文件夹内（映射）
+
+通过理解挂载这一使用方式，可以很好的理解Docker的意义和实现方式。
+
+### 配置
+
+![image-20220310233831416](/serversettings.assets/%7D/image-20220310233831416.png)
+
+Syncthing的运行和管理需要两个端口: `22000` (通信)`8384`（管理面板），需要在腾讯云管理面板的防火墙中打开这两个端口。
+
+设置完成后，即可访问IP地址下的8384端口，进入syncthing的web管理面板
+
+<img src="/serversettings.assets/%7D/image-20220310234101224.png" alt="image-20220310234101224" style="zoom:50%;" />
+
+单击添加远程设备，即可连接本地电脑，单机添加文件夹即可共享文件夹。
+
+> 我将本地电脑hugo生成的网站直接同步至服务器，这样做其实并不合适，在实际工作中生产环境和开发环境应该隔离分开。
 
 ## Nginx配置
 
@@ -73,3 +184,20 @@ typora-root-url: ..\..\..\static\
 
 ## Vscode远程开发管理
 
+
+
+## 参考
+
+[1] [做好这两点，避免服务器成为肉鸡（傀儡）- 代码狂魔](https://zhuanlan.zhihu.com/p/56864040)
+
+[2] [LNMP一键安装包](https://lnmp.org/install.html)
+
+[3] [使用Syncthing搭建自己的私人网盘 - jonssonyan](使用Syncthing搭建自己的私人网盘 - jonssonyan的文章 - 知乎 https://zhuanlan.zhihu.com/p/471032477)
+
+[4] [hugo博客部署到腾讯云轻量级服务器 - sulv's blog](https://www.sulvblog.cn/posts/blog/hugo_deploy/)
+
+[5] [在Nginx中配置二级域名 - 码农小黄](https://mincong.io/cn/nginx-subdomains/)
+
+[6] [使用VScode连接远程服务器进行开发 - 这里有支彩笔](https://zhuanlan.zhihu.com/p/141205262)
+
+[7] [linux screen的用法](https://www.jianshu.com/p/e91746ef4058)
