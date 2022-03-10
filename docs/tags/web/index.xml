@@ -9,7 +9,16 @@
       <link>https://shenyiming.life/android-chrome-512x512.png</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Thu, 03 Mar 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://shenyiming.life/tags/web/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 10 Mar 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://shenyiming.life/tags/web/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>CentOS8.3 服务器配置</title>
+      <link>https://shenyiming.life/post/php/serversettings/</link>
+      <pubDate>Thu, 10 Mar 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://shenyiming.life/post/php/serversettings/</guid>
+      <description>Lnmp、docker、syncthing</description>
+    </item>
+    
     <item>
       <title>CSS Tutorial</title>
       <link>https://shenyiming.life/post/php/css_tutorial/</link>
