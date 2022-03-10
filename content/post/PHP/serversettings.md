@@ -192,7 +192,7 @@ Syncthing的运行和管理需要两个端口: `22000` (通信)`8384`（管理�
 
 [2] [LNMP一键安装包](https://lnmp.org/install.html)
 
-[3] [使用Syncthing搭建自己的私人网盘 - jonssonyan](使用Syncthing搭建自己的私人网盘 - jonssonyan的文章 - 知乎 https://zhuanlan.zhihu.com/p/471032477)
+[3] [使用Syncthing搭建自己的私人网盘 - jonssonyan](https://zhuanlan.zhihu.com/p/471032477)
 
 [4] [hugo博客部署到腾讯云轻量级服务器 - sulv's blog](https://www.sulvblog.cn/posts/blog/hugo_deploy/)
 
