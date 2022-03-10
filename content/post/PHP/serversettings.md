@@ -2,7 +2,7 @@
 author: "Yiming Shen"
 date: 2022-03-10
 lastmod: 2022-03-10
-title: "CentOS8.3 服务器配置"
+title: "CentOS 8.3 服务器配置"
 description: "Lnmp、docker、syncthing"
 tags: [
     "Tech",
@@ -178,13 +178,62 @@ Syncthing的运行和管理需要两个端口: `22000` (通信)`8384`（管理�
 
 > 我将本地电脑hugo生成的网站直接同步至服务器，这样做其实并不合适，在实际工作中生产环境和开发环境应该隔离分开。
 
-## Nginx配置
+## Nginx 配置
 
+### 找到Nginx配置文件在哪个目录
 
+```bash
+nginx -t
+```
 
-## Vscode远程开发管理
+![image-20220311000709044](/serversettings.assets/%7D/image-20220311000709044.png)
 
+### 编辑`nginx.conf`文件
 
+```nginx
+server
+    {
+        listen 80 default_server reuseport;
+        #listen [::]:80 default_server ipv6only=on;
+        server_name _; # !!!! blog.shinning.cloud
+
+        # index index.html index.htm index.php;
+
+        root  /home/shenyiming.life/Shenyiming.Life;
+
+        #error_page   404   /404.html;
+
+        # Deny access to PHP files in specific directory
+        #location ~ /(wp-content|uploads|wp-includes|images)/.*\.php$ { deny all; }
+
+```
+
+由于备案未完成，暂时无法配置二级域名和443端口https转发，主要是指定root目录在哪里。
+
+## VScode 远程开发管理
+
+> 配置好后发现，VScode才是yyds……觉得没必要把layout同步到服务器上了，直接本地连服务器开发编辑更方便。
+
+1. 检查Windows是否安装OpenSSH
+
+   > 在终端输入 ssh 即可检查
+
+2. VScode安装Remote-SSH
+
+   > 我的VScode似乎是自带的，只需要在设置中打开`Show Login Terminal`即可
+
+3. 配置Config文件连接SSH
+
+   > ```yaml
+   > Host Shinning.cloud
+   >     HostName 175.178.1xx.xx
+   >     User 用户名，我是root
+   >     IdentityFile C:\Users\xxx\.ssh\私钥文件
+   > ```
+
+<img src="/serversettings.assets/%7D/image-20220311000529720.png" alt="image-20220311000529720" style="zoom:67%;" />
+
+点连接，即可愉快的编辑服务器文件啦~
 
 ## 参考
 
@@ -201,3 +250,4 @@ Syncthing的运行和管理需要两个端口: `22000` (通信)`8384`（管理�
 [6] [使用VScode连接远程服务器进行开发 - 这里有支彩笔](https://zhuanlan.zhihu.com/p/141205262)
 
 [7] [linux screen的用法](https://www.jianshu.com/p/e91746ef4058)
+
