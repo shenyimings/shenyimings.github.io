@@ -183,17 +183,18 @@ typora-root-url: ..\..\..\..\static\
 
 [^ PHP代码执行](https://3wapp.github.io/WebSecurity/php_cmdinject.html)
 
-> `eval()`
+> ```php
+> eval()
 >
-> `assert()`
+> assert()
 >
-> `call_user_func()`
+> call_user_func()
 >
-> `call_user_func_array()`
+> call_user_func_array()
 >
-> `create_function()`
+> create_function()
 >
-> `array_map()`
+> array_map()```
 
 ### 文件包含
 
@@ -265,7 +266,9 @@ require_once    # 与require类似，唯一区别是如果该文件中的代码�
 >
 > 万能密码、弱口令
 
+### 序列化和反序列化
 
-
-### 
+> **序列化**是将对象转化成字节的过程
+>
+> 
 
