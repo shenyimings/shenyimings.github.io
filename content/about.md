@@ -10,12 +10,13 @@ typora-root-url: ..\static\
 ---
 
 <div class="golf">
-	<div class="photo" style="float:left;width:8%;margin-bottom: 20px; "><img src="/about.assets/123.jpg" style="border-radius: 550px; "></div>
+	<div class="photo" style="float:left;width:8%;margin-bottom: 20px; vertical-align: center;"><img src="/about.assets/123.jpg" style="border-radius: 550px; "></div>
 	<div class="intro" style="float:left ">
 		<p> </p>
 	    <h3 style="margin-top:-5px ">&nbsp 申一鸣 Yiming Shen</h3>
 	</div>
 </div>
+
 <br>
 <br>
 <br>
@@ -53,6 +54,19 @@ typora-root-url: ..\static\
 
 
 ## Releases
+
+##### 12 Mar 2022
+
+**0.3.2**
+
+---
+
+**【更新描述】**
+> - 加入主页加载动画
+> - 调整阴影样式
+> - 更换按钮样式
+
+已成功尝试将主站复制到腾讯云服务器nginx代理，并进行测试，调整了cover-image样式，但效果不够完美。
 
 ##### 27 Feb 2022
 
