@@ -36,7 +36,7 @@
 <meta name=twitter:title content="计算机组成原理笔记">
 <meta name=twitter:description content="浮点数 原码一位乘 部分积累加、移位 乘积 $$ P = |X|\times |Y|\\ S_p=S_X异或S_Y $$ 手工运算和十进制乘法类似 每次将1位乘数所对应的部分积与原部分的累加和">
 <script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":2,"name":"文章","item":"https://shenyiming.life/post/"},{"@type":"ListItem","position":3,"name":"📝笔记","item":"https://shenyiming.life/post/notes/"},{"@type":"ListItem","position":4,"name":"课堂笔记","item":"https://shenyiming.life/post/notes/courses/"},{"@type":"ListItem","position":5,"name":"计算机组成原理笔记","item":"https://shenyiming.life/post/notes/courses/computer_construct/"}]}</script>
-<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"计算机组成原理笔记","name":"计算机组成原理笔记","description":"浮点数 原码一位乘 部分积累加、移位 乘积 $$ P = |X|\\times |Y|\\\\ S_p=S_X异或S_Y $$ 手工运算和十进制乘法类似 每次将1位乘数所对应的部分积与原部分的累加和","keywords":["408","计组","Note"],"articleBody":"浮点数 原码一位乘 部分积累加、移位\n乘积 $$ P = |X|\\times |Y|\\\\ S_p=S_X异或S_Y $$\n手工运算和十进制乘法类似\n 每次将1位乘数所对应的部分积与原部分的累加和相加，并移位\n 设置寄存器 A：存放部分积累加和，乘积高位\nB：存放被乘数\nC：存放乘数、乘积低位\n最后符号异或。\n补码一位乘法 Booth 比较法 $$ [XY]_补 ＝[X]_补[0.Y_1Y_2\\cdots Y_n]-[X]_补Y_0 $$\n   Yn高位 Yn+1低位 运算操作     0 0 1/2 * A补   0 1 1、2   1 0    1 1     例题 X＝-0.1101 Y=-0.1011 计算[XY]补\n初始化A＝00.0000\nB=X=11.0011\n-B=-X=00.1101\nC=Y=1.0101\n原码两位乘法 （略） ","wordCount":"245","inLanguage":"en","datePublished":"2022-03-15T00:00:00Z","dateModified":"2022-03-15T00:00:00Z","author":{"@type":"Person","name":"Yiming Shen"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://shenyiming.life/post/notes/courses/computer_construct/"},"publisher":{"@type":"Organization","name":"Console.makeHappy(_1ming)","logo":{"@type":"ImageObject","url":"https://shenyiming.life/favicon.ico"}}}</script>
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"计算机组成原理笔记","name":"计算机组成原理笔记","description":"浮点数 原码一位乘 部分积累加、移位 乘积 $$ P = |X|\\times |Y|\\\\ S_p=S_X异或S_Y $$ 手工运算和十进制乘法类似 每次将1位乘数所对应的部分积与原部分的累加和","keywords":["408","计组","Note"],"articleBody":"浮点数 原码一位乘 部分积累加、移位\n乘积 $$ P = |X|\\times |Y|\\\\ S_p=S_X异或S_Y $$\n手工运算和十进制乘法类似\n 每次将1位乘数所对应的部分积与原部分的累加和相加，并移位\n 设置寄存器 A：存放部分积累加和，乘积高位\nB：存放被乘数\nC：存放乘数、乘积低位\n最后符号异或。\n补码一位乘法 Booth 比较法 $$ [XY]_补 ＝[X]_补[0.Y_1Y_2\\cdots Y_n]-[X]_补Y_0 $$\n   Yn高位 Yn+1低位 运算操作     0 0 1/2 * A补   0 1 1、2   1 0    1 1     例题 X＝-0.1101 Y=-0.1011 计算[XY]补\n初始化A＝00.0000\nB=X=11.0011\n-B=-X=00.1101\nC=Y=1.0101\n原码两位乘法 （略） 定点数的除法 补码不恢复余数除法 ([X]$$ r_0=X_补 比较r_0与Y_补符号\\\\ 同号上商1 异号上商0 $$\n   r/Y补 数符 商 对应操作     同号 1 ri+1=2*|ri|补-Y补   异号 0 ri+1=2*|ri|补-Y补    商修正：符号位+1 末尾恒置1\n余数修正： 左移了n次，则余数＝2^n * rn\n补码恢复余数除法（用的少） 原码恢复/不恢复余数除法（不要求） ","wordCount":"436","inLanguage":"en","datePublished":"2022-03-15T00:00:00Z","dateModified":"2022-03-15T00:00:00Z","author":{"@type":"Person","name":"Yiming Shen"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://shenyiming.life/post/notes/courses/computer_construct/"},"publisher":{"@type":"Organization","name":"Console.makeHappy(_1ming)","logo":{"@type":"ImageObject","url":"https://shenyiming.life/favicon.ico"}}}</script>
 </head>
 <body id=top>
 <script>localStorage.getItem("pref-theme")==="dark"?document.body.classList.add('dark'):localStorage.getItem("pref-theme")==="light"?document.body.classList.remove('dark'):window.matchMedia('(prefers-color-scheme: dark)').matches&&document.body.classList.add('dark')</script>
@@ -131,7 +131,16 @@ March 15, 2022&nbsp;·&nbsp;March 15, 2022&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Yimin
 <li>
 <a href=#%e4%be%8b%e9%a2%98 aria-label=例题>例题</a></li>
 <li>
-<a href=#%e5%8e%9f%e7%a0%81%e4%b8%a4%e4%bd%8d%e4%b9%98%e6%b3%95-%e7%95%a5 aria-label="原码两位乘法 （略）">原码两位乘法 （略）</a>
+<a href=#%e5%8e%9f%e7%a0%81%e4%b8%a4%e4%bd%8d%e4%b9%98%e6%b3%95-%e7%95%a5 aria-label="原码两位乘法 （略）">原码两位乘法 （略）</a></li></ul>
+</li>
+<li>
+<a href=#%e5%ae%9a%e7%82%b9%e6%95%b0%e7%9a%84%e9%99%a4%e6%b3%95 aria-label=定点数的除法>定点数的除法</a><ul>
+<li>
+<a href=#%e8%a1%a5%e7%a0%81%e4%b8%8d%e6%81%a2%e5%a4%8d%e4%bd%99%e6%95%b0%e9%99%a4%e6%b3%95 aria-label=补码不恢复余数除法>补码不恢复余数除法</a></li>
+<li>
+<a href=#%e8%a1%a5%e7%a0%81%e6%81%a2%e5%a4%8d%e4%bd%99%e6%95%b0%e9%99%a4%e6%b3%95%e7%94%a8%e7%9a%84%e5%b0%91 aria-label=补码恢复余数除法（用的少）>补码恢复余数除法（用的少）</a></li>
+<li>
+<a href=#%e5%8e%9f%e7%a0%81%e6%81%a2%e5%a4%8d%e4%b8%8d%e6%81%a2%e5%a4%8d%e4%bd%99%e6%95%b0%e9%99%a4%e6%b3%95%e4%b8%8d%e8%a6%81%e6%b1%82 aria-label=原码恢复/不恢复余数除法（不要求）>原码恢复/不恢复余数除法（不要求）</a>
 </li>
 </ul>
 </li>
@@ -204,6 +213,42 @@ $$</p>
 <p>-B=-X=00.1101</p>
 <p>C=Y=1.0101</p>
 <h4 id=原码两位乘法-略>原码两位乘法 （略）<a hidden class=anchor aria-hidden=true href=#原码两位乘法-略>#</a></h4>
+<h3 id=定点数的除法>定点数的除法<a hidden class=anchor aria-hidden=true href=#定点数的除法>#</a></h3>
+<h4 id=补码不恢复余数除法>补码不恢复余数除法<a hidden class=anchor aria-hidden=true href=#补码不恢复余数除法>#</a></h4>
+<p>([X]&lt;[Y])
+$$
+被除数X_补 \quad 除数Y_补\\
+余数r_i=0,1,\cdots
+$$</p>
+<p>$$
+r_0=X_补 比较r_0与Y_补符号\\
+同号上商1 异号上商0
+$$</p>
+<table>
+<thead>
+<tr>
+<th>r/Y补 数符</th>
+<th>商</th>
+<th>对应操作</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>同号</td>
+<td>1</td>
+<td>ri+1=2*|ri|补-Y补</td>
+</tr>
+<tr>
+<td>异号</td>
+<td>0</td>
+<td>ri+1=2*|ri|补-Y补</td>
+</tr>
+</tbody>
+</table>
+<p>商修正：符号位+1 末尾恒置1</p>
+<p>余数修正： 左移了n次，则余数＝2^n * rn</p>
+<h4 id=补码恢复余数除法用的少>补码恢复余数除法（用的少）<a hidden class=anchor aria-hidden=true href=#补码恢复余数除法用的少>#</a></h4>
+<h4 id=原码恢复不恢复余数除法不要求>原码恢复/不恢复余数除法（不要求）<a hidden class=anchor aria-hidden=true href=#原码恢复不恢复余数除法不要求>#</a></h4>
 </div>
 <footer class=post-footer>
 <ul class=post-tags>
