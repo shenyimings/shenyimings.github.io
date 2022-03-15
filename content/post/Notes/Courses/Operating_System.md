@@ -10,7 +10,7 @@ tags: [
 ]
 categories: [
     "Notes", 
-"courses",
+"Courses",
 ]
 math: true
 ShowToc: true

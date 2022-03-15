@@ -176,6 +176,13 @@ typora-root-url: ..\..\..\static\
 
 *读《白帽子讲Web安全》*
 
+看到知乎上一些说法，学密码的去搞Web渗透是不是一种自降身份的行为呢？算副业吧。
+
+#### 待办事项
+
+- [ ] DOSBOX [DOSBOX运行汇编详细教程](https://blog.csdn.net/Cyril_KI/article/details/106224545)
+- [ ] 学习SQL 看课本 在线学
+
 ### 第5周
 
 #### 主要任务

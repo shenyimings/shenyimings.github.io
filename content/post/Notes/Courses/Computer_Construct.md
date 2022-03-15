@@ -10,7 +10,7 @@ tags: [
 ]
 categories: [
     "Notes", 
-"courses",
+"Courses",
 ]
 math: true
 ShowToc: true
@@ -245,3 +245,4 @@ C4 = 5 xor 6 xor 7 ＝ 0
 > 形成新的检测位P_i
 
 （不能连错两个）
+
