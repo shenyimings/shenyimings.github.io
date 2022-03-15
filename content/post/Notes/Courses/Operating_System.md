@@ -5,6 +5,7 @@ lastmod: 2022-03-15
 title: "计算机操作系统笔记"
 tags: [
    "操作系统",
+    "408",
     "Note",
 ]
 categories: [
@@ -15,11 +16,9 @@ math: true
 ShowToc: true
 draft: false
 typora-root-url: ..\..\..\static\
+cover:
+     image: "/Computer_System.assets/%7D/operating-system-os.png"
 ---
-
-## 操作系统导论
-
-讯飞输入法对实体键盘的适配好得多。
 
 ### 第二章 进程
 

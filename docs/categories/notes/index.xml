@@ -29,12 +29,21 @@
     </item>
     
     <item>
+      <title>计算机组成原理笔记</title>
+      <link>https://shenyiming.life/post/notes/courses/computer_construct/</link>
+      <pubDate>Tue, 15 Mar 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://shenyiming.life/post/notes/courses/computer_construct/</guid>
+      <description>浮点数 原码一位乘 部分积累加、移位 乘积 $$ P = |X|\times |Y|\\ S_p=S_X异或S_Y $$ 手工运算和十进制乘法类似 每次将1位乘数所对应的部分积与原部分的累加和</description>
+    </item>
+    
+    <item>
       <title>计算机操作系统笔记</title>
-      <link>https://shenyiming.life/post/notes/courses/computer_system/</link>
+      <link>https://shenyiming.life/post/notes/courses/operating_system/</link>
       <pubDate>Mon, 14 Mar 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://shenyiming.life/post/notes/courses/computer_system/</guid>
-      <description>操作系统导论 讯飞输入法对实体键盘的适配好得多。 第二章 进程 进程是什么呢？</description>
+      <guid>https://shenyiming.life/post/notes/courses/operating_system/</guid>
+      <description>第二章 进程 进程是什么呢？</description>
     </item>
     
     <item>

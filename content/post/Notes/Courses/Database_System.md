@@ -17,7 +17,7 @@ draft: false
 typora-root-url: ..\..\..\static\
 ---
 
-## 2 关系运算符
+## 2 关系运算符 
 
 $$
 \sigma \quad 选择\\\\
@@ -50,7 +50,7 @@ $$
 \sigma_{Sdept='IS'}(Student)
 $$
 
-#### 投影
+#### 投影 
 
 从关系R中选择出若干属性列组成新的关系
 $$
@@ -114,7 +114,7 @@ $$
 R \div S
 =\{t_r [X] | t_r \in R \wedge  \Pi_Y (S)\subseteq Y_x\}
 $$
-$
+
 
 ##### 查询至少选修1号课和3号课的学生号码
 
