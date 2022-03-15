@@ -2,7 +2,7 @@
 author: "Yiming Shen"
 date: 2022-03-15
 lastmod: 2022-03-15
-title: "数据库系统系统导论笔记"
+title: "数据库系统导论笔记"
 tags: [
    "SQL",
     "Note",
@@ -14,7 +14,7 @@ categories: [
 math: true
 ShowToc: true
 draft: false
-typora-root-url: ..\..\..\static\。
+typora-root-url: ..\..\..\static\
 ---
 
 ## 2 关系运算符
@@ -22,8 +22,8 @@ typora-root-url: ..\..\..\static\。
 $$
 \sigma \quad 选择\\\\
 \pi 投影\\\\
-连接\\\\
-除
+\bowtie 连接\\\\
+\div 除
 $$
 
 连接和除是复合运算
@@ -111,9 +111,10 @@ $$
 
 记作
 $$
-R\div S = \{t_r[X] | t_r \in R \and \Pi_Y(S)\in Y_x\} \\\\
-Y_x为x在R中的象集,x = t_r[X]
+R \div S
+=\{t_r [X] | t_r \in R \wedge  \Pi_Y (S)\subseteq Y_x\}
 $$
+$
 
 ##### 查询至少选修1号课和3号课的学生号码
 

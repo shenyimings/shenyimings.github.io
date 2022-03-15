@@ -20,12 +20,21 @@
     </item>
     
     <item>
-      <title>数据库系统系统导论笔记</title>
+      <title>数据库系统导论笔记</title>
       <link>https://shenyiming.life/post/notes/courses/database_system/</link>
       <pubDate>Tue, 15 Mar 2022 00:00:00 +0000</pubDate>
       
       <guid>https://shenyiming.life/post/notes/courses/database_system/</guid>
-      <description>2 关系运算符 $$ \sigma \quad 选择\\ \pi 投影\\ 连接\\ 除 $$ 连接和除是复合运算 记号 $$ 设关系模式为R(A_1,A_2,\cdots,An)\\ A_i A_i \cdots 为属性</description>
+      <description>2 关系运算符 $$ \sigma \quad 选择\\ \pi 投影\\ \bowtie 连接\\ \div 除 $$ 连接和除是复合运算 记号 $$ 设关系模式为R(A_1,A_2,\cdots,An)\\ A_i A_i \cdots 为</description>
+    </item>
+    
+    <item>
+      <title>计算机操作系统笔记</title>
+      <link>https://shenyiming.life/post/notes/courses/computer_system/</link>
+      <pubDate>Mon, 14 Mar 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://shenyiming.life/post/notes/courses/computer_system/</guid>
+      <description>操作系统导论 讯飞输入法对实体键盘的适配好得多。 第二章 进程 进程是什么呢？</description>
     </item>
     
     <item>
@@ -143,15 +152,6 @@
       
       <guid>https://shenyiming.life/post/notes/matlab/less-1_matlab%E5%9F%BA%E7%A1%80/</guid>
       <description>基本操作 命令行模式 公式输入 直接输入算式即可计算结果 输入格式基本同自然语言 计算： $$ cos(\sqrt{(\frac{1+2+3+4}{5})}) $$ cos(sqrt((1+2+3+4)/5)) 注意：5/2 是5除以2 5\2是2除以5 变量定义 定义变量</description>
-    </item>
-    
-    <item>
-      <title>计算机操作系统笔记</title>
-      <link>https://shenyiming.life/post/notes/courses/computer_system/</link>
-      <pubDate>Sat, 15 Jan 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://shenyiming.life/post/notes/courses/computer_system/</guid>
-      <description>操作系统导论 讯飞输入法对实体键盘的适配好得多。 第二章 进程 进程是什么呢？</description>
     </item>
     
     <item>
