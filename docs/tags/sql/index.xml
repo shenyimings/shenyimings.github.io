@@ -9,7 +9,16 @@
       <link>https://shenyiming.life/android-chrome-512x512.png</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Mon, 28 Feb 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://shenyiming.life/tags/sql/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 15 Mar 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://shenyiming.life/tags/sql/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>数据库系统系统导论笔记</title>
+      <link>https://shenyiming.life/post/notes/courses/database_system/</link>
+      <pubDate>Tue, 15 Mar 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://shenyiming.life/post/notes/courses/database_system/</guid>
+      <description>数据库系统导论 讯飞输入法对实体键盘的适配好得多。 2 关系运算符 $$ \sigma \quad 选择\\ \pi 投影\\ 连接\\ 除 $$ 连接和除是复合运算 记号 $$ 设关系模式为R(A_</description>
+    </item>
+    
     <item>
       <title>SQL Tutorial</title>
       <link>https://shenyiming.life/post/php/sql/</link>

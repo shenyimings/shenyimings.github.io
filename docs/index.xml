@@ -9,7 +9,7 @@
       <link>https://shenyiming.life/android-chrome-512x512.png</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Fri, 11 Mar 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://shenyiming.life/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 15 Mar 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://shenyiming.life/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>🏃大二下的一点想法</title>
       <link>https://shenyiming.life/post/plan/plan_sophomore_year_2/</link>
@@ -44,6 +44,15 @@
       
       <guid>https://shenyiming.life/about/</guid>
       <description>&amp;nbsp 申一鸣 Yiming Shen A crappy photographer, a terrible CTFer, a lazy geek. A photography lover, a CTF learner, a geek spirit follower. About My Blog 正经人谁写日记啊。 我是正经人，我写。 现在的互联网上最不缺的就是内容发布平台，小到个人</description>
+    </item>
+    
+    <item>
+      <title>数据库系统系统导论笔记</title>
+      <link>https://shenyiming.life/post/notes/courses/database_system/</link>
+      <pubDate>Tue, 15 Mar 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://shenyiming.life/post/notes/courses/database_system/</guid>
+      <description>数据库系统导论 讯飞输入法对实体键盘的适配好得多。 2 关系运算符 $$ \sigma \quad 选择\\ \pi 投影\\ 连接\\ 除 $$ 连接和除是复合运算 记号 $$ 设关系模式为R(A_</description>
     </item>
     
     <item>
@@ -197,6 +206,15 @@
       
       <guid>https://shenyiming.life/post/notes/matlab/less-1_matlab%E5%9F%BA%E7%A1%80/</guid>
       <description>基本操作 命令行模式 公式输入 直接输入算式即可计算结果 输入格式基本同自然语言 计算： $$ cos(\sqrt{(\frac{1+2+3+4}{5})}) $$ cos(sqrt((1+2+3+4)/5)) 注意：5/2 是5除以2 5\2是2除以5 变量定义 定义变量</description>
+    </item>
+    
+    <item>
+      <title>计算机操作系统笔记</title>
+      <link>https://shenyiming.life/post/notes/courses/computer_system/</link>
+      <pubDate>Sat, 15 Jan 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://shenyiming.life/post/notes/courses/computer_system/</guid>
+      <description>操作系统导论 讯飞输入法对实体键盘的适配好得多。 第二章 进程 进程是什么呢？</description>
     </item>
     
     <item>
