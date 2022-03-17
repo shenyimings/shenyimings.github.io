@@ -5,7 +5,7 @@
 <meta name=robots content="index, follow">
 <title>计算机操作系统笔记 | Console.makeHappy(_1ming)</title>
 <meta name=keywords content="操作系统,408,Note">
-<meta name=description content="第二章 进程 进程是什么呢？">
+<meta name=description content="第二章 线程 用户级线程 仅存在于内核空间中 系统调用易产生阻塞问题 两种线程组合方式 组合式线程 三种多线程模型： 多对一模型：多个用户级线程映射到一个内">
 <meta name=author content="Yiming Shen">
 <link rel=canonical href=https://shenyiming.life/post/notes/courses/operating_system/>
 <meta name=google-site-verification content="XYZabc">
@@ -26,18 +26,18 @@
 <script type=application/javascript>var doNotTrack=!1;doNotTrack||(window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga('create','UA-123-45','auto'),ga('send','pageview'))</script>
 <script async src=https://www.google-analytics.com/analytics.js></script>
 <meta property="og:title" content="计算机操作系统笔记">
-<meta property="og:description" content="第二章 进程 进程是什么呢？">
+<meta property="og:description" content="第二章 线程 用户级线程 仅存在于内核空间中 系统调用易产生阻塞问题 两种线程组合方式 组合式线程 三种多线程模型： 多对一模型：多个用户级线程映射到一个内">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://shenyiming.life/post/notes/courses/operating_system/">
 <meta property="og:image" content="https://shenyiming.life/Computer_System.assets/%7D/operating-system-os.png"><meta property="article:section" content="post">
 <meta property="article:published_time" content="2022-03-14T00:00:00+00:00">
-<meta property="article:modified_time" content="2022-03-15T00:00:00+00:00"><meta property="og:site_name" content="Yiming">
+<meta property="article:modified_time" content="2022-03-16T00:00:00+00:00"><meta property="og:site_name" content="Yiming">
 <meta name=twitter:card content="summary_large_image">
 <meta name=twitter:image content="https://shenyiming.life/Computer_System.assets/%7D/operating-system-os.png">
 <meta name=twitter:title content="计算机操作系统笔记">
-<meta name=twitter:description content="第二章 进程 进程是什么呢？">
+<meta name=twitter:description content="第二章 线程 用户级线程 仅存在于内核空间中 系统调用易产生阻塞问题 两种线程组合方式 组合式线程 三种多线程模型： 多对一模型：多个用户级线程映射到一个内">
 <script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":2,"name":"文章","item":"https://shenyiming.life/post/"},{"@type":"ListItem","position":3,"name":"📝笔记","item":"https://shenyiming.life/post/notes/"},{"@type":"ListItem","position":4,"name":"课堂笔记","item":"https://shenyiming.life/post/notes/courses/"},{"@type":"ListItem","position":5,"name":"计算机操作系统笔记","item":"https://shenyiming.life/post/notes/courses/operating_system/"}]}</script>
-<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"计算机操作系统笔记","name":"计算机操作系统笔记","description":"第二章 进程 进程是什么呢？","keywords":["操作系统","408","Note"],"articleBody":"第二章 进程  进程是什么呢？\n ","wordCount":"12","inLanguage":"en","image":"https://shenyiming.life/Computer_System.assets/%7D/operating-system-os.png","datePublished":"2022-03-14T00:00:00Z","dateModified":"2022-03-15T00:00:00Z","author":{"@type":"Person","name":"Yiming Shen"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://shenyiming.life/post/notes/courses/operating_system/"},"publisher":{"@type":"Organization","name":"Console.makeHappy(_1ming)","logo":{"@type":"ImageObject","url":"https://shenyiming.life/favicon.ico"}}}</script>
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"计算机操作系统笔记","name":"计算机操作系统笔记","description":"第二章 线程 用户级线程 仅存在于内核空间中 系统调用易产生阻塞问题 两种线程组合方式 组合式线程 三种多线程模型： 多对一模型：多个用户级线程映射到一个内","keywords":["操作系统","408","Note"],"articleBody":"第二章 线程   用户级线程  仅存在于内核空间中\n 系统调用易产生阻塞问题\n两种线程组合方式 组合式线程 三种多线程模型：\n  多对一模型：多个用户级线程映射到一个内核线程。\n 用户级线程的调度和管理在用户空间中完成\n   一对一模型：一个用户级线程映射到一个内核线程。\n 并发性较多对一更好 但开销更大，需要限制整个系统的线程数\n   多对多模型：多个用户级线程映射为相等或小于数目。\n 线程管理开销小，效率高。一个线程发生阻塞，整个进程都会被阻塞。在多处理机系统中，一个进程中的多个线程无法并行。\n   内核级线程的实现  系统创建新进程时，为其在内核中分配一个任务数据区PTDA 包含若干个空白线程控制快TCB（保存线程标识符，优先级） 进程创建新进程，内核为新线程分配新的TCB  用户级线程的实现  切换和进行系统资源调用均由中间系统完成\n  运行时系统 核心进程  线程的创建  应用程序启动时通常只有一个线程在执行，该线程被称为主线程，需要靠它建立更多线程。\n 线程的创建  自愿退出、异常终止 有些线程一旦被建立便不再被终止 只有当进程中的其他线程执行了分离函数才会释放资源  总结  程序顺序执行三大特征 程序并发执行三大特征 进程四大特征 进程七种状态及切换（三种基本状态） 进程与程序的区别 前趋图及前趋关系 进程控制快 进程通信的四大类型 消息传递通信的两种实现方式 进程和线程的区别  处理机调度 高级调度  又叫做长程调度 作业调度\n 调度对象是作业\n低级调度  又叫做短程调度、进程调度\n 根据某种算法决定就绪队列中哪个进程应获得处理机，再由分派程序执行。\n调度对象是进程\n中级调度 调度对象是资源\n作业   作业由程序、数据以及作业说明书组成    ","wordCount":"650","inLanguage":"en","image":"https://shenyiming.life/Computer_System.assets/%7D/operating-system-os.png","datePublished":"2022-03-14T00:00:00Z","dateModified":"2022-03-16T00:00:00Z","author":{"@type":"Person","name":"Yiming Shen"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://shenyiming.life/post/notes/courses/operating_system/"},"publisher":{"@type":"Organization","name":"Console.makeHappy(_1ming)","logo":{"@type":"ImageObject","url":"https://shenyiming.life/favicon.ico"}}}</script>
 </head>
 <body id=top>
 <script>localStorage.getItem("pref-theme")==="dark"?document.body.classList.add('dark'):localStorage.getItem("pref-theme")==="light"?document.body.classList.remove('dark'):window.matchMedia('(prefers-color-scheme: dark)').matches&&document.body.classList.add('dark')</script>
@@ -107,7 +107,7 @@
 <div class=post-meta>
 <style>:root{--article-font-family:"Noto Serif SC", var(--base-font-family)}</style>
 <script>(function(){const a=document.createElement('link');a.href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;700&display=swap",a.type="text/css",a.rel="stylesheet",document.head.appendChild(a)})()</script>
-March 14, 2022&nbsp;·&nbsp;March 15, 2022&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Yiming Shen
+March 14, 2022&nbsp;·&nbsp;March 16, 2022&nbsp;·&nbsp;2 min&nbsp;·&nbsp;Yiming Shen
 |&nbsp;<a href=https://github.com/shenyimings/shenyimings.github.io/tree/main/docs rel="noopener noreferrer" target=_blank>Issue</a>
 </div>
 </header>
@@ -121,9 +121,37 @@ March 14, 2022&nbsp;·&nbsp;March 15, 2022&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Yimin
 <summary accesskey=c title="(Alt + C)">
 <span class=details>目录</span>
 </summary>
-<div class=inner><ul>
+<div class=inner><ul><ul>
 <li>
-<a href=#%e7%ac%ac%e4%ba%8c%e7%ab%a0-%e8%bf%9b%e7%a8%8b aria-label="第二章 进程">第二章 进程</a>
+<a href=#%e7%ac%ac%e4%ba%8c%e7%ab%a0-%e7%ba%bf%e7%a8%8b aria-label="第二章 线程">第二章 线程</a></li>
+<li>
+<a href=#%e7%94%a8%e6%88%b7%e7%ba%a7%e7%ba%bf%e7%a8%8b aria-label=用户级线程>用户级线程</a></li>
+<li>
+<a href=#%e4%b8%a4%e7%a7%8d%e7%ba%bf%e7%a8%8b%e7%bb%84%e5%90%88%e6%96%b9%e5%bc%8f aria-label=两种线程组合方式>两种线程组合方式</a><ul>
+<li>
+<a href=#%e5%86%85%e6%a0%b8%e7%ba%a7%e7%ba%bf%e7%a8%8b%e7%9a%84%e5%ae%9e%e7%8e%b0 aria-label=内核级线程的实现>内核级线程的实现</a></li>
+<li>
+<a href=#%e7%94%a8%e6%88%b7%e7%ba%a7%e7%ba%bf%e7%a8%8b%e7%9a%84%e5%ae%9e%e7%8e%b0 aria-label=用户级线程的实现>用户级线程的实现</a></li></ul>
+</li>
+<li>
+<a href=#%e7%ba%bf%e7%a8%8b%e7%9a%84%e5%88%9b%e5%bb%ba aria-label=线程的创建>线程的创建</a></li>
+<li>
+<a href=#%e7%ba%bf%e7%a8%8b%e7%9a%84%e5%88%9b%e5%bb%ba-1 aria-label=线程的创建>线程的创建</a></li>
+<li>
+<a href=#%e6%80%bb%e7%bb%93 aria-label=总结>总结</a></li></ul>
+<li>
+<a href=#%e5%a4%84%e7%90%86%e6%9c%ba%e8%b0%83%e5%ba%a6 aria-label=处理机调度>处理机调度</a><ul>
+<li>
+<a href=#%e9%ab%98%e7%ba%a7%e8%b0%83%e5%ba%a6 aria-label=高级调度>高级调度</a></li>
+<li>
+<a href=#%e4%bd%8e%e7%ba%a7%e8%b0%83%e5%ba%a6 aria-label=低级调度>低级调度</a></li></ul>
+</li>
+<li>
+<a href=#%e4%b8%ad%e7%ba%a7%e8%b0%83%e5%ba%a6 aria-label=中级调度>中级调度</a><ul>
+<li>
+<a href=#%e4%bd%9c%e4%b8%9a aria-label=作业>作业</a>
+</li>
+</ul>
 </li>
 </ul>
 </div>
@@ -132,9 +160,92 @@ March 14, 2022&nbsp;·&nbsp;March 15, 2022&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Yimin
 </aside>
 <script>let activeElement,elements;window.addEventListener('DOMContentLoaded',function(b){checkTocPosition(),elements=document.querySelectorAll('h1[id],h2[id],h3[id],h4[id],h5[id],h6[id]'),activeElement=elements[0];const a=encodeURI(activeElement.getAttribute('id')).toLowerCase();document.querySelector(`.inner ul li a[href="#${a}"]`).classList.add('active')},!1),window.addEventListener('resize',function(a){checkTocPosition()},!1),window.addEventListener('scroll',()=>{activeElement=Array.from(elements).find(a=>{if(getOffsetTop(a)-window.pageYOffset>0&&getOffsetTop(a)-window.pageYOffset<window.innerHeight/2)return a})||activeElement,elements.forEach(a=>{const b=encodeURI(a.getAttribute('id')).toLowerCase();a===activeElement?document.querySelector(`.inner ul li a[href="#${b}"]`).classList.add('active'):document.querySelector(`.inner ul li a[href="#${b}"]`).classList.remove('active')})},!1);const main=parseInt(getComputedStyle(document.body).getPropertyValue('--article-width'),10),toc=parseInt(getComputedStyle(document.body).getPropertyValue('--toc-width'),10),gap=parseInt(getComputedStyle(document.body).getPropertyValue('--gap'),10);function checkTocPosition(){const a=document.body.scrollWidth;a-main-toc*2-gap*4>0?document.getElementById("toc-container").classList.add("wide"):document.getElementById("toc-container").classList.remove("wide")}function getOffsetTop(a){if(!a.getClientRects().length)return 0;let b=a.getBoundingClientRect(),c=a.ownerDocument.defaultView;return b.top+c.pageYOffset}</script>
 <div class=post-content>
-<h3 id=第二章-进程>第二章 进程<a hidden class=anchor aria-hidden=true href=#第二章-进程>#</a></h3>
+<h3 id=第二章-线程>第二章 线程<a hidden class=anchor aria-hidden=true href=#第二章-线程>#</a></h3>
 <blockquote>
-<p>进程是什么呢？</p>
+</blockquote>
+<h3 id=用户级线程>用户级线程<a hidden class=anchor aria-hidden=true href=#用户级线程>#</a></h3>
+<blockquote>
+<p>仅存在于内核空间中</p>
+</blockquote>
+<p>系统调用易产生阻塞问题</p>
+<h3 id=两种线程组合方式>两种线程组合方式<a hidden class=anchor aria-hidden=true href=#两种线程组合方式>#</a></h3>
+<p>组合式线程 <strong>三种多线程模型：</strong></p>
+<ol>
+<li>
+<p>多对一模型：多个用户级线程映射到一个内核线程。</p>
+<blockquote>
+<p>用户级线程的调度和管理在用户空间中完成</p>
+</blockquote>
+</li>
+<li>
+<p>一对一模型：一个用户级线程映射到一个内核线程。</p>
+<blockquote>
+<p>并发性较多对一更好 但开销更大，需要限制整个系统的线程数</p>
+</blockquote>
+</li>
+<li>
+<p>多对多模型：多个用户级线程映射为相等或小于数目。</p>
+<blockquote>
+<p>线程管理开销小，效率高。一个线程发生阻塞，整个进程都会被阻塞。在多处理机系统中，一个进程中的多个线程无法并行。</p>
+</blockquote>
+</li>
+</ol>
+<h4 id=内核级线程的实现>内核级线程的实现<a hidden class=anchor aria-hidden=true href=#内核级线程的实现>#</a></h4>
+<ol>
+<li>系统创建新进程时，为其在内核中分配一个任务数据区PTDA 包含若干个空白线程控制快TCB（保存线程标识符，优先级）</li>
+<li>进程创建新进程，内核为新线程分配新的TCB</li>
+</ol>
+<h4 id=用户级线程的实现>用户级线程的实现<a hidden class=anchor aria-hidden=true href=#用户级线程的实现>#</a></h4>
+<blockquote>
+<p>切换和进行系统资源调用均由中间系统完成</p>
+</blockquote>
+<ol>
+<li>运行时系统</li>
+<li>核心进程</li>
+</ol>
+<h3 id=线程的创建>线程的创建<a hidden class=anchor aria-hidden=true href=#线程的创建>#</a></h3>
+<blockquote>
+<p>应用程序启动时通常只有一个线程在执行，该线程被称为主线程，需要靠它建立更多线程。</p>
+</blockquote>
+<h3 id=线程的创建-1>线程的创建<a hidden class=anchor aria-hidden=true href=#线程的创建-1>#</a></h3>
+<ol>
+<li>自愿退出、异常终止</li>
+<li>有些线程一旦被建立便不再被终止</li>
+<li>只有当进程中的其他线程执行了分离函数才会释放资源</li>
+</ol>
+<h3 id=总结>总结<a hidden class=anchor aria-hidden=true href=#总结>#</a></h3>
+<ul>
+<li>程序顺序执行三大特征</li>
+<li><strong>程序并发执行三大特征</strong></li>
+<li><strong>进程四大特征</strong></li>
+<li><strong>进程七种状态及切换（三种基本状态）</strong></li>
+<li><strong>进程与程序的区别</strong></li>
+<li><em>前趋图及前趋关系</em></li>
+<li><strong>进程控制快</strong></li>
+<li>进程通信的四大类型</li>
+<li>消息传递通信的两种实现方式</li>
+<li><strong>进程和线程的区别</strong></li>
+</ul>
+<h2 id=处理机调度>处理机调度<a hidden class=anchor aria-hidden=true href=#处理机调度>#</a></h2>
+<h3 id=高级调度>高级调度<a hidden class=anchor aria-hidden=true href=#高级调度>#</a></h3>
+<blockquote>
+<p>又叫做长程调度 作业调度</p>
+</blockquote>
+<p><strong>调度对象是作业</strong></p>
+<h3 id=低级调度>低级调度<a hidden class=anchor aria-hidden=true href=#低级调度>#</a></h3>
+<blockquote>
+<p>又叫做短程调度、进程调度</p>
+</blockquote>
+<p>根据某种算法决定就绪队列中哪个进程应获得处理机，再由分派程序执行。</p>
+<p><strong>调度对象是进程</strong></p>
+<h2 id=中级调度>中级调度<a hidden class=anchor aria-hidden=true href=#中级调度>#</a></h2>
+<p><strong>调度对象是资源</strong></p>
+<h3 id=作业>作业<a hidden class=anchor aria-hidden=true href=#作业>#</a></h3>
+<blockquote>
+<ul>
+<li>作业由程序、数据以及作业说明书组成</li>
+<li></li>
+</ul>
 </blockquote>
 </div>
 <footer class=post-footer>

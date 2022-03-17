@@ -16,7 +16,7 @@
       <pubDate>Mon, 14 Mar 2022 00:00:00 +0000</pubDate>
       
       <guid>https://shenyiming.life/post/notes/courses/operating_system/</guid>
-      <description>第二章 进程 进程是什么呢？</description>
+      <description>第二章 线程 用户级线程 仅存在于内核空间中 系统调用易产生阻塞问题 两种线程组合方式 组合式线程 三种多线程模型： 多对一模型：多个用户级线程映射到一个内</description>
     </item>
     
   </channel>
