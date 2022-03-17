@@ -2,56 +2,56 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>离散数学 on Console.makeHappy(_1ming)</title>
-    <link>https://shenyiming.life/tags/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/</link>
+    <link>https://shinning.cloud/tags/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/</link>
     <description>Recent content in 离散数学 on Console.makeHappy(_1ming)</description>
     <image>
-      <url>https://shenyiming.life/android-chrome-512x512.png</url>
-      <link>https://shenyiming.life/android-chrome-512x512.png</link>
+      <url>https://shinning.cloud/android-chrome-512x512.png</url>
+      <link>https://shinning.cloud/android-chrome-512x512.png</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Tue, 12 Oct 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://shenyiming.life/tags/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 12 Oct 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://shinning.cloud/tags/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>离散数学CH05-一阶逻辑等值演算与推理</title>
-      <link>https://shenyiming.life/post/notes/discrete-mathematics/ch05/</link>
+      <link>https://shinning.cloud/post/notes/discrete-mathematics/ch05/</link>
       <pubDate>Tue, 12 Oct 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://shenyiming.life/post/notes/discrete-mathematics/ch05/</guid>
+      <guid>https://shinning.cloud/post/notes/discrete-mathematics/ch05/</guid>
       <description>一阶逻辑等值式与置换规则 定义5.1 $$ 设A,B是一阶逻辑中任意两个公式，若A\leftrightarrow B 是永真式，则称A与B等值 \\ 记作A\</description>
     </item>
     
     <item>
       <title>离散数学CH04-一阶逻辑基本概念</title>
-      <link>https://shenyiming.life/post/notes/discrete-mathematics/ch04/</link>
+      <link>https://shinning.cloud/post/notes/discrete-mathematics/ch04/</link>
       <pubDate>Fri, 08 Oct 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://shenyiming.life/post/notes/discrete-mathematics/ch04/</guid>
+      <guid>https://shinning.cloud/post/notes/discrete-mathematics/ch04/</guid>
       <description>一阶逻辑命题符号化 一阶逻辑公式及其解释 定义4.5 $$ 在公式\forall x A 和\exist x A 中，称x为指导变元，A为量词的辖域\\ 在\for</description>
     </item>
     
     <item>
       <title>离散数学CH03-命题逻辑的推理理论</title>
-      <link>https://shenyiming.life/post/notes/discrete-mathematics/ch03/</link>
+      <link>https://shinning.cloud/post/notes/discrete-mathematics/ch03/</link>
       <pubDate>Thu, 07 Oct 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://shenyiming.life/post/notes/discrete-mathematics/ch03/</guid>
+      <guid>https://shinning.cloud/post/notes/discrete-mathematics/ch03/</guid>
       <description>前言 所谓推理是指从前提出发推出结论的思维过程，而前提是已知的命题公式集合，结论是从前提出发应用推理规则推出的命题公式。 定理3.1 命题公式 $$ A_1,A_2,\cdots,A_k</description>
     </item>
     
     <item>
       <title>离散数学CH02-命题逻辑等值演算</title>
-      <link>https://shenyiming.life/post/notes/discrete-mathematics/ch02/</link>
+      <link>https://shinning.cloud/post/notes/discrete-mathematics/ch02/</link>
       <pubDate>Sun, 19 Sep 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://shenyiming.life/post/notes/discrete-mathematics/ch02/</guid>
+      <guid>https://shinning.cloud/post/notes/discrete-mathematics/ch02/</guid>
       <description>析取范式与合取范式 定理2.3（范式存在定理） 任一命题公式都存在与之等值的析取范式和合取范式，求给定公式的步骤为： 消去连接词 用双重否定律消去双</description>
     </item>
     
     <item>
       <title>离散数学CH01-命题逻辑的基本概念</title>
-      <link>https://shenyiming.life/post/notes/discrete-mathematics/ch01/</link>
+      <link>https://shinning.cloud/post/notes/discrete-mathematics/ch01/</link>
       <pubDate>Sat, 18 Sep 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://shenyiming.life/post/notes/discrete-mathematics/ch01/</guid>
+      <guid>https://shinning.cloud/post/notes/discrete-mathematics/ch01/</guid>
       <description>命题与联结词 定义1.2 设p,q为两个命题，复合命题“p并且q”（或“p与q”）称为p与q的合取式，记作$p\wedge q$ 规定$p\wedge</description>
     </item>
     

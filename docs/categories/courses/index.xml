@@ -2,38 +2,38 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Courses on Console.makeHappy(_1ming)</title>
-    <link>https://shenyiming.life/categories/courses/</link>
+    <link>https://shinning.cloud/categories/courses/</link>
     <description>Recent content in Courses on Console.makeHappy(_1ming)</description>
     <image>
-      <url>https://shenyiming.life/android-chrome-512x512.png</url>
-      <link>https://shenyiming.life/android-chrome-512x512.png</link>
+      <url>https://shinning.cloud/android-chrome-512x512.png</url>
+      <link>https://shinning.cloud/android-chrome-512x512.png</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Tue, 15 Mar 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://shenyiming.life/categories/courses/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 15 Mar 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://shinning.cloud/categories/courses/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>数据库系统导论笔记</title>
-      <link>https://shenyiming.life/post/notes/courses/database_system/</link>
+      <link>https://shinning.cloud/post/notes/courses/database_system/</link>
       <pubDate>Tue, 15 Mar 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://shenyiming.life/post/notes/courses/database_system/</guid>
+      <guid>https://shinning.cloud/post/notes/courses/database_system/</guid>
       <description>2 关系运算符 $$ \sigma \quad 选择\\ \pi 投影\\ \bowtie 连接\\ \div 除 $$ 连接和除是复合运算 记号 $$ 设关系模式为R(A_1,A_2,\cdots,An)\\ A_i A_i \cdots 为</description>
     </item>
     
     <item>
       <title>计算机组成原理笔记</title>
-      <link>https://shenyiming.life/post/notes/courses/computer_construct/</link>
+      <link>https://shinning.cloud/post/notes/courses/computer_construct/</link>
       <pubDate>Tue, 15 Mar 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://shenyiming.life/post/notes/courses/computer_construct/</guid>
+      <guid>https://shinning.cloud/post/notes/courses/computer_construct/</guid>
       <description>2022.3.15 浮点数 原码一位乘 部分积累加、移位 乘积 $$ P = |X|\times |Y|\\ S_p=S_X异或S_Y $$ 手工运算和十进制乘法类似 每次将1位乘数所对应的部分积与原部分的累加</description>
     </item>
     
     <item>
       <title>计算机操作系统笔记</title>
-      <link>https://shenyiming.life/post/notes/courses/operating_system/</link>
+      <link>https://shinning.cloud/post/notes/courses/operating_system/</link>
       <pubDate>Mon, 14 Mar 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://shenyiming.life/post/notes/courses/operating_system/</guid>
+      <guid>https://shinning.cloud/post/notes/courses/operating_system/</guid>
       <description>第二章 线程 用户级线程 仅存在于内核空间中 系统调用易产生阻塞问题 两种线程组合方式 组合式线程 三种多线程模型： 多对一模型：多个用户级线程映射到一个内</description>
     </item>
     

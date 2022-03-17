@@ -7,16 +7,16 @@
 <meta name=keywords content="408,计组,Note">
 <meta name=description content="2022.3.15 浮点数 原码一位乘 部分积累加、移位 乘积 $$ P = |X|\times |Y|\\ S_p=S_X异或S_Y $$ 手工运算和十进制乘法类似 每次将1位乘数所对应的部分积与原部分的累加">
 <meta name=author content="Yiming Shen">
-<link rel=canonical href=https://shenyiming.life/post/notes/courses/computer_construct/>
+<link rel=canonical href=https://shinning.cloud/post/notes/courses/computer_construct/>
 <meta name=google-site-verification content="XYZabc">
 <meta name=yandex-verification content="XYZabc">
 <meta name=msvalidate.01 content="XYZabc">
 <link href=/assets/css/stylesheet.min.96ff96383199830fa3579b27d0827aa2d1dc17d7ac4182b5dca790d464d24229.css integrity="sha256-lv+WODGZgw+jV5sn0IJ6otHcF9esQYK13KeQ1GTSQik=" rel="preload stylesheet" as=style>
-<link rel=icon href=https://shenyiming.life/favicon.ico>
-<link rel=icon type=image/png sizes=16x16 href=https://shenyiming.life/favicon-16x16.png>
-<link rel=icon type=image/png sizes=32x32 href=https://shenyiming.life/favicon-32x32.png>
-<link rel=apple-touch-icon href=https://shenyiming.life/apple-touch-icon.png>
-<link rel=mask-icon href=https://shenyiming.life/safari-pinned-tab.svg>
+<link rel=icon href=https://shinning.cloud/favicon.ico>
+<link rel=icon type=image/png sizes=16x16 href=https://shinning.cloud/favicon-16x16.png>
+<link rel=icon type=image/png sizes=32x32 href=https://shinning.cloud/favicon-32x32.png>
+<link rel=apple-touch-icon href=https://shinning.cloud/apple-touch-icon.png>
+<link rel=mask-icon href=https://shinning.cloud/safari-pinned-tab.svg>
 <meta name=theme-color content="#2e2e33">
 <meta name=msapplication-TileColor content="#2e2e33">
 <meta name=generator content="Hugo 0.91.0">
@@ -28,15 +28,15 @@
 <meta property="og:title" content="计算机组成原理笔记">
 <meta property="og:description" content="2022.3.15 浮点数 原码一位乘 部分积累加、移位 乘积 $$ P = |X|\times |Y|\\ S_p=S_X异或S_Y $$ 手工运算和十进制乘法类似 每次将1位乘数所对应的部分积与原部分的累加">
 <meta property="og:type" content="article">
-<meta property="og:url" content="https://shenyiming.life/post/notes/courses/computer_construct/"><meta property="og:image" content="https://shenyiming.life/android-chrome-512x512.png"><meta property="article:section" content="post">
+<meta property="og:url" content="https://shinning.cloud/post/notes/courses/computer_construct/"><meta property="og:image" content="https://shinning.cloud/android-chrome-512x512.png"><meta property="article:section" content="post">
 <meta property="article:published_time" content="2022-03-15T00:00:00+00:00">
 <meta property="article:modified_time" content="2022-03-15T00:00:00+00:00"><meta property="og:site_name" content="Yiming">
 <meta name=twitter:card content="summary_large_image">
-<meta name=twitter:image content="https://shenyiming.life/android-chrome-512x512.png">
+<meta name=twitter:image content="https://shinning.cloud/android-chrome-512x512.png">
 <meta name=twitter:title content="计算机组成原理笔记">
 <meta name=twitter:description content="2022.3.15 浮点数 原码一位乘 部分积累加、移位 乘积 $$ P = |X|\times |Y|\\ S_p=S_X异或S_Y $$ 手工运算和十进制乘法类似 每次将1位乘数所对应的部分积与原部分的累加">
-<script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":2,"name":"文章","item":"https://shenyiming.life/post/"},{"@type":"ListItem","position":3,"name":"📝笔记","item":"https://shenyiming.life/post/notes/"},{"@type":"ListItem","position":4,"name":"课堂笔记","item":"https://shenyiming.life/post/notes/courses/"},{"@type":"ListItem","position":5,"name":"计算机组成原理笔记","item":"https://shenyiming.life/post/notes/courses/computer_construct/"}]}</script>
-<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"计算机组成原理笔记","name":"计算机组成原理笔记","description":"2022.3.15 浮点数 原码一位乘 部分积累加、移位 乘积 $$ P = |X|\\times |Y|\\\\ S_p=S_X异或S_Y $$ 手工运算和十进制乘法类似 每次将1位乘数所对应的部分积与原部分的累加","keywords":["408","计组","Note"],"articleBody":" 2022.3.15\n 浮点数 原码一位乘 部分积累加、移位\n乘积 $$ P = |X|\\times |Y|\\\\ S_p=S_X异或S_Y $$\n手工运算和十进制乘法类似\n 每次将1位乘数所对应的部分积与原部分的累加和相加，并移位\n 设置寄存器 A：存放部分积累加和，乘积高位\nB：存放被乘数\nC：存放乘数、乘积低位\n最后符号异或。\n补码一位乘法 Booth 比较法 $$ [XY]_补 ＝[X]_补[0.Y_1Y_2\\cdots Y_n]-[X]_补Y_0 $$\n   Yn高位 Yn+1低位 运算操作     0 0 1/2 * A补   0 1 1、2   1 0    1 1     例题 X＝-0.1101 Y=-0.1011 计算[XY]补\n初始化A＝00.0000\nB=X=11.0011\n-B=-X=00.1101\nC=Y=1.0101\n原码两位乘法 （略） 定点数的除法 补码不恢复余数除法\r([X]$$ r_0=X_补 比较r_0与Y_补符号\\\\ 同号上商1 异号上商0 $$\n   r/Y补 数符 商 对应操作     同号 1 ri+1=2*|ri|补-Y补   异号 0 ri+1=2*|ri|补-Y补    商修正：符号位+1 末尾恒置1\n余数修正： 左移了n次，则余数＝2^n * rn\n补码恢复余数除法（用的少） 原码恢复/不恢复余数除法（不要求） IEEE754 浮点四则运算 实现   通过子程序 通过浮点处理器 通过专门的浮点运算部件   运算 浮点数运算👉尾数运算、阶码运算\n尾数加减乘除 阶码移码加减\n短浮点数阶码加减 偏移127 $$ E_b = E_x+E_y+129(mod\\quad 2^8) $$ 原理推导： $$ [E_x+E_y]_移 = 127+(E_x+E_y)=(127+E_x)+(127+E_y)-127 $$\n浮点数的加减 移位操作 尾数原码加减\n  检测是否能简化操作（尾数是否为0 有无下溢）\n  计算阶差\n  对阶（使阶数增大）\n 低位向高位看齐，右移时补1以减少误差\n 目的：使两数阶码相等，减少误差。\n  尾数加减\n  结果规格化\n 使1  浮点数乘法 $$ A=2^{AE}\\times A_M $$\n浮点数除法  数据的校验 奇偶校验  增设1位校验位，从而使1的个数是奇或偶数\n 海明校验   多重分组奇偶校验 若干分组，每组都进行奇偶校验 能够检验是否出错，也能定位出错位   [假设] 待编码信息K位 分成r组，每组1个校验位\n校验码位数 r位；\n海明编码总长：N=k+r位\n海明编码时，各组单独进行奇偶校验编码，确定编码位\n指误码 代码检验时 每组能产生1个错误码\nr位指误码\n2^r种可能的错误代码\n指误码全为0则无错\n各参数应满足： $$ N = k+r\\le 2^r-1 $$\n分组方法  有效信息：A1A2A3A4 校验位：P1P2P3 偶校验\n    1 2 3 4 5 6 7     P1 P2 A1 P3 A2 A3 A4      √ √ √ √    √ √   √ √   √  √  √  √   1 0 0 1 0 1 1   1 0 0 1 1 1 1    还有指误码\n  对码字的位从1到n编号 并表示为二进制数 对2的每一个幂(1,2,4…)设置一个奇偶位，其他位置存放数据。   0011 的海明码\n   1 2 3 4 5 6 7     C1 C2 0 C4 0 1 1    C1 = 3 xor 5 xor 7 ＝ 1\nC2 = 3 xor 6 xor 7 ＝ 0\nC4 = 5 xor 6 xor 7 ＝ 0\n横坐标是信息 纵坐标是第几次校验\n海明码的纠错过程  形成新的检测位P_i\n （不能连错两个）\n","wordCount":"1066","inLanguage":"en","datePublished":"2022-03-15T00:00:00Z","dateModified":"2022-03-15T00:00:00Z","author":{"@type":"Person","name":"Yiming Shen"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://shenyiming.life/post/notes/courses/computer_construct/"},"publisher":{"@type":"Organization","name":"Console.makeHappy(_1ming)","logo":{"@type":"ImageObject","url":"https://shenyiming.life/favicon.ico"}}}</script>
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":2,"name":"文章","item":"https://shinning.cloud/post/"},{"@type":"ListItem","position":3,"name":"📝笔记","item":"https://shinning.cloud/post/notes/"},{"@type":"ListItem","position":4,"name":"课堂笔记","item":"https://shinning.cloud/post/notes/courses/"},{"@type":"ListItem","position":5,"name":"计算机组成原理笔记","item":"https://shinning.cloud/post/notes/courses/computer_construct/"}]}</script>
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"计算机组成原理笔记","name":"计算机组成原理笔记","description":"2022.3.15 浮点数 原码一位乘 部分积累加、移位 乘积 $$ P = |X|\\times |Y|\\\\ S_p=S_X异或S_Y $$ 手工运算和十进制乘法类似 每次将1位乘数所对应的部分积与原部分的累加","keywords":["408","计组","Note"],"articleBody":" 2022.3.15\n 浮点数 原码一位乘 部分积累加、移位\n乘积 $$ P = |X|\\times |Y|\\\\ S_p=S_X异或S_Y $$\n手工运算和十进制乘法类似\n 每次将1位乘数所对应的部分积与原部分的累加和相加，并移位\n 设置寄存器 A：存放部分积累加和，乘积高位\nB：存放被乘数\nC：存放乘数、乘积低位\n最后符号异或。\n补码一位乘法 Booth 比较法 $$ [XY]_补 ＝[X]_补[0.Y_1Y_2\\cdots Y_n]-[X]_补Y_0 $$\n   Yn高位 Yn+1低位 运算操作     0 0 1/2 * A补   0 1 1、2   1 0    1 1     例题 X＝-0.1101 Y=-0.1011 计算[XY]补\n初始化A＝00.0000\nB=X=11.0011\n-B=-X=00.1101\nC=Y=1.0101\n原码两位乘法 （略） 定点数的除法 补码不恢复余数除法\r([X]$$ r_0=X_补 比较r_0与Y_补符号\\\\ 同号上商1 异号上商0 $$\n   r/Y补 数符 商 对应操作     同号 1 ri+1=2*|ri|补-Y补   异号 0 ri+1=2*|ri|补-Y补    商修正：符号位+1 末尾恒置1\n余数修正： 左移了n次，则余数＝2^n * rn\n补码恢复余数除法（用的少） 原码恢复/不恢复余数除法（不要求） IEEE754 浮点四则运算 实现   通过子程序 通过浮点处理器 通过专门的浮点运算部件   运算 浮点数运算👉尾数运算、阶码运算\n尾数加减乘除 阶码移码加减\n短浮点数阶码加减 偏移127 $$ E_b = E_x+E_y+129(mod\\quad 2^8) $$ 原理推导： $$ [E_x+E_y]_移 = 127+(E_x+E_y)=(127+E_x)+(127+E_y)-127 $$\n浮点数的加减 移位操作 尾数原码加减\n  检测是否能简化操作（尾数是否为0 有无下溢）\n  计算阶差\n  对阶（使阶数增大）\n 低位向高位看齐，右移时补1以减少误差\n 目的：使两数阶码相等，减少误差。\n  尾数加减\n  结果规格化\n 使1  浮点数乘法 $$ A=2^{AE}\\times A_M $$\n浮点数除法  数据的校验 奇偶校验  增设1位校验位，从而使1的个数是奇或偶数\n 海明校验   多重分组奇偶校验 若干分组，每组都进行奇偶校验 能够检验是否出错，也能定位出错位   [假设] 待编码信息K位 分成r组，每组1个校验位\n校验码位数 r位；\n海明编码总长：N=k+r位\n海明编码时，各组单独进行奇偶校验编码，确定编码位\n指误码 代码检验时 每组能产生1个错误码\nr位指误码\n2^r种可能的错误代码\n指误码全为0则无错\n各参数应满足： $$ N = k+r\\le 2^r-1 $$\n分组方法  有效信息：A1A2A3A4 校验位：P1P2P3 偶校验\n    1 2 3 4 5 6 7     P1 P2 A1 P3 A2 A3 A4      √ √ √ √    √ √   √ √   √  √  √  √   1 0 0 1 0 1 1   1 0 0 1 1 1 1    还有指误码\n  对码字的位从1到n编号 并表示为二进制数 对2的每一个幂(1,2,4…)设置一个奇偶位，其他位置存放数据。   0011 的海明码\n   1 2 3 4 5 6 7     C1 C2 0 C4 0 1 1    C1 = 3 xor 5 xor 7 ＝ 1\nC2 = 3 xor 6 xor 7 ＝ 0\nC4 = 5 xor 6 xor 7 ＝ 0\n横坐标是信息 纵坐标是第几次校验\n海明码的纠错过程  形成新的检测位P_i\n （不能连错两个）\n","wordCount":"1066","inLanguage":"en","datePublished":"2022-03-15T00:00:00Z","dateModified":"2022-03-15T00:00:00Z","author":{"@type":"Person","name":"Yiming Shen"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://shinning.cloud/post/notes/courses/computer_construct/"},"publisher":{"@type":"Organization","name":"Console.makeHappy(_1ming)","logo":{"@type":"ImageObject","url":"https://shinning.cloud/favicon.ico"}}}</script>
 </head>
 <body id=top>
 <script>localStorage.getItem("pref-theme")==="dark"?document.body.classList.add('dark'):localStorage.getItem("pref-theme")==="light"?document.body.classList.remove('dark'):window.matchMedia('(prefers-color-scheme: dark)').matches&&document.body.classList.add('dark')</script>
@@ -47,7 +47,7 @@
 <header class=header>
 <nav class=nav>
 <div class=logo>
-<a href=https://shenyiming.life accesskey=h title="相位  (Alt + H)">
+<a href=https://shinning.cloud accesskey=h title="相位  (Alt + H)">
 <img src=/favicon.ico alt=logo aria-label=logo height=35>相位 </a>
 <span class=logo-switches>
 <button id=theme-toggle accesskey=t title="(Alt + T)"><svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg><svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
@@ -56,37 +56,37 @@
 </div>
 <ul id=menu onscroll=menu_on_scroll()>
 <li>
-<a href=https://shenyiming.life/post/ title=文章>
+<a href=https://shinning.cloud/post/ title=文章>
 <span>文章</span>
 </a>
 </li>
 <li>
-<a href=https://shenyiming.life/archive/ title=归档>
+<a href=https://shinning.cloud/archive/ title=归档>
 <span>归档</span>
 </a>
 </li>
 <li>
-<a href=https://shenyiming.life/categories/ title=分类>
+<a href=https://shinning.cloud/categories/ title=分类>
 <span>分类</span>
 </a>
 </li>
 <li>
-<a href=https://shenyiming.life/tags/ title=标签>
+<a href=https://shinning.cloud/tags/ title=标签>
 <span>标签</span>
 </a>
 </li>
 <li>
-<a href=https://shenyiming.life/search/ title="搜索 (Alt + /)" accesskey=/>
+<a href=https://shinning.cloud/search/ title="搜索 (Alt + /)" accesskey=/>
 <span>搜索</span>
 </a>
 </li>
 <li>
-<a href=https://shenyiming.life/friends/ title=友链>
+<a href=https://shinning.cloud/friends/ title=友链>
 <span>友链</span>
 </a>
 </li>
 <li>
-<a href=https://shenyiming.life/about/ title=关于>
+<a href=https://shinning.cloud/about/ title=关于>
 <span>关于</span>
 </a>
 </li></ul>
@@ -98,7 +98,7 @@
 <article class=post-single>
 <header class=post-header>
 <div class=breadcrumbs>
-<a href=https://shenyiming.life>首页</a>&nbsp;»&nbsp;<a href=https://shenyiming.life/post/>文章</a>&nbsp;»&nbsp;<a href=https://shenyiming.life/post/notes/>📝笔记</a>&nbsp;»&nbsp;<a href=https://shenyiming.life/post/notes/courses/>课堂笔记</a>
+<a href=https://shinning.cloud>首页</a>&nbsp;»&nbsp;<a href=https://shinning.cloud/post/>文章</a>&nbsp;»&nbsp;<a href=https://shinning.cloud/post/notes/>📝笔记</a>&nbsp;»&nbsp;<a href=https://shinning.cloud/post/notes/courses/>课堂笔记</a>
 </div>
 <h1 class=post-title>
 计算机组成原理笔记
@@ -477,34 +477,34 @@ $$</p>
 </div>
 <footer class=post-footer>
 <ul class=post-tags>
-<li><a href=https://shenyiming.life/tags/408/>408</a></li>
-<li><a href=https://shenyiming.life/tags/%E8%AE%A1%E7%BB%84/>计组</a></li>
-<li><a href=https://shenyiming.life/tags/note/>Note</a></li>
+<li><a href=https://shinning.cloud/tags/408/>408</a></li>
+<li><a href=https://shinning.cloud/tags/%E8%AE%A1%E7%BB%84/>计组</a></li>
+<li><a href=https://shinning.cloud/tags/note/>Note</a></li>
 </ul>
 <nav class=paginav>
-<a class=prev href=https://shenyiming.life/post/notes/courses/database_system/>
+<a class=prev href=https://shinning.cloud/post/notes/courses/database_system/>
 <span class=title>« Prev Page</span>
 <br>
 <span>数据库系统导论笔记</span>
 </a>
-<a class=next href=https://shenyiming.life/post/notes/courses/operating_system/>
+<a class=next href=https://shinning.cloud/post/notes/courses/operating_system/>
 <span class=title>Next Page »</span>
 <br>
 <span>计算机操作系统笔记</span>
 </a>
 </nav>
 <div class=share-buttons>
-<a target=_blank rel="noopener noreferrer" aria-label="share 计算机组成原理笔记 on twitter" href="https://twitter.com/intent/tweet/?text=%e8%ae%a1%e7%ae%97%e6%9c%ba%e7%bb%84%e6%88%90%e5%8e%9f%e7%90%86%e7%ac%94%e8%ae%b0&url=https%3a%2f%2fshenyiming.life%2fpost%2fnotes%2fcourses%2fcomputer_construct%2f&hashtags=408%2c%e8%ae%a1%e7%bb%84%2cNote"><svg viewBox="0 0 512 512"><path d="M449.446.0C483.971.0 512 28.03 512 62.554v386.892C512 483.97 483.97 512 449.446 512H62.554c-34.524.0-62.554-28.03-62.554-62.554V62.554c0-34.524 28.029-62.554 62.554-62.554h386.892zM195.519 424.544c135.939.0 210.268-112.643 210.268-210.268.0-3.218.0-6.437-.153-9.502 14.406-10.421 26.973-23.448 36.935-38.314-13.18 5.824-27.433 9.809-42.452 11.648 15.326-9.196 26.973-23.602 32.49-40.92-14.252 8.429-30.038 14.56-46.896 17.931-13.487-14.406-32.644-23.295-53.946-23.295-40.767.0-73.87 33.104-73.87 73.87.0 5.824.613 11.494 1.992 16.858-61.456-3.065-115.862-32.49-152.337-77.241-6.284 10.881-9.962 23.601-9.962 37.088.0 25.594 13.027 48.276 32.95 61.456-12.107-.307-23.448-3.678-33.41-9.196v.92c0 35.862 25.441 65.594 59.311 72.49-6.13 1.686-12.72 2.606-19.464 2.606-4.751.0-9.348-.46-13.946-1.38 9.349 29.426 36.628 50.728 68.965 51.341-25.287 19.771-57.164 31.571-91.8 31.571-5.977.0-11.801-.306-17.625-1.073 32.337 21.15 71.264 33.41 112.95 33.41z"/></svg>
+<a target=_blank rel="noopener noreferrer" aria-label="share 计算机组成原理笔记 on twitter" href="https://twitter.com/intent/tweet/?text=%e8%ae%a1%e7%ae%97%e6%9c%ba%e7%bb%84%e6%88%90%e5%8e%9f%e7%90%86%e7%ac%94%e8%ae%b0&url=https%3a%2f%2fshinning.cloud%2fpost%2fnotes%2fcourses%2fcomputer_construct%2f&hashtags=408%2c%e8%ae%a1%e7%bb%84%2cNote"><svg viewBox="0 0 512 512"><path d="M449.446.0C483.971.0 512 28.03 512 62.554v386.892C512 483.97 483.97 512 449.446 512H62.554c-34.524.0-62.554-28.03-62.554-62.554V62.554c0-34.524 28.029-62.554 62.554-62.554h386.892zM195.519 424.544c135.939.0 210.268-112.643 210.268-210.268.0-3.218.0-6.437-.153-9.502 14.406-10.421 26.973-23.448 36.935-38.314-13.18 5.824-27.433 9.809-42.452 11.648 15.326-9.196 26.973-23.602 32.49-40.92-14.252 8.429-30.038 14.56-46.896 17.931-13.487-14.406-32.644-23.295-53.946-23.295-40.767.0-73.87 33.104-73.87 73.87.0 5.824.613 11.494 1.992 16.858-61.456-3.065-115.862-32.49-152.337-77.241-6.284 10.881-9.962 23.601-9.962 37.088.0 25.594 13.027 48.276 32.95 61.456-12.107-.307-23.448-3.678-33.41-9.196v.92c0 35.862 25.441 65.594 59.311 72.49-6.13 1.686-12.72 2.606-19.464 2.606-4.751.0-9.348-.46-13.946-1.38 9.349 29.426 36.628 50.728 68.965 51.341-25.287 19.771-57.164 31.571-91.8 31.571-5.977.0-11.801-.306-17.625-1.073 32.337 21.15 71.264 33.41 112.95 33.41z"/></svg>
 </a>
-<a target=_blank rel="noopener noreferrer" aria-label="share 计算机组成原理笔记 on linkedin" href="https://www.linkedin.com/shareArticle?mini=true&url=https%3a%2f%2fshenyiming.life%2fpost%2fnotes%2fcourses%2fcomputer_construct%2f&title=%e8%ae%a1%e7%ae%97%e6%9c%ba%e7%bb%84%e6%88%90%e5%8e%9f%e7%90%86%e7%ac%94%e8%ae%b0&summary=%e8%ae%a1%e7%ae%97%e6%9c%ba%e7%bb%84%e6%88%90%e5%8e%9f%e7%90%86%e7%ac%94%e8%ae%b0&source=https%3a%2f%2fshenyiming.life%2fpost%2fnotes%2fcourses%2fcomputer_construct%2f"><svg viewBox="0 0 512 512"><path d="M449.446.0C483.971.0 512 28.03 512 62.554v386.892C512 483.97 483.97 512 449.446 512H62.554c-34.524.0-62.554-28.03-62.554-62.554V62.554c0-34.524 28.029-62.554 62.554-62.554h386.892zM160.461 423.278V197.561h-75.04v225.717h75.04zm270.539.0V293.839c0-69.333-37.018-101.586-86.381-101.586-39.804.0-57.634 21.891-67.617 37.266v-31.958h-75.021c.995 21.181.0 225.717.0 225.717h75.02V297.222c0-6.748.486-13.492 2.474-18.315 5.414-13.475 17.767-27.434 38.494-27.434 27.135.0 38.007 20.707 38.007 51.037v120.768H431zM123.448 88.722C97.774 88.722 81 105.601 81 127.724c0 21.658 16.264 39.002 41.455 39.002h.484c26.165.0 42.452-17.344 42.452-39.002-.485-22.092-16.241-38.954-41.943-39.002z"/></svg>
+<a target=_blank rel="noopener noreferrer" aria-label="share 计算机组成原理笔记 on linkedin" href="https://www.linkedin.com/shareArticle?mini=true&url=https%3a%2f%2fshinning.cloud%2fpost%2fnotes%2fcourses%2fcomputer_construct%2f&title=%e8%ae%a1%e7%ae%97%e6%9c%ba%e7%bb%84%e6%88%90%e5%8e%9f%e7%90%86%e7%ac%94%e8%ae%b0&summary=%e8%ae%a1%e7%ae%97%e6%9c%ba%e7%bb%84%e6%88%90%e5%8e%9f%e7%90%86%e7%ac%94%e8%ae%b0&source=https%3a%2f%2fshinning.cloud%2fpost%2fnotes%2fcourses%2fcomputer_construct%2f"><svg viewBox="0 0 512 512"><path d="M449.446.0C483.971.0 512 28.03 512 62.554v386.892C512 483.97 483.97 512 449.446 512H62.554c-34.524.0-62.554-28.03-62.554-62.554V62.554c0-34.524 28.029-62.554 62.554-62.554h386.892zM160.461 423.278V197.561h-75.04v225.717h75.04zm270.539.0V293.839c0-69.333-37.018-101.586-86.381-101.586-39.804.0-57.634 21.891-67.617 37.266v-31.958h-75.021c.995 21.181.0 225.717.0 225.717h75.02V297.222c0-6.748.486-13.492 2.474-18.315 5.414-13.475 17.767-27.434 38.494-27.434 27.135.0 38.007 20.707 38.007 51.037v120.768H431zM123.448 88.722C97.774 88.722 81 105.601 81 127.724c0 21.658 16.264 39.002 41.455 39.002h.484c26.165.0 42.452-17.344 42.452-39.002-.485-22.092-16.241-38.954-41.943-39.002z"/></svg>
 </a>
-<a target=_blank rel="noopener noreferrer" aria-label="share 计算机组成原理笔记 on reddit" href="https://reddit.com/submit?url=https%3a%2f%2fshenyiming.life%2fpost%2fnotes%2fcourses%2fcomputer_construct%2f&title=%e8%ae%a1%e7%ae%97%e6%9c%ba%e7%bb%84%e6%88%90%e5%8e%9f%e7%90%86%e7%ac%94%e8%ae%b0"><svg viewBox="0 0 512 512"><path d="M449.446.0C483.971.0 512 28.03 512 62.554v386.892C512 483.97 483.97 512 449.446 512H62.554c-34.524.0-62.554-28.03-62.554-62.554V62.554c0-34.524 28.029-62.554 62.554-62.554h386.892zM446 265.638c0-22.964-18.616-41.58-41.58-41.58-11.211.0-21.361 4.457-28.841 11.666-28.424-20.508-67.586-33.757-111.204-35.278l18.941-89.121 61.884 13.157c.756 15.734 13.642 28.29 29.56 28.29 16.407.0 29.706-13.299 29.706-29.701.0-16.403-13.299-29.702-29.706-29.702-11.666.0-21.657 6.792-26.515 16.578l-69.105-14.69c-1.922-.418-3.939-.042-5.585 1.036-1.658 1.073-2.811 2.761-3.224 4.686l-21.152 99.438c-44.258 1.228-84.046 14.494-112.837 35.232-7.468-7.164-17.589-11.591-28.757-11.591-22.965.0-41.585 18.616-41.585 41.58.0 16.896 10.095 31.41 24.568 37.918-.639 4.135-.99 8.328-.99 12.576.0 63.977 74.469 115.836 166.33 115.836s166.334-51.859 166.334-115.836c0-4.218-.347-8.387-.977-12.493 14.564-6.47 24.735-21.034 24.735-38.001zM326.526 373.831c-20.27 20.241-59.115 21.816-70.534 21.816-11.428.0-50.277-1.575-70.522-21.82-3.007-3.008-3.007-7.882.0-10.889 3.003-2.999 7.882-3.003 10.885.0 12.777 12.781 40.11 17.317 59.637 17.317 19.522.0 46.86-4.536 59.657-17.321 3.016-2.999 7.886-2.995 10.885.008 3.008 3.011 3.003 7.882-.008 10.889zm-5.23-48.781c-16.373.0-29.701-13.324-29.701-29.698.0-16.381 13.328-29.714 29.701-29.714 16.378.0 29.706 13.333 29.706 29.714.0 16.374-13.328 29.698-29.706 29.698zM160.91 295.348c0-16.381 13.328-29.71 29.714-29.71 16.369.0 29.689 13.329 29.689 29.71.0 16.373-13.32 29.693-29.689 29.693-16.386.0-29.714-13.32-29.714-29.693z"/></svg>
+<a target=_blank rel="noopener noreferrer" aria-label="share 计算机组成原理笔记 on reddit" href="https://reddit.com/submit?url=https%3a%2f%2fshinning.cloud%2fpost%2fnotes%2fcourses%2fcomputer_construct%2f&title=%e8%ae%a1%e7%ae%97%e6%9c%ba%e7%bb%84%e6%88%90%e5%8e%9f%e7%90%86%e7%ac%94%e8%ae%b0"><svg viewBox="0 0 512 512"><path d="M449.446.0C483.971.0 512 28.03 512 62.554v386.892C512 483.97 483.97 512 449.446 512H62.554c-34.524.0-62.554-28.03-62.554-62.554V62.554c0-34.524 28.029-62.554 62.554-62.554h386.892zM446 265.638c0-22.964-18.616-41.58-41.58-41.58-11.211.0-21.361 4.457-28.841 11.666-28.424-20.508-67.586-33.757-111.204-35.278l18.941-89.121 61.884 13.157c.756 15.734 13.642 28.29 29.56 28.29 16.407.0 29.706-13.299 29.706-29.701.0-16.403-13.299-29.702-29.706-29.702-11.666.0-21.657 6.792-26.515 16.578l-69.105-14.69c-1.922-.418-3.939-.042-5.585 1.036-1.658 1.073-2.811 2.761-3.224 4.686l-21.152 99.438c-44.258 1.228-84.046 14.494-112.837 35.232-7.468-7.164-17.589-11.591-28.757-11.591-22.965.0-41.585 18.616-41.585 41.58.0 16.896 10.095 31.41 24.568 37.918-.639 4.135-.99 8.328-.99 12.576.0 63.977 74.469 115.836 166.33 115.836s166.334-51.859 166.334-115.836c0-4.218-.347-8.387-.977-12.493 14.564-6.47 24.735-21.034 24.735-38.001zM326.526 373.831c-20.27 20.241-59.115 21.816-70.534 21.816-11.428.0-50.277-1.575-70.522-21.82-3.007-3.008-3.007-7.882.0-10.889 3.003-2.999 7.882-3.003 10.885.0 12.777 12.781 40.11 17.317 59.637 17.317 19.522.0 46.86-4.536 59.657-17.321 3.016-2.999 7.886-2.995 10.885.008 3.008 3.011 3.003 7.882-.008 10.889zm-5.23-48.781c-16.373.0-29.701-13.324-29.701-29.698.0-16.381 13.328-29.714 29.701-29.714 16.378.0 29.706 13.333 29.706 29.714.0 16.374-13.328 29.698-29.706 29.698zM160.91 295.348c0-16.381 13.328-29.71 29.714-29.71 16.369.0 29.689 13.329 29.689 29.71.0 16.373-13.32 29.693-29.689 29.693-16.386.0-29.714-13.32-29.714-29.693z"/></svg>
 </a>
-<a target=_blank rel="noopener noreferrer" aria-label="share 计算机组成原理笔记 on facebook" href="https://facebook.com/sharer/sharer.php?u=https%3a%2f%2fshenyiming.life%2fpost%2fnotes%2fcourses%2fcomputer_construct%2f"><svg viewBox="0 0 512 512"><path d="M449.446.0C483.971.0 512 28.03 512 62.554v386.892C512 483.97 483.97 512 449.446 512H342.978V319.085h66.6l12.672-82.621h-79.272v-53.617c0-22.603 11.073-44.636 46.58-44.636H425.6v-70.34s-32.71-5.582-63.982-5.582c-65.288.0-107.96 39.569-107.96 111.204v62.971h-72.573v82.621h72.573V512h-191.104c-34.524.0-62.554-28.03-62.554-62.554V62.554c0-34.524 28.029-62.554 62.554-62.554h386.892z"/></svg>
+<a target=_blank rel="noopener noreferrer" aria-label="share 计算机组成原理笔记 on facebook" href="https://facebook.com/sharer/sharer.php?u=https%3a%2f%2fshinning.cloud%2fpost%2fnotes%2fcourses%2fcomputer_construct%2f"><svg viewBox="0 0 512 512"><path d="M449.446.0C483.971.0 512 28.03 512 62.554v386.892C512 483.97 483.97 512 449.446 512H342.978V319.085h66.6l12.672-82.621h-79.272v-53.617c0-22.603 11.073-44.636 46.58-44.636H425.6v-70.34s-32.71-5.582-63.982-5.582c-65.288.0-107.96 39.569-107.96 111.204v62.971h-72.573v82.621h72.573V512h-191.104c-34.524.0-62.554-28.03-62.554-62.554V62.554c0-34.524 28.029-62.554 62.554-62.554h386.892z"/></svg>
 </a>
-<a target=_blank rel="noopener noreferrer" aria-label="share 计算机组成原理笔记 on whatsapp" href="https://api.whatsapp.com/send?text=%e8%ae%a1%e7%ae%97%e6%9c%ba%e7%bb%84%e6%88%90%e5%8e%9f%e7%90%86%e7%ac%94%e8%ae%b0%20-%20https%3a%2f%2fshenyiming.life%2fpost%2fnotes%2fcourses%2fcomputer_construct%2f"><svg viewBox="0 0 512 512"><path d="M449.446.0C483.971.0 512 28.03 512 62.554v386.892C512 483.97 483.97 512 449.446 512H62.554c-34.524.0-62.554-28.03-62.554-62.554V62.554c0-34.524 28.029-62.554 62.554-62.554h386.892zm-58.673 127.703c-33.842-33.881-78.847-52.548-126.798-52.568-98.799.0-179.21 80.405-179.249 179.234-.013 31.593 8.241 62.428 23.927 89.612l-25.429 92.884 95.021-24.925c26.181 14.28 55.659 21.807 85.658 21.816h.074c98.789.0 179.206-80.413 179.247-179.243.018-47.895-18.61-92.93-52.451-126.81zM263.976 403.485h-.06c-26.734-.01-52.954-7.193-75.828-20.767l-5.441-3.229-56.386 14.792 15.05-54.977-3.542-5.637c-14.913-23.72-22.791-51.136-22.779-79.287.033-82.142 66.867-148.971 149.046-148.971 39.793.014 77.199 15.531 105.329 43.692 28.128 28.16 43.609 65.592 43.594 105.4-.034 82.149-66.866 148.983-148.983 148.984zm81.721-111.581c-4.479-2.242-26.499-13.075-30.604-14.571-4.105-1.495-7.091-2.241-10.077 2.241-2.986 4.483-11.569 14.572-14.182 17.562-2.612 2.988-5.225 3.364-9.703 1.12-4.479-2.241-18.91-6.97-36.017-22.23C231.8 264.15 222.81 249.484 220.198 245s-.279-6.908 1.963-9.14c2.016-2.007 4.48-5.232 6.719-7.847 2.24-2.615 2.986-4.484 4.479-7.472 1.493-2.99.747-5.604-.374-7.846-1.119-2.241-10.077-24.288-13.809-33.256-3.635-8.733-7.327-7.55-10.077-7.688-2.609-.13-5.598-.158-8.583-.158-2.986.0-7.839 1.121-11.944 5.604-4.105 4.484-15.675 15.32-15.675 37.364.0 22.046 16.048 43.342 18.287 46.332 2.24 2.99 31.582 48.227 76.511 67.627 10.685 4.615 19.028 7.371 25.533 9.434 10.728 3.41 20.492 2.929 28.209 1.775 8.605-1.285 26.499-10.833 30.231-21.295 3.732-10.464 3.732-19.431 2.612-21.298-1.119-1.869-4.105-2.99-8.583-5.232z"/></svg>
+<a target=_blank rel="noopener noreferrer" aria-label="share 计算机组成原理笔记 on whatsapp" href="https://api.whatsapp.com/send?text=%e8%ae%a1%e7%ae%97%e6%9c%ba%e7%bb%84%e6%88%90%e5%8e%9f%e7%90%86%e7%ac%94%e8%ae%b0%20-%20https%3a%2f%2fshinning.cloud%2fpost%2fnotes%2fcourses%2fcomputer_construct%2f"><svg viewBox="0 0 512 512"><path d="M449.446.0C483.971.0 512 28.03 512 62.554v386.892C512 483.97 483.97 512 449.446 512H62.554c-34.524.0-62.554-28.03-62.554-62.554V62.554c0-34.524 28.029-62.554 62.554-62.554h386.892zm-58.673 127.703c-33.842-33.881-78.847-52.548-126.798-52.568-98.799.0-179.21 80.405-179.249 179.234-.013 31.593 8.241 62.428 23.927 89.612l-25.429 92.884 95.021-24.925c26.181 14.28 55.659 21.807 85.658 21.816h.074c98.789.0 179.206-80.413 179.247-179.243.018-47.895-18.61-92.93-52.451-126.81zM263.976 403.485h-.06c-26.734-.01-52.954-7.193-75.828-20.767l-5.441-3.229-56.386 14.792 15.05-54.977-3.542-5.637c-14.913-23.72-22.791-51.136-22.779-79.287.033-82.142 66.867-148.971 149.046-148.971 39.793.014 77.199 15.531 105.329 43.692 28.128 28.16 43.609 65.592 43.594 105.4-.034 82.149-66.866 148.983-148.983 148.984zm81.721-111.581c-4.479-2.242-26.499-13.075-30.604-14.571-4.105-1.495-7.091-2.241-10.077 2.241-2.986 4.483-11.569 14.572-14.182 17.562-2.612 2.988-5.225 3.364-9.703 1.12-4.479-2.241-18.91-6.97-36.017-22.23C231.8 264.15 222.81 249.484 220.198 245s-.279-6.908 1.963-9.14c2.016-2.007 4.48-5.232 6.719-7.847 2.24-2.615 2.986-4.484 4.479-7.472 1.493-2.99.747-5.604-.374-7.846-1.119-2.241-10.077-24.288-13.809-33.256-3.635-8.733-7.327-7.55-10.077-7.688-2.609-.13-5.598-.158-8.583-.158-2.986.0-7.839 1.121-11.944 5.604-4.105 4.484-15.675 15.32-15.675 37.364.0 22.046 16.048 43.342 18.287 46.332 2.24 2.99 31.582 48.227 76.511 67.627 10.685 4.615 19.028 7.371 25.533 9.434 10.728 3.41 20.492 2.929 28.209 1.775 8.605-1.285 26.499-10.833 30.231-21.295 3.732-10.464 3.732-19.431 2.612-21.298-1.119-1.869-4.105-2.99-8.583-5.232z"/></svg>
 </a>
-<a target=_blank rel="noopener noreferrer" aria-label="share 计算机组成原理笔记 on telegram" href="https://telegram.me/share/url?text=%e8%ae%a1%e7%ae%97%e6%9c%ba%e7%bb%84%e6%88%90%e5%8e%9f%e7%90%86%e7%ac%94%e8%ae%b0&url=https%3a%2f%2fshenyiming.life%2fpost%2fnotes%2fcourses%2fcomputer_construct%2f"><svg viewBox="2 2 28 28"><path d="M26.49 29.86H5.5a3.37 3.37.0 01-2.47-1 3.35 3.35.0 01-1-2.47V5.48A3.36 3.36.0 013 3 3.37 3.37.0 015.5 2h21A3.38 3.38.0 0129 3a3.36 3.36.0 011 2.46V26.37a3.35 3.35.0 01-1 2.47 3.38 3.38.0 01-2.51 1.02zm-5.38-6.71a.79.79.0 00.85-.66L24.73 9.24a.55.55.0 00-.18-.46.62.62.0 00-.41-.17q-.08.0-16.53 6.11a.59.59.0 00-.41.59.57.57.0 00.43.52l4 1.24 1.61 4.83a.62.62.0 00.63.43.56.56.0 00.4-.17L16.54 20l4.09 3A.9.9.0 0021.11 23.15zM13.8 20.71l-1.21-4q8.72-5.55 8.78-5.55c.15.0.23.0.23.16a.18.18.0 010 .06s-2.51 2.3-7.52 6.8z"/></svg>
+<a target=_blank rel="noopener noreferrer" aria-label="share 计算机组成原理笔记 on telegram" href="https://telegram.me/share/url?text=%e8%ae%a1%e7%ae%97%e6%9c%ba%e7%bb%84%e6%88%90%e5%8e%9f%e7%90%86%e7%ac%94%e8%ae%b0&url=https%3a%2f%2fshinning.cloud%2fpost%2fnotes%2fcourses%2fcomputer_construct%2f"><svg viewBox="2 2 28 28"><path d="M26.49 29.86H5.5a3.37 3.37.0 01-2.47-1 3.35 3.35.0 01-1-2.47V5.48A3.36 3.36.0 013 3 3.37 3.37.0 015.5 2h21A3.38 3.38.0 0129 3a3.36 3.36.0 011 2.46V26.37a3.35 3.35.0 01-1 2.47 3.38 3.38.0 01-2.51 1.02zm-5.38-6.71a.79.79.0 00.85-.66L24.73 9.24a.55.55.0 00-.18-.46.62.62.0 00-.41-.17q-.08.0-16.53 6.11a.59.59.0 00-.41.59.57.57.0 00.43.52l4 1.24 1.61 4.83a.62.62.0 00.63.43.56.56.0 00.4-.17L16.54 20l4.09 3A.9.9.0 0021.11 23.15zM13.8 20.71l-1.21-4q8.72-5.55 8.78-5.55c.15.0.23.0.23.16a.18.18.0 010 .06s-2.51 2.3-7.52 6.8z"/></svg>
 </a>
 </div>
 </footer>
@@ -521,11 +521,13 @@ $$</p>
 </div>
 </article>
 </main><footer class=footer>
-<span>Copyright &copy; 2021-2022 <a href=https://shenyiming.life><b>Shenyiming.Life</b></a></span>
+<span>Copyright &copy; 2021-2022 <a href=https://shinning.cloud><b>Shenyiming.Life</b></a></span>
 <span>&#183;</span>
 <span>Built With <a href=https://gohugo.io/ rel="noopener noreferrer" target=_blank>Hugo</a></span>
 <span>&#183;</span>
 <span>All Rights Reserved.</span>
+<br>
+<span><a href=https://beian.miit.gov.cn/>琼ICP备2022001798号</a></span>
 </footer>
 <a href=#top aria-label="go to top" title="Go to Top (Alt + G)">
 <button class=top-link id=top-link type=button accesskey=g><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentcolor"><path d="M12 6H0l6-6z"/></svg>

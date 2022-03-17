@@ -2,47 +2,47 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>PHP on Console.makeHappy(_1ming)</title>
-    <link>https://shenyiming.life/categories/php/</link>
+    <link>https://shinning.cloud/categories/php/</link>
     <description>Recent content in PHP on Console.makeHappy(_1ming)</description>
     <image>
-      <url>https://shenyiming.life/android-chrome-512x512.png</url>
-      <link>https://shenyiming.life/android-chrome-512x512.png</link>
+      <url>https://shinning.cloud/android-chrome-512x512.png</url>
+      <link>https://shinning.cloud/android-chrome-512x512.png</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Thu, 10 Mar 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://shenyiming.life/categories/php/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 10 Mar 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://shinning.cloud/categories/php/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>CentOS 8.3 服务器配置</title>
-      <link>https://shenyiming.life/post/php/serversettings/</link>
+      <link>https://shinning.cloud/post/php/serversettings/</link>
       <pubDate>Thu, 10 Mar 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://shenyiming.life/post/php/serversettings/</guid>
+      <guid>https://shinning.cloud/post/php/serversettings/</guid>
       <description>Lnmp、docker、syncthing</description>
     </item>
     
     <item>
       <title>CSS Tutorial</title>
-      <link>https://shenyiming.life/post/php/css_tutorial/</link>
+      <link>https://shinning.cloud/post/php/css_tutorial/</link>
       <pubDate>Thu, 03 Mar 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://shenyiming.life/post/php/css_tutorial/</guid>
+      <guid>https://shinning.cloud/post/php/css_tutorial/</guid>
       <description>CSS is the language we use to style a Web page.</description>
     </item>
     
     <item>
       <title>SQL Tutorial</title>
-      <link>https://shenyiming.life/post/php/sql/</link>
+      <link>https://shinning.cloud/post/php/sql/</link>
       <pubDate>Mon, 28 Feb 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://shenyiming.life/post/php/sql/</guid>
+      <guid>https://shinning.cloud/post/php/sql/</guid>
       <description>Database&amp;amp;SQL</description>
     </item>
     
     <item>
       <title>HTML Tutorial</title>
-      <link>https://shenyiming.life/post/php/html_tutorial/</link>
+      <link>https://shinning.cloud/post/php/html_tutorial/</link>
       <pubDate>Sat, 26 Feb 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://shenyiming.life/post/php/html_tutorial/</guid>
+      <guid>https://shinning.cloud/post/php/html_tutorial/</guid>
       <description>Code &amp;lt;!DOCTYPE html&amp;gt; &amp;lt;html&amp;gt; &amp;lt;head&amp;gt; &amp;lt;meta charset=&amp;#34;utf-8&amp;#34;&amp;gt; &amp;lt;title&amp;gt;Hello World&amp;lt;/title&amp;gt; &amp;lt;style&amp;gt; body {background-color: powderblue;} h1 {color: blue;} p {color: red;} &amp;lt;/style&amp;gt; &amp;lt;/head&amp;gt; &amp;lt;body&amp;gt; &amp;lt;h1 style=&amp;#34;text-align: center;&amp;#34;&amp;gt;一级标题&amp;lt;/h1&amp;gt; &amp;lt;p style=&amp;#34;col</description>
     </item>
     

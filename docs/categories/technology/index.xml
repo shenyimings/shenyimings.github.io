@@ -2,47 +2,47 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Technology on Console.makeHappy(_1ming)</title>
-    <link>https://shenyiming.life/categories/technology/</link>
+    <link>https://shinning.cloud/categories/technology/</link>
     <description>Recent content in Technology on Console.makeHappy(_1ming)</description>
     <image>
-      <url>https://shenyiming.life/android-chrome-512x512.png</url>
-      <link>https://shenyiming.life/android-chrome-512x512.png</link>
+      <url>https://shinning.cloud/android-chrome-512x512.png</url>
+      <link>https://shinning.cloud/android-chrome-512x512.png</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Thu, 10 Mar 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://shenyiming.life/categories/technology/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 10 Mar 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://shinning.cloud/categories/technology/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>CentOS 8.3 服务器配置</title>
-      <link>https://shenyiming.life/post/php/serversettings/</link>
+      <link>https://shinning.cloud/post/php/serversettings/</link>
       <pubDate>Thu, 10 Mar 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://shenyiming.life/post/php/serversettings/</guid>
+      <guid>https://shinning.cloud/post/php/serversettings/</guid>
       <description>Lnmp、docker、syncthing</description>
     </item>
     
     <item>
       <title>域名选择：有哪些很酷的域名？</title>
-      <link>https://shenyiming.life/post/essays/domain_choice/</link>
+      <link>https://shinning.cloud/post/essays/domain_choice/</link>
       <pubDate>Wed, 09 Feb 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://shenyiming.life/post/essays/domain_choice/</guid>
+      <guid>https://shinning.cloud/post/essays/domain_choice/</guid>
       <description>前言 很久很久以前就对域名非常感兴趣，也间歇性的关注过顶级域名的价格变化，以很低的价格注册过一些首年折扣的廉价域名，如ilufreedom.p</description>
     </item>
     
     <item>
       <title>Windows11体验报告：你可以永远相信微软的审美</title>
-      <link>https://shenyiming.life/post/essays/windows11/</link>
+      <link>https://shinning.cloud/post/essays/windows11/</link>
       <pubDate>Wed, 04 Aug 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://shenyiming.life/post/essays/windows11/</guid>
+      <guid>https://shinning.cloud/post/essays/windows11/</guid>
       <description>前言 Windows11从dev版本进入beta版本后，我便决定加入预览者大军，亲眼看看号称Windows10是最后一版Windows之后的微</description>
     </item>
     
     <item>
       <title>Ubuntu 18.04 LTS的配置与入门</title>
-      <link>https://shenyiming.life/post/ctf/ubuntu%E9%85%8D%E7%BD%AE%E5%8F%8A%E5%91%BD%E4%BB%A4%E5%85%A5%E9%97%A8/</link>
+      <link>https://shinning.cloud/post/ctf/ubuntu%E9%85%8D%E7%BD%AE%E5%8F%8A%E5%91%BD%E4%BB%A4%E5%85%A5%E9%97%A8/</link>
       <pubDate>Tue, 20 Jul 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://shenyiming.life/post/ctf/ubuntu%E9%85%8D%E7%BD%AE%E5%8F%8A%E5%91%BD%E4%BB%A4%E5%85%A5%E9%97%A8/</guid>
+      <guid>https://shinning.cloud/post/ctf/ubuntu%E9%85%8D%E7%BD%AE%E5%8F%8A%E5%91%BD%E4%BB%A4%E5%85%A5%E9%97%A8/</guid>
       <description>系统选择 Linux有多种发行版，作为一名小白，我选择Ubuntu的原因是以前用过并且感觉桌面界面十分讨喜，再者，Ubuntu作为常见的个人桌</description>
     </item>
     

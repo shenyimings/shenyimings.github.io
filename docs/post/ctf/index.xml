@@ -2,56 +2,56 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>🏁CTF on Console.makeHappy(_1ming)</title>
-    <link>https://shenyiming.life/post/ctf/</link>
+    <link>https://shinning.cloud/post/ctf/</link>
     <description>Recent content in 🏁CTF on Console.makeHappy(_1ming)</description>
     <image>
-      <url>https://shenyiming.life/android-chrome-512x512.png</url>
-      <link>https://shenyiming.life/android-chrome-512x512.png</link>
+      <url>https://shinning.cloud/android-chrome-512x512.png</url>
+      <link>https://shinning.cloud/android-chrome-512x512.png</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Fri, 11 Mar 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://shenyiming.life/post/ctf/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 11 Mar 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://shinning.cloud/post/ctf/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>CTF比赛方向选择&amp;学习内容</title>
-      <link>https://shenyiming.life/post/ctf/ctf%E6%AF%94%E8%B5%9B%E6%96%B9%E5%90%91%E9%80%89%E6%8B%A9/</link>
+      <link>https://shinning.cloud/post/ctf/ctf%E6%AF%94%E8%B5%9B%E6%96%B9%E5%90%91%E9%80%89%E6%8B%A9/</link>
       <pubDate>Wed, 21 Jul 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://shenyiming.life/post/ctf/ctf%E6%AF%94%E8%B5%9B%E6%96%B9%E5%90%91%E9%80%89%E6%8B%A9/</guid>
+      <guid>https://shinning.cloud/post/ctf/ctf%E6%AF%94%E8%B5%9B%E6%96%B9%E5%90%91%E9%80%89%E6%8B%A9/</guid>
       <description>了解CTF CTF 的前身是传统黑客之间的网络技术比拼游戏，起源于 1996 年第四届 DEFCON。CTF比赛有以下突出特点： 比赛侧重于对计算机底层和系统安全</description>
     </item>
     
     <item>
       <title>Web方向入门课程-大纲</title>
-      <link>https://shenyiming.life/post/ctf/web_tutorial/</link>
+      <link>https://shinning.cloud/post/ctf/web_tutorial/</link>
       <pubDate>Thu, 04 Nov 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://shenyiming.life/post/ctf/web_tutorial/</guid>
+      <guid>https://shinning.cloud/post/ctf/web_tutorial/</guid>
       <description>主讲人：HnuSec - 申一鸣 1. CTF与网络安全 2. CTF-Web方向简介 3. 以Bugku例题(sql注入)引出CTF中的Web题型 题目- sql注</description>
     </item>
     
     <item>
       <title>DVWA环境搭建 &#43; BurpSuite2.1安装 &#43; Chrome配置</title>
-      <link>https://shenyiming.life/post/ctf/dvwa%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA&#43;burpsuite2.1%E5%AE%89%E8%A3%85/</link>
+      <link>https://shinning.cloud/post/ctf/dvwa%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA&#43;burpsuite2.1%E5%AE%89%E8%A3%85/</link>
       <pubDate>Thu, 05 Aug 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://shenyiming.life/post/ctf/dvwa%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA&#43;burpsuite2.1%E5%AE%89%E8%A3%85/</guid>
+      <guid>https://shinning.cloud/post/ctf/dvwa%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA&#43;burpsuite2.1%E5%AE%89%E8%A3%85/</guid>
       <description>DVWA环境搭建 DVWA（Damn Vulnerable Web Application）是一个用来进行安全脆弱性鉴定的PHP/MySQL Web应用，旨在为安全专业人员</description>
     </item>
     
     <item>
       <title>Ubuntu 18.04 LTS的配置与入门</title>
-      <link>https://shenyiming.life/post/ctf/ubuntu%E9%85%8D%E7%BD%AE%E5%8F%8A%E5%91%BD%E4%BB%A4%E5%85%A5%E9%97%A8/</link>
+      <link>https://shinning.cloud/post/ctf/ubuntu%E9%85%8D%E7%BD%AE%E5%8F%8A%E5%91%BD%E4%BB%A4%E5%85%A5%E9%97%A8/</link>
       <pubDate>Tue, 20 Jul 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://shenyiming.life/post/ctf/ubuntu%E9%85%8D%E7%BD%AE%E5%8F%8A%E5%91%BD%E4%BB%A4%E5%85%A5%E9%97%A8/</guid>
+      <guid>https://shinning.cloud/post/ctf/ubuntu%E9%85%8D%E7%BD%AE%E5%8F%8A%E5%91%BD%E4%BB%A4%E5%85%A5%E9%97%A8/</guid>
       <description>系统选择 Linux有多种发行版，作为一名小白，我选择Ubuntu的原因是以前用过并且感觉桌面界面十分讨喜，再者，Ubuntu作为常见的个人桌</description>
     </item>
     
     <item>
       <title>学习Markdown语法</title>
-      <link>https://shenyiming.life/post/ctf/markdown%E7%AC%94%E8%AE%B0%E5%AD%A6%E4%B9%A0/</link>
+      <link>https://shinning.cloud/post/ctf/markdown%E7%AC%94%E8%AE%B0%E5%AD%A6%E4%B9%A0/</link>
       <pubDate>Mon, 19 Jul 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://shenyiming.life/post/ctf/markdown%E7%AC%94%E8%AE%B0%E5%AD%A6%E4%B9%A0/</guid>
+      <guid>https://shinning.cloud/post/ctf/markdown%E7%AC%94%E8%AE%B0%E5%AD%A6%E4%B9%A0/</guid>
       <description>2021年7月18日 了解Markdown Markdown是一种轻量级标记语言，属于HTML格式的一种，易读易写易更改，处处透着极简主义的影子</description>
     </item>
     

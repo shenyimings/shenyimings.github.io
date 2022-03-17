@@ -2,578 +2,578 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Console.makeHappy(_1ming)</title>
-    <link>https://shenyiming.life/</link>
+    <link>https://shinning.cloud/</link>
     <description>Recent content on Console.makeHappy(_1ming)</description>
     <image>
-      <url>https://shenyiming.life/android-chrome-512x512.png</url>
-      <link>https://shenyiming.life/android-chrome-512x512.png</link>
+      <url>https://shinning.cloud/android-chrome-512x512.png</url>
+      <link>https://shinning.cloud/android-chrome-512x512.png</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Tue, 15 Mar 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://shenyiming.life/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 15 Mar 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://shinning.cloud/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>🏃大二下的一点想法</title>
-      <link>https://shenyiming.life/post/plan/plan_sophomore_year_2/</link>
+      <link>https://shinning.cloud/post/plan/plan_sophomore_year_2/</link>
       <pubDate>Tue, 22 Feb 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://shenyiming.life/post/plan/plan_sophomore_year_2/</guid>
+      <guid>https://shinning.cloud/post/plan/plan_sophomore_year_2/</guid>
       <description>Readme 关键半年 大二下是关键的半年，从时间上讲，大学四年过半，正是决定何去何从的时候；从课程上讲，难度较大，涉及两门408，由理论转向应用。学分占</description>
     </item>
     
     <item>
       <title>CTF比赛方向选择&amp;学习内容</title>
-      <link>https://shenyiming.life/post/ctf/ctf%E6%AF%94%E8%B5%9B%E6%96%B9%E5%90%91%E9%80%89%E6%8B%A9/</link>
+      <link>https://shinning.cloud/post/ctf/ctf%E6%AF%94%E8%B5%9B%E6%96%B9%E5%90%91%E9%80%89%E6%8B%A9/</link>
       <pubDate>Wed, 21 Jul 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://shenyiming.life/post/ctf/ctf%E6%AF%94%E8%B5%9B%E6%96%B9%E5%90%91%E9%80%89%E6%8B%A9/</guid>
+      <guid>https://shinning.cloud/post/ctf/ctf%E6%AF%94%E8%B5%9B%E6%96%B9%E5%90%91%E9%80%89%E6%8B%A9/</guid>
       <description>了解CTF CTF 的前身是传统黑客之间的网络技术比拼游戏，起源于 1996 年第四届 DEFCON。CTF比赛有以下突出特点： 比赛侧重于对计算机底层和系统安全</description>
     </item>
     
     <item>
       <title>友链</title>
-      <link>https://shenyiming.life/friends/</link>
+      <link>https://shinning.cloud/friends/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://shenyiming.life/friends/</guid>
+      <guid>https://shinning.cloud/friends/</guid>
       <description>相位🚀 Either outstanding or out. F.I.V.E FIGHTING! Air 吾善养吾浩然气 WingerBlog to think and to share 特别鸣谢 Kevin大佬的博客，本站友链、目录和twikoo评论都是按照他发布的教程设置的，在我</description>
     </item>
     
     <item>
       <title>关于</title>
-      <link>https://shenyiming.life/about/</link>
+      <link>https://shinning.cloud/about/</link>
       <pubDate>Fri, 09 Nov 2001 00:00:00 +0000</pubDate>
       
-      <guid>https://shenyiming.life/about/</guid>
+      <guid>https://shinning.cloud/about/</guid>
       <description>&amp;nbsp 申一鸣 Yiming Shen A crappy photographer, a terrible CTFer, a lazy geek. A photography lover, a CTF learner, a geek spirit follower. About My Blog 正经人谁写日记啊。 我是正经人，我写。 现在的互联网上最不缺的就是内容发布平台，小到个人</description>
     </item>
     
     <item>
       <title>数据库系统导论笔记</title>
-      <link>https://shenyiming.life/post/notes/courses/database_system/</link>
+      <link>https://shinning.cloud/post/notes/courses/database_system/</link>
       <pubDate>Tue, 15 Mar 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://shenyiming.life/post/notes/courses/database_system/</guid>
+      <guid>https://shinning.cloud/post/notes/courses/database_system/</guid>
       <description>2 关系运算符 $$ \sigma \quad 选择\\ \pi 投影\\ \bowtie 连接\\ \div 除 $$ 连接和除是复合运算 记号 $$ 设关系模式为R(A_1,A_2,\cdots,An)\\ A_i A_i \cdots 为</description>
     </item>
     
     <item>
       <title>计算机组成原理笔记</title>
-      <link>https://shenyiming.life/post/notes/courses/computer_construct/</link>
+      <link>https://shinning.cloud/post/notes/courses/computer_construct/</link>
       <pubDate>Tue, 15 Mar 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://shenyiming.life/post/notes/courses/computer_construct/</guid>
+      <guid>https://shinning.cloud/post/notes/courses/computer_construct/</guid>
       <description>2022.3.15 浮点数 原码一位乘 部分积累加、移位 乘积 $$ P = |X|\times |Y|\\ S_p=S_X异或S_Y $$ 手工运算和十进制乘法类似 每次将1位乘数所对应的部分积与原部分的累加</description>
     </item>
     
     <item>
       <title>计算机操作系统笔记</title>
-      <link>https://shenyiming.life/post/notes/courses/operating_system/</link>
+      <link>https://shinning.cloud/post/notes/courses/operating_system/</link>
       <pubDate>Mon, 14 Mar 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://shenyiming.life/post/notes/courses/operating_system/</guid>
+      <guid>https://shinning.cloud/post/notes/courses/operating_system/</guid>
       <description>第二章 线程 用户级线程 仅存在于内核空间中 系统调用易产生阻塞问题 两种线程组合方式 组合式线程 三种多线程模型： 多对一模型：多个用户级线程映射到一个内</description>
     </item>
     
     <item>
       <title>护网面经</title>
-      <link>https://shenyiming.life/post/ctf/wp/hvv/</link>
+      <link>https://shinning.cloud/post/ctf/wp/hvv/</link>
       <pubDate>Fri, 11 Mar 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://shenyiming.life/post/ctf/wp/hvv/</guid>
+      <guid>https://shinning.cloud/post/ctf/wp/hvv/</guid>
       <description>Readme 第一次参与hvv，投了三份简历，收集并准备一下常见问题。 OWASP Top10 A01 :越权访问（2021-Broken Access Control） 从2017年的第5位上升</description>
     </item>
     
     <item>
       <title>CentOS 8.3 服务器配置</title>
-      <link>https://shenyiming.life/post/php/serversettings/</link>
+      <link>https://shinning.cloud/post/php/serversettings/</link>
       <pubDate>Thu, 10 Mar 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://shenyiming.life/post/php/serversettings/</guid>
+      <guid>https://shinning.cloud/post/php/serversettings/</guid>
       <description>Lnmp、docker、syncthing</description>
     </item>
     
     <item>
       <title>CSS Tutorial</title>
-      <link>https://shenyiming.life/post/php/css_tutorial/</link>
+      <link>https://shinning.cloud/post/php/css_tutorial/</link>
       <pubDate>Thu, 03 Mar 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://shenyiming.life/post/php/css_tutorial/</guid>
+      <guid>https://shinning.cloud/post/php/css_tutorial/</guid>
       <description>CSS is the language we use to style a Web page.</description>
     </item>
     
     <item>
       <title>SQL Tutorial</title>
-      <link>https://shenyiming.life/post/php/sql/</link>
+      <link>https://shinning.cloud/post/php/sql/</link>
       <pubDate>Mon, 28 Feb 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://shenyiming.life/post/php/sql/</guid>
+      <guid>https://shinning.cloud/post/php/sql/</guid>
       <description>Database&amp;amp;SQL</description>
     </item>
     
     <item>
       <title>HTML Tutorial</title>
-      <link>https://shenyiming.life/post/php/html_tutorial/</link>
+      <link>https://shinning.cloud/post/php/html_tutorial/</link>
       <pubDate>Sat, 26 Feb 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://shenyiming.life/post/php/html_tutorial/</guid>
+      <guid>https://shinning.cloud/post/php/html_tutorial/</guid>
       <description>Code &amp;lt;!DOCTYPE html&amp;gt; &amp;lt;html&amp;gt; &amp;lt;head&amp;gt; &amp;lt;meta charset=&amp;#34;utf-8&amp;#34;&amp;gt; &amp;lt;title&amp;gt;Hello World&amp;lt;/title&amp;gt; &amp;lt;style&amp;gt; body {background-color: powderblue;} h1 {color: blue;} p {color: red;} &amp;lt;/style&amp;gt; &amp;lt;/head&amp;gt; &amp;lt;body&amp;gt; &amp;lt;h1 style=&amp;#34;text-align: center;&amp;#34;&amp;gt;一级标题&amp;lt;/h1&amp;gt; &amp;lt;p style=&amp;#34;col</description>
     </item>
     
     <item>
       <title>XSS类型题目积累及资料</title>
-      <link>https://shenyiming.life/post/ctf/xss/xss/</link>
+      <link>https://shinning.cloud/post/ctf/xss/xss/</link>
       <pubDate>Sat, 26 Feb 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://shenyiming.life/post/ctf/xss/xss/</guid>
+      <guid>https://shinning.cloud/post/ctf/xss/xss/</guid>
       <description>跨站脚本（Cross-Site Scripting，XSS）是一种经常出现在 WEB 应用程序中的计算机安全漏洞，是由于 WEB 应用程序对用户的输入过滤不足</description>
     </item>
     
     <item>
       <title>MCM/ICM 赛后总结</title>
-      <link>https://shenyiming.life/post/notes/matlab/2022%E7%BE%8E%E8%B5%9B%E6%96%87%E6%A1%A3/</link>
+      <link>https://shinning.cloud/post/notes/matlab/2022%E7%BE%8E%E8%B5%9B%E6%96%87%E6%A1%A3/</link>
       <pubDate>Tue, 22 Feb 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://shenyiming.life/post/notes/matlab/2022%E7%BE%8E%E8%B5%9B%E6%96%87%E6%A1%A3/</guid>
+      <guid>https://shinning.cloud/post/notes/matlab/2022%E7%BE%8E%E8%B5%9B%E6%96%87%E6%A1%A3/</guid>
       <description>声明 Statement 本文写作于2022年2月22日10时美赛结束后 发布于2月22日17时。 This article was written at 10 am. on February 22, 2022 and published at 5 pm. on February 22, after the end of the MCM/ICM. 题目 Problem A Power Profile of</description>
     </item>
     
     <item>
       <title>域名选择：有哪些很酷的域名？</title>
-      <link>https://shenyiming.life/post/essays/domain_choice/</link>
+      <link>https://shinning.cloud/post/essays/domain_choice/</link>
       <pubDate>Wed, 09 Feb 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://shenyiming.life/post/essays/domain_choice/</guid>
+      <guid>https://shinning.cloud/post/essays/domain_choice/</guid>
       <description>前言 很久很久以前就对域名非常感兴趣，也间歇性的关注过顶级域名的价格变化，以很低的价格注册过一些首年折扣的廉价域名，如ilufreedom.p</description>
     </item>
     
     <item>
       <title>Less-4 MATLAB初阶绘图</title>
-      <link>https://shenyiming.life/post/notes/matlab/less-4_%E5%88%9D%E9%98%B6%E7%BB%98%E5%9B%BE/</link>
+      <link>https://shinning.cloud/post/notes/matlab/less-4_%E5%88%9D%E9%98%B6%E7%BB%98%E5%9B%BE/</link>
       <pubDate>Thu, 03 Feb 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://shenyiming.life/post/notes/matlab/less-4_%E5%88%9D%E9%98%B6%E7%BB%98%E5%9B%BE/</guid>
+      <guid>https://shinning.cloud/post/notes/matlab/less-4_%E5%88%9D%E9%98%B6%E7%BB%98%E5%9B%BE/</guid>
       <description>图线绘制 在MATLAB中，使用plot()函数绘制图线，语法为： plot(x,y,linespec) x:图线的横坐标 y:图线的纵坐标 可以仅指定x或者y变量内容，另一参数由系统</description>
     </item>
     
     <item>
       <title>⛴逆水行舟，不进则退</title>
-      <link>https://shenyiming.life/post/essays/%E9%80%86%E6%B0%B4%E8%A1%8C%E8%88%9F/</link>
+      <link>https://shinning.cloud/post/essays/%E9%80%86%E6%B0%B4%E8%A1%8C%E8%88%9F/</link>
       <pubDate>Wed, 02 Feb 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://shenyiming.life/post/essays/%E9%80%86%E6%B0%B4%E8%A1%8C%E8%88%9F/</guid>
+      <guid>https://shinning.cloud/post/essays/%E9%80%86%E6%B0%B4%E8%A1%8C%E8%88%9F/</guid>
       <description>大年初二，给大伙拜个晚年，虎虎生威。 晚上和许久未曾联系的高中同学聊了几句，他和我学了相同的专业。他问了我建站方面的问题，域名解析服务器搭建皆</description>
     </item>
     
     <item>
       <title>Crypto方向的寒假计划</title>
-      <link>https://shenyiming.life/post/ctf/crypto/crypto/</link>
+      <link>https://shinning.cloud/post/ctf/crypto/crypto/</link>
       <pubDate>Sun, 30 Jan 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://shenyiming.life/post/ctf/crypto/crypto/</guid>
+      <guid>https://shinning.cloud/post/ctf/crypto/crypto/</guid>
       <description>寒假计划……寒假已经过半的寒假计划 Crypto 方向 - 密码学 密码学作为数学的延伸，主要应用于计算机类的信息科学，现在应用十分广泛，哪里需要信息的传递，哪</description>
     </item>
     
     <item>
       <title>Crypto方向的寒假计划</title>
-      <link>https://shenyiming.life/post/plan/crypto/</link>
+      <link>https://shinning.cloud/post/plan/crypto/</link>
       <pubDate>Sun, 30 Jan 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://shenyiming.life/post/plan/crypto/</guid>
+      <guid>https://shinning.cloud/post/plan/crypto/</guid>
       <description>寒假计划……寒假已经过半的寒假计划 Crypto 方向 - 密码学 密码学作为数学的延伸，主要应用于计算机类的信息科学，现在应用十分广泛，哪里需要信息的传递，哪</description>
     </item>
     
     <item>
       <title>Less-3 MATLAB数据结构&amp;文件存取</title>
-      <link>https://shenyiming.life/post/notes/matlab/less-3_%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E6%96%87%E4%BB%B6%E5%AD%98%E5%8F%96/</link>
+      <link>https://shinning.cloud/post/notes/matlab/less-3_%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E6%96%87%E4%BB%B6%E5%AD%98%E5%8F%96/</link>
       <pubDate>Sat, 29 Jan 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://shenyiming.life/post/notes/matlab/less-3_%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E6%96%87%E4%BB%B6%E5%AD%98%E5%8F%96/</guid>
+      <guid>https://shinning.cloud/post/notes/matlab/less-3_%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E6%96%87%E4%BB%B6%E5%AD%98%E5%8F%96/</guid>
       <description>数据类型 数值类型 默认为double类型，可用int8()转换为int型 数值型 描述 double 双精度浮点数 single 单精度浮点数 uint8 uint16 uint32 uint64 8~64位无符号整数 int8 int16</description>
     </item>
     
     <item>
       <title>Less-2 MATLAB结构程序与自定函数</title>
-      <link>https://shenyiming.life/post/notes/matlab/less-2_scriptfunction/</link>
+      <link>https://shinning.cloud/post/notes/matlab/less-2_scriptfunction/</link>
       <pubDate>Sun, 23 Jan 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://shenyiming.life/post/notes/matlab/less-2_scriptfunction/</guid>
+      <guid>https://shinning.cloud/post/notes/matlab/less-2_scriptfunction/</guid>
       <description>脚本模式 脚本模式用于编写结构化程序 示例 for i=1:10 x=linspace(0,10,100); plot(x,sin(x+i)); print(gcf,&amp;#39;-deps&amp;#39;,strcat(&amp;#39;plot&amp;#39;,num2str(i),&amp;#39;.ps&amp;#39;)); end 画0-10内sin图像 F5 运行程序 打断点可调试运行 % 是注释 选中 Ctrl + R 可批量注释 选中 Ctrl + I 智能</description>
     </item>
     
     <item>
       <title>积重难返</title>
-      <link>https://shenyiming.life/post/essays/%E8%A3%85%E6%9C%BA%E5%90%A7/</link>
+      <link>https://shinning.cloud/post/essays/%E8%A3%85%E6%9C%BA%E5%90%A7/</link>
       <pubDate>Sun, 23 Jan 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://shenyiming.life/post/essays/%E8%A3%85%E6%9C%BA%E5%90%A7/</guid>
+      <guid>https://shinning.cloud/post/essays/%E8%A3%85%E6%9C%BA%E5%90%A7/</guid>
       <description>更换机箱-更换电脑 上图是我组装过的第六台电脑，是一台ITX，也是真正属于我的第一台电脑。 这是一个空间利用率极高的A4机箱，对于2020年浮躁</description>
     </item>
     
     <item>
       <title>👨🏻‍🔧寒假学习计划</title>
-      <link>https://shenyiming.life/post/plan/%E5%AF%92%E5%81%87%E5%AD%A6%E4%B9%A0%E8%AE%A1%E5%88%92/</link>
+      <link>https://shinning.cloud/post/plan/%E5%AF%92%E5%81%87%E5%AD%A6%E4%B9%A0%E8%AE%A1%E5%88%92/</link>
       <pubDate>Thu, 20 Jan 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://shenyiming.life/post/plan/%E5%AF%92%E5%81%87%E5%AD%A6%E4%B9%A0%E8%AE%A1%E5%88%92/</guid>
+      <guid>https://shinning.cloud/post/plan/%E5%AF%92%E5%81%87%E5%AD%A6%E4%B9%A0%E8%AE%A1%E5%88%92/</guid>
       <description>Readme 这学期寒假开始于1月11日 1月14日回家 15日玩 16日玩 17日有所学习 18日玩 19日玩 20日：我要制定个计划 寒假还是要学习的 21日：玩 BLOG RESTART</description>
     </item>
     
     <item>
       <title>Less-1 MATLAB基本操作与矩阵输入</title>
-      <link>https://shenyiming.life/post/notes/matlab/less-1_matlab%E5%9F%BA%E7%A1%80/</link>
+      <link>https://shinning.cloud/post/notes/matlab/less-1_matlab%E5%9F%BA%E7%A1%80/</link>
       <pubDate>Sat, 15 Jan 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://shenyiming.life/post/notes/matlab/less-1_matlab%E5%9F%BA%E7%A1%80/</guid>
+      <guid>https://shinning.cloud/post/notes/matlab/less-1_matlab%E5%9F%BA%E7%A1%80/</guid>
       <description>基本操作 命令行模式 公式输入 直接输入算式即可计算结果 输入格式基本同自然语言 计算： $$ cos(\sqrt{(\frac{1+2+3+4}{5})}) $$ cos(sqrt((1+2+3+4)/5)) 注意：5/2 是5除以2 5\2是2除以5 变量定义 定义变量</description>
     </item>
     
     <item>
       <title>我的2021</title>
-      <link>https://shenyiming.life/post/plan/2021%E5%B9%B4%E7%BB%88%E6%80%BB%E7%BB%93/</link>
+      <link>https://shinning.cloud/post/plan/2021%E5%B9%B4%E7%BB%88%E6%80%BB%E7%BB%93/</link>
       <pubDate>Fri, 31 Dec 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://shenyiming.life/post/plan/2021%E5%B9%B4%E7%BB%88%E6%80%BB%E7%BB%93/</guid>
+      <guid>https://shinning.cloud/post/plan/2021%E5%B9%B4%E7%BB%88%E6%80%BB%E7%BB%93/</guid>
       <description>刚刚感慨万分的敲上了 2021-12-31，以后再少有打2021的机会了，这一年还有七分钟就结束了。 从若干年前我就开始伤春悲秋了，写年终总结却</description>
     </item>
     
     <item>
       <title>早起可能是有意义的</title>
-      <link>https://shenyiming.life/post/essays/%E6%97%A9%E8%B5%B7%E7%9A%84%E6%84%8F%E4%B9%89/</link>
+      <link>https://shinning.cloud/post/essays/%E6%97%A9%E8%B5%B7%E7%9A%84%E6%84%8F%E4%B9%89/</link>
       <pubDate>Mon, 27 Dec 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://shenyiming.life/post/essays/%E6%97%A9%E8%B5%B7%E7%9A%84%E6%84%8F%E4%B9%89/</guid>
+      <guid>https://shinning.cloud/post/essays/%E6%97%A9%E8%B5%B7%E7%9A%84%E6%84%8F%E4%B9%89/</guid>
       <description>到期末复习周了，天天自由自在9:00以后起床，想睡多久睡多久，终于摆脱了沙雕的一天只有一节课，一节7:40起床的架构型排课了…… 但随着每天晚</description>
     </item>
     
     <item>
       <title>超脱 Detachment</title>
-      <link>https://shenyiming.life/post/essays/%E8%B6%85%E8%84%B1-detachment/</link>
+      <link>https://shinning.cloud/post/essays/%E8%B6%85%E8%84%B1-detachment/</link>
       <pubDate>Fri, 24 Dec 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://shenyiming.life/post/essays/%E8%B6%85%E8%84%B1-detachment/</guid>
+      <guid>https://shinning.cloud/post/essays/%E8%B6%85%E8%84%B1-detachment/</guid>
       <description>要无心太容易了，在乎才需要勇气。 It&amp;rsquo;s so easy to be careless. It takes courage to take care. 最近几天断断续续地，基本看完了电影超脱 Detachment 有人觉得我们能改变一些事情，有时当我们醒来，</description>
     </item>
     
     <item>
       <title>坏事成吨</title>
-      <link>https://shenyiming.life/post/essays/%E5%9D%8F%E4%BA%8B%E6%88%90%E5%90%A8/</link>
+      <link>https://shinning.cloud/post/essays/%E5%9D%8F%E4%BA%8B%E6%88%90%E5%90%A8/</link>
       <pubDate>Thu, 23 Dec 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://shenyiming.life/post/essays/%E5%9D%8F%E4%BA%8B%E6%88%90%E5%90%A8/</guid>
+      <guid>https://shinning.cloud/post/essays/%E5%9D%8F%E4%BA%8B%E6%88%90%E5%90%A8/</guid>
       <description>早上早八时圆通给我发了取件码，下了课9:30我就先把车找了个充电桩充上电，去拿快递，到了跟我说没到点，十点才能拿。。那你取件码发的倒他妈很勤</description>
     </item>
     
     <item>
       <title>有关细节✒️</title>
-      <link>https://shenyiming.life/post/essays/%E6%9C%89%E5%85%B3%E7%BB%86%E8%8A%82/</link>
+      <link>https://shinning.cloud/post/essays/%E6%9C%89%E5%85%B3%E7%BB%86%E8%8A%82/</link>
       <pubDate>Mon, 20 Dec 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://shenyiming.life/post/essays/%E6%9C%89%E5%85%B3%E7%BB%86%E8%8A%82/</guid>
+      <guid>https://shinning.cloud/post/essays/%E6%9C%89%E5%85%B3%E7%BB%86%E8%8A%82/</guid>
       <description>昨天晚上罕见的早睡，在床上困意十足地同生物钟作斗争时，不幸的想起了纠结的一些事情：要不要给台式机换个机箱？继续换itx A4机箱，还是换一个开</description>
     </item>
     
     <item>
       <title>2021-2022-1 期末复习计划</title>
-      <link>https://shenyiming.life/post/plan/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0%E8%AE%A1%E5%88%92/</link>
+      <link>https://shinning.cloud/post/plan/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0%E8%AE%A1%E5%88%92/</link>
       <pubDate>Wed, 15 Dec 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://shenyiming.life/post/plan/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0%E8%AE%A1%E5%88%92/</guid>
+      <guid>https://shinning.cloud/post/plan/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0%E8%AE%A1%E5%88%92/</guid>
       <description>Readme 感觉用了大量的时间做计划……好吧，既然是持续近1月的“政策”，花一天时间来拟定也无妨，本文处于随时更新状态。 这学期最难学分最高的课程已经考</description>
     </item>
     
     <item>
       <title>密码学数学基础-大纲</title>
-      <link>https://shenyiming.life/post/notes/cryptologymath/%E5%AF%86%E7%A0%81%E5%AD%A6%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%A4%A7%E7%BA%B2/</link>
+      <link>https://shinning.cloud/post/notes/cryptologymath/%E5%AF%86%E7%A0%81%E5%AD%A6%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%A4%A7%E7%BA%B2/</link>
       <pubDate>Sun, 12 Dec 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://shenyiming.life/post/notes/cryptologymath/%E5%AF%86%E7%A0%81%E5%AD%A6%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%A4%A7%E7%BA%B2/</guid>
+      <guid>https://shinning.cloud/post/notes/cryptologymath/%E5%AF%86%E7%A0%81%E5%AD%A6%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%A4%A7%E7%BA%B2/</guid>
       <description>数论 整除 带余除法 最小公倍数与最大公约数 计算()和[] 欧几里得算法 同余 模逆 模逆的计算（扩展欧几里得算法） 同余的各种性质与运算（加乘指数） Wil</description>
     </item>
     
     <item>
       <title>Public Key Cryptology</title>
-      <link>https://shenyiming.life/post/ctf/crypto/public-key-cryptography/</link>
+      <link>https://shinning.cloud/post/ctf/crypto/public-key-cryptography/</link>
       <pubDate>Tue, 09 Nov 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://shenyiming.life/post/ctf/crypto/public-key-cryptography/</guid>
+      <guid>https://shinning.cloud/post/ctf/crypto/public-key-cryptography/</guid>
       <description>CONTEXT ​	The first general purpose computers were built in the 1940s. They were large, filling big rooms, using hundreds of valves and consuming many kilowatts of electricity. Although they were considered amazing for the ability to execute thousands of instructions per second at that time, all these huge machines were rapidly became history and might have been lost in the mists of time. With the increasing speed of computing, networks of computers were established allowing people to have access to communicate with others in distant places.</description>
     </item>
     
     <item>
       <title>6 群环域</title>
-      <link>https://shenyiming.life/post/notes/cryptologymath/6.1_%E7%BE%A4/</link>
+      <link>https://shinning.cloud/post/notes/cryptologymath/6.1_%E7%BE%A4/</link>
       <pubDate>Mon, 08 Nov 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://shenyiming.life/post/notes/cryptologymath/6.1_%E7%BE%A4/</guid>
+      <guid>https://shinning.cloud/post/notes/cryptologymath/6.1_%E7%BE%A4/</guid>
       <description>半群 只满足封闭性和结合律 含幺半群 满足封闭性、结合律和单位元 含幺半群G中的单位元e是唯一的 含幺半群G中任意可逆元a，其逆元是唯一的（可以没有逆</description>
     </item>
     
     <item>
       <title>Web方向入门课程-大纲</title>
-      <link>https://shenyiming.life/post/ctf/web_tutorial/</link>
+      <link>https://shinning.cloud/post/ctf/web_tutorial/</link>
       <pubDate>Thu, 04 Nov 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://shenyiming.life/post/ctf/web_tutorial/</guid>
+      <guid>https://shinning.cloud/post/ctf/web_tutorial/</guid>
       <description>主讲人：HnuSec - 申一鸣 1. CTF与网络安全 2. CTF-Web方向简介 3. 以Bugku例题(sql注入)引出CTF中的Web题型 题目- sql注</description>
     </item>
     
     <item>
       <title>5 原根</title>
-      <link>https://shenyiming.life/post/notes/cryptologymath/5.1_%E5%8E%9F%E6%A0%B9%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5%E4%B8%8E%E6%80%A7%E8%B4%A8/</link>
+      <link>https://shinning.cloud/post/notes/cryptologymath/5.1_%E5%8E%9F%E6%A0%B9%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5%E4%B8%8E%E6%80%A7%E8%B4%A8/</link>
       <pubDate>Sun, 24 Oct 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://shenyiming.life/post/notes/cryptologymath/5.1_%E5%8E%9F%E6%A0%B9%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5%E4%B8%8E%E6%80%A7%E8%B4%A8/</guid>
+      <guid>https://shinning.cloud/post/notes/cryptologymath/5.1_%E5%8E%9F%E6%A0%B9%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5%E4%B8%8E%E6%80%A7%E8%B4%A8/</guid>
       <description>原根的基本概念与性质 定义 $$ 设m为正整数，(a,m)=1，使得a^d\equiv 1(mod\quad m)成立的\最小正整数d，称为a对模m的阶，记作ord_m(</description>
     </item>
     
     <item>
       <title>Bugku-SQL注入-WriteUP</title>
-      <link>https://shenyiming.life/post/ctf/sql/bugku-sql%E6%B3%A8%E5%85%A5/</link>
+      <link>https://shinning.cloud/post/ctf/sql/bugku-sql%E6%B3%A8%E5%85%A5/</link>
       <pubDate>Sun, 24 Oct 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://shenyiming.life/post/ctf/sql/bugku-sql%E6%B3%A8%E5%85%A5/</guid>
+      <guid>https://shinning.cloud/post/ctf/sql/bugku-sql%E6%B3%A8%E5%85%A5/</guid>
       <description>题目网址：sql注入 一个很正经的界面，有实战那味了。 上来先尝试经典组合： admin~password 很幸运，用户名猜中了。 利用单引号检测是否存在SQL注入 admin&#39; or 1 = 1 报</description>
     </item>
     
     <item>
       <title>CNSS Recruit-Web Write UP</title>
-      <link>https://shenyiming.life/post/ctf/wp/cnss-recruit-web-write-up/</link>
+      <link>https://shinning.cloud/post/ctf/wp/cnss-recruit-web-write-up/</link>
       <pubDate>Thu, 21 Oct 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://shenyiming.life/post/ctf/wp/cnss-recruit-web-write-up/</guid>
+      <guid>https://shinning.cloud/post/ctf/wp/cnss-recruit-web-write-up/</guid>
       <description>前言 躺在床上，不想动鼠标，那就先写写前言吧。 这个CTF比赛是我打的第二场比较正规、完整的比赛。 惨不忍睹，当然，作为刚入门的noob来说也可以</description>
     </item>
     
     <item>
       <title>离散数学CH05-一阶逻辑等值演算与推理</title>
-      <link>https://shenyiming.life/post/notes/discrete-mathematics/ch05/</link>
+      <link>https://shinning.cloud/post/notes/discrete-mathematics/ch05/</link>
       <pubDate>Tue, 12 Oct 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://shenyiming.life/post/notes/discrete-mathematics/ch05/</guid>
+      <guid>https://shinning.cloud/post/notes/discrete-mathematics/ch05/</guid>
       <description>一阶逻辑等值式与置换规则 定义5.1 $$ 设A,B是一阶逻辑中任意两个公式，若A\leftrightarrow B 是永真式，则称A与B等值 \\ 记作A\</description>
     </item>
     
     <item>
       <title>4 二次剩余</title>
-      <link>https://shenyiming.life/post/notes/cryptologymath/4.1_%E4%BA%8C%E6%AC%A1%E5%89%A9%E4%BD%99%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5%E5%92%8C%E6%80%A7%E8%B4%A8/</link>
+      <link>https://shinning.cloud/post/notes/cryptologymath/4.1_%E4%BA%8C%E6%AC%A1%E5%89%A9%E4%BD%99%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5%E5%92%8C%E6%80%A7%E8%B4%A8/</link>
       <pubDate>Mon, 11 Oct 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://shenyiming.life/post/notes/cryptologymath/4.1_%E4%BA%8C%E6%AC%A1%E5%89%A9%E4%BD%99%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5%E5%92%8C%E6%80%A7%E8%B4%A8/</guid>
+      <guid>https://shinning.cloud/post/notes/cryptologymath/4.1_%E4%BA%8C%E6%AC%A1%E5%89%A9%E4%BD%99%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5%E5%92%8C%E6%80%A7%E8%B4%A8/</guid>
       <description>定义4.1.1 $$ 设a为整数，p为奇素数，p\nmid a，如果同余方程\ x^2\equiv a(mod\quad p)有解，则称a是模p的二次剩余\ 否则称a是模p的二次非剩余。 $$ 4.2</description>
     </item>
     
     <item>
       <title>3.4 流程图</title>
-      <link>https://shenyiming.life/post/notes/cryptologymath/3.4%E5%AE%9E%E9%AA%8C_%E5%9F%BA%E4%BA%8E%E4%B8%AD%E5%9B%BD%E5%89%A9%E4%BD%99%E5%AE%9A%E7%90%86%E7%9A%84%E7%A7%98%E5%AF%86%E5%85%B1%E4%BA%AB%E6%96%B9%E6%A1%88/</link>
+      <link>https://shinning.cloud/post/notes/cryptologymath/3.4%E5%AE%9E%E9%AA%8C_%E5%9F%BA%E4%BA%8E%E4%B8%AD%E5%9B%BD%E5%89%A9%E4%BD%99%E5%AE%9A%E7%90%86%E7%9A%84%E7%A7%98%E5%AF%86%E5%85%B1%E4%BA%AB%E6%96%B9%E6%A1%88/</link>
       <pubDate>Sat, 09 Oct 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://shenyiming.life/post/notes/cryptologymath/3.4%E5%AE%9E%E9%AA%8C_%E5%9F%BA%E4%BA%8E%E4%B8%AD%E5%9B%BD%E5%89%A9%E4%BD%99%E5%AE%9A%E7%90%86%E7%9A%84%E7%A7%98%E5%AF%86%E5%85%B1%E4%BA%AB%E6%96%B9%E6%A1%88/</guid>
+      <guid>https://shinning.cloud/post/notes/cryptologymath/3.4%E5%AE%9E%E9%AA%8C_%E5%9F%BA%E4%BA%8E%E4%B8%AD%E5%9B%BD%E5%89%A9%E4%BD%99%E5%AE%9A%E7%90%86%E7%9A%84%E7%A7%98%E5%AF%86%E5%85%B1%E4%BA%AB%E6%96%B9%E6%A1%88/</guid>
       <description>st=&amp;gt;start: 开始 op1=&amp;gt;operation: 读入秘密K op2=&amp;gt;operation: 生成数组d[n] cond=&amp;gt;condition: 判断是否满足N&amp;gt;K&amp;gt;M op3=&amp;gt;operation: K依次模d生成密钥串k[n] op4=&amp;gt;operation: 使用t个密钥利用CRT还原K&#39; cond2=&amp;gt;condition: 判断</description>
     </item>
     
     <item>
       <title>3.4 基于中国剩余定理的秘密共享</title>
-      <link>https://shenyiming.life/post/notes/cryptologymath/3.4_%E5%9F%BA%E4%BA%8E%E4%B8%AD%E5%9B%BD%E5%89%A9%E4%BD%99%E5%AE%9A%E7%90%86%E7%9A%84%E7%A7%98%E5%AF%86%E5%85%B1%E4%BA%AB/</link>
+      <link>https://shinning.cloud/post/notes/cryptologymath/3.4_%E5%9F%BA%E4%BA%8E%E4%B8%AD%E5%9B%BD%E5%89%A9%E4%BD%99%E5%AE%9A%E7%90%86%E7%9A%84%E7%A7%98%E5%AF%86%E5%85%B1%E4%BA%AB/</link>
       <pubDate>Fri, 08 Oct 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://shenyiming.life/post/notes/cryptologymath/3.4_%E5%9F%BA%E4%BA%8E%E4%B8%AD%E5%9B%BD%E5%89%A9%E4%BD%99%E5%AE%9A%E7%90%86%E7%9A%84%E7%A7%98%E5%AF%86%E5%85%B1%E4%BA%AB/</guid>
+      <guid>https://shinning.cloud/post/notes/cryptologymath/3.4_%E5%9F%BA%E4%BA%8E%E4%B8%AD%E5%9B%BD%E5%89%A9%E4%BD%99%E5%AE%9A%E7%90%86%E7%9A%84%E7%A7%98%E5%AF%86%E5%85%B1%E4%BA%AB/</guid>
       <description>背景 $$ 将秘密k分成n个子秘密k_1,k_2,\cdots,k_n,满足下面两个条件：\\ (1)\quad 如果已知t个k_i 值，易于恢复出k\\ (2)\quad 如果已知任</description>
     </item>
     
     <item>
       <title>离散数学CH04-一阶逻辑基本概念</title>
-      <link>https://shenyiming.life/post/notes/discrete-mathematics/ch04/</link>
+      <link>https://shinning.cloud/post/notes/discrete-mathematics/ch04/</link>
       <pubDate>Fri, 08 Oct 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://shenyiming.life/post/notes/discrete-mathematics/ch04/</guid>
+      <guid>https://shinning.cloud/post/notes/discrete-mathematics/ch04/</guid>
       <description>一阶逻辑命题符号化 一阶逻辑公式及其解释 定义4.5 $$ 在公式\forall x A 和\exist x A 中，称x为指导变元，A为量词的辖域\\ 在\for</description>
     </item>
     
     <item>
       <title>离散数学CH03-命题逻辑的推理理论</title>
-      <link>https://shenyiming.life/post/notes/discrete-mathematics/ch03/</link>
+      <link>https://shinning.cloud/post/notes/discrete-mathematics/ch03/</link>
       <pubDate>Thu, 07 Oct 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://shenyiming.life/post/notes/discrete-mathematics/ch03/</guid>
+      <guid>https://shinning.cloud/post/notes/discrete-mathematics/ch03/</guid>
       <description>前言 所谓推理是指从前提出发推出结论的思维过程，而前提是已知的命题公式集合，结论是从前提出发应用推理规则推出的命题公式。 定理3.1 命题公式 $$ A_1,A_2,\cdots,A_k</description>
     </item>
     
     <item>
       <title>3.3 一次同余方程</title>
-      <link>https://shenyiming.life/post/notes/cryptologymath/3.3_%E4%B8%80%E6%AC%A1%E5%90%8C%E4%BD%99%E6%96%B9%E7%A8%8B/</link>
+      <link>https://shinning.cloud/post/notes/cryptologymath/3.3_%E4%B8%80%E6%AC%A1%E5%90%8C%E4%BD%99%E6%96%B9%E7%A8%8B/</link>
       <pubDate>Thu, 30 Sep 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://shenyiming.life/post/notes/cryptologymath/3.3_%E4%B8%80%E6%AC%A1%E5%90%8C%E4%BD%99%E6%96%B9%E7%A8%8B/</guid>
+      <guid>https://shinning.cloud/post/notes/cryptologymath/3.3_%E4%B8%80%E6%AC%A1%E5%90%8C%E4%BD%99%E6%96%B9%E7%A8%8B/</guid>
       <description>一次同余方程 定义3.1.1 变数个数多于方程个数，且取整数值的方程（或方程组）称为不定方程（组） 定理3.1.1 二元一次不定方程ax+by+n有</description>
     </item>
     
     <item>
       <title>2.5 素性检测算法</title>
-      <link>https://shenyiming.life/post/notes/cryptologymath/2.5_%E7%B4%A0%E6%80%A7%E6%A3%80%E6%B5%8B%E7%AE%97%E6%B3%95/</link>
+      <link>https://shinning.cloud/post/notes/cryptologymath/2.5_%E7%B4%A0%E6%80%A7%E6%A3%80%E6%B5%8B%E7%AE%97%E6%B3%95/</link>
       <pubDate>Sun, 26 Sep 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://shenyiming.life/post/notes/cryptologymath/2.5_%E7%B4%A0%E6%80%A7%E6%A3%80%E6%B5%8B%E7%AE%97%E6%B3%95/</guid>
+      <guid>https://shinning.cloud/post/notes/cryptologymath/2.5_%E7%B4%A0%E6%80%A7%E6%A3%80%E6%B5%8B%E7%AE%97%E6%B3%95/</guid>
       <description>费马小定理 根据费马小定理，p为素数，对任意整数b就有 $$ b^{p-1}\equiv 1(mod\quad p) $$ 问题： $$ 如果有一个整数b,(b,m)=1,使得\\ b^{m-1}\neq 1(mod\quad m)\\ 则m是一个合数，\\ 但</description>
     </item>
     
     <item>
       <title>2.6 RSA公钥密码算法</title>
-      <link>https://shenyiming.life/post/notes/cryptologymath/2.6_rsa%E5%85%AC%E9%92%A5%E5%AF%86%E7%A0%81%E7%AE%97%E6%B3%95/</link>
+      <link>https://shinning.cloud/post/notes/cryptologymath/2.6_rsa%E5%85%AC%E9%92%A5%E5%AF%86%E7%A0%81%E7%AE%97%E6%B3%95/</link>
       <pubDate>Sat, 25 Sep 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://shenyiming.life/post/notes/cryptologymath/2.6_rsa%E5%85%AC%E9%92%A5%E5%AF%86%E7%A0%81%E7%AE%97%E6%B3%95/</guid>
+      <guid>https://shinning.cloud/post/notes/cryptologymath/2.6_rsa%E5%85%AC%E9%92%A5%E5%AF%86%E7%A0%81%E7%AE%97%E6%B3%95/</guid>
       <description>密钥生成 随机生成两个不同的大素数p和q $计算n=pq和\phi(n)=(p-1)(q-1)$ 随机选取整数e,$1\lt e\lt \phi(n)，使得</description>
     </item>
     
     <item>
       <title>2.4 欧拉定理和费马小定理</title>
-      <link>https://shenyiming.life/post/notes/cryptologymath/2.4_%E6%AC%A7%E6%8B%89%E5%AE%9A%E7%90%86%E5%92%8C%E8%B4%B9%E9%A9%AC%E5%B0%8F%E5%AE%9A%E7%90%86/</link>
+      <link>https://shinning.cloud/post/notes/cryptologymath/2.4_%E6%AC%A7%E6%8B%89%E5%AE%9A%E7%90%86%E5%92%8C%E8%B4%B9%E9%A9%AC%E5%B0%8F%E5%AE%9A%E7%90%86/</link>
       <pubDate>Fri, 24 Sep 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://shenyiming.life/post/notes/cryptologymath/2.4_%E6%AC%A7%E6%8B%89%E5%AE%9A%E7%90%86%E5%92%8C%E8%B4%B9%E9%A9%AC%E5%B0%8F%E5%AE%9A%E7%90%86/</guid>
+      <guid>https://shinning.cloud/post/notes/cryptologymath/2.4_%E6%AC%A7%E6%8B%89%E5%AE%9A%E7%90%86%E5%92%8C%E8%B4%B9%E9%A9%AC%E5%B0%8F%E5%AE%9A%E7%90%86/</guid>
       <description>定理2.4.1 (欧拉定理) $$ 设m为正整数，a为整数，并且(a,m)=1，则\\ a^{\phi(m)}\equiv 1(mod\quad m)\\ $$ 证明： $$ 取模m的一个即约剩余系b_1,b_2,\cdo</description>
     </item>
     
     <item>
       <title>2.3 欧拉函数</title>
-      <link>https://shenyiming.life/post/notes/cryptologymath/2.3_%E6%AC%A7%E6%8B%89%E5%87%BD%E6%95%B0/</link>
+      <link>https://shinning.cloud/post/notes/cryptologymath/2.3_%E6%AC%A7%E6%8B%89%E5%87%BD%E6%95%B0/</link>
       <pubDate>Thu, 23 Sep 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://shenyiming.life/post/notes/cryptologymath/2.3_%E6%AC%A7%E6%8B%89%E5%87%BD%E6%95%B0/</guid>
+      <guid>https://shinning.cloud/post/notes/cryptologymath/2.3_%E6%AC%A7%E6%8B%89%E5%87%BD%E6%95%B0/</guid>
       <description>定理2.3.1 $$ 设m是正整数，a,b\in Z,且(a,m)=1,若x遍历模m的一个完全剩余系，则ax+b也遍历模m的一个完全剩余系。 $$ 定理2</description>
     </item>
     
     <item>
       <title>2.2 同余类与既约同余类</title>
-      <link>https://shenyiming.life/post/notes/cryptologymath/2.2_%E5%90%8C%E4%BD%99%E7%B1%BB%E4%B8%8E%E6%97%A2%E7%BA%A6%E5%90%8C%E4%BD%99%E7%B1%BB/</link>
+      <link>https://shinning.cloud/post/notes/cryptologymath/2.2_%E5%90%8C%E4%BD%99%E7%B1%BB%E4%B8%8E%E6%97%A2%E7%BA%A6%E5%90%8C%E4%BD%99%E7%B1%BB/</link>
       <pubDate>Wed, 22 Sep 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://shenyiming.life/post/notes/cryptologymath/2.2_%E5%90%8C%E4%BD%99%E7%B1%BB%E4%B8%8E%E6%97%A2%E7%BA%A6%E5%90%8C%E4%BD%99%E7%B1%BB/</guid>
+      <guid>https://shinning.cloud/post/notes/cryptologymath/2.2_%E5%90%8C%E4%BD%99%E7%B1%BB%E4%B8%8E%E6%97%A2%E7%BA%A6%E5%90%8C%E4%BD%99%E7%B1%BB/</guid>
       <description>例题2.2.1 设 $$m=6,\forall a\in Z,a=6q+r,其中q,r\in Z ,r=0,1,2,3,4,5$$ 可分为6类，例如r=0时，所有a为模6同余于0 $$ a_1\equiv a_2 \equiv \cdots a_n \equiv 0 (mod\quad 6)\\ -18,-12,</description>
     </item>
     
     <item>
       <title>2.1 同余</title>
-      <link>https://shenyiming.life/post/notes/cryptologymath/2.1_%E5%90%8C%E4%BD%99/</link>
+      <link>https://shinning.cloud/post/notes/cryptologymath/2.1_%E5%90%8C%E4%BD%99/</link>
       <pubDate>Mon, 20 Sep 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://shenyiming.life/post/notes/cryptologymath/2.1_%E5%90%8C%E4%BD%99/</guid>
+      <guid>https://shinning.cloud/post/notes/cryptologymath/2.1_%E5%90%8C%E4%BD%99/</guid>
       <description>定义2.1.1 $$ 设m\in N^+,a_1,a_2\in Z，如果m\mid (a_2-a_1)，则称a_1和a_2模m同余，记作\\ a_1 \equiv a_a(mod\quad m) $$ 该式称为模m的同余式，简称同</description>
     </item>
     
     <item>
       <title>离散数学CH02-命题逻辑等值演算</title>
-      <link>https://shenyiming.life/post/notes/discrete-mathematics/ch02/</link>
+      <link>https://shinning.cloud/post/notes/discrete-mathematics/ch02/</link>
       <pubDate>Sun, 19 Sep 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://shenyiming.life/post/notes/discrete-mathematics/ch02/</guid>
+      <guid>https://shinning.cloud/post/notes/discrete-mathematics/ch02/</guid>
       <description>析取范式与合取范式 定理2.3（范式存在定理） 任一命题公式都存在与之等值的析取范式和合取范式，求给定公式的步骤为： 消去连接词 用双重否定律消去双</description>
     </item>
     
     <item>
       <title>离散数学CH01-命题逻辑的基本概念</title>
-      <link>https://shenyiming.life/post/notes/discrete-mathematics/ch01/</link>
+      <link>https://shinning.cloud/post/notes/discrete-mathematics/ch01/</link>
       <pubDate>Sat, 18 Sep 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://shenyiming.life/post/notes/discrete-mathematics/ch01/</guid>
+      <guid>https://shinning.cloud/post/notes/discrete-mathematics/ch01/</guid>
       <description>命题与联结词 定义1.2 设p,q为两个命题，复合命题“p并且q”（或“p与q”）称为p与q的合取式，记作$p\wedge q$ 规定$p\wedge</description>
     </item>
     
     <item>
       <title>1.5 素数的生成</title>
-      <link>https://shenyiming.life/post/notes/cryptologymath/1.5_%E7%B4%A0%E6%95%B0%E7%9A%84%E7%94%9F%E6%88%90-/</link>
+      <link>https://shinning.cloud/post/notes/cryptologymath/1.5_%E7%B4%A0%E6%95%B0%E7%9A%84%E7%94%9F%E6%88%90-/</link>
       <pubDate>Thu, 16 Sep 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://shenyiming.life/post/notes/cryptologymath/1.5_%E7%B4%A0%E6%95%B0%E7%9A%84%E7%94%9F%E6%88%90-/</guid>
+      <guid>https://shinning.cloud/post/notes/cryptologymath/1.5_%E7%B4%A0%E6%95%B0%E7%9A%84%E7%94%9F%E6%88%90-/</guid>
       <description>定理1.5.1 埃拉托斯特尼筛法 埃氏筛 设n是一个正整数，如果对所有的素数 $$ p\le\sqrt{n} $$ 都有 $$ p\nmid n $$ ，则n一定是素数。 证明（反证法）：假设n是合数，则n</description>
     </item>
     
     <item>
       <title>第一章 例题</title>
-      <link>https://shenyiming.life/post/notes/cryptologymath/1.6_%E7%AC%AC%E4%B8%80%E7%AB%A0%E4%BE%8B%E9%A2%98/</link>
+      <link>https://shinning.cloud/post/notes/cryptologymath/1.6_%E7%AC%AC%E4%B8%80%E7%AB%A0%E4%BE%8B%E9%A2%98/</link>
       <pubDate>Thu, 16 Sep 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://shenyiming.life/post/notes/cryptologymath/1.6_%E7%AC%AC%E4%B8%80%E7%AB%A0%E4%BE%8B%E9%A2%98/</guid>
+      <guid>https://shinning.cloud/post/notes/cryptologymath/1.6_%E7%AC%AC%E4%B8%80%E7%AB%A0%E4%BE%8B%E9%A2%98/</guid>
       <description>1. 对任意整数a,b,c，证明：[(a,b),(a,c)]=(a,[b,c]) 证明： $$ 设a=p_1^{a_1}p_2^{a_2}\cdots p</description>
     </item>
     
     <item>
       <title>欧几里德算法</title>
-      <link>https://shenyiming.life/post/notes/cryptologymath/1.4_%E6%AC%A7%E5%87%A0%E9%87%8C%E5%BE%B7%E7%AE%97%E6%B3%95/</link>
+      <link>https://shinning.cloud/post/notes/cryptologymath/1.4_%E6%AC%A7%E5%87%A0%E9%87%8C%E5%BE%B7%E7%AE%97%E6%B3%95/</link>
       <pubDate>Sun, 12 Sep 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://shenyiming.life/post/notes/cryptologymath/1.4_%E6%AC%A7%E5%87%A0%E9%87%8C%E5%BE%B7%E7%AE%97%E6%B3%95/</guid>
+      <guid>https://shinning.cloud/post/notes/cryptologymath/1.4_%E6%AC%A7%E5%87%A0%E9%87%8C%E5%BE%B7%E7%AE%97%E6%B3%95/</guid>
       <description>定理1.4.1 设$a_0,a_1\in Z,a_1\ne0$，按下述方式反复作带余除法，有限步后必可以除尽 $$ a_0=a_1q_0+a_2 \\\\ a_1=a_2q_1+a_3 \\\\ \vdots \\\\ a_{n-2}=a_{n-1}q_{n-2}+a_n a_{n-1}=a_{n}q_{n-1}+a_{n+1} \\\\ a_{n+1}=0\\ 则有(a_0,</description>
     </item>
     
     <item>
       <title>MoeCTF 2021 西电新生赛WP</title>
-      <link>https://shenyiming.life/post/ctf/wp/moectf-web-write-up/</link>
+      <link>https://shinning.cloud/post/ctf/wp/moectf-web-write-up/</link>
       <pubDate>Thu, 19 Aug 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://shenyiming.life/post/ctf/wp/moectf-web-write-up/</guid>
+      <guid>https://shinning.cloud/post/ctf/wp/moectf-web-write-up/</guid>
       <description>前言-2021/8/10 今天学长在群里发了西电的新生CTF比赛，题目较为基础，适合我们初学者。 想来还是感慨颇多的，西电不愧是网安的头部院校，</description>
     </item>
     
     <item>
       <title>DVWA环境搭建 &#43; BurpSuite2.1安装 &#43; Chrome配置</title>
-      <link>https://shenyiming.life/post/ctf/dvwa%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA&#43;burpsuite2.1%E5%AE%89%E8%A3%85/</link>
+      <link>https://shinning.cloud/post/ctf/dvwa%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA&#43;burpsuite2.1%E5%AE%89%E8%A3%85/</link>
       <pubDate>Thu, 05 Aug 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://shenyiming.life/post/ctf/dvwa%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA&#43;burpsuite2.1%E5%AE%89%E8%A3%85/</guid>
+      <guid>https://shinning.cloud/post/ctf/dvwa%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA&#43;burpsuite2.1%E5%AE%89%E8%A3%85/</guid>
       <description>DVWA环境搭建 DVWA（Damn Vulnerable Web Application）是一个用来进行安全脆弱性鉴定的PHP/MySQL Web应用，旨在为安全专业人员</description>
     </item>
     
     <item>
       <title>Windows11体验报告：你可以永远相信微软的审美</title>
-      <link>https://shenyiming.life/post/essays/windows11/</link>
+      <link>https://shinning.cloud/post/essays/windows11/</link>
       <pubDate>Wed, 04 Aug 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://shenyiming.life/post/essays/windows11/</guid>
+      <guid>https://shinning.cloud/post/essays/windows11/</guid>
       <description>前言 Windows11从dev版本进入beta版本后，我便决定加入预览者大军，亲眼看看号称Windows10是最后一版Windows之后的微</description>
     </item>
     
     <item>
       <title>MISC类型题目及技巧</title>
-      <link>https://shenyiming.life/post/ctf/misc/bugku_misc/</link>
+      <link>https://shinning.cloud/post/ctf/misc/bugku_misc/</link>
       <pubDate>Fri, 23 Jul 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://shenyiming.life/post/ctf/misc/bugku_misc/</guid>
+      <guid>https://shinning.cloud/post/ctf/misc/bugku_misc/</guid>
       <description>图片隐写 图片EXIF信息 GIF图片 文件头 16进制编码 编码 Readflag 社工 Bugku社工_进阶收集 根据题目给出的说说截图，有如下信息： 终点位置突出特征：</description>
     </item>
     
     <item>
       <title>SSTI类型题目积累及资料</title>
-      <link>https://shenyiming.life/post/ctf/ssti/bugku_ssti/</link>
+      <link>https://shinning.cloud/post/ctf/ssti/bugku_ssti/</link>
       <pubDate>Thu, 22 Jul 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://shenyiming.life/post/ctf/ssti/bugku_ssti/</guid>
+      <guid>https://shinning.cloud/post/ctf/ssti/bugku_ssti/</guid>
       <description>SSTI类型介绍 SSTI即服务端模板注入攻击，服务端接收用户输入，将其作为Web应用模板的一部分，渲染编译后执行了恶意内容，导致敏感信息泄露</description>
     </item>
     
     <item>
       <title>暑假CTF学习计划</title>
-      <link>https://shenyiming.life/post/plan/%E5%81%87%E6%9C%9F%E5%AD%A6%E4%B9%A0%E8%AE%A1%E5%88%92/</link>
+      <link>https://shinning.cloud/post/plan/%E5%81%87%E6%9C%9F%E5%AD%A6%E4%B9%A0%E8%AE%A1%E5%88%92/</link>
       <pubDate>Thu, 22 Jul 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://shenyiming.life/post/plan/%E5%81%87%E6%9C%9F%E5%AD%A6%E4%B9%A0%E8%AE%A1%E5%88%92/</guid>
+      <guid>https://shinning.cloud/post/plan/%E5%81%87%E6%9C%9F%E5%AD%A6%E4%B9%A0%E8%AE%A1%E5%88%92/</guid>
       <description>学习内容 根据上一篇笔记选择的比赛方向：Web和Crypto，安排并希望在假期进行以下内容的学习： Python编程基础-网络编程，并提升Pyt</description>
     </item>
     
     <item>
       <title>Ubuntu 18.04 LTS的配置与入门</title>
-      <link>https://shenyiming.life/post/ctf/ubuntu%E9%85%8D%E7%BD%AE%E5%8F%8A%E5%91%BD%E4%BB%A4%E5%85%A5%E9%97%A8/</link>
+      <link>https://shinning.cloud/post/ctf/ubuntu%E9%85%8D%E7%BD%AE%E5%8F%8A%E5%91%BD%E4%BB%A4%E5%85%A5%E9%97%A8/</link>
       <pubDate>Tue, 20 Jul 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://shenyiming.life/post/ctf/ubuntu%E9%85%8D%E7%BD%AE%E5%8F%8A%E5%91%BD%E4%BB%A4%E5%85%A5%E9%97%A8/</guid>
+      <guid>https://shinning.cloud/post/ctf/ubuntu%E9%85%8D%E7%BD%AE%E5%8F%8A%E5%91%BD%E4%BB%A4%E5%85%A5%E9%97%A8/</guid>
       <description>系统选择 Linux有多种发行版，作为一名小白，我选择Ubuntu的原因是以前用过并且感觉桌面界面十分讨喜，再者，Ubuntu作为常见的个人桌</description>
     </item>
     
     <item>
       <title>学习Markdown语法</title>
-      <link>https://shenyiming.life/post/ctf/markdown%E7%AC%94%E8%AE%B0%E5%AD%A6%E4%B9%A0/</link>
+      <link>https://shinning.cloud/post/ctf/markdown%E7%AC%94%E8%AE%B0%E5%AD%A6%E4%B9%A0/</link>
       <pubDate>Mon, 19 Jul 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://shenyiming.life/post/ctf/markdown%E7%AC%94%E8%AE%B0%E5%AD%A6%E4%B9%A0/</guid>
+      <guid>https://shinning.cloud/post/ctf/markdown%E7%AC%94%E8%AE%B0%E5%AD%A6%E4%B9%A0/</guid>
       <description>2021年7月18日 了解Markdown Markdown是一种轻量级标记语言，属于HTML格式的一种，易读易写易更改，处处透着极简主义的影子</description>
     </item>
     
