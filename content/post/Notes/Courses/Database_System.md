@@ -1,7 +1,7 @@
 ---
 author: "Yiming Shen"
 date: 2022-03-15
-lastmod: 2022-03-15
+lastmod: 2022-03-18
 title: "数据库系统导论笔记"
 tags: [
    "SQL",
@@ -221,6 +221,89 @@ DROP SCHEMA zhang CASCADE
 
 ```sql
 CREATE TABLE <tablename> (<colname> <datatype> [<列级完整性约束条件> <列名> <数据类型> [<列级完整性约束条件>...] [<表级完整性约束条件>]])
+```
+
+#### 例
+
+```sql
+CREATE TABLE Student(
+	Sno CHAR(9) PRIMARY KEY,
+    Sname CHAR(20) UNIQUE, # 用户自定义完整性
+    Ssex CHAR(2),
+    Sage SMALLINT, 
+    Sdept CHAR(20)
+
+)
+```
+
+
+
+``` sql
+CREATE TABLE Course(
+	Cno		Char(4)	PRIMARY KEY,
+    Cname 	CHAR(40),
+    Cpno	CHAR(4),
+    Ccredit	SMALLINT,
+    FOREIGN KEY (Cpno) REFERENCES Course (Cno)
+    
+)
+```
+
+
+
+```sql
+CREATE TABLE SC
+(
+	...
+    PRIMARY KEY (Sno, Cno),
+    FOREIGN KEY (Sno) REFERENCES Student(Sno)
+)
+```
+
+#### 数据类型
+
+- SQL中的域的概念是由数据类型实现的
+- 确定运算性质
+- 限定取值范围
+
+#### 模式与表
+
+>  一个基本表属于某个模式，一个模式可以包含多个基本表。 
+
+**定义基本表所属模式**
+
+1. 在表名中明显的给出模式名
+2. 在创建模式语句中同时创建
+3. **设置所属模式**（常用方法）
+
+
+
+显示当前搜索路径
+
+```sql
+SHOW search_path
+#default: $user,Public
+```
+
+#### 修改基本表
+
+```sql
+ALTER  TABLE <tablename> [ADD [COLUMN] <新列名> <数据类型> [完整性约束]] [ADD <表级完整性约束>] 
+[DROP [COLUMN] <列名> [CASCADE | RESTRICT]]
+[DROP CONSTRAINT <完整性约束名> [CASCADE | RESTRICT]]
+[ALTER COLUMN <列名> <数据类型>]
+```
+
+##### 向学生表加入入学时间列
+
+```sql
+ALTER TABLE Student ADD S_entrance DATE;
+```
+
+##### 将年龄数据类型改为整型
+
+```sql
+ALTER TABLE Student ALTER smallint;
 ```
 
 
