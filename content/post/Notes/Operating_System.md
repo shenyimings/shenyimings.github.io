@@ -15,7 +15,7 @@ categories: [
 math: true
 ShowToc: true
 draft: false
-typora-root-url: ..\..\..\static\
+typora-root-url: ..\..\static\
 cover:
      image: "/Computer_System.assets/%7D/operating-system-os.png"
 ---
