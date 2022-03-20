@@ -82,7 +82,7 @@ SELECT * FROM users WHERE id='1' or 1=1 # LIMIT 0,1
 |       MySQL/SQLlite       | 数据库安全       |
 |           C/C++           | 深层逻辑漏洞挖掘 |
 |     HTTP、TCP/IP协议      | 深层网络安全     |
-|   数论、群论、近世代数    | 网络通信安全     |
+|   数论、群论、近世代数    | 通信安全         |
 
 
 

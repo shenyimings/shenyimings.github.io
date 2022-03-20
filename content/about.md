@@ -10,8 +10,8 @@ typora-root-url: ..\static\
 ---
 
 <div class="golf">
-	<div class="photo" style="float:left;width:8%;margin-bottom: 20px; vertical-align: center;"><img src="/about.assets/123.jpg" style="border-radius: 550px; "></div>
-	<div class="intro" style="float:left ">
+	<div class="photo" style="float:left;width:8%;margin-bottom: 20px; "><img src="/about.assets/123.jpg" style=" border-radius: 550px; "></div>
+	<div class="intro" style="vertical-align: center;float:left ">
 		<p> </p>
 	    <h3 style="margin-top:-5px ">&nbsp 申一鸣 Yiming Shen</h3>
 	</div>

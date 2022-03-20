@@ -53,3 +53,16 @@ cetfcahyswtmj!lst__sr_opi{opu}
 
 
 
+```
+HDCTF{simp1e_crypto}
+
+Railfence:hrdcyc_ptetf1o{p}smi
+
+Caesar:ajruonwln:qamlhl_ycnco1x{y}bvr
+
+Caesar%3Aajruonwln%3Aqamlhl_ycnco1x%7By%7Dbvr
+
+436165736172253341616a72756f6e776c6e25334171616d6c686c5f79636e636f317825374279253744627672
+
+```
+
