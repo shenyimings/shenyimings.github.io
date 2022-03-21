@@ -9,7 +9,7 @@
       <link>https://shinning.cloud/android-chrome-512x512.png</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Tue, 15 Mar 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://shinning.cloud/categories/notes/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 19 Mar 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://shinning.cloud/categories/notes/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>CTF比赛方向选择&amp;学习内容</title>
       <link>https://shinning.cloud/post/ctf/ctf%E6%AF%94%E8%B5%9B%E6%96%B9%E5%90%91%E9%80%89%E6%8B%A9/</link>
@@ -17,6 +17,15 @@
       
       <guid>https://shinning.cloud/post/ctf/ctf%E6%AF%94%E8%B5%9B%E6%96%B9%E5%90%91%E9%80%89%E6%8B%A9/</guid>
       <description>了解CTF CTF 的前身是传统黑客之间的网络技术比拼游戏，起源于 1996 年第四届 DEFCON。CTF比赛有以下突出特点： 比赛侧重于对计算机底层和系统安全</description>
+    </item>
+    
+    <item>
+      <title>渗透测试记录</title>
+      <link>https://shinning.cloud/post/ctf/penetration/</link>
+      <pubDate>Sat, 19 Mar 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://shinning.cloud/post/ctf/penetration/</guid>
+      <description>本文主要记录渗透测试、挖洞的学习和实战经验。 逻辑越权 网站设计欠考虑 垂直越权 跨越权限访问 水平越权 同权限用户访问，通过更换身份标识，使A账号获取</description>
     </item>
     
     <item>

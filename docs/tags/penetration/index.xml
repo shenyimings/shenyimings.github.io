@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Penetration on Console.makeHappy(_1ming)</title>
+    <link>https://shinning.cloud/tags/penetration/</link>
+    <description>Recent content in Penetration on Console.makeHappy(_1ming)</description>
+    <image>
+      <url>https://shinning.cloud/android-chrome-512x512.png</url>
+      <link>https://shinning.cloud/android-chrome-512x512.png</link>
+    </image>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Sat, 19 Mar 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://shinning.cloud/tags/penetration/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>渗透测试记录</title>
+      <link>https://shinning.cloud/post/ctf/penetration/</link>
+      <pubDate>Sat, 19 Mar 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://shinning.cloud/post/ctf/penetration/</guid>
+      <description>本文主要记录渗透测试、挖洞的学习和实战经验。 逻辑越权 网站设计欠考虑 垂直越权 跨越权限访问 水平越权 同权限用户访问，通过更换身份标识，使A账号获取</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -5,7 +5,7 @@ lastmod: 2022-03-19
 title: "渗透测试记录"
 tags: [
     "CTF",
-    "Penetration"
+    "Penetration",
     "Note",
 ]
 categories: [
