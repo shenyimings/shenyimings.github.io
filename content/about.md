@@ -13,9 +13,10 @@ typora-root-url: ..\static\
 	<div class="photo" style="float:left;width:8%;margin-bottom: 20px; "><img src="/about.assets/123.jpg" style=" border-radius: 550px; "></div>
 	<div class="intro" style="vertical-align: center;float:left ">
 		<p> </p>
-	    <h3 style="margin-top:-5px ">&nbsp 申一鸣 Yiming Shen</h3>
+	    <h3 style="margin-top:-5px ">&nbsp 申一鸣 Yiming Shinn</h3>
 	</div>
 </div>
+
 
 <br>
 <br>
