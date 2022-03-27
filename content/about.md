@@ -25,7 +25,7 @@ typora-root-url: ..\static\
 
 *A photography lover, a CTF learner, a geek  spirit follower.*
 
-![logo2-3](/about.assets/%7D/logo2-3.png)
+<img src="/about.assets/%7D/logo2-3.png" alt="logo2-3" style="float:left;zoom:50%;" />
 
 ### About My Blog
 
