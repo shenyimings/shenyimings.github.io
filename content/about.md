@@ -17,7 +17,6 @@ typora-root-url: ..\static\
 	</div>
 </div>
 
-
 <br>
 <br>
 <br>
@@ -26,7 +25,7 @@ typora-root-url: ..\static\
 
 *A photography lover, a CTF learner, a geek  spirit follower.*
 
-
+![logo2-2](/about.assets/%7D/logo2-2.png)
 
 ### About My Blog
 
