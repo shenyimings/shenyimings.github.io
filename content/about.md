@@ -11,17 +11,7 @@ typora-root-url: ..\static\
 
 <img src="/about.assets/%7D/logo2-3.png" alt="logo2-3" style="zoom:50%;" />
 
-<div class="golf">
-	<div class="photo" style="float:left;width:8%;margin-bottom: 20px; "><img src="/about.assets/123.jpg" style=" border-radius: 550px; "></div>
-	<div class="intro" style="vertical-align: center;float:left ">
-		<p> </p>
-	    <h3 style="margin-top:-5px ">&nbsp 申一鸣 Yiming Shinn</h3>
-	</div>
-</div>
-
-<br>
-<br>
-<br>
+### 申一鸣 Yiming Shinn
 
 *A crappy photographer, a terrible CTFer, a lazy geek.*
 
