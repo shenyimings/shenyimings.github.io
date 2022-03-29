@@ -355,3 +355,72 @@ DROP INDEX <索引名>
 > - 用户对数据库的操作权限
 > - 统计信息
 
+
+
+## 查询
+
+
+
+### 带有比较运算符的子查询
+
+> 找出每个学生超过自己选修课程平均成绩的课程号
+
+```sql
+SELECT Sno,Cno
+FROM SC x
+WHERE Grade >= (SELECT AVG(Grade)
+               FROM SC y
+               WHERE y.Sno=x.Sno)
+```
+
+*相关子查询*
+
+### ANY或ALL谓词子查询
+
+> 必须同时使用比较运算
+
+- \> ANY 大于子查询结果中的某个值
+- \< ALL 小于查询结果中的所有值
+
+> 查询非计算机系比计算机系任意一个学生年龄小的学生姓名和年龄
+
+```sql
+SELECT Sname,Sage
+FROM Student
+WHERE Sdept<>'CS' AND
+	  Sage<ANY(SELECT Sage
+              	FROM Student
+              	WHERE Sdept='CS');
+```
+
+执行内嵌子查询不依赖父查询 👉 不相关子查询
+
+
+
+#### 与聚集函数的等价转换关系
+
+|      | =    | <>或!= | <    | <=    | >    | >=    |
+| ---- | ---- | ------ | ---- | ----- | ---- | ----- |
+| ANY  | IN   | --     | <MAX | <=MAX | >MIN | >=MIN |
+| ALL  | --   | NOT IN | <MIN | <=MIN | >MAX | >=MAX |
+
+### 带有EXISTS谓词的子查询
+
+> **存在量词**
+>
+> - 带有`EXISTS`的子查询不返回任何数据，只判断T或F，内层查询非空为真
+>
+> - 由`EXISTS`引出的子查询，其目标列表达式通常都用*
+
+查询了所有选修1号课程的学生姓名
+
+```sql
+SELECT Sname
+FROM Student
+WHERE EXISTS(SELECT *
+             FROM SC
+             WHERE Sno=Student.Sno AND Cno='1');
+```
+
+
+
