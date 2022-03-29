@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Techs on Console.makeHappy(_1ming)</title>
+    <link>https://shinning.cloud/categories/techs/</link>
+    <description>Recent content in Techs on Console.makeHappy(_1ming)</description>
+    <image>
+      <url>https://shinning.cloud/android-chrome-512x512.png</url>
+      <link>https://shinning.cloud/android-chrome-512x512.png</link>
+    </image>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Tue, 29 Mar 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://shinning.cloud/categories/techs/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>一个微信小程序的设计文档</title>
+      <link>https://shinning.cloud/post/php/pj_wxapp/</link>
+      <pubDate>Tue, 29 Mar 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://shinning.cloud/post/php/pj_wxapp/</guid>
+      <description>微信小程序大赛</description>
+    </item>
+    
+  </channel>
+</rss>
