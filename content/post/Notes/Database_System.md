@@ -422,5 +422,7 @@ WHERE EXISTS(SELECT *
              WHERE Sno=Student.Sno AND Cno='1');
 ```
 
+**所有IN、ANY、ALL、比较运算都能用EXISTS等价替换**
 
+SQL 语言没有全称量词$$\forall $$
 
