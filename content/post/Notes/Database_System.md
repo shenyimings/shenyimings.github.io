@@ -426,3 +426,91 @@ WHERE EXISTS(SELECT *
 
 SQL 语言没有全称量词$$\forall $$
 
+### 集合查询
+
+`UNION` `INTERSECT` `EXCEPT		`
+
+并	差	交
+
+### 基于派生表的查询
+
+> 子查询可以出现在FROM子句中，生成**临时派生表**作主查询的查询对象。
+
+
+
+```sql
+SELECT Sno, Cno
+FROM SC, (SELECT Sno,Avg(Grade)
+         FROM SC
+          GROUP BY Sno
+         ) AS Avg_sc(avg_sno,avg_grade)
+WHERE SC.Sno = Avg_sc.avg_sno AND
+	  SC.Grade >= AVG_sc.avg_grade;
+```
+
+**`FROM`中的嵌套查询子句需要`AS`定义派生表名**
+
+无聚集函数可以不指明所有的列及列名
+
+### `SELECT`语句的一般形式
+
+```sql
+SELECT [ALL|DISTINCT]
+FROM <tablename>
+WHERE <conditions>
+GROUP BY <columnname> [HAVING <conditions>]
+ORDER BY <columname> [ASC|DESC];
+```
+
+子查询不用`ORDER BY`
+
+## 数据更新
+
+### 插入数据
+
+- 插入元组
+- 插入子查询结果
+
+**格式**
+
+`INSERT` `INTO` `VALUES`
+
+**例** 插入新元组至Student表中
+
+```sql
+INSERT
+INTO SC(Sno,Cno)
+VALUES ('201215128','1');
+```
+
+如果是完整的插入，无需指明哪几列
+
+### 插入子查询的结果
+
+**例** 求各系学生平均年龄，存入数据库
+
+```sql
+CREATE TABLE Dept_age
+(
+    Sdept	CHAR(15)
+    Avg_age	SMALLINT
+);
+
+INSERT
+INTO	Dept_age(Sdept,Avg_age)
+SELECT	Sdept,AVG(Sage)
+FROM	Student
+GROUP	BY	Sdept;
+```
+
+### 插入数据的完整性约束
+
+> DBMS在插入语句时会检查插入操作是否破坏已定义的完整性规则
+
+- 实体完整性
+- 参照完整性
+- 用户定义的完整性
+  - `NOT NULL`约束
+  - `UNIQUE`约束
+  - 值域约束
+
