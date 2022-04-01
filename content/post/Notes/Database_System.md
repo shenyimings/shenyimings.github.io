@@ -485,7 +485,7 @@ VALUES ('201215128','1');
 
 如果是完整的插入，无需指明哪几列
 
-### 插入子查询的结果
+#### 插入子查询的结果
 
 **例** 求各系学生平均年龄，存入数据库
 
@@ -503,7 +503,7 @@ FROM	Student
 GROUP	BY	Sdept;
 ```
 
-### 插入数据的完整性约束
+#### 插入数据的完整性约束
 
 > DBMS在插入语句时会检查插入操作是否破坏已定义的完整性规则
 
@@ -513,4 +513,101 @@ GROUP	BY	Sdept;
   - `NOT NULL`约束
   - `UNIQUE`约束
   - 值域约束
+
+### 修改数据
+
+```sql
+UPDATE <tablename> SET
+```
+
+```sql
+UPDATE Student
+SET Sage = 22
+WHERE Sno ='837728921019'
+```
+
+#### 带子查询的修改语句
+
+**例** 将计算机系全体学生成绩归零
+
+```sql
+UPDATE SC
+SET Grade = 0
+WHERE Sno IN
+(
+    SELECT	Sno
+    FROM	Student
+    WHERE	Sdept='CS'
+);
+```
+
+#### 完整性约束
+
+同插入
+
+### 删除数据
+
+```sql
+DELETE
+FROM	<表名>
+[WHERE	<条件>];
+```
+
+#### 功能
+
+- 删除指定表中满足条件的元组
+- 表的定义仍在字典中
+
+`DROP`删整张表
+
+## 空值的处理
+
+> 空值就是不知道、不存在或无意义的值。
+
+- 该属性本来有一个值，但目前不知道（新生的班级）
+- 不应该有值
+- 不便于填写
+
+**空值是特殊的值，含有不确定性，关系运算需要做特殊处理。**
+
+**例** 插入学号、课程号、成绩的元组
+
+```sql
+INSERT INTO SC(Sno,Cno,Grade)
+VALUES('201215126','1',NULL);
+```
+
+### 视图
+
+- 虚表
+- 数据库只存放视图的定义，不存放视图对应的数据
+- 基本表中数据发生变化，视图也发生变化
+
+#### 建立视图
+
+```sql
+CREATE VIEW <viewname>
+AS <sonquery>
+[WITH CHECK OPTION];
+```
+
+**子查询**
+
+- 可以是任意的`SELECT`语句
+
+**组成视图的属性列名，可以全部省略或明确指定视图的所有列名**
+
+**例** 建立一个信息系学生的视图
+
+```sql
+CREATE VIEW IS_Student
+AS
+SELECT Sno,Sname,Sage
+FROM STUDENT
+WHERE Sdept = 'IS';
+
+WITH CHECK OPTION; /*对该视图进行更新操作时RDBMS会自动加上Sdeptd='IS'这个条*/
+```
+
+
 
