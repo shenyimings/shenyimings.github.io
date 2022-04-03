@@ -1,7 +1,7 @@
 ---
 author: "Yiming Shen"
 date: 2022-03-15
-lastmod: 2022-03-18
+lastmod: 2022-04-01
 title: "数据库系统导论笔记"
 tags: [
    "SQL",
@@ -606,8 +606,12 @@ SELECT Sno,Sname,Sage
 FROM STUDENT
 WHERE Sdept = 'IS';
 
-WITH CHECK OPTION; /*对该视图进行更新操作时RDBMS会自动加上Sdeptd='IS'这个条*/
+WITH CHECK OPTION; /*对该视图进行更新操作时RDBMS会自动加上Sdeptd='IS'这个条件*/
 ```
+
+**`IS_Student`视图是行列子集视图**
+
+
 
 
 
