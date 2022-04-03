@@ -88,3 +88,53 @@ typora-root-url: ..\..\..\static\
 *S*
 
 当一个模式需要多次使用的时候，为了得到匹配速度的提升，值得花费一些时间 对其进行一些额外的分析。如果设置了这个修饰符，这个额外的分析就会执行。当前， 这种对一个模式的分析仅仅适用于非锚定模式的匹配(即没有单独的固定开始字符)。
+
+### 练习
+
+[^测试Regex](https://regexlearn.com/zh-cn/playground)
+
+**匹配**
+
+```php
+<?php
+$subject = "my email is spark@imooc.com";
+//在这里补充代码，实现正则匹配，并输出邮箱地址
+$pattern = "/(\w+@\w+.com)/";
+preg_match($pattern,$subject,$matches);
+print_r($matches[0]);
+?>
+```
+
+```php
+<?php
+$str = "<ul>
+            <li>item 1</li>
+            <li>item 2</li>
+        </ul>";
+//在这里补充代码，实现正则匹配所有li中的数据
+$pattern = "/<li>(.*)<\/li>/i";
+preg_match_all($pattern,$str,$matches);
+print_r($matches[1]);
+```
+
+**替换**
+
+```php
+<?php
+$str = '主要有以下几个文件：index.php, style.css, common.js';
+//将目标字符串$str中的文件名替换后增加em标签
+
+$p = "/(\w+\.\w+)/";
+$rep = '<em>$0</em>';
+$str = preg_replace($p,$rep,$str);
+echo $str;
+?>
+```
+
+### 其他
+
+```php
+[^abc] //是否定字符集
+^ //是字符串或行的开头
+```
+

@@ -210,3 +210,18 @@ typora-root-url: ..\..\..\static\
 | 星期六 | 3~4小时        |               |
 | 星期日 | 4~5小时        |              |
 
+### 第7周
+
+<ul>    
+    <div class="good" style="color: green;"><li>清明节假期</li></div>
+	<div style="color: red;"><li>举办HDCTF比赛</li></div>
+    <div style="color: red;"><li>信息论与编码期末</li></div>
+    <div style="color: red;"><li>五月CTF国赛</li></div>
+    <div style="color: red;"><li>参加微信小程序大赛</li></div>
+</ul>
+
+
+
+
+
+
