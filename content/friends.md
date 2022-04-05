@@ -44,6 +44,14 @@ typora-root-url: ..\static\
 
 {{<friend name= "I'm cloxnu" url="https://clox.nu/" logo="https://clox.nu/logo/favicon.ico" word="Welcome to cloxnu’s creative space.">}}
 
+---
+
+## 友情链接~
+
+{{<friend name= "北屿" url="https://blog.bj-yan.top/" logo="https://avatars.githubusercontent.com/u/44976445" word="北屿小智障">}}
+
+---
+
 ## 交换友链
 
 可在本页下提交评论
