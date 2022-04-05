@@ -36,7 +36,7 @@
 <meta name=twitter:title content="PHP Tutorial">
 <meta name=twitter:description content="PHP is the best language for web programming.">
 <script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":2,"name":"文章","item":"https://shinning.cloud/post/"},{"@type":"ListItem","position":3,"name":"👨🏻‍💻Web 前后端","item":"https://shinning.cloud/post/php/"},{"@type":"ListItem","position":4,"name":"PHP Tutorial","item":"https://shinning.cloud/post/php/php_tutorial/"}]}</script>
-<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"PHP Tutorial","name":"PHP Tutorial","description":"PHP is the best language for web programming.","keywords":["PHP","Web","Note"],"articleBody":"正则表达式 使用PCRE库函数preg_match\n^PHP: preg_match - Manual\npattern 要搜索的模式，字符串类型。\nsubject 输入字符串。\nmatches 如果提供了参数matches，它将被填充为搜索结果。 $matches[0]将包含完整模式匹配到的文本， $matches[1] 将包含第一个捕获子组匹配到的文本，以此类推。\nflags\n可以被设置为以下标记值的组合:\n  PREG_OFFSET_CAPTURE\n对于每一个出现的匹配返回时会附加字符串偏移量(相对于目标字符串的字节数)\n  offset\n指定从目标字符串的某个位置开始搜索（单位是字节）\n  **返回值：**匹配次数\n分隔符 / # ~  如果模式中包含分隔符，需要使用反斜杠\\进行转义 分隔符后可使用模式修饰符i m s x\n模式修饰符 ^RegexLearn\ni (PCRE_CASELESS)\n如果设置了这个修饰符，模式中的字母会进行大小写不敏感匹配。\nm (PCRE_MULTILINE)\n默认情况下，PCRE 认为目标字符串是由单行字符组成的(然而实际上它可能会包含多行)， “行首\"元字符 (^) 仅匹配字符串的开始位置， 而\"行末\"元字符 ($) 仅匹配字符串末尾， 或者最后的换行符(除非设置了 D 修饰符)\ns (PCRE_DOTALL)\n如果设置了这个修饰符，模式中的点号元字符匹配所有字符，包含换行符。如果没有这个 修饰符，点号不匹配换行符。这个修饰符等同于 perl 中的/s修饰符。 一个取反字符类比如 [^a] 总是匹配换行符，而不依赖于这个修饰符的设置。\nx (PCRE_EXTENDED)\n如果设置了这个修饰符，模式中的没有经过转义的或不在字符类中的空白数据字符总会被忽略， 并且位于一个未转义的字符类外部的#字符和下一个换行符之间的字符也被忽略。\nA (PCRE_ANCHORED)\n如果设置了这个修饰符，模式被强制为\"锚定\"模式，也就是说约束匹配使其仅从 目标字符串的开始位置搜索。这个效果同样可以使用适当的模式构造出来，并且 这也是 perl 种实现这种模式的唯一途径。\nD (PCRE_DOLLAR_ENDONLY)\n如果这个修饰符被设置，模式中的元字符美元符号仅仅匹配目标字符串的末尾。如果这个修饰符 没有设置，当字符串以一个换行符结尾时， 美元符号还会匹配该换行符(但不会匹配之前的任何换行符)。 如果设置了修饰符m，这个修饰符被忽略. 在 perl 中没有与此修饰符等同的修饰符。\nS\n当一个模式需要多次使用的时候，为了得到匹配速度的提升，值得花费一些时间 对其进行一些额外的分析。如果设置了这个修饰符，这个额外的分析就会执行。当前， 这种对一个模式的分析仅仅适用于非锚定模式的匹配(即没有单独的固定开始字符)。\n练习 ^测试Regex\n匹配\nphp $subject = \"my email is spark@imooc.com\"; //在这里补充代码，实现正则匹配，并输出邮箱地址 $pattern = \"/(\\w+@\\w+.com)/\"; preg_match($pattern,$subject,$matches); print_r($matches[0]); ?php $str = \" item 1 item 2 \"; //在这里补充代码，实现正则匹配所有li中的数据 $pattern = \"/(.*)/i\"; preg_match_all($pattern,$str,$matches); print_r($matches[1]); 替换\nphp $str = '主要有以下几个文件：index.php, style.css, common.js'; //将目标字符串$str中的文件名替换后增加em标签  $p = \"/(\\w+\\.\\w+)/\"; $rep = '$0'; $str = preg_replace($p,$rep,$str); echo $str; ?其他 [^abc] //是否定字符集 ^ //是字符串或行的开头 ","wordCount":"1123","inLanguage":"en","datePublished":"2022-04-02T00:00:00Z","dateModified":"2022-04-02T00:00:00Z","author":{"@type":"Person","name":"Yiming Shen"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://shinning.cloud/post/php/php_tutorial/"},"publisher":{"@type":"Organization","name":"Console.makeHappy(_1ming)","logo":{"@type":"ImageObject","url":"https://shinning.cloud/favicon.ico"}}}</script>
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"PHP Tutorial","name":"PHP Tutorial","description":"PHP is the best language for web programming.","keywords":["PHP","Web","Note"],"articleBody":"正则表达式 使用PCRE库函数preg_match\n^PHP: preg_match - Manual\npattern 要搜索的模式，字符串类型。\nsubject 输入字符串。\nmatches 如果提供了参数matches，它将被填充为搜索结果。 $matches[0]将包含完整模式匹配到的文本， $matches[1] 将包含第一个捕获子组匹配到的文本，以此类推。\nflags\n可以被设置为以下标记值的组合:\n  PREG_OFFSET_CAPTURE\n对于每一个出现的匹配返回时会附加字符串偏移量(相对于目标字符串的字节数)\n  offset\n指定从目标字符串的某个位置开始搜索（单位是字节）\n  **返回值：**匹配次数\n分隔符 / # ~  如果模式中包含分隔符，需要使用反斜杠\\进行转义 分隔符后可使用模式修饰符i m s x\n模式修饰符 ^RegexLearn\ni (PCRE_CASELESS)\n如果设置了这个修饰符，模式中的字母会进行大小写不敏感匹配。\nm (PCRE_MULTILINE)\n默认情况下，PCRE 认为目标字符串是由单行字符组成的(然而实际上它可能会包含多行)， “行首\"元字符 (^) 仅匹配字符串的开始位置， 而\"行末\"元字符 ($) 仅匹配字符串末尾， 或者最后的换行符(除非设置了 D 修饰符)\ns (PCRE_DOTALL)\n如果设置了这个修饰符，模式中的点号元字符匹配所有字符，包含换行符。如果没有这个 修饰符，点号不匹配换行符。这个修饰符等同于 perl 中的/s修饰符。 一个取反字符类比如 [^a] 总是匹配换行符，而不依赖于这个修饰符的设置。\nx (PCRE_EXTENDED)\n如果设置了这个修饰符，模式中的没有经过转义的或不在字符类中的空白数据字符总会被忽略， 并且位于一个未转义的字符类外部的#字符和下一个换行符之间的字符也被忽略。\nA (PCRE_ANCHORED)\n如果设置了这个修饰符，模式被强制为\"锚定\"模式，也就是说约束匹配使其仅从 目标字符串的开始位置搜索。这个效果同样可以使用适当的模式构造出来，并且 这也是 perl 种实现这种模式的唯一途径。\nD (PCRE_DOLLAR_ENDONLY)\n如果这个修饰符被设置，模式中的元字符美元符号仅仅匹配目标字符串的末尾。如果这个修饰符 没有设置，当字符串以一个换行符结尾时， 美元符号还会匹配该换行符(但不会匹配之前的任何换行符)。 如果设置了修饰符m，这个修饰符被忽略. 在 perl 中没有与此修饰符等同的修饰符。\nS\n当一个模式需要多次使用的时候，为了得到匹配速度的提升，值得花费一些时间 对其进行一些额外的分析。如果设置了这个修饰符，这个额外的分析就会执行。当前， 这种对一个模式的分析仅仅适用于非锚定模式的匹配(即没有单独的固定开始字符)。\n练习 ^测试Regex\n匹配\nphp $subject = \"my email is spark@imooc.com\"; //在这里补充代码，实现正则匹配，并输出邮箱地址 $pattern = \"/(\\w+@\\w+.com)/\"; preg_match($pattern,$subject,$matches); print_r($matches[0]); ?php $str = \" item 1 item 2 \"; //在这里补充代码，实现正则匹配所有li中的数据 $pattern = \"/(.*)/i\"; preg_match_all($pattern,$str,$matches); print_r($matches[1]); 替换\nphp $str = '主要有以下几个文件：index.php, style.css, common.js'; //将目标字符串$str中的文件名替换后增加em标签  $p = \"/(\\w+\\.\\w+)/\"; $rep = '$0'; $str = preg_replace($p,$rep,$str); echo $str; ?其他 [^abc] //是否定字符集 ^ //是字符串或行的开头 Session与Cookie  使用session存储用户登录信息\n php session_start(); //假设用户登录成功获得了以下用户数据 $userinfo = array( 'uid' = 10000, 'name' = 'spark', 'email' = 'spark@imooc.com', 'sex' = 'man', 'age' = '18' ); header(\"content-type:text/html; charset=utf-8\"); /* 将用户信息保存到session中 */ $_SESSION['uid'] = $userinfo['uid']; $_SESSION['name'] = $userinfo['name']; $_SESSION['userinfo'] = $userinfo; //* 将用户数据保存到cookie中的一个简单方法 */ $secureKey = 'imooc'; //加密密钥 $str = serialize($userinfo); //将用户信息序列化 //用户信息加密前 $str = base64_encode(mcrypt_encrypt(MCRYPT_RIJNDAEL_256, md5($secureKey), $str, MCRYPT_MODE_ECB)); //用户信息加密后 //将加密后的用户数据存储到cookie中 setcookie('userinfo', $str); //当需要使用时进行解密 $str = mcrypt_decrypt(MCRYPT_RIJNDAEL_256, md5($secureKey), base64_decode($str), MCRYPT_MODE_ECB); $uinfo = unserialize($str); echo \"解密后的用户信息：\n\"; print_r($uinfo); ","wordCount":"1369","inLanguage":"en","datePublished":"2022-04-02T00:00:00Z","dateModified":"2022-04-02T00:00:00Z","author":{"@type":"Person","name":"Yiming Shen"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://shinning.cloud/post/php/php_tutorial/"},"publisher":{"@type":"Organization","name":"Console.makeHappy(_1ming)","logo":{"@type":"ImageObject","url":"https://shinning.cloud/favicon.ico"}}}</script>
 </head>
 <body id=top>
 <script>localStorage.getItem("pref-theme")==="dark"?document.body.classList.add('dark'):localStorage.getItem("pref-theme")==="light"?document.body.classList.remove('dark'):window.matchMedia('(prefers-color-scheme: dark)').matches&&document.body.classList.add('dark')</script>
@@ -129,9 +129,10 @@ April 2, 2022&nbsp;·&nbsp;April 2, 2022&nbsp;·&nbsp;3 min&nbsp;·&nbsp;Yiming 
 <li>
 <a href=#%e7%bb%83%e4%b9%a0 aria-label=练习>练习</a></li>
 <li>
-<a href=#%e5%85%b6%e4%bb%96 aria-label=其他>其他</a>
+<a href=#%e5%85%b6%e4%bb%96 aria-label=其他>其他</a></li></ul>
 </li>
-</ul>
+<li>
+<a href=#session%e4%b8%8ecookie aria-label=Session与Cookie>Session与Cookie</a>
 </li>
 </ul>
 </div>
@@ -214,7 +215,42 @@ $str <span style=color:#f92672>=</span> <span style=color:#a6e22e>preg_replace</
 </span></code></pre></div><h3 id=其他>其他<a hidden class=anchor aria-hidden=true href=#其他>#</a></h3>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-php data-lang=php>[<span style=color:#f92672>^</span><span style=color:#a6e22e>abc</span>] <span style=color:#75715e>//是否定字符集
 </span><span style=color:#75715e></span><span style=color:#f92672>^</span> <span style=color:#75715e>//是字符串或行的开头
-</span></code></pre></div>
+</span></code></pre></div><h2 id=session与cookie>Session与Cookie<a hidden class=anchor aria-hidden=true href=#session与cookie>#</a></h2>
+<blockquote>
+<p>使用<code>session</code>存储用户登录信息</p>
+</blockquote>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-php data-lang=php><span style=color:#f92672>&lt;?</span><span style=color:#a6e22e>php</span>
+<span style=color:#a6e22e>session_start</span>();
+<span style=color:#75715e>//假设用户登录成功获得了以下用户数据
+</span><span style=color:#75715e></span>$userinfo <span style=color:#f92672>=</span> <span style=color:#66d9ef>array</span>(
+    <span style=color:#e6db74>&#39;uid&#39;</span>  <span style=color:#f92672>=&gt;</span> <span style=color:#ae81ff>10000</span>,
+    <span style=color:#e6db74>&#39;name&#39;</span> <span style=color:#f92672>=&gt;</span> <span style=color:#e6db74>&#39;spark&#39;</span>,
+    <span style=color:#e6db74>&#39;email&#39;</span> <span style=color:#f92672>=&gt;</span> <span style=color:#e6db74>&#39;spark@imooc.com&#39;</span>,
+    <span style=color:#e6db74>&#39;sex&#39;</span>  <span style=color:#f92672>=&gt;</span> <span style=color:#e6db74>&#39;man&#39;</span>,
+    <span style=color:#e6db74>&#39;age&#39;</span>  <span style=color:#f92672>=&gt;</span> <span style=color:#e6db74>&#39;18&#39;</span>
+);
+<span style=color:#a6e22e>header</span>(<span style=color:#e6db74>&#34;content-type:text/html; charset=utf-8&#34;</span>);
+
+<span style=color:#75715e>/* 将用户信息保存到session中 */</span>
+$_SESSION[<span style=color:#e6db74>&#39;uid&#39;</span>] <span style=color:#f92672>=</span> $userinfo[<span style=color:#e6db74>&#39;uid&#39;</span>];
+$_SESSION[<span style=color:#e6db74>&#39;name&#39;</span>] <span style=color:#f92672>=</span> $userinfo[<span style=color:#e6db74>&#39;name&#39;</span>];
+$_SESSION[<span style=color:#e6db74>&#39;userinfo&#39;</span>] <span style=color:#f92672>=</span> $userinfo;
+
+<span style=color:#75715e>//* 将用户数据保存到cookie中的一个简单方法 */
+</span><span style=color:#75715e></span>$secureKey <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;imooc&#39;</span>; <span style=color:#75715e>//加密密钥
+</span><span style=color:#75715e></span>$str <span style=color:#f92672>=</span> <span style=color:#a6e22e>serialize</span>($userinfo); <span style=color:#75715e>//将用户信息序列化
+</span><span style=color:#75715e>//用户信息加密前
+</span><span style=color:#75715e></span>$str <span style=color:#f92672>=</span> <span style=color:#a6e22e>base64_encode</span>(<span style=color:#a6e22e>mcrypt_encrypt</span>(<span style=color:#a6e22e>MCRYPT_RIJNDAEL_256</span>, <span style=color:#a6e22e>md5</span>($secureKey), $str, <span style=color:#a6e22e>MCRYPT_MODE_ECB</span>));
+<span style=color:#75715e>//用户信息加密后
+</span><span style=color:#75715e>//将加密后的用户数据存储到cookie中
+</span><span style=color:#75715e></span><span style=color:#a6e22e>setcookie</span>(<span style=color:#e6db74>&#39;userinfo&#39;</span>, $str);
+
+<span style=color:#75715e>//当需要使用时进行解密
+</span><span style=color:#75715e></span>$str <span style=color:#f92672>=</span> <span style=color:#a6e22e>mcrypt_decrypt</span>(<span style=color:#a6e22e>MCRYPT_RIJNDAEL_256</span>, <span style=color:#a6e22e>md5</span>($secureKey), <span style=color:#a6e22e>base64_decode</span>($str), <span style=color:#a6e22e>MCRYPT_MODE_ECB</span>);
+$uinfo <span style=color:#f92672>=</span> <span style=color:#a6e22e>unserialize</span>($str);
+<span style=color:#66d9ef>echo</span> <span style=color:#e6db74>&#34;解密后的用户信息：&lt;br&gt;&#34;</span>;
+<span style=color:#a6e22e>print_r</span>($uinfo);
+</code></pre></div>
 </div>
 <footer class=post-footer>
 <ul class=post-tags>
