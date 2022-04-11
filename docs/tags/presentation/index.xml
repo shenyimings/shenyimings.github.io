@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Presentation on Console.makeHappy(_1ming)</title>
+    <link>https://shinning.cloud/tags/presentation/</link>
+    <description>Recent content in Presentation on Console.makeHappy(_1ming)</description>
+    <image>
+      <url>https://shinning.cloud/android-chrome-512x512.png</url>
+      <link>https://shinning.cloud/android-chrome-512x512.png</link>
+    </image>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Mon, 11 Apr 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://shinning.cloud/tags/presentation/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Pattern Depends</title>
+      <link>https://shinning.cloud/post/essays/pattern_depends/</link>
+      <pubDate>Mon, 11 Apr 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://shinning.cloud/post/essays/pattern_depends/</guid>
+      <description>Which is more important, the right to privacy or the right to know?   The importance of both depends on your position.   ​	For example, in a family where we usually think as children, our right to privacy is more important: our parents should not break into our rooms at will, should not look through our cell phones or diaries, and this is the view we have always held.</description>
+    </item>
+    
+  </channel>
+</rss>
