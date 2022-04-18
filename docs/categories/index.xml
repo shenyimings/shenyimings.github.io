@@ -9,7 +9,16 @@
       <link>https://shinning.cloud/android-chrome-512x512.png</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Mon, 11 Apr 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://shinning.cloud/categories/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 18 Apr 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://shinning.cloud/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Essays</title>
+      <link>https://shinning.cloud/categories/essays/</link>
+      <pubDate>Mon, 18 Apr 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://shinning.cloud/categories/essays/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>English</title>
       <link>https://shinning.cloud/categories/english/</link>
@@ -88,15 +97,6 @@
       <pubDate>Tue, 22 Feb 2022 00:00:00 +0000</pubDate>
       
       <guid>https://shinning.cloud/categories/plans/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Essays</title>
-      <link>https://shinning.cloud/categories/essays/</link>
-      <pubDate>Wed, 09 Feb 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://shinning.cloud/categories/essays/</guid>
       <description></description>
     </item>
     
