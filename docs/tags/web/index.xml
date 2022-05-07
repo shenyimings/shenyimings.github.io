@@ -9,7 +9,16 @@
       <link>https://shinning.cloud/android-chrome-512x512.png</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sat, 02 Apr 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://shinning.cloud/tags/web/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 05 May 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://shinning.cloud/tags/web/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>微信小程序云开发学习</title>
+      <link>https://shinning.cloud/post/php/wxapp_serverless/</link>
+      <pubDate>Thu, 05 May 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://shinning.cloud/post/php/wxapp_serverless/</guid>
+      <description>云开发概述 云函数 （定时触发） 云数据库 （Json数据库） 云调用 （调用腾讯云服务） HTTP API （对接第三方服务） 云存储 （放置项目文件） 云开发模式 小程序端</description>
+    </item>
+    
     <item>
       <title>PHP Tutorial</title>
       <link>https://shinning.cloud/post/php/php_tutorial/</link>

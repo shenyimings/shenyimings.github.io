@@ -9,29 +9,11 @@
       <link>https://shinning.cloud/android-chrome-512x512.png</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Mon, 18 Apr 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://shinning.cloud/categories/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Essays</title>
-      <link>https://shinning.cloud/categories/essays/</link>
-      <pubDate>Mon, 18 Apr 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://shinning.cloud/categories/essays/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>English</title>
-      <link>https://shinning.cloud/categories/english/</link>
-      <pubDate>Mon, 11 Apr 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://shinning.cloud/categories/english/</guid>
-      <description></description>
-    </item>
-    
+    <lastBuildDate>Thu, 05 May 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://shinning.cloud/categories/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Notes</title>
       <link>https://shinning.cloud/categories/notes/</link>
-      <pubDate>Sat, 02 Apr 2022 00:00:00 +0000</pubDate>
+      <pubDate>Thu, 05 May 2022 00:00:00 +0000</pubDate>
       
       <guid>https://shinning.cloud/categories/notes/</guid>
       <description></description>
@@ -40,7 +22,7 @@
     <item>
       <title>PHP</title>
       <link>https://shinning.cloud/categories/php/</link>
-      <pubDate>Sat, 02 Apr 2022 00:00:00 +0000</pubDate>
+      <pubDate>Thu, 05 May 2022 00:00:00 +0000</pubDate>
       
       <guid>https://shinning.cloud/categories/php/</guid>
       <description></description>
@@ -49,9 +31,27 @@
     <item>
       <title>Techs</title>
       <link>https://shinning.cloud/categories/techs/</link>
-      <pubDate>Tue, 29 Mar 2022 00:00:00 +0000</pubDate>
+      <pubDate>Thu, 05 May 2022 00:00:00 +0000</pubDate>
       
       <guid>https://shinning.cloud/categories/techs/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>English</title>
+      <link>https://shinning.cloud/categories/english/</link>
+      <pubDate>Thu, 28 Apr 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://shinning.cloud/categories/english/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Essays</title>
+      <link>https://shinning.cloud/categories/essays/</link>
+      <pubDate>Mon, 18 Apr 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://shinning.cloud/categories/essays/</guid>
       <description></description>
     </item>
     

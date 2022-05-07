@@ -4,9 +4,9 @@ date: 2022-03-29
 lastmod: 2022-03-29
 title: "一个微信小程序的设计文档"
 tags: [
-    "tech",
-    "match",
-    "note",
+    "Tech",
+    "Match",
+    "Note",
     
 ]
 categories: [

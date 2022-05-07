@@ -9,7 +9,7 @@
       <link>https://shinning.cloud/android-chrome-512x512.png</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Mon, 18 Apr 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://shinning.cloud/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 05 May 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://shinning.cloud/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>🏃大二下的一点想法</title>
       <link>https://shinning.cloud/post/plan/plan_sophomore_year_2/</link>
@@ -44,6 +44,25 @@
       
       <guid>https://shinning.cloud/about/</guid>
       <description>申一鸣 Yiming Shinn A crappy photographer, a terrible CTFer, a lazy geek. A photography lover, a CTF learner, a geek spirit follower. About My Blog 正经人谁写日记啊。 我是正经人，我写。 现在的互联网上最不缺的就是内容发布平台，小到个人Q</description>
+    </item>
+    
+    <item>
+      <title>微信小程序云开发学习</title>
+      <link>https://shinning.cloud/post/php/wxapp_serverless/</link>
+      <pubDate>Thu, 05 May 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://shinning.cloud/post/php/wxapp_serverless/</guid>
+      <description>云开发概述 云函数 （定时触发） 云数据库 （Json数据库） 云调用 （调用腾讯云服务） HTTP API （对接第三方服务） 云存储 （放置项目文件） 云开发模式 小程序端</description>
+    </item>
+    
+    <item>
+      <title>My role in building a community with a shared future for mankind</title>
+      <link>https://shinning.cloud/post/essays/myrolein/</link>
+      <pubDate>Thu, 28 Apr 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://shinning.cloud/post/essays/myrolein/</guid>
+      <description>Taking Collective Responsibility ​	Ladies and gentlemen. I&amp;rsquo;m Yiming Shinn, a student at Hainan University. Have you ever heard of Responsibility? Oh, I mean, Collective Responsibility.
+​	Every Chinese must have heard these words from childhood to adulthood. In my primary school years and being part of a class for the first time, I was taught to study hard as my grade is not only mine but also on behalf of our whole class.</description>
     </item>
     
     <item>
