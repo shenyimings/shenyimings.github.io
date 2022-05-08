@@ -104,3 +104,102 @@ Promise.all([p1,p2,p3]).then((res)=>{
 
 ##### async await （ES7）
 
+### 云函数
+
+#### 调用数据库
+
+```javascript
+const cloud = require('wx-server-sdk')
+cloud.init()
+const db = cloud.database()
+const pdb = db.collection('playlist').get()
+// 初始化
+exports.main = async (event,context)=>{
+    
+    await db.collection ('posts').add({
+        data:{
+            ...context, // 插入每一条数据
+            createTime: db.serverDate(),
+        }
+    }).then((res)=>{
+        console.log('插入成功')
+    }).catch((err)=>{
+        console.error('插入失败')
+    })
+}
+```
+
+#### 数据去重
+
+双重循环比对
+
+#### 突破数据条数限制
+
+核心代码
+
+```javascript
+for (let i = 0; i<batchTimes; i++){
+    let promise = playlistCollection.skip(i*MAX_LIMIT).limit(MAX_LIMIT)
+    tasks.push(promise)
+}
+list = (await Promise.all(tasks)).reduce((acc,cur) =>{
+    return{
+        data: acc.data.concat(cur.data)
+    }
+})
+```
+
+#### 定时触发云函数
+
+在`config.json`中
+
+```javascript
+{
+    "triggers": [
+        {
+            "name": "myTrigger",
+            "type": "timer",
+            "config": "0 0 10,14,16 * * * *"
+        }
+    ]
+}
+```
+
+每天10点 14点 16点执行
+
+**需要手动上传触发器**
+
+#### 数据库操作
+
+**云函数：**
+
+```javascript
+exports.main = async (event,context) =>{
+    return await cloud.database().collection('posts')
+    .skip(event.start).limit(event.count)
+    .orderBy('createTime','desc')
+    .get()
+    .then((res) => {
+        return res
+    })
+}
+```
+
+**前端**
+
+```javascript
+onLoad (options){
+    wx.cloud.callFunction({
+        name: 'getPosts',
+        data: {
+            start: this.data.posts.length,
+            count: 15
+        }
+    }).then((res)=>{
+        this.setData({
+            posts: res.result.data
+        })
+    })
+}
+```
+
