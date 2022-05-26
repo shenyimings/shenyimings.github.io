@@ -20,9 +20,9 @@ typora-root-url: ..\..\static\
 
 ## 提纲
 
-1. 古典密码学 Caesar Playfair Hill 维吉尼亚 Affine
+1. 古典密码学 Caesar Playfair **Hill** 维吉尼亚 **Affine**
 2. **分组密码** Feistel网络结构 DES
-3. 群环域 域上的乘法 AES
+3. 群环域 **域上的乘法** AES
 4. **公钥密码** RSA EIGamal
 5. 椭圆曲线 密钥交换协议Diffie-Hellman
 6. Hash函数 SHA1 SHA256 MD5
@@ -102,3 +102,25 @@ X->A->Y，A检验报文和签名的出处、内容，注明日期，加上仲裁
 2. **签名算法**，利用私钥进行签名
 3. **验证算法**，利用公钥验证签名
 
+### RSA 数字签名
+
+#### RSA公钥算法
+
+$$
+大素数p、q \newline
+n=p\times q\quad \phi(n)=(p-1)(q-1) \newline
+随机正整数1<e<\phi(n),满足gcd(e,\phi(n))=1\newline
+计算d 满足 d\times e =1(mod\quad\phi(n))\newline
+加密变换： 对明文m\in Z_n, c=m^e (mod\quad n)\newline
+解密变换： 对密文c\in Z_n, m=c^d (mod\quad n)
+$$
+
+> 手算RSA的前置技能：**模逆运算**（扩展欧几里得算法）**快速幂模运算**
+
+#### 数字签名实现
+
+密钥的生成完全相同，签名时：
+$$
+m\in Z_n, Sig(m)=m^d(mod \quad n)\newline
+S\in Z_n, 若
+$$
