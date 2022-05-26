@@ -63,7 +63,7 @@ typora-root-url: ..\..\static\
 
 #### 普通数字签名
 
-> **RSA EIGamal Schnorr** 椭圆曲线数字签名算法、有限自动机数字签名算法。
+> **RSA EIGamal Schnorr** 椭圆曲线数字签名算法、**DSA数字签名算法**、有限自动机数字签名算法。
 
 ####  特殊数字签名
 
@@ -104,7 +104,7 @@ X->A->Y，A检验报文和签名的出处、内容，注明日期，加上仲裁
 
 ### RSA 数字签名
 
-#### RSA公钥算法
+#### RSA 公钥算法
 
 $$
 大素数p、q \newline
@@ -122,5 +122,32 @@ $$
 密钥的生成完全相同，签名时：
 $$
 m\in Z_n, Sig(m)=m^d(mod \quad n)\newline
-S\in Z_n, 若
+S\in Z_n, 若m=S^e (mod\quad n)，则认为s为消息m的有效签名
 $$
+
+### EIGamal 数字签名
+
+#### 密钥参数生成
+
+$$
+选定大素数p\\\\
+选取g,x<p\\\\
+y=g^x(mod\quad p)\\\\
+\{y,g,p\}即为公钥，x为私钥
+$$
+
+#### 签名过程
+
+$$
+K=公钥\{y,p,g\}私钥 x\\\\
+签名算法：对随机数k,待签消息m，定义Sig(x,k)=(r,s)\\\\
+r=g^k(mod\quad p),s=(m-xr)k^{-1}mod(p-1)\\\\
+验证算法：Ver(m,r,s): y^rr^s\equiv g^m(mod\quad p)?true:false
+$$
+
+#### 注意
+
+1. 每次签名应选择不同的随机数k，否则有可能私钥x能被算出
+2. EIGamal 效率低于RSA 且有两倍的消息扩张
+3. EIGamal数字签名也可以推广到合适的循环群中，某些变形能被证明在选择消息攻击下是安全的
+
