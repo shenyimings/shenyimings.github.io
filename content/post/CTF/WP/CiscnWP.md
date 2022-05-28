@@ -16,7 +16,7 @@ categories: [
 math: true
 typora-root-url: ..\..\..\..\static\
 cover:
-    image: "/CNSS%20Recruit-Web%20Write%20UP%20(copy).assets/%7D/crypt0-3.png
+    image: "/CNSS%20Recruit-Web%20Write%20UP%20(copy).assets/%7D/crypt0-3.png"
 ---
 
 ## 一、战队信息
