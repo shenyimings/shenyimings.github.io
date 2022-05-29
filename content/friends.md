@@ -18,6 +18,8 @@ typora-root-url: ..\static\
 
 {{<friend name= "WingerBlog" url="https://blog.winger216.bid/" logo="https://blog.winger216.bid/img/avatar_hu660a25d0d5393b05f07783c8b24b29d6_29042_300x0_resize_box_2.png" word="to think and to share">}} 
 
+{{<friend name= "北屿" url="https://blog.bj-yan.top/" logo="https://avatars.githubusercontent.com/u/44976445" word="北屿小智障">}}
+
 ---
 
 ## 特别鸣谢
@@ -43,12 +45,6 @@ typora-root-url: ..\static\
 > cloxnu，帅气的IOS开发者。
 
 {{<friend name= "I'm cloxnu" url="https://clox.nu/" logo="https://clox.nu/logo/favicon.ico" word="Welcome to cloxnu’s creative space.">}}
-
----
-
-## 友情链接~
-
-{{<friend name= "北屿" url="https://blog.bj-yan.top/" logo="https://avatars.githubusercontent.com/u/44976445" word="北屿小智障">}}
 
 ---
 

