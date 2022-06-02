@@ -11,7 +11,7 @@ tags: [
 ]
 categories: [
     "Notes", 
-    "Techs",
+    "Technology",
     "PHP",
 ]
 math: true

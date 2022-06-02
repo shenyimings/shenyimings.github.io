@@ -11,7 +11,7 @@ tags: [
 ]
 categories: [
     "Notes",
-    "Techs",
+    "Technology",
 ]
 # weight: 1
 math: true
