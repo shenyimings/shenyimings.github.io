@@ -2,20 +2,20 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>PHP on Console.makeHappy(_1ming)</title>
-    <link>https://shinning.cloud/tags/php/</link>
+    <link>https://shenyiming.life/tags/php/</link>
     <description>Recent content in PHP on Console.makeHappy(_1ming)</description>
     <image>
-      <url>https://shinning.cloud/android-chrome-512x512.png</url>
-      <link>https://shinning.cloud/android-chrome-512x512.png</link>
+      <url>https://shenyiming.life/android-chrome-512x512.png</url>
+      <link>https://shenyiming.life/android-chrome-512x512.png</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sat, 02 Apr 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://shinning.cloud/tags/php/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 02 Apr 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://shenyiming.life/tags/php/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>PHP Tutorial</title>
-      <link>https://shinning.cloud/post/php/php_tutorial/</link>
+      <link>https://shenyiming.life/post/php/php_tutorial/</link>
       <pubDate>Sat, 02 Apr 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://shinning.cloud/post/php/php_tutorial/</guid>
+      <guid>https://shenyiming.life/post/php/php_tutorial/</guid>
       <description>PHP is the best language for web programming.</description>
     </item>
     

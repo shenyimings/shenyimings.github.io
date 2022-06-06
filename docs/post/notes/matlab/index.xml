@@ -2,56 +2,56 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>🧮MATLAB 学习 on Console.makeHappy(_1ming)</title>
-    <link>https://shinning.cloud/post/notes/matlab/</link>
+    <link>https://shenyiming.life/post/notes/matlab/</link>
     <description>Recent content in 🧮MATLAB 学习 on Console.makeHappy(_1ming)</description>
     <image>
-      <url>https://shinning.cloud/android-chrome-512x512.png</url>
-      <link>https://shinning.cloud/android-chrome-512x512.png</link>
+      <url>https://shenyiming.life/android-chrome-512x512.png</url>
+      <link>https://shenyiming.life/android-chrome-512x512.png</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Tue, 22 Feb 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://shinning.cloud/post/notes/matlab/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 22 Feb 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://shenyiming.life/post/notes/matlab/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>MCM/ICM 赛后总结</title>
-      <link>https://shinning.cloud/post/notes/matlab/2022%E7%BE%8E%E8%B5%9B%E6%96%87%E6%A1%A3/</link>
+      <link>https://shenyiming.life/post/notes/matlab/2022%E7%BE%8E%E8%B5%9B%E6%96%87%E6%A1%A3/</link>
       <pubDate>Tue, 22 Feb 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://shinning.cloud/post/notes/matlab/2022%E7%BE%8E%E8%B5%9B%E6%96%87%E6%A1%A3/</guid>
+      <guid>https://shenyiming.life/post/notes/matlab/2022%E7%BE%8E%E8%B5%9B%E6%96%87%E6%A1%A3/</guid>
       <description>声明 Statement 本文写作于2022年2月22日10时美赛结束后 发布于2月22日17时。 This article was written at 10 am. on February 22, 2022 and published at 5 pm. on February 22, after the end of the MCM/ICM. 题目 Problem A Power Profile of</description>
     </item>
     
     <item>
       <title>Less-4 MATLAB初阶绘图</title>
-      <link>https://shinning.cloud/post/notes/matlab/less-4_%E5%88%9D%E9%98%B6%E7%BB%98%E5%9B%BE/</link>
+      <link>https://shenyiming.life/post/notes/matlab/less-4_%E5%88%9D%E9%98%B6%E7%BB%98%E5%9B%BE/</link>
       <pubDate>Thu, 03 Feb 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://shinning.cloud/post/notes/matlab/less-4_%E5%88%9D%E9%98%B6%E7%BB%98%E5%9B%BE/</guid>
+      <guid>https://shenyiming.life/post/notes/matlab/less-4_%E5%88%9D%E9%98%B6%E7%BB%98%E5%9B%BE/</guid>
       <description>图线绘制 在MATLAB中，使用plot()函数绘制图线，语法为： plot(x,y,linespec) x:图线的横坐标 y:图线的纵坐标 可以仅指定x或者y变量内容，另一参数由系统</description>
     </item>
     
     <item>
       <title>Less-3 MATLAB数据结构&amp;文件存取</title>
-      <link>https://shinning.cloud/post/notes/matlab/less-3_%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E6%96%87%E4%BB%B6%E5%AD%98%E5%8F%96/</link>
+      <link>https://shenyiming.life/post/notes/matlab/less-3_%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E6%96%87%E4%BB%B6%E5%AD%98%E5%8F%96/</link>
       <pubDate>Sat, 29 Jan 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://shinning.cloud/post/notes/matlab/less-3_%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E6%96%87%E4%BB%B6%E5%AD%98%E5%8F%96/</guid>
+      <guid>https://shenyiming.life/post/notes/matlab/less-3_%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E6%96%87%E4%BB%B6%E5%AD%98%E5%8F%96/</guid>
       <description>数据类型 数值类型 默认为double类型，可用int8()转换为int型 数值型 描述 double 双精度浮点数 single 单精度浮点数 uint8 uint16 uint32 uint64 8~64位无符号整数 int8 int16</description>
     </item>
     
     <item>
       <title>Less-2 MATLAB结构程序与自定函数</title>
-      <link>https://shinning.cloud/post/notes/matlab/less-2_scriptfunction/</link>
+      <link>https://shenyiming.life/post/notes/matlab/less-2_scriptfunction/</link>
       <pubDate>Sun, 23 Jan 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://shinning.cloud/post/notes/matlab/less-2_scriptfunction/</guid>
+      <guid>https://shenyiming.life/post/notes/matlab/less-2_scriptfunction/</guid>
       <description>脚本模式 脚本模式用于编写结构化程序 示例 for i=1:10 x=linspace(0,10,100); plot(x,sin(x+i)); print(gcf,&amp;#39;-deps&amp;#39;,strcat(&amp;#39;plot&amp;#39;,num2str(i),&amp;#39;.ps&amp;#39;)); end 画0-10内sin图像 F5 运行程序 打断点可调试运行 % 是注释 选中 Ctrl + R 可批量注释 选中 Ctrl + I 智能</description>
     </item>
     
     <item>
       <title>Less-1 MATLAB基本操作与矩阵输入</title>
-      <link>https://shinning.cloud/post/notes/matlab/less-1_matlab%E5%9F%BA%E7%A1%80/</link>
+      <link>https://shenyiming.life/post/notes/matlab/less-1_matlab%E5%9F%BA%E7%A1%80/</link>
       <pubDate>Sat, 15 Jan 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://shinning.cloud/post/notes/matlab/less-1_matlab%E5%9F%BA%E7%A1%80/</guid>
+      <guid>https://shenyiming.life/post/notes/matlab/less-1_matlab%E5%9F%BA%E7%A1%80/</guid>
       <description>基本操作 命令行模式 公式输入 直接输入算式即可计算结果 输入格式基本同自然语言 计算： $$ cos(\sqrt{(\frac{1+2+3+4}{5})}) $$ cos(sqrt((1+2+3+4)/5)) 注意：5/2 是5除以2 5\2是2除以5 变量定义 定义变量</description>
     </item>
     

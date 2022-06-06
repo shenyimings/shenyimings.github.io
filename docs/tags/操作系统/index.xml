@@ -2,20 +2,20 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>操作系统 on Console.makeHappy(_1ming)</title>
-    <link>https://shinning.cloud/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/</link>
+    <link>https://shenyiming.life/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/</link>
     <description>Recent content in 操作系统 on Console.makeHappy(_1ming)</description>
     <image>
-      <url>https://shinning.cloud/android-chrome-512x512.png</url>
-      <link>https://shinning.cloud/android-chrome-512x512.png</link>
+      <url>https://shenyiming.life/android-chrome-512x512.png</url>
+      <link>https://shenyiming.life/android-chrome-512x512.png</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Mon, 14 Mar 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://shinning.cloud/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 14 Mar 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://shenyiming.life/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>计算机操作系统笔记</title>
-      <link>https://shinning.cloud/post/notes/operating_system/</link>
+      <link>https://shenyiming.life/post/notes/operating_system/</link>
       <pubDate>Mon, 14 Mar 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://shinning.cloud/post/notes/operating_system/</guid>
+      <guid>https://shenyiming.life/post/notes/operating_system/</guid>
       <description>第一章 计算机系统概述 操作系统 是指控制和管理整个计算机系统的硬件和软件资源，并合理地组织调度计算机的工作和资源分配，以提供给用户和其他软件方便</description>
     </item>
     

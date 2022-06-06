@@ -2,20 +2,20 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>SQL on Console.makeHappy(_1ming)</title>
-    <link>https://shinning.cloud/post/ctf/sql/</link>
+    <link>https://shenyiming.life/post/ctf/sql/</link>
     <description>Recent content in SQL on Console.makeHappy(_1ming)</description>
     <image>
-      <url>https://shinning.cloud/android-chrome-512x512.png</url>
-      <link>https://shinning.cloud/android-chrome-512x512.png</link>
+      <url>https://shenyiming.life/android-chrome-512x512.png</url>
+      <link>https://shenyiming.life/android-chrome-512x512.png</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sun, 24 Oct 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://shinning.cloud/post/ctf/sql/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 24 Oct 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://shenyiming.life/post/ctf/sql/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Bugku-SQL注入-WriteUP</title>
-      <link>https://shinning.cloud/post/ctf/sql/bugku-sql%E6%B3%A8%E5%85%A5/</link>
+      <link>https://shenyiming.life/post/ctf/sql/bugku-sql%E6%B3%A8%E5%85%A5/</link>
       <pubDate>Sun, 24 Oct 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://shinning.cloud/post/ctf/sql/bugku-sql%E6%B3%A8%E5%85%A5/</guid>
+      <guid>https://shenyiming.life/post/ctf/sql/bugku-sql%E6%B3%A8%E5%85%A5/</guid>
       <description>题目网址：sql注入 一个很正经的界面，有实战那味了。 上来先尝试经典组合： admin~password 很幸运，用户名猜中了。 利用单引号检测是否存在SQL注入 admin&#39; or 1 = 1 报</description>
     </item>
     

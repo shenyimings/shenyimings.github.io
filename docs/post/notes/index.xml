@@ -2,47 +2,47 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>📝笔记 on Console.makeHappy(_1ming)</title>
-    <link>https://shinning.cloud/post/notes/</link>
+    <link>https://shenyiming.life/post/notes/</link>
     <description>Recent content in 📝笔记 on Console.makeHappy(_1ming)</description>
     <image>
-      <url>https://shinning.cloud/android-chrome-512x512.png</url>
-      <link>https://shinning.cloud/android-chrome-512x512.png</link>
+      <url>https://shenyiming.life/android-chrome-512x512.png</url>
+      <link>https://shenyiming.life/android-chrome-512x512.png</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Tue, 24 May 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://shinning.cloud/post/notes/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 24 May 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://shenyiming.life/post/notes/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>应用密码学复习提纲</title>
-      <link>https://shinning.cloud/post/notes/cryptology/</link>
+      <link>https://shenyiming.life/post/notes/cryptology/</link>
       <pubDate>Tue, 24 May 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://shinning.cloud/post/notes/cryptology/</guid>
+      <guid>https://shenyiming.life/post/notes/cryptology/</guid>
       <description>前言 作者：申一鸣 创建日期：2022/5/24 最后更改：2022/6/2 提纲 [TOC] 基本概念 CIA三元组 保密性 完整性 可用性 OSI安全框架 安全攻击 安全</description>
     </item>
     
     <item>
       <title>数据库系统导论笔记</title>
-      <link>https://shinning.cloud/post/notes/database_system/</link>
+      <link>https://shenyiming.life/post/notes/database_system/</link>
       <pubDate>Tue, 15 Mar 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://shinning.cloud/post/notes/database_system/</guid>
+      <guid>https://shenyiming.life/post/notes/database_system/</guid>
       <description>2 关系运算符 $$ \sigma \quad 选择\\ \pi 投影\\ \bowtie 连接\\ \div 除 $$ 连接和除是复合运算 记号 $$ 设关系模式为R(A_1,A_2,\cdots,An)\\ A_i A_i \cdots 为</description>
     </item>
     
     <item>
       <title>计算机组成原理笔记</title>
-      <link>https://shinning.cloud/post/notes/computer_construct/</link>
+      <link>https://shenyiming.life/post/notes/computer_construct/</link>
       <pubDate>Tue, 15 Mar 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://shinning.cloud/post/notes/computer_construct/</guid>
+      <guid>https://shenyiming.life/post/notes/computer_construct/</guid>
       <description>2022.3.15 浮点数 原码一位乘 部分积累加、移位 乘积 $$ P = |X|\times |Y|\\ S_p=S_X异或S_Y $$ 手工运算和十进制乘法类似 每次将1位乘数所对应的部分积与原部分的累加</description>
     </item>
     
     <item>
       <title>计算机操作系统笔记</title>
-      <link>https://shinning.cloud/post/notes/operating_system/</link>
+      <link>https://shenyiming.life/post/notes/operating_system/</link>
       <pubDate>Mon, 14 Mar 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://shinning.cloud/post/notes/operating_system/</guid>
+      <guid>https://shenyiming.life/post/notes/operating_system/</guid>
       <description>第一章 计算机系统概述 操作系统 是指控制和管理整个计算机系统的硬件和软件资源，并合理地组织调度计算机的工作和资源分配，以提供给用户和其他软件方便</description>
     </item>
     

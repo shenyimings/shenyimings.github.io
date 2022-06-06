@@ -2,20 +2,20 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>HTML on Console.makeHappy(_1ming)</title>
-    <link>https://shinning.cloud/tags/html/</link>
+    <link>https://shenyiming.life/tags/html/</link>
     <description>Recent content in HTML on Console.makeHappy(_1ming)</description>
     <image>
-      <url>https://shinning.cloud/android-chrome-512x512.png</url>
-      <link>https://shinning.cloud/android-chrome-512x512.png</link>
+      <url>https://shenyiming.life/android-chrome-512x512.png</url>
+      <link>https://shenyiming.life/android-chrome-512x512.png</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sat, 26 Feb 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://shinning.cloud/tags/html/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 26 Feb 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://shenyiming.life/tags/html/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>HTML Tutorial</title>
-      <link>https://shinning.cloud/post/php/html_tutorial/</link>
+      <link>https://shenyiming.life/post/php/html_tutorial/</link>
       <pubDate>Sat, 26 Feb 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://shinning.cloud/post/php/html_tutorial/</guid>
+      <guid>https://shenyiming.life/post/php/html_tutorial/</guid>
       <description>Code &amp;lt;!DOCTYPE html&amp;gt; &amp;lt;html&amp;gt; &amp;lt;head&amp;gt; &amp;lt;meta charset=&amp;#34;utf-8&amp;#34;&amp;gt; &amp;lt;title&amp;gt;Hello World&amp;lt;/title&amp;gt; &amp;lt;style&amp;gt; body {background-color: powderblue;} h1 {color: blue;} p {color: red;} &amp;lt;/style&amp;gt; &amp;lt;/head&amp;gt; &amp;lt;body&amp;gt; &amp;lt;h1 style=&amp;#34;text-align: center;&amp;#34;&amp;gt;一级标题&amp;lt;/h1&amp;gt; &amp;lt;p style=&amp;#34;col</description>
     </item>
     

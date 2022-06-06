@@ -2,20 +2,20 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>MISC on Console.makeHappy(_1ming)</title>
-    <link>https://shinning.cloud/tags/misc/</link>
+    <link>https://shenyiming.life/tags/misc/</link>
     <description>Recent content in MISC on Console.makeHappy(_1ming)</description>
     <image>
-      <url>https://shinning.cloud/android-chrome-512x512.png</url>
-      <link>https://shinning.cloud/android-chrome-512x512.png</link>
+      <url>https://shenyiming.life/android-chrome-512x512.png</url>
+      <link>https://shenyiming.life/android-chrome-512x512.png</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Fri, 23 Jul 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://shinning.cloud/tags/misc/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 23 Jul 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://shenyiming.life/tags/misc/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>MISC类型题目及技巧</title>
-      <link>https://shinning.cloud/post/ctf/misc/bugku_misc/</link>
+      <link>https://shenyiming.life/post/ctf/misc/bugku_misc/</link>
       <pubDate>Fri, 23 Jul 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://shinning.cloud/post/ctf/misc/bugku_misc/</guid>
+      <guid>https://shenyiming.life/post/ctf/misc/bugku_misc/</guid>
       <description>图片隐写 图片EXIF信息 GIF图片 文件头 16进制编码 编码 Readflag 社工 Bugku社工_进阶收集 根据题目给出的说说截图，有如下信息： 终点位置突出特征：</description>
     </item>
     

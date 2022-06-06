@@ -2,20 +2,20 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>CSS on Console.makeHappy(_1ming)</title>
-    <link>https://shinning.cloud/tags/css/</link>
+    <link>https://shenyiming.life/tags/css/</link>
     <description>Recent content in CSS on Console.makeHappy(_1ming)</description>
     <image>
-      <url>https://shinning.cloud/android-chrome-512x512.png</url>
-      <link>https://shinning.cloud/android-chrome-512x512.png</link>
+      <url>https://shenyiming.life/android-chrome-512x512.png</url>
+      <link>https://shenyiming.life/android-chrome-512x512.png</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Thu, 03 Mar 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://shinning.cloud/tags/css/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 03 Mar 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://shenyiming.life/tags/css/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>CSS Tutorial</title>
-      <link>https://shinning.cloud/post/php/css_tutorial/</link>
+      <link>https://shenyiming.life/post/php/css_tutorial/</link>
       <pubDate>Thu, 03 Mar 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://shinning.cloud/post/php/css_tutorial/</guid>
+      <guid>https://shenyiming.life/post/php/css_tutorial/</guid>
       <description>CSS is the language we use to style a Web page.</description>
     </item>
     

@@ -2,20 +2,20 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>SSTI on Console.makeHappy(_1ming)</title>
-    <link>https://shinning.cloud/tags/ssti/</link>
+    <link>https://shenyiming.life/tags/ssti/</link>
     <description>Recent content in SSTI on Console.makeHappy(_1ming)</description>
     <image>
-      <url>https://shinning.cloud/android-chrome-512x512.png</url>
-      <link>https://shinning.cloud/android-chrome-512x512.png</link>
+      <url>https://shenyiming.life/android-chrome-512x512.png</url>
+      <link>https://shenyiming.life/android-chrome-512x512.png</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Thu, 22 Jul 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://shinning.cloud/tags/ssti/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 22 Jul 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://shenyiming.life/tags/ssti/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>SSTI类型题目积累及资料</title>
-      <link>https://shinning.cloud/post/ctf/ssti/bugku_ssti/</link>
+      <link>https://shenyiming.life/post/ctf/ssti/bugku_ssti/</link>
       <pubDate>Thu, 22 Jul 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://shinning.cloud/post/ctf/ssti/bugku_ssti/</guid>
+      <guid>https://shenyiming.life/post/ctf/ssti/bugku_ssti/</guid>
       <description>SSTI类型介绍 SSTI即服务端模板注入攻击，服务端接收用户输入，将其作为Web应用模板的一部分，渲染编译后执行了恶意内容，导致敏感信息泄露</description>
     </item>
     
