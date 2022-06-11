@@ -14,7 +14,7 @@ categories: [
 # weight: 1
 math: true
 ShowToc: false
-draft: false
+draft: true
 typora-root-url: ..\..\..\static\
 ---
 
