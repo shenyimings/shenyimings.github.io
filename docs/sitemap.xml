@@ -2,11 +2,8 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://shenyiming.life/post/plan/plan_sophomore_year_2/</loc>
-    <lastmod>2022-05-24T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://shenyiming.life/post/plan/</loc>
-    <lastmod>2022-05-24T00:00:00+00:00</lastmod>
+    <lastmod>2022-01-30T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://shenyiming.life/post/ctf/ctf%E6%AF%94%E8%B5%9B%E6%96%B9%E5%90%91%E9%80%89%E6%8B%A9/</loc>
     <lastmod>2022-03-05T00:00:00+00:00</lastmod>
@@ -214,12 +211,6 @@
     <loc>https://shenyiming.life/post/notes/matlab/2022%E7%BE%8E%E8%B5%9B%E6%96%87%E6%A1%A3/</loc>
     <lastmod>2022-02-22T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://shenyiming.life/tags/plan/</loc>
-    <lastmod>2022-05-24T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://shenyiming.life/categories/plans/</loc>
-    <lastmod>2022-05-24T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://shenyiming.life/tags/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/</loc>
     <lastmod>2022-02-22T00:00:00+00:00</lastmod>
   </url><url>
@@ -247,6 +238,12 @@
     <loc>https://shenyiming.life/post/plan/crypto/</loc>
     <lastmod>2022-01-30T00:00:00+00:00</lastmod>
   </url><url>
+    <loc>https://shenyiming.life/tags/plan/</loc>
+    <lastmod>2022-01-30T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://shenyiming.life/categories/plans/</loc>
+    <lastmod>2022-01-30T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://shenyiming.life/post/notes/matlab/less-3_%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E6%96%87%E4%BB%B6%E5%AD%98%E5%8F%96/</loc>
     <lastmod>2022-01-31T00:00:00+00:00</lastmod>
   </url><url>
@@ -261,9 +258,6 @@
   </url><url>
     <loc>https://shenyiming.life/post/notes/matlab/less-1_matlab%E5%9F%BA%E7%A1%80/</loc>
     <lastmod>2022-01-20T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://shenyiming.life/post/plan/2021%E5%B9%B4%E7%BB%88%E6%80%BB%E7%BB%93/</loc>
-    <lastmod>2021-12-31T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://shenyiming.life/post/essays/%E6%97%A9%E8%B5%B7%E7%9A%84%E6%84%8F%E4%B9%89/</loc>
     <lastmod>2021-12-27T00:00:00+00:00</lastmod>

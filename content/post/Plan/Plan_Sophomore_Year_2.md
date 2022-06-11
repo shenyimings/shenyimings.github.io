@@ -12,7 +12,7 @@ categories: [
 weight: 1
 math: true
 ShowToc: true
-draft: false
+draft: true
 cover:
     image: "/Plan_Sophomore_Year_2.assets/case-study.png"
 typora-root-url: ..\..\..\static\
