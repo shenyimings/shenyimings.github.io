@@ -25,7 +25,7 @@
       <pubDate>Sat, 11 Jun 2022 00:00:00 +0000</pubDate>
       
       <guid>https://shenyiming.life/post/ctf/unserialize/php/</guid>
-      <description></description>
+      <description>基础知识 常见PHP魔术函数 __construct() //当一个对象创建时被调用 __destruct() //当一个对象销毁时被调用 __wakeup() //使用unserialize时触发 __sleep() //使用seria</description>
     </item>
     
     <item>
@@ -88,7 +88,7 @@
       <pubDate>Tue, 15 Mar 2022 00:00:00 +0000</pubDate>
       
       <guid>https://shenyiming.life/post/notes/database_system/</guid>
-      <description>2 关系运算符 $$ \sigma \quad 选择\\ \pi 投影\\ \bowtie 连接\\ \div 除 $$ 连接和除是复合运算 记号 $$ 设关系模式为R(A_1,A_2,\cdots,An)\\ A_i A_i \cdots 为</description>
+      <description>1 基本概念 描述事物的符号记录叫数据 数据库是长期储存在计算机内、有组织的、可共享的大量数据的集合。 较小的冗余度、较高的数据独立性、易扩展性。 数</description>
     </item>
     
     <item>

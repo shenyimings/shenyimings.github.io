@@ -16,7 +16,7 @@
       <pubDate>Sat, 11 Jun 2022 00:00:00 +0000</pubDate>
       
       <guid>https://shenyiming.life/post/ctf/unserialize/php/</guid>
-      <description></description>
+      <description>基础知识 常见PHP魔术函数 __construct() //当一个对象创建时被调用 __destruct() //当一个对象销毁时被调用 __wakeup() //使用unserialize时触发 __sleep() //使用seria</description>
     </item>
     
     <item>
