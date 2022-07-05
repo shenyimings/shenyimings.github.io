@@ -1,7 +1,7 @@
 ---
 author: "Yiming Shen"
 date: 2022-03-19
-lastmod: 2022-03-19
+lastmod: 2022-07-05
 title: "渗透测试记录"
 tags: [
     "CTF",
@@ -31,7 +31,7 @@ typora-root-url: ..\..\..\static\
 ### 基本流程
 
 1. 信息收集（扩大攻击面，找敏感目录、文件）
-2. Web服务突破（找漏洞）
+2. Web服务突破（找漏洞，尝试弱口令->中间件、CMS->尝试CVE、0Day漏洞->常见通用漏洞）
 3. 获取Web服务器wwwroot权限（利用漏洞种小马）
 4. 提权，拿到服务器管理员权限（种大马）
 5. 横向移动，内网渗透
@@ -44,6 +44,8 @@ typora-root-url: ..\..\..\static\
 [^对某大学的渗透](https://xz.aliyun.com/t/7686)
 
 > 网站开发者进行逻辑功能开发时，用户使用方式/流程与设计不符，造成的非预期结果。
+>
+> 越权漏洞：对客户端请求的数据过分相信而未鉴权
 
 - **垂直越权**
 
@@ -56,6 +58,12 @@ typora-root-url: ..\..\..\static\
 ```
 burpsuite -authz
 ```
+
+- **未授权访问**
+
+  未对敏感文件、目录进行权限设置
+
+逻辑漏洞危害较大，且很难被漏洞扫描器发现，与开发者的开发习惯和安全意识相关。
 
 #### 垂直越权方法
 
@@ -84,8 +92,8 @@ burpsuite -authz
 
 1. 验证码不失效/糊弄用户的验证码
 2. 验证码与用户未一一对应（可替换账号、手机号）
-3. 前端校验
-4. 
+3. 前端校验，从而实现发包修改
+4. **修改返回包、状态码**，欺骗客户端误认为验证成功
 
 ### 支付漏洞
 
@@ -104,3 +112,52 @@ burpsuite -authz
 4. 支付方式
 5. 订单号
 6. 支付状态
+
+## 技术漏洞
+
+> 开发语言特性造成的漏洞
+
+### 漏洞分类
+
+[OWASP TOP 10](https://owasp.org/Top10/zh_CN/)
+
+- SQL 注入
+
+- XSS
+- SSRF
+- PHP语言特性(文件包含、文件上传、反序列化)
+- 框架漏洞（ThinkPHP、Structs2、Django、Flask）
+- 中间件、CMS漏洞
+
+## 工具使用
+
+###### 
+
+### 信息收集
+
+1. FOFA
+2. **OneForAll**
+3. **御剑端口扫描**
+4. Kali系统-Dirsearch、Hydra、arp-scan -l
+5. Metasploit
+6. Wappalyzer
+
+### Web突破
+
+1. **BurpSuite**
+2. **SQLmap**
+3. 各种漏洞扫描器（X-Ray、AWVS、Nessus、Nuclei、Goby）
+4. 蚁剑、菜刀、冰蝎等WebShell控制器
+
+### 内网渗透
+
+1. http-scan、arp-scan等内网探测
+2. Fscan 内网漏洞扫描
+3. Metasploit 漏洞利用
+
+## 总结
+
+对于渗透而言，一点突破，则一面突破
+
+对于安全防护而言，一点失守，则满盘皆输
+
