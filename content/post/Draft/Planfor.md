@@ -90,3 +90,5 @@ typora-root-url: ..\..\static\
 符思政，冯宇菲：负责活动期间的经费报账以及奖状或结业证书等奖品的制作
 
  
+
+![Poster](https://gitee.com/Ph0enixs/shenyiming.life/raw/master/Img/Poster.jpg)

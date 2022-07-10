@@ -1,32 +1,518 @@
-<!doctype html><html lang=en dir=auto><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><meta name=robots content="index, follow"><title>应用密码学复习提纲 | Console.makeHappy(_1ming)</title><meta name=keywords content="Cryptology,review,Note"><meta name=description content="前言 作者：申一鸣 创建日期：2022/5/24 最后更改：2022/6/2 提纲 [TOC] 基本概念 CIA三元组 保密性 完整性 可用性 OSI安全框架 安全攻击 安全"><meta name=author content="Yiming Shen"><link rel=canonical href=https://shenyiming.life/post/notes/cryptology/><meta name=google-site-verification content="XYZabc"><meta name=yandex-verification content="XYZabc"><meta name=msvalidate.01 content="XYZabc"><link href=/assets/css/stylesheet.min.96ff96383199830fa3579b27d0827aa2d1dc17d7ac4182b5dca790d464d24229.css integrity="sha256-lv+WODGZgw+jV5sn0IJ6otHcF9esQYK13KeQ1GTSQik=" rel="preload stylesheet" as=style><link rel=icon href=https://shenyiming.life/favicon.ico><link rel=icon type=image/png sizes=16x16 href=https://shenyiming.life/favicon-16x16.png><link rel=icon type=image/png sizes=32x32 href=https://shenyiming.life/favicon-32x32.png><link rel=apple-touch-icon href=https://shenyiming.life/apple-touch-icon.png><link rel=mask-icon href=https://shenyiming.life/safari-pinned-tab.svg><meta name=theme-color content="#2e2e33"><meta name=msapplication-TileColor content="#2e2e33"><meta name=generator content="Hugo 0.101.0"><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css integrity=sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X crossorigin=anonymous><script defer src=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js integrity=sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4 crossorigin=anonymous></script>
+<!doctype html><html lang=en dir=auto>
+<head><meta charset=utf-8>
+<meta http-equiv=x-ua-compatible content="IE=edge">
+<meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no">
+<meta name=robots content="index, follow">
+<title>应用密码学复习提纲 | Console.makeHappy(_1ming)</title>
+<meta name=keywords content="Cryptology,review,Note">
+<meta name=description content="前言 作者：申一鸣 创建日期：2022/5/24 最后更改：2022/6/2 提纲 [TOC] 基本概念 CIA三元组 保密性 完整性 可用性 OSI安全框架 安全攻击 安全">
+<meta name=author content="Yiming Shen">
+<link rel=canonical href=https://shenyiming.life/post/notes/cryptology/>
+<meta name=google-site-verification content="XYZabc">
+<meta name=yandex-verification content="XYZabc">
+<meta name=msvalidate.01 content="XYZabc">
+<link href=/assets/css/stylesheet.min.96ff96383199830fa3579b27d0827aa2d1dc17d7ac4182b5dca790d464d24229.css integrity="sha256-lv+WODGZgw+jV5sn0IJ6otHcF9esQYK13KeQ1GTSQik=" rel="preload stylesheet" as=style>
+<link rel=icon href=https://shenyiming.life/favicon.ico>
+<link rel=icon type=image/png sizes=16x16 href=https://shenyiming.life/favicon-16x16.png>
+<link rel=icon type=image/png sizes=32x32 href=https://shenyiming.life/favicon-32x32.png>
+<link rel=apple-touch-icon href=https://shenyiming.life/apple-touch-icon.png>
+<link rel=mask-icon href=https://shenyiming.life/safari-pinned-tab.svg>
+<meta name=theme-color content="#2e2e33">
+<meta name=msapplication-TileColor content="#2e2e33">
+<meta name=generator content="Hugo 0.91.0">
+<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css integrity=sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X crossorigin=anonymous>
+<script defer src=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js integrity=sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4 crossorigin=anonymous></script>
 <script defer src=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js integrity=sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa crossorigin=anonymous onload=renderMathInElement(document.body)></script>
-<script type=application/javascript>var doNotTrack=!1;doNotTrack||(window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","UA-123-45","auto"),ga("send","pageview"))</script><script async src=https://www.google-analytics.com/analytics.js></script><meta property="og:title" content="应用密码学复习提纲"><meta property="og:description" content="前言 作者：申一鸣 创建日期：2022/5/24 最后更改：2022/6/2 提纲 [TOC] 基本概念 CIA三元组 保密性 完整性 可用性 OSI安全框架 安全攻击 安全"><meta property="og:type" content="article"><meta property="og:url" content="https://shenyiming.life/post/notes/cryptology/"><meta property="og:image" content="https://shenyiming.life/android-chrome-512x512.png"><meta property="article:section" content="post"><meta property="article:published_time" content="2022-05-24T00:00:00+00:00"><meta property="article:modified_time" content="2022-06-02T00:00:00+00:00"><meta property="og:site_name" content="Yiming"><meta name=twitter:card content="summary_large_image"><meta name=twitter:image content="https://shenyiming.life/android-chrome-512x512.png"><meta name=twitter:title content="应用密码学复习提纲"><meta name=twitter:description content="前言 作者：申一鸣 创建日期：2022/5/24 最后更改：2022/6/2 提纲 [TOC] 基本概念 CIA三元组 保密性 完整性 可用性 OSI安全框架 安全攻击 安全"><script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":2,"name":"文章","item":"https://shenyiming.life/post/"},{"@type":"ListItem","position":3,"name":"📝笔记","item":"https://shenyiming.life/post/notes/"},{"@type":"ListItem","position":4,"name":"应用密码学复习提纲","item":"https://shenyiming.life/post/notes/cryptology/"}]}</script><script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"应用密码学复习提纲","name":"应用密码学复习提纲","description":"前言 作者：申一鸣 创建日期：2022/5/24 最后更改：2022/6/2 提纲 [TOC] 基本概念 CIA三元组 保密性 完整性 可用性 OSI安全框架 安全攻击 安全","keywords":["Cryptology","review","Note"],"articleBody":"前言 作者：申一鸣\n创建日期：2022/5/24\n最后更改：2022/6/2\n提纲 [TOC]\n基本概念 CIA三元组 保密性 完整性 可用性 OSI安全框架 安全攻击 安全机制 安全服务 古典密码 古典密码是指通过单表替代或置换生成的，与体系化运用数学手段建模的现代密码学相对应的密码。\n古典密码学此处只介绍仿射密码，其余省略，具体可参考1中对古典密码的介绍\n仿射密码 Affine *广义凯撒密码，简单的基于有限域的密码 $$ 明文m,密文c,参数a,b\\in Z_{26}\\\\ 加密： e(m)=c\\equiv a\\cdot m+b (mod\\quad 26)\\newline 特别地，当a=1,b=k时，为凯撒密码。\\\\ 解密：d(c)=m\\equiv a^{-1}\\cdot(c-b)(mod\\quad 26) $$ 求逆元$$a^{-1}$$ 扩展欧几里得算法 Exgcd\n由逆元的定义决定了，必须满足以下条件： $$ gcd(a,26)=1,即a与26互质\\\\ a\\in{1,3,5,7,9,11,15,17,19,21,23,25} $$\n分组密码 分组密码是一种加/解密算法，将输入的明文分组当作一个整体处理，输出一个等长的密文分组。\nFeistel 密码结构 对理想分组密码的近似\n使用乘积密码增强密码强度，交替使用代换和置换，增强密码的扩散和混淆性能。\n密钥和密文关系为非线性关系\n混淆（Confusion）：使密钥与密文的关系尽可能模糊，使用替换法达到目的。\n扩散（Diffusion）：隐藏明文的统计特性，使用位置换达到目的。\n优点： 对称密码结构，加密解密过程几乎一样 编码量和线路传输的要求少了几乎一半 Feistel 密码结构 分组长度 分组越长代表安全性越高（扩散性能越好），但会降低加解密速度。 密钥长度 密钥越长安全性越高（抗穷举、提高混淆） 迭代轮数 多轮加密可取得较高的安全性 Feistel密码通常由以下步骤组成\n子密钥生成算法 轮函数 快速软件加解密 简化分析难度 数据加密标准 DES 算法分为两部分：迭代加密、密钥调度 以下内容摘自阮行止Pion1er大佬博客2 所谓密钥调度，就是从一把 64-bit 的主钥匙，得到 16 把 48-bit 的子钥匙，然后把这些子钥匙用于迭代加密。那么，如何从一把主钥匙得到 16 把子钥匙呢？\n从 64-bit 的主钥匙里面选取特定的 56 位，其余的位就没用了。于是我们现在手上有了一个 56 位的布尔数组。把它分成左、右两个半密钥，它们都是 28-bit 的布尔数组。 左、右两个半密钥都左旋（也就是循环左移。整个数组往左移，左边弹出去了的东西补到最右边去）一定位数，这个左移的位数也是指定的。有些轮次是 1 位，有些轮次是 2 位。 把左、右半密钥拼起来，再做一个置换，就得到了这一轮生成的子密钥。这个置换是从 56-bit 的数组里面选取指定的 48 位。所以现在每一轮都可以生成一个 48 位的子密钥。（注意，步骤 3 并不改变左右半密钥）。 重复 步骤 2、步骤 3 一共 16 次，于是得到了 16 个 48-bit 的子密钥。 现在我们手上有了 16 把子密钥。遂开始加密：\n输入的明文（长度为 64 的布尔数组）做一个置换(IP置换)。仍然得到 64-bit 的数组（不然就丢失信息了！）\n把得到的数组拆成左、右两半边。每边是 32 位长度。\n每一轮迭代，都是接收一组 L, R，返回 L', R' ，作为下一轮迭代的 L, R 迭代过程如下：\n$$ L’=R\\\\ R’=L\\oplus F(R,subkey) $$\n其中 F 函数（称为轮函数）是整个算法的核心，功能是：以一个子密钥，加密 32-bit 的信息。\n利用之前得到的 16 个子密钥，执行步骤 3 一共 16 次。\n将最终的 R 与 L 拼接，再做一次置换(FP置换)，即得到密文。\nFeistel轮函数：\n扩展32位R至48位 轮密钥XOR异或 S盒置换（8个S盒，每盒输入6位，输出4位） P置换 一个 32-bit 的块，经过一个扩张(Expand函数)，变成 48 位，然后与子密钥异或。得到的 48-bit 的结果分为 8 组，每一组是 6-bit 的数据，丢进对应的 S 盒，输出 4-bit 的信息。把这些输出收集起来，一共是 4*8 = 32 位，做一次置换 (P 置换)，得到 32-bit 的结果。这与输进来的 32-bit 信息是等长度的。\nS盒：\nS盒是对称密码系统分组加密算法中最核心的安全部件（抗差分密码攻击） 6输入中的第1和第6比特组成的二进制数确定的行，中间4位二进制数确定列 相应位置的十进制数转为4位二进制数进行输出 雪崩效应：明文或密钥的某一位发生变化（微小的变化）将对密文的结果产生很大的影响。\nDES的工作模式 电子编码本 ECB 密码分组链接 CBC 输出反馈 OFB 密码反馈 CFB 高级加密标准 AES （AES不是Feistel结构，是每一轮并行的处理每一个分组）\n密钥长度：128位\n流程：\n字节代换 行移位 列混合 轮密钥加 有限域运算3 加法和减法： 加法即异或运算 减法即加法\n乘法和除法： 伽罗华域上的多项式乘法，其结果需要mod P(x)，可以通过以下方式简化计算。\n首先，考虑x^8，x^8 mod P(x) = P(x) – x^8 = x^4 + x^3 +x^2 +1 。\n对于一般形式的多项式f(x)=a7x^7 + a6x^6 + a5x^5 + a4x^4 + a3x^3 + a2x^2 + a1*x + a0，乘以x得到\n$$ xf(x) = (a7x^8 + a6x^7 + a5x^6 + a4x^5 + a3x^4 + a2x^3 + a1x^1 + a0*x) mod P(x) $$\n这时有两种情况： 1）a7 == 0，此时结果是一个小于指数小于8的多项式，不需要取模计算。 2）a7 == 1，则将x^8替换为x^4 + x^3 + x^2 +1，而不用进行除法取模计算，结果为： x*f(x) = (x^4 + x^3 + x^2 +1) + a6*x^7 + a5*x^6 + a4*x^5 + a3*x^4 + a2*x^3 + a1*x^1 + a0*x\n$$ m(x)=x^8+x^4+x^3+x+1\\\\ x^8\\equiv x^4+x^3+x+1 (mod\\quad m)\\\\ x^9\\equiv x*x^8=x^5+x^4+x^2+x …依次类推 $$\n公钥密码学与RSA 陷门单向函数\n在不知陷门信息下，由f(x)求x极为困难 当知道陷门信息后，由f(x)求x是易于实现的 (与单向函数的区别是 单向函数都极为困难)\n公钥密码学解决的基本问题 密钥交换 要求：已经共享了一个密钥，或利用密钥分配中心 数字签名 公钥密码体制 组成部分 明文 密文 公钥 私钥\n加密 解密算法\n安全性 任何加密方法的安全性依赖于密钥的长度和破译密文所需要的计算量，不能说公钥密码优于传统密码\n意义 解决了传统密码中最困难两个问题\n密钥分配 数字签名 RSA 算法 明文和密文是0到n-1之间的整数，n的大小为1024位或309位十进制数。\n流程 $$ 随机选择两个大素数p,q\\\\ 计算N=p\\cdot q,\\phi(N)=(p-1)(q-1)\\\\ 选择e,使得1","wordCount":"4871","inLanguage":"en","datePublished":"2022-05-24T00:00:00Z","dateModified":"2022-06-02T00:00:00Z","author":{"@type":"Person","name":"Yiming Shen"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://shenyiming.life/post/notes/cryptology/"},"publisher":{"@type":"Organization","name":"Console.makeHappy(_1ming)","logo":{"@type":"ImageObject","url":"https://shenyiming.life/favicon.ico"}}}</script></head><body id=top><script>localStorage.getItem("pref-theme")==="dark"?document.body.classList.add("dark"):localStorage.getItem("pref-theme")==="light"?document.body.classList.remove("dark"):window.matchMedia("(prefers-color-scheme: dark)").matches&&document.body.classList.add("dark")</script><noscript><style type=text/css>#theme-toggle,.top-link{display:none}</style><style>@media(prefers-color-scheme:dark){:root{--theme:#1d1e20;--entry:#2e2e33;--primary:rgba(255, 255, 255, 0.84);--secondary:rgba(255, 255, 255, 0.56);--tertiary:rgba(255, 255, 255, 0.16);--content:rgba(255, 255, 255, 0.74);--hljs-bg:#2e2e33;--code-bg:#37383e;--border:#333}.list{background:var(--theme)}.list:not(.dark)::-webkit-scrollbar-track{background:0 0}.list:not(.dark)::-webkit-scrollbar-thumb{border-color:var(--theme)}}</style></noscript><header class=header><nav class=nav><div class=logo><a href=https://shenyiming.life accesskey=h title="相位  (Alt + H)"><img src=/favicon.ico alt=logo aria-label=logo height=35>相位</a>
-<span class=logo-switches><button id=theme-toggle accesskey=t title="(Alt + T)"><svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg><svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg></button></span></div><ul id=menu onscroll=menu_on_scroll()><li><a href=https://shenyiming.life/post/ title=文章><span>文章</span></a></li><li><a href=https://shenyiming.life/archive/ title=归档><span>归档</span></a></li><li><a href=https://shenyiming.life/categories/ title=分类><span>分类</span></a></li><li><a href=https://shenyiming.life/tags/ title=标签><span>标签</span></a></li><li><a href=https://shenyiming.life/search/ title="搜索 (Alt + /)" accesskey=/><span>搜索</span></a></li><li><a href=https://shenyiming.life/friends/ title=友链><span>友链</span></a></li><li><a href=https://shenyiming.life/about/ title=关于><span>关于</span></a></li></ul></nav></header><main class=main><style>:root{--article-font-family:"Noto Serif SC", var(--base-font-family)}</style><script>(function(){const e=document.createElement("link");e.href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;700&display=swap",e.type="text/css",e.rel="stylesheet",document.head.appendChild(e)})()</script><article class=post-single><header class=post-header><div class=breadcrumbs><a href=https://shenyiming.life>首页</a>&nbsp;»&nbsp;<a href=https://shenyiming.life/post/>文章</a>&nbsp;»&nbsp;<a href=https://shenyiming.life/post/notes/>📝笔记</a></div><h1 class=post-title>应用密码学复习提纲</h1><div class=post-meta><style>:root{--article-font-family:"Noto Serif SC", var(--base-font-family)}</style><script>(function(){const e=document.createElement("link");e.href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;700&display=swap",e.type="text/css",e.rel="stylesheet",document.head.appendChild(e)})()</script>May 24, 2022&nbsp;·&nbsp;June 2, 2022&nbsp;·&nbsp;10 min&nbsp;·&nbsp;Yiming Shen
-|&nbsp;<a href=https://github.com/shenyimings/shenyimings.github.io/tree/main/docs rel="noopener noreferrer" target=_blank>Issue</a></div></header><aside id=toc-container class="toc-container wide"><div class=toc><details open><summary accesskey=c title="(Alt + C)"><span class=details>目录</span></summary><div class=inner><ul><li><a href=#%e5%89%8d%e8%a8%80 aria-label=前言>前言</a></li><li><a href=#%e6%8f%90%e7%ba%b2 aria-label=提纲>提纲</a></li><li><a href=#%e5%9f%ba%e6%9c%ac%e6%a6%82%e5%bf%b5 aria-label=基本概念>基本概念</a><ul><li><a href=#cia%e4%b8%89%e5%85%83%e7%bb%84 aria-label=CIA三元组>CIA三元组</a></li><li><a href=#osi%e5%ae%89%e5%85%a8%e6%a1%86%e6%9e%b6 aria-label=OSI安全框架>OSI安全框架</a></li></ul></li><li><a href=#%e5%8f%a4%e5%85%b8%e5%af%86%e7%a0%81 aria-label=古典密码>古典密码</a><ul><li><a href=#%e4%bb%bf%e5%b0%84%e5%af%86%e7%a0%81-affine aria-label="仿射密码 Affine">仿射密码 Affine</a></li></ul></li><li><a href=#%e5%88%86%e7%bb%84%e5%af%86%e7%a0%81 aria-label=分组密码>分组密码</a><ul><li><a href=#feistel-%e5%af%86%e7%a0%81%e7%bb%93%e6%9e%84 aria-label="Feistel 密码结构">Feistel 密码结构</a><ul><li><a href=#%e4%bc%98%e7%82%b9 aria-label=优点：>优点：</a></li></ul></li><li><a href=#feistel-%e5%af%86%e7%a0%81%e7%bb%93%e6%9e%84-1 aria-label="Feistel 密码结构">Feistel 密码结构</a></li><li><a href=#%e6%95%b0%e6%8d%ae%e5%8a%a0%e5%af%86%e6%a0%87%e5%87%86-des aria-label="数据加密标准 DES">数据加密标准 DES</a><ul><li><a href=#des%e7%9a%84%e5%b7%a5%e4%bd%9c%e6%a8%a1%e5%bc%8f aria-label=DES的工作模式>DES的工作模式</a></li></ul></li><li><a href=#%e9%ab%98%e7%ba%a7%e5%8a%a0%e5%af%86%e6%a0%87%e5%87%86-aes aria-label="高级加密标准 AES">高级加密标准 AES</a></li><li><a href=#%e6%9c%89%e9%99%90%e5%9f%9f%e8%bf%90%e7%ae%97%e6%9c%89%e9%99%90%e5%9f%9f%e4%b8%8a%e7%9a%84%e5%9b%9b%e5%88%99%e8%bf%90%e7%ae%97 aria-label=有限域运算3>有限域运算<sup id=fnref:3><a href=#fn:3 class=footnote-ref role=doc-noteref>3</a></sup></a><ul><li><a href=#%e5%8a%a0%e6%b3%95%e5%92%8c%e5%87%8f%e6%b3%95 aria-label=加法和减法：>加法和减法：</a></li><li><a href=#%e4%b9%98%e6%b3%95%e5%92%8c%e9%99%a4%e6%b3%95 aria-label=乘法和除法：>乘法和除法：</a></li></ul></li></ul></li><li><a href=#%e5%85%ac%e9%92%a5%e5%af%86%e7%a0%81%e5%ad%a6%e4%b8%8ersa aria-label=公钥密码学与RSA>公钥密码学与RSA</a><ul><li><a href=#%e5%85%ac%e9%92%a5%e5%af%86%e7%a0%81%e5%ad%a6%e8%a7%a3%e5%86%b3%e7%9a%84%e5%9f%ba%e6%9c%ac%e9%97%ae%e9%a2%98 aria-label=公钥密码学解决的基本问题>公钥密码学解决的基本问题</a></li><li><a href=#%e5%85%ac%e9%92%a5%e5%af%86%e7%a0%81%e4%bd%93%e5%88%b6 aria-label=公钥密码体制>公钥密码体制</a><ul><li><a href=#%e7%bb%84%e6%88%90%e9%83%a8%e5%88%86 aria-label=组成部分>组成部分</a></li><li><a href=#%e5%ae%89%e5%85%a8%e6%80%a7 aria-label=安全性>安全性</a></li><li><a href=#%e6%84%8f%e4%b9%89 aria-label=意义>意义</a></li></ul></li><li><a href=#rsa-%e7%ae%97%e6%b3%95 aria-label="RSA 算法">RSA 算法</a><ul><li><a href=#%e6%b5%81%e7%a8%8b aria-label=流程>流程</a></li></ul></li><li><a href=#%e5%af%b9rsa-%e7%ae%97%e6%b3%95%e7%9a%84%e6%94%bb%e5%87%bb aria-label="对RSA 算法的攻击">对RSA 算法的攻击</a><ul><li><a href=#%e7%9b%b4%e6%8e%a5%e6%94%bb%e5%87%bb aria-label=直接攻击>直接攻击</a></li><li><a href=#%e5%85%b1%e6%a8%a1%e6%94%bb%e5%87%bb aria-label=共模攻击>共模攻击</a></li><li><a href=#%e8%ae%a1%e6%97%b6%e6%94%bb%e5%87%bb aria-label=计时攻击>计时攻击</a><ul><li><a href=#%e9%81%bf%e5%85%8d%e8%ae%a1%e6%97%b6%e6%94%bb%e5%87%bb aria-label=避免计时攻击>避免计时攻击</a></li></ul></li><li><a href=#%e6%b6%88%e6%81%af%e9%9a%90%e5%8c%bf%e5%a4%b1%e8%b4%a5-%e4%b8%8d%e5%8a%a8%e7%82%b9%e9%97%ae%e9%a2%98 aria-label=消息隐匿失败-不动点问题>消息隐匿失败-不动点问题</a></li></ul></li><li><a href=#diffie-hellman-%e5%af%86%e9%92%a5%e4%ba%a4%e6%8d%a2 aria-label="Diffie-Hellman 密钥交换">Diffie-Hellman 密钥交换</a><ul><li><a href=#%e5%ae%9e%e7%8e%b0 aria-label=实现>实现</a></li><li><a href=#%e4%b8%ad%e9%97%b4%e4%ba%ba%e6%94%bb%e5%87%bb aria-label=中间人攻击>中间人攻击</a></li></ul></li><li><a href=#elgamal-%e5%8a%a0%e5%af%86%e7%ae%97%e6%b3%95 aria-label="ElGamal 加密算法">ElGamal 加密算法</a><ul><li><a href=#%e5%ae%9e%e7%8e%b0-1 aria-label=实现>实现</a></li><li><a href=#%e7%bb%83%e4%b9%a0 aria-label=练习>练习</a></li><li><a href=#%e7%bc%ba%e7%82%b9 aria-label=缺点>缺点</a></li></ul></li></ul></li><li><a href=#hash%e5%87%bd%e6%95%b0 aria-label=Hash函数>Hash函数</a><ul><li><a href=#%e5%ba%94%e7%94%a8 aria-label=应用>应用</a><ul><li><a href=#%e6%b6%88%e6%81%af%e8%ae%a4%e8%af%81 aria-label=消息认证>消息认证</a></li><li><a href=#%e6%95%b0%e5%ad%97%e7%ad%be%e5%90%8d aria-label=数字签名>数字签名</a></li><li><a href=#%e5%85%b6%e4%bb%96 aria-label=其他>其他</a></li></ul></li><li><a href=#md5-%e4%b8%8e-sha1%e7%9a%84%e5%8c%ba%e5%88%ab aria-label="MD5 与 SHA1的区别">MD5 与 SHA1的区别</a></li></ul></li><li><a href=#%e6%95%b0%e5%ad%97%e7%ad%be%e5%90%8d-1 aria-label=数字签名>数字签名</a><ul><li><a href=#%e6%95%b0%e5%ad%97%e7%ad%be%e5%90%8d%e7%9a%84%e7%9b%ae%e7%9a%84 aria-label=数字签名的目的>数字签名的目的</a></li><li><a href=#%e6%95%b0%e5%ad%97%e7%ad%be%e5%90%8d%e5%b1%9e%e6%80%a7 aria-label=数字签名属性>数字签名属性</a></li><li><a href=#%e6%95%b0%e5%ad%97%e7%ad%be%e5%90%8d%e8%a6%81%e6%b1%82 aria-label=数字签名要求>数字签名要求</a></li><li><a href=#%e6%95%b0%e5%ad%97%e7%ad%be%e5%90%8d%e6%96%b9%e6%b3%95 aria-label=数字签名方法>数字签名方法</a><ul><li><a href=#%e6%99%ae%e9%80%9a%e6%95%b0%e5%ad%97%e7%ad%be%e5%90%8d aria-label=普通数字签名>普通数字签名</a></li><li><a href=#%e7%89%b9%e6%ae%8a%e6%95%b0%e5%ad%97%e7%ad%be%e5%90%8d aria-label=特殊数字签名>特殊数字签名</a></li><li><a href=#%e5%8a%9f%e8%83%bd aria-label=功能：>功能：</a></li></ul></li><li><a href=#%e6%95%b0%e5%ad%97%e7%ad%be%e5%90%8d%e8%a7%a3%e5%86%b3%e6%96%b9%e6%a1%88 aria-label=数字签名解决方案>数字签名解决方案</a><ul><li><a href=#%e7%9b%b4%e6%8e%a5%e6%95%b0%e5%ad%97%e7%ad%be%e5%90%8d%e6%96%b9%e6%a1%88 aria-label=直接数字签名方案>直接数字签名方案</a><ul><li><a href=#%e5%ae%89%e5%85%a8%e6%80%a7-1 aria-label=安全性>安全性</a></li></ul></li><li><a href=#%e5%9f%ba%e4%ba%8e%e4%bb%b2%e8%a3%81%e7%9a%84%e6%95%b0%e5%ad%97%e7%ad%be%e5%90%8d%e6%96%b9%e6%a1%88 aria-label=基于仲裁的数字签名方案>基于仲裁的数字签名方案</a></li><li><a href=#%e6%96%b9%e6%a1%88%e5%86%85%e5%ae%b9 aria-label=方案内容>方案内容</a></li></ul></li><li><a href=#rsa-%e6%95%b0%e5%ad%97%e7%ad%be%e5%90%8d aria-label="RSA 数字签名">RSA 数字签名</a><ul><li><a href=#rsa-%e5%85%ac%e9%92%a5%e7%ae%97%e6%b3%95 aria-label="RSA 公钥算法">RSA 公钥算法</a></li><li><a href=#%e6%95%b0%e5%ad%97%e7%ad%be%e5%90%8d%e5%ae%9e%e7%8e%b0 aria-label=数字签名实现>数字签名实现</a></li></ul></li><li><a href=#elgamal-%e6%95%b0%e5%ad%97%e7%ad%be%e5%90%8d aria-label="ElGamal 数字签名">ElGamal 数字签名</a><ul><li><a href=#%e5%af%86%e9%92%a5%e5%8f%82%e6%95%b0%e7%94%9f%e6%88%90 aria-label=密钥参数生成>密钥参数生成</a></li><li><a href=#%e7%ad%be%e5%90%8d%e8%bf%87%e7%a8%8b aria-label=签名过程>签名过程</a></li><li><a href=#%e6%b3%a8%e6%84%8f aria-label=注意>注意</a></li></ul></li></ul></li><li><a href=#%e7%bb%83%e4%b9%a0-1 aria-label=练习>练习</a><ul><li><a href=#rsa aria-label=RSA>RSA</a></li><li><a href=#elgamal aria-label=ElGamal>ElGamal</a></li><li><a href=#diffie-hellman aria-label=Diffie-Hellman>Diffie-Hellman</a></li><li><a href=#%e6%9c%89%e9%99%90%e5%9f%9f%e4%b8%8a%e7%9a%84%e5%a4%9a%e9%a1%b9%e5%bc%8f%e4%b9%98%e6%b3%95 aria-label=有限域上的多项式乘法>有限域上的多项式乘法</a></li><li><a href=#%e6%9c%89%e9%99%90%e5%9f%9f%e5%a4%9a%e9%a1%b9%e5%bc%8f%e6%b1%82%e9%80%86 aria-label=有限域多项式求逆>有限域多项式求逆</a></li></ul></li></ul></div></details></div></aside><script>let activeElement,elements;window.addEventListener("DOMContentLoaded",function(){checkTocPosition(),elements=document.querySelectorAll("h1[id],h2[id],h3[id],h4[id],h5[id],h6[id]"),activeElement=elements[0];const t=encodeURI(activeElement.getAttribute("id")).toLowerCase();document.querySelector(`.inner ul li a[href="#${t}"]`).classList.add("active")},!1),window.addEventListener("resize",function(){checkTocPosition()},!1),window.addEventListener("scroll",()=>{activeElement=Array.from(elements).find(e=>{if(getOffsetTop(e)-window.pageYOffset>0&&getOffsetTop(e)-window.pageYOffset<window.innerHeight/2)return e})||activeElement,elements.forEach(e=>{const t=encodeURI(e.getAttribute("id")).toLowerCase();e===activeElement?document.querySelector(`.inner ul li a[href="#${t}"]`).classList.add("active"):document.querySelector(`.inner ul li a[href="#${t}"]`).classList.remove("active")})},!1);const main=parseInt(getComputedStyle(document.body).getPropertyValue("--article-width"),10),toc=parseInt(getComputedStyle(document.body).getPropertyValue("--toc-width"),10),gap=parseInt(getComputedStyle(document.body).getPropertyValue("--gap"),10);function checkTocPosition(){const e=document.body.scrollWidth;e-main-toc*2-gap*4>0?document.getElementById("toc-container").classList.add("wide"):document.getElementById("toc-container").classList.remove("wide")}function getOffsetTop(e){if(!e.getClientRects().length)return 0;let t=e.getBoundingClientRect(),n=e.ownerDocument.defaultView;return t.top+n.pageYOffset}</script><div class=post-content><h2 id=前言>前言<a hidden class=anchor aria-hidden=true href=#前言>#</a></h2><blockquote><p>作者：申一鸣</p><p>创建日期：2022/5/24</p><p>最后更改：2022/6/2</p></blockquote><h2 id=提纲>提纲<a hidden class=anchor aria-hidden=true href=#提纲>#</a></h2><p>[TOC]</p><h2 id=基本概念>基本概念<a hidden class=anchor aria-hidden=true href=#基本概念>#</a></h2><h3 id=cia三元组>CIA三元组<a hidden class=anchor aria-hidden=true href=#cia三元组>#</a></h3><ul><li>保密性</li><li>完整性</li><li>可用性</li></ul><h3 id=osi安全框架>OSI安全框架<a hidden class=anchor aria-hidden=true href=#osi安全框架>#</a></h3><ul><li>安全攻击</li><li>安全机制</li><li>安全服务</li></ul><h2 id=古典密码>古典密码<a hidden class=anchor aria-hidden=true href=#古典密码>#</a></h2><blockquote><p>古典密码是指通过单表替代或置换生成的，与体系化运用数学手段建模的现代密码学相对应的密码。</p></blockquote><p><em>古典密码学此处只介绍仿射密码，其余省略，具体可参考<sup id=fnref:1><a href=#fn:1 class=footnote-ref role=doc-noteref>1</a></sup>中对古典密码的介绍</em></p><h3 id=仿射密码-affine>仿射密码 Affine<a hidden class=anchor aria-hidden=true href=#仿射密码-affine>#</a></h3><p>*广义凯撒密码，简单的基于有限域的密码
+<script type=application/javascript>var doNotTrack=!1;doNotTrack||(window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga('create','UA-123-45','auto'),ga('send','pageview'))</script>
+<script async src=https://www.google-analytics.com/analytics.js></script>
+<meta property="og:title" content="应用密码学复习提纲">
+<meta property="og:description" content="前言 作者：申一鸣 创建日期：2022/5/24 最后更改：2022/6/2 提纲 [TOC] 基本概念 CIA三元组 保密性 完整性 可用性 OSI安全框架 安全攻击 安全">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://shenyiming.life/post/notes/cryptology/"><meta property="og:image" content="https://shenyiming.life/android-chrome-512x512.png"><meta property="article:section" content="post">
+<meta property="article:published_time" content="2022-05-24T00:00:00+00:00">
+<meta property="article:modified_time" content="2022-06-02T00:00:00+00:00"><meta property="og:site_name" content="Yiming">
+<meta name=twitter:card content="summary_large_image">
+<meta name=twitter:image content="https://shenyiming.life/android-chrome-512x512.png">
+<meta name=twitter:title content="应用密码学复习提纲">
+<meta name=twitter:description content="前言 作者：申一鸣 创建日期：2022/5/24 最后更改：2022/6/2 提纲 [TOC] 基本概念 CIA三元组 保密性 完整性 可用性 OSI安全框架 安全攻击 安全">
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":2,"name":"文章","item":"https://shenyiming.life/post/"},{"@type":"ListItem","position":3,"name":"📝笔记","item":"https://shenyiming.life/post/notes/"},{"@type":"ListItem","position":4,"name":"应用密码学复习提纲","item":"https://shenyiming.life/post/notes/cryptology/"}]}</script>
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"应用密码学复习提纲","name":"应用密码学复习提纲","description":"前言 作者：申一鸣 创建日期：2022/5/24 最后更改：2022/6/2 提纲 [TOC] 基本概念 CIA三元组 保密性 完整性 可用性 OSI安全框架 安全攻击 安全","keywords":["Cryptology","review","Note"],"articleBody":"前言  作者：申一鸣\n创建日期：2022/5/24\n最后更改：2022/6/2\n 提纲 [TOC]\n基本概念 CIA三元组  保密性 完整性 可用性  OSI安全框架  安全攻击 安全机制 安全服务  古典密码  古典密码是指通过单表替代或置换生成的，与体系化运用数学手段建模的现代密码学相对应的密码。\n 古典密码学此处只介绍仿射密码，其余省略，具体可参考1中对古典密码的介绍\n仿射密码 Affine *广义凯撒密码，简单的基于有限域的密码 $$ 明文m,密文c,参数a,b\\in Z_{26}\\\\ 加密： e(m)=c\\equiv a\\cdot m+b (mod\\quad 26)\\newline 特别地，当a=1,b=k时，为凯撒密码。\\\\ 解密：d(c)=m\\equiv a^{-1}\\cdot(c-b)(mod\\quad 26) $$ 求逆元$$a^{-1}$$ 扩展欧几里得算法 Exgcd\n由逆元的定义决定了，必须满足以下条件： $$ gcd(a,26)=1,即a与26互质\\\\ a\\in{1,3,5,7,9,11,15,17,19,21,23,25} $$\n分组密码  分组密码是一种加/解密算法，将输入的明文分组当作一个整体处理，输出一个等长的密文分组。\n Feistel 密码结构  对理想分组密码的近似\n 使用乘积密码增强密码强度，交替使用代换和置换，增强密码的扩散和混淆性能。\n密钥和密文关系为非线性关系\n混淆（Confusion）：使密钥与密文的关系尽可能模糊，使用替换法达到目的。\n扩散（Diffusion）：隐藏明文的统计特性，使用位置换达到目的。\n优点：  对称密码结构，加密解密过程几乎一样 编码量和线路传输的要求少了几乎一半  Feistel 密码结构  分组长度  分组越长代表安全性越高（扩散性能越好），但会降低加解密速度。   密钥长度  密钥越长安全性越高（抗穷举、提高混淆）   迭代轮数  多轮加密可取得较高的安全性    Feistel密码通常由以下步骤组成\n 子密钥生成算法 轮函数 快速软件加解密 简化分析难度  数据加密标准 DES  算法分为两部分：迭代加密、密钥调度 以下内容摘自阮行止Pion1er大佬博客2  　所谓密钥调度，就是从一把 64-bit 的主钥匙，得到 16 把 48-bit 的子钥匙，然后把这些子钥匙用于迭代加密。那么，如何从一把主钥匙得到 16 把子钥匙呢？\n 从 64-bit 的主钥匙里面选取特定的 56 位，其余的位就没用了。于是我们现在手上有了一个 56 位的布尔数组。把它分成左、右两个半密钥，它们都是 28-bit 的布尔数组。 左、右两个半密钥都左旋（也就是循环左移。整个数组往左移，左边弹出去了的东西补到最右边去）一定位数，这个左移的位数也是指定的。有些轮次是 1 位，有些轮次是 2 位。 把左、右半密钥拼起来，再做一个置换，就得到了这一轮生成的子密钥。这个置换是从 56-bit 的数组里面选取指定的 48 位。所以现在每一轮都可以生成一个 48 位的子密钥。（注意，步骤 3 并不改变左右半密钥）。 重复 步骤 2、步骤 3 一共 16 次，于是得到了 16 个 48-bit 的子密钥。  现在我们手上有了 16 把子密钥。遂开始加密：\n  输入的明文（长度为 64 的布尔数组）做一个置换(IP置换)。仍然得到 64-bit 的数组（不然就丢失信息了！）\n  把得到的数组拆成左、右两半边。每边是 32 位长度。\n  每一轮迭代，都是接收一组 L, R，返回 L', R' ，作为下一轮迭代的 L, R 迭代过程如下：\n  $$ L'=R\\\\ R'=L\\oplus F(R,subkey) $$\n其中 F 函数（称为轮函数）是整个算法的核心，功能是：以一个子密钥，加密 32-bit 的信息。\n 利用之前得到的 16 个子密钥，执行步骤 3 一共 16 次。\n  将最终的 R 与 L 拼接，再做一次置换(FP置换)，即得到密文。\n  Feistel轮函数：\n 扩展32位R至48位 轮密钥XOR异或 S盒置换（8个S盒，每盒输入6位，输出4位） P置换   一个 32-bit 的块，经过一个扩张(Expand函数)，变成 48 位，然后与子密钥异或。得到的 48-bit 的结果分为 8 组，每一组是 6-bit 的数据，丢进对应的 S 盒，输出 4-bit 的信息。把这些输出收集起来，一共是 4*8 = 32 位，做一次置换 (P 置换)，得到 32-bit 的结果。这与输进来的 32-bit 信息是等长度的。\n S盒：\n S盒是对称密码系统分组加密算法中最核心的安全部件（抗差分密码攻击） 6输入中的第1和第6比特组成的二进制数确定的行，中间4位二进制数确定列 相应位置的十进制数转为4位二进制数进行输出   雪崩效应：明文或密钥的某一位发生变化（微小的变化）将对密文的结果产生很大的影响。\n DES的工作模式  电子编码本 ECB 密码分组链接 CBC 输出反馈 OFB 密码反馈 CFB  高级加密标准 AES （AES不是Feistel结构，是每一轮并行的处理每一个分组）\n密钥长度：128位\n流程：\n 字节代换 行移位 列混合 轮密钥加  有限域运算3 加法和减法： 加法即异或运算 减法即加法\n乘法和除法： 伽罗华域上的多项式乘法，其结果需要mod P(x)，可以通过以下方式简化计算。\n首先，考虑x^8，x^8 mod P(x) = P(x) – x^8 = x^4 + x^3 +x^2 +1 。\n　对于一般形式的多项式f(x)=a7x^7 + a6x^6 + a5x^5 + a4x^4 + a3x^3 + a2x^2 + a1*x + a0，乘以x得到\n$$ xf(x) = (a7x^8 + a6x^7 + a5x^6 + a4x^5 + a3x^4 + a2x^3 + a1x^1 + a0*x) mod P(x) $$\n这时有两种情况： 1）a7 == 0，此时结果是一个小于指数小于8的多项式，不需要取模计算。 2）a7 == 1，则将x^8替换为x^4 + x^3 + x^2 +1，而不用进行除法取模计算，结果为： x*f(x) = (x^4 + x^3 + x^2 +1) + a6*x^7 + a5*x^6 + a4*x^5 + a3*x^4 + a2*x^3 + a1*x^1 + a0*x\n$$ m(x)=x^8+x^4+x^3+x+1\\\\ x^8\\equiv x^4+x^3+x+1 (mod\\quad m)\\\\ x^9\\equiv x*x^8=x^5+x^4+x^2+x …依次类推 $$\n公钥密码学与RSA  陷门单向函数\n 在不知陷门信息下，由f(x)求x极为困难 当知道陷门信息后，由f(x)求x是易于实现的  (与单向函数的区别是 单向函数都极为困难)\n 公钥密码学解决的基本问题  密钥交换  要求：已经共享了一个密钥，或利用密钥分配中心   数字签名  公钥密码体制 组成部分 明文 密文 公钥 私钥\n加密 解密算法\n安全性 任何加密方法的安全性依赖于密钥的长度和破译密文所需要的计算量，不能说公钥密码优于传统密码\n意义 解决了传统密码中最困难两个问题\n 密钥分配 数字签名  RSA 算法  明文和密文是0到n-1之间的整数，n的大小为1024位或309位十进制数。\n 流程 $$ 随机选择两个大素数p,q\\\\ 计算N=p\\cdot q,\\phi(N)=(p-1)(q-1)\\\\ 选择e,使得1def EX_GCD(a,b,arr): #扩展欧几里得 if b == 0: arr[0] = 1 arr[1] = 0 return a g = EX_GCD(b, a % b, arr) t = arr[0] arr[0] = arr[1] arr[1] = t - int(a / b) * arr[1] return g def R(a,n): #ax=1(mod n) 求a模n的乘法逆x arr = [0,1,] gcd = EX_GCD(a,n,arr) if gcd == 1: return (arr[0] % n + n) % n else: return -1 对RSA 算法的攻击 直接攻击  分解N 获取φ(N)，确定d 直接确定d  已经证明，若$$e\n共模攻击  在模数N不变的情况下，已知两个生成密钥e1、e2和用其分别加密的相同m信息c1、c2和模数N，可以在不知道d1、d2的情况下解出明文m\n 使用扩展欧几里得Exgcd算法，求出 $$ e_1\\times s_1+e_2\\times s_2 = 1 $$ 中的$$s_1和s_2$$\n即可得 $$ m = c_1^{s_1}\\times c_2^{s_2} $$ 证明略，具体可参考4\n计时攻击  通过观察系统处理上述函数所花费的时间来判断，很慢的指数比特为1，否则为0，如此即可得到整个指数。\n 避免计时攻击  不变的运算时间-会降低算法性能 随机延时，扰乱分析 执行幂运算前先将密文乘上一个随机数，使攻击者不知道正处理密文的哪些位。  消息隐匿失败-不动点问题 对于明文x，使用RSA加密，可能出现 $$ x^e\\equiv x(mod\\quad n) $$ 对于RSA算法而言，总存在x=0,1,(n-1)为不动点\n除此之外，还存在 $$ [1+gcd(e-1,p-1)\\times [1+gcd(e-1,q-1)]] $$ 个不动点，至少有3*3=9个\nDiffie-Hellman 密钥交换  1976年由Diffie和Hellman提出的第一个实用的密钥公开交换算法。\n 基于离散对数的求解困难问题\n实现 $$ 公开选定公钥:(g,p),其中p是一个质数,g是它的一个原根\\\\ Alice想一个随机数x并计算A=g^x，将A发送给Bob\\newline Bob想一个随机数y并计算B=g^y，将B发送给Alice\\\\ Alice和Bob接到A、B后,密钥K=B^x=A^y $$\n如此，即可在不安全的通信信道中进行安全的密钥交换。\n中间人攻击 中间人Darth将自己生成的随机数，用Alice的公钥生成自己的密钥，传递给Bob，接收并解密Bob发送的消息。\nElGamal 加密算法  D-H算法解决了密钥交换的问题，但密钥不带有信息，无法直接通讯，ElGamal公钥加密算法解决了通讯的问题，安全性与D-H算法一致。\n 实现 $$ Alice随机数a作为私钥;选取g、p，A=g^a作为公钥\\\\ Bob想给Alice传递信息m，选取随机数k计算\\newline K=A^k(mod\\quad p)\\qquad c_1=g^k(mod\\quad p),c_2=mK(mod\\quad p)\\\\ Alice拿到(c_1,c_2)，计算\\newline K=c_1^{a}\\qquad m=c_2K^{-1}=c_1^{-a}\\cdot c_2 $$\n注意与ElGamal数字签名生成和验证算法的异同\n练习 在mod 17,g=3的情况下验证ElGamal加解密方案 $$ Alice私钥a=2公钥(g=3,p=17,A=g^a(mod\\quad p)=4)\\\\ Bob消息m=6,b=3,K=A^b=13,c_1=g^b=10,c_2=mK=5\\\\ Alice收到c_1,c_2,解密m=10^{-2}\\cdot 5=6 $$\n缺点  需要随机数 密文长度加倍（两倍消息扩张）  Hash函数  Hash函数是一个将任意长度的消息序列映射为较短的、固定长度的一个值的函数，用于构造数据的指纹，保障数据的完整性。\n Hash函数是一个公开函数，将任意长的消息M映射为较短的、固定长度的一个值H(M) $$ Y=H(M),{0,1}^*\\rightarrow{0,1}^n $$\n   需求 描述     输入长度可变 H可应用于任意大小的数据块   输出长度固定 H产生定长输出   效率 计算H(x)较容易   单向性 逆推x不可行   抗弱碰撞性 对于给定的分块，碰撞到相同的Hash值不可行   抗强碰撞性 碰撞到任何相同的Hash值不可行   伪随机性 输出满足伪随机性测试标准    应用 消息认证  用于验证消息完整性时，Hash函数值被称为消息摘要\n 消息认证是通过MAC，即带密钥的哈希函数实现的\n数字签名  提高签名速度，只对摘要签名 不泄露签名所对应的消息 签名与加密分别处理  其他  创建单向口令文件，即只存储口令的哈希函数值，而非存储原始密码  MD5 与 SHA1的区别 长度、安全、速度、攻击\n数字签名  数字签名是一种电子形式给一个消息签名的方法\n 签名：用私钥加密信息达到身份验证目的的运算\n数字签名的目的  可验证性和不可伪造性\n   提供一个手写签名的数字化副本\n  数字签名保障了：\n   数据完整性 系统可用性 实体认证性 行为不可抵赖性  数字签名属性  核实作者签名和日期的时间 在签名时对内容进行身份验证 为解决争端，能够被第三方核查  数字签名要求  依赖于消息位模式 使用特有的信息 生成相对容易 伪造在计算上不可行 可以保留副本  数字签名方法 普通数字签名  RSA ElGamal Schnorr 椭圆曲线数字签名算法、DSA数字签名算法、有限自动机数字签名算法。\n 特殊数字签名  不可否认签名、门限签名、盲签名、代理签名\n 功能：  确认信息是由签名者发送（实体认证性） 确认信息自签名到收到未被篡改（数据完整性） 签名者无法否认签名由自己发送（行为不可抵赖性）  数字签名解决方案 直接数字签名方案  前提：假设目标知道源的公钥\n  只涉及通信的源点X和终点Y双方 X的公钥$$K_{Ux}$$私钥$$K_{Rx}$$ X可以使用私钥对消息报文的散列值进行加密来形成数字签名  安全性  安全性依赖于私钥的安全性 但不具备行为不可抵赖性，即使每个报文中包含时间戳，仍可以被伪造。  基于仲裁的数字签名方案  通过引入仲裁来解决直接签名方案中的问题，但仲裁者必须是一个受所有通信方信任的机构。\n X-A-Y，A检验报文和签名的出处、内容，注明日期，加上仲裁证实标记。\n方案内容  密钥生成，如公钥密码体制 签名算法，利用私钥进行签名 验证算法，利用公钥验证签名  RSA 数字签名 RSA 公钥算法 $$ 大素数p、q \\newline n=p\\times q\\quad \\phi(n)=(p-1)(q-1) \\newline 随机正整数1手算RSA的前置技能：模逆运算（扩展欧几里得算法）快速幂模运算\n 数字签名实现 密钥的生成完全相同，签名时： $$ m\\in Z_n, Sig(m)=m^d(mod \\quad n)\\newline S\\in Z_n, 若m=S^e (mod\\quad n)，则认为s为消息m的有效签名 $$\nElGamal 数字签名 密钥参数生成 $$ 选定大素数p\\\\ 选取g,x签名过程 $$ K=公钥{y,p,g}私钥 x\\\\ 签名算法：对随机数k,待签消息m，定义Sig(x,k)=(r,s)\\\\ r=g^k(mod\\quad p),s=(m-xr)k^{-1}mod(p-1)\\\\ 验证算法：Ver(m,r,s): y^rr^s\\equiv g^m(mod\\quad p)?true:false $$\n注意  每次签名应选择不同的随机数k，否则有可能私钥x能被算出 ElGamal 效率低于RSA 且有两倍的消息扩张 ElGamal数字签名也可以推广到合适的循环群中，某些变形能被证明在选择消息攻击下是安全的  练习 RSA ElGamal Diffie-Hellman 有限域上的多项式乘法 有限域多项式求逆   https://ctf-wiki.org/crypto/classical/introduction/ ↩︎\n https://www.ruanx.net/ ↩︎\n https://www.cnblogs.com/xdyixia/p/12576437.html ↩︎\n https://1ablades.github.io/2017/08/09/RSA%E5%85%B1%E6%A8%A1%E6%94%BB%E5%87%BB/ ↩︎\n   ","wordCount":"4871","inLanguage":"en","datePublished":"2022-05-24T00:00:00Z","dateModified":"2022-06-02T00:00:00Z","author":{"@type":"Person","name":"Yiming Shen"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://shenyiming.life/post/notes/cryptology/"},"publisher":{"@type":"Organization","name":"Console.makeHappy(_1ming)","logo":{"@type":"ImageObject","url":"https://shenyiming.life/favicon.ico"}}}</script>
+</head>
+<body id=top>
+<script>localStorage.getItem("pref-theme")==="dark"?document.body.classList.add('dark'):localStorage.getItem("pref-theme")==="light"?document.body.classList.remove('dark'):window.matchMedia('(prefers-color-scheme: dark)').matches&&document.body.classList.add('dark')</script>
+<noscript>
+<style type=text/css>#theme-toggle,.top-link{display:none}</style>
+<style>@media(prefers-color-scheme:dark){:root{--theme:#1d1e20;--entry:#2e2e33;--primary:rgba(255, 255, 255, 0.84);--secondary:rgba(255, 255, 255, 0.56);--tertiary:rgba(255, 255, 255, 0.16);--content:rgba(255, 255, 255, 0.74);--hljs-bg:#2e2e33;--code-bg:#37383e;--border:#333}.list{background:var(--theme)}.list:not(.dark)::-webkit-scrollbar-track{background:0 0}.list:not(.dark)::-webkit-scrollbar-thumb{border-color:var(--theme)}}</style>
+</noscript>
+<header class=header>
+<nav class=nav>
+<div class=logo>
+<a href=https://shenyiming.life accesskey=h title="相位  (Alt + H)">
+<img src=/favicon.ico alt=logo aria-label=logo height=35>相位 </a>
+<span class=logo-switches>
+<button id=theme-toggle accesskey=t title="(Alt + T)"><svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg><svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+</button>
+</span>
+</div>
+<ul id=menu onscroll=menu_on_scroll()>
+<li>
+<a href=https://shenyiming.life/post/ title=文章>
+<span>文章</span>
+</a>
+</li>
+<li>
+<a href=https://shenyiming.life/archive/ title=归档>
+<span>归档</span>
+</a>
+</li>
+<li>
+<a href=https://shenyiming.life/categories/ title=分类>
+<span>分类</span>
+</a>
+</li>
+<li>
+<a href=https://shenyiming.life/tags/ title=标签>
+<span>标签</span>
+</a>
+</li>
+<li>
+<a href=https://shenyiming.life/search/ title="搜索 (Alt + /)" accesskey=/>
+<span>搜索</span>
+</a>
+</li>
+<li>
+<a href=https://shenyiming.life/friends/ title=友链>
+<span>友链</span>
+</a>
+</li>
+<li>
+<a href=https://shenyiming.life/about/ title=关于>
+<span>关于</span>
+</a>
+</li></ul>
+</nav>
+</header>
+<main class=main>
+<style>:root{--article-font-family:"Noto Serif SC", var(--base-font-family)}</style>
+<script>(function(){const a=document.createElement('link');a.href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;700&display=swap",a.type="text/css",a.rel="stylesheet",document.head.appendChild(a)})()</script>
+<article class=post-single>
+<header class=post-header>
+<div class=breadcrumbs>
+<a href=https://shenyiming.life>首页</a>&nbsp;»&nbsp;<a href=https://shenyiming.life/post/>文章</a>&nbsp;»&nbsp;<a href=https://shenyiming.life/post/notes/>📝笔记</a>
+</div>
+<h1 class=post-title>
+应用密码学复习提纲
+</h1>
+<div class=post-meta>
+<style>:root{--article-font-family:"Noto Serif SC", var(--base-font-family)}</style>
+<script>(function(){const a=document.createElement('link');a.href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;700&display=swap",a.type="text/css",a.rel="stylesheet",document.head.appendChild(a)})()</script>
+May 24, 2022&nbsp;·&nbsp;June 2, 2022&nbsp;·&nbsp;10 min&nbsp;·&nbsp;Yiming Shen
+|&nbsp;<a href=https://github.com/shenyimings/shenyimings.github.io/tree/main/docs rel="noopener noreferrer" target=_blank>Issue</a>
+</div>
+</header>
+<aside id=toc-container class="toc-container wide">
+<div class=toc>
+<details open>
+<summary accesskey=c title="(Alt + C)">
+<span class=details>目录</span>
+</summary>
+<div class=inner><ul>
+<li>
+<a href=#%e5%89%8d%e8%a8%80 aria-label=前言>前言</a></li>
+<li>
+<a href=#%e6%8f%90%e7%ba%b2 aria-label=提纲>提纲</a></li>
+<li>
+<a href=#%e5%9f%ba%e6%9c%ac%e6%a6%82%e5%bf%b5 aria-label=基本概念>基本概念</a><ul>
+<li>
+<a href=#cia%e4%b8%89%e5%85%83%e7%bb%84 aria-label=CIA三元组>CIA三元组</a></li>
+<li>
+<a href=#osi%e5%ae%89%e5%85%a8%e6%a1%86%e6%9e%b6 aria-label=OSI安全框架>OSI安全框架</a></li></ul>
+</li>
+<li>
+<a href=#%e5%8f%a4%e5%85%b8%e5%af%86%e7%a0%81 aria-label=古典密码>古典密码</a><ul>
+<li>
+<a href=#%e4%bb%bf%e5%b0%84%e5%af%86%e7%a0%81-affine aria-label="仿射密码 Affine">仿射密码 Affine</a></li></ul>
+</li>
+<li>
+<a href=#%e5%88%86%e7%bb%84%e5%af%86%e7%a0%81 aria-label=分组密码>分组密码</a><ul>
+<li>
+<a href=#feistel-%e5%af%86%e7%a0%81%e7%bb%93%e6%9e%84 aria-label="Feistel 密码结构">Feistel 密码结构</a><ul>
+<li>
+<a href=#%e4%bc%98%e7%82%b9 aria-label=优点：>优点：</a></li></ul>
+</li>
+<li>
+<a href=#feistel-%e5%af%86%e7%a0%81%e7%bb%93%e6%9e%84-1 aria-label="Feistel 密码结构">Feistel 密码结构</a></li>
+<li>
+<a href=#%e6%95%b0%e6%8d%ae%e5%8a%a0%e5%af%86%e6%a0%87%e5%87%86-des aria-label="数据加密标准 DES">数据加密标准 DES</a><ul>
+<li>
+<a href=#des%e7%9a%84%e5%b7%a5%e4%bd%9c%e6%a8%a1%e5%bc%8f aria-label=DES的工作模式>DES的工作模式</a></li></ul>
+</li>
+<li>
+<a href=#%e9%ab%98%e7%ba%a7%e5%8a%a0%e5%af%86%e6%a0%87%e5%87%86-aes aria-label="高级加密标准 AES">高级加密标准 AES</a></li>
+<li>
+<a href=#%e6%9c%89%e9%99%90%e5%9f%9f%e8%bf%90%e7%ae%97%e6%9c%89%e9%99%90%e5%9f%9f%e4%b8%8a%e7%9a%84%e5%9b%9b%e5%88%99%e8%bf%90%e7%ae%97 aria-label=有限域运算3>有限域运算<sup id=fnref:3><a href=#fn:3 class=footnote-ref role=doc-noteref>3</a></sup></a><ul>
+<li>
+<a href=#%e5%8a%a0%e6%b3%95%e5%92%8c%e5%87%8f%e6%b3%95 aria-label=加法和减法：>加法和减法：</a></li>
+<li>
+<a href=#%e4%b9%98%e6%b3%95%e5%92%8c%e9%99%a4%e6%b3%95 aria-label=乘法和除法：>乘法和除法：</a></li></ul>
+</li></ul>
+</li>
+<li>
+<a href=#%e5%85%ac%e9%92%a5%e5%af%86%e7%a0%81%e5%ad%a6%e4%b8%8ersa aria-label=公钥密码学与RSA>公钥密码学与RSA</a><ul>
+<li>
+<a href=#%e5%85%ac%e9%92%a5%e5%af%86%e7%a0%81%e5%ad%a6%e8%a7%a3%e5%86%b3%e7%9a%84%e5%9f%ba%e6%9c%ac%e9%97%ae%e9%a2%98 aria-label=公钥密码学解决的基本问题>公钥密码学解决的基本问题</a></li>
+<li>
+<a href=#%e5%85%ac%e9%92%a5%e5%af%86%e7%a0%81%e4%bd%93%e5%88%b6 aria-label=公钥密码体制>公钥密码体制</a><ul>
+<li>
+<a href=#%e7%bb%84%e6%88%90%e9%83%a8%e5%88%86 aria-label=组成部分>组成部分</a></li>
+<li>
+<a href=#%e5%ae%89%e5%85%a8%e6%80%a7 aria-label=安全性>安全性</a></li>
+<li>
+<a href=#%e6%84%8f%e4%b9%89 aria-label=意义>意义</a></li></ul>
+</li>
+<li>
+<a href=#rsa-%e7%ae%97%e6%b3%95 aria-label="RSA 算法">RSA 算法</a><ul>
+<li>
+<a href=#%e6%b5%81%e7%a8%8b aria-label=流程>流程</a></li></ul>
+</li>
+<li>
+<a href=#%e5%af%b9rsa-%e7%ae%97%e6%b3%95%e7%9a%84%e6%94%bb%e5%87%bb aria-label="对RSA 算法的攻击">对RSA 算法的攻击</a><ul>
+<li>
+<a href=#%e7%9b%b4%e6%8e%a5%e6%94%bb%e5%87%bb aria-label=直接攻击>直接攻击</a></li>
+<li>
+<a href=#%e5%85%b1%e6%a8%a1%e6%94%bb%e5%87%bb aria-label=共模攻击>共模攻击</a></li>
+<li>
+<a href=#%e8%ae%a1%e6%97%b6%e6%94%bb%e5%87%bb aria-label=计时攻击>计时攻击</a><ul>
+<li>
+<a href=#%e9%81%bf%e5%85%8d%e8%ae%a1%e6%97%b6%e6%94%bb%e5%87%bb aria-label=避免计时攻击>避免计时攻击</a></li></ul>
+</li>
+<li>
+<a href=#%e6%b6%88%e6%81%af%e9%9a%90%e5%8c%bf%e5%a4%b1%e8%b4%a5-%e4%b8%8d%e5%8a%a8%e7%82%b9%e9%97%ae%e9%a2%98 aria-label=消息隐匿失败-不动点问题>消息隐匿失败-不动点问题</a></li></ul>
+</li>
+<li>
+<a href=#diffie-hellman-%e5%af%86%e9%92%a5%e4%ba%a4%e6%8d%a2 aria-label="Diffie-Hellman 密钥交换">Diffie-Hellman 密钥交换</a><ul>
+<li>
+<a href=#%e5%ae%9e%e7%8e%b0 aria-label=实现>实现</a></li>
+<li>
+<a href=#%e4%b8%ad%e9%97%b4%e4%ba%ba%e6%94%bb%e5%87%bb aria-label=中间人攻击>中间人攻击</a></li></ul>
+</li>
+<li>
+<a href=#elgamal-%e5%8a%a0%e5%af%86%e7%ae%97%e6%b3%95 aria-label="ElGamal 加密算法">ElGamal 加密算法</a><ul>
+<li>
+<a href=#%e5%ae%9e%e7%8e%b0-1 aria-label=实现>实现</a></li>
+<li>
+<a href=#%e7%bb%83%e4%b9%a0 aria-label=练习>练习</a></li>
+<li>
+<a href=#%e7%bc%ba%e7%82%b9 aria-label=缺点>缺点</a></li></ul>
+</li></ul>
+</li>
+<li>
+<a href=#hash%e5%87%bd%e6%95%b0 aria-label=Hash函数>Hash函数</a><ul>
+<li>
+<a href=#%e5%ba%94%e7%94%a8 aria-label=应用>应用</a><ul>
+<li>
+<a href=#%e6%b6%88%e6%81%af%e8%ae%a4%e8%af%81 aria-label=消息认证>消息认证</a></li>
+<li>
+<a href=#%e6%95%b0%e5%ad%97%e7%ad%be%e5%90%8d aria-label=数字签名>数字签名</a></li>
+<li>
+<a href=#%e5%85%b6%e4%bb%96 aria-label=其他>其他</a></li></ul>
+</li>
+<li>
+<a href=#md5-%e4%b8%8e-sha1%e7%9a%84%e5%8c%ba%e5%88%ab aria-label="MD5 与 SHA1的区别">MD5 与 SHA1的区别</a></li></ul>
+</li>
+<li>
+<a href=#%e6%95%b0%e5%ad%97%e7%ad%be%e5%90%8d-1 aria-label=数字签名>数字签名</a><ul>
+<li>
+<a href=#%e6%95%b0%e5%ad%97%e7%ad%be%e5%90%8d%e7%9a%84%e7%9b%ae%e7%9a%84 aria-label=数字签名的目的>数字签名的目的</a></li>
+<li>
+<a href=#%e6%95%b0%e5%ad%97%e7%ad%be%e5%90%8d%e5%b1%9e%e6%80%a7 aria-label=数字签名属性>数字签名属性</a></li>
+<li>
+<a href=#%e6%95%b0%e5%ad%97%e7%ad%be%e5%90%8d%e8%a6%81%e6%b1%82 aria-label=数字签名要求>数字签名要求</a></li>
+<li>
+<a href=#%e6%95%b0%e5%ad%97%e7%ad%be%e5%90%8d%e6%96%b9%e6%b3%95 aria-label=数字签名方法>数字签名方法</a><ul>
+<li>
+<a href=#%e6%99%ae%e9%80%9a%e6%95%b0%e5%ad%97%e7%ad%be%e5%90%8d aria-label=普通数字签名>普通数字签名</a></li>
+<li>
+<a href=#%e7%89%b9%e6%ae%8a%e6%95%b0%e5%ad%97%e7%ad%be%e5%90%8d aria-label=特殊数字签名>特殊数字签名</a></li>
+<li>
+<a href=#%e5%8a%9f%e8%83%bd aria-label=功能：>功能：</a></li></ul>
+</li>
+<li>
+<a href=#%e6%95%b0%e5%ad%97%e7%ad%be%e5%90%8d%e8%a7%a3%e5%86%b3%e6%96%b9%e6%a1%88 aria-label=数字签名解决方案>数字签名解决方案</a><ul>
+<li>
+<a href=#%e7%9b%b4%e6%8e%a5%e6%95%b0%e5%ad%97%e7%ad%be%e5%90%8d%e6%96%b9%e6%a1%88 aria-label=直接数字签名方案>直接数字签名方案</a><ul>
+<li>
+<a href=#%e5%ae%89%e5%85%a8%e6%80%a7-1 aria-label=安全性>安全性</a></li></ul>
+</li>
+<li>
+<a href=#%e5%9f%ba%e4%ba%8e%e4%bb%b2%e8%a3%81%e7%9a%84%e6%95%b0%e5%ad%97%e7%ad%be%e5%90%8d%e6%96%b9%e6%a1%88 aria-label=基于仲裁的数字签名方案>基于仲裁的数字签名方案</a></li>
+<li>
+<a href=#%e6%96%b9%e6%a1%88%e5%86%85%e5%ae%b9 aria-label=方案内容>方案内容</a></li></ul>
+</li>
+<li>
+<a href=#rsa-%e6%95%b0%e5%ad%97%e7%ad%be%e5%90%8d aria-label="RSA 数字签名">RSA 数字签名</a><ul>
+<li>
+<a href=#rsa-%e5%85%ac%e9%92%a5%e7%ae%97%e6%b3%95 aria-label="RSA 公钥算法">RSA 公钥算法</a></li>
+<li>
+<a href=#%e6%95%b0%e5%ad%97%e7%ad%be%e5%90%8d%e5%ae%9e%e7%8e%b0 aria-label=数字签名实现>数字签名实现</a></li></ul>
+</li>
+<li>
+<a href=#elgamal-%e6%95%b0%e5%ad%97%e7%ad%be%e5%90%8d aria-label="ElGamal 数字签名">ElGamal 数字签名</a><ul>
+<li>
+<a href=#%e5%af%86%e9%92%a5%e5%8f%82%e6%95%b0%e7%94%9f%e6%88%90 aria-label=密钥参数生成>密钥参数生成</a></li>
+<li>
+<a href=#%e7%ad%be%e5%90%8d%e8%bf%87%e7%a8%8b aria-label=签名过程>签名过程</a></li>
+<li>
+<a href=#%e6%b3%a8%e6%84%8f aria-label=注意>注意</a></li></ul>
+</li></ul>
+</li>
+<li>
+<a href=#%e7%bb%83%e4%b9%a0-1 aria-label=练习>练习</a><ul>
+<li>
+<a href=#rsa aria-label=RSA>RSA</a></li>
+<li>
+<a href=#elgamal aria-label=ElGamal>ElGamal</a></li>
+<li>
+<a href=#diffie-hellman aria-label=Diffie-Hellman>Diffie-Hellman</a></li>
+<li>
+<a href=#%e6%9c%89%e9%99%90%e5%9f%9f%e4%b8%8a%e7%9a%84%e5%a4%9a%e9%a1%b9%e5%bc%8f%e4%b9%98%e6%b3%95 aria-label=有限域上的多项式乘法>有限域上的多项式乘法</a></li>
+<li>
+<a href=#%e6%9c%89%e9%99%90%e5%9f%9f%e5%a4%9a%e9%a1%b9%e5%bc%8f%e6%b1%82%e9%80%86 aria-label=有限域多项式求逆>有限域多项式求逆</a>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</details>
+</div>
+</aside>
+<script>let activeElement,elements;window.addEventListener('DOMContentLoaded',function(b){checkTocPosition(),elements=document.querySelectorAll('h1[id],h2[id],h3[id],h4[id],h5[id],h6[id]'),activeElement=elements[0];const a=encodeURI(activeElement.getAttribute('id')).toLowerCase();document.querySelector(`.inner ul li a[href="#${a}"]`).classList.add('active')},!1),window.addEventListener('resize',function(a){checkTocPosition()},!1),window.addEventListener('scroll',()=>{activeElement=Array.from(elements).find(a=>{if(getOffsetTop(a)-window.pageYOffset>0&&getOffsetTop(a)-window.pageYOffset<window.innerHeight/2)return a})||activeElement,elements.forEach(a=>{const b=encodeURI(a.getAttribute('id')).toLowerCase();a===activeElement?document.querySelector(`.inner ul li a[href="#${b}"]`).classList.add('active'):document.querySelector(`.inner ul li a[href="#${b}"]`).classList.remove('active')})},!1);const main=parseInt(getComputedStyle(document.body).getPropertyValue('--article-width'),10),toc=parseInt(getComputedStyle(document.body).getPropertyValue('--toc-width'),10),gap=parseInt(getComputedStyle(document.body).getPropertyValue('--gap'),10);function checkTocPosition(){const a=document.body.scrollWidth;a-main-toc*2-gap*4>0?document.getElementById("toc-container").classList.add("wide"):document.getElementById("toc-container").classList.remove("wide")}function getOffsetTop(a){if(!a.getClientRects().length)return 0;let b=a.getBoundingClientRect(),c=a.ownerDocument.defaultView;return b.top+c.pageYOffset}</script>
+<div class=post-content>
+<h2 id=前言>前言<a hidden class=anchor aria-hidden=true href=#前言>#</a></h2>
+<blockquote>
+<p>作者：申一鸣</p>
+<p>创建日期：2022/5/24</p>
+<p>最后更改：2022/6/2</p>
+</blockquote>
+<h2 id=提纲>提纲<a hidden class=anchor aria-hidden=true href=#提纲>#</a></h2>
+<p>[TOC]</p>
+<h2 id=基本概念>基本概念<a hidden class=anchor aria-hidden=true href=#基本概念>#</a></h2>
+<h3 id=cia三元组>CIA三元组<a hidden class=anchor aria-hidden=true href=#cia三元组>#</a></h3>
+<ul>
+<li>保密性</li>
+<li>完整性</li>
+<li>可用性</li>
+</ul>
+<h3 id=osi安全框架>OSI安全框架<a hidden class=anchor aria-hidden=true href=#osi安全框架>#</a></h3>
+<ul>
+<li>安全攻击</li>
+<li>安全机制</li>
+<li>安全服务</li>
+</ul>
+<h2 id=古典密码>古典密码<a hidden class=anchor aria-hidden=true href=#古典密码>#</a></h2>
+<blockquote>
+<p>古典密码是指通过单表替代或置换生成的，与体系化运用数学手段建模的现代密码学相对应的密码。</p>
+</blockquote>
+<p><em>古典密码学此处只介绍仿射密码，其余省略，具体可参考<sup id=fnref:1><a href=#fn:1 class=footnote-ref role=doc-noteref>1</a></sup>中对古典密码的介绍</em></p>
+<h3 id=仿射密码-affine>仿射密码 Affine<a hidden class=anchor aria-hidden=true href=#仿射密码-affine>#</a></h3>
+<p>*广义凯撒密码，简单的基于有限域的密码
 $$
 明文m,密文c,参数a,b\in Z_{26}\\
 加密： e(m)=c\equiv a\cdot m+b (mod\quad 26)\newline
 特别地，当a=1,b=k时，为凯撒密码。\\
 解密：d(c)=m\equiv a^{-1}\cdot(c-b)(mod\quad 26)
 $$
-<strong>求逆元$$a^{-1}$$ 扩展欧几里得算法 Exgcd</strong></p><p>由逆元的定义决定了，必须满足以下条件：
+<strong>求逆元$$a^{-1}$$ 扩展欧几里得算法 Exgcd</strong></p>
+<p>由逆元的定义决定了，必须满足以下条件：
 $$
 gcd(a,26)=1,即a与26互质\\
 a\in{1,3,5,7,9,11,15,17,19,21,23,25}
-$$</p><h2 id=分组密码>分组密码<a hidden class=anchor aria-hidden=true href=#分组密码>#</a></h2><blockquote><p>分组密码是一种加/解密算法，将输入的明文分组当作一个整体处理，输出一个等长的密文分组。</p></blockquote><h3 id=feistel-密码结构>Feistel 密码结构<a hidden class=anchor aria-hidden=true href=#feistel-密码结构>#</a></h3><blockquote><p>对理想分组密码的近似</p></blockquote><p><img loading=lazy src=Cryptology.assets/%7D/image-20220528001126847.png alt=image-20220528001126847></p><p>使用<strong>乘积密码</strong>增强密码强度，交替使用代换和置换，增强密码的<strong>扩散</strong>和<strong>混淆</strong>性能。</p><p><strong>密钥和密文关系为非线性关系</strong></p><p><strong>混淆（Confusion）</strong>：使密钥与密文的关系尽可能模糊，使用替换法达到目的。</p><p><strong>扩散（Diffusion）</strong>：隐藏明文的统计特性，使用位置换达到目的。</p><h4 id=优点>优点：<a hidden class=anchor aria-hidden=true href=#优点>#</a></h4><ul><li>对称密码结构，加密解密过程几乎一样</li><li>编码量和线路传输的要求少了几乎一半</li></ul><h3 id=feistel-密码结构-1>Feistel 密码结构<a hidden class=anchor aria-hidden=true href=#feistel-密码结构-1>#</a></h3><ul><li>分组长度<ul><li>分组越长代表安全性越高（扩散性能越好），但会降低加解密速度。</li></ul></li><li>密钥长度<ul><li>密钥越长安全性越高（抗穷举、提高混淆）</li></ul></li><li>迭代轮数<ul><li>多轮加密可取得较高的安全性</li></ul></li></ul><p><strong>Feistel密码通常由以下步骤组成</strong></p><ol><li>子密钥生成算法</li><li>轮函数</li><li>快速软件加解密</li><li>简化分析难度</li></ol><h3 id=数据加密标准-des>数据加密标准 DES<a hidden class=anchor aria-hidden=true href=#数据加密标准-des>#</a></h3><p><img loading=lazy src=https://www.ruanx.net/content/images/2020/04/figure2-des_block.gif alt=img></p><p><img loading=lazy src=https://images2018.cnblogs.com/blog/1281268/201807/1281268-20180720073949486-1474910065.png alt=img></p><p><img loading=lazy src=https://www.ruanx.net/content/images/2020/04/image-2.png alt=img></p><ul><li>算法分为两部分：<strong>迭代加密</strong>、<strong>密钥调度</strong></li><li><strong>以下内容摘自阮行止Pion1er大佬博客<sup id=fnref:2><a href=#fn:2 class=footnote-ref role=doc-noteref>2</a></sup></strong></li></ul><p>　　所谓密钥调度，就是<strong>从一把 64-bit 的主钥匙，得到 16 把 48-bit 的子钥匙</strong>，然后把这些子钥匙用于迭代加密。那么，如何从一把主钥匙得到 16 把子钥匙呢？</p><ol><li>从 64-bit 的主钥匙里面选取特定的 56 位，其余的位就没用了。于是我们现在手上有了一个 56 位的布尔数组。把它分成左、右两个半密钥，它们都是 28-bit 的布尔数组。</li><li>左、右两个半密钥都左旋（也就是循环左移。整个数组往左移，左边弹出去了的东西补到最右边去）一定位数，这个左移的位数也是指定的。有些轮次是 1 位，有些轮次是 2 位。</li><li>把左、右半密钥拼起来，再做一个置换，就得到了这一轮生成的子密钥。这个置换是从 56-bit 的数组里面选取指定的 48 位。所以现在每一轮都可以生成一个 48 位的子密钥。（注意，步骤 3 并不改变左右半密钥）。</li><li>重复 步骤 2、步骤 3 一共 16 次，于是得到了 16 个 48-bit 的子密钥。</li></ol><p>现在我们手上有了 16 把子密钥。遂开始加密：</p><ol><li><p>输入的明文（长度为 64 的布尔数组）做一个置换(IP置换)。仍然得到 64-bit 的数组（不然就丢失信息了！）</p></li><li><p>把得到的数组拆成左、右两半边。每边是 32 位长度。</p></li><li><p>每一轮迭代，都是接收一组 <code>L, R</code>，返回 <code>L', R'</code> ，作为下一轮迭代的 <code>L, R</code> 迭代过程如下：</p></li></ol><p>$$
-L&rsquo;=R\\
-R&rsquo;=L\oplus F(R,subkey)
-$$</p><p>其中 F 函数（称为轮函数）是整个算法的核心，功能是：以一个子密钥，加密 32-bit 的信息。</p><ol start=4><li><p>利用之前得到的 16 个子密钥，执行步骤 3 一共 16 次。</p></li><li><p>将最终的 R 与 L 拼接，再做一次置换(FP置换)，即得到密文。</p></li></ol><p>Feistel轮函数：</p><ol><li>扩展32位R至48位</li><li>轮密钥XOR异或</li><li>S盒置换（8个S盒，每盒输入6位，输出4位）</li><li>P置换</li></ol><blockquote><p>一个 32-bit 的块，经过一个扩张(Expand函数)，变成 48 位，然后<strong>与子密钥异或</strong>。得到的 48-bit 的结果分为 8 组，每一组是 6-bit 的数据，丢进对应的 <strong>S 盒</strong>，输出 4-bit 的信息。把这些输出收集起来，一共是 4*8 = 32 位，做一次置换 (P 置换)，得到 32-bit 的结果。这与输进来的 32-bit 信息是等长度的。</p></blockquote><p>S盒：</p><ul><li>S盒是对称密码系统分组加密算法中最核心的安全部件（抗<strong>差分密码攻击</strong>）</li><li>6输入中的第1和第6比特组成的二进制数确定的行，中间4位二进制数确定列</li><li>相应位置的十进制数转为4位二进制数进行输出</li></ul><blockquote><p><strong>雪崩效应</strong>：明文或密钥的某一位发生变化（微小的变化）将对密文的结果产生很大的影响。</p></blockquote><h4 id=des的工作模式>DES的工作模式<a hidden class=anchor aria-hidden=true href=#des的工作模式>#</a></h4><ol><li><strong>电子编码本 ECB</strong></li><li><strong>密码分组链接 CBC</strong></li><li>输出反馈 OFB</li><li>密码反馈 CFB</li></ol><h3 id=高级加密标准-aes>高级加密标准 AES<a hidden class=anchor aria-hidden=true href=#高级加密标准-aes>#</a></h3><p><img loading=lazy src="https://img-blog.csdnimg.cn/6c9010fc15894c8ab6c49850e8cc93ea.jpg?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBAYnVndW_opb_nk5w=,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center" alt=整体结构></p><p><img loading=lazy src="https://img-blog.csdnimg.cn/7b36bee2d1974ecb97a3cc25e09a8b75.jpg?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBAYnVndW_opb_nk5w=,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center" alt=密钥扩展></p><p>（AES不是Feistel结构，是每一轮并行的处理每一个分组）</p><p>密钥长度：128位</p><p>流程：</p><ol><li>字节代换</li><li>行移位</li><li>列混合</li><li>轮密钥加</li></ol><h3 id=有限域运算有限域上的四则运算>有限域运算<sup id=fnref:3><a href=#fn:3 class=footnote-ref role=doc-noteref>3</a></sup><a hidden class=anchor aria-hidden=true href=#有限域运算有限域上的四则运算>#</a></h3><h4 id=加法和减法>加法和减法：<a hidden class=anchor aria-hidden=true href=#加法和减法>#</a></h4><p>加法即异或运算
-减法即加法</p><h4 id=乘法和除法>乘法和除法：<a hidden class=anchor aria-hidden=true href=#乘法和除法>#</a></h4><p>伽罗华域上的多项式乘法，其结果需要mod P(x)，可以通过以下方式简化计算。</p><p>首先，考虑x^8，x^8 mod P(x) = P(x) – x^8 = x^4 + x^3 +x^2 +1 。</p><p>　　对于一般形式的多项式f(x)=a7<em>x^7 + a6</em>x^6 + a5<em>x^5 + a4</em>x^4 + a3<em>x^3 + a2</em>x^2 + a1*x + a0，乘以x得到</p><p>$$
+$$</p>
+<h2 id=分组密码>分组密码<a hidden class=anchor aria-hidden=true href=#分组密码>#</a></h2>
+<blockquote>
+<p>分组密码是一种加/解密算法，将输入的明文分组当作一个整体处理，输出一个等长的密文分组。</p>
+</blockquote>
+<h3 id=feistel-密码结构>Feistel 密码结构<a hidden class=anchor aria-hidden=true href=#feistel-密码结构>#</a></h3>
+<blockquote>
+<p>对理想分组密码的近似</p>
+</blockquote>
+<p><img loading=lazy src=Cryptology.assets/%7D/image-20220528001126847.png alt=image-20220528001126847>
+</p>
+<p>使用<strong>乘积密码</strong>增强密码强度，交替使用代换和置换，增强密码的<strong>扩散</strong>和<strong>混淆</strong>性能。</p>
+<p><strong>密钥和密文关系为非线性关系</strong></p>
+<p><strong>混淆（Confusion）</strong>：使密钥与密文的关系尽可能模糊，使用替换法达到目的。</p>
+<p><strong>扩散（Diffusion）</strong>：隐藏明文的统计特性，使用位置换达到目的。</p>
+<h4 id=优点>优点：<a hidden class=anchor aria-hidden=true href=#优点>#</a></h4>
+<ul>
+<li>对称密码结构，加密解密过程几乎一样</li>
+<li>编码量和线路传输的要求少了几乎一半</li>
+</ul>
+<h3 id=feistel-密码结构-1>Feistel 密码结构<a hidden class=anchor aria-hidden=true href=#feistel-密码结构-1>#</a></h3>
+<ul>
+<li>分组长度
+<ul>
+<li>分组越长代表安全性越高（扩散性能越好），但会降低加解密速度。</li>
+</ul>
+</li>
+<li>密钥长度
+<ul>
+<li>密钥越长安全性越高（抗穷举、提高混淆）</li>
+</ul>
+</li>
+<li>迭代轮数
+<ul>
+<li>多轮加密可取得较高的安全性</li>
+</ul>
+</li>
+</ul>
+<p><strong>Feistel密码通常由以下步骤组成</strong></p>
+<ol>
+<li>子密钥生成算法</li>
+<li>轮函数</li>
+<li>快速软件加解密</li>
+<li>简化分析难度</li>
+</ol>
+<h3 id=数据加密标准-des>数据加密标准 DES<a hidden class=anchor aria-hidden=true href=#数据加密标准-des>#</a></h3>
+<p><img loading=lazy src=https://www.ruanx.net/content/images/2020/04/figure2-des_block.gif alt=img>
+</p>
+<p><img loading=lazy src=https://images2018.cnblogs.com/blog/1281268/201807/1281268-20180720073949486-1474910065.png alt=img>
+</p>
+<p><img loading=lazy src=https://www.ruanx.net/content/images/2020/04/image-2.png alt=img>
+</p>
+<ul>
+<li>算法分为两部分：<strong>迭代加密</strong>、<strong>密钥调度</strong></li>
+<li><strong>以下内容摘自阮行止Pion1er大佬博客<sup id=fnref:2><a href=#fn:2 class=footnote-ref role=doc-noteref>2</a></sup></strong></li>
+</ul>
+<p>　　所谓密钥调度，就是<strong>从一把 64-bit 的主钥匙，得到 16 把 48-bit 的子钥匙</strong>，然后把这些子钥匙用于迭代加密。那么，如何从一把主钥匙得到 16 把子钥匙呢？</p>
+<ol>
+<li>从 64-bit 的主钥匙里面选取特定的 56 位，其余的位就没用了。于是我们现在手上有了一个 56 位的布尔数组。把它分成左、右两个半密钥，它们都是 28-bit 的布尔数组。</li>
+<li>左、右两个半密钥都左旋（也就是循环左移。整个数组往左移，左边弹出去了的东西补到最右边去）一定位数，这个左移的位数也是指定的。有些轮次是 1 位，有些轮次是 2 位。</li>
+<li>把左、右半密钥拼起来，再做一个置换，就得到了这一轮生成的子密钥。这个置换是从 56-bit 的数组里面选取指定的 48 位。所以现在每一轮都可以生成一个 48 位的子密钥。（注意，步骤 3 并不改变左右半密钥）。</li>
+<li>重复 步骤 2、步骤 3 一共 16 次，于是得到了 16 个 48-bit 的子密钥。</li>
+</ol>
+<p>现在我们手上有了 16 把子密钥。遂开始加密：</p>
+<ol>
+<li>
+<p>输入的明文（长度为 64 的布尔数组）做一个置换(IP置换)。仍然得到 64-bit 的数组（不然就丢失信息了！）</p>
+</li>
+<li>
+<p>把得到的数组拆成左、右两半边。每边是 32 位长度。</p>
+</li>
+<li>
+<p>每一轮迭代，都是接收一组 <code>L, R</code>，返回 <code>L', R'</code> ，作为下一轮迭代的 <code>L, R</code> 迭代过程如下：</p>
+</li>
+</ol>
+<p>$$
+L'=R\\
+R'=L\oplus F(R,subkey)
+$$</p>
+<p>其中 F 函数（称为轮函数）是整个算法的核心，功能是：以一个子密钥，加密 32-bit 的信息。</p>
+<ol start=4>
+<li>
+<p>利用之前得到的 16 个子密钥，执行步骤 3 一共 16 次。</p>
+</li>
+<li>
+<p>将最终的 R 与 L 拼接，再做一次置换(FP置换)，即得到密文。</p>
+</li>
+</ol>
+<p>Feistel轮函数：</p>
+<ol>
+<li>扩展32位R至48位</li>
+<li>轮密钥XOR异或</li>
+<li>S盒置换（8个S盒，每盒输入6位，输出4位）</li>
+<li>P置换</li>
+</ol>
+<blockquote>
+<p>一个 32-bit 的块，经过一个扩张(Expand函数)，变成 48 位，然后<strong>与子密钥异或</strong>。得到的 48-bit 的结果分为 8 组，每一组是 6-bit 的数据，丢进对应的 <strong>S 盒</strong>，输出 4-bit 的信息。把这些输出收集起来，一共是 4*8 = 32 位，做一次置换 (P 置换)，得到 32-bit 的结果。这与输进来的 32-bit 信息是等长度的。</p>
+</blockquote>
+<p>S盒：</p>
+<ul>
+<li>S盒是对称密码系统分组加密算法中最核心的安全部件（抗<strong>差分密码攻击</strong>）</li>
+<li>6输入中的第1和第6比特组成的二进制数确定的行，中间4位二进制数确定列</li>
+<li>相应位置的十进制数转为4位二进制数进行输出</li>
+</ul>
+<blockquote>
+<p><strong>雪崩效应</strong>：明文或密钥的某一位发生变化（微小的变化）将对密文的结果产生很大的影响。</p>
+</blockquote>
+<h4 id=des的工作模式>DES的工作模式<a hidden class=anchor aria-hidden=true href=#des的工作模式>#</a></h4>
+<ol>
+<li><strong>电子编码本 ECB</strong></li>
+<li><strong>密码分组链接 CBC</strong></li>
+<li>输出反馈 OFB</li>
+<li>密码反馈 CFB</li>
+</ol>
+<h3 id=高级加密标准-aes>高级加密标准 AES<a hidden class=anchor aria-hidden=true href=#高级加密标准-aes>#</a></h3>
+<p><img loading=lazy src="https://img-blog.csdnimg.cn/6c9010fc15894c8ab6c49850e8cc93ea.jpg?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBAYnVndW_opb_nk5w=,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center" alt=整体结构>
+</p>
+<p><img loading=lazy src="https://img-blog.csdnimg.cn/7b36bee2d1974ecb97a3cc25e09a8b75.jpg?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBAYnVndW_opb_nk5w=,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center" alt=密钥扩展>
+</p>
+<p>（AES不是Feistel结构，是每一轮并行的处理每一个分组）</p>
+<p>密钥长度：128位</p>
+<p>流程：</p>
+<ol>
+<li>字节代换</li>
+<li>行移位</li>
+<li>列混合</li>
+<li>轮密钥加</li>
+</ol>
+<h3 id=有限域运算有限域上的四则运算>有限域运算<sup id=fnref:3><a href=#fn:3 class=footnote-ref role=doc-noteref>3</a></sup><a hidden class=anchor aria-hidden=true href=#有限域运算有限域上的四则运算>#</a></h3>
+<h4 id=加法和减法>加法和减法：<a hidden class=anchor aria-hidden=true href=#加法和减法>#</a></h4>
+<p>加法即异或运算
+减法即加法</p>
+<h4 id=乘法和除法>乘法和除法：<a hidden class=anchor aria-hidden=true href=#乘法和除法>#</a></h4>
+<p>伽罗华域上的多项式乘法，其结果需要mod P(x)，可以通过以下方式简化计算。</p>
+<p>首先，考虑x^8，x^8 mod P(x) = P(x) – x^8 = x^4 + x^3 +x^2 +1 。</p>
+<p>　　对于一般形式的多项式f(x)=a7<em>x^7 + a6</em>x^6 + a5<em>x^5 + a4</em>x^4 + a3<em>x^3 + a2</em>x^2 + a1*x + a0，乘以x得到</p>
+<p>$$
 x<em>f(x) = (a7</em>x^8 + a6<em>x^7 + a5</em>x^6 + a4<em>x^5 + a3</em>x^4 + a2<em>x^3 + a1</em>x^1 + a0*x) mod P(x)
-$$</p><p><strong>这时有两种情况：</strong>
+$$</p>
+<p><strong>这时有两种情况：</strong>
 <strong>1）a7 == 0，此时结果是一个小于指数小于8的多项式，不需要取模计算。</strong>
 <strong>2）a7 == 1，则将x^8替换为x^4 + x^3 + x^2 +1，而不用进行除法取模计算，结果为：</strong>
-<strong>x*f(x) = (x^4 + x^3 + x^2 +1) + a6*x^7 + a5*x^6 + a4*x^5 + a3*x^4 + a2*x^3 + a1*x^1 + a0*x</strong></p><p><img loading=lazy src="https://img-blog.csdnimg.cn/b6857bd9511343cb8ab5113d71c945cc.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBAYnVndW_opb_nk5w=,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center" alt=乘法></p><p>$$
+<strong>x*f(x) = (x^4 + x^3 + x^2 +1) + a6*x^7 + a5*x^6 + a4*x^5 + a3*x^4 + a2*x^3 + a1*x^1 + a0*x</strong></p>
+<p><img loading=lazy src="https://img-blog.csdnimg.cn/b6857bd9511343cb8ab5113d71c945cc.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBAYnVndW_opb_nk5w=,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center" alt=乘法>
+</p>
+<p>$$
 m(x)=x^8+x^4+x^3+x+1\\
 x^8\equiv x^4+x^3+x+1 (mod\quad m)\\
 x^9\equiv x*x^8=x^5+x^4+x^2+x &mldr;依次类推
-$$</p><h2 id=公钥密码学与rsa>公钥密码学与RSA<a hidden class=anchor aria-hidden=true href=#公钥密码学与rsa>#</a></h2><blockquote><p><strong>陷门单向函数</strong></p><ul><li>在不知陷门信息下，由f(x)求x极为困难</li><li>当知道陷门信息后，由f(x)求x是易于实现的</li></ul><p>(与单向函数的区别是 单向函数都极为困难)</p></blockquote><h3 id=公钥密码学解决的基本问题>公钥密码学解决的基本问题<a hidden class=anchor aria-hidden=true href=#公钥密码学解决的基本问题>#</a></h3><ul><li>密钥交换<ul><li>要求：已经共享了一个密钥，或利用密钥分配中心</li></ul></li><li>数字签名</li></ul><h3 id=公钥密码体制>公钥密码体制<a hidden class=anchor aria-hidden=true href=#公钥密码体制>#</a></h3><h4 id=组成部分>组成部分<a hidden class=anchor aria-hidden=true href=#组成部分>#</a></h4><p>明文 密文 公钥 私钥</p><p>加密 解密算法</p><h4 id=安全性>安全性<a hidden class=anchor aria-hidden=true href=#安全性>#</a></h4><p>任何加密方法的安全性依赖于密钥的长度和破译密文所需要的计算量，不能说公钥密码优于传统密码</p><h4 id=意义>意义<a hidden class=anchor aria-hidden=true href=#意义>#</a></h4><p>解决了传统密码中最困难两个问题</p><ul><li>密钥分配</li><li>数字签名</li></ul><h3 id=rsa-算法>RSA 算法<a hidden class=anchor aria-hidden=true href=#rsa-算法>#</a></h3><blockquote><p>明文和密文是0到n-1之间的整数，n的大小为1024位或309位十进制数。</p></blockquote><h4 id=流程>流程<a hidden class=anchor aria-hidden=true href=#流程>#</a></h4><p>$$
+$$</p>
+<h2 id=公钥密码学与rsa>公钥密码学与RSA<a hidden class=anchor aria-hidden=true href=#公钥密码学与rsa>#</a></h2>
+<blockquote>
+<p><strong>陷门单向函数</strong></p>
+<ul>
+<li>在不知陷门信息下，由f(x)求x极为困难</li>
+<li>当知道陷门信息后，由f(x)求x是易于实现的</li>
+</ul>
+<p>(与单向函数的区别是 单向函数都极为困难)</p>
+</blockquote>
+<h3 id=公钥密码学解决的基本问题>公钥密码学解决的基本问题<a hidden class=anchor aria-hidden=true href=#公钥密码学解决的基本问题>#</a></h3>
+<ul>
+<li>密钥交换
+<ul>
+<li>要求：已经共享了一个密钥，或利用密钥分配中心</li>
+</ul>
+</li>
+<li>数字签名</li>
+</ul>
+<h3 id=公钥密码体制>公钥密码体制<a hidden class=anchor aria-hidden=true href=#公钥密码体制>#</a></h3>
+<h4 id=组成部分>组成部分<a hidden class=anchor aria-hidden=true href=#组成部分>#</a></h4>
+<p>明文 密文 公钥 私钥</p>
+<p>加密 解密算法</p>
+<h4 id=安全性>安全性<a hidden class=anchor aria-hidden=true href=#安全性>#</a></h4>
+<p>任何加密方法的安全性依赖于密钥的长度和破译密文所需要的计算量，不能说公钥密码优于传统密码</p>
+<h4 id=意义>意义<a hidden class=anchor aria-hidden=true href=#意义>#</a></h4>
+<p>解决了传统密码中最困难两个问题</p>
+<ul>
+<li>密钥分配</li>
+<li>数字签名</li>
+</ul>
+<h3 id=rsa-算法>RSA 算法<a hidden class=anchor aria-hidden=true href=#rsa-算法>#</a></h3>
+<blockquote>
+<p>明文和密文是0到n-1之间的整数，n的大小为1024位或309位十进制数。</p>
+</blockquote>
+<h4 id=流程>流程<a hidden class=anchor aria-hidden=true href=#流程>#</a></h4>
+<p>$$
 随机选择两个大素数p,q\\
 计算N=p\cdot q,\phi(N)=(p-1)(q-1)\\
 选择e,使得1&lt;e&lt;\phi(N),gcd(e,\phi(N))=1\\
@@ -36,87 +522,386 @@ d \equiv e^{-1}(mod\quad N)\\
 私钥KR={d,p,q}\\
 密文C = M^e(mod\quad N)\\
 明文M = C^d(mod\quad N)\\
-$$</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span><span style=color:#66d9ef>def</span> <span style=color:#a6e22e>EX_GCD</span>(a,b,arr): <span style=color:#75715e>#扩展欧几里得</span>
-</span></span><span style=display:flex><span>    <span style=color:#66d9ef>if</span> b <span style=color:#f92672>==</span> <span style=color:#ae81ff>0</span>:
-</span></span><span style=display:flex><span>        arr[<span style=color:#ae81ff>0</span>] <span style=color:#f92672>=</span> <span style=color:#ae81ff>1</span>
-</span></span><span style=display:flex><span>        arr[<span style=color:#ae81ff>1</span>] <span style=color:#f92672>=</span> <span style=color:#ae81ff>0</span>
-</span></span><span style=display:flex><span>        <span style=color:#66d9ef>return</span> a
-</span></span><span style=display:flex><span>    g <span style=color:#f92672>=</span> EX_GCD(b, a <span style=color:#f92672>%</span> b, arr)
-</span></span><span style=display:flex><span>    t <span style=color:#f92672>=</span> arr[<span style=color:#ae81ff>0</span>]
-</span></span><span style=display:flex><span>    arr[<span style=color:#ae81ff>0</span>] <span style=color:#f92672>=</span> arr[<span style=color:#ae81ff>1</span>]
-</span></span><span style=display:flex><span>    arr[<span style=color:#ae81ff>1</span>] <span style=color:#f92672>=</span> t <span style=color:#f92672>-</span> int(a <span style=color:#f92672>/</span> b) <span style=color:#f92672>*</span> arr[<span style=color:#ae81ff>1</span>]
-</span></span><span style=display:flex><span>    <span style=color:#66d9ef>return</span> g
-</span></span><span style=display:flex><span><span style=color:#66d9ef>def</span> <span style=color:#a6e22e>R</span>(a,n): <span style=color:#75715e>#ax=1(mod n) 求a模n的乘法逆x</span>
-</span></span><span style=display:flex><span>    arr <span style=color:#f92672>=</span> [<span style=color:#ae81ff>0</span>,<span style=color:#ae81ff>1</span>,]
-</span></span><span style=display:flex><span>    gcd <span style=color:#f92672>=</span> EX_GCD(a,n,arr)
-</span></span><span style=display:flex><span>    <span style=color:#66d9ef>if</span> gcd <span style=color:#f92672>==</span> <span style=color:#ae81ff>1</span>:
-</span></span><span style=display:flex><span>        <span style=color:#66d9ef>return</span> (arr[<span style=color:#ae81ff>0</span>] <span style=color:#f92672>%</span> n <span style=color:#f92672>+</span> n) <span style=color:#f92672>%</span> n
-</span></span><span style=display:flex><span>    <span style=color:#66d9ef>else</span>:
-</span></span><span style=display:flex><span>        <span style=color:#66d9ef>return</span> <span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>
-</span></span></code></pre></div><h3 id=对rsa-算法的攻击>对RSA 算法的攻击<a hidden class=anchor aria-hidden=true href=#对rsa-算法的攻击>#</a></h3><h4 id=直接攻击>直接攻击<a hidden class=anchor aria-hidden=true href=#直接攻击>#</a></h4><ol><li>分解N</li><li>获取φ(N)，确定d</li><li>直接确定d</li></ol><p><strong>已经证明，若$$e&lt;n,d&lt;n^{\frac{1}{4}}$$,则d很容易被确定</strong></p><h4 id=共模攻击>共模攻击<a hidden class=anchor aria-hidden=true href=#共模攻击>#</a></h4><blockquote><p>在模数N不变的情况下，已知两个生成密钥e1、e2和用其分别加密的相同m信息c1、c2和模数N，可以在不知道d1、d2的情况下解出明文m</p></blockquote><p>使用扩展欧几里得Exgcd算法，求出
+$$</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#66d9ef>def</span> <span style=color:#a6e22e>EX_GCD</span>(a,b,arr): <span style=color:#75715e>#扩展欧几里得</span>
+    <span style=color:#66d9ef>if</span> b <span style=color:#f92672>==</span> <span style=color:#ae81ff>0</span>:
+        arr[<span style=color:#ae81ff>0</span>] <span style=color:#f92672>=</span> <span style=color:#ae81ff>1</span>
+        arr[<span style=color:#ae81ff>1</span>] <span style=color:#f92672>=</span> <span style=color:#ae81ff>0</span>
+        <span style=color:#66d9ef>return</span> a
+    g <span style=color:#f92672>=</span> EX_GCD(b, a <span style=color:#f92672>%</span> b, arr)
+    t <span style=color:#f92672>=</span> arr[<span style=color:#ae81ff>0</span>]
+    arr[<span style=color:#ae81ff>0</span>] <span style=color:#f92672>=</span> arr[<span style=color:#ae81ff>1</span>]
+    arr[<span style=color:#ae81ff>1</span>] <span style=color:#f92672>=</span> t <span style=color:#f92672>-</span> int(a <span style=color:#f92672>/</span> b) <span style=color:#f92672>*</span> arr[<span style=color:#ae81ff>1</span>]
+    <span style=color:#66d9ef>return</span> g
+<span style=color:#66d9ef>def</span> <span style=color:#a6e22e>R</span>(a,n): <span style=color:#75715e>#ax=1(mod n) 求a模n的乘法逆x</span>
+    arr <span style=color:#f92672>=</span> [<span style=color:#ae81ff>0</span>,<span style=color:#ae81ff>1</span>,]
+    gcd <span style=color:#f92672>=</span> EX_GCD(a,n,arr)
+    <span style=color:#66d9ef>if</span> gcd <span style=color:#f92672>==</span> <span style=color:#ae81ff>1</span>:
+        <span style=color:#66d9ef>return</span> (arr[<span style=color:#ae81ff>0</span>] <span style=color:#f92672>%</span> n <span style=color:#f92672>+</span> n) <span style=color:#f92672>%</span> n
+    <span style=color:#66d9ef>else</span>:
+        <span style=color:#66d9ef>return</span> <span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>
+</code></pre></div><h3 id=对rsa-算法的攻击>对RSA 算法的攻击<a hidden class=anchor aria-hidden=true href=#对rsa-算法的攻击>#</a></h3>
+<h4 id=直接攻击>直接攻击<a hidden class=anchor aria-hidden=true href=#直接攻击>#</a></h4>
+<ol>
+<li>分解N</li>
+<li>获取φ(N)，确定d</li>
+<li>直接确定d</li>
+</ol>
+<p><strong>已经证明，若$$e&lt;n,d&lt;n^{\frac{1}{4}}$$,则d很容易被确定</strong></p>
+<h4 id=共模攻击>共模攻击<a hidden class=anchor aria-hidden=true href=#共模攻击>#</a></h4>
+<blockquote>
+<p>在模数N不变的情况下，已知两个生成密钥e1、e2和用其分别加密的相同m信息c1、c2和模数N，可以在不知道d1、d2的情况下解出明文m</p>
+</blockquote>
+<p>使用扩展欧几里得Exgcd算法，求出
 $$
 e_1\times s_1+e_2\times s_2 = 1
 $$
-中的$$s_1和s_2$$</p><p>即可得
+中的$$s_1和s_2$$</p>
+<p>即可得
 $$
 m = c_1^{s_1}\times c_2^{s_2}
 $$
-证明略，具体可参考<sup id=fnref:4><a href=#fn:4 class=footnote-ref role=doc-noteref>4</a></sup></p><h4 id=计时攻击>计时攻击<a hidden class=anchor aria-hidden=true href=#计时攻击>#</a></h4><blockquote><p>通过观察系统处理上述函数所花费的时间来判断，很慢的指数比特为1，否则为0，如此即可得到整个指数。</p></blockquote><h5 id=避免计时攻击>避免计时攻击<a hidden class=anchor aria-hidden=true href=#避免计时攻击>#</a></h5><ol><li>不变的运算时间-会降低算法性能</li><li>随机延时，扰乱分析</li><li>执行幂运算前先将密文乘上一个随机数，使攻击者不知道正处理密文的哪些位。</li></ol><h4 id=消息隐匿失败-不动点问题>消息隐匿失败-不动点问题<a hidden class=anchor aria-hidden=true href=#消息隐匿失败-不动点问题>#</a></h4><p>对于明文x，使用RSA加密，可能出现
+证明略，具体可参考<sup id=fnref:4><a href=#fn:4 class=footnote-ref role=doc-noteref>4</a></sup></p>
+<h4 id=计时攻击>计时攻击<a hidden class=anchor aria-hidden=true href=#计时攻击>#</a></h4>
+<blockquote>
+<p>通过观察系统处理上述函数所花费的时间来判断，很慢的指数比特为1，否则为0，如此即可得到整个指数。</p>
+</blockquote>
+<h5 id=避免计时攻击>避免计时攻击<a hidden class=anchor aria-hidden=true href=#避免计时攻击>#</a></h5>
+<ol>
+<li>不变的运算时间-会降低算法性能</li>
+<li>随机延时，扰乱分析</li>
+<li>执行幂运算前先将密文乘上一个随机数，使攻击者不知道正处理密文的哪些位。</li>
+</ol>
+<h4 id=消息隐匿失败-不动点问题>消息隐匿失败-不动点问题<a hidden class=anchor aria-hidden=true href=#消息隐匿失败-不动点问题>#</a></h4>
+<p>对于明文x，使用RSA加密，可能出现
 $$
 x^e\equiv x(mod\quad n)
 $$
-对于RSA算法而言，总存在x=0,1,(n-1)为不动点</p><p>除此之外，还存在
+对于RSA算法而言，总存在x=0,1,(n-1)为不动点</p>
+<p>除此之外，还存在
 $$
 [1+gcd(e-1,p-1)\times [1+gcd(e-1,q-1)]]
 $$
-个不动点，至少有3*3=9个</p><h3 id=diffie-hellman-密钥交换>Diffie-Hellman 密钥交换<a hidden class=anchor aria-hidden=true href=#diffie-hellman-密钥交换>#</a></h3><blockquote><p>1976年由Diffie和Hellman提出的第一个实用的密钥公开交换算法。</p></blockquote><p>基于离散对数的求解困难问题</p><h4 id=实现>实现<a hidden class=anchor aria-hidden=true href=#实现>#</a></h4><p>$$
+个不动点，至少有3*3=9个</p>
+<h3 id=diffie-hellman-密钥交换>Diffie-Hellman 密钥交换<a hidden class=anchor aria-hidden=true href=#diffie-hellman-密钥交换>#</a></h3>
+<blockquote>
+<p>1976年由Diffie和Hellman提出的第一个实用的密钥公开交换算法。</p>
+</blockquote>
+<p>基于离散对数的求解困难问题</p>
+<h4 id=实现>实现<a hidden class=anchor aria-hidden=true href=#实现>#</a></h4>
+<p>$$
 公开选定公钥:(g,p),其中p是一个质数,g是它的一个原根\\
 Alice想一个随机数x并计算A=g^x，将A发送给Bob\newline
 Bob想一个随机数y并计算B=g^y，将B发送给Alice\\
 Alice和Bob接到A、B后,密钥K=B^x=A^y
-$$</p><p>如此，即可在不安全的通信信道中进行安全的密钥交换。</p><h4 id=中间人攻击>中间人攻击<a hidden class=anchor aria-hidden=true href=#中间人攻击>#</a></h4><p>中间人Darth将自己生成的随机数，用Alice的公钥生成自己的密钥，传递给Bob，接收并解密Bob发送的消息。</p><p><img loading=lazy src=/Cryptology.assets/%7D/image-20220531150129990.png alt=image-20220531150129990></p><h3 id=elgamal-加密算法>ElGamal 加密算法<a hidden class=anchor aria-hidden=true href=#elgamal-加密算法>#</a></h3><blockquote><p>D-H算法解决了密钥交换的问题，但密钥不带有信息，无法直接通讯，ElGamal公钥加密算法解决了通讯的问题，安全性与D-H算法一致。</p></blockquote><h4 id=实现-1>实现<a hidden class=anchor aria-hidden=true href=#实现-1>#</a></h4><p>$$
+$$</p>
+<p>如此，即可在不安全的通信信道中进行安全的密钥交换。</p>
+<h4 id=中间人攻击>中间人攻击<a hidden class=anchor aria-hidden=true href=#中间人攻击>#</a></h4>
+<p>中间人Darth将自己生成的随机数，用Alice的公钥生成自己的密钥，传递给Bob，接收并解密Bob发送的消息。</p>
+<p><img loading=lazy src=/Cryptology.assets/%7D/image-20220531150129990.png alt=image-20220531150129990>
+</p>
+<h3 id=elgamal-加密算法>ElGamal 加密算法<a hidden class=anchor aria-hidden=true href=#elgamal-加密算法>#</a></h3>
+<blockquote>
+<p>D-H算法解决了密钥交换的问题，但密钥不带有信息，无法直接通讯，ElGamal公钥加密算法解决了通讯的问题，安全性与D-H算法一致。</p>
+</blockquote>
+<h4 id=实现-1>实现<a hidden class=anchor aria-hidden=true href=#实现-1>#</a></h4>
+<p>$$
 Alice随机数a作为私钥;选取g、p，A=g^a作为公钥\\
 Bob想给Alice传递信息m，选取随机数k计算\newline
 K=A^k(mod\quad p)\qquad c_1=g^k(mod\quad p),c_2=mK(mod\quad p)\\
 Alice拿到(c_1,c_2)，计算\newline
 K=c_1^{a}\qquad m=c_2K^{-1}=c_1^{-a}\cdot c_2
-$$</p><p><strong>注意与ElGamal数字签名生成和验证算法的异同</strong></p><h4 id=练习>练习<a hidden class=anchor aria-hidden=true href=#练习>#</a></h4><p>在mod 17,g=3的情况下验证ElGamal加解密方案
+$$</p>
+<p><strong>注意与ElGamal数字签名生成和验证算法的异同</strong></p>
+<h4 id=练习>练习<a hidden class=anchor aria-hidden=true href=#练习>#</a></h4>
+<p>在mod 17,g=3的情况下验证ElGamal加解密方案
 $$
 Alice私钥a=2公钥(g=3,p=17,A=g^a(mod\quad p)=4)\\
 Bob消息m=6,b=3,K=A^b=13,c_1=g^b=10,c_2=mK=5\\
 Alice收到c_1,c_2,解密m=10^{-2}\cdot 5=6
-$$</p><h4 id=缺点>缺点<a hidden class=anchor aria-hidden=true href=#缺点>#</a></h4><ul><li>需要随机数</li><li>密文长度加倍（两倍消息扩张）</li></ul><h2 id=hash函数>Hash函数<a hidden class=anchor aria-hidden=true href=#hash函数>#</a></h2><blockquote><p>Hash函数是一个将任意长度的消息序列映射为较短的、固定长度的一个值的函数，用于构造数据的指纹，保障数据的完整性。</p></blockquote><p>Hash函数是一个公开函数，将任意长的消息M映射为较短的、固定长度的一个值H(M)
+$$</p>
+<h4 id=缺点>缺点<a hidden class=anchor aria-hidden=true href=#缺点>#</a></h4>
+<ul>
+<li>需要随机数</li>
+<li>密文长度加倍（两倍消息扩张）</li>
+</ul>
+<h2 id=hash函数>Hash函数<a hidden class=anchor aria-hidden=true href=#hash函数>#</a></h2>
+<blockquote>
+<p>Hash函数是一个将任意长度的消息序列映射为较短的、固定长度的一个值的函数，用于构造数据的指纹，保障数据的完整性。</p>
+</blockquote>
+<p>Hash函数是一个公开函数，将任意长的消息M映射为较短的、固定长度的一个值H(M)
 $$
 Y=H(M),{0,1}^*\rightarrow{0,1}^n
-$$</p><table><thead><tr><th>需求</th><th>描述</th></tr></thead><tbody><tr><td>输入长度可变</td><td>H可应用于任意大小的数据块</td></tr><tr><td>输出长度固定</td><td>H产生定长输出</td></tr><tr><td>效率</td><td>计算H(x)较容易</td></tr><tr><td>单向性</td><td>逆推x不可行</td></tr><tr><td><strong>抗弱碰撞性</strong></td><td>对于给定的分块，碰撞到相同的Hash值不可行</td></tr><tr><td><strong>抗强碰撞性</strong></td><td>碰撞到任何相同的Hash值不可行</td></tr><tr><td>伪随机性</td><td>输出满足伪随机性测试标准</td></tr></tbody></table><h3 id=应用>应用<a hidden class=anchor aria-hidden=true href=#应用>#</a></h3><h4 id=消息认证>消息认证<a hidden class=anchor aria-hidden=true href=#消息认证>#</a></h4><blockquote><p>用于验证消息完整性时，Hash函数值被称为<strong>消息摘要</strong></p></blockquote><p>消息认证是通过MAC，即带密钥的哈希函数实现的</p><h4 id=数字签名>数字签名<a hidden class=anchor aria-hidden=true href=#数字签名>#</a></h4><ul><li>提高签名速度，只对摘要签名</li><li>不泄露签名所对应的消息</li><li>签名与加密分别处理</li></ul><h4 id=其他>其他<a hidden class=anchor aria-hidden=true href=#其他>#</a></h4><ul><li><strong>创建单向口令文件</strong>，即只存储口令的哈希函数值，而非存储原始密码</li></ul><h3 id=md5-与-sha1的区别>MD5 与 SHA1的区别<a hidden class=anchor aria-hidden=true href=#md5-与-sha1的区别>#</a></h3><p>长度、安全、速度、攻击</p><h2 id=数字签名-1>数字签名<a hidden class=anchor aria-hidden=true href=#数字签名-1>#</a></h2><blockquote><p>数字签名是一种电子形式给一个消息签名的方法</p></blockquote><p>签名：用<strong>私钥</strong>加密信息达到<strong>身份验证</strong>目的的运算</p><h3 id=数字签名的目的>数字签名的目的<a hidden class=anchor aria-hidden=true href=#数字签名的目的>#</a></h3><blockquote><p>可验证性和不可伪造性</p></blockquote><ol><li><p>提供一个手写签名的<strong>数字化副本</strong></p></li><li><p>数字签名保障了：</p></li></ol><ul><li>数据完整性</li><li>系统可用性</li><li>实体认证性</li><li>行为不可抵赖性</li></ul><h3 id=数字签名属性>数字签名属性<a hidden class=anchor aria-hidden=true href=#数字签名属性>#</a></h3><ol><li>核实<strong>作者签名和日期的时间</strong></li><li>在签名时<strong>对内容进行身份验证</strong></li><li>为解决争端，能够被<strong>第三方核查</strong></li></ol><h3 id=数字签名要求>数字签名要求<a hidden class=anchor aria-hidden=true href=#数字签名要求>#</a></h3><ol><li>依赖于消息<strong>位模式</strong></li><li>使用特有的信息</li><li>生成相对容易</li><li>伪造在计算上不可行</li><li>可以保留副本</li></ol><h3 id=数字签名方法>数字签名方法<a hidden class=anchor aria-hidden=true href=#数字签名方法>#</a></h3><h4 id=普通数字签名>普通数字签名<a hidden class=anchor aria-hidden=true href=#普通数字签名>#</a></h4><blockquote><p><strong>RSA ElGamal Schnorr</strong> 椭圆曲线数字签名算法、<strong>DSA数字签名算法</strong>、有限自动机数字签名算法。</p></blockquote><h4 id=特殊数字签名>特殊数字签名<a hidden class=anchor aria-hidden=true href=#特殊数字签名>#</a></h4><blockquote><p>不可否认签名、门限签名、盲签名、代理签名</p></blockquote><h4 id=功能>功能：<a hidden class=anchor aria-hidden=true href=#功能>#</a></h4><ol><li>确认信息是由签名者发送（<strong>实体认证性</strong>）</li><li>确认信息自签名到收到未被篡改（<strong>数据完整性</strong>）</li><li>签名者无法否认签名由自己发送（<strong>行为不可抵赖性</strong>）</li></ol><h3 id=数字签名解决方案>数字签名解决方案<a hidden class=anchor aria-hidden=true href=#数字签名解决方案>#</a></h3><h4 id=直接数字签名方案>直接数字签名方案<a hidden class=anchor aria-hidden=true href=#直接数字签名方案>#</a></h4><blockquote><p>前提：假设目标知道源的公钥</p></blockquote><ul><li>只涉及通信的源点X和终点Y双方</li><li>X的公钥$$K_{Ux}$$私钥$$K_{Rx}$$</li><li>X可以使用私钥对消息报文的散列值进行加密来形成数字签名</li></ul><h5 id=安全性-1>安全性<a hidden class=anchor aria-hidden=true href=#安全性-1>#</a></h5><ol><li>安全性依赖于私钥的安全性</li><li>但不具备行为不可抵赖性，即使每个报文中包含时间戳，仍可以被伪造。</li></ol><h4 id=基于仲裁的数字签名方案>基于仲裁的数字签名方案<a hidden class=anchor aria-hidden=true href=#基于仲裁的数字签名方案>#</a></h4><blockquote><p>通过引入仲裁来解决直接签名方案中的问题，但仲裁者必须是一个受所有通信方信任的机构。</p></blockquote><p>X->A->Y，A检验报文和签名的出处、内容，注明日期，加上仲裁证实标记。</p><h4 id=方案内容>方案内容<a hidden class=anchor aria-hidden=true href=#方案内容>#</a></h4><ol><li><strong>密钥生成</strong>，如公钥密码体制</li><li><strong>签名算法</strong>，利用私钥进行签名</li><li><strong>验证算法</strong>，利用公钥验证签名</li></ol><h3 id=rsa-数字签名>RSA 数字签名<a hidden class=anchor aria-hidden=true href=#rsa-数字签名>#</a></h3><h4 id=rsa-公钥算法>RSA 公钥算法<a hidden class=anchor aria-hidden=true href=#rsa-公钥算法>#</a></h4><p>$$
+$$</p>
+<table>
+<thead>
+<tr>
+<th>需求</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>输入长度可变</td>
+<td>H可应用于任意大小的数据块</td>
+</tr>
+<tr>
+<td>输出长度固定</td>
+<td>H产生定长输出</td>
+</tr>
+<tr>
+<td>效率</td>
+<td>计算H(x)较容易</td>
+</tr>
+<tr>
+<td>单向性</td>
+<td>逆推x不可行</td>
+</tr>
+<tr>
+<td><strong>抗弱碰撞性</strong></td>
+<td>对于给定的分块，碰撞到相同的Hash值不可行</td>
+</tr>
+<tr>
+<td><strong>抗强碰撞性</strong></td>
+<td>碰撞到任何相同的Hash值不可行</td>
+</tr>
+<tr>
+<td>伪随机性</td>
+<td>输出满足伪随机性测试标准</td>
+</tr>
+</tbody>
+</table>
+<h3 id=应用>应用<a hidden class=anchor aria-hidden=true href=#应用>#</a></h3>
+<h4 id=消息认证>消息认证<a hidden class=anchor aria-hidden=true href=#消息认证>#</a></h4>
+<blockquote>
+<p>用于验证消息完整性时，Hash函数值被称为<strong>消息摘要</strong></p>
+</blockquote>
+<p>消息认证是通过MAC，即带密钥的哈希函数实现的</p>
+<h4 id=数字签名>数字签名<a hidden class=anchor aria-hidden=true href=#数字签名>#</a></h4>
+<ul>
+<li>提高签名速度，只对摘要签名</li>
+<li>不泄露签名所对应的消息</li>
+<li>签名与加密分别处理</li>
+</ul>
+<h4 id=其他>其他<a hidden class=anchor aria-hidden=true href=#其他>#</a></h4>
+<ul>
+<li><strong>创建单向口令文件</strong>，即只存储口令的哈希函数值，而非存储原始密码</li>
+</ul>
+<h3 id=md5-与-sha1的区别>MD5 与 SHA1的区别<a hidden class=anchor aria-hidden=true href=#md5-与-sha1的区别>#</a></h3>
+<p>长度、安全、速度、攻击</p>
+<h2 id=数字签名-1>数字签名<a hidden class=anchor aria-hidden=true href=#数字签名-1>#</a></h2>
+<blockquote>
+<p>数字签名是一种电子形式给一个消息签名的方法</p>
+</blockquote>
+<p>签名：用<strong>私钥</strong>加密信息达到<strong>身份验证</strong>目的的运算</p>
+<h3 id=数字签名的目的>数字签名的目的<a hidden class=anchor aria-hidden=true href=#数字签名的目的>#</a></h3>
+<blockquote>
+<p>可验证性和不可伪造性</p>
+</blockquote>
+<ol>
+<li>
+<p>提供一个手写签名的<strong>数字化副本</strong></p>
+</li>
+<li>
+<p>数字签名保障了：</p>
+</li>
+</ol>
+<ul>
+<li>数据完整性</li>
+<li>系统可用性</li>
+<li>实体认证性</li>
+<li>行为不可抵赖性</li>
+</ul>
+<h3 id=数字签名属性>数字签名属性<a hidden class=anchor aria-hidden=true href=#数字签名属性>#</a></h3>
+<ol>
+<li>核实<strong>作者签名和日期的时间</strong></li>
+<li>在签名时<strong>对内容进行身份验证</strong></li>
+<li>为解决争端，能够被<strong>第三方核查</strong></li>
+</ol>
+<h3 id=数字签名要求>数字签名要求<a hidden class=anchor aria-hidden=true href=#数字签名要求>#</a></h3>
+<ol>
+<li>依赖于消息<strong>位模式</strong></li>
+<li>使用特有的信息</li>
+<li>生成相对容易</li>
+<li>伪造在计算上不可行</li>
+<li>可以保留副本</li>
+</ol>
+<h3 id=数字签名方法>数字签名方法<a hidden class=anchor aria-hidden=true href=#数字签名方法>#</a></h3>
+<h4 id=普通数字签名>普通数字签名<a hidden class=anchor aria-hidden=true href=#普通数字签名>#</a></h4>
+<blockquote>
+<p><strong>RSA ElGamal Schnorr</strong> 椭圆曲线数字签名算法、<strong>DSA数字签名算法</strong>、有限自动机数字签名算法。</p>
+</blockquote>
+<h4 id=特殊数字签名>特殊数字签名<a hidden class=anchor aria-hidden=true href=#特殊数字签名>#</a></h4>
+<blockquote>
+<p>不可否认签名、门限签名、盲签名、代理签名</p>
+</blockquote>
+<h4 id=功能>功能：<a hidden class=anchor aria-hidden=true href=#功能>#</a></h4>
+<ol>
+<li>确认信息是由签名者发送（<strong>实体认证性</strong>）</li>
+<li>确认信息自签名到收到未被篡改（<strong>数据完整性</strong>）</li>
+<li>签名者无法否认签名由自己发送（<strong>行为不可抵赖性</strong>）</li>
+</ol>
+<h3 id=数字签名解决方案>数字签名解决方案<a hidden class=anchor aria-hidden=true href=#数字签名解决方案>#</a></h3>
+<h4 id=直接数字签名方案>直接数字签名方案<a hidden class=anchor aria-hidden=true href=#直接数字签名方案>#</a></h4>
+<blockquote>
+<p>前提：假设目标知道源的公钥</p>
+</blockquote>
+<ul>
+<li>只涉及通信的源点X和终点Y双方</li>
+<li>X的公钥$$K_{Ux}$$私钥$$K_{Rx}$$</li>
+<li>X可以使用私钥对消息报文的散列值进行加密来形成数字签名</li>
+</ul>
+<h5 id=安全性-1>安全性<a hidden class=anchor aria-hidden=true href=#安全性-1>#</a></h5>
+<ol>
+<li>安全性依赖于私钥的安全性</li>
+<li>但不具备行为不可抵赖性，即使每个报文中包含时间戳，仍可以被伪造。</li>
+</ol>
+<h4 id=基于仲裁的数字签名方案>基于仲裁的数字签名方案<a hidden class=anchor aria-hidden=true href=#基于仲裁的数字签名方案>#</a></h4>
+<blockquote>
+<p>通过引入仲裁来解决直接签名方案中的问题，但仲裁者必须是一个受所有通信方信任的机构。</p>
+</blockquote>
+<p>X->A->Y，A检验报文和签名的出处、内容，注明日期，加上仲裁证实标记。</p>
+<h4 id=方案内容>方案内容<a hidden class=anchor aria-hidden=true href=#方案内容>#</a></h4>
+<ol>
+<li><strong>密钥生成</strong>，如公钥密码体制</li>
+<li><strong>签名算法</strong>，利用私钥进行签名</li>
+<li><strong>验证算法</strong>，利用公钥验证签名</li>
+</ol>
+<h3 id=rsa-数字签名>RSA 数字签名<a hidden class=anchor aria-hidden=true href=#rsa-数字签名>#</a></h3>
+<h4 id=rsa-公钥算法>RSA 公钥算法<a hidden class=anchor aria-hidden=true href=#rsa-公钥算法>#</a></h4>
+<p>$$
 大素数p、q \newline
 n=p\times q\quad \phi(n)=(p-1)(q-1) \newline
 随机正整数1&lt;e&lt;\phi(n),满足gcd(e,\phi(n))=1\newline
 计算d 满足 d\times e =1(mod\quad\phi(n))\newline
 加密变换： 对明文m\in Z_n, c=m^e (mod\quad n)\newline
 解密变换： 对密文c\in Z_n, m=c^d (mod\quad n)
-$$</p><blockquote><p>手算RSA的前置技能：<strong>模逆运算</strong>（扩展欧几里得算法）<strong>快速幂模运算</strong></p></blockquote><h4 id=数字签名实现>数字签名实现<a hidden class=anchor aria-hidden=true href=#数字签名实现>#</a></h4><p>密钥的生成完全相同，签名时：
+$$</p>
+<blockquote>
+<p>手算RSA的前置技能：<strong>模逆运算</strong>（扩展欧几里得算法）<strong>快速幂模运算</strong></p>
+</blockquote>
+<h4 id=数字签名实现>数字签名实现<a hidden class=anchor aria-hidden=true href=#数字签名实现>#</a></h4>
+<p>密钥的生成完全相同，签名时：
 $$
 m\in Z_n, Sig(m)=m^d(mod \quad n)\newline
 S\in Z_n, 若m=S^e (mod\quad n)，则认为s为消息m的有效签名
-$$</p><h3 id=elgamal-数字签名>ElGamal 数字签名<a hidden class=anchor aria-hidden=true href=#elgamal-数字签名>#</a></h3><h4 id=密钥参数生成>密钥参数生成<a hidden class=anchor aria-hidden=true href=#密钥参数生成>#</a></h4><p>$$
+$$</p>
+<h3 id=elgamal-数字签名>ElGamal 数字签名<a hidden class=anchor aria-hidden=true href=#elgamal-数字签名>#</a></h3>
+<h4 id=密钥参数生成>密钥参数生成<a hidden class=anchor aria-hidden=true href=#密钥参数生成>#</a></h4>
+<p>$$
 选定大素数p\\
 选取g,x&lt;p\\
 y=g^x(mod\quad p)\\
 {y,g,p}即为公钥，x为私钥
-$$</p><h4 id=签名过程>签名过程<a hidden class=anchor aria-hidden=true href=#签名过程>#</a></h4><p>$$
+$$</p>
+<h4 id=签名过程>签名过程<a hidden class=anchor aria-hidden=true href=#签名过程>#</a></h4>
+<p>$$
 K=公钥{y,p,g}私钥 x\\
 签名算法：对随机数k,待签消息m，定义Sig(x,k)=(r,s)\\
 r=g^k(mod\quad p),s=(m-xr)k^{-1}mod(p-1)\\
 验证算法：Ver(m,r,s): y^rr^s\equiv g^m(mod\quad p)?true:false
-$$</p><h4 id=注意>注意<a hidden class=anchor aria-hidden=true href=#注意>#</a></h4><ol><li>每次签名应选择不同的随机数k，否则有可能私钥x能被算出</li><li>ElGamal 效率低于RSA 且有两倍的消息扩张</li><li>ElGamal数字签名也可以推广到合适的循环群中，某些变形能被证明在选择消息攻击下是安全的</li></ol><h2 id=练习-1>练习<a hidden class=anchor aria-hidden=true href=#练习-1>#</a></h2><h3 id=rsa>RSA<a hidden class=anchor aria-hidden=true href=#rsa>#</a></h3><p><img loading=lazy src=/Cryptology.assets/%7D/image-20220531222601334.png alt=image-20220531222601334></p><h3 id=elgamal>ElGamal<a hidden class=anchor aria-hidden=true href=#elgamal>#</a></h3><p><img loading=lazy src=/Cryptology.assets/%7D/image-20220531222634457.png alt=image-20220531222634457></p><h3 id=diffie-hellman>Diffie-Hellman<a hidden class=anchor aria-hidden=true href=#diffie-hellman>#</a></h3><p><img loading=lazy src=/Cryptology.assets/%7D/image-20220531222714991.png alt=image-20220531222714991></p><h3 id=有限域上的多项式乘法>有限域上的多项式乘法<a hidden class=anchor aria-hidden=true href=#有限域上的多项式乘法>#</a></h3><p><img loading=lazy src="https://img-blog.csdnimg.cn/b6857bd9511343cb8ab5113d71c945cc.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBAYnVndW_opb_nk5w=,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center" alt=乘法></p><h3 id=有限域多项式求逆>有限域多项式求逆<a hidden class=anchor aria-hidden=true href=#有限域多项式求逆>#</a></h3><p><img loading=lazy src=/Cryptology.assets/%7D/image-20220531223613620.png alt=image-20220531223613620></p><div class=footnotes role=doc-endnotes><hr><ol><li id=fn:1><p><a href=https://ctf-wiki.org/crypto/classical/introduction/>https://ctf-wiki.org/crypto/classical/introduction/</a>&#160;<a href=#fnref:1 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p></li><li id=fn:2><p><a href=https://www.ruanx.net/>https://www.ruanx.net/</a>&#160;<a href=#fnref:2 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p></li><li id=fn:3><p><a href=https://www.cnblogs.com/xdyixia/p/12576437.html>https://www.cnblogs.com/xdyixia/p/12576437.html</a>&#160;<a href=#fnref:3 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p></li><li id=fn:4><p><a href=https://1ablades.github.io/2017/08/09/RSA%E5%85%B1%E6%A8%A1%E6%94%BB%E5%87%BB/>https://1ablades.github.io/2017/08/09/RSA%E5%85%B1%E6%A8%A1%E6%94%BB%E5%87%BB/</a>&#160;<a href=#fnref:4 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p></li></ol></div></div><footer class=post-footer><ul class=post-tags><li><a href=https://shenyiming.life/tags/cryptology/>Cryptology</a></li><li><a href=https://shenyiming.life/tags/review/>Review</a></li><li><a href=https://shenyiming.life/tags/note/>Note</a></li></ul><nav class=paginav><a class=prev href=https://shenyiming.life/post/ctf/wp/ciscnwp/><span class=title>« Prev Page</span><br><span>CISCN Crypt0 战队 WRITEUP</span></a>
-<a class=next href=https://shenyiming.life/post/essays/hunong/><span class=title>Next Page »</span><br><span>微信小程序主体迁移记录</span></a></nav><div class=share-buttons><a target=_blank rel="noopener noreferrer" aria-label="share 应用密码学复习提纲 on twitter" href="https://twitter.com/intent/tweet/?text=%e5%ba%94%e7%94%a8%e5%af%86%e7%a0%81%e5%ad%a6%e5%a4%8d%e4%b9%a0%e6%8f%90%e7%ba%b2&url=https%3a%2f%2fshenyiming.life%2fpost%2fnotes%2fcryptology%2f&hashtags=Cryptology%2creview%2cNote"><svg viewBox="0 0 512 512"><path d="M449.446.0C483.971.0 512 28.03 512 62.554v386.892C512 483.97 483.97 512 449.446 512H62.554c-34.524.0-62.554-28.03-62.554-62.554V62.554c0-34.524 28.029-62.554 62.554-62.554h386.892zM195.519 424.544c135.939.0 210.268-112.643 210.268-210.268.0-3.218.0-6.437-.153-9.502 14.406-10.421 26.973-23.448 36.935-38.314-13.18 5.824-27.433 9.809-42.452 11.648 15.326-9.196 26.973-23.602 32.49-40.92-14.252 8.429-30.038 14.56-46.896 17.931-13.487-14.406-32.644-23.295-53.946-23.295-40.767.0-73.87 33.104-73.87 73.87.0 5.824.613 11.494 1.992 16.858-61.456-3.065-115.862-32.49-152.337-77.241-6.284 10.881-9.962 23.601-9.962 37.088.0 25.594 13.027 48.276 32.95 61.456-12.107-.307-23.448-3.678-33.41-9.196v.92c0 35.862 25.441 65.594 59.311 72.49-6.13 1.686-12.72 2.606-19.464 2.606-4.751.0-9.348-.46-13.946-1.38 9.349 29.426 36.628 50.728 68.965 51.341-25.287 19.771-57.164 31.571-91.8 31.571-5.977.0-11.801-.306-17.625-1.073 32.337 21.15 71.264 33.41 112.95 33.41z"/></svg></a><a target=_blank rel="noopener noreferrer" aria-label="share 应用密码学复习提纲 on linkedin" href="https://www.linkedin.com/shareArticle?mini=true&url=https%3a%2f%2fshenyiming.life%2fpost%2fnotes%2fcryptology%2f&title=%e5%ba%94%e7%94%a8%e5%af%86%e7%a0%81%e5%ad%a6%e5%a4%8d%e4%b9%a0%e6%8f%90%e7%ba%b2&summary=%e5%ba%94%e7%94%a8%e5%af%86%e7%a0%81%e5%ad%a6%e5%a4%8d%e4%b9%a0%e6%8f%90%e7%ba%b2&source=https%3a%2f%2fshenyiming.life%2fpost%2fnotes%2fcryptology%2f"><svg viewBox="0 0 512 512"><path d="M449.446.0C483.971.0 512 28.03 512 62.554v386.892C512 483.97 483.97 512 449.446 512H62.554c-34.524.0-62.554-28.03-62.554-62.554V62.554c0-34.524 28.029-62.554 62.554-62.554h386.892zM160.461 423.278V197.561h-75.04v225.717h75.04zm270.539.0V293.839c0-69.333-37.018-101.586-86.381-101.586-39.804.0-57.634 21.891-67.617 37.266v-31.958h-75.021c.995 21.181.0 225.717.0 225.717h75.02V297.222c0-6.748.486-13.492 2.474-18.315 5.414-13.475 17.767-27.434 38.494-27.434 27.135.0 38.007 20.707 38.007 51.037v120.768H431zM123.448 88.722C97.774 88.722 81 105.601 81 127.724c0 21.658 16.264 39.002 41.455 39.002h.484c26.165.0 42.452-17.344 42.452-39.002-.485-22.092-16.241-38.954-41.943-39.002z"/></svg></a><a target=_blank rel="noopener noreferrer" aria-label="share 应用密码学复习提纲 on reddit" href="https://reddit.com/submit?url=https%3a%2f%2fshenyiming.life%2fpost%2fnotes%2fcryptology%2f&title=%e5%ba%94%e7%94%a8%e5%af%86%e7%a0%81%e5%ad%a6%e5%a4%8d%e4%b9%a0%e6%8f%90%e7%ba%b2"><svg viewBox="0 0 512 512"><path d="M449.446.0C483.971.0 512 28.03 512 62.554v386.892C512 483.97 483.97 512 449.446 512H62.554c-34.524.0-62.554-28.03-62.554-62.554V62.554c0-34.524 28.029-62.554 62.554-62.554h386.892zM446 265.638c0-22.964-18.616-41.58-41.58-41.58-11.211.0-21.361 4.457-28.841 11.666-28.424-20.508-67.586-33.757-111.204-35.278l18.941-89.121 61.884 13.157c.756 15.734 13.642 28.29 29.56 28.29 16.407.0 29.706-13.299 29.706-29.701.0-16.403-13.299-29.702-29.706-29.702-11.666.0-21.657 6.792-26.515 16.578l-69.105-14.69c-1.922-.418-3.939-.042-5.585 1.036-1.658 1.073-2.811 2.761-3.224 4.686l-21.152 99.438c-44.258 1.228-84.046 14.494-112.837 35.232-7.468-7.164-17.589-11.591-28.757-11.591-22.965.0-41.585 18.616-41.585 41.58.0 16.896 10.095 31.41 24.568 37.918-.639 4.135-.99 8.328-.99 12.576.0 63.977 74.469 115.836 166.33 115.836s166.334-51.859 166.334-115.836c0-4.218-.347-8.387-.977-12.493 14.564-6.47 24.735-21.034 24.735-38.001zM326.526 373.831c-20.27 20.241-59.115 21.816-70.534 21.816-11.428.0-50.277-1.575-70.522-21.82-3.007-3.008-3.007-7.882.0-10.889 3.003-2.999 7.882-3.003 10.885.0 12.777 12.781 40.11 17.317 59.637 17.317 19.522.0 46.86-4.536 59.657-17.321 3.016-2.999 7.886-2.995 10.885.008 3.008 3.011 3.003 7.882-.008 10.889zm-5.23-48.781c-16.373.0-29.701-13.324-29.701-29.698.0-16.381 13.328-29.714 29.701-29.714 16.378.0 29.706 13.333 29.706 29.714.0 16.374-13.328 29.698-29.706 29.698zM160.91 295.348c0-16.381 13.328-29.71 29.714-29.71 16.369.0 29.689 13.329 29.689 29.71.0 16.373-13.32 29.693-29.689 29.693-16.386.0-29.714-13.32-29.714-29.693z"/></svg></a><a target=_blank rel="noopener noreferrer" aria-label="share 应用密码学复习提纲 on facebook" href="https://facebook.com/sharer/sharer.php?u=https%3a%2f%2fshenyiming.life%2fpost%2fnotes%2fcryptology%2f"><svg viewBox="0 0 512 512"><path d="M449.446.0C483.971.0 512 28.03 512 62.554v386.892C512 483.97 483.97 512 449.446 512H342.978V319.085h66.6l12.672-82.621h-79.272v-53.617c0-22.603 11.073-44.636 46.58-44.636H425.6v-70.34s-32.71-5.582-63.982-5.582c-65.288.0-107.96 39.569-107.96 111.204v62.971h-72.573v82.621h72.573V512h-191.104c-34.524.0-62.554-28.03-62.554-62.554V62.554c0-34.524 28.029-62.554 62.554-62.554h386.892z"/></svg></a><a target=_blank rel="noopener noreferrer" aria-label="share 应用密码学复习提纲 on whatsapp" href="https://api.whatsapp.com/send?text=%e5%ba%94%e7%94%a8%e5%af%86%e7%a0%81%e5%ad%a6%e5%a4%8d%e4%b9%a0%e6%8f%90%e7%ba%b2%20-%20https%3a%2f%2fshenyiming.life%2fpost%2fnotes%2fcryptology%2f"><svg viewBox="0 0 512 512"><path d="M449.446.0C483.971.0 512 28.03 512 62.554v386.892C512 483.97 483.97 512 449.446 512H62.554c-34.524.0-62.554-28.03-62.554-62.554V62.554c0-34.524 28.029-62.554 62.554-62.554h386.892zm-58.673 127.703c-33.842-33.881-78.847-52.548-126.798-52.568-98.799.0-179.21 80.405-179.249 179.234-.013 31.593 8.241 62.428 23.927 89.612l-25.429 92.884 95.021-24.925c26.181 14.28 55.659 21.807 85.658 21.816h.074c98.789.0 179.206-80.413 179.247-179.243.018-47.895-18.61-92.93-52.451-126.81zM263.976 403.485h-.06c-26.734-.01-52.954-7.193-75.828-20.767l-5.441-3.229-56.386 14.792 15.05-54.977-3.542-5.637c-14.913-23.72-22.791-51.136-22.779-79.287.033-82.142 66.867-148.971 149.046-148.971 39.793.014 77.199 15.531 105.329 43.692 28.128 28.16 43.609 65.592 43.594 105.4-.034 82.149-66.866 148.983-148.983 148.984zm81.721-111.581c-4.479-2.242-26.499-13.075-30.604-14.571-4.105-1.495-7.091-2.241-10.077 2.241-2.986 4.483-11.569 14.572-14.182 17.562-2.612 2.988-5.225 3.364-9.703 1.12-4.479-2.241-18.91-6.97-36.017-22.23C231.8 264.15 222.81 249.484 220.198 245s-.279-6.908 1.963-9.14c2.016-2.007 4.48-5.232 6.719-7.847 2.24-2.615 2.986-4.484 4.479-7.472 1.493-2.99.747-5.604-.374-7.846-1.119-2.241-10.077-24.288-13.809-33.256-3.635-8.733-7.327-7.55-10.077-7.688-2.609-.13-5.598-.158-8.583-.158-2.986.0-7.839 1.121-11.944 5.604-4.105 4.484-15.675 15.32-15.675 37.364.0 22.046 16.048 43.342 18.287 46.332 2.24 2.99 31.582 48.227 76.511 67.627 10.685 4.615 19.028 7.371 25.533 9.434 10.728 3.41 20.492 2.929 28.209 1.775 8.605-1.285 26.499-10.833 30.231-21.295 3.732-10.464 3.732-19.431 2.612-21.298-1.119-1.869-4.105-2.99-8.583-5.232z"/></svg></a><a target=_blank rel="noopener noreferrer" aria-label="share 应用密码学复习提纲 on telegram" href="https://telegram.me/share/url?text=%e5%ba%94%e7%94%a8%e5%af%86%e7%a0%81%e5%ad%a6%e5%a4%8d%e4%b9%a0%e6%8f%90%e7%ba%b2&url=https%3a%2f%2fshenyiming.life%2fpost%2fnotes%2fcryptology%2f"><svg viewBox="2 2 28 28"><path d="M26.49 29.86H5.5a3.37 3.37.0 01-2.47-1 3.35 3.35.0 01-1-2.47V5.48A3.36 3.36.0 013 3 3.37 3.37.0 015.5 2h21A3.38 3.38.0 0129 3a3.36 3.36.0 011 2.46V26.37a3.35 3.35.0 01-1 2.47 3.38 3.38.0 01-2.51 1.02zm-5.38-6.71a.79.79.0 00.85-.66L24.73 9.24a.55.55.0 00-.18-.46.62.62.0 00-.41-.17q-.08.0-16.53 6.11a.59.59.0 00-.41.59.57.57.0 00.43.52l4 1.24 1.61 4.83a.62.62.0 00.63.43.56.56.0 00.4-.17L16.54 20l4.09 3A.9.9.0 0021.11 23.15zM13.8 20.71l-1.21-4q8.72-5.55 8.78-5.55c.15.0.23.0.23.16a.18.18.0 010 .06s-2.51 2.3-7.52 6.8z"/></svg></a></div></footer><style>:root{--article-font-family:"Noto Serif SC", var(--base-font-family)}</style><script>(function(){const e=document.createElement("link");e.href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;700&display=swap",e.type="text/css",e.rel="stylesheet",document.head.appendChild(e)})()</script><div><div class=pagination__title><span class=pagination__title-h style=font-size:20px>💬评论</span><hr></div><div id=tcomment></div><script src=https://cdn.jsdelivr.net/npm/twikoo@1.4.17/dist/twikoo.all.min.js></script>
-<script>twikoo.init({envId:"https://shenyiming-github-io-comments.vercel.app/",el:"#tcomment",lang:"zh-CN",region:"ap-shanghai",path:"window.TWIKOO_MAGIC_PATH||window.location.pathname"})</script></div></article></main><footer class=footer><span>Copyright &copy; 2021-2022 <a href=https://shenyiming.life><b>Shenyiming.Life</b></a></span>
+$$</p>
+<h4 id=注意>注意<a hidden class=anchor aria-hidden=true href=#注意>#</a></h4>
+<ol>
+<li>每次签名应选择不同的随机数k，否则有可能私钥x能被算出</li>
+<li>ElGamal 效率低于RSA 且有两倍的消息扩张</li>
+<li>ElGamal数字签名也可以推广到合适的循环群中，某些变形能被证明在选择消息攻击下是安全的</li>
+</ol>
+<h2 id=练习-1>练习<a hidden class=anchor aria-hidden=true href=#练习-1>#</a></h2>
+<h3 id=rsa>RSA<a hidden class=anchor aria-hidden=true href=#rsa>#</a></h3>
+<p><img loading=lazy src=/Cryptology.assets/%7D/image-20220531222601334.png alt=image-20220531222601334>
+</p>
+<h3 id=elgamal>ElGamal<a hidden class=anchor aria-hidden=true href=#elgamal>#</a></h3>
+<p><img loading=lazy src=/Cryptology.assets/%7D/image-20220531222634457.png alt=image-20220531222634457>
+</p>
+<h3 id=diffie-hellman>Diffie-Hellman<a hidden class=anchor aria-hidden=true href=#diffie-hellman>#</a></h3>
+<p><img loading=lazy src=/Cryptology.assets/%7D/image-20220531222714991.png alt=image-20220531222714991>
+</p>
+<h3 id=有限域上的多项式乘法>有限域上的多项式乘法<a hidden class=anchor aria-hidden=true href=#有限域上的多项式乘法>#</a></h3>
+<p><img loading=lazy src="https://img-blog.csdnimg.cn/b6857bd9511343cb8ab5113d71c945cc.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBAYnVndW_opb_nk5w=,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center" alt=乘法>
+</p>
+<h3 id=有限域多项式求逆>有限域多项式求逆<a hidden class=anchor aria-hidden=true href=#有限域多项式求逆>#</a></h3>
+<p><img loading=lazy src=/Cryptology.assets/%7D/image-20220531223613620.png alt=image-20220531223613620>
+</p>
+<section class=footnotes role=doc-endnotes>
+<hr>
+<ol>
+<li id=fn:1 role=doc-endnote>
+<p><a href=https://ctf-wiki.org/crypto/classical/introduction/>https://ctf-wiki.org/crypto/classical/introduction/</a>&#160;<a href=#fnref:1 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p>
+</li>
+<li id=fn:2 role=doc-endnote>
+<p><a href=https://www.ruanx.net/>https://www.ruanx.net/</a>&#160;<a href=#fnref:2 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p>
+</li>
+<li id=fn:3 role=doc-endnote>
+<p><a href=https://www.cnblogs.com/xdyixia/p/12576437.html>https://www.cnblogs.com/xdyixia/p/12576437.html</a>&#160;<a href=#fnref:3 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p>
+</li>
+<li id=fn:4 role=doc-endnote>
+<p><a href=https://1ablades.github.io/2017/08/09/RSA%E5%85%B1%E6%A8%A1%E6%94%BB%E5%87%BB/>https://1ablades.github.io/2017/08/09/RSA%E5%85%B1%E6%A8%A1%E6%94%BB%E5%87%BB/</a>&#160;<a href=#fnref:4 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p>
+</li>
+</ol>
+</section>
+</div>
+<footer class=post-footer>
+<ul class=post-tags>
+<li><a href=https://shenyiming.life/tags/cryptology/>Cryptology</a></li>
+<li><a href=https://shenyiming.life/tags/review/>Review</a></li>
+<li><a href=https://shenyiming.life/tags/note/>Note</a></li>
+</ul>
+<nav class=paginav>
+<a class=prev href=https://shenyiming.life/post/ctf/wp/ciscnwp/>
+<span class=title>« Prev Page</span>
+<br>
+<span>CISCN Crypt0 战队 WRITEUP</span>
+</a>
+<a class=next href=https://shenyiming.life/post/essays/hunong/>
+<span class=title>Next Page »</span>
+<br>
+<span>微信小程序主体迁移记录</span>
+</a>
+</nav>
+<div class=share-buttons>
+<a target=_blank rel="noopener noreferrer" aria-label="share 应用密码学复习提纲 on twitter" href="https://twitter.com/intent/tweet/?text=%e5%ba%94%e7%94%a8%e5%af%86%e7%a0%81%e5%ad%a6%e5%a4%8d%e4%b9%a0%e6%8f%90%e7%ba%b2&url=https%3a%2f%2fshenyiming.life%2fpost%2fnotes%2fcryptology%2f&hashtags=Cryptology%2creview%2cNote"><svg viewBox="0 0 512 512"><path d="M449.446.0C483.971.0 512 28.03 512 62.554v386.892C512 483.97 483.97 512 449.446 512H62.554c-34.524.0-62.554-28.03-62.554-62.554V62.554c0-34.524 28.029-62.554 62.554-62.554h386.892zM195.519 424.544c135.939.0 210.268-112.643 210.268-210.268.0-3.218.0-6.437-.153-9.502 14.406-10.421 26.973-23.448 36.935-38.314-13.18 5.824-27.433 9.809-42.452 11.648 15.326-9.196 26.973-23.602 32.49-40.92-14.252 8.429-30.038 14.56-46.896 17.931-13.487-14.406-32.644-23.295-53.946-23.295-40.767.0-73.87 33.104-73.87 73.87.0 5.824.613 11.494 1.992 16.858-61.456-3.065-115.862-32.49-152.337-77.241-6.284 10.881-9.962 23.601-9.962 37.088.0 25.594 13.027 48.276 32.95 61.456-12.107-.307-23.448-3.678-33.41-9.196v.92c0 35.862 25.441 65.594 59.311 72.49-6.13 1.686-12.72 2.606-19.464 2.606-4.751.0-9.348-.46-13.946-1.38 9.349 29.426 36.628 50.728 68.965 51.341-25.287 19.771-57.164 31.571-91.8 31.571-5.977.0-11.801-.306-17.625-1.073 32.337 21.15 71.264 33.41 112.95 33.41z"/></svg>
+</a>
+<a target=_blank rel="noopener noreferrer" aria-label="share 应用密码学复习提纲 on linkedin" href="https://www.linkedin.com/shareArticle?mini=true&url=https%3a%2f%2fshenyiming.life%2fpost%2fnotes%2fcryptology%2f&title=%e5%ba%94%e7%94%a8%e5%af%86%e7%a0%81%e5%ad%a6%e5%a4%8d%e4%b9%a0%e6%8f%90%e7%ba%b2&summary=%e5%ba%94%e7%94%a8%e5%af%86%e7%a0%81%e5%ad%a6%e5%a4%8d%e4%b9%a0%e6%8f%90%e7%ba%b2&source=https%3a%2f%2fshenyiming.life%2fpost%2fnotes%2fcryptology%2f"><svg viewBox="0 0 512 512"><path d="M449.446.0C483.971.0 512 28.03 512 62.554v386.892C512 483.97 483.97 512 449.446 512H62.554c-34.524.0-62.554-28.03-62.554-62.554V62.554c0-34.524 28.029-62.554 62.554-62.554h386.892zM160.461 423.278V197.561h-75.04v225.717h75.04zm270.539.0V293.839c0-69.333-37.018-101.586-86.381-101.586-39.804.0-57.634 21.891-67.617 37.266v-31.958h-75.021c.995 21.181.0 225.717.0 225.717h75.02V297.222c0-6.748.486-13.492 2.474-18.315 5.414-13.475 17.767-27.434 38.494-27.434 27.135.0 38.007 20.707 38.007 51.037v120.768H431zM123.448 88.722C97.774 88.722 81 105.601 81 127.724c0 21.658 16.264 39.002 41.455 39.002h.484c26.165.0 42.452-17.344 42.452-39.002-.485-22.092-16.241-38.954-41.943-39.002z"/></svg>
+</a>
+<a target=_blank rel="noopener noreferrer" aria-label="share 应用密码学复习提纲 on reddit" href="https://reddit.com/submit?url=https%3a%2f%2fshenyiming.life%2fpost%2fnotes%2fcryptology%2f&title=%e5%ba%94%e7%94%a8%e5%af%86%e7%a0%81%e5%ad%a6%e5%a4%8d%e4%b9%a0%e6%8f%90%e7%ba%b2"><svg viewBox="0 0 512 512"><path d="M449.446.0C483.971.0 512 28.03 512 62.554v386.892C512 483.97 483.97 512 449.446 512H62.554c-34.524.0-62.554-28.03-62.554-62.554V62.554c0-34.524 28.029-62.554 62.554-62.554h386.892zM446 265.638c0-22.964-18.616-41.58-41.58-41.58-11.211.0-21.361 4.457-28.841 11.666-28.424-20.508-67.586-33.757-111.204-35.278l18.941-89.121 61.884 13.157c.756 15.734 13.642 28.29 29.56 28.29 16.407.0 29.706-13.299 29.706-29.701.0-16.403-13.299-29.702-29.706-29.702-11.666.0-21.657 6.792-26.515 16.578l-69.105-14.69c-1.922-.418-3.939-.042-5.585 1.036-1.658 1.073-2.811 2.761-3.224 4.686l-21.152 99.438c-44.258 1.228-84.046 14.494-112.837 35.232-7.468-7.164-17.589-11.591-28.757-11.591-22.965.0-41.585 18.616-41.585 41.58.0 16.896 10.095 31.41 24.568 37.918-.639 4.135-.99 8.328-.99 12.576.0 63.977 74.469 115.836 166.33 115.836s166.334-51.859 166.334-115.836c0-4.218-.347-8.387-.977-12.493 14.564-6.47 24.735-21.034 24.735-38.001zM326.526 373.831c-20.27 20.241-59.115 21.816-70.534 21.816-11.428.0-50.277-1.575-70.522-21.82-3.007-3.008-3.007-7.882.0-10.889 3.003-2.999 7.882-3.003 10.885.0 12.777 12.781 40.11 17.317 59.637 17.317 19.522.0 46.86-4.536 59.657-17.321 3.016-2.999 7.886-2.995 10.885.008 3.008 3.011 3.003 7.882-.008 10.889zm-5.23-48.781c-16.373.0-29.701-13.324-29.701-29.698.0-16.381 13.328-29.714 29.701-29.714 16.378.0 29.706 13.333 29.706 29.714.0 16.374-13.328 29.698-29.706 29.698zM160.91 295.348c0-16.381 13.328-29.71 29.714-29.71 16.369.0 29.689 13.329 29.689 29.71.0 16.373-13.32 29.693-29.689 29.693-16.386.0-29.714-13.32-29.714-29.693z"/></svg>
+</a>
+<a target=_blank rel="noopener noreferrer" aria-label="share 应用密码学复习提纲 on facebook" href="https://facebook.com/sharer/sharer.php?u=https%3a%2f%2fshenyiming.life%2fpost%2fnotes%2fcryptology%2f"><svg viewBox="0 0 512 512"><path d="M449.446.0C483.971.0 512 28.03 512 62.554v386.892C512 483.97 483.97 512 449.446 512H342.978V319.085h66.6l12.672-82.621h-79.272v-53.617c0-22.603 11.073-44.636 46.58-44.636H425.6v-70.34s-32.71-5.582-63.982-5.582c-65.288.0-107.96 39.569-107.96 111.204v62.971h-72.573v82.621h72.573V512h-191.104c-34.524.0-62.554-28.03-62.554-62.554V62.554c0-34.524 28.029-62.554 62.554-62.554h386.892z"/></svg>
+</a>
+<a target=_blank rel="noopener noreferrer" aria-label="share 应用密码学复习提纲 on whatsapp" href="https://api.whatsapp.com/send?text=%e5%ba%94%e7%94%a8%e5%af%86%e7%a0%81%e5%ad%a6%e5%a4%8d%e4%b9%a0%e6%8f%90%e7%ba%b2%20-%20https%3a%2f%2fshenyiming.life%2fpost%2fnotes%2fcryptology%2f"><svg viewBox="0 0 512 512"><path d="M449.446.0C483.971.0 512 28.03 512 62.554v386.892C512 483.97 483.97 512 449.446 512H62.554c-34.524.0-62.554-28.03-62.554-62.554V62.554c0-34.524 28.029-62.554 62.554-62.554h386.892zm-58.673 127.703c-33.842-33.881-78.847-52.548-126.798-52.568-98.799.0-179.21 80.405-179.249 179.234-.013 31.593 8.241 62.428 23.927 89.612l-25.429 92.884 95.021-24.925c26.181 14.28 55.659 21.807 85.658 21.816h.074c98.789.0 179.206-80.413 179.247-179.243.018-47.895-18.61-92.93-52.451-126.81zM263.976 403.485h-.06c-26.734-.01-52.954-7.193-75.828-20.767l-5.441-3.229-56.386 14.792 15.05-54.977-3.542-5.637c-14.913-23.72-22.791-51.136-22.779-79.287.033-82.142 66.867-148.971 149.046-148.971 39.793.014 77.199 15.531 105.329 43.692 28.128 28.16 43.609 65.592 43.594 105.4-.034 82.149-66.866 148.983-148.983 148.984zm81.721-111.581c-4.479-2.242-26.499-13.075-30.604-14.571-4.105-1.495-7.091-2.241-10.077 2.241-2.986 4.483-11.569 14.572-14.182 17.562-2.612 2.988-5.225 3.364-9.703 1.12-4.479-2.241-18.91-6.97-36.017-22.23C231.8 264.15 222.81 249.484 220.198 245s-.279-6.908 1.963-9.14c2.016-2.007 4.48-5.232 6.719-7.847 2.24-2.615 2.986-4.484 4.479-7.472 1.493-2.99.747-5.604-.374-7.846-1.119-2.241-10.077-24.288-13.809-33.256-3.635-8.733-7.327-7.55-10.077-7.688-2.609-.13-5.598-.158-8.583-.158-2.986.0-7.839 1.121-11.944 5.604-4.105 4.484-15.675 15.32-15.675 37.364.0 22.046 16.048 43.342 18.287 46.332 2.24 2.99 31.582 48.227 76.511 67.627 10.685 4.615 19.028 7.371 25.533 9.434 10.728 3.41 20.492 2.929 28.209 1.775 8.605-1.285 26.499-10.833 30.231-21.295 3.732-10.464 3.732-19.431 2.612-21.298-1.119-1.869-4.105-2.99-8.583-5.232z"/></svg>
+</a>
+<a target=_blank rel="noopener noreferrer" aria-label="share 应用密码学复习提纲 on telegram" href="https://telegram.me/share/url?text=%e5%ba%94%e7%94%a8%e5%af%86%e7%a0%81%e5%ad%a6%e5%a4%8d%e4%b9%a0%e6%8f%90%e7%ba%b2&url=https%3a%2f%2fshenyiming.life%2fpost%2fnotes%2fcryptology%2f"><svg viewBox="2 2 28 28"><path d="M26.49 29.86H5.5a3.37 3.37.0 01-2.47-1 3.35 3.35.0 01-1-2.47V5.48A3.36 3.36.0 013 3 3.37 3.37.0 015.5 2h21A3.38 3.38.0 0129 3a3.36 3.36.0 011 2.46V26.37a3.35 3.35.0 01-1 2.47 3.38 3.38.0 01-2.51 1.02zm-5.38-6.71a.79.79.0 00.85-.66L24.73 9.24a.55.55.0 00-.18-.46.62.62.0 00-.41-.17q-.08.0-16.53 6.11a.59.59.0 00-.41.59.57.57.0 00.43.52l4 1.24 1.61 4.83a.62.62.0 00.63.43.56.56.0 00.4-.17L16.54 20l4.09 3A.9.9.0 0021.11 23.15zM13.8 20.71l-1.21-4q8.72-5.55 8.78-5.55c.15.0.23.0.23.16a.18.18.0 010 .06s-2.51 2.3-7.52 6.8z"/></svg>
+</a>
+</div>
+</footer>
+<style>:root{--article-font-family:"Noto Serif SC", var(--base-font-family)}</style>
+<script>(function(){const a=document.createElement('link');a.href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;700&display=swap",a.type="text/css",a.rel="stylesheet",document.head.appendChild(a)})()</script>
+<div>
+<div class=pagination__title>
+<span class=pagination__title-h style=font-size:20px>💬评论</span>
+<hr>
+</div>
+<div id=tcomment></div>
+<script src=https://cdn.jsdelivr.net/npm/twikoo@1.4.17/dist/twikoo.all.min.js></script>
+<script>twikoo.init({envId:"https://shenyiming-github-io-comments.vercel.app/",el:"#tcomment",lang:'zh-CN',region:'ap-shanghai',path:'window.TWIKOO_MAGIC_PATH||window.location.pathname'})</script>
+</div>
+</article>
+</main><footer class=footer>
+<span>Copyright &copy; 2021-2022 <a href=https://shenyiming.life><b>Shenyiming.Life</b></a></span>
 <span>&#183;</span>
 <span>Built With <a href=https://gohugo.io/ rel="noopener noreferrer" target=_blank>Hugo</a></span>
 <span>&#183;</span>
 <span>All Rights Reserved</span>
 <span>&#183;</span>
-<span><a href=https://beian.miit.gov.cn/>鲁ICP备2022020298号</a></span></footer><a href=#top aria-label="go to top" title="Go to Top (Alt + G)"><button class=top-link id=top-link type=button accesskey=g><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentcolor"><path d="M12 6H0l6-6z"/></svg></button></a>
-<script defer src=/assets/js/highlight.min.e85ad0406048e8176e1c7661b25d5c69297ddfe41dc4124cf75ecb99a4f7b3d1.js integrity="sha256-6FrQQGBI6BduHHZhsl1caSl93+QdxBJM917LmaT3s9E=" onload=hljs.initHighlightingOnLoad()></script>
-<script>window.onload=function(){localStorage.getItem("menu-scroll-position")&&(document.getElementById("menu").scrollLeft=localStorage.getItem("menu-scroll-position"))};function menu_on_scroll(){localStorage.setItem("menu-scroll-position",document.getElementById("menu").scrollLeft)}document.querySelectorAll('a[href^="#"]').forEach(e=>{e.addEventListener("click",function(e){e.preventDefault();var t=this.getAttribute("href").substr(1);window.matchMedia("(prefers-reduced-motion: reduce)").matches?document.querySelector(`[id='${decodeURIComponent(t)}']`).scrollIntoView():document.querySelector(`[id='${decodeURIComponent(t)}']`).scrollIntoView({behavior:"smooth"}),t==="top"?history.replaceState(null,null," "):history.pushState(null,null,`#${t}`)})})</script><script>var mybutton=document.getElementById("top-link");window.onscroll=function(){document.body.scrollTop>800||document.documentElement.scrollTop>800?(mybutton.style.visibility="visible",mybutton.style.opacity="1"):(mybutton.style.visibility="hidden",mybutton.style.opacity="0")}</script><script>document.getElementById("theme-toggle").addEventListener("click",()=>{document.body.className.includes("dark")?(document.body.classList.remove("dark"),localStorage.setItem("pref-theme","light")):(document.body.classList.add("dark"),localStorage.setItem("pref-theme","dark"))})</script></body></html>
+<span><a href=https://beian.miit.gov.cn/>鲁ICP备2022020298号</a></span>
+</footer>
+<a href=#top aria-label="go to top" title="Go to Top (Alt + G)">
+<button class=top-link id=top-link type=button accesskey=g><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentcolor"><path d="M12 6H0l6-6z"/></svg>
+</button>
+</a>
+<script defer src=/assets/js/highlight.min.7680afc38aa6b15ddf158a4f3780b7b1f7dde7e91d26f073e6229bb7a0793c92.js integrity="sha256-doCvw4qmsV3fFYpPN4C3sffd5+kdJvBz5iKbt6B5PJI=" onload=hljs.initHighlightingOnLoad()></script>
+<script>window.onload=function(){localStorage.getItem("menu-scroll-position")&&(document.getElementById('menu').scrollLeft=localStorage.getItem("menu-scroll-position"))};function menu_on_scroll(){localStorage.setItem("menu-scroll-position",document.getElementById('menu').scrollLeft)}document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener("click",function(b){b.preventDefault();var a=this.getAttribute("href").substr(1);window.matchMedia('(prefers-reduced-motion: reduce)').matches?document.querySelector(`[id='${decodeURIComponent(a)}']`).scrollIntoView():document.querySelector(`[id='${decodeURIComponent(a)}']`).scrollIntoView({behavior:"smooth"}),a==="top"?history.replaceState(null,null," "):history.pushState(null,null,`#${a}`)})})</script>
+<script>var mybutton=document.getElementById("top-link");window.onscroll=function(){document.body.scrollTop>800||document.documentElement.scrollTop>800?(mybutton.style.visibility="visible",mybutton.style.opacity="1"):(mybutton.style.visibility="hidden",mybutton.style.opacity="0")}</script>
+<script>document.getElementById("theme-toggle").addEventListener("click",()=>{document.body.className.includes("dark")?(document.body.classList.remove('dark'),localStorage.setItem("pref-theme",'light')):(document.body.classList.add('dark'),localStorage.setItem("pref-theme",'dark'))})</script>
+</body>
+</html>

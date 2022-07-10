@@ -107,7 +107,7 @@
       <pubDate>Mon, 11 Apr 2022 00:00:00 +0000</pubDate>
       
       <guid>https://shenyiming.life/post/essays/pattern_depends/</guid>
-      <description>Which is more important, the right to privacy or the right to know? The importance of both depends on your position. ​	For example, in a family where we usually think as children, our right to privacy is more important: our parents should not break into our rooms at will, should not look through our cell phones or diaries, and this is the view we have always held. However, ten years from now, or even five years, when we become fathers or mothers, too, will we still think that way like we used to as a child?</description>
+      <description>Which is more important, the right to privacy or the right to know?   The importance of both depends on your position.   ​	For example, in a family where we usually think as children, our right to privacy is more important: our parents should not break into our rooms at will, should not look through our cell phones or diaries, and this is the view we have always held.</description>
     </item>
     
     <item>
@@ -449,7 +449,7 @@
       <pubDate>Sat, 09 Oct 2021 00:00:00 +0000</pubDate>
       
       <guid>https://shenyiming.life/post/notes/cryptologymath/3.4%E5%AE%9E%E9%AA%8C_%E5%9F%BA%E4%BA%8E%E4%B8%AD%E5%9B%BD%E5%89%A9%E4%BD%99%E5%AE%9A%E7%90%86%E7%9A%84%E7%A7%98%E5%AF%86%E5%85%B1%E4%BA%AB%E6%96%B9%E6%A1%88/</guid>
-      <description>st=&amp;gt;start: 开始 op1=&amp;gt;operation: 读入秘密K op2=&amp;gt;operation: 生成数组d[n] cond=&amp;gt;condition: 判断是否满足N&amp;gt;K&amp;gt;M op3=&amp;gt;operation: K依次模d生成密钥串k[n] op4=&amp;gt;operation: 使用t个密钥利用CRT还原K&amp;#39</description>
+      <description>st=&amp;gt;start: 开始 op1=&amp;gt;operation: 读入秘密K op2=&amp;gt;operation: 生成数组d[n] cond=&amp;gt;condition: 判断是否满足N&amp;gt;K&amp;gt;M op3=&amp;gt;operation: K依次模d生成密钥串k[n] op4=&amp;gt;operation: 使用t个密钥利用CRT还原K&#39; cond2=&amp;gt;condition: 判断</description>
     </item>
     
     <item>

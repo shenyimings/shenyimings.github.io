@@ -1,161 +1,1012 @@
-<!doctype html><html lang=en dir=auto><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><meta name=robots content="index, follow"><title>数据库系统导论笔记 | Console.makeHappy(_1ming)</title><meta name=keywords content="SQL,Note"><meta name=description content="1 基本概念 描述事物的符号记录叫数据 数据库是长期储存在计算机内、有组织的、可共享的大量数据的集合。 较小的冗余度、较高的数据独立性、易扩展性。 数"><meta name=author content="Yiming Shen"><link rel=canonical href=https://shenyiming.life/post/notes/database_system/><meta name=google-site-verification content="XYZabc"><meta name=yandex-verification content="XYZabc"><meta name=msvalidate.01 content="XYZabc"><link href=/assets/css/stylesheet.min.96ff96383199830fa3579b27d0827aa2d1dc17d7ac4182b5dca790d464d24229.css integrity="sha256-lv+WODGZgw+jV5sn0IJ6otHcF9esQYK13KeQ1GTSQik=" rel="preload stylesheet" as=style><link rel=icon href=https://shenyiming.life/favicon.ico><link rel=icon type=image/png sizes=16x16 href=https://shenyiming.life/favicon-16x16.png><link rel=icon type=image/png sizes=32x32 href=https://shenyiming.life/favicon-32x32.png><link rel=apple-touch-icon href=https://shenyiming.life/apple-touch-icon.png><link rel=mask-icon href=https://shenyiming.life/safari-pinned-tab.svg><meta name=theme-color content="#2e2e33"><meta name=msapplication-TileColor content="#2e2e33"><meta name=generator content="Hugo 0.101.0"><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css integrity=sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X crossorigin=anonymous><script defer src=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js integrity=sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4 crossorigin=anonymous></script>
+<!doctype html><html lang=en dir=auto>
+<head><meta charset=utf-8>
+<meta http-equiv=x-ua-compatible content="IE=edge">
+<meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no">
+<meta name=robots content="index, follow">
+<title>数据库系统导论笔记 | Console.makeHappy(_1ming)</title>
+<meta name=keywords content="SQL,Note">
+<meta name=description content="1 基本概念 描述事物的符号记录叫数据 数据库是长期储存在计算机内、有组织的、可共享的大量数据的集合。 较小的冗余度、较高的数据独立性、易扩展性。 数">
+<meta name=author content="Yiming Shen">
+<link rel=canonical href=https://shenyiming.life/post/notes/database_system/>
+<meta name=google-site-verification content="XYZabc">
+<meta name=yandex-verification content="XYZabc">
+<meta name=msvalidate.01 content="XYZabc">
+<link href=/assets/css/stylesheet.min.96ff96383199830fa3579b27d0827aa2d1dc17d7ac4182b5dca790d464d24229.css integrity="sha256-lv+WODGZgw+jV5sn0IJ6otHcF9esQYK13KeQ1GTSQik=" rel="preload stylesheet" as=style>
+<link rel=icon href=https://shenyiming.life/favicon.ico>
+<link rel=icon type=image/png sizes=16x16 href=https://shenyiming.life/favicon-16x16.png>
+<link rel=icon type=image/png sizes=32x32 href=https://shenyiming.life/favicon-32x32.png>
+<link rel=apple-touch-icon href=https://shenyiming.life/apple-touch-icon.png>
+<link rel=mask-icon href=https://shenyiming.life/safari-pinned-tab.svg>
+<meta name=theme-color content="#2e2e33">
+<meta name=msapplication-TileColor content="#2e2e33">
+<meta name=generator content="Hugo 0.91.0">
+<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css integrity=sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X crossorigin=anonymous>
+<script defer src=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js integrity=sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4 crossorigin=anonymous></script>
 <script defer src=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js integrity=sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa crossorigin=anonymous onload=renderMathInElement(document.body)></script>
-<script type=application/javascript>var doNotTrack=!1;doNotTrack||(window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","UA-123-45","auto"),ga("send","pageview"))</script><script async src=https://www.google-analytics.com/analytics.js></script><meta property="og:title" content="数据库系统导论笔记"><meta property="og:description" content="1 基本概念 描述事物的符号记录叫数据 数据库是长期储存在计算机内、有组织的、可共享的大量数据的集合。 较小的冗余度、较高的数据独立性、易扩展性。 数"><meta property="og:type" content="article"><meta property="og:url" content="https://shenyiming.life/post/notes/database_system/"><meta property="og:image" content="https://shenyiming.life/android-chrome-512x512.png"><meta property="article:section" content="post"><meta property="article:published_time" content="2022-03-15T00:00:00+00:00"><meta property="article:modified_time" content="2022-06-15T00:00:00+00:00"><meta property="og:site_name" content="Yiming"><meta name=twitter:card content="summary_large_image"><meta name=twitter:image content="https://shenyiming.life/android-chrome-512x512.png"><meta name=twitter:title content="数据库系统导论笔记"><meta name=twitter:description content="1 基本概念 描述事物的符号记录叫数据 数据库是长期储存在计算机内、有组织的、可共享的大量数据的集合。 较小的冗余度、较高的数据独立性、易扩展性。 数"><script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":2,"name":"文章","item":"https://shenyiming.life/post/"},{"@type":"ListItem","position":3,"name":"📝笔记","item":"https://shenyiming.life/post/notes/"},{"@type":"ListItem","position":4,"name":"数据库系统导论笔记","item":"https://shenyiming.life/post/notes/database_system/"}]}</script><script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"数据库系统导论笔记","name":"数据库系统导论笔记","description":"1 基本概念 描述事物的符号记录叫数据 数据库是长期储存在计算机内、有组织的、可共享的大量数据的集合。 较小的冗余度、较高的数据独立性、易扩展性。 数","keywords":["SQL","Note"],"articleBody":"1 基本概念 描述事物的符号记录叫数据\n数据库是长期储存在计算机内、有组织的、可共享的大量数据的集合。\n较小的冗余度、较高的数据独立性、易扩展性。\n数据库管理系统是位于用户与操作系统之间的一层数据管理软件。\n数据库系统是由数据库、数据库管理系统、应用程序和数据库管理员组成的存储、管理、处理和维护数据的系统。\n数据库系统的特点\n数据结构化 数据的共享性高，冗余度低，易扩充 数据的独立性高 数据由DBMS统一管理和控制 数据库管理系统的三个阶段\n人工管理阶段 文件系统阶段 数据库系统阶段 概念模型\n概念模型是现实世界到机器世界的一个中间层次。概念模型用于信息世界的建模，是数据库设计人员进行有力工具，也是数据库设计人员和用户之间进行交流的语言。\n实体：客观存在并可以相互区分的事物叫实体。 实体型：用实体名及其属性名集合来抽象和刻画同类实体 实体集：同型实体的集合称为实体集 实体之间的联系：实体内部的联系与实体之间的联系 数据模型\n数据模型通常由数据结构、数据操作和完整性约束三部分组成。\n关系模型\n与非关系模型不同，它具有严格的数学基础 概念单一，数据结构简单 关系模型的存取路径对用户透明，从而具有更高的数据独立性、更好的安全保密性，也简化了程序员的工作和数据库开发建立的工作。 三级模式、二级映像\n模式：逻辑模式，是数据库中全体数据的逻辑结构和特征的描述，是所有用户的公共数据视图。 外模式：用户模式，是数据库用户能够看见和使用的局部数据的逻辑结构和特征的描述，是数据库用户的数据视图，是与某一应用有关的数据的逻辑表示。 内模式：存储模式，一个数据库只有一个内模式，是数据物理结构和存储方式的描述，是数据在数据库内部的组织方式。 外模式-模式映像：通过对该映像的调整，当模式改变时，外模式保持不变，应用程序不必修改，保证了数据与程序的逻辑独立性，简称数据逻辑独立性。 模式-内模式映像：通过对该映像的调整，当内模式（存储结构）改变时，可以使模式保持不变，应用程序也不变，保证了数据与程序的物理独立性，简称数据的物理独立性。 2 关系数据库 概念 关系模型的三个组成部分：关系数据结构、关系操作集合和完整性约束三部分组成\n三类关系：基本关系（基本表）、查询表和视图表\n基本关系6条性质：\n列是同质的（数据类型相同） 不同的列可出自同一个域 列的顺序可随意交换 行的顺序可随意交换 任意两个元组的候选码不能取相同的值 分量必须取原子值 三类完整性约束：实体完整性约束，参照完整性约束，用户自定义完整性约束。\n关系操作 选择，投影，并，差，笛卡尔积是五种基本操作\n传统的集合操作：二目运算，并查交笛卡尔积 专门的关系运算： $$ \\sigma \\quad 选择\\\\ \\pi \\quad 投影\\\\ \\bowtie \\quad 连接\\\\ \\div \\quad 除 $$\n连接和除是复合运算\n记号 $$ 设关系模式为R(A_1,A_2,\\cdots,An)\\\\ A_i A_i \\cdots 为属性列\\\\ R(X,Z) \\\\ t[X]=x \\quad Z_x = {t[Z]|t\\in R ,t[X]=Z} $$\n选择 在关系R 中选择满足给定条件的诸元组\nF为选择条件 取值真或假\n查询IS系全体学生： $$ \\sigma_{Sdept=‘IS’}(Student) $$\n投影 从关系R中选择出若干属性列组成新的关系 $$ \\pi_A(R)={t[A]|t\\in R} $$ A为R中的属性列\n投影操作主要是从列的角度进行运算\n查询学生的姓名和所在系: $$ \\Pi _{Sname,Sdept}(Student) $$ 可以去重(如查询学生关系中全部系名)，去掉了标识元组的主码。\n连接 从两个关系的笛卡尔积中选取属性间满足一定条件的元组 (有条件的笛卡尔积运算) $$ R \\bowtie S = {} $$\n等值连接 自然连接 两个关系比较的分量是相同的属性组，结果中把重复的属性列去掉\n把相同的连一块\n区别 等值连接可比即可 自然连接必须相同\n等值连接m+n列 自然连接u-b列\n悬浮元组 两个关系R和S在做自然连接时，关系R中某些元组有可能在S中不存在公共属性上值相等的元组，从而造成R中这些元组在操作时被舍弃了，这些被舍弃的元组被称为悬浮元组。\n外连接 如果把悬浮元组也保存在结果关系中，而在其他属性上填空值Null，就叫做外连接\n左外连接\n只保留左边关系R中的悬浮元组\n除运算 给定关系R（X，Y） S（Y，Z）其中X，Y，Z为属性组\nR中的Y和S中的Y可以有不同的属性名，但必须出自相同的域集\n条件 元组在X上分量值x的象集Yx包含S在Y上投影的集合\n记作 $$ R \\div S ={t_r [X] | t_r \\in R \\wedge \\Pi_Y (S)\\subseteq Y_x} $$\n查询至少选修1号课和3号课的学生号码 基本运算导出 $$ R(X,Y)\\quad S(Y,Z)\\\\ P(X,Y)=\\Pi_X(R)\\times \\Pi_Y(S)\\\\ \\Pi_x(R)-\\Pi_x(P(X,Y)-R(X,Y)) $$\n例题6 $$ 求供应工程J1红色零件的供应商号SNO\\\\ \\Pi_{SNO}(\\Pi_{SNO,PNO}(\\sigma_{JNO=‘J1’}(SPJ)\\bowtie\\Pi_{PNO}(\\sigma_{COLOR=‘红’}(P))) $$\nSQL 概述 SQL的产生和发展 结构化查询语句，任何商业化的数据库都支持SQL语句。\nSQL的特点 综合统一 高度的非过程化 集合操作 一种语言，多种实现方式（嵌入式语言） 语法简单 SQL的基本概念\rSQL 支持三级模式 外模式、模式、内模式\n视图－\u003e基本表－\u003e存储文件\n基本表 独立存在的表 SQL中一个关系对应一个基本表 一个或多个基本表对应一个存储文件 一个表可以带若干索引 视图 从一个或几个基本表导出的表 数据库只存放视图的定义而不放对应数据 是虚表，只有结构 用户可以在视图上再定义视图 存储文件 逻辑结构组成内模式 对用户不可见 学生－课程数据库 学生-课程模式 S-T\n数据定义 模式的定义与删除 模式 一个DBMS可以建立多个数据库 一个数据库中可以建立多个模式 一个模式下通常可以包括多个表、视图、索引等数据库对象 定义模式\nCREATE SCHEMA \u003cNAME\u003e AUTHORIZATION \u003cUSERNAME\u003e [\u003c表定义子句\u003e \u003c视图定义子句\u003e \u003c授权定义子句\u003e]; 定义模式实际定义了命名空间 例题 CREATE SCHEMA \"S-T\" AUTHORIZATION WANG; 省略模式名：默认模式名为用户名\n删除模式\nDROP SCHEMA \u003cschemaname\u003e \u003cCASCADE | RESTRICT\u003e; RESTRICT: 限制非空模式的删除\nCASCADE: 级联，删除模式同时把该模式的所有数据库对象删除\nDROP SCHEMA zhang CASCADE 基本表的定义、删除与修改 CREATE TABLE \u003ctablename\u003e (\u003ccolname\u003e \u003cdatatype\u003e [\u003c列级完整性约束条件\u003e \u003c列名\u003e \u003c数据类型\u003e [\u003c列级完整性约束条件\u003e...] [\u003c表级完整性约束条件\u003e]]) 例 CREATE TABLE Student( Sno CHAR(9) PRIMARY KEY, Sname CHAR(20) UNIQUE, # 用户自定义完整性 Ssex CHAR(2), Sage SMALLINT, Sdept CHAR(20) ) CREATE TABLE Course( Cno\tChar(4)\tPRIMARY KEY, Cname CHAR(40), Cpno\tCHAR(4), Ccredit\tSMALLINT, FOREIGN KEY (Cpno) REFERENCES Course (Cno) ) CREATE TABLE SC ( ... PRIMARY KEY (Sno, Cno), FOREIGN KEY (Sno) REFERENCES Student(Sno) ) 数据类型 SQL中的域的概念是由数据类型实现的 确定运算性质 限定取值范围 模式与表 一个基本表属于某个模式，一个模式可以包含多个基本表。\n定义基本表所属模式\n在表名中明显的给出模式名 在创建模式语句中同时创建 设置所属模式（常用方法） 显示当前搜索路径\nSHOW search_path #default: $user,Public 修改基本表 ALTER TABLE \u003ctablename\u003e [ADD [COLUMN] \u003c新列名\u003e \u003c数据类型\u003e [完整性约束]] [ADD \u003c表级完整性约束\u003e] [DROP [COLUMN] \u003c列名\u003e [CASCADE | RESTRICT]] [DROP CONSTRAINT \u003c完整性约束名\u003e [CASCADE | RESTRICT]] [ALTER COLUMN \u003c列名\u003e \u003c数据类型\u003e] 向学生表加入入学时间列 ALTER TABLE Student ADD S_entrance DATE; 将年龄数据类型改为整型 ALTER TABLE Student ALTER smallint; 索引的建立与删除 建立索引(数据库管理员、表的属主) 维护索引（关系数据库管理系统） 使用索引（关系数据库管理系统自动选择合适的索引） 建立索引 CREATE [UNIQUE] INDEX \u003c索引名\u003e ON \u003c表名\u003e(\u003c列名\u003e[\u003c次序\u003e][,\u003c列名\u003e[\u003c次序\u003e]]…) 例 按学号升序排列建唯一索引\nCREATE UNIQUE INDEX Stusno ON Student(Sno ASC); ASC升序（默认）DESC降序\n修改索引 ALTER INDEX \u003c旧索引名\u003e RENAME TO \u003c新索引名\u003e 没必要修改索引内容，重建即可。\n删除索引 DROP INDEX \u003c索引名\u003e 系统从数据字典中删去有关该索引的描述。\n数据字典 关系数据库管理系统内部的一组系统表，记录了数据库中所有的定义信息：\n关系模式 视图 索引 完整性约束 用户对数据库的操作权限 统计信息 查询 带有比较运算符的子查询 找出每个学生超过自己选修课程平均成绩的课程号\nSELECT Sno,Cno FROM SC x WHERE Grade \u003e= (SELECT AVG(Grade) FROM SC y WHERE y.Sno=x.Sno) 相关子查询\nANY或ALL谓词子查询 必须同时使用比较运算\n\u003e ANY 大于子查询结果中的某个值 \u003c ALL 小于查询结果中的所有值 查询非计算机系比计算机系任意一个学生年龄小的学生姓名和年龄\nSELECT Sname,Sage FROM Student WHERE Sdept\u003c\u003e'CS' AND Sage\u003cANY(SELECT Sage FROM Student WHERE Sdept='CS'); 执行内嵌子查询不依赖父查询 👉 不相关子查询\n与聚集函数的等价转换关系 = \u003c\u003e或!= \u003c \u003c= \u003e \u003e= ANY IN – ","wordCount":"5376","inLanguage":"en","datePublished":"2022-03-15T00:00:00Z","dateModified":"2022-06-15T00:00:00Z","author":{"@type":"Person","name":"Yiming Shen"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://shenyiming.life/post/notes/database_system/"},"publisher":{"@type":"Organization","name":"Console.makeHappy(_1ming)","logo":{"@type":"ImageObject","url":"https://shenyiming.life/favicon.ico"}}}</script></head><body id=top><script>localStorage.getItem("pref-theme")==="dark"?document.body.classList.add("dark"):localStorage.getItem("pref-theme")==="light"?document.body.classList.remove("dark"):window.matchMedia("(prefers-color-scheme: dark)").matches&&document.body.classList.add("dark")</script><noscript><style type=text/css>#theme-toggle,.top-link{display:none}</style><style>@media(prefers-color-scheme:dark){:root{--theme:#1d1e20;--entry:#2e2e33;--primary:rgba(255, 255, 255, 0.84);--secondary:rgba(255, 255, 255, 0.56);--tertiary:rgba(255, 255, 255, 0.16);--content:rgba(255, 255, 255, 0.74);--hljs-bg:#2e2e33;--code-bg:#37383e;--border:#333}.list{background:var(--theme)}.list:not(.dark)::-webkit-scrollbar-track{background:0 0}.list:not(.dark)::-webkit-scrollbar-thumb{border-color:var(--theme)}}</style></noscript><header class=header><nav class=nav><div class=logo><a href=https://shenyiming.life accesskey=h title="相位  (Alt + H)"><img src=/favicon.ico alt=logo aria-label=logo height=35>相位</a>
-<span class=logo-switches><button id=theme-toggle accesskey=t title="(Alt + T)"><svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg><svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg></button></span></div><ul id=menu onscroll=menu_on_scroll()><li><a href=https://shenyiming.life/post/ title=文章><span>文章</span></a></li><li><a href=https://shenyiming.life/archive/ title=归档><span>归档</span></a></li><li><a href=https://shenyiming.life/categories/ title=分类><span>分类</span></a></li><li><a href=https://shenyiming.life/tags/ title=标签><span>标签</span></a></li><li><a href=https://shenyiming.life/search/ title="搜索 (Alt + /)" accesskey=/><span>搜索</span></a></li><li><a href=https://shenyiming.life/friends/ title=友链><span>友链</span></a></li><li><a href=https://shenyiming.life/about/ title=关于><span>关于</span></a></li></ul></nav></header><main class=main><style>:root{--article-font-family:"Noto Serif SC", var(--base-font-family)}</style><script>(function(){const e=document.createElement("link");e.href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;700&display=swap",e.type="text/css",e.rel="stylesheet",document.head.appendChild(e)})()</script><article class=post-single><header class=post-header><div class=breadcrumbs><a href=https://shenyiming.life>首页</a>&nbsp;»&nbsp;<a href=https://shenyiming.life/post/>文章</a>&nbsp;»&nbsp;<a href=https://shenyiming.life/post/notes/>📝笔记</a></div><h1 class=post-title>数据库系统导论笔记</h1><div class=post-meta><style>:root{--article-font-family:"Noto Serif SC", var(--base-font-family)}</style><script>(function(){const e=document.createElement("link");e.href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;700&display=swap",e.type="text/css",e.rel="stylesheet",document.head.appendChild(e)})()</script>March 15, 2022&nbsp;·&nbsp;June 15, 2022&nbsp;·&nbsp;11 min&nbsp;·&nbsp;Yiming Shen
-|&nbsp;<a href=https://github.com/shenyimings/shenyimings.github.io/tree/main/docs rel="noopener noreferrer" target=_blank>Issue</a></div></header><aside id=toc-container class="toc-container wide"><div class=toc><details open><summary accesskey=c title="(Alt + C)"><span class=details>目录</span></summary><div class=inner><ul><li><a href=#1-%e5%9f%ba%e6%9c%ac%e6%a6%82%e5%bf%b5 aria-label="1 基本概念">1 基本概念</a></li><li><a href=#2-%e5%85%b3%e7%b3%bb%e6%95%b0%e6%8d%ae%e5%ba%93 aria-label="2 关系数据库">2 关系数据库</a><ul><li><a href=#%e6%a6%82%e5%bf%b5 aria-label=概念>概念</a></li><li><a href=#%e5%85%b3%e7%b3%bb%e6%93%8d%e4%bd%9c aria-label=关系操作>关系操作</a></li><li><a href=#%e8%ae%b0%e5%8f%b7 aria-label=记号>记号</a><ul><li><a href=#%e9%80%89%e6%8b%a9 aria-label=选择>选择</a></li><li><a href=#%e6%8a%95%e5%bd%b1 aria-label=投影>投影</a></li><li><a href=#%e8%bf%9e%e6%8e%a5 aria-label=连接>连接</a><ul><li><a href=#%e7%ad%89%e5%80%bc%e8%bf%9e%e6%8e%a5 aria-label=等值连接>等值连接</a></li><li><a href=#%e8%87%aa%e7%84%b6%e8%bf%9e%e6%8e%a5 aria-label=自然连接>自然连接</a></li><li><a href=#%e5%8c%ba%e5%88%ab aria-label=区别>区别</a></li><li><a href=#%e6%82%ac%e6%b5%ae%e5%85%83%e7%bb%84 aria-label=悬浮元组>悬浮元组</a></li><li><a href=#%e5%a4%96%e8%bf%9e%e6%8e%a5 aria-label=外连接>外连接</a></li></ul></li><li><a href=#%e9%99%a4%e8%bf%90%e7%ae%97 aria-label=除运算>除运算</a><ul><li><a href=#%e6%9f%a5%e8%af%a2%e8%87%b3%e5%b0%91%e9%80%89%e4%bf%ae1%e5%8f%b7%e8%af%be%e5%92%8c3%e5%8f%b7%e8%af%be%e7%9a%84%e5%ad%a6%e7%94%9f%e5%8f%b7%e7%a0%81 aria-label=查询至少选修1号课和3号课的学生号码>查询至少选修1号课和3号课的学生号码</a></li><li><a href=#%e5%9f%ba%e6%9c%ac%e8%bf%90%e7%ae%97%e5%af%bc%e5%87%ba aria-label=基本运算导出>基本运算导出</a></li></ul></li></ul></li><li><a href=#%e4%be%8b%e9%a2%986 aria-label=例题6>例题6</a></li></ul></li><li><a href=#sql-%e6%a6%82%e8%bf%b0 aria-label="SQL 概述">SQL 概述</a><ul><li><a href=#sql%e7%9a%84%e4%ba%a7%e7%94%9f%e5%92%8c%e5%8f%91%e5%b1%95 aria-label=SQL的产生和发展>SQL的产生和发展</a></li><li><a href=#sql%e7%9a%84%e7%89%b9%e7%82%b9 aria-label=SQL的特点>SQL的特点</a></li><li><a href=# aria-label=SQL的基本概念>SQL的基本概念</a><ul><li><a href=#sql-%e6%94%af%e6%8c%81%e4%b8%89%e7%ba%a7%e6%a8%a1%e5%bc%8f aria-label="SQL 支持三级模式">SQL 支持三级模式</a></li><li><a href=#%e5%9f%ba%e6%9c%ac%e8%a1%a8 aria-label=基本表>基本表</a></li><li><a href=#%e8%a7%86%e5%9b%be aria-label=视图>视图</a></li><li><a href=#%e5%ad%98%e5%82%a8%e6%96%87%e4%bb%b6 aria-label=存储文件>存储文件</a></li></ul></li></ul></li><li><a href=#%e5%ad%a6%e7%94%9f%e8%af%be%e7%a8%8b%e6%95%b0%e6%8d%ae%e5%ba%93 aria-label=学生－课程数据库>学生－课程数据库</a></li><li><a href=#%e6%95%b0%e6%8d%ae%e5%ae%9a%e4%b9%89 aria-label=数据定义>数据定义</a><ul><li><a href=#%e6%a8%a1%e5%bc%8f%e7%9a%84%e5%ae%9a%e4%b9%89%e4%b8%8e%e5%88%a0%e9%99%a4 aria-label=模式的定义与删除>模式的定义与删除</a><ul><ul><li><a href=#%e6%a8%a1%e5%bc%8f aria-label=模式>模式</a></li><li><a href=#%e4%be%8b%e9%a2%98 aria-label=例题>例题</a></li></ul></ul></li><li><a href=#%e5%9f%ba%e6%9c%ac%e8%a1%a8%e7%9a%84%e5%ae%9a%e4%b9%89%e5%88%a0%e9%99%a4%e4%b8%8e%e4%bf%ae%e6%94%b9 aria-label=基本表的定义、删除与修改>基本表的定义、删除与修改</a><ul><li><a href=#%e4%be%8b aria-label=例>例</a></li><li><a href=#%e6%95%b0%e6%8d%ae%e7%b1%bb%e5%9e%8b aria-label=数据类型>数据类型</a></li><li><a href=#%e6%a8%a1%e5%bc%8f%e4%b8%8e%e8%a1%a8 aria-label=模式与表>模式与表</a></li><li><a href=#%e4%bf%ae%e6%94%b9%e5%9f%ba%e6%9c%ac%e8%a1%a8 aria-label=修改基本表>修改基本表</a><ul><li><a href=#%e5%90%91%e5%ad%a6%e7%94%9f%e8%a1%a8%e5%8a%a0%e5%85%a5%e5%85%a5%e5%ad%a6%e6%97%b6%e9%97%b4%e5%88%97 aria-label=向学生表加入入学时间列>向学生表加入入学时间列</a></li><li><a href=#%e5%b0%86%e5%b9%b4%e9%be%84%e6%95%b0%e6%8d%ae%e7%b1%bb%e5%9e%8b%e6%94%b9%e4%b8%ba%e6%95%b4%e5%9e%8b aria-label=将年龄数据类型改为整型>将年龄数据类型改为整型</a></li></ul></li></ul></li><li><a href=#%e7%b4%a2%e5%bc%95%e7%9a%84%e5%bb%ba%e7%ab%8b%e4%b8%8e%e5%88%a0%e9%99%a4 aria-label=索引的建立与删除>索引的建立与删除</a><ul><li><a href=#%e5%bb%ba%e7%ab%8b%e7%b4%a2%e5%bc%95 aria-label=建立索引>建立索引</a><ul><li><a href=#%e4%be%8b-1 aria-label=例>例</a></li></ul></li><li><a href=#%e4%bf%ae%e6%94%b9%e7%b4%a2%e5%bc%95 aria-label=修改索引>修改索引</a></li><li><a href=#%e5%88%a0%e9%99%a4%e7%b4%a2%e5%bc%95 aria-label=删除索引>删除索引</a></li></ul></li><li><a href=#%e6%95%b0%e6%8d%ae%e5%ad%97%e5%85%b8 aria-label=数据字典>数据字典</a></li></ul></li><li><a href=#%e6%9f%a5%e8%af%a2 aria-label=查询>查询</a><ul><li><a href=#%e5%b8%a6%e6%9c%89%e6%af%94%e8%be%83%e8%bf%90%e7%ae%97%e7%ac%a6%e7%9a%84%e5%ad%90%e6%9f%a5%e8%af%a2 aria-label=带有比较运算符的子查询>带有比较运算符的子查询</a></li><li><a href=#any%e6%88%96all%e8%b0%93%e8%af%8d%e5%ad%90%e6%9f%a5%e8%af%a2 aria-label=ANY或ALL谓词子查询>ANY或ALL谓词子查询</a><ul><li><a href=#%e4%b8%8e%e8%81%9a%e9%9b%86%e5%87%bd%e6%95%b0%e7%9a%84%e7%ad%89%e4%bb%b7%e8%bd%ac%e6%8d%a2%e5%85%b3%e7%b3%bb aria-label=与聚集函数的等价转换关系>与聚集函数的等价转换关系</a></li></ul></li><li><a href=#%e5%b8%a6%e6%9c%89exists%e8%b0%93%e8%af%8d%e7%9a%84%e5%ad%90%e6%9f%a5%e8%af%a2 aria-label=带有EXISTS谓词的子查询>带有EXISTS谓词的子查询</a></li><li><a href=#%e9%9b%86%e5%90%88%e6%9f%a5%e8%af%a2 aria-label=集合查询>集合查询</a></li><li><a href=#%e5%9f%ba%e4%ba%8e%e6%b4%be%e7%94%9f%e8%a1%a8%e7%9a%84%e6%9f%a5%e8%af%a2 aria-label=基于派生表的查询>基于派生表的查询</a></li><li><a href=#select%e8%af%ad%e5%8f%a5%e7%9a%84%e4%b8%80%e8%88%ac%e5%bd%a2%e5%bc%8f aria-label=SELECT语句的一般形式><code>SELECT</code>语句的一般形式</a></li></ul></li><li><a href=#%e6%95%b0%e6%8d%ae%e6%9b%b4%e6%96%b0 aria-label=数据更新>数据更新</a><ul><li><a href=#%e6%8f%92%e5%85%a5%e6%95%b0%e6%8d%ae aria-label=插入数据>插入数据</a><ul><li><a href=#%e6%8f%92%e5%85%a5%e5%ad%90%e6%9f%a5%e8%af%a2%e7%9a%84%e7%bb%93%e6%9e%9c aria-label=插入子查询的结果>插入子查询的结果</a></li><li><a href=#%e6%8f%92%e5%85%a5%e6%95%b0%e6%8d%ae%e7%9a%84%e5%ae%8c%e6%95%b4%e6%80%a7%e7%ba%a6%e6%9d%9f aria-label=插入数据的完整性约束>插入数据的完整性约束</a></li></ul></li><li><a href=#%e4%bf%ae%e6%94%b9%e6%95%b0%e6%8d%ae aria-label=修改数据>修改数据</a><ul><li><a href=#%e5%b8%a6%e5%ad%90%e6%9f%a5%e8%af%a2%e7%9a%84%e4%bf%ae%e6%94%b9%e8%af%ad%e5%8f%a5 aria-label=带子查询的修改语句>带子查询的修改语句</a></li><li><a href=#%e5%ae%8c%e6%95%b4%e6%80%a7%e7%ba%a6%e6%9d%9f aria-label=完整性约束>完整性约束</a></li></ul></li><li><a href=#%e5%88%a0%e9%99%a4%e6%95%b0%e6%8d%ae aria-label=删除数据>删除数据</a><ul><li><a href=#%e5%8a%9f%e8%83%bd aria-label=功能>功能</a></li></ul></li></ul></li><li><a href=#%e7%a9%ba%e5%80%bc%e7%9a%84%e5%a4%84%e7%90%86 aria-label=空值的处理>空值的处理</a><ul><li><a href=#%e8%a7%86%e5%9b%be-1 aria-label=视图>视图</a><ul><li><a href=#%e5%bb%ba%e7%ab%8b%e8%a7%86%e5%9b%be aria-label=建立视图>建立视图</a></li></ul></li></ul></li><li><a href=#%e7%ac%ac%e4%ba%94%e7%ab%a0-%e6%95%b0%e6%8d%ae%e5%ba%93%e5%ae%8c%e6%95%b4%e6%80%a7 aria-label="第五章 数据库完整性">第五章 数据库完整性</a><ul><li><a href=#%e6%95%b0%e6%8d%ae%e5%ba%93%e5%ae%8c%e6%95%b4%e6%80%a7%e6%a6%82%e8%bf%b0 aria-label=数据库完整性概述>数据库完整性概述</a></li><li><a href=#%e5%ae%9e%e4%bd%93%e5%ae%8c%e6%95%b4%e6%80%a7 aria-label=实体完整性>实体完整性</a></li><li><a href=#%e5%8f%82%e7%85%a7%e5%ae%8c%e6%95%b4%e6%80%a7 aria-label=参照完整性>参照完整性</a></li><li><a href=#%e7%94%a8%e6%88%b7%e8%87%aa%e5%ae%9a%e4%b9%89%e5%ae%8c%e6%95%b4%e6%80%a7 aria-label=用户自定义完整性>用户自定义完整性</a></li><li><a href=#%e5%ae%8c%e6%95%b4%e6%80%a7%e7%ba%a6%e6%9d%9f%e5%ad%90%e5%8f%a5 aria-label=完整性约束子句>完整性约束子句</a></li><li><a href=#%e6%96%ad%e8%a8%80 aria-label=断言>断言</a></li><li><a href=#%e8%a7%a6%e5%8f%91%e5%99%a8 aria-label=触发器>触发器</a></li></ul></li><li><a href=#%e7%ac%ac%e5%85%ad%e7%ab%a0-%e5%85%b3%e7%b3%bb%e6%95%b0%e6%8d%ae%e7%90%86%e8%ae%ba aria-label="第六章 关系数据理论">第六章 关系数据理论</a><ul><li><a href=#%e5%9f%ba%e6%9c%ac%e6%a6%82%e5%bf%b5 aria-label=基本概念>基本概念</a></li><li><a href=#%e8%af%81%e6%98%8e aria-label=证明>证明</a></li></ul></li><li><a href=#%e7%ac%ac%e4%b8%83%e7%ab%a0-%e6%95%b0%e6%8d%ae%e5%ba%93%e8%ae%be%e8%ae%a1 aria-label="第七章 数据库设计">第七章 数据库设计</a><ul><li><a href=#%e6%95%b0%e6%8d%ae%e5%ba%93%e8%ae%be%e8%ae%a1%e8%bf%87%e7%a8%8b aria-label=数据库设计过程>数据库设计过程</a></li><li><a href=#%e6%95%b0%e6%8d%ae%e5%ba%93%e6%a6%82%e5%bf%b5%e7%bb%93%e6%9e%84 aria-label=数据库概念结构>数据库概念结构</a><ul><li><a href=#%e4%b8%bb%e8%a6%81%e7%89%b9%e7%82%b9 aria-label=主要特点>主要特点</a></li><li><a href=#%e8%ae%be%e8%ae%a1%e7%ad%96%e7%95%a5 aria-label=设计策略>设计策略</a></li></ul></li><li><a href=#%e7%bb%98%e5%88%b6e-r%e5%9b%be aria-label=绘制E-R图>绘制E-R图</a></li><li><a href=#e-r%e5%9b%be%e8%bd%ac%e5%85%b3%e7%b3%bb%e6%a8%a1%e5%9e%8b aria-label=E-R图转关系模型>E-R图转关系模型</a></li><li><a href=#%e9%80%bb%e8%be%91%e7%bb%93%e6%9e%84%e8%ae%be%e8%ae%a1 aria-label=逻辑结构设计>逻辑结构设计</a></li><li><a href=#%e7%89%a9%e7%90%86%e8%ae%be%e8%ae%a1 aria-label=物理设计>物理设计</a></li></ul></li><li><a href=#%e7%ac%ac9%e7%ab%a0-%e5%85%b3%e7%b3%bb%e6%9f%a5%e8%af%a2%e5%a4%84%e7%90%86%e5%92%8c%e6%9f%a5%e8%af%a2%e4%bc%98%e5%8c%96 aria-label="第9章 关系查询处理和查询优化">第9章 关系查询处理和查询优化</a><ul><li><a href=#%e6%9f%a5%e8%af%a2%e6%a0%91%e7%9a%84%e5%90%af%e5%8f%91%e5%bc%8f%e4%bc%98%e5%8c%96 aria-label=查询树的启发式优化>查询树的启发式优化</a><ul><li><a href=#%e5%85%b7%e4%bd%93%e6%96%b9%e6%b3%95 aria-label=具体方法>具体方法</a></li></ul></li></ul></li></ul></div></details></div></aside><script>let activeElement,elements;window.addEventListener("DOMContentLoaded",function(){checkTocPosition(),elements=document.querySelectorAll("h1[id],h2[id],h3[id],h4[id],h5[id],h6[id]"),activeElement=elements[0];const t=encodeURI(activeElement.getAttribute("id")).toLowerCase();document.querySelector(`.inner ul li a[href="#${t}"]`).classList.add("active")},!1),window.addEventListener("resize",function(){checkTocPosition()},!1),window.addEventListener("scroll",()=>{activeElement=Array.from(elements).find(e=>{if(getOffsetTop(e)-window.pageYOffset>0&&getOffsetTop(e)-window.pageYOffset<window.innerHeight/2)return e})||activeElement,elements.forEach(e=>{const t=encodeURI(e.getAttribute("id")).toLowerCase();e===activeElement?document.querySelector(`.inner ul li a[href="#${t}"]`).classList.add("active"):document.querySelector(`.inner ul li a[href="#${t}"]`).classList.remove("active")})},!1);const main=parseInt(getComputedStyle(document.body).getPropertyValue("--article-width"),10),toc=parseInt(getComputedStyle(document.body).getPropertyValue("--toc-width"),10),gap=parseInt(getComputedStyle(document.body).getPropertyValue("--gap"),10);function checkTocPosition(){const e=document.body.scrollWidth;e-main-toc*2-gap*4>0?document.getElementById("toc-container").classList.add("wide"):document.getElementById("toc-container").classList.remove("wide")}function getOffsetTop(e){if(!e.getClientRects().length)return 0;let t=e.getBoundingClientRect(),n=e.ownerDocument.defaultView;return t.top+n.pageYOffset}</script><div class=post-content><h2 id=1-基本概念>1 基本概念<a hidden class=anchor aria-hidden=true href=#1-基本概念>#</a></h2><ol><li><p>描述事物的符号记录叫数据</p></li><li><p>数据库是长期储存在计算机内、有组织的、可共享的大量数据的集合。</p><blockquote><p>较小的冗余度、较高的数据独立性、易扩展性。</p></blockquote></li><li><p>数据库管理系统是位于用户与操作系统之间的一层数据管理软件。</p></li><li><p>数据库系统是由数据库、数据库管理系统、应用程序和数据库管理员组成的存储、管理、处理和维护数据的系统。</p></li><li><p>数据库系统的特点</p><blockquote><ol><li>数据结构化</li><li>数据的共享性高，冗余度低，易扩充</li><li>数据的独立性高</li><li>数据由DBMS统一管理和控制</li></ol></blockquote></li><li><p>数据库管理系统的三个阶段</p><ol><li>人工管理阶段</li><li>文件系统阶段</li><li>数据库系统阶段</li></ol></li><li><p>概念模型</p><blockquote><p>概念模型是现实世界到机器世界的一个中间层次。概念模型用于信息世界的建模，是数据库设计人员进行有力工具，也是数据库设计人员和用户之间进行交流的语言。</p><ul><li>实体：客观存在并可以相互区分的事物叫实体。</li><li>实体型：用实体名及其属性名集合来抽象和刻画同类实体</li><li>实体集：同型实体的集合称为实体集</li><li>实体之间的联系：实体内部的联系与实体之间的联系</li></ul></blockquote></li><li><p>数据模型</p><blockquote><p>数据模型通常由数据结构、数据操作和完整性约束三部分组成。</p></blockquote></li><li><p>关系模型</p><blockquote><ul><li>与非关系模型不同，它具有严格的数学基础</li><li>概念单一，数据结构简单</li><li>关系模型的存取路径对用户透明，从而具有更高的数据独立性、更好的安全保密性，也简化了程序员的工作和数据库开发建立的工作。</li></ul></blockquote></li><li><p>三级模式、二级映像</p></li></ol><blockquote><ol><li>模式：逻辑模式，是数据库中全体数据的逻辑结构和特征的描述，<strong>是所有用户的公共数据视图</strong>。</li><li>外模式：用户模式，是数据库用户能够看见和使用的局部数据的逻辑结构和特征的描述，<strong>是数据库用户的数据视图</strong>，是与某一应用有关的数据的逻辑表示。</li><li>内模式：存储模式，一个数据库只有一个内模式，是数据物理结构和存储方式的描述，<strong>是数据在数据库内部的组织方式</strong>。</li><li>外模式-模式映像：通过对该映像的调整，当模式改变时，外模式保持不变，应用程序不必修改，保证了数据与程序的逻辑独立性，简称<strong>数据逻辑独立性。</strong></li><li>模式-内模式映像：通过对该映像的调整，当内模式（存储结构）改变时，可以使模式保持不变，应用程序也不变，保证了数据与程序的物理独立性，简称<strong>数据的物理独立性</strong>。</li></ol></blockquote><h2 id=2-关系数据库>2 关系数据库<a hidden class=anchor aria-hidden=true href=#2-关系数据库>#</a></h2><p><img loading=lazy src=/../../static/Database_System.assets/%7D/image-20220613152900992.png alt=image-20220613152900992></p><h3 id=概念>概念<a hidden class=anchor aria-hidden=true href=#概念>#</a></h3><ol><li><p>关系模型的三个组成部分：关系数据结构、关系操作集合和完整性约束三部分组成</p></li><li><p>三类关系：基本关系（基本表）、查询表和视图表</p></li><li><p>基本关系6条性质：</p><blockquote><ol><li>列是同质的（数据类型相同）</li><li>不同的列可出自同一个域</li><li>列的顺序可随意交换</li><li>行的顺序可随意交换</li><li>任意两个元组的候选码不能取相同的值</li><li>分量必须取原子值</li></ol></blockquote></li><li><p>三类完整性约束：实体完整性约束，参照完整性约束，用户自定义完整性约束。</p></li></ol><h3 id=关系操作>关系操作<a hidden class=anchor aria-hidden=true href=#关系操作>#</a></h3><blockquote><p>选择，投影，并，差，笛卡尔积是五种基本操作</p></blockquote><ol><li><strong>传统的集合操作</strong>：二目运算，并查交笛卡尔积</li><li><strong>专门的关系运算</strong>：</li></ol><p>$$
+<script type=application/javascript>var doNotTrack=!1;doNotTrack||(window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga('create','UA-123-45','auto'),ga('send','pageview'))</script>
+<script async src=https://www.google-analytics.com/analytics.js></script>
+<meta property="og:title" content="数据库系统导论笔记">
+<meta property="og:description" content="1 基本概念 描述事物的符号记录叫数据 数据库是长期储存在计算机内、有组织的、可共享的大量数据的集合。 较小的冗余度、较高的数据独立性、易扩展性。 数">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://shenyiming.life/post/notes/database_system/"><meta property="og:image" content="https://shenyiming.life/android-chrome-512x512.png"><meta property="article:section" content="post">
+<meta property="article:published_time" content="2022-03-15T00:00:00+00:00">
+<meta property="article:modified_time" content="2022-06-15T00:00:00+00:00"><meta property="og:site_name" content="Yiming">
+<meta name=twitter:card content="summary_large_image">
+<meta name=twitter:image content="https://shenyiming.life/android-chrome-512x512.png">
+<meta name=twitter:title content="数据库系统导论笔记">
+<meta name=twitter:description content="1 基本概念 描述事物的符号记录叫数据 数据库是长期储存在计算机内、有组织的、可共享的大量数据的集合。 较小的冗余度、较高的数据独立性、易扩展性。 数">
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":2,"name":"文章","item":"https://shenyiming.life/post/"},{"@type":"ListItem","position":3,"name":"📝笔记","item":"https://shenyiming.life/post/notes/"},{"@type":"ListItem","position":4,"name":"数据库系统导论笔记","item":"https://shenyiming.life/post/notes/database_system/"}]}</script>
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"数据库系统导论笔记","name":"数据库系统导论笔记","description":"1 基本概念 描述事物的符号记录叫数据 数据库是长期储存在计算机内、有组织的、可共享的大量数据的集合。 较小的冗余度、较高的数据独立性、易扩展性。 数","keywords":["SQL","Note"],"articleBody":"1 基本概念   描述事物的符号记录叫数据\n  数据库是长期储存在计算机内、有组织的、可共享的大量数据的集合。\n 较小的冗余度、较高的数据独立性、易扩展性。\n   数据库管理系统是位于用户与操作系统之间的一层数据管理软件。\n  数据库系统是由数据库、数据库管理系统、应用程序和数据库管理员组成的存储、管理、处理和维护数据的系统。\n  数据库系统的特点\n  数据结构化 数据的共享性高，冗余度低，易扩充 数据的独立性高 数据由DBMS统一管理和控制     数据库管理系统的三个阶段\n 人工管理阶段 文件系统阶段 数据库系统阶段    概念模型\n 概念模型是现实世界到机器世界的一个中间层次。概念模型用于信息世界的建模，是数据库设计人员进行有力工具，也是数据库设计人员和用户之间进行交流的语言。\n 实体：客观存在并可以相互区分的事物叫实体。 实体型：用实体名及其属性名集合来抽象和刻画同类实体 实体集：同型实体的集合称为实体集 实体之间的联系：实体内部的联系与实体之间的联系     数据模型\n 数据模型通常由数据结构、数据操作和完整性约束三部分组成。\n   关系模型\n  与非关系模型不同，它具有严格的数学基础 概念单一，数据结构简单 关系模型的存取路径对用户透明，从而具有更高的数据独立性、更好的安全保密性，也简化了程序员的工作和数据库开发建立的工作。     三级模式、二级映像\n    模式：逻辑模式，是数据库中全体数据的逻辑结构和特征的描述，是所有用户的公共数据视图。 外模式：用户模式，是数据库用户能够看见和使用的局部数据的逻辑结构和特征的描述，是数据库用户的数据视图，是与某一应用有关的数据的逻辑表示。 内模式：存储模式，一个数据库只有一个内模式，是数据物理结构和存储方式的描述，是数据在数据库内部的组织方式。 外模式-模式映像：通过对该映像的调整，当模式改变时，外模式保持不变，应用程序不必修改，保证了数据与程序的逻辑独立性，简称数据逻辑独立性。 模式-内模式映像：通过对该映像的调整，当内模式（存储结构）改变时，可以使模式保持不变，应用程序也不变，保证了数据与程序的物理独立性，简称数据的物理独立性。   2 关系数据库 概念   关系模型的三个组成部分：关系数据结构、关系操作集合和完整性约束三部分组成\n  三类关系：基本关系（基本表）、查询表和视图表\n  基本关系6条性质：\n  列是同质的（数据类型相同） 不同的列可出自同一个域 列的顺序可随意交换 行的顺序可随意交换 任意两个元组的候选码不能取相同的值 分量必须取原子值     三类完整性约束：实体完整性约束，参照完整性约束，用户自定义完整性约束。\n  关系操作  选择，投影，并，差，笛卡尔积是五种基本操作\n  传统的集合操作：二目运算，并查交笛卡尔积 专门的关系运算：  $$ \\sigma \\quad 选择\\\\ \\pi \\quad 投影\\\\ \\bowtie \\quad 连接\\\\ \\div \\quad 除 $$\n连接和除是复合运算\n记号 $$ 设关系模式为R(A_1,A_2,\\cdots,An)\\\\ A_i A_i \\cdots 为属性列\\\\ R(X,Z) \\\\ t[X]=x \\quad Z_x = {t[Z]|t\\in R ,t[X]=Z} $$\n选择 在关系R 中选择满足给定条件的诸元组\nF为选择条件 取值真或假\n查询IS系全体学生： $$ \\sigma_{Sdept=‘IS’}(Student) $$\n投影 从关系R中选择出若干属性列组成新的关系 $$ \\pi_A(R)={t[A]|t\\in R} $$ A为R中的属性列\n 投影操作主要是从列的角度进行运算\n 查询学生的姓名和所在系: $$ \\Pi _{Sname,Sdept}(Student) $$ 可以去重(如查询学生关系中全部系名)，去掉了标识元组的主码。\n连接 从两个关系的笛卡尔积中选取属性间满足一定条件的元组 (有条件的笛卡尔积运算) $$ R \\bowtie S = {} $$\n等值连接 自然连接  两个关系比较的分量是相同的属性组，结果中把重复的属性列去掉\n 把相同的连一块\n区别 等值连接可比即可 自然连接必须相同\n等值连接m+n列 自然连接u-b列\n悬浮元组  两个关系R和S在做自然连接时，关系R中某些元组有可能在S中不存在公共属性上值相等的元组，从而造成R中这些元组在操作时被舍弃了，这些被舍弃的元组被称为悬浮元组。\n 外连接  如果把悬浮元组也保存在结果关系中，而在其他属性上填空值Null，就叫做外连接\n 左外连接\n只保留左边关系R中的悬浮元组\n除运算  给定关系R（X，Y） S（Y，Z）其中X，Y，Z为属性组\nR中的Y和S中的Y可以有不同的属性名，但必须出自相同的域集\n 条件 元组在X上分量值x的象集Yx包含S在Y上投影的集合\n记作 $$ R \\div S ={t_r [X] | t_r \\in R \\wedge \\Pi_Y (S)\\subseteq Y_x} $$\n查询至少选修1号课和3号课的学生号码 基本运算导出 $$ R(X,Y)\\quad S(Y,Z)\\\\ P(X,Y)=\\Pi_X(R)\\times \\Pi_Y(S)\\\\ \\Pi_x(R)-\\Pi_x(P(X,Y)-R(X,Y)) $$\n例题6 $$ 求供应工程J1红色零件的供应商号SNO\\\\ \\Pi_{SNO}(\\Pi_{SNO,PNO}(\\sigma_{JNO=‘J1’}(SPJ)\\bowtie\\Pi_{PNO}(\\sigma_{COLOR=‘红’}(P))) $$\nSQL 概述 SQL的产生和发展  结构化查询语句，任何商业化的数据库都支持SQL语句。\n SQL的特点   综合统一 高度的非过程化 集合操作 一种语言，多种实现方式（嵌入式语言） 语法简单   SQL的基本概念\rSQL 支持三级模式  外模式、模式、内模式\n 视图－基本表－存储文件\n基本表  独立存在的表 SQL中一个关系对应一个基本表 一个或多个基本表对应一个存储文件 一个表可以带若干索引  视图  从一个或几个基本表导出的表 数据库只存放视图的定义而不放对应数据 是虚表，只有结构 用户可以在视图上再定义视图  存储文件  逻辑结构组成内模式 对用户不可见  学生－课程数据库 学生-课程模式 S-T\n数据定义 模式的定义与删除 模式   一个DBMS可以建立多个数据库 一个数据库中可以建立多个模式 一个模式下通常可以包括多个表、视图、索引等数据库对象   定义模式\nCREATE SCHEMA NAME AUTHORIZATION USERNAME [表定义子句 视图定义子句 授权定义子句];  定义模式实际定义了命名空间  例题 CREATE SCHEMA \"S-T\" AUTHORIZATION WANG; 省略模式名：默认模式名为用户名\n删除模式\nDROP SCHEMA schemaname CASCADE | RESTRICT; RESTRICT: 限制非空模式的删除\nCASCADE: 级联，删除模式同时把该模式的所有数据库对象删除\nDROP SCHEMA zhang CASCADE 基本表的定义、删除与修改 CREATE TABLE tablename (colname datatype [列级完整性约束条件 列名 数据类型 [列级完整性约束条件...] [表级完整性约束条件]]) 例 CREATE TABLE Student( Sno CHAR(9) PRIMARY KEY, Sname CHAR(20) UNIQUE, # 用户自定义完整性 Ssex CHAR(2), Sage SMALLINT, Sdept CHAR(20) ) CREATE TABLE Course( Cno\tChar(4)\tPRIMARY KEY, Cname CHAR(40), Cpno\tCHAR(4), Ccredit\tSMALLINT, FOREIGN KEY (Cpno) REFERENCES Course (Cno) ) CREATE TABLE SC ( ... PRIMARY KEY (Sno, Cno), FOREIGN KEY (Sno) REFERENCES Student(Sno) ) 数据类型  SQL中的域的概念是由数据类型实现的 确定运算性质 限定取值范围  模式与表  一个基本表属于某个模式，一个模式可以包含多个基本表。\n 定义基本表所属模式\n 在表名中明显的给出模式名 在创建模式语句中同时创建 设置所属模式（常用方法）  显示当前搜索路径\nSHOW search_path #default: $user,Public 修改基本表 ALTER TABLE tablename [ADD [COLUMN] 新列名 数据类型 [完整性约束]] [ADD 表级完整性约束] [DROP [COLUMN] 列名 [CASCADE | RESTRICT]] [DROP CONSTRAINT 完整性约束名 [CASCADE | RESTRICT]] [ALTER COLUMN 列名 数据类型] 向学生表加入入学时间列 ALTER TABLE Student ADD S_entrance DATE; 将年龄数据类型改为整型 ALTER TABLE Student ALTER smallint; 索引的建立与删除   建立索引(数据库管理员、表的属主) 维护索引（关系数据库管理系统） 使用索引（关系数据库管理系统自动选择合适的索引）   建立索引 CREATE [UNIQUE] INDEX 索引名 ON 表名(列名[次序][,列名[次序]]…) 例 按学号升序排列建唯一索引\nCREATE UNIQUE INDEX Stusno ON Student(Sno ASC); ASC升序（默认）DESC降序\n修改索引 ALTER INDEX 旧索引名 RENAME TO 新索引名  没必要修改索引内容，重建即可。\n 删除索引 DROP INDEX 索引名  系统从数据字典中删去有关该索引的描述。\n 数据字典  关系数据库管理系统内部的一组系统表，记录了数据库中所有的定义信息：\n 关系模式 视图 索引 完整性约束 用户对数据库的操作权限 统计信息   查询 带有比较运算符的子查询  找出每个学生超过自己选修课程平均成绩的课程号\n SELECT Sno,Cno FROM SC x WHERE Grade = (SELECT AVG(Grade) FROM SC y WHERE y.Sno=x.Sno) 相关子查询\nANY或ALL谓词子查询  必须同时使用比较运算\n   ANY 大于子查询结果中的某个值   查询非计算机系比计算机系任意一个学生年龄小的学生姓名和年龄\n SELECT Sname,Sage FROM Student WHERE Sdept'CS' AND SageANY(SELECT Sage FROM Student WHERE Sdept='CS'); 执行内嵌子查询不依赖父查询 👉 不相关子查询\n与聚集函数的等价转换关系     = 或!=    =     ANY IN –   MIN =MIN   ALL – NOT IN   MAX =MAX    带有EXISTS谓词的子查询  存在量词\n  带有EXISTS的子查询不返回任何数据，只判断T或F，内层查询非空为真\n  由EXISTS引出的子查询，其目标列表达式通常都用*\n   查询了所有选修1号课程的学生姓名\nSELECT Sname FROM Student WHERE EXISTS(SELECT * FROM SC WHERE Sno=Student.Sno AND Cno='1'); 所有IN、ANY、ALL、比较运算都能用EXISTS等价替换\nSQL 语言没有全称量词$$\\forall $$\n集合查询 UNION INTERSECT EXCEPT\t\n并\t差\t交\n基于派生表的查询  子查询可以出现在FROM子句中，生成临时派生表作主查询的查询对象。\n SELECT Sno, Cno FROM SC, (SELECT Sno,Avg(Grade) FROM SC GROUP BY Sno ) AS Avg_sc(avg_sno,avg_grade) WHERE SC.Sno = Avg_sc.avg_sno AND SC.Grade = AVG_sc.avg_grade; FROM中的嵌套查询子句需要AS定义派生表名\n无聚集函数可以不指明所有的列及列名\nSELECT语句的一般形式 SELECT [ALL|DISTINCT] FROM tablename WHERE conditions GROUP BY columnname [HAVING conditions] ORDER BY columname [ASC|DESC]; 子查询不用ORDER BY\n数据更新 插入数据  插入元组 插入子查询结果  格式\nINSERT INTO VALUES\n例 插入新元组至Student表中\nINSERT INTO SC(Sno,Cno) VALUES ('201215128','1'); 如果是完整的插入，无需指明哪几列\n插入子查询的结果 例 求各系学生平均年龄，存入数据库\nCREATE TABLE Dept_age ( Sdept\tCHAR(15) Avg_age\tSMALLINT ); INSERT INTO\tDept_age(Sdept,Avg_age) SELECT\tSdept,AVG(Sage) FROM\tStudent GROUP\tBY\tSdept; 插入数据的完整性约束  DBMS在插入语句时会检查插入操作是否破坏已定义的完整性规则\n  实体完整性 参照完整性 用户定义的完整性  NOT NULL约束 UNIQUE约束 值域约束    修改数据 UPDATE tablename SET UPDATE Student SET Sage = 22 WHERE Sno ='837728921019' 带子查询的修改语句 例 将计算机系全体学生成绩归零\nUPDATE SC SET Grade = 0 WHERE Sno IN ( SELECT\tSno FROM\tStudent WHERE\tSdept='CS' ); 完整性约束 同插入\n删除数据 DELETE FROM\t表名 [WHERE\t条件]; 功能  删除指定表中满足条件的元组 表的定义仍在字典中  DROP删整张表\n空值的处理  空值就是不知道、不存在或无意义的值。\n  该属性本来有一个值，但目前不知道（新生的班级） 不应该有值 不便于填写  空值是特殊的值，含有不确定性，关系运算需要做特殊处理。\n例 插入学号、课程号、成绩的元组\nINSERT INTO SC(Sno,Cno,Grade) VALUES('201215126','1',NULL); 视图  虚表 数据库只存放视图的定义，不存放视图对应的数据 基本表中数据发生变化，视图也发生变化  建立视图 CREATE VIEW viewname AS sonquery [WITH CHECK OPTION]; 子查询\n 可以是任意的SELECT语句  组成视图的属性列名，可以全部省略或明确指定视图的所有列名\n例 建立一个信息系学生的视图\nCREATE VIEW IS_Student AS SELECT Sno,Sname,Sage FROM STUDENT WHERE Sdept = 'IS'; WITH CHECK OPTION; /*对该视图进行更新操作时RDBMS会自动加上Sdeptd='IS'这个条件*/ IS_Student视图是行列子集视图\n第五章 数据库完整性 数据库完整性概述 实体完整性 参照完整性 用户自定义完整性 完整性约束子句 断言 触发器 第六章 关系数据理论 基本概念   函数依赖： $$ R(U)是一个关系模式，U是R的属性集合，X和Y是U的子集。\\\\ 对于R(U)的任意一个可能的关系r，若r中不存在两个元组，它们\\\\ 在X上的属性值相同而在Y上的属性值不同，则称X函数确定Y\\\\ 或Y函数依赖于X，记作X\\rightarrow Y $$\n 即若存在X确定Y，则任意两个元组在X上的属性值相同，那么他们在Y上的属性值也一定相同。\n   完全/部分函数依赖（X的每一个真子集都能确定Y就是完全函数依赖）\n  传递依赖 $$ 在R(U)中，X\\rightarrow Y,Y不含于X，Y不能确定X，Y能确定Z，Z不含于Y\\\\ 则称Z对X传递函数依赖。 $$\n  候选码，主码：K能确定U，则K为R的候选码，多于一个候选码，则选定其中一个为主码。\n  外码：不是R的码，是另一个关系模式的码，则称X是R的外部码，也称外码。\n  全码：整个属性组都是码。\n  第一范式1NF：如果一个关系模式R的所有属性都是不可分的基本数据项，则R 属于 1NF\n不满足第一范式的数据库不能称为关系数据库。\n  2NF：R属于1NF且每一个非主属性都完全函数依赖于R的码，则为2NF\n  3NF：R中不存在Z对码X传递依赖，也不存在部分函数依赖于X。\n  BCNF：R属于1NF，能确定其他属性集合的X一定是码，则为BCNF\n  证明  如果R是BCNF关系模式，则R是3NF关系模式，反之则不然。 如果R是3NF关系模式，则R一定是2NF关系模式。  第七章 数据库设计 数据库设计过程  需求分析 概念结构设计 逻辑结构设计 数据库物理设计 数据库实施 数据库运行和维护  数据库概念结构 主要特点  真实、充分的反映现实世界事物之间的联系 易于理解 易于更改 易于向关系、网状、层次等各种数据模型转换。  设计策略  自顶向上 自底向上 逐步扩张 混合策略  绘制E-R图 略\nE-R图转关系模型 略\n逻辑结构设计  将概念结构设计阶段设计好的基本E-R图转换为与选用的DBMS产品所支持的数据模型相符合的逻辑结构。\n  将概念结构转换为关系模型 对数据模型进行优化  物理设计  为给定的逻辑数据模型选取一个最适合应用要求的物理结构\n  确定数据库的物理结构（在关系数据库中主要指存取方法和存储结构） 对物理结构进行评价，评价的重点是时间和空间效率。  第9章 关系查询处理和查询优化 查询树的启发式优化  选择运算应尽可能先做 把投影运算和选择运算同时进行 把投影同其前或后的双目运算结合起来 把某些选择同在它前面要执行的笛卡尔积结合起来成为一个连接运算 找出公共子表达式  具体方法  利用等价变换规则，把形如  $$ \\sigma_{F_1 \\wedge F_2 \\wedge \\cdots\\wedge F_3}(E) $$ ​\t的表达式变换成 $$ \\sigma_{F_1}(\\sigma_{F_2}(\\cdots(\\sigma_{F_n}(E))) $$ 2. 对每一个选择，利用等价变换规则尽可能将其移到树的叶端。 2. 对每一个投影，利用等价变换规则尽可能将其移到树的叶端。 2. 选择和投影串联合并成单个的或一个选择后跟一个投影，使其能同时执行，或在一次扫描中全部完成。 2. 语法树内节点分组，每一双目运算和它所有的直接祖先为一组。\n","wordCount":"5376","inLanguage":"en","datePublished":"2022-03-15T00:00:00Z","dateModified":"2022-06-15T00:00:00Z","author":{"@type":"Person","name":"Yiming Shen"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://shenyiming.life/post/notes/database_system/"},"publisher":{"@type":"Organization","name":"Console.makeHappy(_1ming)","logo":{"@type":"ImageObject","url":"https://shenyiming.life/favicon.ico"}}}</script>
+</head>
+<body id=top>
+<script>localStorage.getItem("pref-theme")==="dark"?document.body.classList.add('dark'):localStorage.getItem("pref-theme")==="light"?document.body.classList.remove('dark'):window.matchMedia('(prefers-color-scheme: dark)').matches&&document.body.classList.add('dark')</script>
+<noscript>
+<style type=text/css>#theme-toggle,.top-link{display:none}</style>
+<style>@media(prefers-color-scheme:dark){:root{--theme:#1d1e20;--entry:#2e2e33;--primary:rgba(255, 255, 255, 0.84);--secondary:rgba(255, 255, 255, 0.56);--tertiary:rgba(255, 255, 255, 0.16);--content:rgba(255, 255, 255, 0.74);--hljs-bg:#2e2e33;--code-bg:#37383e;--border:#333}.list{background:var(--theme)}.list:not(.dark)::-webkit-scrollbar-track{background:0 0}.list:not(.dark)::-webkit-scrollbar-thumb{border-color:var(--theme)}}</style>
+</noscript>
+<header class=header>
+<nav class=nav>
+<div class=logo>
+<a href=https://shenyiming.life accesskey=h title="相位  (Alt + H)">
+<img src=/favicon.ico alt=logo aria-label=logo height=35>相位 </a>
+<span class=logo-switches>
+<button id=theme-toggle accesskey=t title="(Alt + T)"><svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg><svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+</button>
+</span>
+</div>
+<ul id=menu onscroll=menu_on_scroll()>
+<li>
+<a href=https://shenyiming.life/post/ title=文章>
+<span>文章</span>
+</a>
+</li>
+<li>
+<a href=https://shenyiming.life/archive/ title=归档>
+<span>归档</span>
+</a>
+</li>
+<li>
+<a href=https://shenyiming.life/categories/ title=分类>
+<span>分类</span>
+</a>
+</li>
+<li>
+<a href=https://shenyiming.life/tags/ title=标签>
+<span>标签</span>
+</a>
+</li>
+<li>
+<a href=https://shenyiming.life/search/ title="搜索 (Alt + /)" accesskey=/>
+<span>搜索</span>
+</a>
+</li>
+<li>
+<a href=https://shenyiming.life/friends/ title=友链>
+<span>友链</span>
+</a>
+</li>
+<li>
+<a href=https://shenyiming.life/about/ title=关于>
+<span>关于</span>
+</a>
+</li></ul>
+</nav>
+</header>
+<main class=main>
+<style>:root{--article-font-family:"Noto Serif SC", var(--base-font-family)}</style>
+<script>(function(){const a=document.createElement('link');a.href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;700&display=swap",a.type="text/css",a.rel="stylesheet",document.head.appendChild(a)})()</script>
+<article class=post-single>
+<header class=post-header>
+<div class=breadcrumbs>
+<a href=https://shenyiming.life>首页</a>&nbsp;»&nbsp;<a href=https://shenyiming.life/post/>文章</a>&nbsp;»&nbsp;<a href=https://shenyiming.life/post/notes/>📝笔记</a>
+</div>
+<h1 class=post-title>
+数据库系统导论笔记
+</h1>
+<div class=post-meta>
+<style>:root{--article-font-family:"Noto Serif SC", var(--base-font-family)}</style>
+<script>(function(){const a=document.createElement('link');a.href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;700&display=swap",a.type="text/css",a.rel="stylesheet",document.head.appendChild(a)})()</script>
+March 15, 2022&nbsp;·&nbsp;June 15, 2022&nbsp;·&nbsp;11 min&nbsp;·&nbsp;Yiming Shen
+|&nbsp;<a href=https://github.com/shenyimings/shenyimings.github.io/tree/main/docs rel="noopener noreferrer" target=_blank>Issue</a>
+</div>
+</header>
+<aside id=toc-container class="toc-container wide">
+<div class=toc>
+<details open>
+<summary accesskey=c title="(Alt + C)">
+<span class=details>目录</span>
+</summary>
+<div class=inner><ul>
+<li>
+<a href=#1-%e5%9f%ba%e6%9c%ac%e6%a6%82%e5%bf%b5 aria-label="1 基本概念">1 基本概念</a></li>
+<li>
+<a href=#2-%e5%85%b3%e7%b3%bb%e6%95%b0%e6%8d%ae%e5%ba%93 aria-label="2 关系数据库">2 关系数据库</a><ul>
+<li>
+<a href=#%e6%a6%82%e5%bf%b5 aria-label=概念>概念</a></li>
+<li>
+<a href=#%e5%85%b3%e7%b3%bb%e6%93%8d%e4%bd%9c aria-label=关系操作>关系操作</a></li>
+<li>
+<a href=#%e8%ae%b0%e5%8f%b7 aria-label=记号>记号</a><ul>
+<li>
+<a href=#%e9%80%89%e6%8b%a9 aria-label=选择>选择</a></li>
+<li>
+<a href=#%e6%8a%95%e5%bd%b1 aria-label=投影>投影</a></li>
+<li>
+<a href=#%e8%bf%9e%e6%8e%a5 aria-label=连接>连接</a><ul>
+<li>
+<a href=#%e7%ad%89%e5%80%bc%e8%bf%9e%e6%8e%a5 aria-label=等值连接>等值连接</a></li>
+<li>
+<a href=#%e8%87%aa%e7%84%b6%e8%bf%9e%e6%8e%a5 aria-label=自然连接>自然连接</a></li>
+<li>
+<a href=#%e5%8c%ba%e5%88%ab aria-label=区别>区别</a></li>
+<li>
+<a href=#%e6%82%ac%e6%b5%ae%e5%85%83%e7%bb%84 aria-label=悬浮元组>悬浮元组</a></li>
+<li>
+<a href=#%e5%a4%96%e8%bf%9e%e6%8e%a5 aria-label=外连接>外连接</a></li></ul>
+</li>
+<li>
+<a href=#%e9%99%a4%e8%bf%90%e7%ae%97 aria-label=除运算>除运算</a><ul>
+<li>
+<a href=#%e6%9f%a5%e8%af%a2%e8%87%b3%e5%b0%91%e9%80%89%e4%bf%ae1%e5%8f%b7%e8%af%be%e5%92%8c3%e5%8f%b7%e8%af%be%e7%9a%84%e5%ad%a6%e7%94%9f%e5%8f%b7%e7%a0%81 aria-label=查询至少选修1号课和3号课的学生号码>查询至少选修1号课和3号课的学生号码</a></li>
+<li>
+<a href=#%e5%9f%ba%e6%9c%ac%e8%bf%90%e7%ae%97%e5%af%bc%e5%87%ba aria-label=基本运算导出>基本运算导出</a></li></ul>
+</li></ul>
+</li>
+<li>
+<a href=#%e4%be%8b%e9%a2%986 aria-label=例题6>例题6</a></li></ul>
+</li>
+<li>
+<a href=#sql-%e6%a6%82%e8%bf%b0 aria-label="SQL 概述">SQL 概述</a><ul>
+<li>
+<a href=#sql%e7%9a%84%e4%ba%a7%e7%94%9f%e5%92%8c%e5%8f%91%e5%b1%95 aria-label=SQL的产生和发展>SQL的产生和发展</a></li>
+<li>
+<a href=#sql%e7%9a%84%e7%89%b9%e7%82%b9 aria-label=SQL的特点>SQL的特点</a></li>
+<li>
+<a href=# aria-label=SQL的基本概念>SQL的基本概念</a><ul>
+<li>
+<a href=#sql-%e6%94%af%e6%8c%81%e4%b8%89%e7%ba%a7%e6%a8%a1%e5%bc%8f aria-label="SQL 支持三级模式">SQL 支持三级模式</a></li>
+<li>
+<a href=#%e5%9f%ba%e6%9c%ac%e8%a1%a8 aria-label=基本表>基本表</a></li>
+<li>
+<a href=#%e8%a7%86%e5%9b%be aria-label=视图>视图</a></li>
+<li>
+<a href=#%e5%ad%98%e5%82%a8%e6%96%87%e4%bb%b6 aria-label=存储文件>存储文件</a></li></ul>
+</li></ul>
+</li>
+<li>
+<a href=#%e5%ad%a6%e7%94%9f%e8%af%be%e7%a8%8b%e6%95%b0%e6%8d%ae%e5%ba%93 aria-label=学生－课程数据库>学生－课程数据库</a></li>
+<li>
+<a href=#%e6%95%b0%e6%8d%ae%e5%ae%9a%e4%b9%89 aria-label=数据定义>数据定义</a><ul>
+<li>
+<a href=#%e6%a8%a1%e5%bc%8f%e7%9a%84%e5%ae%9a%e4%b9%89%e4%b8%8e%e5%88%a0%e9%99%a4 aria-label=模式的定义与删除>模式的定义与删除</a><ul>
+<ul>
+<li>
+<a href=#%e6%a8%a1%e5%bc%8f aria-label=模式>模式</a></li>
+<li>
+<a href=#%e4%be%8b%e9%a2%98 aria-label=例题>例题</a></li></ul>
+</ul>
+</li>
+<li>
+<a href=#%e5%9f%ba%e6%9c%ac%e8%a1%a8%e7%9a%84%e5%ae%9a%e4%b9%89%e5%88%a0%e9%99%a4%e4%b8%8e%e4%bf%ae%e6%94%b9 aria-label=基本表的定义、删除与修改>基本表的定义、删除与修改</a><ul>
+<li>
+<a href=#%e4%be%8b aria-label=例>例</a></li>
+<li>
+<a href=#%e6%95%b0%e6%8d%ae%e7%b1%bb%e5%9e%8b aria-label=数据类型>数据类型</a></li>
+<li>
+<a href=#%e6%a8%a1%e5%bc%8f%e4%b8%8e%e8%a1%a8 aria-label=模式与表>模式与表</a></li>
+<li>
+<a href=#%e4%bf%ae%e6%94%b9%e5%9f%ba%e6%9c%ac%e8%a1%a8 aria-label=修改基本表>修改基本表</a><ul>
+<li>
+<a href=#%e5%90%91%e5%ad%a6%e7%94%9f%e8%a1%a8%e5%8a%a0%e5%85%a5%e5%85%a5%e5%ad%a6%e6%97%b6%e9%97%b4%e5%88%97 aria-label=向学生表加入入学时间列>向学生表加入入学时间列</a></li>
+<li>
+<a href=#%e5%b0%86%e5%b9%b4%e9%be%84%e6%95%b0%e6%8d%ae%e7%b1%bb%e5%9e%8b%e6%94%b9%e4%b8%ba%e6%95%b4%e5%9e%8b aria-label=将年龄数据类型改为整型>将年龄数据类型改为整型</a></li></ul>
+</li></ul>
+</li>
+<li>
+<a href=#%e7%b4%a2%e5%bc%95%e7%9a%84%e5%bb%ba%e7%ab%8b%e4%b8%8e%e5%88%a0%e9%99%a4 aria-label=索引的建立与删除>索引的建立与删除</a><ul>
+<li>
+<a href=#%e5%bb%ba%e7%ab%8b%e7%b4%a2%e5%bc%95 aria-label=建立索引>建立索引</a><ul>
+<li>
+<a href=#%e4%be%8b-1 aria-label=例>例</a></li></ul>
+</li>
+<li>
+<a href=#%e4%bf%ae%e6%94%b9%e7%b4%a2%e5%bc%95 aria-label=修改索引>修改索引</a></li>
+<li>
+<a href=#%e5%88%a0%e9%99%a4%e7%b4%a2%e5%bc%95 aria-label=删除索引>删除索引</a></li></ul>
+</li>
+<li>
+<a href=#%e6%95%b0%e6%8d%ae%e5%ad%97%e5%85%b8 aria-label=数据字典>数据字典</a></li></ul>
+</li>
+<li>
+<a href=#%e6%9f%a5%e8%af%a2 aria-label=查询>查询</a><ul>
+<li>
+<a href=#%e5%b8%a6%e6%9c%89%e6%af%94%e8%be%83%e8%bf%90%e7%ae%97%e7%ac%a6%e7%9a%84%e5%ad%90%e6%9f%a5%e8%af%a2 aria-label=带有比较运算符的子查询>带有比较运算符的子查询</a></li>
+<li>
+<a href=#any%e6%88%96all%e8%b0%93%e8%af%8d%e5%ad%90%e6%9f%a5%e8%af%a2 aria-label=ANY或ALL谓词子查询>ANY或ALL谓词子查询</a><ul>
+<li>
+<a href=#%e4%b8%8e%e8%81%9a%e9%9b%86%e5%87%bd%e6%95%b0%e7%9a%84%e7%ad%89%e4%bb%b7%e8%bd%ac%e6%8d%a2%e5%85%b3%e7%b3%bb aria-label=与聚集函数的等价转换关系>与聚集函数的等价转换关系</a></li></ul>
+</li>
+<li>
+<a href=#%e5%b8%a6%e6%9c%89exists%e8%b0%93%e8%af%8d%e7%9a%84%e5%ad%90%e6%9f%a5%e8%af%a2 aria-label=带有EXISTS谓词的子查询>带有EXISTS谓词的子查询</a></li>
+<li>
+<a href=#%e9%9b%86%e5%90%88%e6%9f%a5%e8%af%a2 aria-label=集合查询>集合查询</a></li>
+<li>
+<a href=#%e5%9f%ba%e4%ba%8e%e6%b4%be%e7%94%9f%e8%a1%a8%e7%9a%84%e6%9f%a5%e8%af%a2 aria-label=基于派生表的查询>基于派生表的查询</a></li>
+<li>
+<a href=#select%e8%af%ad%e5%8f%a5%e7%9a%84%e4%b8%80%e8%88%ac%e5%bd%a2%e5%bc%8f aria-label=SELECT语句的一般形式><code>SELECT</code>语句的一般形式</a></li></ul>
+</li>
+<li>
+<a href=#%e6%95%b0%e6%8d%ae%e6%9b%b4%e6%96%b0 aria-label=数据更新>数据更新</a><ul>
+<li>
+<a href=#%e6%8f%92%e5%85%a5%e6%95%b0%e6%8d%ae aria-label=插入数据>插入数据</a><ul>
+<li>
+<a href=#%e6%8f%92%e5%85%a5%e5%ad%90%e6%9f%a5%e8%af%a2%e7%9a%84%e7%bb%93%e6%9e%9c aria-label=插入子查询的结果>插入子查询的结果</a></li>
+<li>
+<a href=#%e6%8f%92%e5%85%a5%e6%95%b0%e6%8d%ae%e7%9a%84%e5%ae%8c%e6%95%b4%e6%80%a7%e7%ba%a6%e6%9d%9f aria-label=插入数据的完整性约束>插入数据的完整性约束</a></li></ul>
+</li>
+<li>
+<a href=#%e4%bf%ae%e6%94%b9%e6%95%b0%e6%8d%ae aria-label=修改数据>修改数据</a><ul>
+<li>
+<a href=#%e5%b8%a6%e5%ad%90%e6%9f%a5%e8%af%a2%e7%9a%84%e4%bf%ae%e6%94%b9%e8%af%ad%e5%8f%a5 aria-label=带子查询的修改语句>带子查询的修改语句</a></li>
+<li>
+<a href=#%e5%ae%8c%e6%95%b4%e6%80%a7%e7%ba%a6%e6%9d%9f aria-label=完整性约束>完整性约束</a></li></ul>
+</li>
+<li>
+<a href=#%e5%88%a0%e9%99%a4%e6%95%b0%e6%8d%ae aria-label=删除数据>删除数据</a><ul>
+<li>
+<a href=#%e5%8a%9f%e8%83%bd aria-label=功能>功能</a></li></ul>
+</li></ul>
+</li>
+<li>
+<a href=#%e7%a9%ba%e5%80%bc%e7%9a%84%e5%a4%84%e7%90%86 aria-label=空值的处理>空值的处理</a><ul>
+<li>
+<a href=#%e8%a7%86%e5%9b%be-1 aria-label=视图>视图</a><ul>
+<li>
+<a href=#%e5%bb%ba%e7%ab%8b%e8%a7%86%e5%9b%be aria-label=建立视图>建立视图</a></li></ul>
+</li></ul>
+</li>
+<li>
+<a href=#%e7%ac%ac%e4%ba%94%e7%ab%a0-%e6%95%b0%e6%8d%ae%e5%ba%93%e5%ae%8c%e6%95%b4%e6%80%a7 aria-label="第五章 数据库完整性">第五章 数据库完整性</a><ul>
+<li>
+<a href=#%e6%95%b0%e6%8d%ae%e5%ba%93%e5%ae%8c%e6%95%b4%e6%80%a7%e6%a6%82%e8%bf%b0 aria-label=数据库完整性概述>数据库完整性概述</a></li>
+<li>
+<a href=#%e5%ae%9e%e4%bd%93%e5%ae%8c%e6%95%b4%e6%80%a7 aria-label=实体完整性>实体完整性</a></li>
+<li>
+<a href=#%e5%8f%82%e7%85%a7%e5%ae%8c%e6%95%b4%e6%80%a7 aria-label=参照完整性>参照完整性</a></li>
+<li>
+<a href=#%e7%94%a8%e6%88%b7%e8%87%aa%e5%ae%9a%e4%b9%89%e5%ae%8c%e6%95%b4%e6%80%a7 aria-label=用户自定义完整性>用户自定义完整性</a></li>
+<li>
+<a href=#%e5%ae%8c%e6%95%b4%e6%80%a7%e7%ba%a6%e6%9d%9f%e5%ad%90%e5%8f%a5 aria-label=完整性约束子句>完整性约束子句</a></li>
+<li>
+<a href=#%e6%96%ad%e8%a8%80 aria-label=断言>断言</a></li>
+<li>
+<a href=#%e8%a7%a6%e5%8f%91%e5%99%a8 aria-label=触发器>触发器</a></li></ul>
+</li>
+<li>
+<a href=#%e7%ac%ac%e5%85%ad%e7%ab%a0-%e5%85%b3%e7%b3%bb%e6%95%b0%e6%8d%ae%e7%90%86%e8%ae%ba aria-label="第六章 关系数据理论">第六章 关系数据理论</a><ul>
+<li>
+<a href=#%e5%9f%ba%e6%9c%ac%e6%a6%82%e5%bf%b5 aria-label=基本概念>基本概念</a></li>
+<li>
+<a href=#%e8%af%81%e6%98%8e aria-label=证明>证明</a></li></ul>
+</li>
+<li>
+<a href=#%e7%ac%ac%e4%b8%83%e7%ab%a0-%e6%95%b0%e6%8d%ae%e5%ba%93%e8%ae%be%e8%ae%a1 aria-label="第七章 数据库设计">第七章 数据库设计</a><ul>
+<li>
+<a href=#%e6%95%b0%e6%8d%ae%e5%ba%93%e8%ae%be%e8%ae%a1%e8%bf%87%e7%a8%8b aria-label=数据库设计过程>数据库设计过程</a></li>
+<li>
+<a href=#%e6%95%b0%e6%8d%ae%e5%ba%93%e6%a6%82%e5%bf%b5%e7%bb%93%e6%9e%84 aria-label=数据库概念结构>数据库概念结构</a><ul>
+<li>
+<a href=#%e4%b8%bb%e8%a6%81%e7%89%b9%e7%82%b9 aria-label=主要特点>主要特点</a></li>
+<li>
+<a href=#%e8%ae%be%e8%ae%a1%e7%ad%96%e7%95%a5 aria-label=设计策略>设计策略</a></li></ul>
+</li>
+<li>
+<a href=#%e7%bb%98%e5%88%b6e-r%e5%9b%be aria-label=绘制E-R图>绘制E-R图</a></li>
+<li>
+<a href=#e-r%e5%9b%be%e8%bd%ac%e5%85%b3%e7%b3%bb%e6%a8%a1%e5%9e%8b aria-label=E-R图转关系模型>E-R图转关系模型</a></li>
+<li>
+<a href=#%e9%80%bb%e8%be%91%e7%bb%93%e6%9e%84%e8%ae%be%e8%ae%a1 aria-label=逻辑结构设计>逻辑结构设计</a></li>
+<li>
+<a href=#%e7%89%a9%e7%90%86%e8%ae%be%e8%ae%a1 aria-label=物理设计>物理设计</a></li></ul>
+</li>
+<li>
+<a href=#%e7%ac%ac9%e7%ab%a0-%e5%85%b3%e7%b3%bb%e6%9f%a5%e8%af%a2%e5%a4%84%e7%90%86%e5%92%8c%e6%9f%a5%e8%af%a2%e4%bc%98%e5%8c%96 aria-label="第9章 关系查询处理和查询优化">第9章 关系查询处理和查询优化</a><ul>
+<li>
+<a href=#%e6%9f%a5%e8%af%a2%e6%a0%91%e7%9a%84%e5%90%af%e5%8f%91%e5%bc%8f%e4%bc%98%e5%8c%96 aria-label=查询树的启发式优化>查询树的启发式优化</a><ul>
+<li>
+<a href=#%e5%85%b7%e4%bd%93%e6%96%b9%e6%b3%95 aria-label=具体方法>具体方法</a>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</details>
+</div>
+</aside>
+<script>let activeElement,elements;window.addEventListener('DOMContentLoaded',function(b){checkTocPosition(),elements=document.querySelectorAll('h1[id],h2[id],h3[id],h4[id],h5[id],h6[id]'),activeElement=elements[0];const a=encodeURI(activeElement.getAttribute('id')).toLowerCase();document.querySelector(`.inner ul li a[href="#${a}"]`).classList.add('active')},!1),window.addEventListener('resize',function(a){checkTocPosition()},!1),window.addEventListener('scroll',()=>{activeElement=Array.from(elements).find(a=>{if(getOffsetTop(a)-window.pageYOffset>0&&getOffsetTop(a)-window.pageYOffset<window.innerHeight/2)return a})||activeElement,elements.forEach(a=>{const b=encodeURI(a.getAttribute('id')).toLowerCase();a===activeElement?document.querySelector(`.inner ul li a[href="#${b}"]`).classList.add('active'):document.querySelector(`.inner ul li a[href="#${b}"]`).classList.remove('active')})},!1);const main=parseInt(getComputedStyle(document.body).getPropertyValue('--article-width'),10),toc=parseInt(getComputedStyle(document.body).getPropertyValue('--toc-width'),10),gap=parseInt(getComputedStyle(document.body).getPropertyValue('--gap'),10);function checkTocPosition(){const a=document.body.scrollWidth;a-main-toc*2-gap*4>0?document.getElementById("toc-container").classList.add("wide"):document.getElementById("toc-container").classList.remove("wide")}function getOffsetTop(a){if(!a.getClientRects().length)return 0;let b=a.getBoundingClientRect(),c=a.ownerDocument.defaultView;return b.top+c.pageYOffset}</script>
+<div class=post-content>
+<h2 id=1-基本概念>1 基本概念<a hidden class=anchor aria-hidden=true href=#1-基本概念>#</a></h2>
+<ol>
+<li>
+<p>描述事物的符号记录叫数据</p>
+</li>
+<li>
+<p>数据库是长期储存在计算机内、有组织的、可共享的大量数据的集合。</p>
+<blockquote>
+<p>较小的冗余度、较高的数据独立性、易扩展性。</p>
+</blockquote>
+</li>
+<li>
+<p>数据库管理系统是位于用户与操作系统之间的一层数据管理软件。</p>
+</li>
+<li>
+<p>数据库系统是由数据库、数据库管理系统、应用程序和数据库管理员组成的存储、管理、处理和维护数据的系统。</p>
+</li>
+<li>
+<p>数据库系统的特点</p>
+<blockquote>
+<ol>
+<li>数据结构化</li>
+<li>数据的共享性高，冗余度低，易扩充</li>
+<li>数据的独立性高</li>
+<li>数据由DBMS统一管理和控制</li>
+</ol>
+</blockquote>
+</li>
+<li>
+<p>数据库管理系统的三个阶段</p>
+<ol>
+<li>人工管理阶段</li>
+<li>文件系统阶段</li>
+<li>数据库系统阶段</li>
+</ol>
+</li>
+<li>
+<p>概念模型</p>
+<blockquote>
+<p>概念模型是现实世界到机器世界的一个中间层次。概念模型用于信息世界的建模，是数据库设计人员进行有力工具，也是数据库设计人员和用户之间进行交流的语言。</p>
+<ul>
+<li>实体：客观存在并可以相互区分的事物叫实体。</li>
+<li>实体型：用实体名及其属性名集合来抽象和刻画同类实体</li>
+<li>实体集：同型实体的集合称为实体集</li>
+<li>实体之间的联系：实体内部的联系与实体之间的联系</li>
+</ul>
+</blockquote>
+</li>
+<li>
+<p>数据模型</p>
+<blockquote>
+<p>数据模型通常由数据结构、数据操作和完整性约束三部分组成。</p>
+</blockquote>
+</li>
+<li>
+<p>关系模型</p>
+<blockquote>
+<ul>
+<li>与非关系模型不同，它具有严格的数学基础</li>
+<li>概念单一，数据结构简单</li>
+<li>关系模型的存取路径对用户透明，从而具有更高的数据独立性、更好的安全保密性，也简化了程序员的工作和数据库开发建立的工作。</li>
+</ul>
+</blockquote>
+</li>
+<li>
+<p>三级模式、二级映像</p>
+</li>
+</ol>
+<blockquote>
+<ol>
+<li>模式：逻辑模式，是数据库中全体数据的逻辑结构和特征的描述，<strong>是所有用户的公共数据视图</strong>。</li>
+<li>外模式：用户模式，是数据库用户能够看见和使用的局部数据的逻辑结构和特征的描述，<strong>是数据库用户的数据视图</strong>，是与某一应用有关的数据的逻辑表示。</li>
+<li>内模式：存储模式，一个数据库只有一个内模式，是数据物理结构和存储方式的描述，<strong>是数据在数据库内部的组织方式</strong>。</li>
+<li>外模式-模式映像：通过对该映像的调整，当模式改变时，外模式保持不变，应用程序不必修改，保证了数据与程序的逻辑独立性，简称<strong>数据逻辑独立性。</strong></li>
+<li>模式-内模式映像：通过对该映像的调整，当内模式（存储结构）改变时，可以使模式保持不变，应用程序也不变，保证了数据与程序的物理独立性，简称<strong>数据的物理独立性</strong>。</li>
+</ol>
+</blockquote>
+<h2 id=2-关系数据库>2 关系数据库<a hidden class=anchor aria-hidden=true href=#2-关系数据库>#</a></h2>
+<p><img loading=lazy src=/../../static/Database_System.assets/%7D/image-20220613152900992.png alt=image-20220613152900992>
+</p>
+<h3 id=概念>概念<a hidden class=anchor aria-hidden=true href=#概念>#</a></h3>
+<ol>
+<li>
+<p>关系模型的三个组成部分：关系数据结构、关系操作集合和完整性约束三部分组成</p>
+</li>
+<li>
+<p>三类关系：基本关系（基本表）、查询表和视图表</p>
+</li>
+<li>
+<p>基本关系6条性质：</p>
+<blockquote>
+<ol>
+<li>列是同质的（数据类型相同）</li>
+<li>不同的列可出自同一个域</li>
+<li>列的顺序可随意交换</li>
+<li>行的顺序可随意交换</li>
+<li>任意两个元组的候选码不能取相同的值</li>
+<li>分量必须取原子值</li>
+</ol>
+</blockquote>
+</li>
+<li>
+<p>三类完整性约束：实体完整性约束，参照完整性约束，用户自定义完整性约束。</p>
+</li>
+</ol>
+<h3 id=关系操作>关系操作<a hidden class=anchor aria-hidden=true href=#关系操作>#</a></h3>
+<blockquote>
+<p>选择，投影，并，差，笛卡尔积是五种基本操作</p>
+</blockquote>
+<ol>
+<li><strong>传统的集合操作</strong>：二目运算，并查交笛卡尔积</li>
+<li><strong>专门的关系运算</strong>：</li>
+</ol>
+<p>$$
 \sigma \quad 选择\\
 \pi \quad 投影\\
 \bowtie \quad 连接\\
 \div \quad 除
-$$</p><p>连接和除是复合运算</p><h3 id=记号>记号<a hidden class=anchor aria-hidden=true href=#记号>#</a></h3><p>$$
+$$</p>
+<p>连接和除是复合运算</p>
+<h3 id=记号>记号<a hidden class=anchor aria-hidden=true href=#记号>#</a></h3>
+<p>$$
 设关系模式为R(A_1,A_2,\cdots,An)\\
 A_i A_i \cdots 为属性列\\
 R(X,Z) \\
 t[X]=x \quad Z_x = {t[Z]|t\in R ,t[X]=Z}
-$$</p><h4 id=选择>选择<a hidden class=anchor aria-hidden=true href=#选择>#</a></h4><p>在关系R 中选择满足给定条件的诸元组</p><p>F为选择条件 取值真或假</p><p>查询IS系全体学生：
+$$</p>
+<h4 id=选择>选择<a hidden class=anchor aria-hidden=true href=#选择>#</a></h4>
+<p>在关系R 中选择满足给定条件的诸元组</p>
+<p>F为选择条件 取值真或假</p>
+<p>查询IS系全体学生：
 $$
 \sigma_{Sdept=&lsquo;IS&rsquo;}(Student)
-$$</p><h4 id=投影>投影<a hidden class=anchor aria-hidden=true href=#投影>#</a></h4><p>从关系R中选择出若干属性列组成新的关系
+$$</p>
+<h4 id=投影>投影<a hidden class=anchor aria-hidden=true href=#投影>#</a></h4>
+<p>从关系R中选择出若干属性列组成新的关系
 $$
 \pi_A(R)={t[A]|t\in R}
 $$
-A为R中的属性列</p><blockquote><p>投影操作主要是从列的角度进行运算</p></blockquote><p>查询学生的姓名和所在系:
+A为R中的属性列</p>
+<blockquote>
+<p>投影操作主要是从列的角度进行运算</p>
+</blockquote>
+<p>查询学生的姓名和所在系:
 $$
 \Pi _{Sname,Sdept}(Student)
 $$
-可以去重(如查询学生关系中全部系名)，<strong>去掉了标识元组的主码</strong>。</p><h4 id=连接>连接<a hidden class=anchor aria-hidden=true href=#连接>#</a></h4><p>从两个关系的笛卡尔积中选取属性间满足一定条件的元组 <strong>(有条件的笛卡尔积运算)</strong>
+可以去重(如查询学生关系中全部系名)，<strong>去掉了标识元组的主码</strong>。</p>
+<h4 id=连接>连接<a hidden class=anchor aria-hidden=true href=#连接>#</a></h4>
+<p>从两个关系的笛卡尔积中选取属性间满足一定条件的元组 <strong>(有条件的笛卡尔积运算)</strong>
 $$
 R \bowtie S = {}
-$$</p><h5 id=等值连接>等值连接<a hidden class=anchor aria-hidden=true href=#等值连接>#</a></h5><h5 id=自然连接>自然连接<a hidden class=anchor aria-hidden=true href=#自然连接>#</a></h5><blockquote><p>两个关系比较的<strong>分量是相同的属性组</strong>，结果中把重复的属性列去掉</p></blockquote><p>把相同的连一块</p><h5 id=区别>区别<a hidden class=anchor aria-hidden=true href=#区别>#</a></h5><p>等值连接可比即可 自然连接必须相同</p><p>等值连接m+n列 自然连接u-b列</p><h5 id=悬浮元组>悬浮元组<a hidden class=anchor aria-hidden=true href=#悬浮元组>#</a></h5><blockquote><p>两个关系R和S在做自然连接时，关系R中某些元组有可能在S中<strong>不存在公共属性上值相等的元组</strong>，从而造成R中这些元组在操作时被舍弃了，这些被舍弃的元组被称为悬浮元组。</p></blockquote><h5 id=外连接>外连接<a hidden class=anchor aria-hidden=true href=#外连接>#</a></h5><blockquote><p>如果把悬浮元组也保存在结果关系中，而在其他属性上填空值Null，就叫做外连接</p></blockquote><p>左外连接</p><p>只保留左边关系R中的悬浮元组</p><h4 id=除运算>除运算<a hidden class=anchor aria-hidden=true href=#除运算>#</a></h4><blockquote><p>给定关系R（X，Y） S（Y，Z）其中X，Y，Z为属性组</p><p>R中的Y和S中的Y可以有不同的属性名，但必须出自相同的域集</p></blockquote><p>条件 元组在X上分量值x的象集Yx包含S在Y上投影的集合</p><p>记作
+$$</p>
+<h5 id=等值连接>等值连接<a hidden class=anchor aria-hidden=true href=#等值连接>#</a></h5>
+<h5 id=自然连接>自然连接<a hidden class=anchor aria-hidden=true href=#自然连接>#</a></h5>
+<blockquote>
+<p>两个关系比较的<strong>分量是相同的属性组</strong>，结果中把重复的属性列去掉</p>
+</blockquote>
+<p>把相同的连一块</p>
+<h5 id=区别>区别<a hidden class=anchor aria-hidden=true href=#区别>#</a></h5>
+<p>等值连接可比即可 自然连接必须相同</p>
+<p>等值连接m+n列 自然连接u-b列</p>
+<h5 id=悬浮元组>悬浮元组<a hidden class=anchor aria-hidden=true href=#悬浮元组>#</a></h5>
+<blockquote>
+<p>两个关系R和S在做自然连接时，关系R中某些元组有可能在S中<strong>不存在公共属性上值相等的元组</strong>，从而造成R中这些元组在操作时被舍弃了，这些被舍弃的元组被称为悬浮元组。</p>
+</blockquote>
+<h5 id=外连接>外连接<a hidden class=anchor aria-hidden=true href=#外连接>#</a></h5>
+<blockquote>
+<p>如果把悬浮元组也保存在结果关系中，而在其他属性上填空值Null，就叫做外连接</p>
+</blockquote>
+<p>左外连接</p>
+<p>只保留左边关系R中的悬浮元组</p>
+<h4 id=除运算>除运算<a hidden class=anchor aria-hidden=true href=#除运算>#</a></h4>
+<blockquote>
+<p>给定关系R（X，Y） S（Y，Z）其中X，Y，Z为属性组</p>
+<p>R中的Y和S中的Y可以有不同的属性名，但必须出自相同的域集</p>
+</blockquote>
+<p>条件 元组在X上分量值x的象集Yx包含S在Y上投影的集合</p>
+<p>记作
 $$
 R \div S
 ={t_r [X] | t_r \in R \wedge \Pi_Y (S)\subseteq Y_x}
-$$</p><h5 id=查询至少选修1号课和3号课的学生号码>查询至少选修1号课和3号课的学生号码<a hidden class=anchor aria-hidden=true href=#查询至少选修1号课和3号课的学生号码>#</a></h5><h5 id=基本运算导出>基本运算导出<a hidden class=anchor aria-hidden=true href=#基本运算导出>#</a></h5><p>$$
+$$</p>
+<h5 id=查询至少选修1号课和3号课的学生号码>查询至少选修1号课和3号课的学生号码<a hidden class=anchor aria-hidden=true href=#查询至少选修1号课和3号课的学生号码>#</a></h5>
+<h5 id=基本运算导出>基本运算导出<a hidden class=anchor aria-hidden=true href=#基本运算导出>#</a></h5>
+<p>$$
 R(X,Y)\quad S(Y,Z)\\
 P(X,Y)=\Pi_X(R)\times \Pi_Y(S)\\
 \Pi_x(R)-\Pi_x(P(X,Y)-R(X,Y))
-$$</p><h3 id=例题6>例题6<a hidden class=anchor aria-hidden=true href=#例题6>#</a></h3><p>$$
+$$</p>
+<h3 id=例题6>例题6<a hidden class=anchor aria-hidden=true href=#例题6>#</a></h3>
+<p>$$
 求供应工程J1红色零件的供应商号SNO\\
 \Pi_{SNO}(\Pi_{SNO,PNO}(\sigma_{JNO=&lsquo;J1&rsquo;}(SPJ)\bowtie\Pi_{PNO}(\sigma_{COLOR=&lsquo;红&rsquo;}(P)))
-$$</p><h2 id=sql-概述>SQL 概述<a hidden class=anchor aria-hidden=true href=#sql-概述>#</a></h2><h3 id=sql的产生和发展>SQL的产生和发展<a hidden class=anchor aria-hidden=true href=#sql的产生和发展>#</a></h3><blockquote><p>结构化查询语句，任何商业化的数据库都支持SQL语句。</p></blockquote><h3 id=sql的特点>SQL的特点<a hidden class=anchor aria-hidden=true href=#sql的特点>#</a></h3><blockquote><ol><li><strong>综合统一</strong></li><li>高度的非过程化</li><li>集合操作</li><li>一种语言，多种实现方式（嵌入式语言）</li><li>语法简单</li></ol></blockquote><h3 style=color:green>SQL的基本概念</h3><h4 id=sql-支持三级模式>SQL 支持三级模式<a hidden class=anchor aria-hidden=true href=#sql-支持三级模式>#</a></h4><blockquote><p>外模式、模式、内模式</p></blockquote><p>视图－>基本表－>存储文件</p><h4 id=基本表>基本表<a hidden class=anchor aria-hidden=true href=#基本表>#</a></h4><ul><li><strong>独立存在的表</strong></li><li>SQL中一个关系对应一个基本表</li><li>一个或多个基本表对应一个存储文件</li><li>一个表可以带若干索引</li></ul><h4 id=视图>视图<a hidden class=anchor aria-hidden=true href=#视图>#</a></h4><ul><li>从一个或几个基本表导出的表</li><li>数据库<strong>只存放视图的定义</strong>而不放对应数据</li><li>是<strong>虚表</strong>，只有结构</li><li>用户可以在视图上再定义视图</li></ul><h4 id=存储文件>存储文件<a hidden class=anchor aria-hidden=true href=#存储文件>#</a></h4><ul><li>逻辑结构组成内模式</li><li>对用户不可见</li></ul><h2 id=学生课程数据库>学生－课程数据库<a hidden class=anchor aria-hidden=true href=#学生课程数据库>#</a></h2><p>学生-课程模式 S-T</p><h2 id=数据定义>数据定义<a hidden class=anchor aria-hidden=true href=#数据定义>#</a></h2><h3 id=模式的定义与删除>模式的定义与删除<a hidden class=anchor aria-hidden=true href=#模式的定义与删除>#</a></h3><h5 id=模式>模式<a hidden class=anchor aria-hidden=true href=#模式>#</a></h5><blockquote><ul><li>一个DBMS可以建立多个数据库</li><li>一个数据库中可以建立多个模式</li><li>一个模式下通常可以包括多个表、视图、索引等数据库对象</li></ul></blockquote><p>定义模式</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sql data-lang=sql><span style=display:flex><span><span style=color:#66d9ef>CREATE</span> <span style=color:#66d9ef>SCHEMA</span> <span style=color:#f92672>&lt;</span>NAME<span style=color:#f92672>&gt;</span> <span style=color:#66d9ef>AUTHORIZATION</span> <span style=color:#f92672>&lt;</span>USERNAME<span style=color:#f92672>&gt;</span> [<span style=color:#f92672>&lt;</span><span style=color:#960050;background-color:#1e0010>表定义子句</span><span style=color:#f92672>&gt;</span> <span style=color:#f92672>&lt;</span><span style=color:#960050;background-color:#1e0010>视图定义子句</span><span style=color:#f92672>&gt;</span> <span style=color:#f92672>&lt;</span><span style=color:#960050;background-color:#1e0010>授权定义子句</span><span style=color:#f92672>&gt;</span>];
-</span></span></code></pre></div><ul><li>定义模式实际定义了命名空间</li></ul><h5 id=例题>例题<a hidden class=anchor aria-hidden=true href=#例题>#</a></h5><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sql data-lang=sql><span style=display:flex><span><span style=color:#66d9ef>CREATE</span> <span style=color:#66d9ef>SCHEMA</span> <span style=color:#e6db74>&#34;S-T&#34;</span> <span style=color:#66d9ef>AUTHORIZATION</span> WANG; 
-</span></span></code></pre></div><p><em>省略模式名：默认模式名为用户名</em></p><p><strong>删除模式</strong></p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sql data-lang=sql><span style=display:flex><span><span style=color:#66d9ef>DROP</span> <span style=color:#66d9ef>SCHEMA</span> <span style=color:#f92672>&lt;</span>schemaname<span style=color:#f92672>&gt;</span> <span style=color:#f92672>&lt;</span><span style=color:#66d9ef>CASCADE</span> <span style=color:#f92672>|</span> <span style=color:#66d9ef>RESTRICT</span><span style=color:#f92672>&gt;</span>;
-</span></span></code></pre></div><p><code>RESTRICT</code>: 限制非空模式的删除</p><p><code>CASCADE</code>: 级联，删除模式同时把该模式的所有数据库对象删除</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sql data-lang=sql><span style=display:flex><span><span style=color:#66d9ef>DROP</span> <span style=color:#66d9ef>SCHEMA</span> zhang <span style=color:#66d9ef>CASCADE</span>
-</span></span></code></pre></div><h3 id=基本表的定义删除与修改>基本表的定义、删除与修改<a hidden class=anchor aria-hidden=true href=#基本表的定义删除与修改>#</a></h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sql data-lang=sql><span style=display:flex><span><span style=color:#66d9ef>CREATE</span> <span style=color:#66d9ef>TABLE</span> <span style=color:#f92672>&lt;</span>tablename<span style=color:#f92672>&gt;</span> (<span style=color:#f92672>&lt;</span>colname<span style=color:#f92672>&gt;</span> <span style=color:#f92672>&lt;</span>datatype<span style=color:#f92672>&gt;</span> [<span style=color:#f92672>&lt;</span><span style=color:#960050;background-color:#1e0010>列级完整性约束条件</span><span style=color:#f92672>&gt;</span> <span style=color:#f92672>&lt;</span><span style=color:#960050;background-color:#1e0010>列名</span><span style=color:#f92672>&gt;</span> <span style=color:#f92672>&lt;</span><span style=color:#960050;background-color:#1e0010>数据类型</span><span style=color:#f92672>&gt;</span> [<span style=color:#f92672>&lt;</span><span style=color:#960050;background-color:#1e0010>列级完整性约束条件</span><span style=color:#f92672>&gt;</span>...] [<span style=color:#f92672>&lt;</span><span style=color:#960050;background-color:#1e0010>表级完整性约束条件</span><span style=color:#f92672>&gt;</span>]])
-</span></span></code></pre></div><h4 id=例>例<a hidden class=anchor aria-hidden=true href=#例>#</a></h4><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sql data-lang=sql><span style=display:flex><span><span style=color:#66d9ef>CREATE</span> <span style=color:#66d9ef>TABLE</span> Student(
-</span></span><span style=display:flex><span>	Sno CHAR(<span style=color:#ae81ff>9</span>) <span style=color:#66d9ef>PRIMARY</span> <span style=color:#66d9ef>KEY</span>,
-</span></span><span style=display:flex><span>    Sname CHAR(<span style=color:#ae81ff>20</span>) <span style=color:#66d9ef>UNIQUE</span>, <span style=color:#f92672>#</span> <span style=color:#960050;background-color:#1e0010>用户自定义完整性</span>
-</span></span><span style=display:flex><span>    Ssex CHAR(<span style=color:#ae81ff>2</span>),
-</span></span><span style=display:flex><span>    Sage SMALLINT, 
-</span></span><span style=display:flex><span>    Sdept CHAR(<span style=color:#ae81ff>20</span>)
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>)
-</span></span></code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sql data-lang=sql><span style=display:flex><span><span style=color:#66d9ef>CREATE</span> <span style=color:#66d9ef>TABLE</span> Course(
-</span></span><span style=display:flex><span>	Cno		Char(<span style=color:#ae81ff>4</span>)	<span style=color:#66d9ef>PRIMARY</span> <span style=color:#66d9ef>KEY</span>,
-</span></span><span style=display:flex><span>    Cname 	CHAR(<span style=color:#ae81ff>40</span>),
-</span></span><span style=display:flex><span>    Cpno	CHAR(<span style=color:#ae81ff>4</span>),
-</span></span><span style=display:flex><span>    Ccredit	SMALLINT,
-</span></span><span style=display:flex><span>    <span style=color:#66d9ef>FOREIGN</span> <span style=color:#66d9ef>KEY</span> (Cpno) <span style=color:#66d9ef>REFERENCES</span> Course (Cno)
-</span></span><span style=display:flex><span>    
-</span></span><span style=display:flex><span>)
-</span></span></code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sql data-lang=sql><span style=display:flex><span><span style=color:#66d9ef>CREATE</span> <span style=color:#66d9ef>TABLE</span> SC
-</span></span><span style=display:flex><span>(
-</span></span><span style=display:flex><span>	...
-</span></span><span style=display:flex><span>    <span style=color:#66d9ef>PRIMARY</span> <span style=color:#66d9ef>KEY</span> (Sno, Cno),
-</span></span><span style=display:flex><span>    <span style=color:#66d9ef>FOREIGN</span> <span style=color:#66d9ef>KEY</span> (Sno) <span style=color:#66d9ef>REFERENCES</span> Student(Sno)
-</span></span><span style=display:flex><span>)
-</span></span></code></pre></div><h4 id=数据类型>数据类型<a hidden class=anchor aria-hidden=true href=#数据类型>#</a></h4><ul><li>SQL中的域的概念是由数据类型实现的</li><li>确定运算性质</li><li>限定取值范围</li></ul><h4 id=模式与表>模式与表<a hidden class=anchor aria-hidden=true href=#模式与表>#</a></h4><blockquote><p>一个基本表属于某个模式，一个模式可以包含多个基本表。</p></blockquote><p><strong>定义基本表所属模式</strong></p><ol><li>在表名中明显的给出模式名</li><li>在创建模式语句中同时创建</li><li><strong>设置所属模式</strong>（常用方法）</li></ol><p>显示当前搜索路径</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sql data-lang=sql><span style=display:flex><span><span style=color:#66d9ef>SHOW</span> search_path
-</span></span><span style=display:flex><span><span style=color:#f92672>#</span><span style=color:#66d9ef>default</span>: <span style=color:#960050;background-color:#1e0010>$</span><span style=color:#66d9ef>user</span>,<span style=color:#66d9ef>Public</span>
-</span></span></code></pre></div><h4 id=修改基本表>修改基本表<a hidden class=anchor aria-hidden=true href=#修改基本表>#</a></h4><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sql data-lang=sql><span style=display:flex><span><span style=color:#66d9ef>ALTER</span>  <span style=color:#66d9ef>TABLE</span> <span style=color:#f92672>&lt;</span>tablename<span style=color:#f92672>&gt;</span> [<span style=color:#66d9ef>ADD</span> [<span style=color:#66d9ef>COLUMN</span>] <span style=color:#f92672>&lt;</span><span style=color:#960050;background-color:#1e0010>新列名</span><span style=color:#f92672>&gt;</span> <span style=color:#f92672>&lt;</span><span style=color:#960050;background-color:#1e0010>数据类型</span><span style=color:#f92672>&gt;</span> [<span style=color:#960050;background-color:#1e0010>完整性约束</span>]] [<span style=color:#66d9ef>ADD</span> <span style=color:#f92672>&lt;</span><span style=color:#960050;background-color:#1e0010>表级完整性约束</span><span style=color:#f92672>&gt;</span>] 
-</span></span><span style=display:flex><span>[<span style=color:#66d9ef>DROP</span> [<span style=color:#66d9ef>COLUMN</span>] <span style=color:#f92672>&lt;</span><span style=color:#960050;background-color:#1e0010>列名</span><span style=color:#f92672>&gt;</span> [<span style=color:#66d9ef>CASCADE</span> <span style=color:#f92672>|</span> <span style=color:#66d9ef>RESTRICT</span>]]
-</span></span><span style=display:flex><span>[<span style=color:#66d9ef>DROP</span> <span style=color:#66d9ef>CONSTRAINT</span> <span style=color:#f92672>&lt;</span><span style=color:#960050;background-color:#1e0010>完整性约束名</span><span style=color:#f92672>&gt;</span> [<span style=color:#66d9ef>CASCADE</span> <span style=color:#f92672>|</span> <span style=color:#66d9ef>RESTRICT</span>]]
-</span></span><span style=display:flex><span>[<span style=color:#66d9ef>ALTER</span> <span style=color:#66d9ef>COLUMN</span> <span style=color:#f92672>&lt;</span><span style=color:#960050;background-color:#1e0010>列名</span><span style=color:#f92672>&gt;</span> <span style=color:#f92672>&lt;</span><span style=color:#960050;background-color:#1e0010>数据类型</span><span style=color:#f92672>&gt;</span>]
-</span></span></code></pre></div><h5 id=向学生表加入入学时间列>向学生表加入入学时间列<a hidden class=anchor aria-hidden=true href=#向学生表加入入学时间列>#</a></h5><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sql data-lang=sql><span style=display:flex><span><span style=color:#66d9ef>ALTER</span> <span style=color:#66d9ef>TABLE</span> Student <span style=color:#66d9ef>ADD</span> S_entrance DATE;
-</span></span></code></pre></div><h5 id=将年龄数据类型改为整型>将年龄数据类型改为整型<a hidden class=anchor aria-hidden=true href=#将年龄数据类型改为整型>#</a></h5><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sql data-lang=sql><span style=display:flex><span><span style=color:#66d9ef>ALTER</span> <span style=color:#66d9ef>TABLE</span> Student <span style=color:#66d9ef>ALTER</span> smallint;
-</span></span></code></pre></div><h3 id=索引的建立与删除>索引的建立与删除<a hidden class=anchor aria-hidden=true href=#索引的建立与删除>#</a></h3><blockquote><ul><li>建立索引(数据库管理员、表的属主)</li><li>维护索引（关系数据库管理系统）</li><li>使用索引（关系数据库管理系统自动选择合适的索引）</li></ul></blockquote><h4 id=建立索引>建立索引<a hidden class=anchor aria-hidden=true href=#建立索引>#</a></h4><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sql data-lang=sql><span style=display:flex><span><span style=color:#66d9ef>CREATE</span> [<span style=color:#66d9ef>UNIQUE</span>] <span style=color:#66d9ef>INDEX</span> <span style=color:#f92672>&lt;</span><span style=color:#960050;background-color:#1e0010>索引名</span><span style=color:#f92672>&gt;</span> <span style=color:#66d9ef>ON</span> <span style=color:#f92672>&lt;</span><span style=color:#960050;background-color:#1e0010>表名</span><span style=color:#f92672>&gt;</span>(<span style=color:#f92672>&lt;</span><span style=color:#960050;background-color:#1e0010>列名</span><span style=color:#f92672>&gt;</span>[<span style=color:#f92672>&lt;</span><span style=color:#960050;background-color:#1e0010>次序</span><span style=color:#f92672>&gt;</span>][,<span style=color:#f92672>&lt;</span><span style=color:#960050;background-color:#1e0010>列名</span><span style=color:#f92672>&gt;</span>[<span style=color:#f92672>&lt;</span><span style=color:#960050;background-color:#1e0010>次序</span><span style=color:#f92672>&gt;</span>]]<span style=color:#960050;background-color:#1e0010>…</span>)
-</span></span></code></pre></div><h5 id=例-1>例<a hidden class=anchor aria-hidden=true href=#例-1>#</a></h5><p>按学号升序排列建唯一索引</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sql data-lang=sql><span style=display:flex><span><span style=color:#66d9ef>CREATE</span> <span style=color:#66d9ef>UNIQUE</span> <span style=color:#66d9ef>INDEX</span> Stusno <span style=color:#66d9ef>ON</span> Student(Sno <span style=color:#66d9ef>ASC</span>);
-</span></span></code></pre></div><p><code>ASC</code>升序（默认）<code>DESC</code>降序</p><h4 id=修改索引>修改索引<a hidden class=anchor aria-hidden=true href=#修改索引>#</a></h4><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sql data-lang=sql><span style=display:flex><span><span style=color:#66d9ef>ALTER</span> <span style=color:#66d9ef>INDEX</span> <span style=color:#f92672>&lt;</span><span style=color:#960050;background-color:#1e0010>旧索引名</span><span style=color:#f92672>&gt;</span> <span style=color:#66d9ef>RENAME</span> <span style=color:#66d9ef>TO</span> <span style=color:#f92672>&lt;</span><span style=color:#960050;background-color:#1e0010>新索引名</span><span style=color:#f92672>&gt;</span>
-</span></span></code></pre></div><blockquote><p>没必要修改索引内容，重建即可。</p></blockquote><h4 id=删除索引>删除索引<a hidden class=anchor aria-hidden=true href=#删除索引>#</a></h4><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sql data-lang=sql><span style=display:flex><span><span style=color:#66d9ef>DROP</span> <span style=color:#66d9ef>INDEX</span> <span style=color:#f92672>&lt;</span><span style=color:#960050;background-color:#1e0010>索引名</span><span style=color:#f92672>&gt;</span>
-</span></span></code></pre></div><blockquote><p>系统从<strong>数据字典</strong>中删去有关该索引的描述。</p></blockquote><h3 id=数据字典>数据字典<a hidden class=anchor aria-hidden=true href=#数据字典>#</a></h3><blockquote><p>关系数据库管理系统内部的一组系统表，记录了数据库中所有的定义信息：</p><ul><li>关系模式</li><li>视图</li><li>索引</li><li>完整性约束</li><li>用户对数据库的操作权限</li><li>统计信息</li></ul></blockquote><h2 id=查询>查询<a hidden class=anchor aria-hidden=true href=#查询>#</a></h2><h3 id=带有比较运算符的子查询>带有比较运算符的子查询<a hidden class=anchor aria-hidden=true href=#带有比较运算符的子查询>#</a></h3><blockquote><p>找出每个学生超过自己选修课程平均成绩的课程号</p></blockquote><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sql data-lang=sql><span style=display:flex><span><span style=color:#66d9ef>SELECT</span> Sno,Cno
-</span></span><span style=display:flex><span><span style=color:#66d9ef>FROM</span> SC x
-</span></span><span style=display:flex><span><span style=color:#66d9ef>WHERE</span> Grade <span style=color:#f92672>&gt;=</span> (<span style=color:#66d9ef>SELECT</span> <span style=color:#66d9ef>AVG</span>(Grade)
-</span></span><span style=display:flex><span>               <span style=color:#66d9ef>FROM</span> SC y
-</span></span><span style=display:flex><span>               <span style=color:#66d9ef>WHERE</span> y.Sno<span style=color:#f92672>=</span>x.Sno)
-</span></span></code></pre></div><p><em>相关子查询</em></p><h3 id=any或all谓词子查询>ANY或ALL谓词子查询<a hidden class=anchor aria-hidden=true href=#any或all谓词子查询>#</a></h3><blockquote><p>必须同时使用比较运算</p></blockquote><ul><li>> ANY 大于子查询结果中的某个值</li><li>&lt; ALL 小于查询结果中的所有值</li></ul><blockquote><p>查询非计算机系比计算机系任意一个学生年龄小的学生姓名和年龄</p></blockquote><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sql data-lang=sql><span style=display:flex><span><span style=color:#66d9ef>SELECT</span> Sname,Sage
-</span></span><span style=display:flex><span><span style=color:#66d9ef>FROM</span> Student
-</span></span><span style=display:flex><span><span style=color:#66d9ef>WHERE</span> Sdept<span style=color:#f92672>&lt;&gt;</span><span style=color:#e6db74>&#39;CS&#39;</span> <span style=color:#66d9ef>AND</span>
-</span></span><span style=display:flex><span>	  Sage<span style=color:#f92672>&lt;</span><span style=color:#66d9ef>ANY</span>(<span style=color:#66d9ef>SELECT</span> Sage
-</span></span><span style=display:flex><span>              	<span style=color:#66d9ef>FROM</span> Student
-</span></span><span style=display:flex><span>              	<span style=color:#66d9ef>WHERE</span> Sdept<span style=color:#f92672>=</span><span style=color:#e6db74>&#39;CS&#39;</span>);
-</span></span></code></pre></div><p>执行内嵌子查询不依赖父查询 👉 不相关子查询</p><h4 id=与聚集函数的等价转换关系>与聚集函数的等价转换关系<a hidden class=anchor aria-hidden=true href=#与聚集函数的等价转换关系>#</a></h4><table><thead><tr><th></th><th>=</th><th>&lt;>或!=</th><th>&lt;</th><th>&lt;=</th><th>></th><th>>=</th></tr></thead><tbody><tr><td>ANY</td><td>IN</td><td>&ndash;</td><td>&lt;MAX</td><td>&lt;=MAX</td><td>>MIN</td><td>>=MIN</td></tr><tr><td>ALL</td><td>&ndash;</td><td>NOT IN</td><td>&lt;MIN</td><td>&lt;=MIN</td><td>>MAX</td><td>>=MAX</td></tr></tbody></table><h3 id=带有exists谓词的子查询>带有EXISTS谓词的子查询<a hidden class=anchor aria-hidden=true href=#带有exists谓词的子查询>#</a></h3><blockquote><p><strong>存在量词</strong></p><ul><li><p>带有<code>EXISTS</code>的子查询不返回任何数据，只判断T或F，内层查询非空为真</p></li><li><p>由<code>EXISTS</code>引出的子查询，其目标列表达式通常都用*</p></li></ul></blockquote><p>查询了所有选修1号课程的学生姓名</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sql data-lang=sql><span style=display:flex><span><span style=color:#66d9ef>SELECT</span> Sname
-</span></span><span style=display:flex><span><span style=color:#66d9ef>FROM</span> Student
-</span></span><span style=display:flex><span><span style=color:#66d9ef>WHERE</span> <span style=color:#66d9ef>EXISTS</span>(<span style=color:#66d9ef>SELECT</span> <span style=color:#f92672>*</span>
-</span></span><span style=display:flex><span>             <span style=color:#66d9ef>FROM</span> SC
-</span></span><span style=display:flex><span>             <span style=color:#66d9ef>WHERE</span> Sno<span style=color:#f92672>=</span>Student.Sno <span style=color:#66d9ef>AND</span> Cno<span style=color:#f92672>=</span><span style=color:#e6db74>&#39;1&#39;</span>);
-</span></span></code></pre></div><p><strong>所有IN、ANY、ALL、比较运算都能用EXISTS等价替换</strong></p><p>SQL 语言没有全称量词$$\forall $$</p><h3 id=集合查询>集合查询<a hidden class=anchor aria-hidden=true href=#集合查询>#</a></h3><p><code>UNION</code> <code>INTERSECT</code> <code>EXCEPT</code></p><p>并 差 交</p><h3 id=基于派生表的查询>基于派生表的查询<a hidden class=anchor aria-hidden=true href=#基于派生表的查询>#</a></h3><blockquote><p>子查询可以出现在FROM子句中，生成<strong>临时派生表</strong>作主查询的查询对象。</p></blockquote><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sql data-lang=sql><span style=display:flex><span><span style=color:#66d9ef>SELECT</span> Sno, Cno
-</span></span><span style=display:flex><span><span style=color:#66d9ef>FROM</span> SC, (<span style=color:#66d9ef>SELECT</span> Sno,<span style=color:#66d9ef>Avg</span>(Grade)
-</span></span><span style=display:flex><span>         <span style=color:#66d9ef>FROM</span> SC
-</span></span><span style=display:flex><span>          <span style=color:#66d9ef>GROUP</span> <span style=color:#66d9ef>BY</span> Sno
-</span></span><span style=display:flex><span>         ) <span style=color:#66d9ef>AS</span> Avg_sc(avg_sno,avg_grade)
-</span></span><span style=display:flex><span><span style=color:#66d9ef>WHERE</span> SC.Sno <span style=color:#f92672>=</span> Avg_sc.avg_sno <span style=color:#66d9ef>AND</span>
-</span></span><span style=display:flex><span>	  SC.Grade <span style=color:#f92672>&gt;=</span> AVG_sc.avg_grade;
-</span></span></code></pre></div><p><strong><code>FROM</code>中的嵌套查询子句需要<code>AS</code>定义派生表名</strong></p><p>无聚集函数可以不指明所有的列及列名</p><h3 id=select语句的一般形式><code>SELECT</code>语句的一般形式<a hidden class=anchor aria-hidden=true href=#select语句的一般形式>#</a></h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sql data-lang=sql><span style=display:flex><span><span style=color:#66d9ef>SELECT</span> [<span style=color:#66d9ef>ALL</span><span style=color:#f92672>|</span><span style=color:#66d9ef>DISTINCT</span>]
-</span></span><span style=display:flex><span><span style=color:#66d9ef>FROM</span> <span style=color:#f92672>&lt;</span>tablename<span style=color:#f92672>&gt;</span>
-</span></span><span style=display:flex><span><span style=color:#66d9ef>WHERE</span> <span style=color:#f92672>&lt;</span>conditions<span style=color:#f92672>&gt;</span>
-</span></span><span style=display:flex><span><span style=color:#66d9ef>GROUP</span> <span style=color:#66d9ef>BY</span> <span style=color:#f92672>&lt;</span>columnname<span style=color:#f92672>&gt;</span> [<span style=color:#66d9ef>HAVING</span> <span style=color:#f92672>&lt;</span>conditions<span style=color:#f92672>&gt;</span>]
-</span></span><span style=display:flex><span><span style=color:#66d9ef>ORDER</span> <span style=color:#66d9ef>BY</span> <span style=color:#f92672>&lt;</span>columname<span style=color:#f92672>&gt;</span> [<span style=color:#66d9ef>ASC</span><span style=color:#f92672>|</span><span style=color:#66d9ef>DESC</span>];
-</span></span></code></pre></div><p>子查询不用<code>ORDER BY</code></p><h2 id=数据更新>数据更新<a hidden class=anchor aria-hidden=true href=#数据更新>#</a></h2><h3 id=插入数据>插入数据<a hidden class=anchor aria-hidden=true href=#插入数据>#</a></h3><ul><li>插入元组</li><li>插入子查询结果</li></ul><p><strong>格式</strong></p><p><code>INSERT</code> <code>INTO</code> <code>VALUES</code></p><p><strong>例</strong> 插入新元组至Student表中</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sql data-lang=sql><span style=display:flex><span><span style=color:#66d9ef>INSERT</span>
-</span></span><span style=display:flex><span><span style=color:#66d9ef>INTO</span> SC(Sno,Cno)
-</span></span><span style=display:flex><span><span style=color:#66d9ef>VALUES</span> (<span style=color:#e6db74>&#39;201215128&#39;</span>,<span style=color:#e6db74>&#39;1&#39;</span>);
-</span></span></code></pre></div><p>如果是完整的插入，无需指明哪几列</p><h4 id=插入子查询的结果>插入子查询的结果<a hidden class=anchor aria-hidden=true href=#插入子查询的结果>#</a></h4><p><strong>例</strong> 求各系学生平均年龄，存入数据库</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sql data-lang=sql><span style=display:flex><span><span style=color:#66d9ef>CREATE</span> <span style=color:#66d9ef>TABLE</span> Dept_age
-</span></span><span style=display:flex><span>(
-</span></span><span style=display:flex><span>    Sdept	CHAR(<span style=color:#ae81ff>15</span>)
-</span></span><span style=display:flex><span>    Avg_age	SMALLINT
-</span></span><span style=display:flex><span>);
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#66d9ef>INSERT</span>
-</span></span><span style=display:flex><span><span style=color:#66d9ef>INTO</span>	Dept_age(Sdept,Avg_age)
-</span></span><span style=display:flex><span><span style=color:#66d9ef>SELECT</span>	Sdept,<span style=color:#66d9ef>AVG</span>(Sage)
-</span></span><span style=display:flex><span><span style=color:#66d9ef>FROM</span>	Student
-</span></span><span style=display:flex><span><span style=color:#66d9ef>GROUP</span>	<span style=color:#66d9ef>BY</span>	Sdept;
-</span></span></code></pre></div><h4 id=插入数据的完整性约束>插入数据的完整性约束<a hidden class=anchor aria-hidden=true href=#插入数据的完整性约束>#</a></h4><blockquote><p>DBMS在插入语句时会检查插入操作是否破坏已定义的完整性规则</p></blockquote><ul><li>实体完整性</li><li>参照完整性</li><li>用户定义的完整性<ul><li><code>NOT NULL</code>约束</li><li><code>UNIQUE</code>约束</li><li>值域约束</li></ul></li></ul><h3 id=修改数据>修改数据<a hidden class=anchor aria-hidden=true href=#修改数据>#</a></h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sql data-lang=sql><span style=display:flex><span><span style=color:#66d9ef>UPDATE</span> <span style=color:#f92672>&lt;</span>tablename<span style=color:#f92672>&gt;</span> <span style=color:#66d9ef>SET</span>
-</span></span></code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sql data-lang=sql><span style=display:flex><span><span style=color:#66d9ef>UPDATE</span> Student
-</span></span><span style=display:flex><span><span style=color:#66d9ef>SET</span> Sage <span style=color:#f92672>=</span> <span style=color:#ae81ff>22</span>
-</span></span><span style=display:flex><span><span style=color:#66d9ef>WHERE</span> Sno <span style=color:#f92672>=</span><span style=color:#e6db74>&#39;837728921019&#39;</span>
-</span></span></code></pre></div><h4 id=带子查询的修改语句>带子查询的修改语句<a hidden class=anchor aria-hidden=true href=#带子查询的修改语句>#</a></h4><p><strong>例</strong> 将计算机系全体学生成绩归零</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sql data-lang=sql><span style=display:flex><span><span style=color:#66d9ef>UPDATE</span> SC
-</span></span><span style=display:flex><span><span style=color:#66d9ef>SET</span> Grade <span style=color:#f92672>=</span> <span style=color:#ae81ff>0</span>
-</span></span><span style=display:flex><span><span style=color:#66d9ef>WHERE</span> Sno <span style=color:#66d9ef>IN</span>
-</span></span><span style=display:flex><span>(
-</span></span><span style=display:flex><span>    <span style=color:#66d9ef>SELECT</span>	Sno
-</span></span><span style=display:flex><span>    <span style=color:#66d9ef>FROM</span>	Student
-</span></span><span style=display:flex><span>    <span style=color:#66d9ef>WHERE</span>	Sdept<span style=color:#f92672>=</span><span style=color:#e6db74>&#39;CS&#39;</span>
-</span></span><span style=display:flex><span>);
-</span></span></code></pre></div><h4 id=完整性约束>完整性约束<a hidden class=anchor aria-hidden=true href=#完整性约束>#</a></h4><p>同插入</p><h3 id=删除数据>删除数据<a hidden class=anchor aria-hidden=true href=#删除数据>#</a></h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sql data-lang=sql><span style=display:flex><span><span style=color:#66d9ef>DELETE</span>
-</span></span><span style=display:flex><span><span style=color:#66d9ef>FROM</span>	<span style=color:#f92672>&lt;</span><span style=color:#960050;background-color:#1e0010>表名</span><span style=color:#f92672>&gt;</span>
-</span></span><span style=display:flex><span>[<span style=color:#66d9ef>WHERE</span>	<span style=color:#f92672>&lt;</span><span style=color:#960050;background-color:#1e0010>条件</span><span style=color:#f92672>&gt;</span>];
-</span></span></code></pre></div><h4 id=功能>功能<a hidden class=anchor aria-hidden=true href=#功能>#</a></h4><ul><li>删除指定表中满足条件的元组</li><li>表的定义仍在字典中</li></ul><p><code>DROP</code>删整张表</p><h2 id=空值的处理>空值的处理<a hidden class=anchor aria-hidden=true href=#空值的处理>#</a></h2><blockquote><p>空值就是不知道、不存在或无意义的值。</p></blockquote><ul><li>该属性本来有一个值，但目前不知道（新生的班级）</li><li>不应该有值</li><li>不便于填写</li></ul><p><strong>空值是特殊的值，含有不确定性，关系运算需要做特殊处理。</strong></p><p><strong>例</strong> 插入学号、课程号、成绩的元组</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sql data-lang=sql><span style=display:flex><span><span style=color:#66d9ef>INSERT</span> <span style=color:#66d9ef>INTO</span> SC(Sno,Cno,Grade)
-</span></span><span style=display:flex><span><span style=color:#66d9ef>VALUES</span>(<span style=color:#e6db74>&#39;201215126&#39;</span>,<span style=color:#e6db74>&#39;1&#39;</span>,<span style=color:#66d9ef>NULL</span>);
-</span></span></code></pre></div><h3 id=视图-1>视图<a hidden class=anchor aria-hidden=true href=#视图-1>#</a></h3><ul><li>虚表</li><li>数据库只存放视图的定义，不存放视图对应的数据</li><li>基本表中数据发生变化，视图也发生变化</li></ul><h4 id=建立视图>建立视图<a hidden class=anchor aria-hidden=true href=#建立视图>#</a></h4><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sql data-lang=sql><span style=display:flex><span><span style=color:#66d9ef>CREATE</span> <span style=color:#66d9ef>VIEW</span> <span style=color:#f92672>&lt;</span>viewname<span style=color:#f92672>&gt;</span>
-</span></span><span style=display:flex><span><span style=color:#66d9ef>AS</span> <span style=color:#f92672>&lt;</span>sonquery<span style=color:#f92672>&gt;</span>
-</span></span><span style=display:flex><span>[<span style=color:#66d9ef>WITH</span> <span style=color:#66d9ef>CHECK</span> <span style=color:#66d9ef>OPTION</span>];
-</span></span></code></pre></div><p><strong>子查询</strong></p><ul><li>可以是任意的<code>SELECT</code>语句</li></ul><p><strong>组成视图的属性列名，可以全部省略或明确指定视图的所有列名</strong></p><p><strong>例</strong> 建立一个信息系学生的视图</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sql data-lang=sql><span style=display:flex><span><span style=color:#66d9ef>CREATE</span> <span style=color:#66d9ef>VIEW</span> IS_Student
-</span></span><span style=display:flex><span><span style=color:#66d9ef>AS</span>
-</span></span><span style=display:flex><span><span style=color:#66d9ef>SELECT</span> Sno,Sname,Sage
-</span></span><span style=display:flex><span><span style=color:#66d9ef>FROM</span> STUDENT
-</span></span><span style=display:flex><span><span style=color:#66d9ef>WHERE</span> Sdept <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;IS&#39;</span>;
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#66d9ef>WITH</span> <span style=color:#66d9ef>CHECK</span> <span style=color:#66d9ef>OPTION</span>; <span style=color:#75715e>/*对该视图进行更新操作时RDBMS会自动加上Sdeptd=&#39;IS&#39;这个条件*/</span>
-</span></span></code></pre></div><p><strong><code>IS_Student</code>视图是行列子集视图</strong></p><h2 id=第五章-数据库完整性>第五章 数据库完整性<a hidden class=anchor aria-hidden=true href=#第五章-数据库完整性>#</a></h2><h3 id=数据库完整性概述>数据库完整性概述<a hidden class=anchor aria-hidden=true href=#数据库完整性概述>#</a></h3><h3 id=实体完整性>实体完整性<a hidden class=anchor aria-hidden=true href=#实体完整性>#</a></h3><h3 id=参照完整性>参照完整性<a hidden class=anchor aria-hidden=true href=#参照完整性>#</a></h3><h3 id=用户自定义完整性>用户自定义完整性<a hidden class=anchor aria-hidden=true href=#用户自定义完整性>#</a></h3><h3 id=完整性约束子句>完整性约束子句<a hidden class=anchor aria-hidden=true href=#完整性约束子句>#</a></h3><h3 id=断言>断言<a hidden class=anchor aria-hidden=true href=#断言>#</a></h3><h3 id=触发器>触发器<a hidden class=anchor aria-hidden=true href=#触发器>#</a></h3><h2 id=第六章-关系数据理论>第六章 关系数据理论<a hidden class=anchor aria-hidden=true href=#第六章-关系数据理论>#</a></h2><h3 id=基本概念>基本概念<a hidden class=anchor aria-hidden=true href=#基本概念>#</a></h3><ol><li><p>函数依赖：
+$$</p>
+<h2 id=sql-概述>SQL 概述<a hidden class=anchor aria-hidden=true href=#sql-概述>#</a></h2>
+<h3 id=sql的产生和发展>SQL的产生和发展<a hidden class=anchor aria-hidden=true href=#sql的产生和发展>#</a></h3>
+<blockquote>
+<p>结构化查询语句，任何商业化的数据库都支持SQL语句。</p>
+</blockquote>
+<h3 id=sql的特点>SQL的特点<a hidden class=anchor aria-hidden=true href=#sql的特点>#</a></h3>
+<blockquote>
+<ol>
+<li><strong>综合统一</strong></li>
+<li>高度的非过程化</li>
+<li>集合操作</li>
+<li>一种语言，多种实现方式（嵌入式语言）</li>
+<li>语法简单</li>
+</ol>
+</blockquote>
+<h3 style=color:green>SQL的基本概念</h3>
+<h4 id=sql-支持三级模式>SQL 支持三级模式<a hidden class=anchor aria-hidden=true href=#sql-支持三级模式>#</a></h4>
+<blockquote>
+<p>外模式、模式、内模式</p>
+</blockquote>
+<p>视图－>基本表－>存储文件</p>
+<h4 id=基本表>基本表<a hidden class=anchor aria-hidden=true href=#基本表>#</a></h4>
+<ul>
+<li><strong>独立存在的表</strong></li>
+<li>SQL中一个关系对应一个基本表</li>
+<li>一个或多个基本表对应一个存储文件</li>
+<li>一个表可以带若干索引</li>
+</ul>
+<h4 id=视图>视图<a hidden class=anchor aria-hidden=true href=#视图>#</a></h4>
+<ul>
+<li>从一个或几个基本表导出的表</li>
+<li>数据库<strong>只存放视图的定义</strong>而不放对应数据</li>
+<li>是<strong>虚表</strong>，只有结构</li>
+<li>用户可以在视图上再定义视图</li>
+</ul>
+<h4 id=存储文件>存储文件<a hidden class=anchor aria-hidden=true href=#存储文件>#</a></h4>
+<ul>
+<li>逻辑结构组成内模式</li>
+<li>对用户不可见</li>
+</ul>
+<h2 id=学生课程数据库>学生－课程数据库<a hidden class=anchor aria-hidden=true href=#学生课程数据库>#</a></h2>
+<p>学生-课程模式 S-T</p>
+<h2 id=数据定义>数据定义<a hidden class=anchor aria-hidden=true href=#数据定义>#</a></h2>
+<h3 id=模式的定义与删除>模式的定义与删除<a hidden class=anchor aria-hidden=true href=#模式的定义与删除>#</a></h3>
+<h5 id=模式>模式<a hidden class=anchor aria-hidden=true href=#模式>#</a></h5>
+<blockquote>
+<ul>
+<li>一个DBMS可以建立多个数据库</li>
+<li>一个数据库中可以建立多个模式</li>
+<li>一个模式下通常可以包括多个表、视图、索引等数据库对象</li>
+</ul>
+</blockquote>
+<p>定义模式</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sql data-lang=sql><span style=color:#66d9ef>CREATE</span> <span style=color:#66d9ef>SCHEMA</span> <span style=color:#f92672>&lt;</span>NAME<span style=color:#f92672>&gt;</span> <span style=color:#66d9ef>AUTHORIZATION</span> <span style=color:#f92672>&lt;</span>USERNAME<span style=color:#f92672>&gt;</span> [<span style=color:#f92672>&lt;</span><span style=color:#960050;background-color:#1e0010>表定义子句</span><span style=color:#f92672>&gt;</span> <span style=color:#f92672>&lt;</span><span style=color:#960050;background-color:#1e0010>视图定义子句</span><span style=color:#f92672>&gt;</span> <span style=color:#f92672>&lt;</span><span style=color:#960050;background-color:#1e0010>授权定义子句</span><span style=color:#f92672>&gt;</span>];
+</code></pre></div><ul>
+<li>定义模式实际定义了命名空间</li>
+</ul>
+<h5 id=例题>例题<a hidden class=anchor aria-hidden=true href=#例题>#</a></h5>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sql data-lang=sql><span style=color:#66d9ef>CREATE</span> <span style=color:#66d9ef>SCHEMA</span> <span style=color:#e6db74>&#34;S-T&#34;</span> <span style=color:#66d9ef>AUTHORIZATION</span> WANG; 
+</code></pre></div><p><em>省略模式名：默认模式名为用户名</em></p>
+<p><strong>删除模式</strong></p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sql data-lang=sql><span style=color:#66d9ef>DROP</span> <span style=color:#66d9ef>SCHEMA</span> <span style=color:#f92672>&lt;</span>schemaname<span style=color:#f92672>&gt;</span> <span style=color:#f92672>&lt;</span><span style=color:#66d9ef>CASCADE</span> <span style=color:#f92672>|</span> <span style=color:#66d9ef>RESTRICT</span><span style=color:#f92672>&gt;</span>;
+</code></pre></div><p><code>RESTRICT</code>: 限制非空模式的删除</p>
+<p><code>CASCADE</code>: 级联，删除模式同时把该模式的所有数据库对象删除</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sql data-lang=sql><span style=color:#66d9ef>DROP</span> <span style=color:#66d9ef>SCHEMA</span> zhang <span style=color:#66d9ef>CASCADE</span>
+</code></pre></div><h3 id=基本表的定义删除与修改>基本表的定义、删除与修改<a hidden class=anchor aria-hidden=true href=#基本表的定义删除与修改>#</a></h3>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sql data-lang=sql><span style=color:#66d9ef>CREATE</span> <span style=color:#66d9ef>TABLE</span> <span style=color:#f92672>&lt;</span>tablename<span style=color:#f92672>&gt;</span> (<span style=color:#f92672>&lt;</span>colname<span style=color:#f92672>&gt;</span> <span style=color:#f92672>&lt;</span>datatype<span style=color:#f92672>&gt;</span> [<span style=color:#f92672>&lt;</span><span style=color:#960050;background-color:#1e0010>列级完整性约束条件</span><span style=color:#f92672>&gt;</span> <span style=color:#f92672>&lt;</span><span style=color:#960050;background-color:#1e0010>列名</span><span style=color:#f92672>&gt;</span> <span style=color:#f92672>&lt;</span><span style=color:#960050;background-color:#1e0010>数据类型</span><span style=color:#f92672>&gt;</span> [<span style=color:#f92672>&lt;</span><span style=color:#960050;background-color:#1e0010>列级完整性约束条件</span><span style=color:#f92672>&gt;</span>...] [<span style=color:#f92672>&lt;</span><span style=color:#960050;background-color:#1e0010>表级完整性约束条件</span><span style=color:#f92672>&gt;</span>]])
+</code></pre></div><h4 id=例>例<a hidden class=anchor aria-hidden=true href=#例>#</a></h4>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sql data-lang=sql><span style=color:#66d9ef>CREATE</span> <span style=color:#66d9ef>TABLE</span> Student(
+	Sno CHAR(<span style=color:#ae81ff>9</span>) <span style=color:#66d9ef>PRIMARY</span> <span style=color:#66d9ef>KEY</span>,
+    Sname CHAR(<span style=color:#ae81ff>20</span>) <span style=color:#66d9ef>UNIQUE</span>, <span style=color:#f92672>#</span> <span style=color:#960050;background-color:#1e0010>用户自定义完整性</span>
+    Ssex CHAR(<span style=color:#ae81ff>2</span>),
+    Sage SMALLINT, 
+    Sdept CHAR(<span style=color:#ae81ff>20</span>)
+
+)
+</code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sql data-lang=sql><span style=color:#66d9ef>CREATE</span> <span style=color:#66d9ef>TABLE</span> Course(
+	Cno		Char(<span style=color:#ae81ff>4</span>)	<span style=color:#66d9ef>PRIMARY</span> <span style=color:#66d9ef>KEY</span>,
+    Cname 	CHAR(<span style=color:#ae81ff>40</span>),
+    Cpno	CHAR(<span style=color:#ae81ff>4</span>),
+    Ccredit	SMALLINT,
+    <span style=color:#66d9ef>FOREIGN</span> <span style=color:#66d9ef>KEY</span> (Cpno) <span style=color:#66d9ef>REFERENCES</span> Course (Cno)
+    
+)
+</code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sql data-lang=sql><span style=color:#66d9ef>CREATE</span> <span style=color:#66d9ef>TABLE</span> SC
+(
+	...
+    <span style=color:#66d9ef>PRIMARY</span> <span style=color:#66d9ef>KEY</span> (Sno, Cno),
+    <span style=color:#66d9ef>FOREIGN</span> <span style=color:#66d9ef>KEY</span> (Sno) <span style=color:#66d9ef>REFERENCES</span> Student(Sno)
+)
+</code></pre></div><h4 id=数据类型>数据类型<a hidden class=anchor aria-hidden=true href=#数据类型>#</a></h4>
+<ul>
+<li>SQL中的域的概念是由数据类型实现的</li>
+<li>确定运算性质</li>
+<li>限定取值范围</li>
+</ul>
+<h4 id=模式与表>模式与表<a hidden class=anchor aria-hidden=true href=#模式与表>#</a></h4>
+<blockquote>
+<p>一个基本表属于某个模式，一个模式可以包含多个基本表。</p>
+</blockquote>
+<p><strong>定义基本表所属模式</strong></p>
+<ol>
+<li>在表名中明显的给出模式名</li>
+<li>在创建模式语句中同时创建</li>
+<li><strong>设置所属模式</strong>（常用方法）</li>
+</ol>
+<p>显示当前搜索路径</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sql data-lang=sql><span style=color:#66d9ef>SHOW</span> search_path
+<span style=color:#f92672>#</span><span style=color:#66d9ef>default</span>: <span style=color:#960050;background-color:#1e0010>$</span><span style=color:#66d9ef>user</span>,<span style=color:#66d9ef>Public</span>
+</code></pre></div><h4 id=修改基本表>修改基本表<a hidden class=anchor aria-hidden=true href=#修改基本表>#</a></h4>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sql data-lang=sql><span style=color:#66d9ef>ALTER</span>  <span style=color:#66d9ef>TABLE</span> <span style=color:#f92672>&lt;</span>tablename<span style=color:#f92672>&gt;</span> [<span style=color:#66d9ef>ADD</span> [<span style=color:#66d9ef>COLUMN</span>] <span style=color:#f92672>&lt;</span><span style=color:#960050;background-color:#1e0010>新列名</span><span style=color:#f92672>&gt;</span> <span style=color:#f92672>&lt;</span><span style=color:#960050;background-color:#1e0010>数据类型</span><span style=color:#f92672>&gt;</span> [<span style=color:#960050;background-color:#1e0010>完整性约束</span>]] [<span style=color:#66d9ef>ADD</span> <span style=color:#f92672>&lt;</span><span style=color:#960050;background-color:#1e0010>表级完整性约束</span><span style=color:#f92672>&gt;</span>] 
+[<span style=color:#66d9ef>DROP</span> [<span style=color:#66d9ef>COLUMN</span>] <span style=color:#f92672>&lt;</span><span style=color:#960050;background-color:#1e0010>列名</span><span style=color:#f92672>&gt;</span> [<span style=color:#66d9ef>CASCADE</span> <span style=color:#f92672>|</span> <span style=color:#66d9ef>RESTRICT</span>]]
+[<span style=color:#66d9ef>DROP</span> <span style=color:#66d9ef>CONSTRAINT</span> <span style=color:#f92672>&lt;</span><span style=color:#960050;background-color:#1e0010>完整性约束名</span><span style=color:#f92672>&gt;</span> [<span style=color:#66d9ef>CASCADE</span> <span style=color:#f92672>|</span> <span style=color:#66d9ef>RESTRICT</span>]]
+[<span style=color:#66d9ef>ALTER</span> <span style=color:#66d9ef>COLUMN</span> <span style=color:#f92672>&lt;</span><span style=color:#960050;background-color:#1e0010>列名</span><span style=color:#f92672>&gt;</span> <span style=color:#f92672>&lt;</span><span style=color:#960050;background-color:#1e0010>数据类型</span><span style=color:#f92672>&gt;</span>]
+</code></pre></div><h5 id=向学生表加入入学时间列>向学生表加入入学时间列<a hidden class=anchor aria-hidden=true href=#向学生表加入入学时间列>#</a></h5>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sql data-lang=sql><span style=color:#66d9ef>ALTER</span> <span style=color:#66d9ef>TABLE</span> Student <span style=color:#66d9ef>ADD</span> S_entrance DATE;
+</code></pre></div><h5 id=将年龄数据类型改为整型>将年龄数据类型改为整型<a hidden class=anchor aria-hidden=true href=#将年龄数据类型改为整型>#</a></h5>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sql data-lang=sql><span style=color:#66d9ef>ALTER</span> <span style=color:#66d9ef>TABLE</span> Student <span style=color:#66d9ef>ALTER</span> smallint;
+</code></pre></div><h3 id=索引的建立与删除>索引的建立与删除<a hidden class=anchor aria-hidden=true href=#索引的建立与删除>#</a></h3>
+<blockquote>
+<ul>
+<li>建立索引(数据库管理员、表的属主)</li>
+<li>维护索引（关系数据库管理系统）</li>
+<li>使用索引（关系数据库管理系统自动选择合适的索引）</li>
+</ul>
+</blockquote>
+<h4 id=建立索引>建立索引<a hidden class=anchor aria-hidden=true href=#建立索引>#</a></h4>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sql data-lang=sql><span style=color:#66d9ef>CREATE</span> [<span style=color:#66d9ef>UNIQUE</span>] <span style=color:#66d9ef>INDEX</span> <span style=color:#f92672>&lt;</span><span style=color:#960050;background-color:#1e0010>索引名</span><span style=color:#f92672>&gt;</span> <span style=color:#66d9ef>ON</span> <span style=color:#f92672>&lt;</span><span style=color:#960050;background-color:#1e0010>表名</span><span style=color:#f92672>&gt;</span>(<span style=color:#f92672>&lt;</span><span style=color:#960050;background-color:#1e0010>列名</span><span style=color:#f92672>&gt;</span>[<span style=color:#f92672>&lt;</span><span style=color:#960050;background-color:#1e0010>次序</span><span style=color:#f92672>&gt;</span>][,<span style=color:#f92672>&lt;</span><span style=color:#960050;background-color:#1e0010>列名</span><span style=color:#f92672>&gt;</span>[<span style=color:#f92672>&lt;</span><span style=color:#960050;background-color:#1e0010>次序</span><span style=color:#f92672>&gt;</span>]]<span style=color:#960050;background-color:#1e0010>…</span>)
+</code></pre></div><h5 id=例-1>例<a hidden class=anchor aria-hidden=true href=#例-1>#</a></h5>
+<p>按学号升序排列建唯一索引</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sql data-lang=sql><span style=color:#66d9ef>CREATE</span> <span style=color:#66d9ef>UNIQUE</span> <span style=color:#66d9ef>INDEX</span> Stusno <span style=color:#66d9ef>ON</span> Student(Sno <span style=color:#66d9ef>ASC</span>);
+</code></pre></div><p><code>ASC</code>升序（默认）<code>DESC</code>降序</p>
+<h4 id=修改索引>修改索引<a hidden class=anchor aria-hidden=true href=#修改索引>#</a></h4>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sql data-lang=sql><span style=color:#66d9ef>ALTER</span> <span style=color:#66d9ef>INDEX</span> <span style=color:#f92672>&lt;</span><span style=color:#960050;background-color:#1e0010>旧索引名</span><span style=color:#f92672>&gt;</span> <span style=color:#66d9ef>RENAME</span> <span style=color:#66d9ef>TO</span> <span style=color:#f92672>&lt;</span><span style=color:#960050;background-color:#1e0010>新索引名</span><span style=color:#f92672>&gt;</span>
+</code></pre></div><blockquote>
+<p>没必要修改索引内容，重建即可。</p>
+</blockquote>
+<h4 id=删除索引>删除索引<a hidden class=anchor aria-hidden=true href=#删除索引>#</a></h4>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sql data-lang=sql><span style=color:#66d9ef>DROP</span> <span style=color:#66d9ef>INDEX</span> <span style=color:#f92672>&lt;</span><span style=color:#960050;background-color:#1e0010>索引名</span><span style=color:#f92672>&gt;</span>
+</code></pre></div><blockquote>
+<p>系统从<strong>数据字典</strong>中删去有关该索引的描述。</p>
+</blockquote>
+<h3 id=数据字典>数据字典<a hidden class=anchor aria-hidden=true href=#数据字典>#</a></h3>
+<blockquote>
+<p>关系数据库管理系统内部的一组系统表，记录了数据库中所有的定义信息：</p>
+<ul>
+<li>关系模式</li>
+<li>视图</li>
+<li>索引</li>
+<li>完整性约束</li>
+<li>用户对数据库的操作权限</li>
+<li>统计信息</li>
+</ul>
+</blockquote>
+<h2 id=查询>查询<a hidden class=anchor aria-hidden=true href=#查询>#</a></h2>
+<h3 id=带有比较运算符的子查询>带有比较运算符的子查询<a hidden class=anchor aria-hidden=true href=#带有比较运算符的子查询>#</a></h3>
+<blockquote>
+<p>找出每个学生超过自己选修课程平均成绩的课程号</p>
+</blockquote>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sql data-lang=sql><span style=color:#66d9ef>SELECT</span> Sno,Cno
+<span style=color:#66d9ef>FROM</span> SC x
+<span style=color:#66d9ef>WHERE</span> Grade <span style=color:#f92672>&gt;=</span> (<span style=color:#66d9ef>SELECT</span> <span style=color:#66d9ef>AVG</span>(Grade)
+               <span style=color:#66d9ef>FROM</span> SC y
+               <span style=color:#66d9ef>WHERE</span> y.Sno<span style=color:#f92672>=</span>x.Sno)
+</code></pre></div><p><em>相关子查询</em></p>
+<h3 id=any或all谓词子查询>ANY或ALL谓词子查询<a hidden class=anchor aria-hidden=true href=#any或all谓词子查询>#</a></h3>
+<blockquote>
+<p>必须同时使用比较运算</p>
+</blockquote>
+<ul>
+<li>> ANY 大于子查询结果中的某个值</li>
+<li>&lt; ALL 小于查询结果中的所有值</li>
+</ul>
+<blockquote>
+<p>查询非计算机系比计算机系任意一个学生年龄小的学生姓名和年龄</p>
+</blockquote>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sql data-lang=sql><span style=color:#66d9ef>SELECT</span> Sname,Sage
+<span style=color:#66d9ef>FROM</span> Student
+<span style=color:#66d9ef>WHERE</span> Sdept<span style=color:#f92672>&lt;&gt;</span><span style=color:#e6db74>&#39;CS&#39;</span> <span style=color:#66d9ef>AND</span>
+	  Sage<span style=color:#f92672>&lt;</span><span style=color:#66d9ef>ANY</span>(<span style=color:#66d9ef>SELECT</span> Sage
+              	<span style=color:#66d9ef>FROM</span> Student
+              	<span style=color:#66d9ef>WHERE</span> Sdept<span style=color:#f92672>=</span><span style=color:#e6db74>&#39;CS&#39;</span>);
+</code></pre></div><p>执行内嵌子查询不依赖父查询 👉 不相关子查询</p>
+<h4 id=与聚集函数的等价转换关系>与聚集函数的等价转换关系<a hidden class=anchor aria-hidden=true href=#与聚集函数的等价转换关系>#</a></h4>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>=</th>
+<th>&lt;>或!=</th>
+<th>&lt;</th>
+<th>&lt;=</th>
+<th>></th>
+<th>>=</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ANY</td>
+<td>IN</td>
+<td>&ndash;</td>
+<td>&lt;MAX</td>
+<td>&lt;=MAX</td>
+<td>>MIN</td>
+<td>>=MIN</td>
+</tr>
+<tr>
+<td>ALL</td>
+<td>&ndash;</td>
+<td>NOT IN</td>
+<td>&lt;MIN</td>
+<td>&lt;=MIN</td>
+<td>>MAX</td>
+<td>>=MAX</td>
+</tr>
+</tbody>
+</table>
+<h3 id=带有exists谓词的子查询>带有EXISTS谓词的子查询<a hidden class=anchor aria-hidden=true href=#带有exists谓词的子查询>#</a></h3>
+<blockquote>
+<p><strong>存在量词</strong></p>
+<ul>
+<li>
+<p>带有<code>EXISTS</code>的子查询不返回任何数据，只判断T或F，内层查询非空为真</p>
+</li>
+<li>
+<p>由<code>EXISTS</code>引出的子查询，其目标列表达式通常都用*</p>
+</li>
+</ul>
+</blockquote>
+<p>查询了所有选修1号课程的学生姓名</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sql data-lang=sql><span style=color:#66d9ef>SELECT</span> Sname
+<span style=color:#66d9ef>FROM</span> Student
+<span style=color:#66d9ef>WHERE</span> <span style=color:#66d9ef>EXISTS</span>(<span style=color:#66d9ef>SELECT</span> <span style=color:#f92672>*</span>
+             <span style=color:#66d9ef>FROM</span> SC
+             <span style=color:#66d9ef>WHERE</span> Sno<span style=color:#f92672>=</span>Student.Sno <span style=color:#66d9ef>AND</span> Cno<span style=color:#f92672>=</span><span style=color:#e6db74>&#39;1&#39;</span>);
+</code></pre></div><p><strong>所有IN、ANY、ALL、比较运算都能用EXISTS等价替换</strong></p>
+<p>SQL 语言没有全称量词$$\forall $$</p>
+<h3 id=集合查询>集合查询<a hidden class=anchor aria-hidden=true href=#集合查询>#</a></h3>
+<p><code>UNION</code> <code>INTERSECT</code> <code>EXCEPT </code></p>
+<p>并 差 交</p>
+<h3 id=基于派生表的查询>基于派生表的查询<a hidden class=anchor aria-hidden=true href=#基于派生表的查询>#</a></h3>
+<blockquote>
+<p>子查询可以出现在FROM子句中，生成<strong>临时派生表</strong>作主查询的查询对象。</p>
+</blockquote>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sql data-lang=sql><span style=color:#66d9ef>SELECT</span> Sno, Cno
+<span style=color:#66d9ef>FROM</span> SC, (<span style=color:#66d9ef>SELECT</span> Sno,<span style=color:#66d9ef>Avg</span>(Grade)
+         <span style=color:#66d9ef>FROM</span> SC
+          <span style=color:#66d9ef>GROUP</span> <span style=color:#66d9ef>BY</span> Sno
+         ) <span style=color:#66d9ef>AS</span> Avg_sc(avg_sno,avg_grade)
+<span style=color:#66d9ef>WHERE</span> SC.Sno <span style=color:#f92672>=</span> Avg_sc.avg_sno <span style=color:#66d9ef>AND</span>
+	  SC.Grade <span style=color:#f92672>&gt;=</span> AVG_sc.avg_grade;
+</code></pre></div><p><strong><code>FROM</code>中的嵌套查询子句需要<code>AS</code>定义派生表名</strong></p>
+<p>无聚集函数可以不指明所有的列及列名</p>
+<h3 id=select语句的一般形式><code>SELECT</code>语句的一般形式<a hidden class=anchor aria-hidden=true href=#select语句的一般形式>#</a></h3>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sql data-lang=sql><span style=color:#66d9ef>SELECT</span> [<span style=color:#66d9ef>ALL</span><span style=color:#f92672>|</span><span style=color:#66d9ef>DISTINCT</span>]
+<span style=color:#66d9ef>FROM</span> <span style=color:#f92672>&lt;</span>tablename<span style=color:#f92672>&gt;</span>
+<span style=color:#66d9ef>WHERE</span> <span style=color:#f92672>&lt;</span>conditions<span style=color:#f92672>&gt;</span>
+<span style=color:#66d9ef>GROUP</span> <span style=color:#66d9ef>BY</span> <span style=color:#f92672>&lt;</span>columnname<span style=color:#f92672>&gt;</span> [<span style=color:#66d9ef>HAVING</span> <span style=color:#f92672>&lt;</span>conditions<span style=color:#f92672>&gt;</span>]
+<span style=color:#66d9ef>ORDER</span> <span style=color:#66d9ef>BY</span> <span style=color:#f92672>&lt;</span>columname<span style=color:#f92672>&gt;</span> [<span style=color:#66d9ef>ASC</span><span style=color:#f92672>|</span><span style=color:#66d9ef>DESC</span>];
+</code></pre></div><p>子查询不用<code>ORDER BY</code></p>
+<h2 id=数据更新>数据更新<a hidden class=anchor aria-hidden=true href=#数据更新>#</a></h2>
+<h3 id=插入数据>插入数据<a hidden class=anchor aria-hidden=true href=#插入数据>#</a></h3>
+<ul>
+<li>插入元组</li>
+<li>插入子查询结果</li>
+</ul>
+<p><strong>格式</strong></p>
+<p><code>INSERT</code> <code>INTO</code> <code>VALUES</code></p>
+<p><strong>例</strong> 插入新元组至Student表中</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sql data-lang=sql><span style=color:#66d9ef>INSERT</span>
+<span style=color:#66d9ef>INTO</span> SC(Sno,Cno)
+<span style=color:#66d9ef>VALUES</span> (<span style=color:#e6db74>&#39;201215128&#39;</span>,<span style=color:#e6db74>&#39;1&#39;</span>);
+</code></pre></div><p>如果是完整的插入，无需指明哪几列</p>
+<h4 id=插入子查询的结果>插入子查询的结果<a hidden class=anchor aria-hidden=true href=#插入子查询的结果>#</a></h4>
+<p><strong>例</strong> 求各系学生平均年龄，存入数据库</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sql data-lang=sql><span style=color:#66d9ef>CREATE</span> <span style=color:#66d9ef>TABLE</span> Dept_age
+(
+    Sdept	CHAR(<span style=color:#ae81ff>15</span>)
+    Avg_age	SMALLINT
+);
+
+<span style=color:#66d9ef>INSERT</span>
+<span style=color:#66d9ef>INTO</span>	Dept_age(Sdept,Avg_age)
+<span style=color:#66d9ef>SELECT</span>	Sdept,<span style=color:#66d9ef>AVG</span>(Sage)
+<span style=color:#66d9ef>FROM</span>	Student
+<span style=color:#66d9ef>GROUP</span>	<span style=color:#66d9ef>BY</span>	Sdept;
+</code></pre></div><h4 id=插入数据的完整性约束>插入数据的完整性约束<a hidden class=anchor aria-hidden=true href=#插入数据的完整性约束>#</a></h4>
+<blockquote>
+<p>DBMS在插入语句时会检查插入操作是否破坏已定义的完整性规则</p>
+</blockquote>
+<ul>
+<li>实体完整性</li>
+<li>参照完整性</li>
+<li>用户定义的完整性
+<ul>
+<li><code>NOT NULL</code>约束</li>
+<li><code>UNIQUE</code>约束</li>
+<li>值域约束</li>
+</ul>
+</li>
+</ul>
+<h3 id=修改数据>修改数据<a hidden class=anchor aria-hidden=true href=#修改数据>#</a></h3>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sql data-lang=sql><span style=color:#66d9ef>UPDATE</span> <span style=color:#f92672>&lt;</span>tablename<span style=color:#f92672>&gt;</span> <span style=color:#66d9ef>SET</span>
+</code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sql data-lang=sql><span style=color:#66d9ef>UPDATE</span> Student
+<span style=color:#66d9ef>SET</span> Sage <span style=color:#f92672>=</span> <span style=color:#ae81ff>22</span>
+<span style=color:#66d9ef>WHERE</span> Sno <span style=color:#f92672>=</span><span style=color:#e6db74>&#39;837728921019&#39;</span>
+</code></pre></div><h4 id=带子查询的修改语句>带子查询的修改语句<a hidden class=anchor aria-hidden=true href=#带子查询的修改语句>#</a></h4>
+<p><strong>例</strong> 将计算机系全体学生成绩归零</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sql data-lang=sql><span style=color:#66d9ef>UPDATE</span> SC
+<span style=color:#66d9ef>SET</span> Grade <span style=color:#f92672>=</span> <span style=color:#ae81ff>0</span>
+<span style=color:#66d9ef>WHERE</span> Sno <span style=color:#66d9ef>IN</span>
+(
+    <span style=color:#66d9ef>SELECT</span>	Sno
+    <span style=color:#66d9ef>FROM</span>	Student
+    <span style=color:#66d9ef>WHERE</span>	Sdept<span style=color:#f92672>=</span><span style=color:#e6db74>&#39;CS&#39;</span>
+);
+</code></pre></div><h4 id=完整性约束>完整性约束<a hidden class=anchor aria-hidden=true href=#完整性约束>#</a></h4>
+<p>同插入</p>
+<h3 id=删除数据>删除数据<a hidden class=anchor aria-hidden=true href=#删除数据>#</a></h3>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sql data-lang=sql><span style=color:#66d9ef>DELETE</span>
+<span style=color:#66d9ef>FROM</span>	<span style=color:#f92672>&lt;</span><span style=color:#960050;background-color:#1e0010>表名</span><span style=color:#f92672>&gt;</span>
+[<span style=color:#66d9ef>WHERE</span>	<span style=color:#f92672>&lt;</span><span style=color:#960050;background-color:#1e0010>条件</span><span style=color:#f92672>&gt;</span>];
+</code></pre></div><h4 id=功能>功能<a hidden class=anchor aria-hidden=true href=#功能>#</a></h4>
+<ul>
+<li>删除指定表中满足条件的元组</li>
+<li>表的定义仍在字典中</li>
+</ul>
+<p><code>DROP</code>删整张表</p>
+<h2 id=空值的处理>空值的处理<a hidden class=anchor aria-hidden=true href=#空值的处理>#</a></h2>
+<blockquote>
+<p>空值就是不知道、不存在或无意义的值。</p>
+</blockquote>
+<ul>
+<li>该属性本来有一个值，但目前不知道（新生的班级）</li>
+<li>不应该有值</li>
+<li>不便于填写</li>
+</ul>
+<p><strong>空值是特殊的值，含有不确定性，关系运算需要做特殊处理。</strong></p>
+<p><strong>例</strong> 插入学号、课程号、成绩的元组</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sql data-lang=sql><span style=color:#66d9ef>INSERT</span> <span style=color:#66d9ef>INTO</span> SC(Sno,Cno,Grade)
+<span style=color:#66d9ef>VALUES</span>(<span style=color:#e6db74>&#39;201215126&#39;</span>,<span style=color:#e6db74>&#39;1&#39;</span>,<span style=color:#66d9ef>NULL</span>);
+</code></pre></div><h3 id=视图-1>视图<a hidden class=anchor aria-hidden=true href=#视图-1>#</a></h3>
+<ul>
+<li>虚表</li>
+<li>数据库只存放视图的定义，不存放视图对应的数据</li>
+<li>基本表中数据发生变化，视图也发生变化</li>
+</ul>
+<h4 id=建立视图>建立视图<a hidden class=anchor aria-hidden=true href=#建立视图>#</a></h4>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sql data-lang=sql><span style=color:#66d9ef>CREATE</span> <span style=color:#66d9ef>VIEW</span> <span style=color:#f92672>&lt;</span>viewname<span style=color:#f92672>&gt;</span>
+<span style=color:#66d9ef>AS</span> <span style=color:#f92672>&lt;</span>sonquery<span style=color:#f92672>&gt;</span>
+[<span style=color:#66d9ef>WITH</span> <span style=color:#66d9ef>CHECK</span> <span style=color:#66d9ef>OPTION</span>];
+</code></pre></div><p><strong>子查询</strong></p>
+<ul>
+<li>可以是任意的<code>SELECT</code>语句</li>
+</ul>
+<p><strong>组成视图的属性列名，可以全部省略或明确指定视图的所有列名</strong></p>
+<p><strong>例</strong> 建立一个信息系学生的视图</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sql data-lang=sql><span style=color:#66d9ef>CREATE</span> <span style=color:#66d9ef>VIEW</span> IS_Student
+<span style=color:#66d9ef>AS</span>
+<span style=color:#66d9ef>SELECT</span> Sno,Sname,Sage
+<span style=color:#66d9ef>FROM</span> STUDENT
+<span style=color:#66d9ef>WHERE</span> Sdept <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;IS&#39;</span>;
+
+<span style=color:#66d9ef>WITH</span> <span style=color:#66d9ef>CHECK</span> <span style=color:#66d9ef>OPTION</span>; <span style=color:#75715e>/*对该视图进行更新操作时RDBMS会自动加上Sdeptd=&#39;IS&#39;这个条件*/</span>
+</code></pre></div><p><strong><code>IS_Student</code>视图是行列子集视图</strong></p>
+<h2 id=第五章-数据库完整性>第五章 数据库完整性<a hidden class=anchor aria-hidden=true href=#第五章-数据库完整性>#</a></h2>
+<h3 id=数据库完整性概述>数据库完整性概述<a hidden class=anchor aria-hidden=true href=#数据库完整性概述>#</a></h3>
+<h3 id=实体完整性>实体完整性<a hidden class=anchor aria-hidden=true href=#实体完整性>#</a></h3>
+<h3 id=参照完整性>参照完整性<a hidden class=anchor aria-hidden=true href=#参照完整性>#</a></h3>
+<h3 id=用户自定义完整性>用户自定义完整性<a hidden class=anchor aria-hidden=true href=#用户自定义完整性>#</a></h3>
+<h3 id=完整性约束子句>完整性约束子句<a hidden class=anchor aria-hidden=true href=#完整性约束子句>#</a></h3>
+<h3 id=断言>断言<a hidden class=anchor aria-hidden=true href=#断言>#</a></h3>
+<h3 id=触发器>触发器<a hidden class=anchor aria-hidden=true href=#触发器>#</a></h3>
+<h2 id=第六章-关系数据理论>第六章 关系数据理论<a hidden class=anchor aria-hidden=true href=#第六章-关系数据理论>#</a></h2>
+<h3 id=基本概念>基本概念<a hidden class=anchor aria-hidden=true href=#基本概念>#</a></h3>
+<ol>
+<li>
+<p>函数依赖：
 $$
 R(U)是一个关系模式，U是R的属性集合，X和Y是U的子集。\\
 对于R(U)的任意一个可能的关系r，若r中不存在两个元组，它们\\
 在X上的属性值相同而在Y上的属性值不同，则称X函数确定Y\\
 或Y函数依赖于X，记作X\rightarrow Y
-$$</p><blockquote><p>即若存在X确定Y，则任意两个元组在X上的属性值相同，那么他们在Y上的属性值也一定相同。</p></blockquote></li><li><p>完全/部分函数依赖（X的每一个真子集都能确定Y就是完全函数依赖）</p></li><li><p>传递依赖
+$$</p>
+<blockquote>
+<p>即若存在X确定Y，则任意两个元组在X上的属性值相同，那么他们在Y上的属性值也一定相同。</p>
+</blockquote>
+</li>
+<li>
+<p>完全/部分函数依赖（X的每一个真子集都能确定Y就是完全函数依赖）</p>
+</li>
+<li>
+<p>传递依赖
 $$
 在R(U)中，X\rightarrow Y,Y不含于X，Y不能确定X，Y能确定Z，Z不含于Y\\
 则称Z对X传递函数依赖。
-$$</p></li><li><p>候选码，主码：K能确定U，则K为R的候选码，多于一个候选码，则选定其中一个为主码。</p></li><li><p>外码：不是R的码，是另一个关系模式的码，则称X是R的外部码，也称外码。</p></li><li><p>全码：整个属性组都是码。</p></li><li><p>第一范式1NF：如果一个关系模式R的所有属性都是不可分的基本数据项，则R 属于 1NF</p><p>不满足第一范式的数据库不能称为关系数据库。</p></li><li><p>2NF：R属于1NF且每一个非主属性都完全函数依赖于R的码，则为2NF</p></li><li><p>3NF：R中不存在Z对码X传递依赖，也不存在部分函数依赖于X。</p></li><li><p>BCNF：R属于1NF，能确定其他属性集合的X一定是码，则为BCNF</p></li></ol><h3 id=证明>证明<a hidden class=anchor aria-hidden=true href=#证明>#</a></h3><ol><li>如果R是BCNF关系模式，则R是3NF关系模式，反之则不然。</li><li>如果R是3NF关系模式，则R一定是2NF关系模式。</li></ol><h2 id=第七章-数据库设计>第七章 数据库设计<a hidden class=anchor aria-hidden=true href=#第七章-数据库设计>#</a></h2><h3 id=数据库设计过程>数据库设计过程<a hidden class=anchor aria-hidden=true href=#数据库设计过程>#</a></h3><ol><li>需求分析</li><li>概念结构设计</li><li>逻辑结构设计</li><li>数据库物理设计</li><li>数据库实施</li><li>数据库运行和维护</li></ol><h3 id=数据库概念结构>数据库概念结构<a hidden class=anchor aria-hidden=true href=#数据库概念结构>#</a></h3><h4 id=主要特点>主要特点<a hidden class=anchor aria-hidden=true href=#主要特点>#</a></h4><ol><li>真实、充分的反映现实世界事物之间的联系</li><li>易于理解</li><li>易于更改</li><li>易于向关系、网状、层次等各种数据模型转换。</li></ol><h4 id=设计策略>设计策略<a hidden class=anchor aria-hidden=true href=#设计策略>#</a></h4><ol><li>自顶向上</li><li>自底向上</li><li>逐步扩张</li><li>混合策略</li></ol><h3 id=绘制e-r图>绘制E-R图<a hidden class=anchor aria-hidden=true href=#绘制e-r图>#</a></h3><p>略</p><h3 id=e-r图转关系模型>E-R图转关系模型<a hidden class=anchor aria-hidden=true href=#e-r图转关系模型>#</a></h3><p>略</p><h3 id=逻辑结构设计>逻辑结构设计<a hidden class=anchor aria-hidden=true href=#逻辑结构设计>#</a></h3><blockquote><p>将概念结构设计阶段设计好的基本E-R图转换为与选用的DBMS产品所支持的数据模型相符合的逻辑结构。</p></blockquote><ol><li>将概念结构转换为关系模型</li><li>对数据模型进行优化</li></ol><h3 id=物理设计>物理设计<a hidden class=anchor aria-hidden=true href=#物理设计>#</a></h3><blockquote><p>为给定的逻辑数据模型选取一个最适合应用要求的物理结构</p></blockquote><ol><li>确定数据库的物理结构（在关系数据库中主要指存取方法和存储结构）</li><li>对物理结构进行评价，评价的重点是时间和空间效率。</li></ol><h2 id=第9章-关系查询处理和查询优化>第9章 关系查询处理和查询优化<a hidden class=anchor aria-hidden=true href=#第9章-关系查询处理和查询优化>#</a></h2><h3 id=查询树的启发式优化>查询树的启发式优化<a hidden class=anchor aria-hidden=true href=#查询树的启发式优化>#</a></h3><ul><li>选择运算应尽可能先做</li><li>把投影运算和选择运算同时进行</li><li>把投影同其前或后的双目运算结合起来</li><li><strong>把某些选择同在它前面要执行的笛卡尔积结合起来成为一个连接运算</strong></li><li>找出公共子表达式</li></ul><h4 id=具体方法>具体方法<a hidden class=anchor aria-hidden=true href=#具体方法>#</a></h4><ol><li>利用等价变换规则，把形如</li></ol><p>$$
+$$</p>
+</li>
+<li>
+<p>候选码，主码：K能确定U，则K为R的候选码，多于一个候选码，则选定其中一个为主码。</p>
+</li>
+<li>
+<p>外码：不是R的码，是另一个关系模式的码，则称X是R的外部码，也称外码。</p>
+</li>
+<li>
+<p>全码：整个属性组都是码。</p>
+</li>
+<li>
+<p>第一范式1NF：如果一个关系模式R的所有属性都是不可分的基本数据项，则R 属于 1NF</p>
+<p>不满足第一范式的数据库不能称为关系数据库。</p>
+</li>
+<li>
+<p>2NF：R属于1NF且每一个非主属性都完全函数依赖于R的码，则为2NF</p>
+</li>
+<li>
+<p>3NF：R中不存在Z对码X传递依赖，也不存在部分函数依赖于X。</p>
+</li>
+<li>
+<p>BCNF：R属于1NF，能确定其他属性集合的X一定是码，则为BCNF</p>
+</li>
+</ol>
+<h3 id=证明>证明<a hidden class=anchor aria-hidden=true href=#证明>#</a></h3>
+<ol>
+<li>如果R是BCNF关系模式，则R是3NF关系模式，反之则不然。</li>
+<li>如果R是3NF关系模式，则R一定是2NF关系模式。</li>
+</ol>
+<h2 id=第七章-数据库设计>第七章 数据库设计<a hidden class=anchor aria-hidden=true href=#第七章-数据库设计>#</a></h2>
+<h3 id=数据库设计过程>数据库设计过程<a hidden class=anchor aria-hidden=true href=#数据库设计过程>#</a></h3>
+<ol>
+<li>需求分析</li>
+<li>概念结构设计</li>
+<li>逻辑结构设计</li>
+<li>数据库物理设计</li>
+<li>数据库实施</li>
+<li>数据库运行和维护</li>
+</ol>
+<h3 id=数据库概念结构>数据库概念结构<a hidden class=anchor aria-hidden=true href=#数据库概念结构>#</a></h3>
+<h4 id=主要特点>主要特点<a hidden class=anchor aria-hidden=true href=#主要特点>#</a></h4>
+<ol>
+<li>真实、充分的反映现实世界事物之间的联系</li>
+<li>易于理解</li>
+<li>易于更改</li>
+<li>易于向关系、网状、层次等各种数据模型转换。</li>
+</ol>
+<h4 id=设计策略>设计策略<a hidden class=anchor aria-hidden=true href=#设计策略>#</a></h4>
+<ol>
+<li>自顶向上</li>
+<li>自底向上</li>
+<li>逐步扩张</li>
+<li>混合策略</li>
+</ol>
+<h3 id=绘制e-r图>绘制E-R图<a hidden class=anchor aria-hidden=true href=#绘制e-r图>#</a></h3>
+<p>略</p>
+<h3 id=e-r图转关系模型>E-R图转关系模型<a hidden class=anchor aria-hidden=true href=#e-r图转关系模型>#</a></h3>
+<p>略</p>
+<h3 id=逻辑结构设计>逻辑结构设计<a hidden class=anchor aria-hidden=true href=#逻辑结构设计>#</a></h3>
+<blockquote>
+<p>将概念结构设计阶段设计好的基本E-R图转换为与选用的DBMS产品所支持的数据模型相符合的逻辑结构。</p>
+</blockquote>
+<ol>
+<li>将概念结构转换为关系模型</li>
+<li>对数据模型进行优化</li>
+</ol>
+<h3 id=物理设计>物理设计<a hidden class=anchor aria-hidden=true href=#物理设计>#</a></h3>
+<blockquote>
+<p>为给定的逻辑数据模型选取一个最适合应用要求的物理结构</p>
+</blockquote>
+<ol>
+<li>确定数据库的物理结构（在关系数据库中主要指存取方法和存储结构）</li>
+<li>对物理结构进行评价，评价的重点是时间和空间效率。</li>
+</ol>
+<h2 id=第9章-关系查询处理和查询优化>第9章 关系查询处理和查询优化<a hidden class=anchor aria-hidden=true href=#第9章-关系查询处理和查询优化>#</a></h2>
+<h3 id=查询树的启发式优化>查询树的启发式优化<a hidden class=anchor aria-hidden=true href=#查询树的启发式优化>#</a></h3>
+<ul>
+<li>选择运算应尽可能先做</li>
+<li>把投影运算和选择运算同时进行</li>
+<li>把投影同其前或后的双目运算结合起来</li>
+<li><strong>把某些选择同在它前面要执行的笛卡尔积结合起来成为一个连接运算</strong></li>
+<li>找出公共子表达式</li>
+</ul>
+<h4 id=具体方法>具体方法<a hidden class=anchor aria-hidden=true href=#具体方法>#</a></h4>
+<ol>
+<li>利用等价变换规则，把形如</li>
+</ol>
+<p>$$
 \sigma_{F_1 \wedge F_2 \wedge \cdots\wedge F_3}(E)
 $$
 ​ 的表达式变换成
@@ -165,14 +1016,68 @@ $$
 2. 对每一个选择，利用等价变换规则尽可能将其移到树的叶端。
 2. 对每一个投影，利用等价变换规则尽可能将其移到树的叶端。
 2. 选择和投影串联合并成单个的或一个选择后跟一个投影，使其能同时执行，或在一次扫描中全部完成。
-2. 语法树内节点分组，每一双目运算和它所有的直接祖先为一组。</p></div><footer class=post-footer><ul class=post-tags><li><a href=https://shenyiming.life/tags/sql/>SQL</a></li><li><a href=https://shenyiming.life/tags/note/>Note</a></li></ul><nav class=paginav><a class=prev href=https://shenyiming.life/post/ctf/penetration/><span class=title>« Prev Page</span><br><span>渗透测试记录</span></a>
-<a class=next href=https://shenyiming.life/post/notes/computer_construct/><span class=title>Next Page »</span><br><span>计算机组成原理笔记</span></a></nav><div class=share-buttons><a target=_blank rel="noopener noreferrer" aria-label="share 数据库系统导论笔记 on twitter" href="https://twitter.com/intent/tweet/?text=%e6%95%b0%e6%8d%ae%e5%ba%93%e7%b3%bb%e7%bb%9f%e5%af%bc%e8%ae%ba%e7%ac%94%e8%ae%b0&url=https%3a%2f%2fshenyiming.life%2fpost%2fnotes%2fdatabase_system%2f&hashtags=SQL%2cNote"><svg viewBox="0 0 512 512"><path d="M449.446.0C483.971.0 512 28.03 512 62.554v386.892C512 483.97 483.97 512 449.446 512H62.554c-34.524.0-62.554-28.03-62.554-62.554V62.554c0-34.524 28.029-62.554 62.554-62.554h386.892zM195.519 424.544c135.939.0 210.268-112.643 210.268-210.268.0-3.218.0-6.437-.153-9.502 14.406-10.421 26.973-23.448 36.935-38.314-13.18 5.824-27.433 9.809-42.452 11.648 15.326-9.196 26.973-23.602 32.49-40.92-14.252 8.429-30.038 14.56-46.896 17.931-13.487-14.406-32.644-23.295-53.946-23.295-40.767.0-73.87 33.104-73.87 73.87.0 5.824.613 11.494 1.992 16.858-61.456-3.065-115.862-32.49-152.337-77.241-6.284 10.881-9.962 23.601-9.962 37.088.0 25.594 13.027 48.276 32.95 61.456-12.107-.307-23.448-3.678-33.41-9.196v.92c0 35.862 25.441 65.594 59.311 72.49-6.13 1.686-12.72 2.606-19.464 2.606-4.751.0-9.348-.46-13.946-1.38 9.349 29.426 36.628 50.728 68.965 51.341-25.287 19.771-57.164 31.571-91.8 31.571-5.977.0-11.801-.306-17.625-1.073 32.337 21.15 71.264 33.41 112.95 33.41z"/></svg></a><a target=_blank rel="noopener noreferrer" aria-label="share 数据库系统导论笔记 on linkedin" href="https://www.linkedin.com/shareArticle?mini=true&url=https%3a%2f%2fshenyiming.life%2fpost%2fnotes%2fdatabase_system%2f&title=%e6%95%b0%e6%8d%ae%e5%ba%93%e7%b3%bb%e7%bb%9f%e5%af%bc%e8%ae%ba%e7%ac%94%e8%ae%b0&summary=%e6%95%b0%e6%8d%ae%e5%ba%93%e7%b3%bb%e7%bb%9f%e5%af%bc%e8%ae%ba%e7%ac%94%e8%ae%b0&source=https%3a%2f%2fshenyiming.life%2fpost%2fnotes%2fdatabase_system%2f"><svg viewBox="0 0 512 512"><path d="M449.446.0C483.971.0 512 28.03 512 62.554v386.892C512 483.97 483.97 512 449.446 512H62.554c-34.524.0-62.554-28.03-62.554-62.554V62.554c0-34.524 28.029-62.554 62.554-62.554h386.892zM160.461 423.278V197.561h-75.04v225.717h75.04zm270.539.0V293.839c0-69.333-37.018-101.586-86.381-101.586-39.804.0-57.634 21.891-67.617 37.266v-31.958h-75.021c.995 21.181.0 225.717.0 225.717h75.02V297.222c0-6.748.486-13.492 2.474-18.315 5.414-13.475 17.767-27.434 38.494-27.434 27.135.0 38.007 20.707 38.007 51.037v120.768H431zM123.448 88.722C97.774 88.722 81 105.601 81 127.724c0 21.658 16.264 39.002 41.455 39.002h.484c26.165.0 42.452-17.344 42.452-39.002-.485-22.092-16.241-38.954-41.943-39.002z"/></svg></a><a target=_blank rel="noopener noreferrer" aria-label="share 数据库系统导论笔记 on reddit" href="https://reddit.com/submit?url=https%3a%2f%2fshenyiming.life%2fpost%2fnotes%2fdatabase_system%2f&title=%e6%95%b0%e6%8d%ae%e5%ba%93%e7%b3%bb%e7%bb%9f%e5%af%bc%e8%ae%ba%e7%ac%94%e8%ae%b0"><svg viewBox="0 0 512 512"><path d="M449.446.0C483.971.0 512 28.03 512 62.554v386.892C512 483.97 483.97 512 449.446 512H62.554c-34.524.0-62.554-28.03-62.554-62.554V62.554c0-34.524 28.029-62.554 62.554-62.554h386.892zM446 265.638c0-22.964-18.616-41.58-41.58-41.58-11.211.0-21.361 4.457-28.841 11.666-28.424-20.508-67.586-33.757-111.204-35.278l18.941-89.121 61.884 13.157c.756 15.734 13.642 28.29 29.56 28.29 16.407.0 29.706-13.299 29.706-29.701.0-16.403-13.299-29.702-29.706-29.702-11.666.0-21.657 6.792-26.515 16.578l-69.105-14.69c-1.922-.418-3.939-.042-5.585 1.036-1.658 1.073-2.811 2.761-3.224 4.686l-21.152 99.438c-44.258 1.228-84.046 14.494-112.837 35.232-7.468-7.164-17.589-11.591-28.757-11.591-22.965.0-41.585 18.616-41.585 41.58.0 16.896 10.095 31.41 24.568 37.918-.639 4.135-.99 8.328-.99 12.576.0 63.977 74.469 115.836 166.33 115.836s166.334-51.859 166.334-115.836c0-4.218-.347-8.387-.977-12.493 14.564-6.47 24.735-21.034 24.735-38.001zM326.526 373.831c-20.27 20.241-59.115 21.816-70.534 21.816-11.428.0-50.277-1.575-70.522-21.82-3.007-3.008-3.007-7.882.0-10.889 3.003-2.999 7.882-3.003 10.885.0 12.777 12.781 40.11 17.317 59.637 17.317 19.522.0 46.86-4.536 59.657-17.321 3.016-2.999 7.886-2.995 10.885.008 3.008 3.011 3.003 7.882-.008 10.889zm-5.23-48.781c-16.373.0-29.701-13.324-29.701-29.698.0-16.381 13.328-29.714 29.701-29.714 16.378.0 29.706 13.333 29.706 29.714.0 16.374-13.328 29.698-29.706 29.698zM160.91 295.348c0-16.381 13.328-29.71 29.714-29.71 16.369.0 29.689 13.329 29.689 29.71.0 16.373-13.32 29.693-29.689 29.693-16.386.0-29.714-13.32-29.714-29.693z"/></svg></a><a target=_blank rel="noopener noreferrer" aria-label="share 数据库系统导论笔记 on facebook" href="https://facebook.com/sharer/sharer.php?u=https%3a%2f%2fshenyiming.life%2fpost%2fnotes%2fdatabase_system%2f"><svg viewBox="0 0 512 512"><path d="M449.446.0C483.971.0 512 28.03 512 62.554v386.892C512 483.97 483.97 512 449.446 512H342.978V319.085h66.6l12.672-82.621h-79.272v-53.617c0-22.603 11.073-44.636 46.58-44.636H425.6v-70.34s-32.71-5.582-63.982-5.582c-65.288.0-107.96 39.569-107.96 111.204v62.971h-72.573v82.621h72.573V512h-191.104c-34.524.0-62.554-28.03-62.554-62.554V62.554c0-34.524 28.029-62.554 62.554-62.554h386.892z"/></svg></a><a target=_blank rel="noopener noreferrer" aria-label="share 数据库系统导论笔记 on whatsapp" href="https://api.whatsapp.com/send?text=%e6%95%b0%e6%8d%ae%e5%ba%93%e7%b3%bb%e7%bb%9f%e5%af%bc%e8%ae%ba%e7%ac%94%e8%ae%b0%20-%20https%3a%2f%2fshenyiming.life%2fpost%2fnotes%2fdatabase_system%2f"><svg viewBox="0 0 512 512"><path d="M449.446.0C483.971.0 512 28.03 512 62.554v386.892C512 483.97 483.97 512 449.446 512H62.554c-34.524.0-62.554-28.03-62.554-62.554V62.554c0-34.524 28.029-62.554 62.554-62.554h386.892zm-58.673 127.703c-33.842-33.881-78.847-52.548-126.798-52.568-98.799.0-179.21 80.405-179.249 179.234-.013 31.593 8.241 62.428 23.927 89.612l-25.429 92.884 95.021-24.925c26.181 14.28 55.659 21.807 85.658 21.816h.074c98.789.0 179.206-80.413 179.247-179.243.018-47.895-18.61-92.93-52.451-126.81zM263.976 403.485h-.06c-26.734-.01-52.954-7.193-75.828-20.767l-5.441-3.229-56.386 14.792 15.05-54.977-3.542-5.637c-14.913-23.72-22.791-51.136-22.779-79.287.033-82.142 66.867-148.971 149.046-148.971 39.793.014 77.199 15.531 105.329 43.692 28.128 28.16 43.609 65.592 43.594 105.4-.034 82.149-66.866 148.983-148.983 148.984zm81.721-111.581c-4.479-2.242-26.499-13.075-30.604-14.571-4.105-1.495-7.091-2.241-10.077 2.241-2.986 4.483-11.569 14.572-14.182 17.562-2.612 2.988-5.225 3.364-9.703 1.12-4.479-2.241-18.91-6.97-36.017-22.23C231.8 264.15 222.81 249.484 220.198 245s-.279-6.908 1.963-9.14c2.016-2.007 4.48-5.232 6.719-7.847 2.24-2.615 2.986-4.484 4.479-7.472 1.493-2.99.747-5.604-.374-7.846-1.119-2.241-10.077-24.288-13.809-33.256-3.635-8.733-7.327-7.55-10.077-7.688-2.609-.13-5.598-.158-8.583-.158-2.986.0-7.839 1.121-11.944 5.604-4.105 4.484-15.675 15.32-15.675 37.364.0 22.046 16.048 43.342 18.287 46.332 2.24 2.99 31.582 48.227 76.511 67.627 10.685 4.615 19.028 7.371 25.533 9.434 10.728 3.41 20.492 2.929 28.209 1.775 8.605-1.285 26.499-10.833 30.231-21.295 3.732-10.464 3.732-19.431 2.612-21.298-1.119-1.869-4.105-2.99-8.583-5.232z"/></svg></a><a target=_blank rel="noopener noreferrer" aria-label="share 数据库系统导论笔记 on telegram" href="https://telegram.me/share/url?text=%e6%95%b0%e6%8d%ae%e5%ba%93%e7%b3%bb%e7%bb%9f%e5%af%bc%e8%ae%ba%e7%ac%94%e8%ae%b0&url=https%3a%2f%2fshenyiming.life%2fpost%2fnotes%2fdatabase_system%2f"><svg viewBox="2 2 28 28"><path d="M26.49 29.86H5.5a3.37 3.37.0 01-2.47-1 3.35 3.35.0 01-1-2.47V5.48A3.36 3.36.0 013 3 3.37 3.37.0 015.5 2h21A3.38 3.38.0 0129 3a3.36 3.36.0 011 2.46V26.37a3.35 3.35.0 01-1 2.47 3.38 3.38.0 01-2.51 1.02zm-5.38-6.71a.79.79.0 00.85-.66L24.73 9.24a.55.55.0 00-.18-.46.62.62.0 00-.41-.17q-.08.0-16.53 6.11a.59.59.0 00-.41.59.57.57.0 00.43.52l4 1.24 1.61 4.83a.62.62.0 00.63.43.56.56.0 00.4-.17L16.54 20l4.09 3A.9.9.0 0021.11 23.15zM13.8 20.71l-1.21-4q8.72-5.55 8.78-5.55c.15.0.23.0.23.16a.18.18.0 010 .06s-2.51 2.3-7.52 6.8z"/></svg></a></div></footer><style>:root{--article-font-family:"Noto Serif SC", var(--base-font-family)}</style><script>(function(){const e=document.createElement("link");e.href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;700&display=swap",e.type="text/css",e.rel="stylesheet",document.head.appendChild(e)})()</script><div><div class=pagination__title><span class=pagination__title-h style=font-size:20px>💬评论</span><hr></div><div id=tcomment></div><script src=https://cdn.jsdelivr.net/npm/twikoo@1.4.17/dist/twikoo.all.min.js></script>
-<script>twikoo.init({envId:"https://shenyiming-github-io-comments.vercel.app/",el:"#tcomment",lang:"zh-CN",region:"ap-shanghai",path:"window.TWIKOO_MAGIC_PATH||window.location.pathname"})</script></div></article></main><footer class=footer><span>Copyright &copy; 2021-2022 <a href=https://shenyiming.life><b>Shenyiming.Life</b></a></span>
+2. 语法树内节点分组，每一双目运算和它所有的直接祖先为一组。</p>
+</div>
+<footer class=post-footer>
+<ul class=post-tags>
+<li><a href=https://shenyiming.life/tags/sql/>SQL</a></li>
+<li><a href=https://shenyiming.life/tags/note/>Note</a></li>
+</ul>
+<nav class=paginav>
+<a class=prev href=https://shenyiming.life/post/ctf/penetration/>
+<span class=title>« Prev Page</span>
+<br>
+<span>渗透测试记录</span>
+</a>
+<a class=next href=https://shenyiming.life/post/notes/computer_construct/>
+<span class=title>Next Page »</span>
+<br>
+<span>计算机组成原理笔记</span>
+</a>
+</nav>
+<div class=share-buttons>
+<a target=_blank rel="noopener noreferrer" aria-label="share 数据库系统导论笔记 on twitter" href="https://twitter.com/intent/tweet/?text=%e6%95%b0%e6%8d%ae%e5%ba%93%e7%b3%bb%e7%bb%9f%e5%af%bc%e8%ae%ba%e7%ac%94%e8%ae%b0&url=https%3a%2f%2fshenyiming.life%2fpost%2fnotes%2fdatabase_system%2f&hashtags=SQL%2cNote"><svg viewBox="0 0 512 512"><path d="M449.446.0C483.971.0 512 28.03 512 62.554v386.892C512 483.97 483.97 512 449.446 512H62.554c-34.524.0-62.554-28.03-62.554-62.554V62.554c0-34.524 28.029-62.554 62.554-62.554h386.892zM195.519 424.544c135.939.0 210.268-112.643 210.268-210.268.0-3.218.0-6.437-.153-9.502 14.406-10.421 26.973-23.448 36.935-38.314-13.18 5.824-27.433 9.809-42.452 11.648 15.326-9.196 26.973-23.602 32.49-40.92-14.252 8.429-30.038 14.56-46.896 17.931-13.487-14.406-32.644-23.295-53.946-23.295-40.767.0-73.87 33.104-73.87 73.87.0 5.824.613 11.494 1.992 16.858-61.456-3.065-115.862-32.49-152.337-77.241-6.284 10.881-9.962 23.601-9.962 37.088.0 25.594 13.027 48.276 32.95 61.456-12.107-.307-23.448-3.678-33.41-9.196v.92c0 35.862 25.441 65.594 59.311 72.49-6.13 1.686-12.72 2.606-19.464 2.606-4.751.0-9.348-.46-13.946-1.38 9.349 29.426 36.628 50.728 68.965 51.341-25.287 19.771-57.164 31.571-91.8 31.571-5.977.0-11.801-.306-17.625-1.073 32.337 21.15 71.264 33.41 112.95 33.41z"/></svg>
+</a>
+<a target=_blank rel="noopener noreferrer" aria-label="share 数据库系统导论笔记 on linkedin" href="https://www.linkedin.com/shareArticle?mini=true&url=https%3a%2f%2fshenyiming.life%2fpost%2fnotes%2fdatabase_system%2f&title=%e6%95%b0%e6%8d%ae%e5%ba%93%e7%b3%bb%e7%bb%9f%e5%af%bc%e8%ae%ba%e7%ac%94%e8%ae%b0&summary=%e6%95%b0%e6%8d%ae%e5%ba%93%e7%b3%bb%e7%bb%9f%e5%af%bc%e8%ae%ba%e7%ac%94%e8%ae%b0&source=https%3a%2f%2fshenyiming.life%2fpost%2fnotes%2fdatabase_system%2f"><svg viewBox="0 0 512 512"><path d="M449.446.0C483.971.0 512 28.03 512 62.554v386.892C512 483.97 483.97 512 449.446 512H62.554c-34.524.0-62.554-28.03-62.554-62.554V62.554c0-34.524 28.029-62.554 62.554-62.554h386.892zM160.461 423.278V197.561h-75.04v225.717h75.04zm270.539.0V293.839c0-69.333-37.018-101.586-86.381-101.586-39.804.0-57.634 21.891-67.617 37.266v-31.958h-75.021c.995 21.181.0 225.717.0 225.717h75.02V297.222c0-6.748.486-13.492 2.474-18.315 5.414-13.475 17.767-27.434 38.494-27.434 27.135.0 38.007 20.707 38.007 51.037v120.768H431zM123.448 88.722C97.774 88.722 81 105.601 81 127.724c0 21.658 16.264 39.002 41.455 39.002h.484c26.165.0 42.452-17.344 42.452-39.002-.485-22.092-16.241-38.954-41.943-39.002z"/></svg>
+</a>
+<a target=_blank rel="noopener noreferrer" aria-label="share 数据库系统导论笔记 on reddit" href="https://reddit.com/submit?url=https%3a%2f%2fshenyiming.life%2fpost%2fnotes%2fdatabase_system%2f&title=%e6%95%b0%e6%8d%ae%e5%ba%93%e7%b3%bb%e7%bb%9f%e5%af%bc%e8%ae%ba%e7%ac%94%e8%ae%b0"><svg viewBox="0 0 512 512"><path d="M449.446.0C483.971.0 512 28.03 512 62.554v386.892C512 483.97 483.97 512 449.446 512H62.554c-34.524.0-62.554-28.03-62.554-62.554V62.554c0-34.524 28.029-62.554 62.554-62.554h386.892zM446 265.638c0-22.964-18.616-41.58-41.58-41.58-11.211.0-21.361 4.457-28.841 11.666-28.424-20.508-67.586-33.757-111.204-35.278l18.941-89.121 61.884 13.157c.756 15.734 13.642 28.29 29.56 28.29 16.407.0 29.706-13.299 29.706-29.701.0-16.403-13.299-29.702-29.706-29.702-11.666.0-21.657 6.792-26.515 16.578l-69.105-14.69c-1.922-.418-3.939-.042-5.585 1.036-1.658 1.073-2.811 2.761-3.224 4.686l-21.152 99.438c-44.258 1.228-84.046 14.494-112.837 35.232-7.468-7.164-17.589-11.591-28.757-11.591-22.965.0-41.585 18.616-41.585 41.58.0 16.896 10.095 31.41 24.568 37.918-.639 4.135-.99 8.328-.99 12.576.0 63.977 74.469 115.836 166.33 115.836s166.334-51.859 166.334-115.836c0-4.218-.347-8.387-.977-12.493 14.564-6.47 24.735-21.034 24.735-38.001zM326.526 373.831c-20.27 20.241-59.115 21.816-70.534 21.816-11.428.0-50.277-1.575-70.522-21.82-3.007-3.008-3.007-7.882.0-10.889 3.003-2.999 7.882-3.003 10.885.0 12.777 12.781 40.11 17.317 59.637 17.317 19.522.0 46.86-4.536 59.657-17.321 3.016-2.999 7.886-2.995 10.885.008 3.008 3.011 3.003 7.882-.008 10.889zm-5.23-48.781c-16.373.0-29.701-13.324-29.701-29.698.0-16.381 13.328-29.714 29.701-29.714 16.378.0 29.706 13.333 29.706 29.714.0 16.374-13.328 29.698-29.706 29.698zM160.91 295.348c0-16.381 13.328-29.71 29.714-29.71 16.369.0 29.689 13.329 29.689 29.71.0 16.373-13.32 29.693-29.689 29.693-16.386.0-29.714-13.32-29.714-29.693z"/></svg>
+</a>
+<a target=_blank rel="noopener noreferrer" aria-label="share 数据库系统导论笔记 on facebook" href="https://facebook.com/sharer/sharer.php?u=https%3a%2f%2fshenyiming.life%2fpost%2fnotes%2fdatabase_system%2f"><svg viewBox="0 0 512 512"><path d="M449.446.0C483.971.0 512 28.03 512 62.554v386.892C512 483.97 483.97 512 449.446 512H342.978V319.085h66.6l12.672-82.621h-79.272v-53.617c0-22.603 11.073-44.636 46.58-44.636H425.6v-70.34s-32.71-5.582-63.982-5.582c-65.288.0-107.96 39.569-107.96 111.204v62.971h-72.573v82.621h72.573V512h-191.104c-34.524.0-62.554-28.03-62.554-62.554V62.554c0-34.524 28.029-62.554 62.554-62.554h386.892z"/></svg>
+</a>
+<a target=_blank rel="noopener noreferrer" aria-label="share 数据库系统导论笔记 on whatsapp" href="https://api.whatsapp.com/send?text=%e6%95%b0%e6%8d%ae%e5%ba%93%e7%b3%bb%e7%bb%9f%e5%af%bc%e8%ae%ba%e7%ac%94%e8%ae%b0%20-%20https%3a%2f%2fshenyiming.life%2fpost%2fnotes%2fdatabase_system%2f"><svg viewBox="0 0 512 512"><path d="M449.446.0C483.971.0 512 28.03 512 62.554v386.892C512 483.97 483.97 512 449.446 512H62.554c-34.524.0-62.554-28.03-62.554-62.554V62.554c0-34.524 28.029-62.554 62.554-62.554h386.892zm-58.673 127.703c-33.842-33.881-78.847-52.548-126.798-52.568-98.799.0-179.21 80.405-179.249 179.234-.013 31.593 8.241 62.428 23.927 89.612l-25.429 92.884 95.021-24.925c26.181 14.28 55.659 21.807 85.658 21.816h.074c98.789.0 179.206-80.413 179.247-179.243.018-47.895-18.61-92.93-52.451-126.81zM263.976 403.485h-.06c-26.734-.01-52.954-7.193-75.828-20.767l-5.441-3.229-56.386 14.792 15.05-54.977-3.542-5.637c-14.913-23.72-22.791-51.136-22.779-79.287.033-82.142 66.867-148.971 149.046-148.971 39.793.014 77.199 15.531 105.329 43.692 28.128 28.16 43.609 65.592 43.594 105.4-.034 82.149-66.866 148.983-148.983 148.984zm81.721-111.581c-4.479-2.242-26.499-13.075-30.604-14.571-4.105-1.495-7.091-2.241-10.077 2.241-2.986 4.483-11.569 14.572-14.182 17.562-2.612 2.988-5.225 3.364-9.703 1.12-4.479-2.241-18.91-6.97-36.017-22.23C231.8 264.15 222.81 249.484 220.198 245s-.279-6.908 1.963-9.14c2.016-2.007 4.48-5.232 6.719-7.847 2.24-2.615 2.986-4.484 4.479-7.472 1.493-2.99.747-5.604-.374-7.846-1.119-2.241-10.077-24.288-13.809-33.256-3.635-8.733-7.327-7.55-10.077-7.688-2.609-.13-5.598-.158-8.583-.158-2.986.0-7.839 1.121-11.944 5.604-4.105 4.484-15.675 15.32-15.675 37.364.0 22.046 16.048 43.342 18.287 46.332 2.24 2.99 31.582 48.227 76.511 67.627 10.685 4.615 19.028 7.371 25.533 9.434 10.728 3.41 20.492 2.929 28.209 1.775 8.605-1.285 26.499-10.833 30.231-21.295 3.732-10.464 3.732-19.431 2.612-21.298-1.119-1.869-4.105-2.99-8.583-5.232z"/></svg>
+</a>
+<a target=_blank rel="noopener noreferrer" aria-label="share 数据库系统导论笔记 on telegram" href="https://telegram.me/share/url?text=%e6%95%b0%e6%8d%ae%e5%ba%93%e7%b3%bb%e7%bb%9f%e5%af%bc%e8%ae%ba%e7%ac%94%e8%ae%b0&url=https%3a%2f%2fshenyiming.life%2fpost%2fnotes%2fdatabase_system%2f"><svg viewBox="2 2 28 28"><path d="M26.49 29.86H5.5a3.37 3.37.0 01-2.47-1 3.35 3.35.0 01-1-2.47V5.48A3.36 3.36.0 013 3 3.37 3.37.0 015.5 2h21A3.38 3.38.0 0129 3a3.36 3.36.0 011 2.46V26.37a3.35 3.35.0 01-1 2.47 3.38 3.38.0 01-2.51 1.02zm-5.38-6.71a.79.79.0 00.85-.66L24.73 9.24a.55.55.0 00-.18-.46.62.62.0 00-.41-.17q-.08.0-16.53 6.11a.59.59.0 00-.41.59.57.57.0 00.43.52l4 1.24 1.61 4.83a.62.62.0 00.63.43.56.56.0 00.4-.17L16.54 20l4.09 3A.9.9.0 0021.11 23.15zM13.8 20.71l-1.21-4q8.72-5.55 8.78-5.55c.15.0.23.0.23.16a.18.18.0 010 .06s-2.51 2.3-7.52 6.8z"/></svg>
+</a>
+</div>
+</footer>
+<style>:root{--article-font-family:"Noto Serif SC", var(--base-font-family)}</style>
+<script>(function(){const a=document.createElement('link');a.href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;700&display=swap",a.type="text/css",a.rel="stylesheet",document.head.appendChild(a)})()</script>
+<div>
+<div class=pagination__title>
+<span class=pagination__title-h style=font-size:20px>💬评论</span>
+<hr>
+</div>
+<div id=tcomment></div>
+<script src=https://cdn.jsdelivr.net/npm/twikoo@1.4.17/dist/twikoo.all.min.js></script>
+<script>twikoo.init({envId:"https://shenyiming-github-io-comments.vercel.app/",el:"#tcomment",lang:'zh-CN',region:'ap-shanghai',path:'window.TWIKOO_MAGIC_PATH||window.location.pathname'})</script>
+</div>
+</article>
+</main><footer class=footer>
+<span>Copyright &copy; 2021-2022 <a href=https://shenyiming.life><b>Shenyiming.Life</b></a></span>
 <span>&#183;</span>
 <span>Built With <a href=https://gohugo.io/ rel="noopener noreferrer" target=_blank>Hugo</a></span>
 <span>&#183;</span>
 <span>All Rights Reserved</span>
 <span>&#183;</span>
-<span><a href=https://beian.miit.gov.cn/>鲁ICP备2022020298号</a></span></footer><a href=#top aria-label="go to top" title="Go to Top (Alt + G)"><button class=top-link id=top-link type=button accesskey=g><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentcolor"><path d="M12 6H0l6-6z"/></svg></button></a>
-<script defer src=/assets/js/highlight.min.e85ad0406048e8176e1c7661b25d5c69297ddfe41dc4124cf75ecb99a4f7b3d1.js integrity="sha256-6FrQQGBI6BduHHZhsl1caSl93+QdxBJM917LmaT3s9E=" onload=hljs.initHighlightingOnLoad()></script>
-<script>window.onload=function(){localStorage.getItem("menu-scroll-position")&&(document.getElementById("menu").scrollLeft=localStorage.getItem("menu-scroll-position"))};function menu_on_scroll(){localStorage.setItem("menu-scroll-position",document.getElementById("menu").scrollLeft)}document.querySelectorAll('a[href^="#"]').forEach(e=>{e.addEventListener("click",function(e){e.preventDefault();var t=this.getAttribute("href").substr(1);window.matchMedia("(prefers-reduced-motion: reduce)").matches?document.querySelector(`[id='${decodeURIComponent(t)}']`).scrollIntoView():document.querySelector(`[id='${decodeURIComponent(t)}']`).scrollIntoView({behavior:"smooth"}),t==="top"?history.replaceState(null,null," "):history.pushState(null,null,`#${t}`)})})</script><script>var mybutton=document.getElementById("top-link");window.onscroll=function(){document.body.scrollTop>800||document.documentElement.scrollTop>800?(mybutton.style.visibility="visible",mybutton.style.opacity="1"):(mybutton.style.visibility="hidden",mybutton.style.opacity="0")}</script><script>document.getElementById("theme-toggle").addEventListener("click",()=>{document.body.className.includes("dark")?(document.body.classList.remove("dark"),localStorage.setItem("pref-theme","light")):(document.body.classList.add("dark"),localStorage.setItem("pref-theme","dark"))})</script></body></html>
+<span><a href=https://beian.miit.gov.cn/>鲁ICP备2022020298号</a></span>
+</footer>
+<a href=#top aria-label="go to top" title="Go to Top (Alt + G)">
+<button class=top-link id=top-link type=button accesskey=g><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentcolor"><path d="M12 6H0l6-6z"/></svg>
+</button>
+</a>
+<script defer src=/assets/js/highlight.min.7680afc38aa6b15ddf158a4f3780b7b1f7dde7e91d26f073e6229bb7a0793c92.js integrity="sha256-doCvw4qmsV3fFYpPN4C3sffd5+kdJvBz5iKbt6B5PJI=" onload=hljs.initHighlightingOnLoad()></script>
+<script>window.onload=function(){localStorage.getItem("menu-scroll-position")&&(document.getElementById('menu').scrollLeft=localStorage.getItem("menu-scroll-position"))};function menu_on_scroll(){localStorage.setItem("menu-scroll-position",document.getElementById('menu').scrollLeft)}document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener("click",function(b){b.preventDefault();var a=this.getAttribute("href").substr(1);window.matchMedia('(prefers-reduced-motion: reduce)').matches?document.querySelector(`[id='${decodeURIComponent(a)}']`).scrollIntoView():document.querySelector(`[id='${decodeURIComponent(a)}']`).scrollIntoView({behavior:"smooth"}),a==="top"?history.replaceState(null,null," "):history.pushState(null,null,`#${a}`)})})</script>
+<script>var mybutton=document.getElementById("top-link");window.onscroll=function(){document.body.scrollTop>800||document.documentElement.scrollTop>800?(mybutton.style.visibility="visible",mybutton.style.opacity="1"):(mybutton.style.visibility="hidden",mybutton.style.opacity="0")}</script>
+<script>document.getElementById("theme-toggle").addEventListener("click",()=>{document.body.className.includes("dark")?(document.body.classList.remove('dark'),localStorage.setItem("pref-theme",'light')):(document.body.classList.add('dark'),localStorage.setItem("pref-theme",'dark'))})</script>
+</body>
+</html>
