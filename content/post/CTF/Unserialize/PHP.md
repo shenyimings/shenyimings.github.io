@@ -8,6 +8,7 @@ tags: [
     "PHP",
     "Web",
     "Note",
+    "Unserialize",
 ]
 categories: [
     "Notes",

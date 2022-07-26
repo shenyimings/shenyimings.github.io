@@ -9,20 +9,11 @@
       <link>https://shenyiming.life/android-chrome-512x512.png</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sat, 02 Jul 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://shenyiming.life/categories/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Plans</title>
-      <link>https://shenyiming.life/categories/plans/</link>
-      <pubDate>Sat, 02 Jul 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://shenyiming.life/categories/plans/</guid>
-      <description></description>
-    </item>
-    
+    <lastBuildDate>Mon, 11 Jul 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://shenyiming.life/categories/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>CTF</title>
       <link>https://shenyiming.life/categories/ctf/</link>
-      <pubDate>Sat, 11 Jun 2022 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 11 Jul 2022 00:00:00 +0000</pubDate>
       
       <guid>https://shenyiming.life/categories/ctf/</guid>
       <description></description>
@@ -31,9 +22,18 @@
     <item>
       <title>Notes</title>
       <link>https://shenyiming.life/categories/notes/</link>
-      <pubDate>Sat, 11 Jun 2022 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 11 Jul 2022 00:00:00 +0000</pubDate>
       
       <guid>https://shenyiming.life/categories/notes/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Plans</title>
+      <link>https://shenyiming.life/categories/plans/</link>
+      <pubDate>Sat, 02 Jul 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://shenyiming.life/categories/plans/</guid>
       <description></description>
     </item>
     

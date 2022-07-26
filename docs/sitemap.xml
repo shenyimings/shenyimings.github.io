@@ -15,7 +15,7 @@
     <lastmod>2022-12-13T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://shenyiming.life/post/ctf/</loc>
-    <lastmod>2022-07-10T00:00:00+00:00</lastmod>
+    <lastmod>2022-07-11T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://shenyiming.life/post/php/</loc>
     <lastmod>2022-05-06T00:00:00+00:00</lastmod>
@@ -37,23 +37,11 @@
     <loc>https://shenyiming.life/</loc>
     <lastmod>2022-12-13T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://shenyiming.life/tags/plan/</loc>
-    <lastmod>2022-07-02T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://shenyiming.life/categories/plans/</loc>
-    <lastmod>2022-07-02T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://shenyiming.life/categories/</loc>
-    <lastmod>2022-12-13T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://shenyiming.life/tags/</loc>
-    <lastmod>2022-12-13T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://shenyiming.life/tags/ctf/</loc>
-    <lastmod>2022-07-10T00:00:00+00:00</lastmod>
+    <lastmod>2022-07-11T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://shenyiming.life/categories/ctf/</loc>
-    <lastmod>2022-07-10T00:00:00+00:00</lastmod>
+    <lastmod>2022-07-11T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://shenyiming.life/tags/note/</loc>
     <lastmod>2022-12-13T00:00:00+00:00</lastmod>
@@ -61,16 +49,40 @@
     <loc>https://shenyiming.life/categories/notes/</loc>
     <lastmod>2022-12-13T00:00:00+00:00</lastmod>
   </url><url>
+    <loc>https://shenyiming.life/tags/ssrf/</loc>
+    <lastmod>2022-07-11T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://shenyiming.life/post/ctf/ssrf/</loc>
+    <lastmod>2022-07-11T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://shenyiming.life/post/ctf/ssrf/ssrf/</loc>
+    <lastmod>2022-07-11T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://shenyiming.life/tags/web/</loc>
+    <lastmod>2022-07-11T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://shenyiming.life/categories/</loc>
+    <lastmod>2022-12-13T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://shenyiming.life/tags/</loc>
+    <lastmod>2022-12-13T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://shenyiming.life/tags/plan/</loc>
+    <lastmod>2022-07-02T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://shenyiming.life/categories/plans/</loc>
+    <lastmod>2022-07-02T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://shenyiming.life/tags/php/</loc>
     <lastmod>2022-07-10T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://shenyiming.life/post/ctf/unserialize/php/</loc>
     <lastmod>2022-07-10T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://shenyiming.life/post/ctf/unserialize/</loc>
+    <loc>https://shenyiming.life/tags/unserialize/</loc>
     <lastmod>2022-07-10T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://shenyiming.life/tags/web/</loc>
+    <loc>https://shenyiming.life/post/ctf/unserialize/</loc>
     <lastmod>2022-07-10T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://shenyiming.life/post/ctf/wp/ciscnwp/</loc>
@@ -413,8 +425,6 @@
     <lastmod>2021-07-19T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://shenyiming.life/tags/mcm/icm/</loc>
-  </url><url>
-    <loc>https://shenyiming.life/post/ctf/ssrf/</loc>
   </url><url>
     <loc>https://shenyiming.life/archive/</loc>
   </url><url>

@@ -9,20 +9,11 @@
       <link>https://shenyiming.life/android-chrome-512x512.png</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sat, 02 Jul 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://shenyiming.life/tags/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Plan</title>
-      <link>https://shenyiming.life/tags/plan/</link>
-      <pubDate>Sat, 02 Jul 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://shenyiming.life/tags/plan/</guid>
-      <description></description>
-    </item>
-    
+    <lastBuildDate>Mon, 11 Jul 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://shenyiming.life/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>CTF</title>
       <link>https://shenyiming.life/tags/ctf/</link>
-      <pubDate>Sat, 11 Jun 2022 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 11 Jul 2022 00:00:00 +0000</pubDate>
       
       <guid>https://shenyiming.life/tags/ctf/</guid>
       <description></description>
@@ -31,9 +22,36 @@
     <item>
       <title>Note</title>
       <link>https://shenyiming.life/tags/note/</link>
-      <pubDate>Sat, 11 Jun 2022 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 11 Jul 2022 00:00:00 +0000</pubDate>
       
       <guid>https://shenyiming.life/tags/note/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>SSRF</title>
+      <link>https://shenyiming.life/tags/ssrf/</link>
+      <pubDate>Mon, 11 Jul 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://shenyiming.life/tags/ssrf/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Web</title>
+      <link>https://shenyiming.life/tags/web/</link>
+      <pubDate>Mon, 11 Jul 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://shenyiming.life/tags/web/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Plan</title>
+      <link>https://shenyiming.life/tags/plan/</link>
+      <pubDate>Sat, 02 Jul 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://shenyiming.life/tags/plan/</guid>
       <description></description>
     </item>
     
@@ -47,11 +65,11 @@
     </item>
     
     <item>
-      <title>Web</title>
-      <link>https://shenyiming.life/tags/web/</link>
+      <title>Unserialize</title>
+      <link>https://shenyiming.life/tags/unserialize/</link>
       <pubDate>Sat, 11 Jun 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://shenyiming.life/tags/web/</guid>
+      <guid>https://shenyiming.life/tags/unserialize/</guid>
       <description></description>
     </item>
     
