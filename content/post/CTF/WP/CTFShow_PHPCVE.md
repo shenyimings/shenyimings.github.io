@@ -14,15 +14,63 @@ categories: [
     "Notes",
      "CTF",
 ]
+showtoc: true
+tocopen: true
 math: true
-typora-root-url: ..\..\..\..\static\
 ---
 
-## Web311
+## Web 311
 
+进入题目环境，啥都没有，使用Wappalyzer读到PHP版本7.1.33
 
+![image-20220728121552619](https://s2.loli.net/2022/07/28/EVArFmBHW8ksGoZ.png)
 
-## Web312
+搜索PHP 7.1.33 cve漏洞，结果出现次数较多的为编号CVE-2019-11043，NVD等级为严重
+
+![image-20220728121445023](https://s2.loli.net/2022/07/28/Z6rNAC8KqQuIUaw.png)
+
+![image-20220728121431586](https://s2.loli.net/2022/07/28/7x56QAGk4hHibrP.png)
+
+加上漏洞利用需要nginx，到这里，盲猜很大可能是这个漏洞了。先试一波POC利用。
+
+### CVE-2019-11043 PHP-FPM 远程代码执行漏洞
+
+> 该漏洞使用%0a（换行符）来破坏正则，从而使得PATH_INFO为空
+
+更详细的解释，可以参考PHITHON师傅的详解[Fastcgi协议分析 && PHP-FPM未授权访问漏洞 && Exp编写](https://www.leavesongs.com/PENETRATION/fastcgi-and-php-fpm.html)
+
+PPT演示： [ZeroNights2019](https://github.com/neex/phuip-fpizdam/blob/master/ZeroNights2019.pdf)
+
+以我目前的水平，还远远不到能回归源代码详细还原问题的程度，这也就是Script Boy和Pioneer的天堑所在。
+
+### 满足条件
+
+1. PHP 5.6-7.x
+
+2. Nginx>=0.7.31
+3. 启用PHP-FPM
+
+### 复现
+
+上EXP [phuip-fpizdam](https://github.com/neex/phuip-fpizdam)
+
+GO语言编写，先安装GO，然后安装EXP
+
+`go install https://github.com/neex/phuip-fpizdam@latest`
+
+以后即可直接输入`phpuip-fpizdam [URL] [FLAGS]`执行EXP
+
+![image-20220728130441376.png](https://s2.loli.net/2022/07/28/EXLq2UTxefoCrWD.png)
+
+运行成功后，传参`?a=`+要执行的shell命令即可
+
+![image-20220728130414116.png](https://s2.loli.net/2022/07/28/omLWElzqsKQ8daH.png)
+
+![image-20220728130930005](https://s2.loli.net/2022/07/28/mTGl4HCNjznLuMP.png)
+
+每次大概执行4-5次才会回显，ls后直接访问该文件也可拿到flag。
+
+## Web 312
 
 进入界面，一个邮箱登录页。题目提示就一个文件不用扫目录，从PHP版本入手直接找存在的CVE漏洞
 
@@ -83,7 +131,7 @@ x+-oProxyCommand%3decho%09ZWNobyAiSUR3L2NHaHdJR1YyWVd3b0pGOVFUMU5VVzNOb1pXeHNYU2
 
 ![image-20220727162401343](https://s2.loli.net/2022/07/27/nQkLZ2TahRO5mNC.png)
 
-## Web313
+## Web 313
 
 进入题目环境，光秃秃的一个文字
 
@@ -122,7 +170,7 @@ PHP-CGI是一个sapi，作用是接收web容器通过fastcgi协议封装的数�
 
 `-d+allow_url_include%3don+-d+auto_prepend_file%3dphp%3a//input`
 
-`<?php echo eval("cat /somewhere/fla9.txt"); ?>`
+`<?php echo shell_exec("cat /somewhere/fla9.txt"); ?>`
 
 POC:
 
@@ -130,8 +178,61 @@ POC:
 
 拿到flag
 
+## Web 314
+
+```php
+<?php
+
+error_reporting(0);
+
+highlight_file(__FILE__);
+
+//phpinfo
+$file = $_GET['f'];
+
+if(!preg_match('/\:/',$file)){
+    include($file);
+}
+```
+
+给出了源代码，这其实是一道屏蔽了`:`号的文件包含题，查找这种情况的绕过方式，发现了新的命令执行方式：日志代码执行，原理就是将待执行的PHP代码写入日志中，然后包含日志文件，文件中的PHP代码即会被解释器执行。从这里也能看出PHP这种解释型语言为何有如此多的漏洞了，只要能找出个地方显示出恶意代码，都能RCE……
+
+查看环境发现，服务器中间件为Nginx
+
+![image-20220728110523586](https://s2.loli.net/2022/07/28/XmEVS6jeMIdrcxT.png)
+
+查找Nginx日志文件位置如下图
+
+![image-20220728110942798](https://s2.loli.net/2022/07/28/Dpu8kQmzrSL7ZMR.png)
+
+直接发包访问并执行命令ls，找到flag位置，cat拿到flag值
+
+![image-20220728111446537](https://s2.loli.net/2022/07/28/eLY5pCEFhjNbg9k.png)
+
+坑点：不要信题目的鬼话看`phpinfo`，看完每次发包都给你打印一遍phpinfo，一大长串代码，找了半天没找到flag不说，还影响了后面的命令执行，坑。
+
+## Web 315
+
+漏洞是XDebug远程调试漏洞，开启远程调试后，目标服务器的XDebug将会连接访问者的IP（或`X-Forwarded-For`头指定的地址）并通过dbgp协议与其通信，我们通过dbgp中提供的eval方法即可在目标服务器上执行任意PHP代码。
+
+过程是个反弹shell的过程，有现成的exp
+
+https://github.com/vulhub/vulhub/blob/master/php/xdebug-rce/exp.py
+
+发包后弹到服务器的9000端口上，故而服务器需要公网IP或者和目标在同一个内网下。
+
+我在云主机上尝试了许多次，均无果，已开放端口，有公网ip能出网，不明所以，放弃。
+
+![image-20220728120707029](https://s2.loli.net/2022/07/28/Sd47ntKrRkJCumg.png)
+
+
+
 ## 参考
 
 [1] [ctfshow phpCVE web311-web315 wp - 是Mumuzi](https://blog.csdn.net/qq_42880719/article/details/122513194)
 
 [2] [PHP-CGI远程代码执行漏洞（CVE-2012-1823）分析 - PHIITHON](https://www.leavesongs.com/PENETRATION/php-cgi-cve-2012-1823.html)
+
+[3] [PHP文件包含日志getshell](https://cloud.tencent.com/developer/article/1796585)
+
+[4] [PHP-FPM 远程代码执行漏洞(CVE-2019-11043)复现-含EXP](https://www.cnblogs.com/mrhonest/p/11731212.html)
