@@ -9,7 +9,7 @@
       <link>https://shenyiming.life/android-chrome-512x512.png</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Mon, 11 Jul 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://shenyiming.life/tags/ctf/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 27 Jul 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://shenyiming.life/tags/ctf/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>CTF比赛方向选择&amp;学习内容</title>
       <link>https://shenyiming.life/post/ctf/ctf%E6%AF%94%E8%B5%9B%E6%96%B9%E5%90%91%E9%80%89%E6%8B%A9/</link>
@@ -17,6 +17,15 @@
       
       <guid>https://shenyiming.life/post/ctf/ctf%E6%AF%94%E8%B5%9B%E6%96%B9%E5%90%91%E9%80%89%E6%8B%A9/</guid>
       <description>了解CTF CTF 的前身是传统黑客之间的网络技术比拼游戏，起源于 1996 年第四届 DEFCON。CTF比赛有以下突出特点： 比赛侧重于对计算机底层和系统安全</description>
+    </item>
+    
+    <item>
+      <title>CTFShow web311-315 WP</title>
+      <link>https://shenyiming.life/post/ctf/wp/ctfshow_phpcve/</link>
+      <pubDate>Wed, 27 Jul 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://shenyiming.life/post/ctf/wp/ctfshow_phpcve/</guid>
+      <description>PHP相关CVE知识</description>
     </item>
     
     <item>
