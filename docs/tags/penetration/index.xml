@@ -12,10 +12,10 @@
     <lastBuildDate>Sat, 19 Mar 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://shenyiming.life/tags/penetration/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>渗透测试记录</title>
-      <link>https://shenyiming.life/post/ctf/penetration/</link>
+      <link>https://shenyiming.life/post/ctf/tutorial/penetration/</link>
       <pubDate>Sat, 19 Mar 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://shenyiming.life/post/ctf/penetration/</guid>
+      <guid>https://shenyiming.life/post/ctf/tutorial/penetration/</guid>
       <description>基本概念 渗透测试 对计算机系统进行授权攻击，找出潜在的脆弱因素。 攻防演练 攻击方在找到脆弱因素的基础上，利用暴露的相关漏洞，获取防守方目标服务器</description>
     </item>
     
