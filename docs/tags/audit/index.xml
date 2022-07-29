@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Audit on Console.makeHappy(_1ming)</title>
+    <link>https://shenyiming.life/tags/audit/</link>
+    <description>Recent content in Audit on Console.makeHappy(_1ming)</description>
+    <image>
+      <url>https://shenyiming.life/android-chrome-512x512.png</url>
+      <link>https://shenyiming.life/android-chrome-512x512.png</link>
+    </image>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Fri, 29 Jul 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://shenyiming.life/tags/audit/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>CTFShow web301-310 WP</title>
+      <link>https://shenyiming.life/post/ctf/audit/ctfshow_audit/</link>
+      <pubDate>Fri, 29 Jul 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://shenyiming.life/post/ctf/audit/ctfshow_audit/</guid>
+      <description>前言 开始刷一下CTFShow代码审计部分，题目才刷了一道，给博客划分这部分框架倒是花了一个点，为这篇文章到底放在Audit里还是WP里纠结半</description>
+    </item>
+    
+    <item>
+      <title>代码审计学习方向</title>
+      <link>https://shenyiming.life/post/ctf/audit/auditplan/</link>
+      <pubDate>Fri, 29 Jul 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://shenyiming.life/post/ctf/audit/auditplan/</guid>
+      <description>目标 学习代码审计的目标 内容 PHP、JAVA代码审计 PHP代码审计是肯定要学的，JAVA代码审计其实更重要，但是毫无JAVA基础，还拿不准要不</description>
+    </item>
+    
+  </channel>
+</rss>

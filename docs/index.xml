@@ -9,7 +9,7 @@
       <link>https://shenyiming.life/android-chrome-512x512.png</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Wed, 27 Jul 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://shenyiming.life/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 29 Jul 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://shenyiming.life/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>暑假学习计划</title>
       <link>https://shenyiming.life/post/plan/plan_summer/</link>
@@ -44,6 +44,24 @@
       
       <guid>https://shenyiming.life/about/</guid>
       <description>申一鸣 Yiming Shinn A crappy photographer, a terrible CTFer, a lazy geek. A photography lover, a CTF learner, a geek spirit follower. About My Blog 正经人谁写日记啊。 我是正经人，我写。 现在的互联网上最不缺的就是内容发布平台，小到个人Q</description>
+    </item>
+    
+    <item>
+      <title>CTFShow web301-310 WP</title>
+      <link>https://shenyiming.life/post/ctf/audit/ctfshow_audit/</link>
+      <pubDate>Fri, 29 Jul 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://shenyiming.life/post/ctf/audit/ctfshow_audit/</guid>
+      <description>前言 开始刷一下CTFShow代码审计部分，题目才刷了一道，给博客划分这部分框架倒是花了一个点，为这篇文章到底放在Audit里还是WP里纠结半</description>
+    </item>
+    
+    <item>
+      <title>代码审计学习方向</title>
+      <link>https://shenyiming.life/post/ctf/audit/auditplan/</link>
+      <pubDate>Fri, 29 Jul 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://shenyiming.life/post/ctf/audit/auditplan/</guid>
+      <description>目标 学习代码审计的目标 内容 PHP、JAVA代码审计 PHP代码审计是肯定要学的，JAVA代码审计其实更重要，但是毫无JAVA基础，还拿不准要不</description>
     </item>
     
     <item>

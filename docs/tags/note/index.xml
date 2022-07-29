@@ -9,7 +9,7 @@
       <link>https://shenyiming.life/android-chrome-512x512.png</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Wed, 27 Jul 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://shenyiming.life/tags/note/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 29 Jul 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://shenyiming.life/tags/note/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>CTF比赛方向选择&amp;学习内容</title>
       <link>https://shenyiming.life/post/ctf/tutorial/ctf%E6%AF%94%E8%B5%9B%E6%96%B9%E5%90%91%E9%80%89%E6%8B%A9/</link>
@@ -17,6 +17,24 @@
       
       <guid>https://shenyiming.life/post/ctf/tutorial/ctf%E6%AF%94%E8%B5%9B%E6%96%B9%E5%90%91%E9%80%89%E6%8B%A9/</guid>
       <description>了解CTF CTF 的前身是传统黑客之间的网络技术比拼游戏，起源于 1996 年第四届 DEFCON。CTF比赛有以下突出特点： 比赛侧重于对计算机底层和系统安全</description>
+    </item>
+    
+    <item>
+      <title>CTFShow web301-310 WP</title>
+      <link>https://shenyiming.life/post/ctf/audit/ctfshow_audit/</link>
+      <pubDate>Fri, 29 Jul 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://shenyiming.life/post/ctf/audit/ctfshow_audit/</guid>
+      <description>前言 开始刷一下CTFShow代码审计部分，题目才刷了一道，给博客划分这部分框架倒是花了一个点，为这篇文章到底放在Audit里还是WP里纠结半</description>
+    </item>
+    
+    <item>
+      <title>代码审计学习方向</title>
+      <link>https://shenyiming.life/post/ctf/audit/auditplan/</link>
+      <pubDate>Fri, 29 Jul 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://shenyiming.life/post/ctf/audit/auditplan/</guid>
+      <description>目标 学习代码审计的目标 内容 PHP、JAVA代码审计 PHP代码审计是肯定要学的，JAVA代码审计其实更重要，但是毫无JAVA基础，还拿不准要不</description>
     </item>
     
     <item>
